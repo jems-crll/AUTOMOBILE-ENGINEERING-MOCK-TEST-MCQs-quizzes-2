@@ -48,19 +48,11 @@ let isFirestoreAvailable = true;
 async function probeFirestore() {
   try {
     await db.collection("config").doc("probe").get();
+    isFirestoreAvailable = true;
     console.log("Firestore API probe succeeded. Firestore is active and usable.");
   } catch (err: any) {
-    const errMsg = err?.message || String(err);
-    if (
-      errMsg.includes("API has not been used") ||
-      errMsg.includes("disabled") ||
-      errMsg.includes("PERMISSION_DENIED") ||
-      errMsg.includes("Permission denied") ||
-      errMsg.includes("7")
-    ) {
-      isFirestoreAvailable = false;
-      console.log("Firestore API is disabled or permission denied in this project environment. Fallback: robust in-memory storage globally.");
-    }
+    isFirestoreAvailable = false;
+    console.warn("Firestore API is disabled, permission denied, or unavailable in this environment. Falling back to robust in-memory storage globally:", err?.message || err);
   }
 }
 probeFirestore();
