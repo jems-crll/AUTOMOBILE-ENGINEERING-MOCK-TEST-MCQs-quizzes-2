@@ -646,9 +646,9 @@ Output JSON format:
     const cleanEmail = email.toLowerCase().trim();
     const cleanPaymentId = paymentId || "pay_manual_" + crypto.randomBytes(6).toString("hex");
     
-    // Always store to memory first
+    // Always store to memory first (as Pending)
     memoryPayments.set(cleanEmail, {
-      paymentStatus: "Paid",
+      paymentStatus: "Pending",
       paymentId: cleanPaymentId,
       paidAt: new Date().toISOString(),
       manual: true
@@ -658,21 +658,21 @@ Output JSON format:
       if (isFirestoreAvailable) {
         try {
           await db.collection("payments").doc(cleanEmail).set({
-            paymentStatus: "Paid",
+            paymentStatus: "Pending",
             paymentId: cleanPaymentId,
             paidAt: FieldValue.serverTimestamp(),
             manual: true
           }, { merge: true });
-          console.log(`[ADMIN FORCE] Activated premium verification in Firestore for: ${cleanEmail}`);
+          console.log(`[MANUAL UTR] Recorded pending payment verification in Firestore for: ${cleanEmail}`);
         } catch (dbErr) {
-          console.warn("[ADMIN FORCE] Firestore failed, payment is active in-memory only:", dbErr);
+          console.warn("[MANUAL UTR] Firestore failed, payment is pending in-memory only:", dbErr);
         }
       }
 
-      res.json({ success: true, email: cleanEmail, paymentId: cleanPaymentId });
+      res.json({ success: true, pending: true, email: cleanEmail, paymentId: cleanPaymentId });
     } catch (error: any) {
-      console.error("Failed to force verify payment:", error);
-      res.status(500).json({ error: error.message || "Failed to force verify" });
+      console.error("Failed to record pending payment:", error);
+      res.status(500).json({ error: error.message || "Failed to record payment" });
     }
   });
 

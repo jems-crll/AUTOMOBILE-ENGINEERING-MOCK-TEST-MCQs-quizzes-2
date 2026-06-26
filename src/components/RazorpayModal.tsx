@@ -21,6 +21,7 @@ export default function RazorpayModal({
 }: RazorpayModalProps) {
   const [isProcessing, setIsProcessing] = useState(false);
   const [paymentSuccess, setPaymentSuccess] = useState(false);
+  const [paymentPending, setPaymentPending] = useState(false);
   const [isConfirmed, setIsConfirmed] = useState(false);
 
   // Form input states
@@ -291,6 +292,32 @@ export default function RazorpayModal({
 
       if (isVerified) {
         setPaymentSuccess(true);
+        try {
+          const usersDbStr = localStorage.getItem("omto_users_db");
+          if (usersDbStr) {
+            const db = JSON.parse(usersDbStr);
+            const emailKey = currentUser.email.trim().toLowerCase();
+            if (db[emailKey]) {
+              db[emailKey].isPremium = true;
+              db[emailKey].paymentTxnId = trimmedTxn;
+              db[emailKey].paymentDate = new Date().toISOString();
+              localStorage.setItem("omto_users_db", JSON.stringify(db));
+            }
+          }
+        } catch (e) {
+          console.error("Failed to update db status:", e);
+        }
+
+        const updatedUser: User = {
+          ...currentUser,
+          isPremium: true,
+        };
+        localStorage.setItem("omto_current_user", JSON.stringify(updatedUser));
+
+        setTimeout(() => {
+          onPaymentSuccess(updatedUser);
+          onClose();
+        }, 2500);
       } else {
         try {
           const verifyRes = await fetch("/api/razorpay/admin-verify", {
@@ -305,51 +332,44 @@ export default function RazorpayModal({
           if (!verifyRes.ok) {
             throw new Error("Server returned non-ok status for admin-verify");
           }
-          setPaymentSuccess(true);
-        } catch (verifyErr) {
-          console.warn("Server force-verify failed or offline, activating premium offline-first:", verifyErr);
-          // Set payment success to true anyway so user gets premium access and is never blocked
-          setPaymentSuccess(true);
-        }
-      }
-
-      try {
-        const usersDbStr = localStorage.getItem("omto_users_db");
-        if (usersDbStr) {
-          const db = JSON.parse(usersDbStr);
-          const emailKey = currentUser.email.trim().toLowerCase();
-          if (db[emailKey]) {
-            db[emailKey].isPremium = true;
-            db[emailKey].paymentTxnId = trimmedTxn;
-            db[emailKey].paymentDate = new Date().toISOString();
-            localStorage.setItem("omto_users_db", JSON.stringify(db));
+          
+          const resData = await verifyRes.json();
+          if (resData.pending) {
+            setPaymentPending(true);
+          } else {
+            setPaymentPending(true); // Default to pending for safety
           }
+        } catch (verifyErr) {
+          console.warn("Server force-verify failed or offline:", verifyErr);
+          setPaymentPending(true);
         }
-      } catch (e) {
-        console.error("Failed to update db status:", e);
+        
+        try {
+          const usersDbStr = localStorage.getItem("omto_users_db");
+          if (usersDbStr) {
+            const db = JSON.parse(usersDbStr);
+            const emailKey = currentUser.email.trim().toLowerCase();
+            if (db[emailKey]) {
+              db[emailKey].paymentTxnId = trimmedTxn;
+              db[emailKey].paymentDate = new Date().toISOString();
+              localStorage.setItem("omto_users_db", JSON.stringify(db));
+            }
+          }
+        } catch (e) {
+          console.error("Failed to update db status:", e);
+        }
+
+        setTimeout(() => {
+          onClose();
+        }, 3000);
       }
-
-      const updatedUser: User = {
-        ...currentUser,
-        isPremium: true,
-      };
-      localStorage.setItem("omto_current_user", JSON.stringify(updatedUser));
-
-      setTimeout(() => {
-        onPaymentSuccess(updatedUser);
-        onClose();
-      }, 2500);
 
     } catch (e) {
       console.error("Unhandled error in verification:", e);
-      // Fallback: grant premium access anyway
-      setPaymentSuccess(true);
-      const updatedUser: User = { ...currentUser, isPremium: true };
-      localStorage.setItem("omto_current_user", JSON.stringify(updatedUser));
+      setPaymentPending(true);
       setTimeout(() => {
-        onPaymentSuccess(updatedUser);
         onClose();
-      }, 2500);
+      }, 3000);
     } finally {
       setIsProcessing(false);
     }
@@ -375,8 +395,28 @@ export default function RazorpayModal({
           </button>
         </div>
 
-        {/* Success Screen */}
-        {paymentSuccess ? (
+        {/* Pending Screen */}
+        {paymentPending ? (
+          <div className="py-8 text-center flex flex-col items-center justify-center space-y-4 animate-scale-up">
+            <div className="h-16 w-16 bg-amber-500/10 border border-amber-500/30 text-amber-400 rounded-full flex items-center justify-center text-3xl shadow-lg">
+              <Icons.Clock className="h-8 w-8 stroke-[3]" />
+            </div>
+            <div>
+              <h4 className="text-xl font-bold text-white mb-1">
+                {isMarathi ? "पडताळणी प्रलंबित आहे" : "Verification Pending"}
+              </h4>
+              <p className="text-xs text-slate-400 px-4">
+                {isMarathi 
+                  ? "तुमचे पेमेंट UTR यशस्वीरित्या सबमिट झाले आहे. प्रशासक लवकरच त्याची पडताळणी करतील आणि तुमचे प्रीमियम सक्रिय करतील." 
+                  : "Your UTR has been submitted successfully. An admin will verify the payment and activate your premium soon."}
+              </p>
+            </div>
+            <div className="px-3 py-1.5 bg-amber-500/10 text-amber-400 rounded-lg text-[10px] font-mono uppercase tracking-widest font-bold flex flex-col gap-0.5">
+              <span>{isMarathi ? "संदर्भ आयडी:" : "REFERENCE ID:"}</span>
+              <span className="text-white select-all">{txnId}</span>
+            </div>
+          </div>
+        ) : paymentSuccess ? (
           <div className="py-8 text-center flex flex-col items-center justify-center space-y-4 animate-scale-up">
             <div className="h-16 w-16 bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 rounded-full flex items-center justify-center text-3xl shadow-lg">
               <Icons.Check className="h-8 w-8 stroke-[3]" />
