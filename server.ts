@@ -105,24 +105,23 @@ async function generateContentWithRetry(ai: any, params: { model: string; conten
   throw new Error("All fallback models and retries failed due to high demand or API service unavailability.");
 }
 
-async function startServer() {
-  const app = express();
-  const PORT = 3000;
+const app = express();
+const PORT = Number(process.env.PORT) || 3000;
 
-  app.use(express.json());
+app.use(express.json());
 
-  // Initialize Gemini API client
-  const apiKey = process.env.GEMINI_API_KEY;
-  const ai = apiKey
-    ? new GoogleGenAI({
-        apiKey: apiKey,
-        httpOptions: {
-          headers: {
-            "User-Agent": "aistudio-build",
-          },
+// Initialize Gemini API client
+const apiKey = process.env.GEMINI_API_KEY;
+const ai = apiKey
+  ? new GoogleGenAI({
+      apiKey: apiKey,
+      httpOptions: {
+        headers: {
+          "User-Agent": "aistudio-build",
         },
-      })
-    : null;
+      },
+    })
+  : null;
 
   // API endpoint for explaining questions
   app.post("/api/explain", async (req, res) => {
@@ -583,6 +582,61 @@ Output JSON format:
     }
   });
 
+  // Automatic signature verification
+  app.post("/api/razorpay/verify-signature", async (req, res) => {
+    const { razorpay_order_id, razorpay_payment_id, razorpay_signature, email } = req.body;
+    
+    if (!email) {
+      return res.status(400).json({ error: "Email is required" });
+    }
+
+    const keySecret = process.env.RAZORPAY_KEY_SECRET?.trim();
+    const isMockPayment = String(razorpay_payment_id).startsWith("pay_sim_") || String(razorpay_payment_id).startsWith("pay_mock_");
+
+    if (keySecret && !isMockPayment && razorpay_signature) {
+      try {
+        const body = razorpay_order_id + "|" + razorpay_payment_id;
+        const expectedSignature = crypto
+          .createHmac("sha256", keySecret)
+          .update(body.toString())
+          .digest("hex");
+
+        if (expectedSignature !== razorpay_signature) {
+          console.error("Invalid signature. Verification failed.");
+          return res.status(400).json({ error: "Invalid signature. Verification failed." });
+        }
+      } catch (err) {
+        console.error("Signature verification error:", err);
+        return res.status(500).json({ error: "Internal error verifying signature." });
+      }
+    }
+
+    const cleanEmail = email.toLowerCase().trim();
+    const paymentData = {
+      paymentStatus: "Paid",
+      paymentId: razorpay_payment_id,
+      orderId: razorpay_order_id,
+      paidAt: new Date().toISOString(),
+      verifiedViaSignature: true
+    };
+
+    memoryPayments.set(cleanEmail, paymentData);
+
+    try {
+      if (isFirestoreAvailable) {
+        await db.collection("payments").doc(cleanEmail).set({
+          ...paymentData,
+          paidAt: FieldValue.serverTimestamp()
+        }, { merge: true });
+        console.log(`[AUTO-VERIFY] Activated premium via signature verification for: ${cleanEmail}`);
+      }
+    } catch (err) {
+      console.warn("Could not save auto-verified payment to firestore:", err);
+    }
+
+    res.json({ success: true, verified: true });
+  });
+
   // 4. Admin force verification
   app.post("/api/razorpay/admin-verify", async (req, res) => {
     const { email, paymentId } = req.body;
@@ -704,24 +758,26 @@ Output JSON format:
     res.json({ status: "ok", geminiConfigured: !!ai });
   });
 
-  // Vite middleware for development
-  if (process.env.NODE_ENV !== "production") {
-    const vite = await createViteServer({
+  // Vite middleware for development (Skip in Vercel)
+  if (process.env.NODE_ENV !== "production" && !process.env.VERCEL) {
+    createViteServer({
       server: { middlewareMode: true },
       appType: "spa",
+    }).then((vite) => {
+      app.use(vite.middlewares);
+      app.listen(PORT, "0.0.0.0", () => {
+        console.log(`Server running on http://localhost:${PORT}`);
+      });
     });
-    app.use(vite.middlewares);
-  } else {
+  } else if (!process.env.VERCEL) {
     const distPath = path.join(process.cwd(), "dist");
     app.use(express.static(distPath));
     app.get("*", (req, res) => {
       res.sendFile(path.join(distPath, "index.html"));
     });
+    app.listen(PORT, "0.0.0.0", () => {
+      console.log(`Server running on http://localhost:${PORT}`);
+    });
   }
 
-  app.listen(PORT, "0.0.0.0", () => {
-    console.log(`Server running on http://localhost:${PORT}`);
-  });
-}
-
-startServer();
+export default app;

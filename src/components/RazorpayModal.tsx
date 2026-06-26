@@ -140,14 +140,21 @@ export default function RazorpayModal({
           setIsProcessing(true);
           
           try {
-            await fetch("/api/razorpay/admin-verify", {
+            const verifyRes = await fetch("/api/razorpay/verify-signature", {
               method: "POST",
               headers: { "Content-Type": "application/json" },
               body: JSON.stringify({
                 email: currentUser.email,
-                paymentId: response.razorpay_payment_id
+                razorpay_order_id: response.razorpay_order_id,
+                razorpay_payment_id: response.razorpay_payment_id,
+                razorpay_signature: response.razorpay_signature
               })
             });
+
+            if (!verifyRes.ok) {
+              const errData = await verifyRes.json();
+              throw new Error(errData.error || "Payment signature verification failed");
+            }
 
             setTxnId(response.razorpay_payment_id);
             setPaymentSuccess(true);
