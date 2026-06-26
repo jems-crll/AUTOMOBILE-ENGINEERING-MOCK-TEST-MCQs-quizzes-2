@@ -110,6 +110,20 @@ export default function App() {
 
   // Fetch subscription config on mount
   useEffect(() => {
+    // 1. Try to load from localStorage first for instant response & static fallback
+    try {
+      const localConfigStr = localStorage.getItem("omto_subscription_config");
+      if (localConfigStr) {
+        const localConfig = JSON.parse(localConfigStr);
+        if (localConfig && typeof localConfig.amount === "number") {
+          setSubscriptionConfig(localConfig);
+        }
+      }
+    } catch (e) {
+      console.error("Failed to parse local subscription config:", e);
+    }
+
+    // 2. Try to fetch from server to get the latest/global settings (fail-safe)
     fetch("/api/subscription/config")
       .then((res) => {
         if (!res.ok) throw new Error("Failed to fetch");
@@ -118,9 +132,14 @@ export default function App() {
       .then((data) => {
         if (data && typeof data.amount === "number") {
           setSubscriptionConfig(data);
+          try {
+            localStorage.setItem("omto_subscription_config", JSON.stringify(data));
+          } catch (e) {
+            console.error(e);
+          }
         }
       })
-      .catch((err) => console.error("Could not fetch subscription config:", err));
+      .catch((err) => console.warn("Could not fetch subscription config from backend, using local configuration:", err));
   }, []);
 
   // Save attempts to local storage on change

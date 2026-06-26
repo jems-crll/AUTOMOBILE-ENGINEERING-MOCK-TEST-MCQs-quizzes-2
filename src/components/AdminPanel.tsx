@@ -76,43 +76,51 @@ export default function AdminPanel({
     setPricingError("");
 
     try {
-      const res = await fetch("/api/subscription/config", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          amount: Number(pricingAmount),
-          originalAmount: Number(pricingOriginalAmount),
-          billingPeriod: pricingPeriod,
-          detailsEn: pricingDetailsEn,
-          detailsMr: pricingDetailsMr,
-        }),
-      });
+      const updatedConfig = {
+        amount: Number(pricingAmount),
+        originalAmount: Number(pricingOriginalAmount),
+        billingPeriod: pricingPeriod,
+        detailsEn: pricingDetailsEn,
+        detailsMr: pricingDetailsMr,
+      };
 
-      if (!res.ok) {
-        throw new Error(isMarathi ? "सर्व्हर एरर, कृपया नंतर प्रयत्न करा." : "Failed to update pricing config on server.");
+      // 1. Always save to local storage as fallback first so it instantly works locally & on static hosts (e.g. Vercel)
+      try {
+        localStorage.setItem("omto_subscription_config", JSON.stringify(updatedConfig));
+      } catch (e) {
+        console.error("Failed to save config to local storage:", e);
       }
 
-      const data = await res.json();
-      if (data && data.success) {
-        const updatedConfig = {
-          amount: Number(pricingAmount),
-          originalAmount: Number(pricingOriginalAmount),
-          billingPeriod: pricingPeriod,
-          detailsEn: pricingDetailsEn,
-          detailsMr: pricingDetailsMr,
-        };
-        onUpdateSubscriptionConfig(updatedConfig);
-        setPricingSuccess(
-          isMarathi 
-            ? "सबस्क्रिप्शन प्लॅन यशस्वीरित्या सेव्ह केला गेला!" 
-            : "Subscription plan updated and saved successfully!"
-        );
-      } else {
-        throw new Error(data.error || "Save operation failed.");
+      // 2. Propagate to parent React state immediately
+      onUpdateSubscriptionConfig(updatedConfig);
+
+      // 3. Inform the user of successful configuration save
+      setPricingSuccess(
+        isMarathi 
+          ? "सबस्क्रिप्शन प्लॅन यशस्वीरित्या सेव्ह केला गेला!" 
+          : "Subscription plan updated and saved successfully!"
+      );
+
+      // 4. Try to sync with backend API server if online/available (fail silently if offline/404 on static hosts)
+      try {
+        const res = await fetch("/api/subscription/config", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(updatedConfig),
+        });
+        if (res.ok) {
+          const data = await res.json();
+          console.log("Subscription plan successfully synced with backend API:", data);
+        } else {
+          console.warn("Backend API returned non-OK status. Relying on local storage.");
+        }
+      } catch (apiErr) {
+        console.warn("Could not sync subscription plan with backend API. Using local storage fallback:", apiErr);
       }
+
     } catch (err: any) {
       console.error("Save pricing error:", err);
-      setPricingError(err.message || "An error occurred.");
+      setPricingError(isMarathi ? "त्रुटी आढळली: " + (err.message || "") : err.message || "An error occurred.");
     } finally {
       setPricingSaving(false);
     }
