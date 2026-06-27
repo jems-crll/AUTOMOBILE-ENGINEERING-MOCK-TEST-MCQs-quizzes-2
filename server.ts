@@ -155,9 +155,27 @@ let isFirestoreAvailable = true;
 
 function handleFirestoreError(err: any, context: string) {
   const errMsg = err?.message || String(err);
-  if (errMsg.includes("PERMISSION_DENIED") || errMsg.includes("Cloud Firestore API") || errMsg.includes("disabled")) {
+  const isPermissionOrNotFound = 
+    errMsg.includes("PERMISSION_DENIED") || 
+    errMsg.includes("NOT_FOUND") || 
+    errMsg.includes("Cloud Firestore API") || 
+    errMsg.includes("disabled") ||
+    errMsg.includes("not found");
+
+  if (isPermissionOrNotFound) {
     isFirestoreAvailable = false;
-    console.log(`[Firestore Status] Dynamically disabled Firestore due to permission/API status in ${context}: ${errMsg}`);
+    console.log("\n==================================================================");
+    console.log(`[Firestore Status] Dynamically disabled Firestore due to status in ${context}: ${errMsg}`);
+    console.log("\n💡 HOW TO CONNECT YOUR OWN FIREBASE DATABASE (automobile-engineering-mock):");
+    console.log("1. Go to Firebase Console: https://console.firebase.google.com/");
+    console.log("2. Open your project 'automobile-engineering-mock'.");
+    console.log("3. Click Gear Icon (Project Settings) -> Service Accounts tab.");
+    console.log("4. Click 'Generate new private key' to download the JSON credentials file.");
+    console.log("5. Copy the entire contents of that JSON file.");
+    console.log("6. Add a new Environment Variable in your Vercel Dashboard (or AI Studio Settings):");
+    console.log("   - Key: FIREBASE_SERVICE_ACCOUNT");
+    console.log("   - Value: [Paste the entire JSON content here]");
+    console.log("==================================================================\n");
   } else {
     console.log(`[Firestore Status] Unexpected Firestore warning in ${context}: ${errMsg}`);
   }
