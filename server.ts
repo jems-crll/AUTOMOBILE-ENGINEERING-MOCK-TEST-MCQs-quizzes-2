@@ -129,13 +129,14 @@ if (firebaseApp && firebaseApp.options && firebaseApp.options.projectId) {
   resolvedProjectId = serviceAccount.project_id;
 }
 
-// Initialize Firestore on the default database ID
-const db = getFirestore(firebaseApp);
+// Initialize Firestore on the specified database ID or the default database ID
+const dbId = process.env.FIRESTORE_DB_ID || undefined;
+const db = dbId ? getFirestore(firebaseApp, dbId) : getFirestore(firebaseApp);
 
 console.log("=========================================");
 console.log("FIRESTORE CLIENT INITIALIZATION LOGS:");
 console.log(`- Project ID: ${resolvedProjectId || "unknown"}`);
-console.log("- Database ID: (default)");
+console.log(`- Database ID: ${dbId || "(default)"}`);
 console.log(`- Client Email: ${serviceAccount?.client_email || "default credentials"}`);
 console.log("=========================================");
 
