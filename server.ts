@@ -86,19 +86,25 @@ function getServiceAccount() {
   return null;
 }
 
+let firebaseApp: any;
+let resolvedProjectId = "";
+
+const serviceAccount = getServiceAccount();
+
 if (getApps().length === 0) {
-  const serviceAccount = getServiceAccount();
   if (serviceAccount) {
     try {
       console.log("Initializing Firebase Admin with parsed service account credentials...");
-      initializeApp({
-        credential: cert(serviceAccount)
+      resolvedProjectId = serviceAccount.project_id || "";
+      firebaseApp = initializeApp({
+        credential: cert(serviceAccount),
+        projectId: resolvedProjectId
       });
-      console.log("Firebase Admin successfully initialized with service account from env.");
+      console.log(`Firebase Admin successfully initialized. Target Project ID: ${resolvedProjectId}`);
     } catch (e: any) {
       console.error("Failed to initialize Firebase Admin with credentials. Error:", e.message || e);
       try {
-        initializeApp();
+        firebaseApp = initializeApp();
         console.log("Firebase Admin fallback initialized with default credentials.");
       } catch (err2: any) {
         console.error("Fallback initialization also failed. Error:", err2.message || err2);
@@ -106,16 +112,35 @@ if (getApps().length === 0) {
     }
   } else {
     try {
-      initializeApp();
+      firebaseApp = initializeApp();
       console.log("Firebase Admin initialized with default credentials.");
     } catch (e: any) {
       console.error("Failed to initialize Firebase Admin with default credentials. Error:", e.message || e);
     }
   }
+} else {
+  firebaseApp = getApps()[0];
+  console.log("Using already initialized Firebase App instance.");
 }
-const db = getFirestore();
 
-// In-memory fallbacks in case Firestore is disabled/missing
+if (firebaseApp && firebaseApp.options && firebaseApp.options.projectId) {
+  resolvedProjectId = firebaseApp.options.projectId;
+} else if (serviceAccount && serviceAccount.project_id) {
+  resolvedProjectId = serviceAccount.project_id;
+}
+
+// Initialize Firestore on the default database ID
+const db = getFirestore(firebaseApp);
+
+console.log("=========================================");
+console.log("FIRESTORE CLIENT INITIALIZATION LOGS:");
+console.log(`- Project ID: ${resolvedProjectId || "unknown"}`);
+console.log("- Database ID: (default)");
+console.log(`- Client Email: ${serviceAccount?.client_email || "default credentials"}`);
+console.log("=========================================");
+
+// Robust in-memory fallbacks in case Firestore is disabled/unreachable or permission denied
+const memoryUsers = new Map<string, any>();
 const memoryPayments = new Map<string, any>();
 let memorySubscriptionConfig = {
   amount: 299,
@@ -127,7 +152,16 @@ let memorySubscriptionConfig = {
 
 let isFirestoreAvailable = true;
 
-// Run quick probe to detect if Firestore API is disabled or permissions are missing
+function handleFirestoreError(err: any, context: string) {
+  const errMsg = err?.message || String(err);
+  if (errMsg.includes("PERMISSION_DENIED") || errMsg.includes("Cloud Firestore API") || errMsg.includes("disabled")) {
+    isFirestoreAvailable = false;
+    console.log(`[Firestore Status] Dynamically disabled Firestore due to permission/API status in ${context}: ${errMsg}`);
+  } else {
+    console.log(`[Firestore Status] Unexpected Firestore warning in ${context}: ${errMsg}`);
+  }
+}
+
 async function probeFirestore() {
   try {
     console.log("Probing Firestore connectivity...");
@@ -135,11 +169,11 @@ async function probeFirestore() {
     isFirestoreAvailable = true;
     console.log("Firestore API probe succeeded. Firestore is active and usable.");
   } catch (err: any) {
-    isFirestoreAvailable = false;
-    console.warn("Firestore API is disabled, permission denied, or unavailable in this environment. Falling back to robust in-memory storage globally. Error details:", err?.message || err);
+    handleFirestoreError(err, "probeFirestore");
   }
 }
 probeFirestore();
+
 
 // Helper to make Gemini API calls resilient with exponential backoff & multi-model fallback
 async function generateContentWithRetry(ai: any, params: { model: string; contents: any; config?: any }, retries = 3, delayMs = 1000): Promise<any> {
@@ -480,6 +514,7 @@ Output JSON format:
     let finalAmount = 29900; // default 299 * 100 paise
     if (isFirestoreAvailable) {
       try {
+        console.log("Firestore Price Lookup - Attempting to retrieve config document 'config/subscription'...");
         const docRef = db.collection("config").doc("subscription");
         const docSnap = await docRef.get();
         if (docSnap.exists) {
@@ -487,14 +522,27 @@ Output JSON format:
           if (configData && configData.amount) {
             finalAmount = Number(configData.amount) * 100; // Convert Rupees to paise
           }
+          console.log(`Firestore Price Lookup - Document found. Amount is ${finalAmount / 100} INR.`);
         } else {
-          finalAmount = memorySubscriptionConfig.amount * 100;
+          console.log("Firestore Price Lookup - Document not found. Initializing default subscription config in Firestore.");
+          const defaultConfig = {
+            amount: 299,
+            originalAmount: 999,
+            billingPeriod: "lifetime",
+            detailsEn: "Automobile Engg. Premium Pack",
+            detailsMr: "ऑटोमोबाईल इंजिनिअरिंग प्रीमियम"
+          };
+          await docRef.set(defaultConfig);
+          finalAmount = 29900;
+          console.log("Firestore Price Lookup - Successfully saved default config.");
         }
-      } catch (dbErr) {
-        console.warn("Failed to fetch dynamic price from DB, using memory fallback", dbErr);
+      } catch (dbErr: any) {
+        handleFirestoreError(dbErr, "create-order Price Lookup");
+        console.log("Firestore Price Lookup - Falling back to local in-memory config price.");
         finalAmount = memorySubscriptionConfig.amount * 100;
       }
     } else {
+      console.log("Firestore Price Lookup - Skipping Firestore (offline mode), using local memory config price.");
       finalAmount = memorySubscriptionConfig.amount * 100;
     }
 
@@ -556,8 +604,18 @@ Output JSON format:
         console.log(`Payment captured for student: ${studentEmail}, Payment ID: ${razorpayPaymentId}`);
         
         if (studentEmail) {
+          // Store in local memory map first
+          memoryPayments.set(studentEmail, {
+            paymentStatus: "Paid",
+            paymentId: razorpayPaymentId,
+            orderId: orderId,
+            signature: signature,
+            paidAt: new Date().toISOString()
+          });
+
           if (isFirestoreAvailable) {
             try {
+              console.log(`Firestore Payment Webhook - Saving payment record for '${studentEmail}'...`);
               await db.collection("payments").doc(studentEmail).set({
                 paymentStatus: "Paid",
                 paymentId: razorpayPaymentId,
@@ -565,19 +623,14 @@ Output JSON format:
                 signature: signature,
                 paidAt: FieldValue.serverTimestamp(),
               }, { merge: true });
-              console.log(`[BACKEND STORAGE] Recorded premium activation status for: ${studentEmail}`);
-            } catch (dbErr) {
-              console.warn("Firestore set failed, using in-memory payment fallback:", dbErr);
+              console.log(`Firestore Payment Webhook - Success: Recorded paid status for: ${studentEmail}`);
+            } catch (dbErr: any) {
+              handleFirestoreError(dbErr, "Webhook payment.captured");
+              console.log(`Firestore Payment Webhook - Fallback: Payment recorded in-memory only.`);
             }
+          } else {
+            console.log(`Firestore Payment Webhook - Skipping Firestore (offline mode) for '${studentEmail}'.`);
           }
-          // Always write to in-memory fallback
-          memoryPayments.set(studentEmail, {
-            paymentStatus: "Paid",
-            paymentId: razorpayPaymentId,
-            orderId: orderId,
-            signature: signature,
-            paidAt: new Date().toISOString(),
-          });
         }
       } else if (event === "payment.failed") {
         const payment = req.body.payload.payment.entity;
@@ -585,22 +638,27 @@ Output JSON format:
         const studentEmail = (notes.email || "").toLowerCase().trim();
         
         if (studentEmail) {
+          // Store in local memory map first
+          memoryPayments.set(studentEmail, {
+            paymentStatus: "Failed",
+            failedAt: new Date().toISOString()
+          });
+
           if (isFirestoreAvailable) {
             try {
+              console.log(`Firestore Payment Webhook - Saving failed payment record for '${studentEmail}'...`);
               await db.collection("payments").doc(studentEmail).set({
                 paymentStatus: "Failed",
                 failedAt: FieldValue.serverTimestamp(),
               }, { merge: true });
-              console.log(`[BACKEND STORAGE] Recorded payment failure for: ${studentEmail}`);
-            } catch (dbErr) {
-              console.warn("Firestore set failed, using in-memory payment fallback for failure status:", dbErr);
+              console.log(`Firestore Payment Webhook - Success: Recorded failure status for: ${studentEmail}`);
+            } catch (dbErr: any) {
+              handleFirestoreError(dbErr, "Webhook payment.failed");
+              console.log(`Firestore Payment Webhook - Fallback: Payment failure recorded in-memory only.`);
             }
+          } else {
+            console.log(`Firestore Payment Webhook - Skipping Firestore (offline mode) for failed payment of '${studentEmail}'.`);
           }
-          // Always write to in-memory fallback
-          memoryPayments.set(studentEmail, {
-            paymentStatus: "Failed",
-            failedAt: new Date().toISOString(),
-          });
         }
       }
 
@@ -621,18 +679,22 @@ Output JSON format:
     try {
       let data: any = null;
       if (isFirestoreAvailable) {
+        console.log(`Firestore Payment Verify - Fetching document 'payments/${email}'...`);
         try {
           const doc = await db.collection("payments").doc(email).get();
           if (doc.exists) {
             data = doc.data();
+            console.log(`Firestore Payment Verify - Found record in Firestore for ${email}:`, JSON.stringify(data));
           }
-        } catch (dbErr) {
-          console.warn("Firestore verify-payment failed, checking memory fallback:", dbErr);
+        } catch (dbErr: any) {
+          handleFirestoreError(dbErr, "verify-payment Fetch");
         }
+      } else {
+        console.log(`Firestore Payment Verify - Skipping Firestore lookup (offline mode) for ${email}.`);
       }
 
-      // Fall back to memory map if firestore didn't work or didn't contain the record
       if (!data) {
+        console.log(`Firestore Payment Verify - Checking in-memory fallback for ${email}...`);
         data = memoryPayments.get(email);
       }
 
@@ -641,13 +703,15 @@ Output JSON format:
           verified: data?.paymentStatus === "Paid",
           paymentStatus: data?.paymentStatus,
           paymentId: data?.paymentId,
-          paidAt: data?.paidAt
+          paidAt: data?.paidAt ? (data.paidAt.toDate ? data.paidAt.toDate().toISOString() : data.paidAt) : null
         });
       }
+
+      console.log(`Firestore Payment Verify - No payment record found for: ${email}`);
       res.json({ verified: false, paymentStatus: "Not Found" });
-    } catch (error) {
-      console.error("Verification Error:", error);
-      res.status(500).json({ error: "Failed to verify payment" });
+    } catch (error: any) {
+      console.error(`Firestore Payment Verify - Failed to verify payment for ${email}:`, error.message || error);
+      res.status(500).json({ error: "Failed to verify payment: " + error.message });
     }
   });
 
@@ -688,18 +752,23 @@ Output JSON format:
       verifiedViaSignature: true
     };
 
+    // Store in-memory cache first
     memoryPayments.set(cleanEmail, paymentData);
 
-    try {
-      if (isFirestoreAvailable) {
+    if (isFirestoreAvailable) {
+      try {
+        console.log(`Firestore Signature Verify - Writing payment record for '${cleanEmail}'...`);
         await db.collection("payments").doc(cleanEmail).set({
           ...paymentData,
           paidAt: FieldValue.serverTimestamp()
         }, { merge: true });
-        console.log(`[AUTO-VERIFY] Activated premium via signature verification for: ${cleanEmail}`);
+        console.log(`Firestore Signature Verify - Success: Activated premium via signature verification for: ${cleanEmail}`);
+      } catch (err: any) {
+        handleFirestoreError(err, "verify-signature Write");
+        console.log(`Firestore Signature Verify - Fallback: Payment recorded in-memory only.`);
       }
-    } catch (err) {
-      console.warn("Could not save auto-verified payment to firestore:", err);
+    } else {
+      console.log(`Firestore Signature Verify - Skipping Firestore write (offline mode) for ${cleanEmail}.`);
     }
 
     res.json({ success: true, verified: true });
@@ -713,78 +782,76 @@ Output JSON format:
     }
     const cleanEmail = email.toLowerCase().trim();
     const cleanPaymentId = paymentId || "pay_manual_" + crypto.randomBytes(6).toString("hex");
-    
-    // Always store to memory first (as Pending)
-    memoryPayments.set(cleanEmail, {
+
+    const pendingPayment = {
       paymentStatus: "Pending",
       paymentId: cleanPaymentId,
       paidAt: new Date().toISOString(),
       manual: true
-    });
+    };
+    memoryPayments.set(cleanEmail, pendingPayment);
 
-    try {
-      if (isFirestoreAvailable) {
-        try {
-          await db.collection("payments").doc(cleanEmail).set({
-            paymentStatus: "Pending",
-            paymentId: cleanPaymentId,
-            paidAt: FieldValue.serverTimestamp(),
-            manual: true
-          }, { merge: true });
-          console.log(`[MANUAL UTR] Recorded pending payment verification in Firestore for: ${cleanEmail}`);
-        } catch (dbErr) {
-          console.warn("[MANUAL UTR] Firestore failed, payment is pending in-memory only:", dbErr);
-        }
+    if (isFirestoreAvailable) {
+      try {
+        console.log(`Firestore Admin Verify - Writing pending manual payment for '${cleanEmail}'...`);
+        await db.collection("payments").doc(cleanEmail).set({
+          paymentStatus: "Pending",
+          paymentId: cleanPaymentId,
+          paidAt: FieldValue.serverTimestamp(),
+          manual: true
+        }, { merge: true });
+        console.log(`Firestore Admin Verify - Success: Recorded pending manual payment in Firestore for: ${cleanEmail}`);
+      } catch (error: any) {
+        handleFirestoreError(error, "admin-verify Write");
+        console.log(`Firestore Admin Verify - Fallback: Recorded pending manual payment in-memory only.`);
       }
-
-      res.json({ success: true, pending: true, email: cleanEmail, paymentId: cleanPaymentId });
-    } catch (error: any) {
-      console.error("Failed to record pending payment:", error);
-      res.status(500).json({ error: error.message || "Failed to record payment" });
+    } else {
+      console.log(`Firestore Admin Verify - Skipping Firestore write (offline mode) for manual payment of ${cleanEmail}.`);
     }
+    res.json({ success: true, pending: true, email: cleanEmail, paymentId: cleanPaymentId });
   });
 
   // 5. Get current subscription config (price, discount, description)
   app.get("/api/subscription/config", async (req, res) => {
-    try {
-      if (isFirestoreAvailable) {
-        try {
-          const docRef = db.collection("config").doc("subscription");
-          const docSnap = await docRef.get();
-          if (docSnap.exists) {
-            const configData = docSnap.data();
-            if (configData) {
-              // Keep local memory config synchronized
-              memorySubscriptionConfig = {
-                amount: Number(configData.amount) || 299,
-                originalAmount: Number(configData.originalAmount) || 999,
-                billingPeriod: configData.billingPeriod || "lifetime",
-                detailsEn: configData.detailsEn || "Automobile Engg. Premium Pack",
-                detailsMr: configData.detailsMr || "ऑटोमोबाईल इंजिनिअरिंग प्रीमियम"
-              };
-              return res.json(configData);
-            }
+    if (isFirestoreAvailable) {
+      try {
+        console.log("Firestore Config Get - Fetching subscription config from Firestore...");
+        const docRef = db.collection("config").doc("subscription");
+        const docSnap = await docRef.get();
+        if (docSnap.exists) {
+          const configData = docSnap.data();
+          console.log("Firestore Config Get - Success: Retrieved subscription config:", JSON.stringify(configData));
+          if (configData) {
+            memorySubscriptionConfig = {
+              amount: Number(configData.amount) || 299,
+              originalAmount: Number(configData.originalAmount) || 999,
+              billingPeriod: configData.billingPeriod || "lifetime",
+              detailsEn: configData.detailsEn || "Automobile Engg. Premium Pack",
+              detailsMr: configData.detailsMr || "ऑटोमोबाईल इंजिनिअरिंग प्रीमियम"
+            };
           }
-          
-          // Default initial config if not exists
-          const defaultConfig = {
-            amount: 299,
-            originalAmount: 999,
-            billingPeriod: "lifetime",
-            detailsEn: "Automobile Engg. Premium Pack",
-            detailsMr: "ऑटोमोबाईल इंजिनिअरिंग प्रीमियम"
-          };
-          await docRef.set(defaultConfig);
-          return res.json(defaultConfig);
-        } catch (dbErr) {
-          console.warn("Failed to get subscription config from Firestore, using memory fallback:", dbErr);
-          return res.json(memorySubscriptionConfig);
+          return res.json(configData);
         }
-      } else {
+        
+        // Default initial config if not exists
+        const defaultConfig = {
+          amount: 299,
+          originalAmount: 999,
+          billingPeriod: "lifetime",
+          detailsEn: "Automobile Engg. Premium Pack",
+          detailsMr: "ऑटोमोबाईल इंजिनिअरिंग प्रीमियम"
+        };
+        console.log("Firestore Config Get - Config document not found. Initializing defaults in Firestore...");
+        await docRef.set(defaultConfig);
+        console.log("Firestore Config Get - Success: Wrote default subscription config to Firestore.");
+        return res.json(defaultConfig);
+      } catch (error: any) {
+        handleFirestoreError(error, "subscription/config GET");
+        console.log("Firestore Config Get - Falling back to local in-memory config.");
         return res.json(memorySubscriptionConfig);
       }
-    } catch (error: any) {
-      console.error("Failed to get subscription config:", error);
+    } else {
+      console.log("Firestore Config Get - Skipping Firestore lookup (offline mode), returning local memory config.");
       return res.json(memorySubscriptionConfig);
     }
   });
@@ -800,25 +867,23 @@ Output JSON format:
       detailsMr: detailsMr || "ऑटोमोबाईल इंजिनिअरिंग प्रीमियम"
     };
 
-    // Always update local memory
+    // Keep memory cache updated
     memorySubscriptionConfig = updatedConfig;
 
-    try {
-      if (isFirestoreAvailable) {
-        try {
-          const docRef = db.collection("config").doc("subscription");
-          await docRef.set(updatedConfig, { merge: true });
-          console.log("[ADMIN SETTINGS] Updated subscription plan in Firestore:", updatedConfig);
-        } catch (dbErr) {
-          console.warn("[ADMIN SETTINGS] Firestore write failed, saved in-memory:", dbErr);
-        }
+    if (isFirestoreAvailable) {
+      try {
+        console.log("Firestore Config Update - Writing updated subscription config to Firestore...");
+        const docRef = db.collection("config").doc("subscription");
+        await docRef.set(updatedConfig, { merge: true });
+        console.log("Firestore Config Update - Success: Updated subscription plan in Firestore:", JSON.stringify(updatedConfig));
+      } catch (error: any) {
+        handleFirestoreError(error, "subscription/config POST");
+        console.log("Firestore Config Update - Stored config in-memory only.");
       }
-
-      return res.json({ success: true, config: updatedConfig });
-    } catch (error: any) {
-      console.error("Failed to update subscription config:", error);
-      return res.json({ success: true, config: updatedConfig, warning: "Stored in memory fallback" });
+    } else {
+      console.log("Firestore Config Update - Skipping Firestore write (offline mode), stored in-memory only.");
     }
+    return res.json({ success: true, config: updatedConfig });
   });
 
   // OTP Verification logic
@@ -903,7 +968,6 @@ Output JSON format:
   });
 
   // --- Admin User Management Endpoints ---
-  const memoryUsers = new Map<string, any>();
   const onlineUsers = new Map<string, number>();
 
   app.post("/api/users/heartbeat", (req, res) => {
@@ -926,43 +990,43 @@ Output JSON format:
     // Auto-set created date if not exists
     if (!user.createdAt) user.createdAt = new Date().toISOString();
     
+    onlineUsers.set(email, Date.now());
+
     // Save locally first for in-memory resilience
     const existing = memoryUsers.get(email) || {};
     const updated = { ...existing, ...user };
     memoryUsers.set(email, updated);
-    onlineUsers.set(email, Date.now());
     
-    if (db) {
+    if (isFirestoreAvailable) {
       try {
         console.log(`Firestore Sync - Attempting to write user '${email}' to collection 'users'...`);
         // Filter out undefined values to prevent Firestore serialization errors
         const cleanedUser = JSON.parse(JSON.stringify(updated));
         await db.collection("users").doc(email).set(cleanedUser, { merge: true });
-        console.log(`Firestore Sync - Successfully saved user '${email}' to collection 'users'.`);
+        console.log(`Firestore Sync - Success: Saved user '${email}' to collection 'users'.`);
       } catch(e: any) {
-        console.error(`Firestore Sync - Error saving user '${email}':`, e.message || e);
+        handleFirestoreError(e, "users/sync POST");
+        console.log(`Firestore Sync - Fallback: Saved user '${email}' to local memory cache.`);
       }
     } else {
-      console.warn("Firestore Sync - Skipping Firestore write because db is not initialized.");
+      console.log(`Firestore Sync - Skipping Firestore write (offline mode) for user '${email}'.`);
     }
-    
     res.json({ success: true });
   });
 
   app.get("/api/users", async (req, res) => {
-    console.log("GET /api/users - Fetching all users...");
     let usersList: any[] = [];
     let success = false;
-    
-    if (db) {
+    if (isFirestoreAvailable) {
+      console.log("GET /api/users - Fetching all users from Firestore...");
       try {
         console.log("Firestore Get - Fetching from collection 'users'...");
         const snapshot = await db.collection("users").get();
         snapshot.forEach(doc => usersList.push(doc.data()));
-        console.log(`Firestore Get - Successfully fetched ${usersList.length} users from Firestore.`);
+        console.log(`Firestore Get - Success: Fetched ${usersList.length} users from Firestore.`);
         success = true;
-        
-        // Sync our local in-memory cache with what we retrieved
+
+        // Sync local in-memory cache with what we retrieved
         usersList.forEach(u => {
           if (u.email) {
             const cleanEmail = u.email.toLowerCase().trim();
@@ -970,12 +1034,14 @@ Output JSON format:
           }
         });
       } catch(e: any) {
-        console.error("Firestore Get - Failed to fetch from Firestore 'users' collection:", e.message || e);
+        handleFirestoreError(e, "GET /api/users");
       }
+    } else {
+      console.log("GET /api/users - Skipping Firestore fetch (offline mode).");
     }
-    
+
     if (!success) {
-      console.log("Firestore Get - Falling back to local in-memory user cache...");
+      console.log("GET /api/users - Falling back to local in-memory user cache...");
       usersList = Array.from(memoryUsers.values());
     }
     
@@ -985,7 +1051,7 @@ Output JSON format:
       isOnline: onlineUsers.has(u.email.toLowerCase().trim()) && (now - onlineUsers.get(u.email.toLowerCase().trim())! < 5 * 60 * 1000)
     }));
     
-    // Sort so newest are first (by createdAt or fallback)
+    // Sort so newest are first
     usersList.sort((a, b) => {
       const dateA = a.createdAt ? new Date(a.createdAt).getTime() : 0;
       const dateB = b.createdAt ? new Date(b.createdAt).getTime() : 0;
@@ -1005,23 +1071,24 @@ Output JSON format:
     }
     const cleanEmail = email.toLowerCase().trim();
     
+    // Save to local map
     const existing = memoryUsers.get(cleanEmail) || { email: cleanEmail };
     const updated = { ...existing, ...updates };
     memoryUsers.set(cleanEmail, updated);
     
-    if (db) {
+    if (isFirestoreAvailable) {
       try {
         console.log(`Firestore Update - Modifying document 'users/${cleanEmail}'...`);
         const cleanedUpdates = JSON.parse(JSON.stringify(updates));
         await db.collection("users").doc(cleanEmail).set(cleanedUpdates, { merge: true });
-        console.log(`Firestore Update - Successfully updated document 'users/${cleanEmail}'.`);
+        console.log(`Firestore Update - Success: Updated document 'users/${cleanEmail}'.`);
       } catch(e: any) {
-        console.error(`Firestore Update - Error modifying 'users/${cleanEmail}':`, e.message || e);
+        handleFirestoreError(e, "users/update POST");
+        console.log(`Firestore Update - Fallback: Updated user in local memory cache.`);
       }
     } else {
-      console.warn("Firestore Update - Skipping Firestore write because db is not initialized.");
+      console.log(`Firestore Update - Skipping Firestore write (offline mode) for user '${cleanEmail}'.`);
     }
-    
     res.json({ success: true });
   });
 
@@ -1029,20 +1096,22 @@ Output JSON format:
     const email = req.params.email.toLowerCase().trim();
     console.log(`DELETE /api/users/${email} - Attempting removal...`);
     
-    if (db) {
+    // Delete from local maps
+    memoryUsers.delete(email);
+    onlineUsers.delete(email);
+
+    if (isFirestoreAvailable) {
       try {
         console.log(`Firestore Delete - Removing document 'users/${email}'...`);
         await db.collection("users").doc(email).delete();
-        console.log(`Firestore Delete - Successfully deleted document 'users/${email}'.`);
+        console.log(`Firestore Delete - Success: Deleted document 'users/${email}'.`);
       } catch (e: any) {
-        console.error(`Firestore Delete - Error removing 'users/${email}':`, e.message || e);
+        handleFirestoreError(e, `users/:email DELETE for ${email}`);
+        console.log(`Firestore Delete - Fallback: Deleted user from local memory cache.`);
       }
     } else {
-      console.warn("Firestore Delete - Skipping Firestore delete because db is not initialized.");
+      console.log(`Firestore Delete - Skipping Firestore delete (offline mode) for user '${email}'.`);
     }
-    
-    memoryUsers.delete(email);
-    onlineUsers.delete(email);
     res.json({ success: true });
   });
   // --------------------------------------
