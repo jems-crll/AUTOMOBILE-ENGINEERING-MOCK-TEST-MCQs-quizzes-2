@@ -4,7 +4,7 @@ import path from "path";
 import { createServer as createViteServer } from "vite";
 import { GoogleGenAI } from "@google/genai";
 import dotenv from "dotenv";
-import { QUESTIONS } from "./src/data/questions";
+import { QUESTIONS } from "./src/data/questions.js";
 import Razorpay from "razorpay";
 import crypto from "crypto";
 import { initializeApp, cert, getApps } from "firebase-admin/app";
