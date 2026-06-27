@@ -755,6 +755,64 @@ Output JSON format:
     }
   });
 
+  // OTP Verification logic
+  const memoryOtps = new Map<string, { otp: string, expiresAt: number, attempts: number }>();
+
+  app.post("/api/otp/send", async (req, res) => {
+    const { contact } = req.body;
+    if (!contact) {
+      return res.status(400).json({ error: "Contact (email or phone) is required" });
+    }
+
+    const cleanContact = contact.toLowerCase().trim();
+    // Generate a 6-digit OTP
+    const otp = Math.floor(100000 + Math.random() * 900000).toString();
+    const expiresAt = Date.now() + 10 * 60 * 1000; // 10 minutes from now
+
+    memoryOtps.set(cleanContact, { otp, expiresAt, attempts: 0 });
+    
+    // In a real application, we would send the OTP via SMS or Email here.
+    // For this demo, we'll just log it and return a success message.
+    console.log(`[OTP GENERATED] OTP for ${cleanContact} is ${otp}`);
+
+    // We will return the OTP in the response ONLY for demonstration/testing purposes
+    // in a non-production environment. 
+    res.json({ success: true, message: "OTP sent successfully", testOtp: otp });
+  });
+
+  app.post("/api/otp/verify", async (req, res) => {
+    const { contact, otp } = req.body;
+    if (!contact || !otp) {
+      return res.status(400).json({ error: "Contact and OTP are required" });
+    }
+
+    const cleanContact = contact.toLowerCase().trim();
+    const storedOtpData = memoryOtps.get(cleanContact);
+
+    if (!storedOtpData) {
+      return res.status(400).json({ error: "No OTP requested for this contact" });
+    }
+
+    if (Date.now() > storedOtpData.expiresAt) {
+      memoryOtps.delete(cleanContact);
+      return res.status(400).json({ error: "OTP has expired. Please request a new one." });
+    }
+
+    if (storedOtpData.attempts >= 5) {
+      memoryOtps.delete(cleanContact);
+      return res.status(400).json({ error: "Too many failed attempts. Please request a new OTP." });
+    }
+
+    if (storedOtpData.otp !== otp) {
+      storedOtpData.attempts += 1;
+      return res.status(400).json({ error: "Invalid OTP. Please try again." });
+    }
+
+    // OTP is valid
+    memoryOtps.delete(cleanContact);
+    res.json({ success: true, message: "OTP verified successfully" });
+  });
+
   // Serve static questions data from backend if needed
   app.get("/api/health", (req, res) => {
     res.json({ status: "ok", geminiConfigured: !!ai });

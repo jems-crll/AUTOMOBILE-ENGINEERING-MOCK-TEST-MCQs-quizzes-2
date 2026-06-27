@@ -8,10 +8,12 @@ interface AuthProps {
 }
 
 export default function Auth({ onLoginSuccess, selectedLanguage }: AuthProps) {
-  const [authMode, setAuthMode] = useState<"login" | "signup" | "forgot_password" | "forgot_username">("login");
+  const [authMode, setAuthMode] = useState<"login" | "signup" | "verify_otp" | "forgot_password" | "forgot_username">("login");
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [otp, setOtp] = useState("");
+  const [isProcessing, setIsProcessing] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
   // Recovery States
@@ -174,26 +176,116 @@ export default function Auth({ onLoginSuccess, selectedLanguage }: AuthProps) {
         return;
       }
 
-      // Create new user (default isPremium: false, role: student)
-      const newUser = {
-        email: emailKey,
-        username: username.trim(),
-        password: password,
-        isPremium: false,
-        role: "student",
-        subscriptionStatus: "inactive"
-      };
-      db[emailKey] = newUser;
-      saveUsersDb(db);
-
-      setSuccessMessage(
-        isMarathi
-          ? "नोंदणी यशस्वी! आता तुम्ही लॉगिन करू शकता."
-          : "Registration successful! You can now login."
-      );
-      setAuthMode("login");
-      setPassword("");
+      // Instead of directly creating user, we send OTP first
+      setIsProcessing(true);
+      fetch(`${import.meta.env.VITE_API_URL || ""}/api/otp/send`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ contact: emailKey })
+      })
+      .then(res => res.json())
+      .then(data => {
+        setIsProcessing(false);
+        if (data.success) {
+          setSuccessMessage(
+            isMarathi 
+              ? "ओटीपी पाठवला आहे. कृपया तपासा." 
+              : "OTP sent successfully. Please check your email/phone."
+          );
+          setAuthMode("verify_otp");
+          setOtp(""); // Reset OTP field
+        } else {
+          setErrorMessage(data.error || "Failed to send OTP.");
+        }
+      })
+      .catch(err => {
+        setIsProcessing(false);
+        setErrorMessage("Network error: Failed to send OTP.");
+      });
     }
+  };
+
+  const handleVerifyOtpSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setErrorMessage("");
+    setSuccessMessage("");
+
+    if (!otp) {
+      setErrorMessage(isMarathi ? "कृपया ओटीपी भरा." : "Please enter the OTP.");
+      return;
+    }
+
+    setIsProcessing(true);
+    const emailKey = email.trim().toLowerCase();
+
+    fetch(`${import.meta.env.VITE_API_URL || ""}/api/otp/verify`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ contact: emailKey, otp: otp })
+    })
+    .then(res => res.json())
+    .then(data => {
+      setIsProcessing(false);
+      if (data.success) {
+        // OTP is verified, now create the account
+        const db = getRegisteredUsers();
+        const newUser = {
+          email: emailKey,
+          username: username.trim(),
+          password: password,
+          isPremium: false,
+          role: "student",
+          subscriptionStatus: "inactive"
+        };
+        db[emailKey] = newUser;
+        saveUsersDb(db);
+
+        setSuccessMessage(
+          isMarathi
+            ? "नोंदणी यशस्वी! आता तुम्ही लॉगिन करू शकता."
+            : "Registration successful! You can now login."
+        );
+        setAuthMode("login");
+        setPassword("");
+        setOtp("");
+      } else {
+        setErrorMessage(data.error || "Invalid OTP.");
+      }
+    })
+    .catch(err => {
+      setIsProcessing(false);
+      setErrorMessage("Network error: Failed to verify OTP.");
+    });
+  };
+
+  const handleResendOtp = () => {
+    setErrorMessage("");
+    setSuccessMessage("");
+    setIsProcessing(true);
+    const emailKey = email.trim().toLowerCase();
+    
+    fetch(`${import.meta.env.VITE_API_URL || ""}/api/otp/send`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ contact: emailKey })
+    })
+    .then(res => res.json())
+    .then(data => {
+      setIsProcessing(false);
+      if (data.success) {
+        setSuccessMessage(
+          isMarathi 
+            ? "नवीन ओटीपी पाठवला आहे." 
+            : "New OTP sent successfully."
+        );
+      } else {
+        setErrorMessage(data.error || "Failed to resend OTP.");
+      }
+    })
+    .catch(err => {
+      setIsProcessing(false);
+      setErrorMessage("Network error: Failed to resend OTP.");
+    });
   };
 
   const handleForgotPasswordSubmit = (e: React.FormEvent) => {
@@ -306,6 +398,7 @@ export default function Auth({ onLoginSuccess, selectedLanguage }: AuthProps) {
         <h2 className="text-center text-2xl md:text-3xl font-black text-white tracking-tight">
           {authMode === "login" && (isMarathi ? "ऑटोमोबाईल मॉक टेस्ट लॉगिन" : "Automobile Mock Test Login")}
           {authMode === "signup" && (isMarathi ? "नवीन खाते तयार करा" : "Create New Account")}
+          {authMode === "verify_otp" && (isMarathi ? "ओटीपी तपासा" : "Verify Account")}
           {authMode === "forgot_password" && (isMarathi ? "पासवर्ड विसरलात?" : "Forgot Password")}
           {authMode === "forgot_username" && (isMarathi ? "युझरनेम विसरलात?" : "Forgot Username")}
         </h2>
@@ -410,11 +503,85 @@ export default function Auth({ onLoginSuccess, selectedLanguage }: AuthProps) {
 
               <button
                 type="submit"
-                className="w-full py-3 px-4 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-slate-950 font-black rounded-xl hover:shadow-lg transition-all duration-150 flex items-center justify-center gap-2 cursor-pointer mt-2"
+                disabled={isProcessing}
+                className="w-full py-3 px-4 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 disabled:opacity-50 text-slate-950 font-black rounded-xl hover:shadow-lg transition-all duration-150 flex items-center justify-center gap-2 cursor-pointer mt-2"
               >
-                <span>{authMode === "login" ? (isMarathi ? "लॉगिन करा" : "Login") : (isMarathi ? "नोंदणी (Signup) करा" : "Register") }</span>
-                <Icons.ArrowRight className="h-4 w-4" />
+                {isProcessing ? (
+                  <Icons.Loader2 className="h-4 w-4 animate-spin" />
+                ) : (
+                  <>
+                    <span>{authMode === "login" ? (isMarathi ? "लॉगिन करा" : "Login") : (isMarathi ? "नोंदणी (Signup) करा" : "Register") }</span>
+                    <Icons.ArrowRight className="h-4 w-4" />
+                  </>
+                )}
               </button>
+            </form>
+          )}
+
+          {/* OTP Verification form */}
+          {authMode === "verify_otp" && (
+            <form className="space-y-4" onSubmit={handleVerifyOtpSubmit}>
+              <div>
+                <label className="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-1.5">
+                  {isMarathi ? "ओटीपी प्रविष्ट करा" : "Enter OTP"}
+                </label>
+                <div className="relative">
+                  <Icons.Key className="absolute left-3 top-3.5 h-4 w-4 text-slate-500" />
+                  <input
+                    type="text"
+                    required
+                    maxLength={6}
+                    placeholder="123456"
+                    value={otp}
+                    onChange={(e) => setOtp(e.target.value)}
+                    className="w-full bg-slate-950 border border-slate-800 focus:border-amber-500 text-slate-100 rounded-xl pl-10 pr-4 py-3 text-sm focus:outline-none transition-colors tracking-[0.5em] font-mono text-center"
+                  />
+                </div>
+                <p className="mt-2 text-[10px] text-slate-500 text-center">
+                  {isMarathi 
+                    ? `आम्ही ${email} वर एक ओटीपी पाठवला आहे.`
+                    : `We've sent a 6-digit OTP to ${email}.`}
+                </p>
+              </div>
+
+              <button
+                type="submit"
+                disabled={isProcessing}
+                className="w-full py-3 px-4 bg-emerald-500 hover:bg-emerald-600 disabled:opacity-50 text-slate-950 font-black rounded-xl hover:shadow-lg transition-all duration-150 flex items-center justify-center gap-2 cursor-pointer mt-2"
+              >
+                {isProcessing ? (
+                  <Icons.Loader2 className="h-4 w-4 animate-spin" />
+                ) : (
+                  <>
+                    <span>{isMarathi ? "ओटीपी तपासा" : "Verify OTP"}</span>
+                    <Icons.CheckCircle className="h-4 w-4" />
+                  </>
+                )}
+              </button>
+              
+              <div className="flex flex-col gap-3 text-center mt-3 pt-4 border-t border-slate-800/60">
+                <button
+                  type="button"
+                  onClick={handleResendOtp}
+                  disabled={isProcessing}
+                  className="text-xs text-amber-500 hover:text-amber-400 disabled:opacity-50 font-semibold cursor-pointer"
+                >
+                  {isMarathi ? "ओटीपी पुन्हा पाठवा" : "Resend OTP"}
+                </button>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setAuthMode("signup");
+                    setErrorMessage("");
+                    setSuccessMessage("");
+                    setOtp("");
+                  }}
+                  disabled={isProcessing}
+                  className="text-xs text-slate-500 hover:text-slate-400 disabled:opacity-50 font-semibold cursor-pointer"
+                >
+                  {isMarathi ? "मागे जा" : "Go Back"}
+                </button>
+              </div>
             </form>
           )}
 
