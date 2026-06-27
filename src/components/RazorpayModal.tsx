@@ -42,7 +42,7 @@ export default function RazorpayModal({
     setIsProcessing(true);
     setTxnError("");
     try {
-      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/razorpay/create-order`, {
+      const res = await fetch(`/api/razorpay/create-order`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -62,59 +62,6 @@ export default function RazorpayModal({
       const orderData = await res.json();
       console.log("Secure order created on backend:", orderData);
 
-      if (orderData.isSimulated) {
-        console.log("Simulated environment detected. Processing mock payment activation...");
-        // Auto-complete payment in simulation mode
-        const mockPaymentId = "pay_sim_" + Math.random().toString(36).substring(2, 10);
-        setIsProcessing(true);
-        try {
-          await fetch(`${import.meta.env.VITE_API_URL}/api/razorpay/admin-verify`, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-              email: currentUser.email,
-              paymentId: mockPaymentId
-            })
-          });
-
-          setTxnId(mockPaymentId);
-          setPaymentSuccess(true);
-
-          try {
-            const usersDbStr = localStorage.getItem("omto_users_db");
-            if (usersDbStr) {
-              const db = JSON.parse(usersDbStr);
-              const emailKey = currentUser.email.trim().toLowerCase();
-              if (db[emailKey]) {
-                db[emailKey].isPremium = true;
-                db[emailKey].paymentTxnId = mockPaymentId;
-                db[emailKey].paymentDate = new Date().toISOString();
-                localStorage.setItem("omto_users_db", JSON.stringify(db));
-              }
-            }
-          } catch (e) {
-            console.error(e);
-          }
-
-          const updatedUser: User = {
-            ...currentUser,
-            isPremium: true,
-          };
-          localStorage.setItem("omto_current_user", JSON.stringify(updatedUser));
-          
-          setTimeout(() => {
-            onPaymentSuccess(updatedUser);
-            onClose();
-          }, 2000);
-
-        } catch (verifyErr) {
-          console.error("Simulation verification failed:", verifyErr);
-        } finally {
-          setIsProcessing(false);
-        }
-        return;
-      }
-
       // Check if Razorpay Checkout script is loaded
       if (typeof (window as any).Razorpay === "undefined") {
         console.warn("Razorpay script not loaded. Falling back to UPI landing page.");
@@ -124,18 +71,18 @@ export default function RazorpayModal({
       }
 
       const options = {
-        key: orderData.keyId || "rzp_test_mock_keys_123",
+        key: orderData.keyId,
         amount: orderData.amount,
         currency: orderData.currency,
         name: "Automobile Engg. Premium",
         description: "Bilingual Automobile Premium Pack",
-        order_id: orderData.isSimulated ? undefined : orderData.id,
+        order_id: orderData.id,
         handler: async function (response: any) {
           console.log("Razorpay Checkout payment response:", response);
           setIsProcessing(true);
           
           try {
-            const verifyRes = await fetch(`${import.meta.env.VITE_API_URL}/api/razorpay/verify-signature`, {
+            const verifyRes = await fetch(`/api/razorpay/verify-signature`, {
               method: "POST",
               headers: { "Content-Type": "application/json" },
               body: JSON.stringify({
@@ -319,7 +266,7 @@ export default function RazorpayModal({
                     setTxnError("");
                     try {
                       const mockPaymentId = "pay_sim_" + Math.random().toString(36).substring(2, 10);
-                      await fetch(`${import.meta.env.VITE_API_URL}/api/razorpay/admin-verify`, {
+                      await fetch(`/api/razorpay/admin-verify`, {
                         method: "POST",
                         headers: { "Content-Type": "application/json" },
                         body: JSON.stringify({

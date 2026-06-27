@@ -103,7 +103,7 @@ export default function AdminPanel({
 
       // 4. Try to sync with backend API server if online/available (fail silently if offline/404 on static hosts)
       try {
-        const res = await fetch(`${import.meta.env.VITE_API_URL}/api/subscription/config`, {
+        const res = await fetch(`/api/subscription/config`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(updatedConfig),

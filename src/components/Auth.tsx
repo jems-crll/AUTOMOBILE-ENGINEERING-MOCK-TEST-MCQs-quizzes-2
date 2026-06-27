@@ -178,7 +178,7 @@ export default function Auth({ onLoginSuccess, selectedLanguage }: AuthProps) {
 
       // Instead of directly creating user, we send OTP first
       setIsProcessing(true);
-      fetch(`${import.meta.env.VITE_API_URL || ""}/api/otp/send`, {
+      fetch(`/api/otp/send`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ contact: emailKey })
@@ -218,7 +218,7 @@ export default function Auth({ onLoginSuccess, selectedLanguage }: AuthProps) {
     setIsProcessing(true);
     const emailKey = email.trim().toLowerCase();
 
-    fetch(`${import.meta.env.VITE_API_URL || ""}/api/otp/verify`, {
+    fetch(`/api/otp/verify`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ contact: emailKey, otp: otp })
@@ -264,7 +264,7 @@ export default function Auth({ onLoginSuccess, selectedLanguage }: AuthProps) {
     setIsProcessing(true);
     const emailKey = email.trim().toLowerCase();
     
-    fetch(`${import.meta.env.VITE_API_URL || ""}/api/otp/send`, {
+    fetch(`/api/otp/send`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ contact: emailKey })

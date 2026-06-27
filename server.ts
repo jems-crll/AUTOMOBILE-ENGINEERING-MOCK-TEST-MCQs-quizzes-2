@@ -3,13 +3,35 @@ import cors from "cors";
 import path from "path";
 import { GoogleGenAI } from "@google/genai";
 import dotenv from "dotenv";
-import { QUESTIONS } from "./src/data/questions";
+import { QUESTIONS } from "./src/data/questions.js";
 import Razorpay from "razorpay";
 import crypto from "crypto";
 import { initializeApp, cert, getApps } from "firebase-admin/app";
 import { getFirestore, FieldValue } from "firebase-admin/firestore";
+import nodemailer from "nodemailer";
 
 dotenv.config();
+
+// Create Nodemailer transporter
+let transporter: nodemailer.Transporter | null = null;
+try {
+  if (process.env.SMTP_HOST && process.env.SMTP_USER && process.env.SMTP_PASS) {
+    transporter = nodemailer.createTransport({
+      host: process.env.SMTP_HOST,
+      port: parseInt(process.env.SMTP_PORT || "465"),
+      secure: process.env.SMTP_PORT === "465", // true for 465, false for other ports
+      auth: {
+        user: process.env.SMTP_USER,
+        pass: process.env.SMTP_PASS,
+      },
+    });
+    console.log("SMTP Transporter configured successfully.");
+  } else {
+    console.warn("SMTP configuration missing. OTP emails will only be logged to console.");
+  }
+} catch (error) {
+  console.error("Failed to configure SMTP transporter:", error);
+}
 
 // Initialize Firebase Admin with credentials if provided, otherwise default (Cloud Run/ADC)
 if (getApps().length === 0) {
@@ -417,16 +439,8 @@ Output JSON format:
     try {
       const razorpay = getRazorpayInstance();
       if (!razorpay) {
-        console.warn("RAZORPAY_KEY_ID or RAZORPAY_KEY_SECRET is not configured. Falling back to secure simulated order.");
-        const mockOrderId = "order_mock_" + crypto.randomBytes(8).toString("hex");
-        return res.json({
-          id: mockOrderId,
-          amount: finalAmount,
-          currency: currency || "INR",
-          notes: notes || {},
-          isSimulated: true,
-          keyId: "rzp_test_mock_keys_123"
-        });
+        console.error("RAZORPAY_KEY_ID or RAZORPAY_KEY_SECRET is not configured.");
+        return res.status(500).json({ error: "Payment gateway is not configured. Please add Razorpay API keys." });
       }
 
       const options = {
@@ -443,16 +457,8 @@ Output JSON format:
         isSimulated: false
       });
     } catch (error: any) {
-      console.warn("Razorpay Order Creation failed with API/key error, falling back to secure simulated order:", error.message || error);
-      const mockOrderId = "order_mock_" + crypto.randomBytes(8).toString("hex");
-      res.json({
-        id: mockOrderId,
-        amount: finalAmount,
-        currency: currency || "INR",
-        notes: notes || {},
-        isSimulated: true,
-        keyId: "rzp_test_mock_keys_123"
-      });
+      console.error("Razorpay Order Creation failed:", error);
+      res.status(500).json({ error: "Payment gateway error. Please verify your Razorpay API keys." });
     }
   });
 
@@ -592,9 +598,8 @@ Output JSON format:
     }
 
     const keySecret = process.env.RAZORPAY_KEY_SECRET?.trim();
-    const isMockPayment = String(razorpay_payment_id).startsWith("pay_sim_") || String(razorpay_payment_id).startsWith("pay_mock_");
 
-    if (keySecret && !isMockPayment && razorpay_signature) {
+    if (keySecret && razorpay_signature) {
       try {
         const body = razorpay_order_id + "|" + razorpay_payment_id;
         const expectedSignature = crypto
@@ -770,13 +775,38 @@ Output JSON format:
 
     memoryOtps.set(cleanContact, { otp, expiresAt, attempts: 0 });
     
-    // In a real application, we would send the OTP via SMS or Email here.
-    // For this demo, we'll just log it and return a success message.
     console.log(`[OTP GENERATED] OTP for ${cleanContact} is ${otp}`);
 
-    // We will return the OTP in the response ONLY for demonstration/testing purposes
-    // in a non-production environment. 
-    res.json({ success: true, message: "OTP sent successfully", testOtp: otp });
+    // If it's an email address, try to send real email
+    const isEmail = cleanContact.includes("@");
+    if (isEmail && transporter) {
+      try {
+        await transporter.sendMail({
+          from: process.env.SMTP_FROM || process.env.SMTP_USER || '"Auto Mock Test" <noreply@example.com>',
+          to: cleanContact,
+          subject: "Your OTP for Registration",
+          text: `Your OTP for registration is: ${otp}. It is valid for 10 minutes.`,
+          html: `
+            <div style="font-family: sans-serif; max-width: 500px; margin: 0 auto; padding: 20px; border: 1px solid #ddd; border-radius: 8px;">
+              <h2 style="color: #333; text-align: center;">Registration OTP</h2>
+              <p>Hello,</p>
+              <p>Your One-Time Password (OTP) for registration is:</p>
+              <h1 style="text-align: center; font-size: 36px; letter-spacing: 4px; color: #f59e0b; background-color: #fffbeb; padding: 10px; border-radius: 8px; border: 1px dashed #f59e0b;">${otp}</h1>
+              <p>This OTP is valid for <strong>10 minutes</strong>. Do not share it with anyone.</p>
+              <hr style="border: none; border-top: 1px solid #eee; margin: 20px 0;" />
+              <p style="font-size: 12px; color: #888; text-align: center;">If you didn't request this, please ignore this email.</p>
+            </div>
+          `,
+        });
+        console.log(`Email sent successfully to ${cleanContact}`);
+      } catch (error) {
+        console.error(`Failed to send email to ${cleanContact}:`, error);
+        // Fallback to demo response if email fails so user isn't stuck during testing
+        return res.json({ success: true, message: "OTP generation successful but email delivery failed (Check logs)", testOtp: otp });
+      }
+    }
+
+    res.json({ success: true, message: "OTP sent successfully" });
   });
 
   app.post("/api/otp/verify", async (req, res) => {
