@@ -1,4 +1,5 @@
 import express from "express";
+import cors from "cors";
 import path from "path";
 import { createServer as createViteServer } from "vite";
 import { GoogleGenAI } from "@google/genai";
@@ -106,6 +107,7 @@ async function generateContentWithRetry(ai: any, params: { model: string; conten
 }
 
 const app = express();
+app.use(cors());
 const PORT = Number(process.env.PORT) || 3000;
 
 app.use(express.json());

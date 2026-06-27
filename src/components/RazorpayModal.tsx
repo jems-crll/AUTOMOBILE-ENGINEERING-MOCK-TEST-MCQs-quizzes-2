@@ -42,7 +42,7 @@ export default function RazorpayModal({
     setIsProcessing(true);
     setTxnError("");
     try {
-      const res = await fetch("/api/razorpay/create-order", {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/razorpay/create-order`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -68,7 +68,7 @@ export default function RazorpayModal({
         const mockPaymentId = "pay_sim_" + Math.random().toString(36).substring(2, 10);
         setIsProcessing(true);
         try {
-          await fetch("/api/razorpay/admin-verify", {
+          await fetch(`${import.meta.env.VITE_API_URL}/api/razorpay/admin-verify`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
@@ -135,7 +135,7 @@ export default function RazorpayModal({
           setIsProcessing(true);
           
           try {
-            const verifyRes = await fetch("/api/razorpay/verify-signature", {
+            const verifyRes = await fetch(`${import.meta.env.VITE_API_URL}/api/razorpay/verify-signature`, {
               method: "POST",
               headers: { "Content-Type": "application/json" },
               body: JSON.stringify({
@@ -319,7 +319,7 @@ export default function RazorpayModal({
                     setTxnError("");
                     try {
                       const mockPaymentId = "pay_sim_" + Math.random().toString(36).substring(2, 10);
-                      await fetch("/api/razorpay/admin-verify", {
+                      await fetch(`${import.meta.env.VITE_API_URL}/api/razorpay/admin-verify`, {
                         method: "POST",
                         headers: { "Content-Type": "application/json" },
                         body: JSON.stringify({

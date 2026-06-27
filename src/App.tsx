@@ -124,7 +124,7 @@ export default function App() {
     }
 
     // 2. Try to fetch from server to get the latest/global settings (fail-safe)
-    fetch("/api/subscription/config")
+    fetch(`${import.meta.env.VITE_API_URL}/api/subscription/config`)
       .then((res) => {
         if (!res.ok) throw new Error("Failed to fetch");
         return res.json();
@@ -231,7 +231,7 @@ export default function App() {
         "AI Translating questions..."
       );
 
-      fetch("/api/translate-questions", {
+      fetch(`${import.meta.env.VITE_API_URL}/api/translate-questions`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
