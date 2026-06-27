@@ -1,10 +1,9 @@
 import express from "express";
 import cors from "cors";
 import path from "path";
-import { createServer as createViteServer } from "vite";
 import { GoogleGenAI } from "@google/genai";
 import dotenv from "dotenv";
-import { QUESTIONS } from "./src/data/questions.js";
+import { QUESTIONS } from "./src/data/questions";
 import Razorpay from "razorpay";
 import crypto from "crypto";
 import { initializeApp, cert, getApps } from "firebase-admin/app";
@@ -820,15 +819,17 @@ Output JSON format:
 
   // Vite middleware for development (Skip in Vercel)
   if (process.env.NODE_ENV !== "production" && !process.env.VERCEL) {
-    createViteServer({
-      server: { middlewareMode: true },
-      appType: "spa",
-    }).then((vite) => {
-      app.use(vite.middlewares);
-      app.listen(PORT, "0.0.0.0", () => {
-        console.log(`Server running on http://localhost:${PORT}`);
+    import("vite").then(({ createServer: createViteServer }) => {
+      createViteServer({
+        server: { middlewareMode: true },
+        appType: "spa",
+      }).then((vite) => {
+        app.use(vite.middlewares);
+        app.listen(PORT, "0.0.0.0", () => {
+          console.log(`Server running on http://localhost:${PORT}`);
+        });
       });
-    });
+    }).catch(err => console.error("Failed to load vite", err));
   } else if (!process.env.VERCEL) {
     const distPath = path.join(process.cwd(), "dist");
     app.use(express.static(distPath));

@@ -1,4 +1,4 @@
-import { Question, Chapter } from "../types.js";
+import { Question, Chapter } from "../types";
 
 export const CHAPTERS: Chapter[] = [
   {
