@@ -34,22 +34,83 @@ try {
 }
 
 // Initialize Firebase Admin with credentials if provided, otherwise default (Cloud Run/ADC)
-if (getApps().length === 0) {
-  const serviceAccountVar = process.env.FIREBASE_SERVICE_ACCOUNT;
-  if (serviceAccountVar) {
+function getServiceAccount() {
+  const saVar = process.env.FIREBASE_SERVICE_ACCOUNT;
+  if (!saVar) {
+    console.warn("FIREBASE_SERVICE_ACCOUNT environment variable is not defined.");
+    return null;
+  }
+
+  let cleaned = saVar.trim();
+  console.log("Analyzing FIREBASE_SERVICE_ACCOUNT environment variable...");
+
+  // 1. Check if it's base64 encoded
+  if (!cleaned.startsWith('{') && !cleaned.startsWith('[')) {
     try {
-      const serviceAccount = JSON.parse(serviceAccountVar);
+      console.log("FIREBASE_SERVICE_ACCOUNT is not standard JSON format. Checking if it's base64 encoded...");
+      cleaned = Buffer.from(cleaned, 'base64').toString('utf8').trim();
+      console.log("Successfully base64 decoded the FIREBASE_SERVICE_ACCOUNT variable.");
+    } catch (base64Err: any) {
+      console.error("Base64 decoding failed, using original string. Error:", base64Err.message);
+    }
+  }
+
+  // 2. Parse as JSON
+  try {
+    const parsed = JSON.parse(cleaned);
+    console.log("Successfully parsed FIREBASE_SERVICE_ACCOUNT JSON object.");
+    if (parsed && typeof parsed.private_key === "string") {
+      // Fix private key formatting (Vercel env vars sometimes have literal \n or double-escaped newlines)
+      parsed.private_key = parsed.private_key.replace(/\\n/g, "\n");
+      console.log("Formatted private_key field with actual newline characters.");
+    }
+    return parsed;
+  } catch (jsonErr: any) {
+    console.error("Failed to parse FIREBASE_SERVICE_ACCOUNT JSON. Error:", jsonErr.message);
+    
+    // 3. Fallback: single-quote to double-quote regex translation
+    try {
+      let fallbackStr = cleaned
+        .replace(/'/g, '"')
+        .replace(/([{,]\s*)(\w+)(\s*:)/g, '$1"$2"$3');
+      const parsedFallback = JSON.parse(fallbackStr);
+      if (parsedFallback && typeof parsedFallback.private_key === "string") {
+        parsedFallback.private_key = parsedFallback.private_key.replace(/\\n/g, "\n");
+      }
+      console.log("Parsed FIREBASE_SERVICE_ACCOUNT successfully using fallback regex parser.");
+      return parsedFallback;
+    } catch (fallbackErr: any) {
+      console.error("Fallback parsing also failed:", fallbackErr.message);
+    }
+  }
+  return null;
+}
+
+if (getApps().length === 0) {
+  const serviceAccount = getServiceAccount();
+  if (serviceAccount) {
+    try {
+      console.log("Initializing Firebase Admin with parsed service account credentials...");
       initializeApp({
         credential: cert(serviceAccount)
       });
       console.log("Firebase Admin successfully initialized with service account from env.");
     } catch (e: any) {
-      console.error("Failed to parse FIREBASE_SERVICE_ACCOUNT environment variable:", e);
-      initializeApp();
+      console.error("Failed to initialize Firebase Admin with credentials. Error:", e.message || e);
+      try {
+        initializeApp();
+        console.log("Firebase Admin fallback initialized with default credentials.");
+      } catch (err2: any) {
+        console.error("Fallback initialization also failed. Error:", err2.message || err2);
+      }
     }
   } else {
-    initializeApp();
-    console.log("Firebase Admin initialized with default credentials.");
+    try {
+      initializeApp();
+      console.log("Firebase Admin initialized with default credentials.");
+    } catch (e: any) {
+      console.error("Failed to initialize Firebase Admin with default credentials. Error:", e.message || e);
+    }
   }
 }
 const db = getFirestore();
@@ -69,12 +130,13 @@ let isFirestoreAvailable = true;
 // Run quick probe to detect if Firestore API is disabled or permissions are missing
 async function probeFirestore() {
   try {
+    console.log("Probing Firestore connectivity...");
     await db.collection("config").doc("probe").get();
     isFirestoreAvailable = true;
     console.log("Firestore API probe succeeded. Firestore is active and usable.");
   } catch (err: any) {
     isFirestoreAvailable = false;
-    console.warn("Firestore API is disabled, permission denied, or unavailable in this environment. Falling back to robust in-memory storage globally:", err?.message || err);
+    console.warn("Firestore API is disabled, permission denied, or unavailable in this environment. Falling back to robust in-memory storage globally. Error details:", err?.message || err);
   }
 }
 probeFirestore();
@@ -854,36 +916,66 @@ Output JSON format:
 
   app.post("/api/users/sync", async (req, res) => {
     const { user } = req.body;
-    if (!user || !user.email) return res.status(400).json({ error: "Invalid user data" });
+    console.log("POST /api/users/sync - payload:", JSON.stringify(req.body));
+    if (!user || !user.email) {
+      console.error("POST /api/users/sync - Error: invalid user or missing email");
+      return res.status(400).json({ error: "Invalid user data" });
+    }
     const email = user.email.toLowerCase().trim();
     
     // Auto-set created date if not exists
     if (!user.createdAt) user.createdAt = new Date().toISOString();
     
-    if (isFirestoreAvailable) {
-      try {
-        await db.collection("users").doc(email).set(user, { merge: true });
-      } catch(e) {
-        console.warn("Failed to save user to firestore", e);
-      }
-    }
-    memoryUsers.set(email, { ...memoryUsers.get(email), ...user });
+    // Save locally first for in-memory resilience
+    const existing = memoryUsers.get(email) || {};
+    const updated = { ...existing, ...user };
+    memoryUsers.set(email, updated);
     onlineUsers.set(email, Date.now());
+    
+    if (db) {
+      try {
+        console.log(`Firestore Sync - Attempting to write user '${email}' to collection 'users'...`);
+        // Filter out undefined values to prevent Firestore serialization errors
+        const cleanedUser = JSON.parse(JSON.stringify(updated));
+        await db.collection("users").doc(email).set(cleanedUser, { merge: true });
+        console.log(`Firestore Sync - Successfully saved user '${email}' to collection 'users'.`);
+      } catch(e: any) {
+        console.error(`Firestore Sync - Error saving user '${email}':`, e.message || e);
+      }
+    } else {
+      console.warn("Firestore Sync - Skipping Firestore write because db is not initialized.");
+    }
+    
     res.json({ success: true });
   });
 
   app.get("/api/users", async (req, res) => {
+    console.log("GET /api/users - Fetching all users...");
     let usersList: any[] = [];
+    let success = false;
     
-    if (isFirestoreAvailable) {
+    if (db) {
       try {
+        console.log("Firestore Get - Fetching from collection 'users'...");
         const snapshot = await db.collection("users").get();
         snapshot.forEach(doc => usersList.push(doc.data()));
-      } catch(e) {
-        console.warn("Failed to get users from firestore", e);
-        usersList = Array.from(memoryUsers.values());
+        console.log(`Firestore Get - Successfully fetched ${usersList.length} users from Firestore.`);
+        success = true;
+        
+        // Sync our local in-memory cache with what we retrieved
+        usersList.forEach(u => {
+          if (u.email) {
+            const cleanEmail = u.email.toLowerCase().trim();
+            memoryUsers.set(cleanEmail, { ...memoryUsers.get(cleanEmail), ...u });
+          }
+        });
+      } catch(e: any) {
+        console.error("Firestore Get - Failed to fetch from Firestore 'users' collection:", e.message || e);
       }
-    } else {
+    }
+    
+    if (!success) {
+      console.log("Firestore Get - Falling back to local in-memory user cache...");
       usersList = Array.from(memoryUsers.values());
     }
     
@@ -900,33 +992,55 @@ Output JSON format:
       return dateB - dateA;
     });
 
+    console.log(`GET /api/users - Returning ${usersList.length} total users.`);
     res.json({ success: true, users: usersList });
   });
 
   app.post("/api/users/update", async (req, res) => {
     const { email, updates } = req.body;
-    if (!email) return res.status(400).json({ error: "Email required" });
+    console.log(`POST /api/users/update - email: '${email}', updates:`, JSON.stringify(updates));
+    if (!email) {
+      console.error("POST /api/users/update - Error: email is required.");
+      return res.status(400).json({ error: "Email required" });
+    }
     const cleanEmail = email.toLowerCase().trim();
     
-    if (isFirestoreAvailable) {
-      try {
-        await db.collection("users").doc(cleanEmail).set(updates, { merge: true });
-      } catch(e) {}
-    }
-    
     const existing = memoryUsers.get(cleanEmail) || { email: cleanEmail };
-    memoryUsers.set(cleanEmail, { ...existing, ...updates });
+    const updated = { ...existing, ...updates };
+    memoryUsers.set(cleanEmail, updated);
+    
+    if (db) {
+      try {
+        console.log(`Firestore Update - Modifying document 'users/${cleanEmail}'...`);
+        const cleanedUpdates = JSON.parse(JSON.stringify(updates));
+        await db.collection("users").doc(cleanEmail).set(cleanedUpdates, { merge: true });
+        console.log(`Firestore Update - Successfully updated document 'users/${cleanEmail}'.`);
+      } catch(e: any) {
+        console.error(`Firestore Update - Error modifying 'users/${cleanEmail}':`, e.message || e);
+      }
+    } else {
+      console.warn("Firestore Update - Skipping Firestore write because db is not initialized.");
+    }
     
     res.json({ success: true });
   });
 
   app.delete("/api/users/:email", async (req, res) => {
     const email = req.params.email.toLowerCase().trim();
-    if (isFirestoreAvailable) {
+    console.log(`DELETE /api/users/${email} - Attempting removal...`);
+    
+    if (db) {
       try {
+        console.log(`Firestore Delete - Removing document 'users/${email}'...`);
         await db.collection("users").doc(email).delete();
-      } catch (e) {}
+        console.log(`Firestore Delete - Successfully deleted document 'users/${email}'.`);
+      } catch (e: any) {
+        console.error(`Firestore Delete - Error removing 'users/${email}':`, e.message || e);
+      }
+    } else {
+      console.warn("Firestore Delete - Skipping Firestore delete because db is not initialized.");
     }
+    
     memoryUsers.delete(email);
     onlineUsers.delete(email);
     res.json({ success: true });
