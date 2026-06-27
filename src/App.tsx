@@ -51,6 +51,33 @@ export default function App() {
     loadDb();
   }, [currentUser]);
 
+  // Heartbeat & User Sync
+  useEffect(() => {
+    let interval: any;
+    if (currentUser) {
+      // Sync user data to server
+      fetch("/api/users/sync", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ user: currentUser })
+      }).catch(() => {});
+
+      // Heartbeat ping
+      const ping = () => {
+        fetch("/api/users/heartbeat", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email: currentUser.email })
+        }).catch(() => {});
+      };
+      
+      interval = setInterval(ping, 60000); // every minute
+    }
+    return () => {
+      if (interval) clearInterval(interval);
+    };
+  }, [currentUser]);
+
   const [activeTab, setActiveTab] = useState<"dashboard" | "analytics" | "admin">("dashboard");
   const [attempts, setAttempts] = useState<QuizAttempt[]>([]);
   

@@ -801,8 +801,6 @@ Output JSON format:
         console.log(`Email sent successfully to ${cleanContact}`);
       } catch (error) {
         console.error(`Failed to send email to ${cleanContact}:`, error);
-        // Fallback to demo response if email fails so user isn't stuck during testing
-        return res.json({ success: true, message: "OTP generation successful but email delivery failed (Check logs)", testOtp: otp });
       }
     }
 
@@ -841,6 +839,99 @@ Output JSON format:
     memoryOtps.delete(cleanContact);
     res.json({ success: true, message: "OTP verified successfully" });
   });
+
+  // --- Admin User Management Endpoints ---
+  const memoryUsers = new Map<string, any>();
+  const onlineUsers = new Map<string, number>();
+
+  app.post("/api/users/heartbeat", (req, res) => {
+    const { email } = req.body;
+    if (email) {
+      onlineUsers.set(email.toLowerCase().trim(), Date.now());
+    }
+    res.json({ success: true });
+  });
+
+  app.post("/api/users/sync", async (req, res) => {
+    const { user } = req.body;
+    if (!user || !user.email) return res.status(400).json({ error: "Invalid user data" });
+    const email = user.email.toLowerCase().trim();
+    
+    // Auto-set created date if not exists
+    if (!user.createdAt) user.createdAt = new Date().toISOString();
+    
+    if (isFirestoreAvailable) {
+      try {
+        await db.collection("users").doc(email).set(user, { merge: true });
+      } catch(e) {
+        console.warn("Failed to save user to firestore", e);
+      }
+    }
+    memoryUsers.set(email, { ...memoryUsers.get(email), ...user });
+    onlineUsers.set(email, Date.now());
+    res.json({ success: true });
+  });
+
+  app.get("/api/users", async (req, res) => {
+    let usersList: any[] = [];
+    
+    if (isFirestoreAvailable) {
+      try {
+        const snapshot = await db.collection("users").get();
+        snapshot.forEach(doc => usersList.push(doc.data()));
+      } catch(e) {
+        console.warn("Failed to get users from firestore", e);
+        usersList = Array.from(memoryUsers.values());
+      }
+    } else {
+      usersList = Array.from(memoryUsers.values());
+    }
+    
+    const now = Date.now();
+    usersList = usersList.map(u => ({
+      ...u,
+      isOnline: onlineUsers.has(u.email.toLowerCase().trim()) && (now - onlineUsers.get(u.email.toLowerCase().trim())! < 5 * 60 * 1000)
+    }));
+    
+    // Sort so newest are first (by createdAt or fallback)
+    usersList.sort((a, b) => {
+      const dateA = a.createdAt ? new Date(a.createdAt).getTime() : 0;
+      const dateB = b.createdAt ? new Date(b.createdAt).getTime() : 0;
+      return dateB - dateA;
+    });
+
+    res.json({ success: true, users: usersList });
+  });
+
+  app.post("/api/users/update", async (req, res) => {
+    const { email, updates } = req.body;
+    if (!email) return res.status(400).json({ error: "Email required" });
+    const cleanEmail = email.toLowerCase().trim();
+    
+    if (isFirestoreAvailable) {
+      try {
+        await db.collection("users").doc(cleanEmail).set(updates, { merge: true });
+      } catch(e) {}
+    }
+    
+    const existing = memoryUsers.get(cleanEmail) || { email: cleanEmail };
+    memoryUsers.set(cleanEmail, { ...existing, ...updates });
+    
+    res.json({ success: true });
+  });
+
+  app.delete("/api/users/:email", async (req, res) => {
+    const email = req.params.email.toLowerCase().trim();
+    if (isFirestoreAvailable) {
+      try {
+        await db.collection("users").doc(email).delete();
+      } catch (e) {}
+    }
+    memoryUsers.delete(email);
+    onlineUsers.delete(email);
+    res.json({ success: true });
+  });
+  // --------------------------------------
 
   // Serve static questions data from backend if needed
   app.get("/api/health", (req, res) => {

@@ -75,7 +75,7 @@ export default function Auth({ onLoginSuccess, selectedLanguage }: AuthProps) {
     localStorage.setItem("omto_users_db", JSON.stringify(db));
   };
 
-  const handleAuthSubmit = (e: React.FormEvent) => {
+  const handleAuthSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setErrorMessage("");
     setSuccessMessage("");
@@ -86,6 +86,25 @@ export default function Auth({ onLoginSuccess, selectedLanguage }: AuthProps) {
     }
 
     const emailKey = email.trim().toLowerCase();
+    
+    // Attempt to sync local DB with server DB for real-time blocks/premiums
+    try {
+      const res = await fetch("/api/users");
+      const data = await res.json();
+      if (data.success && data.users) {
+        const tempDb = getRegisteredUsers();
+        data.users.forEach((u: any) => {
+          tempDb[u.email.toLowerCase().trim()] = {
+            ...tempDb[u.email.toLowerCase().trim()],
+            ...u
+          };
+        });
+        saveUsersDb(tempDb);
+      }
+    } catch (e) {
+      console.warn("Could not sync users before auth", e);
+    }
+
     const db = getRegisteredUsers();
 
     if (authMode === "login") {

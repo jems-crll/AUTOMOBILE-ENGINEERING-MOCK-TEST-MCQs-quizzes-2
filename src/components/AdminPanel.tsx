@@ -18,6 +18,8 @@ interface StudentRecord {
   isBlocked?: boolean;
   paymentTxnId?: string;
   paymentDate?: string;
+  isOnline?: boolean;
+  createdAt?: string;
 }
 
 export default function AdminPanel({ 
@@ -64,9 +66,11 @@ export default function AdminPanel({
   const [formError, setFormError] = useState("");
   const [formSuccess, setFormSuccess] = useState("");
 
-  // Load students from omto_users_db on mount
+  // Load students from omto_users_db on mount and start polling
   useEffect(() => {
     loadStudents();
+    const interval = setInterval(loadStudents, 30000); // 30 sec polling
+    return () => clearInterval(interval);
   }, []);
 
   const handleSavePricing = async (e: React.FormEvent) => {
@@ -126,15 +130,32 @@ export default function AdminPanel({
     }
   };
 
-  const loadStudents = () => {
+  const loadStudents = async () => {
     try {
+      const res = await fetch("/api/users");
+      const data = await res.json();
+      if (data.success && data.users) {
+        const recordList = data.users.map((u: any) => ({
+          email: u.email,
+          username: u.username || u.email.split("@")[0],
+          isPremium: u.isPremium || false,
+          expiryDate: u.expiryDate || "2027-06-25",
+          isBlocked: u.isBlocked || false,
+          paymentTxnId: u.paymentTxnId,
+          paymentDate: u.paymentDate,
+          isOnline: u.isOnline,
+          createdAt: u.createdAt
+        }));
+        setStudents(recordList);
+      }
+    } catch (e) {
+      console.error("Failed to load students from server, falling back to local:", e);
       const dbStr = localStorage.getItem("omto_users_db");
       if (dbStr) {
         const db = JSON.parse(dbStr);
         const recordList = Object.keys(db).map((email) => ({
           email,
           username: db[email].username || email.split("@")[0],
-          password: db[email].password || "password123",
           isPremium: db[email].isPremium || false,
           expiryDate: db[email].expiryDate || "2027-06-25",
           isBlocked: db[email].isBlocked || false,
@@ -143,19 +164,17 @@ export default function AdminPanel({
         }));
         setStudents(recordList);
       }
-    } catch (e) {
-      console.error("Failed to load students:", e);
     }
   };
 
-  const saveToDb = (updatedList: StudentRecord[]) => {
+  const saveToDb = async (updatedList: StudentRecord[]) => {
+    // Only used for bulk local fallback now if needed.
     try {
       const db: Record<string, any> = {};
       updatedList.forEach((s) => {
         db[s.email.toLowerCase().trim()] = {
           email: s.email,
           username: s.username,
-          password: s.password || "password123",
           isPremium: s.isPremium,
           role: s.email.toLowerCase().includes("admin") ? "admin" : "student",
           subscriptionStatus: s.isPremium ? "active" : "inactive",
@@ -168,12 +187,12 @@ export default function AdminPanel({
       localStorage.setItem("omto_users_db", JSON.stringify(db));
       setStudents(updatedList);
     } catch (e) {
-      console.error("Failed to save to database:", e);
+      console.error("Failed to save to local database:", e);
     }
   };
 
   // 1. Add Student
-  const handleAddStudent = (e: React.FormEvent) => {
+  const handleAddStudent = async (e: React.FormEvent) => {
     e.preventDefault();
     setFormError("");
     setFormSuccess("");
@@ -192,11 +211,19 @@ export default function AdminPanel({
     const newRecord: StudentRecord = {
       email: newEmail,
       username: newUsername,
-      password: "password123",
       isPremium: newIsPremium,
       expiryDate: newExpiryDate,
       isBlocked: false,
     };
+
+    // Save to Server
+    try {
+      await fetch("/api/users/sync", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ user: newRecord })
+      });
+    } catch (e) {}
 
     const updated = [newRecord, ...students];
     saveToDb(updated);
@@ -212,39 +239,53 @@ export default function AdminPanel({
   };
 
   // 2. Toggle Premium Subscription
-  const handleToggleSubscription = (email: string) => {
-    const updated = students.map((s) => {
-      if (s.email === email) {
-        const nextPremium = !s.isPremium;
-        return {
-          ...s,
-          isPremium: nextPremium,
-          // Set expiry to 1 year if enabling
-          expiryDate: nextPremium ? new Date(Date.now() + 365 * 24 * 60 * 60 * 1000).toISOString().split("T")[0] : s.expiryDate,
-        };
-      }
-      return s;
-    });
+  const handleToggleSubscription = async (email: string) => {
+    const student = students.find((s) => s.email === email);
+    if (!student) return;
+    
+    const nextPremium = !student.isPremium;
+    const expiryDate = nextPremium ? new Date(Date.now() + 365 * 24 * 60 * 60 * 1000).toISOString().split("T")[0] : student.expiryDate;
+    
+    try {
+      await fetch("/api/users/update", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, updates: { isPremium: nextPremium, expiryDate } })
+      });
+    } catch (e) {}
+    
+    const updated = students.map((s) => s.email === email ? { ...s, isPremium: nextPremium, expiryDate } : s);
     saveToDb(updated);
   };
 
   // 3. Toggle Block User
-  const handleToggleBlock = (email: string) => {
-    const updated = students.map((s) => {
-      if (s.email === email) {
-        return { ...s, isBlocked: !s.isBlocked };
-      }
-      return s;
-    });
+  const handleToggleBlock = async (email: string) => {
+    const student = students.find((s) => s.email === email);
+    if (!student) return;
+    
+    const isBlocked = !student.isBlocked;
+    
+    try {
+      await fetch("/api/users/update", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, updates: { isBlocked } })
+      });
+    } catch (e) {}
+    
+    const updated = students.map((s) => s.email === email ? { ...s, isBlocked } : s);
     saveToDb(updated);
-
-    // If current logged-in user blocks themselves, or we want immediate local enforcement, we can check.
-    // The next time the blocked user tries to login, they will be rejected.
   };
 
   // 4. Delete Student Record
-  const handleDeleteStudent = (email: string) => {
+  const handleDeleteStudent = async (email: string) => {
     if (confirm(isMarathi ? `तुम्हाला खात्री आहे की तुम्ही ${email} ला काढून टाकू इच्छिता?` : `Are you sure you want to remove ${email}?`)) {
+      try {
+        await fetch(`/api/users/${encodeURIComponent(email)}`, {
+          method: "DELETE"
+        });
+      } catch (e) {}
+      
       const updated = students.filter((s) => s.email !== email);
       saveToDb(updated);
     }
@@ -370,6 +411,14 @@ export default function AdminPanel({
                           <span className={`font-black text-sm text-white truncate max-w-[180px]`}>
                             {student.username}
                           </span>
+
+                          {/* Online Indicator */}
+                          {student.isOnline && (
+                            <span className="flex items-center gap-1 text-[9px] font-bold text-green-400 bg-green-500/10 px-1.5 py-0.5 rounded border border-green-500/25">
+                              <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></span>
+                              ONLINE
+                            </span>
+                          )}
                           
                           {/* Expiry / Sub Badge */}
                           {student.isBlocked ? (
