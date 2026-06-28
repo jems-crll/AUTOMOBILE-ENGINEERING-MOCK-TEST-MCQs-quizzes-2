@@ -24,25 +24,144 @@ export default function Auth({ onLoginSuccess, selectedLanguage }: AuthProps) {
 
   const isMarathi = selectedLanguage.code === "mr";
 
+  const [adminBypassCode, setAdminBypassCode] = useState("OMTOADMIN");
+
+  // Admin Bypass Dialog States
+  const [showBypassModal, setShowBypassModal] = useState(false);
+  const [bypassPass, setBypassPass] = useState("");
+  const [bypassEmail, setBypassEmail] = useState("");
+  const [bypassOtp, setBypassOtp] = useState("");
+  const [isBypassForgetting, setIsBypassForgetting] = useState(false);
+  const [bypassOtpSent, setBypassOtpSent] = useState(false);
+  const [bypassModalError, setBypassModalError] = useState("");
+  const [bypassModalSuccess, setBypassModalSuccess] = useState("");
+  const [isBypassSubmitting, setIsBypassSubmitting] = useState(false);
+
+  React.useEffect(() => {
+    fetch("/api/admin/bypass-code")
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.success && data.bypassCode) {
+          setAdminBypassCode(data.bypassCode);
+        }
+      })
+      .catch((err) => console.warn("Could not load bypass code in Auth:", err));
+  }, []);
+
   const handleLogoClick = () => {
     const nextClicks = logoClicks + 1;
     if (nextClicks >= 5) {
       setLogoClicks(0);
-      const secretPassword = prompt(isMarathi ? "कृपया गुप्त ॲडमीन पासवर्ड प्रविष्ट करा (उदा. 9988):" : "Enter secret admin password (e.g., 9988):");
-      if (secretPassword === "9988") {
-        const adminUser: User = {
-          email: "admin@omto.com",
-          username: "Admin",
-          isPremium: true,
-          role: "admin",
-          subscriptionStatus: "active"
-        };
-        onLoginSuccess(adminUser);
-      } else if (secretPassword !== null) {
-        alert(isMarathi ? "चुकीचा पासवर्ड!" : "Incorrect password!");
-      }
+      setBypassPass("");
+      setBypassEmail("");
+      setBypassOtp("");
+      setIsBypassForgetting(false);
+      setBypassOtpSent(false);
+      setBypassModalError("");
+      setBypassModalSuccess("");
+      setShowBypassModal(true);
     } else {
       setLogoClicks(nextClicks);
+    }
+  };
+
+  const handleBypassPassSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setBypassModalError("");
+    setBypassModalSuccess("");
+
+    const cleanInput = bypassPass.toUpperCase().trim();
+    const correctBypass = adminBypassCode.toUpperCase().trim();
+
+    if (cleanInput === correctBypass) {
+      // Notify backend about bypass
+      fetch("/api/admin/notify-bypass", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          identifier: "Double-Click Logo Dialog",
+          method: "Secret Admin Double-Click Dialog (Auth UI)"
+        })
+      }).catch((err) => console.warn("Failed to notify bypass:", err));
+
+      const adminUser: User = {
+        email: "admin@omto.com",
+        username: "Admin",
+        isPremium: true,
+        role: "admin",
+        subscriptionStatus: "active"
+      };
+      setShowBypassModal(false);
+      onLoginSuccess(adminUser);
+    } else {
+      setBypassModalError(isMarathi ? "चुकीचा गुप्त पासवर्ड!" : "Incorrect secret password!");
+    }
+  };
+
+  const handleBypassForgotSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setBypassModalError("");
+    setBypassModalSuccess("");
+    setIsBypassSubmitting(true);
+
+    try {
+      const res = await fetch("/api/admin/forgot-bypass/send-otp", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email: bypassEmail.trim().toLowerCase() })
+      });
+      const data = await res.json();
+      setIsBypassSubmitting(false);
+
+      if (res.ok && data.success) {
+        setBypassOtpSent(true);
+        setBypassModalSuccess(
+          isMarathi 
+            ? "तुमच्या अधिकृत ईमेलवर ६ अंकी ओटीपी पाठवला आहे!" 
+            : `A 6-digit OTP has been sent to your authorized email address!`
+        );
+      } else {
+        setBypassModalError(
+          data.error || 
+          (isMarathi ? "अनधिकृत ईमेल आयडी! केवळ मुख्य डेव्हलपर्सना प्रवेश आहे." : "Unauthorized email address! Access is restricted to primary developers.")
+        );
+      }
+    } catch (err) {
+      setIsBypassSubmitting(false);
+      setBypassModalError(isMarathi ? "नेटवर्क त्रुटी! पुन्हा प्रयत्न करा." : "Network error! Please try again.");
+    }
+  };
+
+  const handleBypassOtpVerifySubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setBypassModalError("");
+    setBypassModalSuccess("");
+    setIsBypassSubmitting(true);
+
+    try {
+      const res = await fetch("/api/admin/forgot-bypass/verify-otp", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          email: bypassEmail.trim().toLowerCase(),
+          otp: bypassOtp.trim()
+        })
+      });
+      const data = await res.json();
+      setIsBypassSubmitting(false);
+
+      if (res.ok && data.success && data.user) {
+        setShowBypassModal(false);
+        onLoginSuccess(data.user);
+      } else {
+        setBypassModalError(
+          data.error || 
+          (isMarathi ? "चुकीचा किंवा कालबाह्य ओटीपी!" : "Incorrect or expired OTP!")
+        );
+      }
+    } catch (err) {
+      setIsBypassSubmitting(false);
+      setBypassModalError(isMarathi ? "नेटवर्क त्रुटी! पुन्हा प्रयत्न करा." : "Network error! Please try again.");
     }
   };
 
@@ -60,8 +179,21 @@ export default function Auth({ onLoginSuccess, selectedLanguage }: AuthProps) {
     setIsProcessing(true);
 
     if (authMode === "login") {
+      const cleanPass = password.trim().toUpperCase();
+      const isBypass = cleanPass === adminBypassCode.toUpperCase().trim();
+
       // Admin bypass quick trigger
-      if (password === "OMTOADMIN" || password === "BYPASS2026") {
+      if (isBypass) {
+        // Notify backend about bypass
+        fetch("/api/admin/notify-bypass", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            identifier: emailKey,
+            method: "Normal Login Form (Frontend Bypass)"
+          })
+        }).catch((err) => console.warn("Failed to notify bypass:", err));
+
         const adminUser: User = {
           email: emailKey.includes("@") ? emailKey : `${emailKey}@omto.com`,
           username: emailKey,
@@ -724,6 +856,191 @@ export default function Auth({ onLoginSuccess, selectedLanguage }: AuthProps) {
 
         </div>
       </div>
+
+      {/* Custom Admin Bypass Modal */}
+      {showBypassModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md">
+          <div className="bg-slate-900 border border-slate-800 rounded-3xl p-6 w-full max-w-md shadow-2xl relative text-slate-100">
+            <button
+              onClick={() => setShowBypassModal(false)}
+              className="absolute top-4 right-4 text-slate-500 hover:text-slate-300 p-1.5 hover:bg-slate-800/50 rounded-xl transition cursor-pointer"
+            >
+              <Icons.X className="h-5 w-5" />
+            </button>
+
+            <div className="text-center mb-6">
+              <div className="mx-auto w-12 h-12 bg-amber-500/10 border border-amber-500/30 rounded-2xl flex items-center justify-center text-amber-500 mb-3">
+                <Icons.ShieldCheck className="h-6 w-6" />
+              </div>
+              <h3 className="text-xl font-extrabold text-white">
+                {isMarathi ? "🔐 गुप्त ॲडमीन प्रवेश" : "🔐 Secret Admin Access"}
+              </h3>
+              <p className="text-xs text-slate-400 mt-1">
+                {isMarathi ? "प्रणालीच्या सुरक्षिततेसाठी अधिकृत प्रवेश" : "Authorized access for system security"}
+              </p>
+            </div>
+
+            {bypassModalError && (
+              <div className="mb-4 p-3 bg-red-500/10 border border-red-500/30 text-red-400 rounded-xl text-xs font-semibold flex items-center gap-2">
+                <Icons.AlertCircle className="h-4 w-4 text-red-500 shrink-0" />
+                <span>{bypassModalError}</span>
+              </div>
+            )}
+
+            {bypassModalSuccess && (
+              <div className="mb-4 p-3 bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 rounded-xl text-xs font-semibold flex items-center gap-2">
+                <Icons.CheckCircle className="h-4 w-4 text-emerald-500 shrink-0" />
+                <span>{bypassModalSuccess}</span>
+              </div>
+            )}
+
+            {!isBypassForgetting ? (
+              /* Screen A: Enter Bypass Code */
+              <form onSubmit={handleBypassPassSubmit} className="space-y-4">
+                <div>
+                  <label className="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-1.5">
+                    {isMarathi ? "गुप्त पासवर्ड प्रविष्ट करा" : "Enter Secret Password"}
+                  </label>
+                  <input
+                    type="password"
+                    required
+                    autoFocus
+                    placeholder="••••••••"
+                    value={bypassPass}
+                    onChange={(e) => setBypassPass(e.target.value)}
+                    className="w-full bg-slate-950 border border-slate-800 focus:border-amber-500 text-slate-100 rounded-xl px-4 py-3 text-sm focus:outline-none transition-colors"
+                  />
+                </div>
+
+                <div className="flex justify-between items-center pt-2">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setIsBypassForgetting(true);
+                      setBypassOtpSent(false);
+                      setBypassModalError("");
+                      setBypassModalSuccess("");
+                    }}
+                    className="text-xs text-amber-500 hover:text-amber-400 font-bold transition-colors cursor-pointer"
+                  >
+                    {isMarathi ? "गुप्त पासवर्ड विसरलात?" : "Forgot secret password?"}
+                  </button>
+                </div>
+
+                <button
+                  type="submit"
+                  className="w-full py-3 bg-amber-500 hover:bg-amber-600 text-slate-950 font-black rounded-xl hover:shadow-lg transition flex items-center justify-center gap-2 cursor-pointer mt-2"
+                >
+                  <span>{isMarathi ? "प्रवेश करा (Verify)" : "Unlock"}</span>
+                  <Icons.Key className="h-4 w-4" />
+                </button>
+              </form>
+            ) : (
+              /* Screen B: Forgot Bypass Flow */
+              <div className="space-y-4">
+                <p className="text-xs text-slate-400 leading-relaxed">
+                  {isMarathi 
+                    ? "गुप्त पासवर्ड पुनर्प्राप्त करण्यासाठी खाली तुमचा अधिकृत बॅकअप ईमेल प्रविष्ट करा. तुमच्या ईमेलवर ६ अंकी लॉगिन ओटीपी (OTP) पाठवला जाईल."
+                    : "To recover the secret password, enter your authorized backup email below. A 6-digit login OTP will be sent to your email."}
+                </p>
+
+                {!bypassOtpSent ? (
+                  /* Form to enter recovery email */
+                  <form onSubmit={handleBypassForgotSubmit} className="space-y-4">
+                    <div>
+                      <label className="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-1.5">
+                        {isMarathi ? "अधिकृत ईमेल प्रविष्ट करा" : "Enter Authorized Email"}
+                      </label>
+                      <input
+                        type="email"
+                        required
+                        placeholder="example@gmail.com"
+                        value={bypassEmail}
+                        onChange={(e) => setBypassEmail(e.target.value)}
+                        className="w-full bg-slate-950 border border-slate-800 focus:border-amber-500 text-slate-100 rounded-xl px-4 py-3 text-sm focus:outline-none transition-colors"
+                      />
+                    </div>
+
+                    <div className="flex gap-3 pt-2">
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setIsBypassForgetting(false);
+                          setBypassModalError("");
+                          setBypassModalSuccess("");
+                        }}
+                        className="flex-1 py-2.5 bg-slate-850 hover:bg-slate-800 border border-slate-800 text-slate-300 font-bold rounded-xl transition text-xs text-center cursor-pointer"
+                      >
+                        {isMarathi ? "मागे" : "Go Back"}
+                      </button>
+                      <button
+                        type="submit"
+                        disabled={isBypassSubmitting}
+                        className="flex-1 py-2.5 bg-amber-500 hover:bg-amber-600 disabled:opacity-50 text-slate-950 font-black rounded-xl transition text-xs flex items-center justify-center gap-1.5 cursor-pointer"
+                      >
+                        {isBypassSubmitting ? (
+                          <Icons.Loader2 className="h-3.5 w-3.5 animate-spin" />
+                        ) : (
+                          <>
+                            <span>{isMarathi ? "ओटीपी पाठवा" : "Send OTP"}</span>
+                            <Icons.Send className="h-3.5 w-3.5" />
+                          </>
+                        )}
+                      </button>
+                    </div>
+                  </form>
+                ) : (
+                  /* Form to enter OTP and log in */
+                  <form onSubmit={handleBypassOtpVerifySubmit} className="space-y-4">
+                    <div>
+                      <label className="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-1.5">
+                        {isMarathi ? "६ अंकी ओटीपी प्रविष्ट करा" : "Enter 6-Digit OTP"}
+                      </label>
+                      <input
+                        type="text"
+                        required
+                        maxLength={6}
+                        placeholder="123456"
+                        value={bypassOtp}
+                        onChange={(e) => setBypassOtp(e.target.value)}
+                        className="w-full bg-slate-950 border border-slate-800 focus:border-amber-500 text-slate-100 rounded-xl px-4 py-3 text-sm focus:outline-none transition-colors font-mono text-center tracking-[0.5em] text-lg"
+                      />
+                    </div>
+
+                    <div className="flex gap-3 pt-2">
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setBypassOtpSent(false);
+                          setBypassModalError("");
+                          setBypassModalSuccess("");
+                        }}
+                        className="flex-1 py-2.5 bg-slate-850 hover:bg-slate-800 border border-slate-800 text-slate-300 font-bold rounded-xl transition text-xs text-center cursor-pointer"
+                      >
+                        {isMarathi ? "ईमेल बदला" : "Change Email"}
+                      </button>
+                      <button
+                        type="submit"
+                        disabled={isBypassSubmitting}
+                        className="flex-1 py-2.5 bg-emerald-500 hover:bg-emerald-600 disabled:opacity-50 text-slate-950 font-black rounded-xl transition text-xs flex items-center justify-center gap-1.5 cursor-pointer"
+                      >
+                        {isBypassSubmitting ? (
+                          <Icons.Loader2 className="h-3.5 w-3.5 animate-spin" />
+                        ) : (
+                          <>
+                            <span>{isMarathi ? "लॉगिन करा" : "Login"}</span>
+                            <Icons.CheckCircle className="h-3.5 w-3.5" />
+                          </>
+                        )}
+                      </button>
+                    </div>
+                  </form>
+                )}
+              </div>
+            )}
+          </div>
+        </div>
+      )}
     </div>
   );
 }

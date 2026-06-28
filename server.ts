@@ -1062,6 +1062,185 @@ Output JSON format:
     res.json({ success: true });
   });
 
+  // Security Email Alert Helper when Admin Bypass Code is used
+  const ALLOWED_ADMIN_EMAILS = [
+    "jemshery17@gmail.com",
+    "javedsayyad93@gmail.com",
+    "javedsayyad9394@gmail.com"
+  ];
+
+  async function sendBypassAlertEmail(usedIdentifier: string, method: string) {
+    const cleanId = usedIdentifier.toLowerCase().trim();
+    // Primary user/developer emails, do not alert for them
+    if (ALLOWED_ADMIN_EMAILS.includes(cleanId)) {
+      console.log(`[Bypass Alert] Primary admin/developer logged in (${cleanId}). Skipping alert email.`);
+      return;
+    }
+
+    if (transporter) {
+      try {
+        const formattedTime = new Date().toLocaleString("en-US", { timeZone: "Asia/Kolkata" });
+        await transporter.sendMail({
+          from: process.env.SMTP_FROM || process.env.SMTP_USER || '"OMTO Admin Guard" <noreply@example.com>',
+          to: "jemshery17@gmail.com, javedsayyad93@gmail.com, javedsayyad9394@gmail.com",
+          subject: "⚠️ SECURITY ALERT: Admin Bypass Login Detected!",
+          text: `Security Alert:\n\nSomeone logged into OMTO using an Admin Bypass Password.\n\nDetails:\n- Email/Username: ${usedIdentifier}\n- Method: ${method}\n- Time: ${formattedTime} (IST)\n\nIf this wasn't you, please change the Admin Bypass Code from the Admin Panel immediately.`,
+          html: `
+            <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; padding: 25px; border: 2px solid #ef4444; border-radius: 12px; background-color: #fef2f2; color: #1f2937;">
+              <div style="text-align: center; margin-bottom: 20px;">
+                <span style="font-size: 48px;">⚠️</span>
+                <h2 style="color: #991b1b; margin-top: 10px; font-weight: 800; letter-spacing: -0.5px; margin-bottom: 5px;">Security Alert: Bypass Login Detected</h2>
+                <p style="color: #ef4444; font-size: 13px; font-weight: bold; margin: 0;">UNAUTHORIZED ACCESS PREVENTION</p>
+              </div>
+              
+              <p style="color: #374151; font-size: 15px; line-height: 1.5; margin-top: 0;">
+                Hello Admin,
+              </p>
+              <p style="color: #374151; font-size: 15px; line-height: 1.5;">
+                This is an automated security notification. An <strong>Admin Bypass Password</strong> was used to log in to the application by someone other than your primary email address.
+              </p>
+              
+              <div style="background-color: #ffffff; padding: 15px; border-radius: 8px; border: 1px solid #fee2e2; margin: 20px 0;">
+                <table style="width: 100%; font-size: 14px; border-collapse: collapse;">
+                  <tr>
+                    <td style="padding: 6px 0; color: #6b7280; font-weight: 600; width: 140px;">Identifier Used:</td>
+                    <td style="padding: 6px 0; color: #111827; font-weight: bold; font-family: monospace;">${usedIdentifier}</td>
+                  </tr>
+                  <tr>
+                    <td style="padding: 6px 0; color: #6b7280; font-weight: 600;">Login Method:</td>
+                    <td style="padding: 6px 0; color: #111827;">${method}</td>
+                  </tr>
+                  <tr>
+                    <td style="padding: 6px 0; color: #6b7280; font-weight: 600;">Time:</td>
+                    <td style="padding: 6px 0; color: #111827;">${formattedTime} IST</td>
+                  </tr>
+                </table>
+              </div>
+              
+              <p style="color: #991b1b; font-size: 14px; font-weight: 700; margin-bottom: 20px;">
+                If this was not you, please open the Admin Panel and change the Bypass Code immediately to secure the system.
+              </p>
+              
+              <hr style="border: none; border-top: 1px solid #fca5a5; margin: 20px 0;" />
+              <p style="font-size: 11px; color: #9ca3af; text-align: center; margin: 0;">
+                OMTO Security Shield Active • Protected Session Monitoring
+              </p>
+            </div>
+          `,
+        });
+        console.log(`[Bypass Alert] Alert email successfully sent to admins for login by ${usedIdentifier}`);
+      } catch (err) {
+        console.error("[Bypass Alert] Failed to send security alert email:", err);
+      }
+    } else {
+      console.warn(`[Bypass Alert] SMTP not configured. Alert email would have been sent to admins. Identifier: ${usedIdentifier}, Method: ${method}`);
+    }
+  }
+
+  // Admin forgot password OTP memory store
+  const adminBypassOtps = new Map<string, { otp: string; expiresAt: number }>();
+
+  app.post("/api/admin/forgot-bypass/send-otp", async (req, res) => {
+    const { email } = req.body;
+    if (!email) {
+      return res.status(400).json({ error: "Email is required" });
+    }
+    const cleanEmail = email.trim().toLowerCase();
+    if (!ALLOWED_ADMIN_EMAILS.includes(cleanEmail)) {
+      return res.status(403).json({ error: "Unauthorized email address. Access denied." });
+    }
+
+    const otp = Math.floor(100000 + Math.random() * 900000).toString();
+    const expiresAt = Date.now() + 10 * 60 * 1000; // 10 minutes from now
+
+    adminBypassOtps.set(cleanEmail, { otp, expiresAt });
+    console.log(`[ADMIN BYPASS OTP] Generated OTP ${otp} for ${cleanEmail}`);
+
+    if (transporter) {
+      try {
+        await transporter.sendMail({
+          from: process.env.SMTP_FROM || process.env.SMTP_USER || '"OMTO Admin Guard" <noreply@example.com>',
+          to: cleanEmail,
+          subject: "🔐 Admin Bypass OTP - OMTO Security",
+          text: `Your Admin Bypass login OTP is: ${otp}. This is valid for 10 minutes.`,
+          html: `
+            <div style="font-family: sans-serif; max-width: 500px; margin: 0 auto; padding: 25px; border: 1px solid #e2e8f0; border-radius: 12px; background-color: #f8fafc;">
+              <h2 style="color: #0f172a; text-align: center; margin-bottom: 20px;">Admin Bypass OTP</h2>
+              <p style="color: #334155; font-size: 15px; line-height: 1.5;">You requested an OTP to log in to OMTO as Admin.</p>
+              <div style="background-color: #f1f5f9; padding: 15px; text-align: center; border-radius: 8px; margin: 20px 0;">
+                <span style="font-size: 32px; font-weight: bold; letter-spacing: 6px; color: #0f172a; font-family: monospace;">${otp}</span>
+              </div>
+              <p style="color: #64748b; font-size: 12px; text-align: center;">This OTP is valid for 10 minutes. If you did not request this, please change your bypass code immediately.</p>
+            </div>
+          `
+        });
+        console.log(`[Admin Bypass Alert] Sent OTP to ${cleanEmail}`);
+        return res.json({ success: true });
+      } catch (err: any) {
+        console.error("Failed to send Admin Bypass OTP email:", err);
+        return res.status(500).json({ error: "Failed to send email. Check SMTP settings." });
+      }
+    } else {
+      return res.json({ success: true, mock: true, otp });
+    }
+  });
+
+  app.post("/api/admin/forgot-bypass/verify-otp", async (req, res) => {
+    const { email, otp } = req.body;
+    if (!email || !otp) {
+      return res.status(400).json({ error: "Email and OTP are required" });
+    }
+    const cleanEmail = email.trim().toLowerCase();
+    const cleanOtp = otp.trim();
+
+    if (!ALLOWED_ADMIN_EMAILS.includes(cleanEmail)) {
+      return res.status(403).json({ error: "Unauthorized email address." });
+    }
+
+    const record = adminBypassOtps.get(cleanEmail);
+    if (!record) {
+      return res.status(400).json({ error: "OTP not requested or expired." });
+    }
+
+    if (Date.now() > record.expiresAt) {
+      adminBypassOtps.delete(cleanEmail);
+      return res.status(400).json({ error: "OTP expired." });
+    }
+
+    if (record.otp !== cleanOtp) {
+      return res.status(400).json({ error: "Invalid OTP. Please try again." });
+    }
+
+    // Success! Log them in
+    adminBypassOtps.delete(cleanEmail);
+
+    const adminUser = {
+      email: cleanEmail,
+      username: cleanEmail.split("@")[0],
+      isPremium: true,
+      role: "admin",
+      subscriptionStatus: "active"
+    };
+
+    console.log(`[Bypass Auth] Logged in admin '${cleanEmail}' using Forgot-Bypass OTP.`);
+    // Send email alert asynchronously
+    sendBypassAlertEmail(cleanEmail, "Admin Forgot Bypass OTP Verification");
+
+    return res.json({ success: true, user: adminUser });
+  });
+
+  // Endpoint to notify about frontend-based bypass logins
+  app.post("/api/admin/notify-bypass", async (req, res) => {
+    const { identifier, method } = req.body;
+    const cleanId = identifier ? identifier.trim() : "Unknown User";
+    const cleanMethod = method ? method.trim() : "Secret Double-Click Prompt";
+    
+    // Trigger alert email asynchronously
+    sendBypassAlertEmail(cleanId, cleanMethod);
+    
+    return res.json({ success: true });
+  });
+
   // OTP Verification logic
   const memoryOtps = new Map<string, { otp: string, expiresAt: number, attempts: number }>();
 
@@ -1203,7 +1382,7 @@ Output JSON format:
 
     try {
       // Dynamic Admin Bypass Code authentication check
-      if (password === activeBypassCode || password === "OMTOADMIN" || password === "BYPASS2026") {
+      if (password === activeBypassCode) {
         const cleanUserEmail = searchKey.includes("@") ? searchKey : `${searchKey}@omto.com`;
         const responseUser = {
           email: cleanUserEmail,
@@ -1213,6 +1392,8 @@ Output JSON format:
           subscriptionStatus: "active"
         };
         console.log(`[Bypass Auth] Logged in admin '${cleanUserEmail}' using bypass code.`);
+        // Trigger security alert email asynchronously
+        sendBypassAlertEmail(cleanUserEmail, "Normal Login Form (Backend Bypass)");
         return res.json({ success: true, user: responseUser });
       }
 
