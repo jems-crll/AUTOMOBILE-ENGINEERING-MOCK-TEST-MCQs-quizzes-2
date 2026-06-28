@@ -173,7 +173,7 @@ export default function AdminPanel({
     }
 
     const emailKey = newEmail.toLowerCase().trim();
-    if (students.some((s) => s.email.toLowerCase() === emailKey)) {
+    if (students.some((s) => s && s.email && s.email.toLowerCase() === emailKey)) {
       setFormError(isMarathi ? "या ईमेलचा विद्यार्थी आधीपासूनच अस्तित्वात आहे!" : "A student with this email already exists!");
       return;
     }
@@ -262,10 +262,13 @@ export default function AdminPanel({
 
   // Filter students based on search query
   const filteredStudents = students.filter((s) => {
+    if (!s) return false;
     const q = searchQuery.toLowerCase();
+    const username = s.username || (s.email ? s.email.split("@")[0] : "") || "";
+    const email = s.email || "";
     return (
-      s.username.toLowerCase().includes(q) ||
-      s.email.toLowerCase().includes(q)
+      username.toLowerCase().includes(q) ||
+      email.toLowerCase().includes(q)
     );
   });
 
@@ -378,7 +381,7 @@ export default function AdminPanel({
                       <div className="space-y-1 min-w-0 flex-1">
                         <div className="flex items-center gap-2 flex-wrap">
                           <span className={`font-black text-sm text-white truncate max-w-[180px]`}>
-                            {student.username}
+                            {student.username || (student.email ? student.email.split("@")[0] : "Student")}
                           </span>
 
                           {/* Online Indicator */}
