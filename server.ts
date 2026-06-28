@@ -1075,10 +1075,14 @@ Output JSON format:
     }
     
     const now = Date.now();
-    usersList = usersList.map(u => ({
-      ...u,
-      isOnline: onlineUsers.has(u.email.toLowerCase().trim()) && (now - onlineUsers.get(u.email.toLowerCase().trim())! < 5 * 60 * 1000)
-    }));
+    usersList = usersList.map(u => {
+      const email = typeof u.email === "string" ? u.email.toLowerCase().trim() : "";
+      const isOnline = email ? (onlineUsers.has(email) && (now - onlineUsers.get(email)! < 5 * 60 * 1000)) : false;
+      return {
+        ...u,
+        isOnline
+      };
+    });
     
     // Sort so newest are first
     usersList.sort((a, b) => {
