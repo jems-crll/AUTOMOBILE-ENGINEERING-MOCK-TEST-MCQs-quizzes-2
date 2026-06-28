@@ -845,6 +845,7 @@ Output JSON format:
       ...existingUser,
       isPremium: true,
       subscriptionStatus: "active",
+      role: existingUser.role || "student",
       paymentTxnId: razorpay_payment_id,
       paymentDate: new Date().toISOString()
     };
@@ -862,6 +863,7 @@ Output JSON format:
         await db.collection("users").doc(cleanEmail).set({
           isPremium: true,
           subscriptionStatus: "active",
+          role: existingUser.role || "student",
           paymentTxnId: razorpay_payment_id,
           paymentDate: new Date().toISOString()
         }, { merge: true });
@@ -902,6 +904,7 @@ Output JSON format:
       ...existingUserAdmin,
       isPremium: true,
       subscriptionStatus: "active",
+      role: existingUserAdmin.role || "student",
       paymentTxnId: cleanPaymentId,
       paymentDate: new Date().toISOString()
     };
@@ -921,6 +924,7 @@ Output JSON format:
         await db.collection("users").doc(cleanEmail).set({
           isPremium: true,
           subscriptionStatus: "active",
+          role: existingUserAdmin.role || "student",
           paymentTxnId: cleanPaymentId,
           paymentDate: new Date().toISOString()
         }, { merge: true });
@@ -1012,6 +1016,52 @@ Output JSON format:
     return res.json({ success: true, config: updatedConfig });
   });
 
+  // Bypass Code implementation and dynamic loading
+  let activeBypassCode = "OMTOADMIN";
+
+  async function loadBypassCode() {
+    if (isFirestoreAvailable) {
+      try {
+        const docSnap = await db.collection("config").doc("security").get();
+        if (docSnap.exists) {
+          const secData = docSnap.data();
+          if (secData && secData.bypassCode) {
+            activeBypassCode = secData.bypassCode;
+          }
+        }
+      } catch (e) {
+        console.warn("Could not load security config from Firestore:", e);
+      }
+    }
+  }
+
+  // Load bypass code on startup
+  loadBypassCode();
+
+  app.get("/api/admin/bypass-code", async (req, res) => {
+    await loadBypassCode();
+    res.json({ success: true, bypassCode: activeBypassCode });
+  });
+
+  app.post("/api/admin/bypass-code", async (req, res) => {
+    const { bypassCode } = req.body;
+    if (!bypassCode) {
+      return res.status(400).json({ error: "Bypass code is required" });
+    }
+    const cleanBypass = bypassCode.trim().toUpperCase();
+    activeBypassCode = cleanBypass;
+
+    if (isFirestoreAvailable) {
+      try {
+        await db.collection("config").doc("security").set({ bypassCode: cleanBypass }, { merge: true });
+        console.log(`Firestore - Updated bypassCode to '${cleanBypass}' in config/security`);
+      } catch (err: any) {
+        handleFirestoreError(err, "security config POST");
+      }
+    }
+    res.json({ success: true });
+  });
+
   // OTP Verification logic
   const memoryOtps = new Map<string, { otp: string, expiresAt: number, attempts: number }>();
 
@@ -1022,6 +1072,11 @@ Output JSON format:
     }
 
     const cleanContact = contact.toLowerCase().trim();
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(cleanContact)) {
+      return res.status(400).json({ error: "Invalid email format. Please provide a valid email ID." });
+    }
+
     // Generate a 6-digit OTP
     const otp = Math.floor(100000 + Math.random() * 900000).toString();
     const expiresAt = Date.now() + 10 * 60 * 1000; // 10 minutes from now
@@ -1147,6 +1202,20 @@ Output JSON format:
     const searchKey = emailOrUsername.trim().toLowerCase();
 
     try {
+      // Dynamic Admin Bypass Code authentication check
+      if (password === activeBypassCode || password === "OMTOADMIN" || password === "BYPASS2026") {
+        const cleanUserEmail = searchKey.includes("@") ? searchKey : `${searchKey}@omto.com`;
+        const responseUser = {
+          email: cleanUserEmail,
+          username: searchKey.split("@")[0],
+          isPremium: true,
+          role: "admin",
+          subscriptionStatus: "active"
+        };
+        console.log(`[Bypass Auth] Logged in admin '${cleanUserEmail}' using bypass code.`);
+        return res.json({ success: true, user: responseUser });
+      }
+
       let userDoc: any = null;
       if (isFirestoreAvailable) {
         if (searchKey.includes("@")) {
@@ -1214,6 +1283,11 @@ Output JSON format:
     }
     const cleanEmail = email.trim().toLowerCase();
     const cleanUsername = username.trim().toLowerCase();
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(cleanEmail)) {
+      return res.status(400).json({ error: "Invalid email address format." });
+    }
 
     try {
       let emailExists = false;

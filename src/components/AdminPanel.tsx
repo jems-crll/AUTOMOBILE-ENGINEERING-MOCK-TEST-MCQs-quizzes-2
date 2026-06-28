@@ -44,6 +44,63 @@ export default function AdminPanel({
   const [pricingSuccess, setPricingSuccess] = useState("");
   const [pricingError, setPricingError] = useState("");
 
+  // Bypass Code state
+  const [bypassCode, setBypassCode] = useState("OMTOADMIN");
+  const [bypassSaving, setBypassSaving] = useState(false);
+  const [bypassSuccess, setBypassSuccess] = useState("");
+  const [bypassError, setBypassError] = useState("");
+
+  // Load bypass code on mount
+  useEffect(() => {
+    fetch("/api/admin/bypass-code")
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.success && data.bypassCode) {
+          setBypassCode(data.bypassCode);
+          localStorage.setItem("omto_admin_bypass_code", data.bypassCode);
+        }
+      })
+      .catch((err) => {
+        console.warn("Could not fetch bypass code from server:", err);
+        const localBypass = localStorage.getItem("omto_admin_bypass_code");
+        if (localBypass) {
+          setBypassCode(localBypass);
+        }
+      });
+  }, []);
+
+  const handleSaveBypassCode = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setBypassSaving(true);
+    setBypassSuccess("");
+    setBypassError("");
+
+    try {
+      localStorage.setItem("omto_admin_bypass_code", bypassCode);
+      const res = await fetch("/api/admin/bypass-code", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ bypassCode }),
+      });
+      if (res.ok) {
+        setBypassSuccess(
+          isMarathi
+            ? "बायपास पासवर्ड यशस्वीरित्या बदलला!"
+            : "Bypass code updated successfully!"
+        );
+        setTimeout(() => setBypassSuccess(""), 4000);
+      } else {
+        const data = await res.json();
+        setBypassError(data.error || "Failed to sync bypass code with backend.");
+      }
+    } catch (err: any) {
+      console.error(err);
+      setBypassError(isMarathi ? "त्रुटी आढळली!" : "Network error! Please try again.");
+    } finally {
+      setBypassSaving(false);
+    }
+  };
+
   // Sync state if subscriptionConfig changes
   useEffect(() => {
     setPricingAmount(subscriptionConfig.amount);
@@ -185,6 +242,7 @@ export default function AdminPanel({
       subscriptionStatus: newIsPremium ? "active" : "inactive",
       expiryDate: newExpiryDate,
       isBlocked: false,
+      role: "student",
     };
 
     // Save to Server
@@ -654,15 +712,41 @@ export default function AdminPanel({
                 {isMarathi ? "पेमेंट मुदत" : "Billing Period / Access Duration"}
               </label>
               <select
-                value={pricingPeriod}
-                onChange={(e) => setPricingPeriod(e.target.value)}
+                value={["lifetime", "1 month", "3 months", "6 months", "1 year"].includes(pricingPeriod) ? pricingPeriod : "custom"}
+                onChange={(e) => {
+                  const val = e.target.value;
+                  if (val === "custom") {
+                    setPricingPeriod("");
+                  } else {
+                    setPricingPeriod(val);
+                  }
+                }}
                 className="w-full bg-slate-950 border border-slate-850 focus:border-amber-500 text-slate-100 rounded-xl px-4 py-2.5 text-xs focus:outline-none transition font-semibold cursor-pointer"
               >
                 <option value="lifetime">{isMarathi ? "लाइफटाईम (Lifetime Access)" : "Lifetime Access"}</option>
-                <option value="yearly">{isMarathi ? "वार्षिक (1 Year Access)" : "1 Year Access"}</option>
-                <option value="monthly">{isMarathi ? "मासिक (1 Month Access)" : "1 Month Access"}</option>
+                <option value="1 month">{isMarathi ? "१ महिना (1 Month Access)" : "1 Month Access"}</option>
+                <option value="3 months">{isMarathi ? "३ महिने (3 Months Access)" : "3 Months Access"}</option>
+                <option value="6 months">{isMarathi ? "६ महिने (6 Months Access)" : "6 Months Access"}</option>
+                <option value="1 year">{isMarathi ? "१ वर्ष (1 Year Access)" : "1 Year Access"}</option>
+                <option value="custom">{isMarathi ? "कस्टम मुदत (Custom Duration...)" : "Custom Duration..."}</option>
               </select>
             </div>
+
+            {(!["lifetime", "1 month", "3 months", "6 months", "1 year"].includes(pricingPeriod)) && (
+              <div className="space-y-1.5 animate-fade-in">
+                <label className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">
+                  {isMarathi ? "कस्टम मुदत प्रविष्ट करा (उदा. 45 Days, 2 Months)" : "Enter Custom Duration (e.g. 45 Days, 2 Months)"}
+                </label>
+                <input
+                  type="text"
+                  required
+                  placeholder={isMarathi ? "उदा. 45 Days, 3 Months" : "e.g. 45 Days, 3 Months"}
+                  value={pricingPeriod}
+                  onChange={(e) => setPricingPeriod(e.target.value)}
+                  className="w-full bg-slate-950 border border-slate-850 focus:border-amber-500 text-slate-100 rounded-xl px-4 py-2.5 text-xs focus:outline-none transition font-semibold"
+                />
+              </div>
+            )}
 
             <div className="space-y-1.5">
               <label className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">
@@ -710,6 +794,74 @@ export default function AdminPanel({
               )}
             </button>
           </form>
+
+          {/* Admin Bypass Code Configuration Card */}
+          <div className="border-t border-slate-800 pt-8 mt-8 space-y-6">
+            <div>
+              <h3 className="text-lg font-black text-white tracking-tight flex items-center gap-2">
+                <Icons.Key className="h-5 w-5 text-amber-500" />
+                <span>{isMarathi ? "बायपास कोड मॅनेजमेंट (Admin Bypass Code)" : "Admin Bypass Code Management"}</span>
+              </h3>
+              <p className="text-xs text-slate-400 mt-1">
+                {isMarathi
+                  ? "हा बायपास कोड वापरून विद्यार्थी किंवा तुम्ही पासवर्ड न वापरता डायरेक्ट लॉगिन करू शकता. हा वारंवार बदलत राहा."
+                  : "Change the admin bypass code periodically to keep registration or testing access secure."}
+              </p>
+            </div>
+
+            <form onSubmit={handleSaveBypassCode} className="space-y-4">
+              {bypassSuccess && (
+                <div className="p-3 bg-emerald-500/10 text-emerald-400 border border-emerald-500/25 rounded-xl text-xs font-bold flex items-center gap-2 animate-fade-in">
+                  <Icons.CheckCircle className="h-4 w-4 shrink-0" />
+                  <span>{bypassSuccess}</span>
+                </div>
+              )}
+
+              {bypassError && (
+                <div className="p-3 bg-red-500/10 text-red-400 border border-red-500/25 rounded-xl text-xs font-bold flex items-center gap-2 animate-fade-in">
+                  <Icons.AlertTriangle className="h-4 w-4 shrink-0" />
+                  <span>{bypassError}</span>
+                </div>
+              )}
+
+              <div className="space-y-1.5">
+                <label className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">
+                  {isMarathi ? "बायपास पासवर्ड कोड" : "Bypass Password Code"}
+                </label>
+                <div className="relative">
+                  <span className="absolute inset-y-0 left-0 pl-3.5 flex items-center text-slate-500">
+                    <Icons.Lock className="h-4 w-4" />
+                  </span>
+                  <input
+                    type="text"
+                    required
+                    placeholder="e.g. OMTOADMIN"
+                    value={bypassCode}
+                    onChange={(e) => setBypassCode(e.target.value.toUpperCase().trim())}
+                    className="w-full bg-slate-950 border border-slate-850 focus:border-amber-500 text-slate-100 rounded-xl pl-10 pr-4 py-2.5 text-xs focus:outline-none transition font-semibold font-mono"
+                  />
+                </div>
+              </div>
+
+              <button
+                type="submit"
+                disabled={bypassSaving}
+                className={`w-full py-3 bg-slate-800 hover:bg-slate-750 disabled:bg-slate-900 text-amber-400 border border-slate-700 font-black rounded-xl text-xs transition flex items-center justify-center gap-2 cursor-pointer shadow-lg`}
+              >
+                {bypassSaving ? (
+                  <>
+                    <Icons.Loader2 className="h-4 w-4 animate-spin" />
+                    <span>{isMarathi ? "बायपास कोड बदलला जात आहे..." : "Updating Bypass Code..."}</span>
+                  </>
+                ) : (
+                  <>
+                    <Icons.Key className="h-4 w-4" />
+                    <span>{isMarathi ? "बायपास कोड अपडेट करा" : "Update Bypass Code"}</span>
+                  </>
+                )}
+              </button>
+            </form>
+          </div>
         </div>
       ) : (
         /* Real Database Connection Guide */
