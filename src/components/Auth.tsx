@@ -37,17 +37,6 @@ export default function Auth({ onLoginSuccess, selectedLanguage }: AuthProps) {
           role: "admin",
           subscriptionStatus: "active"
         };
-        const db = getRegisteredUsers();
-        db["admin@omto.com"] = {
-          email: "admin@omto.com",
-          username: "Admin",
-          password: "password123",
-          isPremium: true,
-          role: "admin",
-          subscriptionStatus: "active"
-        };
-        saveUsersDb(db);
-        localStorage.setItem("omto_current_user", JSON.stringify(adminUser));
         onLoginSuccess(adminUser);
       } else if (secretPassword !== null) {
         alert(isMarathi ? "चुकीचा पासवर्ड!" : "Incorrect password!");
@@ -55,24 +44,6 @@ export default function Auth({ onLoginSuccess, selectedLanguage }: AuthProps) {
     } else {
       setLogoClicks(nextClicks);
     }
-  };
-
-  // Mock Database handler
-  const getRegisteredUsers = (): Record<string, any> => {
-    try {
-      const users = localStorage.getItem("omto_users_db");
-      return users ? JSON.parse(users) : {
-        // Initial mock users for convenience
-        "student@test.com": { email: "student@test.com", username: "student", password: "password123", isPremium: false, role: "student", subscriptionStatus: "inactive" },
-        "premium@test.com": { email: "premium@test.com", username: "premium_user", password: "password123", isPremium: true, role: "student", subscriptionStatus: "active" }
-      };
-    } catch (_) {
-      return {};
-    }
-  };
-
-  const saveUsersDb = (db: Record<string, any>) => {
-    localStorage.setItem("omto_users_db", JSON.stringify(db));
   };
 
   const handleAuthSubmit = async (e: React.FormEvent) => {
@@ -86,26 +57,7 @@ export default function Auth({ onLoginSuccess, selectedLanguage }: AuthProps) {
     }
 
     const emailKey = email.trim().toLowerCase();
-    
-    // Attempt to sync local DB with server DB for real-time blocks/premiums
-    try {
-      const res = await fetch("/api/users");
-      const data = await res.json();
-      if (data.success && data.users) {
-        const tempDb = getRegisteredUsers();
-        data.users.forEach((u: any) => {
-          tempDb[u.email.toLowerCase().trim()] = {
-            ...tempDb[u.email.toLowerCase().trim()],
-            ...u
-          };
-        });
-        saveUsersDb(tempDb);
-      }
-    } catch (e) {
-      console.warn("Could not sync users before auth", e);
-    }
-
-    const db = getRegisteredUsers();
+    setIsProcessing(true);
 
     if (authMode === "login") {
       // Admin bypass quick trigger
@@ -117,114 +69,85 @@ export default function Auth({ onLoginSuccess, selectedLanguage }: AuthProps) {
           role: "admin",
           subscriptionStatus: "active"
         };
-        db[adminUser.email.toLowerCase()] = {
-          email: adminUser.email,
-          username: adminUser.username,
-          password: "password123",
-          isPremium: true,
-          role: "admin",
-          subscriptionStatus: "active"
-        };
-        saveUsersDb(db);
-        localStorage.setItem("omto_current_user", JSON.stringify(adminUser));
+        setIsProcessing(false);
         onLoginSuccess(adminUser);
         return;
       }
 
-      // Standard Login Logic
-      let existingUser = db[emailKey];
-      if (!existingUser) {
-        existingUser = Object.values(db).find(
-          (u: any) => u.username && u.username.trim().toLowerCase() === emailKey
-        );
-      }
+      // Standard API-based login
+      try {
+        const res = await fetch("/api/auth/login", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ emailOrUsername: emailKey, password })
+        });
+        const data = await res.json();
+        setIsProcessing(false);
 
-      if (existingUser && existingUser.password === password) {
-        if (existingUser.isBlocked) {
+        if (res.ok && data.success && data.user) {
+          onLoginSuccess(data.user);
+        } else {
           setErrorMessage(
-            isMarathi
-              ? "तुमचे खाते प्रशासकाद्वारे ब्लॉक केले गेले आहे. कृपया संपर्क साधा."
-              : "Your account has been blocked by the administrator. Please contact support."
+            data.error || 
+            (isMarathi
+              ? "चुकीचा ईमेल/युझरनेम किंवा पासवर्ड. कृपया पुन्हा प्रयत्न करा."
+              : "Invalid email/username or password. Please try again.")
           );
-          return;
         }
-
-        const userObj: User = {
-          email: existingUser.email,
-          username: existingUser.username || existingUser.email.split("@")[0],
-          isPremium: existingUser.isPremium || false,
-          role: existingUser.role || "student",
-          subscriptionStatus: existingUser.subscriptionStatus || (existingUser.isPremium ? "active" : "inactive")
-        };
-        localStorage.setItem("omto_current_user", JSON.stringify(userObj));
-        onLoginSuccess(userObj);
-      } else {
-        setErrorMessage(
-          isMarathi
-            ? "चुकीचा ईमेल/युझरनेम किंवा पासवर्ड. कृपया पुन्हा प्रयत्न करा."
-            : "Invalid email/username or password. Please try again."
-        );
+      } catch (e) {
+        setIsProcessing(false);
+        setErrorMessage(isMarathi ? "नेटवर्क त्रुटी! पुन्हा प्रयत्न करा." : "Network error! Please try again.");
       }
     } else if (authMode === "signup") {
       if (!username) {
         setErrorMessage(isMarathi ? "कृपया युझरनेम भरा." : "Please fill in username.");
-        return;
-      }
-
-      const userKey = username.trim().toLowerCase();
-
-      if (db[emailKey]) {
-        setErrorMessage(
-          isMarathi
-            ? "हा ईमेल आधीच नोंदणीकृत आहे. कृपया लॉगिन करा."
-            : "Email is already registered. Please login."
-        );
-        return;
-      }
-
-      const usernameExists = Object.values(db).some(
-        (u: any) => u.username && u.username.trim().toLowerCase() === userKey
-      );
-
-      if (usernameExists) {
-        setErrorMessage(
-          isMarathi
-            ? "हे युझरनेम आधीच घेतले गेले आहे. कृपया दुसरे निवडा."
-            : "This username is already taken. Please choose another."
-        );
-        return;
-      }
-
-      // Instead of directly creating user, we send OTP first
-      setIsProcessing(true);
-      fetch(`/api/otp/send`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ contact: emailKey })
-      })
-      .then(res => res.json())
-      .then(data => {
         setIsProcessing(false);
-        if (data.success) {
+        return;
+      }
+
+      // signup check API
+      try {
+        const res = await fetch("/api/auth/signup-check", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email: emailKey, username: username.trim() })
+        });
+        const data = await res.json();
+
+        if (!res.ok) {
+          setErrorMessage(data.error || "Validation failed");
+          setIsProcessing(false);
+          return;
+        }
+
+        // Send OTP
+        const otpRes = await fetch(`/api/otp/send`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ contact: emailKey })
+        });
+        const otpData = await otpRes.json();
+        setIsProcessing(false);
+
+        if (otpData.success) {
           setSuccessMessage(
             isMarathi 
               ? "ओटीपी पाठवला आहे. कृपया तपासा." 
               : "OTP sent successfully. Please check your email/phone."
           );
           setAuthMode("verify_otp");
-          setOtp(""); // Reset OTP field
+          setOtp("");
         } else {
-          setErrorMessage(data.error || "Failed to send OTP.");
+          setErrorMessage(otpData.error || "Failed to send OTP.");
         }
-      })
-      .catch(err => {
+      } catch (err) {
         setIsProcessing(false);
-        setErrorMessage("Network error: Failed to send OTP.");
-      });
+        setErrorMessage("Network error: Failed to proceed with signup.");
+      }
     }
   };
 
-  const handleVerifyOtpSubmit = (e: React.FormEvent) => {
+  const handleVerifyOtpSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setErrorMessage("");
     setSuccessMessage("");
@@ -237,44 +160,44 @@ export default function Auth({ onLoginSuccess, selectedLanguage }: AuthProps) {
     setIsProcessing(true);
     const emailKey = email.trim().toLowerCase();
 
-    fetch(`/api/otp/verify`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ contact: emailKey, otp: otp })
-    })
-    .then(res => res.json())
-    .then(data => {
-      setIsProcessing(false);
-      if (data.success) {
-        // OTP is verified, now create the account
-        const db = getRegisteredUsers();
-        const newUser = {
-          email: emailKey,
-          username: username.trim(),
-          password: password,
-          isPremium: false,
-          role: "student",
-          subscriptionStatus: "inactive"
-        };
-        db[emailKey] = newUser;
-        saveUsersDb(db);
+    try {
+      const res = await fetch(`/api/otp/verify`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ contact: emailKey, otp })
+      });
+      const data = await res.json();
 
-        setSuccessMessage(
-          isMarathi
-            ? "नोंदणी यशस्वी! आता तुम्ही लॉगिन करू शकता."
-            : "Registration successful! You can now login."
-        );
-        setAuthMode("login");
-        setPassword("");
-        setOtp("");
+      if (data.success) {
+        // Complete the signup on backend
+        const completeRes = await fetch("/api/auth/signup-complete", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email: emailKey, username: username.trim(), password })
+        });
+        const completeData = await completeRes.json();
+        setIsProcessing(false);
+
+        if (completeData.success) {
+          setSuccessMessage(
+            isMarathi
+              ? "नोंदणी यशस्वी! आता तुम्ही लॉगिन करू शकता."
+              : "Registration successful! You can now login."
+          );
+          setAuthMode("login");
+          setPassword("");
+          setOtp("");
+        } else {
+          setErrorMessage(completeData.error || "Failed to complete signup.");
+        }
       } else {
+        setIsProcessing(false);
         setErrorMessage(data.error || "Invalid OTP.");
       }
-    })
-    .catch(err => {
+    } catch (e) {
       setIsProcessing(false);
       setErrorMessage("Network error: Failed to verify OTP.");
-    });
+    }
   };
 
   const handleResendOtp = () => {
@@ -307,7 +230,7 @@ export default function Auth({ onLoginSuccess, selectedLanguage }: AuthProps) {
     });
   };
 
-  const handleForgotPasswordSubmit = (e: React.FormEvent) => {
+  const handleForgotPasswordSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setErrorMessage("");
     setSuccessMessage("");
@@ -322,55 +245,71 @@ export default function Auth({ onLoginSuccess, selectedLanguage }: AuthProps) {
       return;
     }
 
-    const searchKey = recoveryEmail.trim().toLowerCase();
-    const db = getRegisteredUsers();
+    setIsProcessing(true);
+    try {
+      const res = await fetch("/api/auth/forgot-password", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ emailOrUsername: recoveryEmail })
+      });
+      const data = await res.json();
+      setIsProcessing(false);
 
-    let foundUser = db[searchKey];
-    if (!foundUser) {
-      foundUser = Object.values(db).find(
-        (u: any) => u.username && u.username.trim().toLowerCase() === searchKey
-      );
-    }
-
-    if (foundUser) {
-      setRecoveredInfo(foundUser);
-      setSuccessMessage(
-        isMarathi
-          ? `खाते सापडले! युझरनेम: ${foundUser.username || "N/A"}`
-          : `Account found! Username: ${foundUser.username || "N/A"}`
-      );
-    } else {
-      setErrorMessage(
-        isMarathi
-          ? "या ईमेल किंवा युझरनेमसह कोणतेही खाते सापडले नाही."
-          : "No account found with this email or username."
-      );
+      if (res.ok && data.success) {
+        setRecoveredInfo(data);
+        setSuccessMessage(
+          isMarathi
+            ? `खाते सापडले! युझरनेम: ${data.username || "N/A"}`
+            : `Account found! Username: ${data.username || "N/A"}`
+        );
+      } else {
+        setErrorMessage(
+          data.error || 
+          (isMarathi
+            ? "या ईमेल किंवा युझरनेमसह कोणतेही खाते सापडले नाही."
+            : "No account found with this email or username.")
+        );
+      }
+    } catch (e) {
+      setIsProcessing(false);
+      setErrorMessage("Network error: Failed to fetch recovery info.");
     }
   };
 
-  const handlePasswordResetSubmit = (e: React.FormEvent) => {
+  const handlePasswordResetSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!newPassword || !recoveredInfo) return;
 
-    const db = getRegisteredUsers();
-    const emailKey = recoveredInfo.email.toLowerCase();
+    setIsProcessing(true);
+    try {
+      const res = await fetch("/api/auth/reset-password", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email: recoveredInfo.email, password: newPassword })
+      });
+      const data = await res.json();
+      setIsProcessing(false);
 
-    if (db[emailKey]) {
-      db[emailKey].password = newPassword;
-      saveUsersDb(db);
-      setSuccessMessage(
-        isMarathi
-          ? "पासवर्ड यशस्वीरित्या रिसेट झाला! आता तुम्ही नवीन पासवर्डने लॉगिन करू शकता."
-          : "Password successfully reset! You can now login with your new password."
-      );
-      setRecoveredInfo(null);
-      setNewPassword("");
-      setRecoveryEmail("");
-      setAuthMode("login");
+      if (res.ok && data.success) {
+        setSuccessMessage(
+          isMarathi
+            ? "पासवर्ड यशस्वीरित्या रिसेट झाला! आता तुम्ही नवीन पासवर्डने लॉगिन करू शकता."
+            : "Password successfully reset! You can now login with your new password."
+        );
+        setRecoveredInfo(null);
+        setNewPassword("");
+        setRecoveryEmail("");
+        setAuthMode("login");
+      } else {
+        setErrorMessage(data.error || "Failed to reset password.");
+      }
+    } catch (e) {
+      setIsProcessing(false);
+      setErrorMessage("Network error: Failed to reset password.");
     }
   };
 
-  const handleForgotUsernameSubmit = (e: React.FormEvent) => {
+  const handleForgotUsernameSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setErrorMessage("");
     setSuccessMessage("");
@@ -382,22 +321,33 @@ export default function Auth({ onLoginSuccess, selectedLanguage }: AuthProps) {
       return;
     }
 
-    const emailKey = recoveryEmail.trim().toLowerCase();
-    const db = getRegisteredUsers();
-    const foundUser = db[emailKey];
+    setIsProcessing(true);
+    try {
+      const res = await fetch("/api/auth/forgot-username", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email: recoveryEmail })
+      });
+      const data = await res.json();
+      setIsProcessing(false);
 
-    if (foundUser) {
-      setSuccessMessage(
-        isMarathi
-          ? `तुमचा युझरनेम आहे: "${foundUser.username || "N/A"}"`
-          : `Your registered username is: "${foundUser.username || "N/A"}"`
-      );
-    } else {
-      setErrorMessage(
-        isMarathi
-          ? "या ईमेल पत्त्यासह कोणतेही खाते सापडले नाही."
-          : "No account found with this email address."
-      );
+      if (res.ok && data.success) {
+        setSuccessMessage(
+          isMarathi
+            ? `तुमचा युझरनेम आहे: "${data.username || "N/A"}"`
+            : `Your registered username is: "${data.username || "N/A"}"`
+        );
+      } else {
+        setErrorMessage(
+          data.error || 
+          (isMarathi
+            ? "या ईमेल पत्त्यासह कोणतेही खाते सापडले नाही."
+            : "No account found with this email address.")
+        );
+      }
+    } catch (e) {
+      setIsProcessing(false);
+      setErrorMessage("Network error: Failed to recover username.");
     }
   };
 

@@ -142,7 +142,60 @@ console.log("=========================================");
 
 // Robust in-memory fallbacks in case Firestore is disabled/unreachable or permission denied
 const memoryUsers = new Map<string, any>();
+const memoryAttempts = new Map<string, any[]>();
 const memoryPayments = new Map<string, any>();
+const sseClients: any[] = [];
+const onlineUsers = new Map<string, number>();
+
+function broadcastUsers() {
+  const now = Date.now();
+  let usersList = Array.from(memoryUsers.values());
+  usersList = usersList.map(u => {
+    const email = typeof u.email === "string" ? u.email.toLowerCase().trim() : "";
+    const isOnline = email ? (onlineUsers.has(email) && (now - onlineUsers.get(email)! < 5 * 60 * 1000)) : false;
+    return {
+      ...u,
+      isOnline
+    };
+  });
+  
+  // Sort so newest are first
+  usersList.sort((a, b) => {
+    const dateA = a.createdAt ? new Date(a.createdAt).getTime() : 0;
+    const dateB = b.createdAt ? new Date(b.createdAt).getTime() : 0;
+    return dateB - dateA;
+  });
+
+  const payload = JSON.stringify({ success: true, users: usersList });
+  sseClients.forEach(client => {
+    try {
+      client.write(`data: ${payload}\n\n`);
+    } catch (_) {}
+  });
+}
+
+function startRealtimeListener() {
+  if (!isFirestoreAvailable) return;
+  console.log("[Firestore Realtime] Starting onSnapshot listener for 'users' collection...");
+  try {
+    db.collection("users").onSnapshot((snapshot) => {
+      console.log(`[Firestore Realtime] Received update. ${snapshot.size} documents in 'users' collection.`);
+      snapshot.forEach((doc) => {
+        const u = doc.data();
+        if (u && u.email) {
+          const cleanEmail = u.email.toLowerCase().trim();
+          memoryUsers.set(cleanEmail, { ...memoryUsers.get(cleanEmail), ...u });
+        }
+      });
+      broadcastUsers();
+    }, (error) => {
+      console.error("[Firestore Realtime] Listener error:", error);
+    });
+  } catch (e: any) {
+    console.error("[Firestore Realtime] Failed to register listener:", e);
+  }
+}
+
 let memorySubscriptionConfig = {
   amount: 299,
   originalAmount: 999,
@@ -190,6 +243,7 @@ async function probeFirestore() {
   if (process.env.FORCE_FIRESTORE === "true") {
     console.log("[Firestore Status] FORCE_FIRESTORE is set to 'true'. Bypassing connectivity probe and forcing direct Firestore connection.");
     isFirestoreAvailable = true;
+    startRealtimeListener();
     return;
   }
   try {
@@ -197,6 +251,7 @@ async function probeFirestore() {
     await db.collection("config").doc("probe").get();
     isFirestoreAvailable = true;
     console.log("Firestore API probe succeeded. Firestore is active and usable.");
+    startRealtimeListener();
   } catch (err: any) {
     handleFirestoreError(err, "probeFirestore");
   }
@@ -784,6 +839,17 @@ Output JSON format:
     // Store in-memory cache first
     memoryPayments.set(cleanEmail, paymentData);
 
+    // Update user to premium
+    const existingUser = memoryUsers.get(cleanEmail) || { email: cleanEmail };
+    const updatedUser = {
+      ...existingUser,
+      isPremium: true,
+      subscriptionStatus: "active",
+      paymentTxnId: razorpay_payment_id,
+      paymentDate: new Date().toISOString()
+    };
+    memoryUsers.set(cleanEmail, updatedUser);
+
     if (isFirestoreAvailable) {
       try {
         console.log(`Firestore Signature Verify - Writing payment record for '${cleanEmail}'...`);
@@ -791,6 +857,15 @@ Output JSON format:
           ...paymentData,
           paidAt: FieldValue.serverTimestamp()
         }, { merge: true });
+
+        // Update student's user profile in Firestore directly
+        await db.collection("users").doc(cleanEmail).set({
+          isPremium: true,
+          subscriptionStatus: "active",
+          paymentTxnId: razorpay_payment_id,
+          paymentDate: new Date().toISOString()
+        }, { merge: true });
+
         console.log(`Firestore Signature Verify - Success: Activated premium via signature verification for: ${cleanEmail}`);
       } catch (err: any) {
         handleFirestoreError(err, "verify-signature Write");
@@ -800,6 +875,7 @@ Output JSON format:
       console.log(`Firestore Signature Verify - Skipping Firestore write (offline mode) for ${cleanEmail}.`);
     }
 
+    broadcastUsers();
     res.json({ success: true, verified: true });
   });
 
@@ -820,6 +896,17 @@ Output JSON format:
     };
     memoryPayments.set(cleanEmail, pendingPayment);
 
+    // Update user to premium
+    const existingUserAdmin = memoryUsers.get(cleanEmail) || { email: cleanEmail };
+    const updatedUserAdmin = {
+      ...existingUserAdmin,
+      isPremium: true,
+      subscriptionStatus: "active",
+      paymentTxnId: cleanPaymentId,
+      paymentDate: new Date().toISOString()
+    };
+    memoryUsers.set(cleanEmail, updatedUserAdmin);
+
     if (isFirestoreAvailable) {
       try {
         console.log(`Firestore Admin Verify - Writing pending manual payment for '${cleanEmail}'...`);
@@ -829,6 +916,15 @@ Output JSON format:
           paidAt: FieldValue.serverTimestamp(),
           manual: true
         }, { merge: true });
+
+        // Update student's user profile in Firestore directly
+        await db.collection("users").doc(cleanEmail).set({
+          isPremium: true,
+          subscriptionStatus: "active",
+          paymentTxnId: cleanPaymentId,
+          paymentDate: new Date().toISOString()
+        }, { merge: true });
+
         console.log(`Firestore Admin Verify - Success: Recorded pending manual payment in Firestore for: ${cleanEmail}`);
       } catch (error: any) {
         handleFirestoreError(error, "admin-verify Write");
@@ -837,6 +933,7 @@ Output JSON format:
     } else {
       console.log(`Firestore Admin Verify - Skipping Firestore write (offline mode) for manual payment of ${cleanEmail}.`);
     }
+    broadcastUsers();
     res.json({ success: true, pending: true, email: cleanEmail, paymentId: cleanPaymentId });
   });
 
@@ -997,14 +1094,370 @@ Output JSON format:
   });
 
   // --- Admin User Management Endpoints ---
-  const onlineUsers = new Map<string, number>();
+  app.get("/api/users/stream", (req, res) => {
+    res.setHeader("Content-Type", "text/event-stream");
+    res.setHeader("Cache-Control", "no-cache");
+    res.setHeader("Connection", "keep-alive");
+    res.flushHeaders();
+
+    // Initial load push
+    const now = Date.now();
+    let usersList = Array.from(memoryUsers.values());
+    usersList = usersList.map(u => {
+      const email = typeof u.email === "string" ? u.email.toLowerCase().trim() : "";
+      const isOnline = email ? (onlineUsers.has(email) && (now - onlineUsers.get(email)! < 5 * 60 * 1000)) : false;
+      return {
+        ...u,
+        isOnline
+      };
+    });
+    usersList.sort((a, b) => {
+      const dateA = a.createdAt ? new Date(a.createdAt).getTime() : 0;
+      const dateB = b.createdAt ? new Date(b.createdAt).getTime() : 0;
+      return dateB - dateA;
+    });
+
+    res.write(`data: ${JSON.stringify({ success: true, users: usersList })}\n\n`);
+
+    sseClients.push(res);
+
+    req.on("close", () => {
+      const idx = sseClients.indexOf(res);
+      if (idx !== -1) {
+        sseClients.splice(idx, 1);
+      }
+    });
+  });
 
   app.post("/api/users/heartbeat", (req, res) => {
     const { email } = req.body;
     if (email) {
       onlineUsers.set(email.toLowerCase().trim(), Date.now());
+      broadcastUsers();
     }
     res.json({ success: true });
+  });
+
+  // --- Auth APIs ---
+  app.post("/api/auth/login", async (req, res) => {
+    const { emailOrUsername, password } = req.body;
+    if (!emailOrUsername || !password) {
+      return res.status(400).json({ error: "Missing fields" });
+    }
+    const searchKey = emailOrUsername.trim().toLowerCase();
+
+    try {
+      let userDoc: any = null;
+      if (isFirestoreAvailable) {
+        if (searchKey.includes("@")) {
+          const docRef = db.collection("users").doc(searchKey);
+          const snapshot = await docRef.get();
+          if (snapshot.exists) {
+            userDoc = snapshot.data();
+          }
+        } else {
+          const snapshot = await db.collection("users").where("username", "==", emailOrUsername.trim()).get();
+          if (!snapshot.empty) {
+            userDoc = snapshot.docs[0].data();
+          }
+        }
+      }
+
+      // If Firestore lookup failed or returned nothing, fall back to memory
+      if (!userDoc) {
+        if (searchKey.includes("@")) {
+          userDoc = memoryUsers.get(searchKey);
+        } else {
+          userDoc = Array.from(memoryUsers.values()).find(
+            (u: any) => u.username && u.username.toLowerCase().trim() === searchKey
+          );
+        }
+      }
+
+      if (!userDoc) {
+        return res.status(400).json({ error: "User not found" });
+      }
+
+      if (userDoc.password !== password) {
+        return res.status(400).json({ error: "Incorrect password" });
+      }
+
+      if (userDoc.isBlocked) {
+        return res.status(403).json({ error: "Your account is blocked by administrator." });
+      }
+
+      const responseUser = {
+        email: userDoc.email,
+        username: userDoc.username,
+        isPremium: userDoc.isPremium || false,
+        role: userDoc.role || "student",
+        subscriptionStatus: userDoc.subscriptionStatus || (userDoc.isPremium ? "active" : "inactive")
+      };
+
+      // Ensure local memory cache is updated
+      memoryUsers.set(responseUser.email.toLowerCase().trim(), {
+        ...userDoc,
+        ...responseUser
+      });
+
+      res.json({ success: true, user: responseUser });
+    } catch (e: any) {
+      console.error("Login API error:", e);
+      res.status(500).json({ error: e.message || "Login failed" });
+    }
+  });
+
+  app.post("/api/auth/signup-check", async (req, res) => {
+    const { email, username } = req.body;
+    if (!email || !username) {
+      return res.status(400).json({ error: "Missing email or username" });
+    }
+    const cleanEmail = email.trim().toLowerCase();
+    const cleanUsername = username.trim().toLowerCase();
+
+    try {
+      let emailExists = false;
+      let usernameExists = false;
+
+      if (isFirestoreAvailable) {
+        const emailSnap = await db.collection("users").doc(cleanEmail).get();
+        if (emailSnap.exists) emailExists = true;
+
+        const userQuery = await db.collection("users").where("username", "==", username.trim()).get();
+        if (!userQuery.empty) usernameExists = true;
+      } else {
+        const existingEmail = memoryUsers.get(cleanEmail);
+        if (existingEmail) emailExists = true;
+
+        usernameExists = Array.from(memoryUsers.values()).some(
+          (u: any) => u.username && u.username.toLowerCase().trim() === cleanUsername
+        );
+      }
+
+      if (emailExists) {
+        return res.status(400).json({ error: "Email is already registered" });
+      }
+      if (usernameExists) {
+        return res.status(400).json({ error: "Username is already taken" });
+      }
+
+      res.json({ success: true });
+    } catch (e: any) {
+      res.status(500).json({ error: e.message || "Validation failed" });
+    }
+  });
+
+  app.post("/api/auth/signup-complete", async (req, res) => {
+    const { email, username, password } = req.body;
+    if (!email || !username || !password) {
+      return res.status(400).json({ error: "Missing fields" });
+    }
+    const cleanEmail = email.trim().toLowerCase();
+    const newUser = {
+      email: cleanEmail,
+      username: username.trim(),
+      password: password,
+      isPremium: false,
+      role: "student",
+      subscriptionStatus: "inactive",
+      createdAt: new Date().toISOString()
+    };
+
+    try {
+      if (isFirestoreAvailable) {
+        await db.collection("users").doc(cleanEmail).set(newUser, { merge: true });
+      }
+      memoryUsers.set(cleanEmail, newUser);
+      broadcastUsers();
+      res.json({ success: true });
+    } catch (e: any) {
+      res.status(500).json({ error: e.message || "Failed to create user" });
+    }
+  });
+
+  app.post("/api/auth/forgot-password", async (req, res) => {
+    const { emailOrUsername } = req.body;
+    if (!emailOrUsername) {
+      return res.status(400).json({ error: "Missing email or username" });
+    }
+    const searchKey = emailOrUsername.trim().toLowerCase();
+
+    try {
+      let userDoc: any = null;
+      if (isFirestoreAvailable) {
+        if (searchKey.includes("@")) {
+          const docSnap = await db.collection("users").doc(searchKey).get();
+          if (docSnap.exists) userDoc = docSnap.data();
+        } else {
+          const query = await db.collection("users").where("username", "==", emailOrUsername.trim()).get();
+          if (!query.empty) userDoc = query.docs[0].data();
+        }
+      }
+
+      if (!userDoc) {
+        if (searchKey.includes("@")) {
+          userDoc = memoryUsers.get(searchKey);
+        } else {
+          userDoc = Array.from(memoryUsers.values()).find(
+            (u: any) => u.username && u.username.toLowerCase().trim() === searchKey
+          );
+        }
+      }
+
+      if (!userDoc) {
+        return res.status(404).json({ error: "Account not found" });
+      }
+
+      res.json({ success: true, username: userDoc.username, email: userDoc.email, password: userDoc.password });
+    } catch (e: any) {
+      res.status(500).json({ error: e.message });
+    }
+  });
+
+  app.post("/api/auth/reset-password", async (req, res) => {
+    const { email, password } = req.body;
+    if (!email || !password) {
+      return res.status(400).json({ error: "Missing fields" });
+    }
+    const cleanEmail = email.trim().toLowerCase();
+
+    try {
+      if (isFirestoreAvailable) {
+        await db.collection("users").doc(cleanEmail).update({ password });
+      }
+      const existing = memoryUsers.get(cleanEmail) || { email: cleanEmail };
+      memoryUsers.set(cleanEmail, { ...existing, password });
+      broadcastUsers();
+      res.json({ success: true });
+    } catch (e: any) {
+      res.status(500).json({ error: e.message });
+    }
+  });
+
+  app.post("/api/auth/forgot-username", async (req, res) => {
+    const { email } = req.body;
+    if (!email) {
+      return res.status(400).json({ error: "Missing email" });
+    }
+    const cleanEmail = email.trim().toLowerCase();
+
+    try {
+      let userDoc: any = null;
+      if (isFirestoreAvailable) {
+        const docSnap = await db.collection("users").doc(cleanEmail).get();
+        if (docSnap.exists) userDoc = docSnap.data();
+      }
+
+      if (!userDoc) {
+        userDoc = memoryUsers.get(cleanEmail);
+      }
+
+      if (!userDoc) {
+        return res.status(404).json({ error: "Account not found" });
+      }
+
+      res.json({ success: true, username: userDoc.username });
+    } catch (e: any) {
+      res.status(500).json({ error: e.message });
+    }
+  });
+
+  // --- Quiz Attempt APIs ---
+  app.post("/api/users/attempts", async (req, res) => {
+    const { email, attempt } = req.body;
+    if (!email || !attempt) {
+      return res.status(400).json({ error: "Missing email or attempt" });
+    }
+    const cleanEmail = email.toLowerCase().trim();
+    if (isFirestoreAvailable) {
+      try {
+        await db.collection("users").doc(cleanEmail).collection("attempts").doc(attempt.id).set(attempt);
+        res.json({ success: true });
+      } catch (e: any) {
+        handleFirestoreError(e, "POST /api/users/attempts");
+        res.status(500).json({ error: "Failed to save attempt to Firestore" });
+      }
+    } else {
+      const userAttempts = memoryAttempts.get(cleanEmail) || [];
+      userAttempts.push(attempt);
+      memoryAttempts.set(cleanEmail, userAttempts);
+      res.json({ success: true });
+    }
+  });
+
+  app.get("/api/users/attempts", async (req, res) => {
+    const { email } = req.query;
+    if (!email) {
+      return res.status(400).json({ error: "Missing email query parameter" });
+    }
+    const cleanEmail = (email as string).toLowerCase().trim();
+    let attemptsList: any[] = [];
+    if (isFirestoreAvailable) {
+      try {
+        const snapshot = await db.collection("users").doc(cleanEmail).collection("attempts").get();
+        snapshot.forEach(doc => {
+          attemptsList.push(doc.data());
+        });
+        res.json({ success: true, attempts: attemptsList });
+      } catch (e: any) {
+        handleFirestoreError(e, "GET /api/users/attempts");
+        res.status(500).json({ error: "Failed to get attempts from Firestore" });
+      }
+    } else {
+      attemptsList = memoryAttempts.get(cleanEmail) || [];
+      res.json({ success: true, attempts: attemptsList });
+    }
+  });
+
+  app.delete("/api/users/attempts", async (req, res) => {
+    const { email } = req.body;
+    if (!email) {
+      return res.status(400).json({ error: "Missing email" });
+    }
+    const cleanEmail = email.toLowerCase().trim();
+    if (isFirestoreAvailable) {
+      try {
+        const ref = db.collection("users").doc(cleanEmail).collection("attempts");
+        const snapshot = await ref.get();
+        const batch = db.batch();
+        snapshot.forEach(doc => {
+          batch.delete(doc.ref);
+        });
+        await batch.commit();
+        res.json({ success: true });
+      } catch (e: any) {
+        handleFirestoreError(e, "DELETE /api/users/attempts");
+        res.status(500).json({ error: "Failed to clear attempts in Firestore" });
+      }
+    } else {
+      memoryAttempts.delete(cleanEmail);
+      res.json({ success: true });
+    }
+  });
+
+  app.get("/api/users/profile", async (req, res) => {
+    const email = req.query.email as string;
+    if (!email) {
+      return res.status(400).json({ error: "Email is required" });
+    }
+    const cleanEmail = email.toLowerCase().trim();
+    let user = memoryUsers.get(cleanEmail);
+    if (!user && isFirestoreAvailable) {
+      try {
+        const doc = await db.collection("users").doc(cleanEmail).get();
+        if (doc.exists) {
+          user = doc.data();
+          memoryUsers.set(cleanEmail, user);
+        }
+      } catch (err) {
+        handleFirestoreError(err, "GET /api/users/profile");
+      }
+    }
+    if (user) {
+      res.json({ success: true, user });
+    } else {
+      res.status(404).json({ error: "User not found" });
+    }
   });
 
   app.post("/api/users/sync", async (req, res) => {
@@ -1023,7 +1476,17 @@ Output JSON format:
 
     // Save locally first for in-memory resilience
     const existing = memoryUsers.get(email) || {};
-    const updated = { ...existing, ...user };
+    
+    // Safety check: protect premium, subscription, and role fields from client-side reset
+    const preserves: any = {};
+    if (existing.isPremium !== undefined) preserves.isPremium = existing.isPremium;
+    if (existing.subscriptionStatus !== undefined) preserves.subscriptionStatus = existing.subscriptionStatus;
+    if (existing.role !== undefined) preserves.role = existing.role;
+    if (existing.expiryDate !== undefined) preserves.expiryDate = existing.expiryDate;
+    if (existing.isBlocked !== undefined) preserves.isBlocked = existing.isBlocked;
+    if (existing.password !== undefined) preserves.password = existing.password;
+
+    const updated = { ...existing, ...user, ...preserves };
     memoryUsers.set(email, updated);
     
     if (isFirestoreAvailable) {
@@ -1040,7 +1503,8 @@ Output JSON format:
     } else {
       console.log(`Firestore Sync - Skipping Firestore write (offline mode) for user '${email}'.`);
     }
-    res.json({ success: true });
+    broadcastUsers();
+    res.json({ success: true, user: updated });
   });
 
   app.get("/api/users", async (req, res) => {
@@ -1122,6 +1586,7 @@ Output JSON format:
     } else {
       console.log(`Firestore Update - Skipping Firestore write (offline mode) for user '${cleanEmail}'.`);
     }
+    broadcastUsers();
     res.json({ success: true });
   });
 
@@ -1145,6 +1610,7 @@ Output JSON format:
     } else {
       console.log(`Firestore Delete - Skipping Firestore delete (offline mode) for user '${email}'.`);
     }
+    broadcastUsers();
     res.json({ success: true });
   });
   // --------------------------------------

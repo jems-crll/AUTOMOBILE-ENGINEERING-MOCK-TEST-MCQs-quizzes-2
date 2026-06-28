@@ -66,11 +66,42 @@ export default function AdminPanel({
   const [formError, setFormError] = useState("");
   const [formSuccess, setFormSuccess] = useState("");
 
-  // Load students from omto_users_db on mount and start polling
+  // Connect to realtime user stream on mount
   useEffect(() => {
-    loadStudents();
-    const interval = setInterval(loadStudents, 30000); // 30 sec polling
-    return () => clearInterval(interval);
+    // 1. Initial fetch
+    fetch("/api/users")
+      .then(res => res.json())
+      .then(data => {
+        if (data.success && data.users) {
+          setStudents(data.users);
+        }
+      })
+      .catch(err => console.warn("Failed initial user load, relying on stream:", err));
+
+    // 2. Real-time stream
+    console.log("[AdminPanel] Connecting to real-time user stream /api/users/stream...");
+    const eventSource = new EventSource("/api/users/stream");
+    
+    eventSource.onmessage = (event) => {
+      try {
+        const data = JSON.parse(event.data);
+        if (data.success && data.users) {
+          console.log(`[AdminPanel] Stream update: Received ${data.users.length} users.`);
+          setStudents(data.users);
+        }
+      } catch (e) {
+        console.error("Stream parse error:", e);
+      }
+    };
+
+    eventSource.onerror = (err) => {
+      console.warn("SSE stream connection closed or failed. Reconnecting...", err);
+    };
+
+    return () => {
+      console.log("[AdminPanel] Closing user stream connection...");
+      eventSource.close();
+    };
   }, []);
 
   const handleSavePricing = async (e: React.FormEvent) => {
@@ -130,67 +161,6 @@ export default function AdminPanel({
     }
   };
 
-  const loadStudents = async () => {
-    try {
-      const res = await fetch("/api/users");
-      const data = await res.json();
-      if (data.success && data.users) {
-        const recordList = data.users.map((u: any) => ({
-          email: u.email,
-          username: u.username || u.email.split("@")[0],
-          isPremium: u.isPremium || false,
-          expiryDate: u.expiryDate || "2027-06-25",
-          isBlocked: u.isBlocked || false,
-          paymentTxnId: u.paymentTxnId,
-          paymentDate: u.paymentDate,
-          isOnline: u.isOnline,
-          createdAt: u.createdAt
-        }));
-        setStudents(recordList);
-      }
-    } catch (e) {
-      console.error("Failed to load students from server, falling back to local:", e);
-      const dbStr = localStorage.getItem("omto_users_db");
-      if (dbStr) {
-        const db = JSON.parse(dbStr);
-        const recordList = Object.keys(db).map((email) => ({
-          email,
-          username: db[email].username || email.split("@")[0],
-          isPremium: db[email].isPremium || false,
-          expiryDate: db[email].expiryDate || "2027-06-25",
-          isBlocked: db[email].isBlocked || false,
-          paymentTxnId: db[email].paymentTxnId,
-          paymentDate: db[email].paymentDate,
-        }));
-        setStudents(recordList);
-      }
-    }
-  };
-
-  const saveToDb = async (updatedList: StudentRecord[]) => {
-    // Only used for bulk local fallback now if needed.
-    try {
-      const db: Record<string, any> = {};
-      updatedList.forEach((s) => {
-        db[s.email.toLowerCase().trim()] = {
-          email: s.email,
-          username: s.username,
-          isPremium: s.isPremium,
-          role: s.email.toLowerCase().includes("admin") ? "admin" : "student",
-          subscriptionStatus: s.isPremium ? "active" : "inactive",
-          expiryDate: s.expiryDate || "2027-06-25",
-          isBlocked: s.isBlocked || false,
-          paymentTxnId: s.paymentTxnId,
-          paymentDate: s.paymentDate,
-        };
-      });
-      localStorage.setItem("omto_users_db", JSON.stringify(db));
-      setStudents(updatedList);
-    } catch (e) {
-      console.error("Failed to save to local database:", e);
-    }
-  };
-
   // 1. Add Student
   const handleAddStudent = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -208,34 +178,35 @@ export default function AdminPanel({
       return;
     }
 
-    const newRecord: StudentRecord = {
+    const newRecord = {
       email: newEmail,
       username: newUsername,
       isPremium: newIsPremium,
+      subscriptionStatus: newIsPremium ? "active" : "inactive",
       expiryDate: newExpiryDate,
       isBlocked: false,
     };
 
     // Save to Server
     try {
-      await fetch("/api/users/sync", {
+      const res = await fetch("/api/users/sync", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ user: newRecord })
       });
-    } catch (e) {}
-
-    const updated = [newRecord, ...students];
-    saveToDb(updated);
-
-    // Reset Form
-    setNewEmail("");
-    setNewUsername("");
-    setNewIsPremium(false);
-    setFormSuccess(isMarathi ? "विद्यार्थी यशस्वीरित्या जोडला गेला!" : "Student added successfully!");
-    
-    // Clear success message after 3 seconds
-    setTimeout(() => setFormSuccess(""), 3000);
+      if (res.ok) {
+        setFormSuccess(isMarathi ? "विद्यार्थी यशस्वीरित्या जोडला गेला!" : "Student added successfully!");
+        setNewEmail("");
+        setNewUsername("");
+        setNewIsPremium(false);
+        setTimeout(() => setFormSuccess(""), 3000);
+      } else {
+        const err = await res.json();
+        setFormError(err.error || "Failed to add student.");
+      }
+    } catch (e) {
+      setFormError("Network error: Failed to add student.");
+    }
   };
 
   // 2. Toggle Premium Subscription
@@ -244,18 +215,18 @@ export default function AdminPanel({
     if (!student) return;
     
     const nextPremium = !student.isPremium;
+    const subscriptionStatus = nextPremium ? "active" : "inactive";
     const expiryDate = nextPremium ? new Date(Date.now() + 365 * 24 * 60 * 60 * 1000).toISOString().split("T")[0] : student.expiryDate;
     
     try {
       await fetch("/api/users/update", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, updates: { isPremium: nextPremium, expiryDate } })
+        body: JSON.stringify({ email, updates: { isPremium: nextPremium, subscriptionStatus, expiryDate } })
       });
-    } catch (e) {}
-    
-    const updated = students.map((s) => s.email === email ? { ...s, isPremium: nextPremium, expiryDate } : s);
-    saveToDb(updated);
+    } catch (e) {
+      console.error("Failed to update subscription status on server:", e);
+    }
   };
 
   // 3. Toggle Block User
@@ -271,10 +242,9 @@ export default function AdminPanel({
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, updates: { isBlocked } })
       });
-    } catch (e) {}
-    
-    const updated = students.map((s) => s.email === email ? { ...s, isBlocked } : s);
-    saveToDb(updated);
+    } catch (e) {
+      console.error("Failed to toggle block status on server:", e);
+    }
   };
 
   // 4. Delete Student Record
@@ -284,10 +254,9 @@ export default function AdminPanel({
         await fetch(`/api/users/${encodeURIComponent(email)}`, {
           method: "DELETE"
         });
-      } catch (e) {}
-      
-      const updated = students.filter((s) => s.email !== email);
-      saveToDb(updated);
+      } catch (e) {
+        console.error("Failed to delete student on server:", e);
+      }
     }
   };
 

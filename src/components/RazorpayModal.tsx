@@ -101,27 +101,11 @@ export default function RazorpayModal({
             setTxnId(response.razorpay_payment_id);
             setPaymentSuccess(true);
 
-            try {
-              const usersDbStr = localStorage.getItem("omto_users_db");
-              if (usersDbStr) {
-                const db = JSON.parse(usersDbStr);
-                const emailKey = currentUser.email.trim().toLowerCase();
-                if (db[emailKey]) {
-                  db[emailKey].isPremium = true;
-                  db[emailKey].paymentTxnId = response.razorpay_payment_id;
-                  db[emailKey].paymentDate = new Date().toISOString();
-                  localStorage.setItem("omto_users_db", JSON.stringify(db));
-                }
-              }
-            } catch (e) {
-              console.error(e);
-            }
-
             const updatedUser: User = {
               ...currentUser,
               isPremium: true,
+              subscriptionStatus: "active"
             };
-            localStorage.setItem("omto_current_user", JSON.stringify(updatedUser));
             
             setTimeout(() => {
               onPaymentSuccess(updatedUser);
@@ -278,27 +262,11 @@ export default function RazorpayModal({
                       setTxnId(mockPaymentId);
                       setPaymentSuccess(true);
 
-                      try {
-                        const usersDbStr = localStorage.getItem("omto_users_db");
-                        if (usersDbStr) {
-                          const db = JSON.parse(usersDbStr);
-                          const emailKey = currentUser.email.trim().toLowerCase();
-                          if (db[emailKey]) {
-                            db[emailKey].isPremium = true;
-                            db[emailKey].paymentTxnId = mockPaymentId;
-                            db[emailKey].paymentDate = new Date().toISOString();
-                            localStorage.setItem("omto_users_db", JSON.stringify(db));
-                          }
-                        }
-                      } catch (e) {
-                        console.error(e);
-                      }
-
                       const updatedUser: User = {
                         ...currentUser,
                         isPremium: true,
+                        subscriptionStatus: "active"
                       };
-                      localStorage.setItem("omto_current_user", JSON.stringify(updatedUser));
                       
                       setTimeout(() => {
                         onPaymentSuccess(updatedUser);

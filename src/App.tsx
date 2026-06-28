@@ -14,14 +14,14 @@ import { translateQuestionOffline } from "./utils/localTranslator";
 export default function App() {
   const [currentUser, setCurrentUser] = useState<User | null>(() => {
     try {
-      const stored = localStorage.getItem("omto_current_user");
+      const stored = sessionStorage.getItem("omto_current_user");
       if (!stored) return null;
       const user = JSON.parse(stored);
       console.log("Current user:", user);
       // Fix: ensure role is set if missing (legacy support)
       if (!user.role) {
         user.role = user.email.toLowerCase().includes("admin") ? "admin" : "student";
-        localStorage.setItem("omto_current_user", JSON.stringify(user));
+        sessionStorage.setItem("omto_current_user", JSON.stringify(user));
       }
       return user;
     } catch (_) {
@@ -30,26 +30,48 @@ export default function App() {
   });
 
   const [isRazorpayOpen, setIsRazorpayOpen] = useState<boolean>(false);
-  const [usersDb, setUsersDb] = useState<Record<string, any>>({});
 
+  // Synchronize currentUser details with the server to get real-time role / block / premium updates!
   useEffect(() => {
-    const loadDb = () => {
-      try {
-        const users = localStorage.getItem("omto_users_db");
-        if (users) {
-          setUsersDb(JSON.parse(users));
-        } else {
-          const initial = {
-            "student@test.com": { email: "student@test.com", password: "password123", isPremium: false },
-            "premium@test.com": { email: "premium@test.com", password: "password123", isPremium: true }
-          };
-          localStorage.setItem("omto_users_db", JSON.stringify(initial));
-          setUsersDb(initial);
-        }
-      } catch (_) {}
+    if (!currentUser) return;
+
+    const syncProfile = () => {
+      fetch(`/api/users/profile?email=${encodeURIComponent(currentUser.email)}`)
+        .then(res => res.json())
+        .then(data => {
+          if (data.success && data.user) {
+            if (
+              data.user.isPremium !== currentUser.isPremium || 
+              data.user.role !== currentUser.role ||
+              data.user.isBlocked !== currentUser.isBlocked ||
+              data.user.subscriptionStatus !== currentUser.subscriptionStatus
+            ) {
+              console.log("[App] Profile sync update detected:", data.user);
+              if (data.user.isBlocked) {
+                alert(selectedLanguage.code === "mr" ? "तुमचे खाते ब्लॉक केले गेले आहे!" : "Your account has been blocked!");
+                sessionStorage.removeItem("omto_current_user");
+                setCurrentUser(null);
+                return;
+              }
+              const updatedUser = {
+                ...currentUser,
+                isPremium: data.user.isPremium,
+                role: data.user.role,
+                subscriptionStatus: data.user.subscriptionStatus
+              };
+              sessionStorage.setItem("omto_current_user", JSON.stringify(updatedUser));
+              setCurrentUser(updatedUser);
+            }
+          }
+        })
+        .catch(err => console.warn("Could not auto-sync profile details:", err));
     };
-    loadDb();
-  }, [currentUser]);
+
+    syncProfile();
+
+    const interval = setInterval(syncProfile, 10000);
+    return () => clearInterval(interval);
+  }, [currentUser?.email]);
 
   // Heartbeat & User Sync
   useEffect(() => {
@@ -114,17 +136,21 @@ export default function App() {
     timeSpentSeconds: number;
   } | null>(null);
 
-  // Load attempts from local storage on mount
+  // Load attempts from Firestore/server when currentUser is available
   useEffect(() => {
-    try {
-      const stored = localStorage.getItem("omto_quiz_attempts");
-      if (stored) {
-        setAttempts(JSON.parse(stored));
-      }
-    } catch (e) {
-      console.error("Failed to load local quiz attempts:", e);
+    if (!currentUser) {
+      setAttempts([]);
+      return;
     }
-  }, []);
+    fetch(`/api/users/attempts?email=${encodeURIComponent(currentUser.email)}`)
+      .then(res => res.json())
+      .then(data => {
+        if (data.success && data.attempts) {
+          setAttempts(data.attempts);
+        }
+      })
+      .catch(err => console.warn("Failed to load quiz attempts from server:", err));
+  }, [currentUser?.email]);
 
   // Dynamic subscription configuration state
   const [subscriptionConfig, setSubscriptionConfig] = useState<SubscriptionConfig>({
@@ -169,23 +195,28 @@ export default function App() {
       .catch((err) => console.warn("Could not fetch subscription config from backend, using local configuration:", err));
   }, []);
 
-  // Save attempts to local storage on change
+  // Save attempt to Firestore/server
   const saveAttempt = (newAttempt: QuizAttempt) => {
     const updated = [...attempts, newAttempt];
     setAttempts(updated);
-    try {
-      localStorage.setItem("omto_quiz_attempts", JSON.stringify(updated));
-    } catch (e) {
-      console.error("Failed to save local attempts:", e);
+    
+    if (currentUser) {
+      fetch("/api/users/attempts", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email: currentUser.email, attempt: newAttempt })
+      }).catch(err => console.error("Failed to sync attempt to server:", err));
     }
   };
 
   const handleClearHistory = () => {
     setAttempts([]);
-    try {
-      localStorage.removeItem("omto_quiz_attempts");
-    } catch (e) {
-      console.error("Failed to clear local attempts:", e);
+    if (currentUser) {
+      fetch("/api/users/attempts", {
+        method: "DELETE",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email: currentUser.email })
+      }).catch(err => console.error("Failed to delete attempts on server:", err));
     }
   };
 
@@ -584,7 +615,7 @@ export default function App() {
                 {/* Logout */}
                 <button
                   onClick={() => {
-                    localStorage.removeItem("omto_current_user");
+                    sessionStorage.removeItem("omto_current_user");
                     setCurrentUser(null);
                   }}
                   title={selectedLanguage.code === "mr" ? "लॉगआउट" : "Logout"}
@@ -733,11 +764,6 @@ export default function App() {
         currentUser={currentUser}
         onPaymentSuccess={(updatedUser) => {
           setCurrentUser(updatedUser);
-          // Reload local db mapping
-          try {
-            const db = localStorage.getItem("omto_users_db");
-            if (db) setUsersDb(JSON.parse(db));
-          } catch (_) {}
         }}
         selectedLanguage={selectedLanguage}
         subscriptionConfig={subscriptionConfig}
