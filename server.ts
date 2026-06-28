@@ -163,6 +163,11 @@ function handleFirestoreError(err: any, context: string) {
     errMsg.includes("not found");
 
   if (isPermissionOrNotFound) {
+    if (process.env.FORCE_FIRESTORE === "true") {
+      console.log(`[Firestore Status] FORCE_FIRESTORE is true, keeping connection active despite warning in ${context}: ${errMsg}`);
+      isFirestoreAvailable = true;
+      return;
+    }
     isFirestoreAvailable = false;
     console.log("\n==================================================================");
     console.log(`[Firestore Status] Dynamically disabled Firestore due to status in ${context}: ${errMsg}`);
@@ -182,6 +187,11 @@ function handleFirestoreError(err: any, context: string) {
 }
 
 async function probeFirestore() {
+  if (process.env.FORCE_FIRESTORE === "true") {
+    console.log("[Firestore Status] FORCE_FIRESTORE is set to 'true'. Bypassing connectivity probe and forcing direct Firestore connection.");
+    isFirestoreAvailable = true;
+    return;
+  }
   try {
     console.log("Probing Firestore connectivity...");
     await db.collection("config").doc("probe").get();
