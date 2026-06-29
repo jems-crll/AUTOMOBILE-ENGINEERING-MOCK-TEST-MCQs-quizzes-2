@@ -1,0 +1,19 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Helper to check if user is admin
+    function isAdmin() {
+      return request.auth != null && request.auth.token.email in ['jemshery17@gmail.com', 'javedsayyad93@gmail.com', 'javedsayyad9394@gmail.com'];
+    }
+
+    match /config/{document=**} {
+      allow read: if request.auth != null;
+      allow write: if isAdmin();
+    }
+    
+    // Default deny for all others
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

@@ -30,6 +30,7 @@ export default function Dashboard({
   subscriptionConfig,
 }: DashboardProps) {
   const [selectedChapter, setSelectedChapter] = useState<number | "all">("all");
+  const [selectedSection, setSelectedSection] = useState<string | null>(null);
   const [selectedSet, setSelectedSet] = useState<number | "all">("all");
   const [testMode, setTestMode] = useState<"practice" | "exam">("exam");
   const [questionSource, setQuestionSource] = useState<"static" | "ai">("static"); // default to offline textbook mode
@@ -356,103 +357,7 @@ export default function Dashboard({
 
       {/* Chapters Directory */}
       <div className="lg:col-span-2 flex flex-col gap-4">
-        {selectedChapter === "all" ? (
-          <>
-            <div className="flex items-center justify-between mb-1">
-              <h2 className="text-2xl font-black text-white font-sans tracking-tight">
-                {isMarathi ? "विषयानुसार सराव" : "Chapter-wise Practice"}
-              </h2>
-              <span className="text-xs text-slate-400 font-mono">
-                {CHAPTERS.length} {isMarathi ? "विषय उपलब्ध" : "Chapters Available"}
-              </span>
-            </div>
-
-            <div className="flex flex-col gap-8">
-              {Object.entries(
-                CHAPTERS.reduce((acc, ch) => {
-                  const section = ch.section || "Other";
-                  if (!acc[section]) acc[section] = [];
-                  acc[section].push(ch);
-                  return acc;
-                }, {} as Record<string, Chapter[]>)
-              ).map(([sectionName, sectionChapters]) => (
-                <div key={sectionName} className="flex flex-col gap-4">
-                  <div className="flex items-center gap-3">
-                    <div className="h-px flex-1 bg-gradient-to-r from-transparent via-slate-700 to-transparent"></div>
-                    <h3 className="text-sm font-black text-amber-500 uppercase tracking-[0.2em] font-mono px-4 py-1 bg-slate-900/80 rounded-full border border-slate-800 shadow-sm backdrop-blur-sm">
-                      {sectionName}
-                    </h3>
-                    <div className="h-px flex-1 bg-gradient-to-r from-transparent via-slate-700 to-transparent"></div>
-                  </div>
-                  
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    {sectionChapters.map((ch) => {
-                      const stats = getChapterCompletionStatus(ch.id);
-                      const totalQ = QUESTIONS.filter((q) => q.chapterId === ch.id).length;
-
-                      return (
-                        <div
-                          key={ch.id}
-                          onClick={() => {
-                            setSelectedChapter(ch.id);
-                            setSelectedSet("all");
-                            setQuestionCount(15);
-                            const customizer = document.getElementById("test-customizer");
-                            customizer?.scrollIntoView({ behavior: "smooth" });
-                          }}
-                          className="p-4 sm:p-5 rounded-2xl border text-left cursor-pointer transition-all duration-200 flex flex-col justify-between group h-full bg-slate-900/40 border-slate-800 hover:border-slate-750 hover:bg-slate-900/60"
-                          id={`chapter-card-${ch.id}`}
-                        >
-                          <div>
-                            <div className="flex items-start justify-between gap-2 mb-3">
-                              <div className="p-2.5 rounded-xl bg-slate-800/80 text-slate-300 group-hover:bg-slate-800 group-hover:text-amber-400 transition-colors">
-                                {renderIcon(ch.icon, "h-5 w-5")}
-                              </div>
-                              <span className="text-[10px] font-bold font-mono px-2.5 py-1 bg-slate-950 border border-slate-850 text-slate-400 rounded-full">
-                                {totalQ} Qs
-                              </span>
-                            </div>
-
-                            <h3 className="text-base font-bold text-slate-100 group-hover:text-amber-400 transition-colors mb-1 leading-snug">
-                              {ch.id}. {isMarathi ? ch.nameMarathi : ch.name}
-                            </h3>
-                            {isMarathi && (
-                              <p className="text-xs text-slate-400 mb-2 font-medium">
-                                {ch.name}
-                              </p>
-                            )}
-                            <p className="text-xs text-slate-500 line-clamp-2 leading-relaxed">
-                              {isMarathi ? ch.descriptionMarathi : ch.description}
-                            </p>
-                          </div>
-
-                          {/* Progress Indicators */}
-                          <div className="mt-4 pt-3 border-t border-slate-800/60 flex items-center justify-between text-[11px] text-slate-500">
-                            {stats.tests > 0 ? (
-                              <>
-                                <span className="flex items-center gap-1 font-mono text-emerald-400">
-                                  <Icons.CheckCircle2 className="h-3 w-3" />
-                                  {stats.tests} {isMarathi ? "चाचण्या" : "Tests"}
-                                </span>
-                                <span className="font-mono">
-                                  {isMarathi ? "सरासरी" : "Avg"}: <strong className="text-white font-bold">{stats.avg}%</strong>
-                                </span>
-                              </>
-                            ) : (
-                              <span className="text-slate-600 font-medium font-sans">
-                                {isMarathi ? "अद्याप सराव केला नाही" : "No practice yet"}
-                              </span>
-                            )}
-                          </div>
-                        </div>
-                      );
-                    })}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </>
-        ) : (
+        {selectedChapter !== "all" ? (
           (() => {
             const activeChapterObj = CHAPTERS.find((ch) => ch.id === selectedChapter);
             if (!activeChapterObj) return null;
@@ -648,6 +553,102 @@ export default function Dashboard({
               </div>
             );
           })()
+        ) : selectedSection === null ? (
+          <>
+            <div className="flex items-center justify-between mb-1">
+              <h2 className="text-2xl font-black text-white font-sans tracking-tight">
+                {isMarathi ? "विभाग निवडा" : "Select Section"}
+              </h2>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {Array.from(new Set(CHAPTERS.map(ch => ch.section || "Other"))).map(sectionName => (
+                <div 
+                  key={sectionName}
+                  onClick={() => setSelectedSection(sectionName)}
+                  className="p-6 rounded-2xl bg-slate-900/60 border border-slate-800 hover:border-amber-500/50 cursor-pointer transition-all flex items-center gap-4 group"
+                >
+                  <div className="p-3 bg-slate-800 rounded-xl group-hover:bg-amber-500/10 group-hover:text-amber-500 transition-colors">
+                    <Icons.Layers className="h-6 w-6" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold text-white group-hover:text-amber-400 transition-colors">{sectionName}</h3>
+                    <p className="text-xs text-slate-400">{CHAPTERS.filter(ch => (ch.section || "Other") === sectionName).length} {isMarathi ? "विषय" : "Chapters"}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </>
+        ) : (
+          <>
+            <div className="flex items-center gap-4 mb-4">
+              <button
+                onClick={() => setSelectedSection(null)}
+                className="flex items-center gap-2 px-4 py-2 text-xs font-bold text-slate-400 hover:text-white bg-slate-900 border border-slate-800 hover:border-slate-750 rounded-lg transition-all cursor-pointer"
+              >
+                <Icons.ArrowLeft className="h-4 w-4" />
+                <span>{isMarathi ? "← विभाग निवडा" : "← Back to Sections"}</span>
+              </button>
+              <h2 className="text-xl font-black text-white font-sans tracking-tight">
+                {selectedSection}
+              </h2>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {CHAPTERS.filter(ch => (ch.section || "Other") === selectedSection).map((ch) => {
+                const stats = getChapterCompletionStatus(ch.id);
+                const totalQ = QUESTIONS.filter((q) => q.chapterId === ch.id).length;
+
+                return (
+                  <div
+                    key={ch.id}
+                    onClick={() => {
+                      setSelectedChapter(ch.id);
+                      setSelectedSet("all");
+                      setQuestionCount(15);
+                      const customizer = document.getElementById("test-customizer");
+                      customizer?.scrollIntoView({ behavior: "smooth" });
+                    }}
+                    className="p-4 sm:p-5 rounded-2xl border text-left cursor-pointer transition-all duration-200 flex flex-col justify-between group h-full bg-slate-900/40 border-slate-800 hover:border-slate-750 hover:bg-slate-900/60"
+                  >
+                    <div>
+                      <div className="flex items-start justify-between gap-2 mb-3">
+                        <div className="p-2.5 rounded-xl bg-slate-800/80 text-slate-300 group-hover:bg-slate-800 group-hover:text-amber-400 transition-colors">
+                          {renderIcon(ch.icon, "h-5 w-5")}
+                        </div>
+                        <span className="text-[10px] font-bold font-mono px-2.5 py-1 bg-slate-950 border border-slate-850 text-slate-400 rounded-full">
+                          {totalQ} Qs
+                        </span>
+                      </div>
+                      <h3 className="text-base font-bold text-slate-100 group-hover:text-amber-400 transition-colors mb-1 leading-snug">
+                        {ch.id}. {isMarathi ? ch.nameMarathi : ch.name}
+                      </h3>
+                      {isMarathi && (
+                        <p className="text-xs text-slate-400 mb-2 font-medium">
+                          {ch.name}
+                        </p>
+                      )}
+                    </div>
+                    <div className="mt-4 pt-3 border-t border-slate-800/60 flex items-center justify-between text-[11px] text-slate-500">
+                      {stats.tests > 0 ? (
+                        <>
+                          <span className="flex items-center gap-1 font-mono text-emerald-400">
+                            <Icons.CheckCircle2 className="h-3 w-3" />
+                            {stats.tests} {isMarathi ? "चाचण्या" : "Tests"}
+                          </span>
+                          <span className="font-mono">
+                            {isMarathi ? "सरासरी" : "Avg"}: <strong className="text-white font-bold">{stats.avg}%</strong>
+                          </span>
+                        </>
+                      ) : (
+                        <span className="text-slate-600 font-medium font-sans">
+                          {isMarathi ? "अद्याप सराव केला नाही" : "No practice yet"}
+                        </span>
+                      )}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </>
         )}
       </div>
     </div>

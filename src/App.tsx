@@ -44,7 +44,8 @@ export default function App() {
               data.user.isPremium !== currentUser.isPremium || 
               data.user.role !== currentUser.role ||
               data.user.isBlocked !== currentUser.isBlocked ||
-              data.user.subscriptionStatus !== currentUser.subscriptionStatus
+              data.user.subscriptionStatus !== currentUser.subscriptionStatus ||
+              (data.user.sessionToken && currentUser.sessionToken && data.user.sessionToken !== currentUser.sessionToken)
             ) {
               console.log("[App] Profile sync update detected:", data.user);
               if (data.user.isBlocked) {
@@ -53,11 +54,18 @@ export default function App() {
                 setCurrentUser(null);
                 return;
               }
+              if (data.user.sessionToken && currentUser.sessionToken && data.user.sessionToken !== currentUser.sessionToken) {
+                alert(selectedLanguage.code === "mr" ? "तुम्ही दुसऱ्या डिव्हाइसवरून लॉग इन केले आहे. लॉग आउट होत आहे." : "You have logged in from another device. Logging out.");
+                sessionStorage.removeItem("omto_current_user");
+                setCurrentUser(null);
+                return;
+              }
               const updatedUser = {
                 ...currentUser,
                 isPremium: data.user.isPremium,
                 role: data.user.role,
-                subscriptionStatus: data.user.subscriptionStatus
+                subscriptionStatus: data.user.subscriptionStatus,
+                sessionToken: data.user.sessionToken
               };
               sessionStorage.setItem("omto_current_user", JSON.stringify(updatedUser));
               setCurrentUser(updatedUser);

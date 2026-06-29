@@ -4,6 +4,7 @@ export interface User {
   username?: string;
   role?: "student" | "admin";
   subscriptionStatus?: "active" | "inactive";
+  sessionToken?: string;
 }
 
 export interface Question {

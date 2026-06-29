@@ -1098,6 +1098,17 @@ Output JSON format:
     if (!coupons || !Array.isArray(coupons)) {
       return res.status(400).json({ error: "Invalid coupons payload" });
     }
+    
+    // Strict validation of each coupon
+    for (const c of coupons) {
+        if (typeof c.code !== 'string' || 
+            typeof c.discountPercent !== 'number' || 
+            c.discountPercent < 0 || c.discountPercent > 100 ||
+            typeof c.isActive !== 'boolean') {
+            return res.status(400).json({ error: "Invalid coupon structure or values" });
+        }
+    }
+    
     memoryCoupons = coupons;
     if (isFirestoreAvailable) {
       try {
@@ -1497,12 +1508,18 @@ Output JSON format:
         return res.status(403).json({ error: "Your account is blocked by administrator." });
       }
 
+      const sessionToken = crypto.randomUUID();
+      if (isFirestoreAvailable) {
+        await db.collection("users").doc(userDoc.email).update({ sessionToken });
+      }
+
       const responseUser = {
         email: userDoc.email,
         username: userDoc.username,
         isPremium: userDoc.isPremium || false,
         role: userDoc.role || "student",
-        subscriptionStatus: userDoc.subscriptionStatus || (userDoc.isPremium ? "active" : "inactive")
+        subscriptionStatus: userDoc.subscriptionStatus || (userDoc.isPremium ? "active" : "inactive"),
+        sessionToken: sessionToken
       };
 
       // Ensure local memory cache is updated
