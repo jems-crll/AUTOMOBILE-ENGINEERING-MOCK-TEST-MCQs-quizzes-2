@@ -630,6 +630,18 @@ Output JSON format:
       finalAmount = memorySubscriptionConfig.amount * 100;
     }
 
+    // Apply coupon if present in notes
+    const couponCode = notes?.coupon_applied;
+    if (couponCode) {
+        const coupon = memoryCoupons.find(c => c.isActive && c.code.toUpperCase() === couponCode.toUpperCase().trim());
+        if (coupon) {
+            console.log(`Applying coupon ${couponCode}: ${coupon.discountPercent}% discount`);
+            finalAmount = Math.round(finalAmount * (1 - coupon.discountPercent / 100));
+        } else {
+            console.log(`Invalid coupon applied: ${couponCode}`);
+        }
+    }
+
     try {
       const razorpay = getRazorpayInstance();
       if (!razorpay) {
