@@ -73,12 +73,13 @@ export default function QuizContainer({
 
   // Reset answer states when changing questions in practice mode
   useEffect(() => {
-    if (mode === "practice") {
+    if (mode === "practice" && currentQuestion) {
       setHasAnsweredCurrent(!!selectedAnswers[currentQuestion.id]);
     }
   }, [currentIndex, mode, selectedAnswers, currentQuestion]);
 
   const handleOptionSelect = (optionChar: string) => {
+    if (!currentQuestion) return;
     if (mode === "practice" && hasAnsweredCurrent) return; // Prevent changing in practice mode
 
     setSelectedAnswers((prev) => ({
@@ -104,6 +105,7 @@ export default function QuizContainer({
   };
 
   const toggleFlag = () => {
+    if (!currentQuestion) return;
     setFlaggedQuestions((prev) => ({
       ...prev,
       [currentQuestion.id]: !prev[currentQuestion.id],
@@ -114,7 +116,7 @@ export default function QuizContainer({
     // Calculate final score
     let score = 0;
     questions.forEach((q) => {
-      if (selectedAnswers[q.id] === q.answer) {
+      if (q && selectedAnswers[q.id] === q.answer) {
         score++;
       }
     });
@@ -128,7 +130,25 @@ export default function QuizContainer({
     return `${mins.toString().padStart(2, "0")}:${remainingSecs.toString().padStart(2, "0")}`;
   };
 
-  const progressPercentage = ((currentIndex + 1) / questions.length) * 100;
+  const progressPercentage = questions.length > 0 ? ((currentIndex + 1) / questions.length) * 100 : 0;
+
+  if (!questions || questions.length === 0 || !currentQuestion) {
+    return (
+      <div className="flex flex-col items-center justify-center p-12 bg-slate-900 border border-slate-800 rounded-3xl mt-8">
+        <Icons.AlertCircle className="w-12 h-12 text-rose-500 mb-4" />
+        <h2 className="text-xl font-bold text-white mb-2">No Questions Found</h2>
+        <p className="text-slate-400 text-center mb-6 max-w-md">
+          There are no questions available for this selection.
+        </p>
+        <button
+          onClick={onExit}
+          className="px-6 py-2.5 bg-slate-800 hover:bg-slate-700 text-white font-semibold rounded-xl border border-slate-700 hover:border-slate-600 transition"
+        >
+          Return to Dashboard
+        </button>
+      </div>
+    );
+  }
 
   return (
     <div className="flex flex-col gap-6">
@@ -364,8 +384,8 @@ export default function QuizContainer({
             <div className="grid grid-cols-5 gap-2 mb-6">
               {questions.map((q, idx) => {
                 const isSelected = idx === currentIndex;
-                const isAnswered = !!selectedAnswers[q.id];
-                const isFlagged = flaggedQuestions[q.id];
+                const isAnswered = q && !!selectedAnswers[q.id];
+                const isFlagged = q && flaggedQuestions[q.id];
 
                 let bubbleStyle = "bg-slate-950/60 border-slate-850 text-slate-400 hover:border-slate-700";
 
@@ -373,7 +393,7 @@ export default function QuizContainer({
                   bubbleStyle = "bg-amber-500 text-slate-950 font-bold border-amber-500 shadow-md shadow-amber-500/10";
                 } else if (mode === "practice" && isAnswered) {
                   // In practice mode, color correctly directly
-                  const isCorrect = selectedAnswers[q.id] === q.answer;
+                  const isCorrect = q && selectedAnswers[q.id] === q.answer;
                   bubbleStyle = isCorrect 
                     ? "bg-emerald-500/10 border-emerald-500/40 text-emerald-400 font-medium"
                     : "bg-rose-500/10 border-rose-500/40 text-rose-400 font-medium";

@@ -252,7 +252,7 @@ export function translateQuestionOffline(q: Question, langCode: string): Questio
 
   // 1. Check if we have a perfect pre-compiled static translation for this question ID
   const langTranslations = STATIC_TRANSLATIONS[langCode];
-  if (langTranslations && langTranslations[q.id]) {
+  if (q && langTranslations && langTranslations[q.id]) {
     const st = langTranslations[q.id];
     return {
       ...q,

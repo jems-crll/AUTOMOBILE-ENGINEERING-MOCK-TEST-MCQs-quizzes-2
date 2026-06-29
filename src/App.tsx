@@ -265,7 +265,7 @@ export default function App() {
 
     // Translate questions offline if the language is regional but not Marathi (Marathi has static translations)
     if (selectedLanguage.code !== "en" && selectedLanguage.code !== "mr") {
-      const translated = selected.map((q) => translateQuestionOffline(q, selectedLanguage.code));
+      const translated = selected.filter(Boolean).map((q) => translateQuestionOffline(q, selectedLanguage.code));
       setQuizState({
         isActive: true,
         questions: translated,
@@ -302,7 +302,8 @@ export default function App() {
       .then((data) => {
         if (data.translations && Array.isArray(data.translations)) {
           const translated = selected.map((q) => {
-            const t = data.translations.find((item: any) => item.id === q.id);
+            if (!q) return null;
+            const t = data.translations.find((item: any) => item && item.id === q.id);
             if (t) {
               return {
                 ...q,
@@ -312,7 +313,7 @@ export default function App() {
               };
             }
             return q;
-          });
+          }).filter(Boolean) as Question[];
           setQuizState({
             isActive: true,
             questions: translated,
@@ -349,7 +350,7 @@ export default function App() {
     } else {
       setQuizState({
         isActive: true,
-        questions: selected,
+        questions: selected.filter(Boolean),
         mode: config.mode,
         chapterId: config.chapterId,
         timeLimitMinutes: config.timeLimitMinutes,

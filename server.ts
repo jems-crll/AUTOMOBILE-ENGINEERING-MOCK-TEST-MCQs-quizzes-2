@@ -189,10 +189,10 @@ function startRealtimeListener() {
       });
       broadcastUsers();
     }, (error) => {
-      console.error("[Firestore Realtime] Listener error:", error);
+      handleFirestoreError(error, "startRealtimeListener onSnapshot");
     });
   } catch (e: any) {
-    console.error("[Firestore Realtime] Failed to register listener:", e);
+    handleFirestoreError(e, "startRealtimeListener catch");
   }
 }
 
@@ -204,7 +204,7 @@ let memorySubscriptionConfig = {
   detailsMr: "ऑटोमोबाईल इंजिनिअरिंग प्रीमियम"
 };
 
-let isFirestoreAvailable = true;
+let isFirestoreAvailable = false;
 
 function handleFirestoreError(err: any, context: string) {
   const errMsg = err?.message || String(err);
@@ -1030,7 +1030,7 @@ Output JSON format:
           }
         }
       } catch (e) {
-        console.warn("Could not load security config from Firestore:", e);
+        handleFirestoreError(e, "loadBypassCode");
       }
     }
   }

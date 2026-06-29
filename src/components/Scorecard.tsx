@@ -32,24 +32,40 @@ export default function Scorecard({
 }: ScorecardProps) {
   const [reviewIndex, setReviewIndex] = useState<number>(0);
 
+  if (!questions || questions.length === 0) {
+    return (
+      <div className="flex flex-col items-center justify-center p-12 bg-slate-900 border border-slate-800 rounded-3xl mt-8">
+        <Icons.AlertCircle className="w-12 h-12 text-rose-500 mb-4" />
+        <h2 className="text-xl font-bold text-white mb-2">No Data</h2>
+        <p className="text-slate-400 text-center mb-6">No questions to display.</p>
+        <button
+          onClick={onDashboard}
+          className="px-6 py-2.5 bg-slate-800 hover:bg-slate-700 text-white font-semibold rounded-xl border border-slate-700 hover:border-slate-600 transition"
+        >
+          Return to Dashboard
+        </button>
+      </div>
+    );
+  }
+
   const percentage = Math.round((score / questions.length) * 100);
   const correctCount = score;
   const incorrectCount = Object.keys(answersMap()).filter(
-    (key) => selectedAnswers[parseInt(key)] && selectedAnswers[parseInt(key)] !== questions.find((q) => q.id === parseInt(key))?.answer
+    (key) => selectedAnswers[parseInt(key)] && selectedAnswers[parseInt(key)] !== questions.find((q) => q && q.id === parseInt(key))?.answer
   ).length;
   const unansweredCount = questions.length - Object.keys(selectedAnswers).length;
 
   function answersMap() {
     const map: Record<number, string> = {};
     questions.forEach((q) => {
-      map[q.id] = selectedAnswers[q.id] || "";
+      if (q) map[q.id] = selectedAnswers[q.id] || "";
     });
     return map;
   }
 
   const currentReviewQuestion = questions[reviewIndex];
-  const selectedAns = selectedAnswers[currentReviewQuestion.id];
-  const isCorrect = selectedAns === currentReviewQuestion.answer;
+  const selectedAns = currentReviewQuestion ? selectedAnswers[currentReviewQuestion.id] : undefined;
+  const isCorrect = currentReviewQuestion ? selectedAns === currentReviewQuestion.answer : false;
 
   const getScoreMessage = () => {
     if (percentage >= 85) {
@@ -237,8 +253,10 @@ export default function Scorecard({
               <span className="text-xs font-mono text-slate-500">Question {reviewIndex + 1} of {questions.length}</span>
             </div>
 
-            <h3 className="text-base md:text-lg font-bold text-white mb-2">{currentReviewQuestion.question}</h3>
-            {bilingual && (selectedLanguage.code === "mr" ? currentReviewQuestion.questionMarathi : currentReviewQuestion.questionTranslated) && (
+            {currentReviewQuestion && (
+              <h3 className="text-base md:text-lg font-bold text-white mb-2">{currentReviewQuestion.question}</h3>
+            )}
+            {currentReviewQuestion && bilingual && (selectedLanguage.code === "mr" ? currentReviewQuestion.questionMarathi : currentReviewQuestion.questionTranslated) && (
               <p className="text-sm text-slate-400 bg-slate-950/20 p-3 rounded-lg border border-slate-900 mb-6 italic font-sans">
                 {selectedLanguage.code === "mr" ? currentReviewQuestion.questionMarathi : currentReviewQuestion.questionTranslated}
               </p>
@@ -246,7 +264,7 @@ export default function Scorecard({
 
             {/* Options grid */}
             <div className="grid grid-cols-1 gap-2.5 mb-6">
-              {currentReviewQuestion.options.map((opt, idx) => {
+              {currentReviewQuestion && currentReviewQuestion.options.map((opt, idx) => {
                 const char = String.fromCharCode(65 + idx);
                 const isSelected = selectedAns === char;
                 const isCorrectAns = currentReviewQuestion.answer === char;
@@ -268,7 +286,7 @@ export default function Scorecard({
                       </span>
                       <div>
                         <span>{opt}</span>
-                        {bilingual && (selectedLanguage.code === "mr" ? currentReviewQuestion.optionsMarathi?.[idx] : currentReviewQuestion.optionsTranslated?.[idx]) && (
+                        {currentReviewQuestion && bilingual && (selectedLanguage.code === "mr" ? currentReviewQuestion.optionsMarathi?.[idx] : currentReviewQuestion.optionsTranslated?.[idx]) && (
                           <span className="block text-[11px] text-slate-500 mt-0.5">{selectedLanguage.code === "mr" ? currentReviewQuestion.optionsMarathi?.[idx] : currentReviewQuestion.optionsTranslated?.[idx]}</span>
                         )}
                       </div>
@@ -291,9 +309,9 @@ export default function Scorecard({
               </div>
 
               <p className="text-xs md:text-sm text-slate-400 leading-relaxed font-sans">
-                {bilingual && (selectedLanguage.code === "mr" ? currentReviewQuestion.explanationMarathi : currentReviewQuestion.explanationTranslated)
+                {currentReviewQuestion && (bilingual && (selectedLanguage.code === "mr" ? currentReviewQuestion.explanationMarathi : currentReviewQuestion.explanationTranslated)
                   ? (selectedLanguage.code === "mr" ? currentReviewQuestion.explanationMarathi : currentReviewQuestion.explanationTranslated)
-                  : currentReviewQuestion.explanation}
+                  : currentReviewQuestion.explanation)}
               </p>
             </div>
           </div>
@@ -309,6 +327,7 @@ export default function Scorecard({
 
             <div className="grid grid-cols-5 gap-2">
               {questions.map((q, idx) => {
+                if (!q) return null;
                 const isActive = reviewIndex === idx;
                 const isCorrectAns = selectedAnswers[q.id] === q.answer;
                 const wasSkipped = !selectedAnswers[q.id];
