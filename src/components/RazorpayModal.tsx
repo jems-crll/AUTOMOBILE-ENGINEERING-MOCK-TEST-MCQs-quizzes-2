@@ -24,7 +24,16 @@ export default function RazorpayModal({
   const [txnId, setTxnId] = useState("");
   const [txnError, setTxnError] = useState("");
 
+  // Coupon states
+  const [couponCode, setCouponCode] = useState("");
+  const [couponDiscount, setCouponDiscount] = useState(0);
+  const [isApplyingCoupon, setIsApplyingCoupon] = useState(false);
+  const [couponMessage, setCouponMessage] = useState<{ text: string; type: "success" | "error" } | null>(null);
+
   const isMarathi = selectedLanguage.code === "mr";
+  
+  const currentAmount = Math.round(subscriptionConfig.amount * (1 - couponDiscount / 100));
+
   const isTestingEnv = typeof window !== "undefined" && (
     window.location.hostname.includes("localhost") || 
     window.location.hostname.includes("127.0.0.1") ||
@@ -32,11 +41,45 @@ export default function RazorpayModal({
     window.location.hostname.includes("webcontainer") ||
     window.location.hostname.includes("github.dev")
   );
+
   const discountPercent = subscriptionConfig.originalAmount > 0 
-    ? Math.round(((subscriptionConfig.originalAmount - subscriptionConfig.amount) / subscriptionConfig.originalAmount) * 100)
+    ? Math.round(((subscriptionConfig.originalAmount - currentAmount) / subscriptionConfig.originalAmount) * 100)
     : 0;
 
   if (!isOpen) return null;
+
+  const handleApplyCoupon = async () => {
+    if (!couponCode.trim()) return;
+    setIsApplyingCoupon(true);
+    setCouponMessage(null);
+    try {
+      const res = await fetch("/api/coupons/validate", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ code: couponCode }),
+      });
+      const data = await res.json();
+      if (data.success && data.valid) {
+        setCouponDiscount(data.discountPercent);
+        setCouponMessage({
+          text: isMarathi 
+            ? `अभिनंदन! ${data.discountPercent}% सवलत लागू झाली.` 
+            : `Success! ${data.discountPercent}% discount applied.`,
+          type: "success"
+        });
+      } else {
+        setCouponDiscount(0);
+        setCouponMessage({
+          text: isMarathi ? "अवैध कूपन कोड!" : "Invalid coupon code!",
+          type: "error"
+        });
+      }
+    } catch (err) {
+      setCouponMessage({ text: "Error validating coupon", type: "error" });
+    } finally {
+      setIsApplyingCoupon(false);
+    }
+  };
 
   const handleOpenPaymentLink = async () => {
     setIsProcessing(true);
@@ -46,11 +89,12 @@ export default function RazorpayModal({
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          amount: subscriptionConfig.amount * 100, // Dynamic in paise
+          amount: currentAmount * 100, // Updated amount with coupon
           currency: "INR",
           notes: {
             email: currentUser.email,
-            document_id: currentUser.email
+            document_id: currentUser.email,
+            coupon_applied: couponCode
           }
         })
       });
@@ -209,7 +253,7 @@ export default function RazorpayModal({
                   {subscriptionConfig.originalAmount > subscriptionConfig.amount && (
                     <div className="text-xs text-slate-500 line-through">₹{subscriptionConfig.originalAmount}</div>
                   )}
-                  <div className="text-xl font-black text-white">₹{subscriptionConfig.amount}</div>
+                  <div className="text-xl font-black text-white">₹{currentAmount}</div>
                   {discountPercent > 0 && (
                     <div className="text-[10px] text-emerald-400 font-bold">{isMarathi ? `${discountPercent}% सूट` : `${discountPercent}% OFF`}</div>
                   )}
@@ -288,6 +332,36 @@ export default function RazorpayModal({
               </div>
             )}
 
+            {/* Coupon Code Section */}
+            <div className="p-4 bg-slate-950 border border-slate-850 rounded-2xl space-y-3">
+              <label className="text-[10px] font-bold text-slate-500 uppercase tracking-wider block">
+                {isMarathi ? "कूपन कोड आहे का?" : "Have a Coupon Code?"}
+              </label>
+              <div className="flex gap-2">
+                <input
+                  type="text"
+                  placeholder={isMarathi ? "उदा. SAVE50" : "e.g. SAVE50"}
+                  value={couponCode}
+                  onChange={(e) => setCouponCode(e.target.value.toUpperCase().trim())}
+                  className="flex-1 bg-slate-900 border border-slate-800 text-slate-100 rounded-xl px-3 py-2 text-xs focus:outline-none focus:border-amber-500 transition font-mono font-bold"
+                />
+                <button
+                  type="button"
+                  onClick={handleApplyCoupon}
+                  disabled={isApplyingCoupon || !couponCode.trim()}
+                  className="px-4 py-2 bg-slate-800 hover:bg-slate-700 disabled:bg-slate-900 text-amber-500 text-[10px] font-black rounded-xl border border-slate-700 transition cursor-pointer select-none"
+                >
+                  {isApplyingCoupon ? <Icons.Loader2 className="h-3 w-3 animate-spin" /> : (isMarathi ? "लागू करा" : "APPLY")}
+                </button>
+              </div>
+              {couponMessage && (
+                <p className={`text-[10px] font-bold flex items-center gap-1 ${couponMessage.type === "success" ? "text-emerald-400" : "text-red-400"}`}>
+                  {couponMessage.type === "success" ? <Icons.CheckCircle className="h-3 w-3" /> : <Icons.AlertCircle className="h-3 w-3" />}
+                  {couponMessage.text}
+                </p>
+              )}
+            </div>
+
             {/* Instruction Banner */}
             <div className="bg-amber-500/5 border border-amber-500/20 p-3 rounded-2xl space-y-1">
               <div className="flex items-center gap-1.5 text-amber-400 text-xs font-bold">
@@ -296,8 +370,8 @@ export default function RazorpayModal({
               </div>
               <p className="text-[11px] text-slate-300 leading-relaxed">
                 {isMarathi
-                  ? `प्रीमियम फीचर्स वापरण्यासाठी खालील लिंकवर क्लिक करून ₹${subscriptionConfig.amount} पेमेंट पूर्ण करा. पेमेंट यशस्वी झाल्यावर तुमचे खाते लगेच प्रीमियम मध्ये अपग्रेड होईल.`
-                  : `To unlock premium features, click the button below to complete your payment of ₹${subscriptionConfig.amount}. Your account will be instantly upgraded upon successful payment.`}
+                  ? `प्रीमियम फीचर्स वापरण्यासाठी खालील लिंकवर क्लिक करून ₹${currentAmount} पेमेंट पूर्ण करा. पेमेंट यशस्वी झाल्यावर तुमचे खाते लगेच प्रीमियम मध्ये अपग्रेड होईल.`
+                  : `To unlock premium features, click the button below to complete your payment of ₹${currentAmount}. Your account will be instantly upgraded upon successful payment.`}
               </p>
             </div>
 
@@ -318,7 +392,7 @@ export default function RazorpayModal({
                 ) : (
                   <>
                     <Icons.CreditCard className="h-5 w-5" />
-                    <span className="text-sm">{isMarathi ? `₹${subscriptionConfig.amount} भरा आणि प्रीमियम सुरु करा` : `Pay ₹${subscriptionConfig.amount} & Unlock`}</span>
+                    <span className="text-sm">{isMarathi ? `₹${currentAmount} भरा आणि प्रीमियम सुरु करा` : `Pay ₹${currentAmount} & Unlock`}</span>
                   </>
                 )}
               </button>

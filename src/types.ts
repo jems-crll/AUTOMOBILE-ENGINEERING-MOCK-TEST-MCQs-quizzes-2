@@ -47,6 +47,7 @@ export interface Chapter {
   descriptionMarathi: string;
   descriptionTranslated?: string; // Translated chapter description
   icon: string; // lucide icon name
+  section?: string; // Section name (e.g., "Section 1")
 }
 
 export interface QuizAttempt {
@@ -74,4 +75,11 @@ export interface SubscriptionConfig {
   billingPeriod: string;
   detailsEn: string;
   detailsMr: string;
+}
+
+export interface Coupon {
+  id: string;
+  code: string;
+  discountPercent: number;
+  isActive: boolean;
 }

@@ -7,7 +7,8 @@ export const CHAPTERS: Chapter[] = [
     "nameMarathi": "मुख्य प्रश्नसंच (Automobile MCQs)",
     "description": "All 50 core objective questions with bilingual explanations.",
     "descriptionMarathi": "सर्व ५० मुख्य बहुपर्यायी प्रश्न आणि मराठी स्पष्टीकरण.",
-    "icon": "ClipboardList"
+    "icon": "ClipboardList",
+    "section": "Section 1"
   },
   {
     "id": 2,
@@ -15,7 +16,8 @@ export const CHAPTERS: Chapter[] = [
     "nameMarathi": "ऑटोमोबाईल सिस्टिम्स संच २",
     "description": "Additional 30 important MCQs on Braking, Tyres, Suspension, and Engine systems.",
     "descriptionMarathi": "ब्रेकिंग, टायर्स, सस्पेन्शन आणि इंजिन सिस्टिम्सवरील अतिरिक्त ३० महत्त्वाचे प्रश्न.",
-    "icon": "Settings"
+    "icon": "Settings",
+    "section": "Section 1"
   },
   {
     "id": 3,
@@ -23,7 +25,8 @@ export const CHAPTERS: Chapter[] = [
     "nameMarathi": "प्रश्नसंच १ (१ ते २०)",
     "description": "Fundamental concepts of automobile structure, frames, and clutch systems.",
     "descriptionMarathi": "ऑटोमोबाईल संरचना, फ्रेम्स आणि क्लच सिस्टिम्सच्या मूलभूत संकल्पना.",
-    "icon": "Layout"
+    "icon": "Layout",
+    "section": "Section 1"
   },
   {
     "id": 4,
@@ -31,7 +34,8 @@ export const CHAPTERS: Chapter[] = [
     "nameMarathi": "प्रश्नसंच २ (२१ ते ५०)",
     "description": "Detailed MCQs on Clutch, Transmission, Steering, and Suspension systems.",
     "descriptionMarathi": "क्लच, ट्रान्समिशन, स्टीअरिंग आणि सस्पेन्शन सिस्टिम्सवरील सविस्तर प्रश्न.",
-    "icon": "Activity"
+    "icon": "Activity",
+    "section": "Section 1"
   },
   {
     "id": 5,
@@ -39,7 +43,8 @@ export const CHAPTERS: Chapter[] = [
     "nameMarathi": "प्रश्नसंच ३ (८१ ते ११०)",
     "description": "Important questions on Electrical systems, Engine performance, and Drive-line layouts.",
     "descriptionMarathi": "इलेक्ट्रिकल सिस्टिम्स, इंजिन परफॉर्मन्स आणि ड्राईव्ह-लाइन लेआउटवरील महत्त्वाचे प्रश्न.",
-    "icon": "Cpu"
+    "icon": "Cpu",
+    "section": "Section 2"
   },
   {
     "id": 6,
@@ -47,7 +52,8 @@ export const CHAPTERS: Chapter[] = [
     "nameMarathi": "प्रश्नसंच ४ (१११ ते १४०)",
     "description": "Advanced concepts on Differential, Steering geometry, Suspension types, and Braking systems.",
     "descriptionMarathi": "डिफरेंशियल, स्टीअरिंग जॉमेट्री, सस्पेन्शन प्रकार आणि ब्रेकिंग सिस्टिम्सवरील प्रगत प्रश्न.",
-    "icon": "Compass"
+    "icon": "Compass",
+    "section": "Section 2"
   },
   {
     "id": 7,
@@ -55,7 +61,8 @@ export const CHAPTERS: Chapter[] = [
     "nameMarathi": "प्रश्नसंच ५ (१४१ ते १७०)",
     "description": "Core concepts on Engine, Chassis, Transmission, and Ignition systems.",
     "descriptionMarathi": "इंजिन, चेसिस, ट्रान्समिशन आणि इग्निशन सिस्टिम्सवरील मूलभूत संकल्पना.",
-    "icon": "Database"
+    "icon": "Database",
+    "section": "Section 2"
   },
   {
     "id": 8,
@@ -63,7 +70,8 @@ export const CHAPTERS: Chapter[] = [
     "nameMarathi": "प्रश्नसंच ६ (१७१ ते २००)",
     "description": "Comprehensive MCQs on Steering geometry, Suspension, Braking, and Engine performance.",
     "descriptionMarathi": "स्टीअरिंग जॉमेट्री, सस्पेन्शन, ब्रेकिंग आणि इंजिन परफॉर्मन्सवरील सविस्तर प्रश्न.",
-    "icon": "Settings"
+    "icon": "Settings",
+    "section": "Section 2"
   },
   {
     "id": 9,
@@ -71,7 +79,8 @@ export const CHAPTERS: Chapter[] = [
     "nameMarathi": "प्रश्नसंच ७ (२०१ ते २३०)",
     "description": "Advanced topics on Engine limits, Suspension dynamics, and Fluid systems.",
     "descriptionMarathi": "इंजिन मर्यादा, सस्पेन्शन आणि हायड्रोलिक सिस्टिम्सवरील प्रगत प्रश्न.",
-    "icon": "Award"
+    "icon": "Award",
+    "section": "Section 3"
   },
   {
     "id": 10,
@@ -79,7 +88,8 @@ export const CHAPTERS: Chapter[] = [
     "nameMarathi": "प्रश्नसंच ८ (२३१ ते २६०)",
     "description": "Detailed MCQs on Aerodynamics, Frame, Steering, Diesel systems, and Efficiency.",
     "descriptionMarathi": "ॲरोडायनॅमिक्स, फ्रेम, स्टीअरिंग, डिझेल सिस्टिम्स आणि कार्यक्षमतेवरील सविस्तर प्रश्न.",
-    "icon": "Zap"
+    "icon": "Zap",
+    "section": "Section 3"
   },
   {
     "id": 11,
@@ -87,7 +97,8 @@ export const CHAPTERS: Chapter[] = [
     "nameMarathi": "प्रश्नसंच ९ (२६१ ते २९०)",
     "description": "Core mechanical principles, ignition systems, and engine performance metrics.",
     "descriptionMarathi": "यांत्रिक तत्त्वे, इग्निशन सिस्टिम्स आणि इंजिन कार्यक्षमता मोजमाप.",
-    "icon": "Wrench"
+    "icon": "Wrench",
+    "section": "Section 3"
   },
   {
     "id": 12,
@@ -95,7 +106,8 @@ export const CHAPTERS: Chapter[] = [
     "nameMarathi": "प्रश्नसंच १० (२९१ ते ३२०)",
     "description": "Detailed MCQs on Clutch, Transmission, Differential, and Braking systems.",
     "descriptionMarathi": "क्लच, ट्रान्समिशन, डिफरेंशियल आणि ब्रेकिंग सिस्टिम्सवरील सविस्तर प्रश्न.",
-    "icon": "Settings2"
+    "icon": "Settings2",
+    "section": "Section 3"
   },
   {
     "id": 13,
@@ -103,7 +115,8 @@ export const CHAPTERS: Chapter[] = [
     "nameMarathi": "प्रश्नसंच ११ (३२१ ते ३५०)",
     "description": "Advanced performance testing, thermodynamic cycles, and tire technology.",
     "descriptionMarathi": "प्रगत कार्यक्षमता चाचणी, थर्मोडायनॅमिक सायकल्स आणि टायर तंत्रज्ञान.",
-    "icon": "Gauge"
+    "icon": "Gauge",
+    "section": "Section 4"
   },
   {
     "id": 14,
@@ -111,7 +124,8 @@ export const CHAPTERS: Chapter[] = [
     "nameMarathi": "प्रश्नसंच १२ (३५१ ते ३८०)",
     "description": "Radiator materials, Transmission gears, and Advanced Suspension mechanics.",
     "descriptionMarathi": "रेडिएटर मटेरियल, ट्रान्समिशन गिअर्स आणि प्रगत सस्पेन्शन मेकॅनिक्स.",
-    "icon": "Component"
+    "icon": "Component",
+    "section": "Section 4"
   },
   {
     "id": 15,
@@ -119,7 +133,8 @@ export const CHAPTERS: Chapter[] = [
     "nameMarathi": "प्रश्नसंच १३ (३८१ ते ४१०)",
     "description": "Octane ratings, Valve timing, Engine bearings, and Common Rail systems.",
     "descriptionMarathi": "ऑक्टेन रेटिंग, व्हॉल्व्ह टायमिंग, इंजिन बेअरिंग्स आणि कॉमन रेल सिस्टिम्स.",
-    "icon": "Zap"
+    "icon": "Zap",
+    "section": "Section 4"
   },
   {
     "id": 16,
@@ -127,7 +142,8 @@ export const CHAPTERS: Chapter[] = [
     "nameMarathi": "प्रश्नसंच १४ (४११ ते ४५०)",
     "description": "Clutch mechanics, Transmission systems, Differential and Suspension.",
     "descriptionMarathi": "क्लच मेकॅनिक्स, ट्रान्समिशन सिस्टिम्स, डिफरेंशियल आणि सस्पेन्शन.",
-    "icon": "Settings"
+    "icon": "Settings",
+    "section": "Section 4"
   },
   {
     "id": 17,
@@ -135,7 +151,8 @@ export const CHAPTERS: Chapter[] = [
     "nameMarathi": "प्रश्नसंच १५ (४४१ ते ४७०)",
     "description": "Steering geometry, Suspension, Braking systems, and Engine Performance.",
     "descriptionMarathi": "स्टीअरिंग जॉमेट्री, सस्पेन्शन, ब्रेकिंग सिस्टिम्स आणि इंजिन परफॉर्मन्स.",
-    "icon": "BarChart3"
+    "icon": "BarChart3",
+    "section": "Section 5"
   },
   {
     "id": 18,
@@ -143,7 +160,8 @@ export const CHAPTERS: Chapter[] = [
     "nameMarathi": "प्रश्नसंच १६ (४७१ ते ५००)",
     "description": "Alternator, Starter motor, Emission control, and Engine specifications.",
     "descriptionMarathi": "अल्टरनेटर, स्टार्टर मोटर, उत्सर्जन नियंत्रण आणि इंजिन स्पेसिफिकेशन्स.",
-    "icon": "Battery"
+    "icon": "Battery",
+    "section": "Section 5"
   },
   {
     "id": 19,
@@ -151,7 +169,8 @@ export const CHAPTERS: Chapter[] = [
     "nameMarathi": "प्रश्नसंच १७ (५०१ ते ५३०)",
     "description": "Valve mechanisms, Ignition, Power definitions, and Engine cycles.",
     "descriptionMarathi": "व्हॉल्व्ह यंत्रणा, इग्निशन, पॉवर व्याख्या आणि इंजिन सायकल.",
-    "icon": "Activity"
+    "icon": "Activity",
+    "section": "Section 5"
   },
   {
     "id": 20,
@@ -159,7 +178,8 @@ export const CHAPTERS: Chapter[] = [
     "nameMarathi": "प्रश्नसंच १८ (५२० ते ५४८)",
     "description": "Diesel engines, compression ratios, cylinder blocks, and engine performance tests.",
     "descriptionMarathi": "डिझेल इंजिन्स, कॉम्प्रेशन रेशिओ, सिलिंडर ब्लॉक्स आणि इंजिन कार्यप्रदर्शन चाचण्या.",
-    "icon": "Activity"
+    "icon": "Activity",
+    "section": "Section 5"
   },
   {
     "id": 21,
@@ -167,7 +187,8 @@ export const CHAPTERS: Chapter[] = [
     "nameMarathi": "प्रश्नसंच १९ (५४९ ते ५७८)",
     "description": "Engine stroke, piston rings, connecting rods, crankshafts, and engine cycles.",
     "descriptionMarathi": "इंजिन स्ट्रोक, पिस्टन रिंग्ज, कनेक्टिंग रॉड्स, क्रँकशाफ्ट आणि इंजिन सायकल.",
-    "icon": "Activity"
+    "icon": "Activity",
+    "section": "Section 6"
   },
   {
     "id": 22,
@@ -175,7 +196,8 @@ export const CHAPTERS: Chapter[] = [
     "nameMarathi": "प्रश्नसंच २० (५७९ ते ७२४)",
     "description": "PFI fuel systems, starting systems, batteries, charging, alternators, safety glass, drive trains, clutches, and transmissions.",
     "descriptionMarathi": "PFI फ्युएल सिस्टम, स्टार्टिंग सिस्टम, बॅटरी, चार्जिंग, अल्टरनेटर, सेफ्टी ग्लास, ड्राईव्ह ट्रेन, क्लच आणि ट्रान्समिशन.",
-    "icon": "Activity"
+    "icon": "Activity",
+    "section": "Section 6"
   },
   {
     "id": 23,
@@ -183,7 +205,8 @@ export const CHAPTERS: Chapter[] = [
     "nameMarathi": "प्रश्नसंच २१ (७२५ ते ७८१)",
     "description": "Automatic transmissions, 4WD systems, suspension types, steering geometry (Camber, Caster, Toe), and tyre maintenance.",
     "descriptionMarathi": "ऑटोमॅटिक ट्रान्समिशन, 4WD सिस्टम, सस्पेन्शनचे प्रकार, स्टीयरिंग जॉमेट्री (कॅम्बर, कॅस्टर, टो) आणि टायर मेंटेनन्स.",
-    "icon": "Shield"
+    "icon": "Shield",
+    "section": "Section 6"
   },
   {
     "id": 24,
@@ -191,7 +214,8 @@ export const CHAPTERS: Chapter[] = [
     "nameMarathi": "प्रश्नसंच २२ (७८२ ते ८५०)",
     "description": "Braking mechanics, Master cylinders, ABS, Automotive painting, and Lighting systems (Candle power, Wiring colors).",
     "descriptionMarathi": "ब्रेकिंग मेकॅनिक्स, मास्टर सिलिंडर, ABS, ऑटोमोबाईल पेंटिंग आणि लाइटिंग सिस्टम (कँडल पॉवर, वायरिंग रंग).",
-    "icon": "Zap"
+    "icon": "Zap",
+    "section": "Section 6"
   },
   {
     "id": 25,
@@ -199,7 +223,35 @@ export const CHAPTERS: Chapter[] = [
     "nameMarathi": "प्रश्नसंच २३ (८५१ ते ९१६)",
     "description": "Electrical wiring, Battery construction, SRS (Airbags), Differential mechanics, Universal joints, and Torque converters.",
     "descriptionMarathi": "इलेक्ट्रिकल वायरिंग, बॅटरी रचना, SRS (एअरबॅग्स), डिफरेंशियल मेकॅनिक्स, युनिव्हर्सल जॉइंट्स आणि टॉर्क कन्व्हर्टर्स.",
-    "icon": "Activity"
+    "icon": "Activity",
+    "section": "Section 7"
+  },
+  {
+    "id": 26,
+    "name": "SET 24 (Questions 917-964)",
+    "nameMarathi": "प्रश्नसंच २४ (९१७ ते ९६४)",
+    "description": "Overdrive, Torque converters, Tyre construction (Beads, Plies), Wheel types, Brake system maintenance (Bleeding), and Clutch types.",
+    "descriptionMarathi": "ओव्हरड्राईव्ह, टॉर्क कन्व्हर्टर्स, टायरची रचना (बीड्स, प्लाय), चाकांचे प्रकार, ब्रेक सिस्टम देखभाल आणि क्लचचे प्रकार.",
+    "icon": "Settings",
+    "section": "Section 7"
+  },
+  {
+    "id": 27,
+    "name": "SET 25 (Questions 965-1011)",
+    "nameMarathi": "प्रश्नसंच २५ (९६५ ते १०११)",
+    "description": "Braking laws (Pascal's Law), Vehicle drive types (4x4, 6x4), Lubrication systems (Grease types, Viscosity), and Cooling systems (Radiators, Air/Water cooling).",
+    "descriptionMarathi": "ब्रेकिंग नियम (पास्कलचा नियम), वाहनांचे प्रकार (4x4, 6x4), वंगण प्रणाली (ग्रीसचे प्रकार, व्हिस्कोसिटी) आणि कूलिंग सिस्टम (रेडिएटर्स, एअर/वॉटर कूलिंग).",
+    "icon": "Thermometer",
+    "section": "Section 7"
+  },
+  {
+    "id": 28,
+    "name": "SET 26 (Questions 1012-1064)",
+    "nameMarathi": "प्रश्नसंच २६ (१०१२ ते १०६४)",
+    "description": "Indian Automobile Industry, Motor Vehicle Act 1977 (Chapters & Schedules), Accident Compensation, and Registration Marks.",
+    "descriptionMarathi": "भारतीय ऑटोमोबाईल उद्योग, मोटार वाहन कायदा १९७७ (प्रकरणे आणि वेळापत्रक), अपघात भरपाई आणि नोंदणी क्रमांक.",
+    "icon": "History",
+    "section": "Section 7"
   }
 ];
 
@@ -20366,5 +20418,3134 @@ export const QUESTIONS: Question[] = [
     "answer": "C",
     "explanation": "Overdrive units typically use a planetary gear set and a one-way clutch (free wheeling mechanism).",
     "explanationMarathi": "ओव्हरड्राईव्हसाठी प्लॅनेटरी गिअर आणि फ्री व्हीलिंग यंत्रणा आवश्यक असते."
+  },
+  {
+    "id": 962,
+    "chapterId": 26,
+    "question": "Generally an overdrive is fitted to the ______ only.",
+    "questionMarathi": "ओव्हरड्राईव्ह (Overdrive) प्रामुख्याने फक्त कशामध्ये बसवलेला असतो?",
+    "options": [
+      "Bottom gear only",
+      "Top gear only",
+      "Same gear only",
+      "None are correct"
+    ],
+    "optionsMarathi": [
+      "फक्त पहिल्या गिअरमध्ये",
+      "फक्त टॉप गिअरमध्ये (Top gear only)",
+      "समान गिअरमध्ये",
+      "काहीही नाही"
+    ],
+    "answer": "B",
+    "explanation": "An overdrive is an extra gear that allows the engine to run at lower RPMs for a given road speed, typically used in conjunction with the highest (top) gear.",
+    "explanationMarathi": "ओव्हरड्राईव्ह इंजिनचा वेग कमी ठेवून गाडीचा वेग वाढवण्यासाठी वापरला जातो, जो प्रामुख्याने टॉप गिअरमध्ये काम करतो."
+  },
+  {
+    "id": 963,
+    "chapterId": 26,
+    "question": "A torque converter multiplies torque when the stator is free wheeling—",
+    "questionMarathi": "जेव्हा स्टेटर \\\"फ्री-व्हीलिंग\\\" (Free wheeling) करत असतो, तेव्हा टॉर्क कन्व्हर्टर टॉर्क वाढवतो. (बरोबर/चूक)",
+    "options": [
+      "True",
+      "False",
+      "Both are correct",
+      "None of these"
+    ],
+    "optionsMarathi": [
+      "बरोबर",
+      "चूक (False)",
+      "दोन्ही",
+      "यापैकी नाही"
+    ],
+    "answer": "B",
+    "explanation": "Torque multiplication occurs when the stator is locked and redirects fluid; when the stator starts free-wheeling, the unit acts as a simple fluid coupling and stops multiplying torque.",
+    "explanationMarathi": "टॉर्क वाढवण्यासाठी स्टेटरचे स्थिर असणे आवश्यक असते. जर तो फिरू लागला, तर टॉर्क वाढणे थांबते."
+  },
+  {
+    "id": 964,
+    "chapterId": 26,
+    "question": "Which one of the following element creates reaction in a torque converter?",
+    "questionMarathi": "टॉर्क कन्व्हर्टरमध्ये \\\"रिॲक्शन\\\" (Reaction) तयार करणारा घटक कोणता?",
+    "options": [
+      "Impeller",
+      "Turbine",
+      "Stator",
+      "None of these"
+    ],
+    "optionsMarathi": [
+      "इम्पेलर (Impeller)",
+      "टर्बाइन",
+      "स्टेटर",
+      "यापैकी नाही"
+    ],
+    "answer": "A",
+    "explanation": "The impeller (driving member) uses engine power to accelerate fluid, creating the initial action that leads to the hydraulic reaction in the converter.",
+    "explanationMarathi": "इम्पेलर इंजिनकडून शक्ती घेऊन द्रवाचा (Fluid) वेग वाढवतो, ज्यामुळे रिॲक्शन तयार होते."
+  },
+  {
+    "id": 965,
+    "chapterId": 26,
+    "question": "What is the advantage of automatic transmission?",
+    "questionMarathi": "ऑटोमॅटिक ट्रान्समिशनचा फायदा काय आहे?",
+    "options": [
+      "Simple driving control",
+      "Reduced fuel consumption",
+      "Both are correct",
+      "None of the above"
+    ],
+    "optionsMarathi": [
+      "साधे ड्रायव्हिंग नियंत्रण",
+      "कमी इंधन वापर",
+      "दोन्ही बरोबर (Both)",
+      "यापैकी नाही"
+    ],
+    "answer": "C",
+    "explanation": "Automatic transmissions offer easier driving as no manual shifting is required, and modern versions can also be very fuel-efficient.",
+    "explanationMarathi": "यामुळे गाडी चालवणे सोपे होते आणि काही प्रमाणात इंधन बचतही होते."
+  },
+  {
+    "id": 966,
+    "chapterId": 26,
+    "question": "An over running clutch restricts drive to one direction only?",
+    "questionMarathi": "\\\"ओव्हर रनिंग क्लच\\\" (Over running clutch) फक्त एकाच दिशेने ड्राईव्ह देतो. (बरोबर/चूक)",
+    "options": [
+      "Correct",
+      "Incorrect",
+      "Both are correct",
+      "None are correct"
+    ],
+    "optionsMarathi": [
+      "बरोबर (Correct)",
+      "चूक",
+      "दोन्ही",
+      "यापैकी नाही"
+    ],
+    "answer": "A",
+    "explanation": "An over-running clutch (one-way clutch) allows a component to rotate freely in one direction but locks it to transfer torque in the other.",
+    "explanationMarathi": "हो, याला \\\"वन-वे क्लच\\\" असेही म्हणतात, जो फक्त एकाच बाजूने ताकद पोहोचवतो."
+  },
+  {
+    "id": 967,
+    "chapterId": 26,
+    "question": "Steel wires fitted in circles are called—",
+    "questionMarathi": "टायरमध्ये वर्तुळाकार बसवलेल्या स्टीलच्या तारांना काय म्हणतात?",
+    "options": [
+      "Breads",
+      "Beads",
+      "Drum",
+      "Hump"
+    ],
+    "optionsMarathi": [
+      "ब्रेड्स",
+      "बीड्स (Beads)",
+      "ड्रम",
+      "हंप"
+    ],
+    "answer": "B",
+    "explanation": "Tyre beads are loops of high-tensile steel wires that hold the tyre securely on the rim.",
+    "explanationMarathi": "टायरच्या कडेला असलेल्या स्टीलच्या वायर्सना \\\"बीड्स\\\" म्हणतात, ज्यामुळे टायर रिमवर घट्ट बसतो."
+  },
+  {
+    "id": 968,
+    "chapterId": 26,
+    "question": "What is the advantage of tubeless tyres?",
+    "questionMarathi": "ट्युबलेस टायरचा फायदा काय आहे?",
+    "options": [
+      "Slow rate of air loss",
+      "Penetration of nails",
+      "Does not affect complete deflation",
+      "All are correct"
+    ],
+    "optionsMarathi": [
+      "हवा हळू गळते",
+      "खिळा टोचला तरी लगेच हवा जात नाही",
+      "लगेच चपटा होत नाही",
+      "वरील सर्व"
+    ],
+    "answer": "D",
+    "explanation": "Tubeless tyres provide better safety because they leak air slowly when punctured, allowing the driver to maintain control and reach a service point.",
+    "explanationMarathi": "ट्युबलेस टायर पंचर झाल्यावर लगेच हवा सोडत नाहीत, त्यामुळे अपघात टाळता येतात."
+  },
+  {
+    "id": 969,
+    "chapterId": 26,
+    "question": "Which of the following reduce tyre life?",
+    "questionMarathi": "खालीलपैकी कशामुळे टायरचे आयुष्य कमी होते?",
+    "options": [
+      "High speed",
+      "Running the tyres with under inflation",
+      "Both are correct",
+      "None"
+    ],
+    "optionsMarathi": [
+      "अति वेग",
+      "कमी हवेत गाडी चालवणे",
+      "दोन्ही बरोबर (Both)",
+      "यापैकी नाही"
+    ],
+    "answer": "C",
+    "explanation": "Both excessive speeds (heat buildup) and low tyre pressure (excessive flexing) significantly shorten the lifespan of a tyre.",
+    "explanationMarathi": "जास्त वेगाने गाडी चालवणे आणि टायरमध्ये हवा कमी असणे यांमुळे टायर लवकर खराब होतात."
+  },
+  {
+    "id": 970,
+    "chapterId": 26,
+    "question": "The ratio of section width to section height is known as the aspect ratio—",
+    "questionMarathi": "टायरची रुंदी आणि उंची यांच्या गुणोत्तराला ॲस्पेक्ट रेशिओ म्हणतात. (बरोबर/चूक)",
+    "options": [
+      "False",
+      "True",
+      "Both",
+      "None"
+    ],
+    "optionsMarathi": [
+      "चूक",
+      "बरोबर (True)",
+      "दोन्ही",
+      "यापैकी नाही"
+    ],
+    "answer": "B",
+    "explanation": "The aspect ratio is the relationship between the tyre's height and its width, usually expressed as a percentage.",
+    "explanationMarathi": "हो, टायरची रुंदी आणि उंची यांच्यातील संबंधाला ॲस्पेक्ट रेशिओ म्हणतात."
+  },
+  {
+    "id": 971,
+    "chapterId": 26,
+    "question": "What is the function of tyres?",
+    "questionMarathi": "टायरचे कार्य काय आहे?",
+    "options": [
+      "Carry the load of the vehicle",
+      "Absorb the small road shocks",
+      "Damp down the vibration to some extent",
+      "All are correct"
+    ],
+    "optionsMarathi": [
+      "वाहनाचे वजन पेलणे",
+      "रस्त्यावरील बारीक धक्के शोषून घेणे",
+      "व्हायब्रेशन्स कमी करणे",
+      "वरील सर्व"
+    ],
+    "answer": "D",
+    "explanation": "Tyres support the vehicle's weight, provide traction, and act as the first stage of the suspension system to absorb road irregularities.",
+    "explanationMarathi": "गाडीचे वजन पेलणे आणि रस्त्यावरील धक्के शोषून घेऊन आरामदायी प्रवास देणे हे टायरचे काम आहे."
+  },
+  {
+    "id": 972,
+    "chapterId": 26,
+    "question": "______ gives strength to resist internal pressure to support load and road shocks.",
+    "questionMarathi": "टायरमध्ये अंतर्गत दाब सहन करण्यासाठी आणि धक्के पेलण्यासाठी कशामुळे ताकद मिळते?",
+    "options": [
+      "Cord plies",
+      "Bead",
+      "Tread",
+      "None of these"
+    ],
+    "optionsMarathi": [
+      "कॉर्ड प्लाय (Cord plies)",
+      "बीड",
+      "थ्रेड",
+      "यापैकी नाही"
+    ],
+    "answer": "A",
+    "explanation": "Cord plies (the carcass) form the structural backbone of the tyre, providing the strength needed to hold air pressure and support the load.",
+    "explanationMarathi": "टायरमधील धाग्यांचे थर (प्लाय) त्याला अंतर्गत हवेचा दाब सहन करण्याची ताकद देतात."
+  },
+  {
+    "id": 973,
+    "chapterId": 26,
+    "question": "______ is soft heat resistance rubber.",
+    "questionMarathi": "टायरमधील मऊ आणि उष्णता प्रतिरोधक रबर कोणता?",
+    "options": [
+      "Cord plies",
+      "Cushion",
+      "Tread",
+      "Well"
+    ],
+    "optionsMarathi": [
+      "प्लाय",
+      "कुशन (Cushion)",
+      "थ्रेड",
+      "वेल"
+    ],
+    "answer": "B",
+    "explanation": "A cushion layer of rubber is often used in tyre construction to absorb shocks and resist heat buildup between the plies and tread.",
+    "explanationMarathi": "कुशन रबर हा टायरमधील धक्के शोषून घेण्यासाठी वापरला जाणारा मऊ भाग असतो."
+  },
+  {
+    "id": 974,
+    "chapterId": 26,
+    "question": "______ is a bag of rubber in which air is filled through valve.",
+    "questionMarathi": "रबराची पिशवी ज्यामध्ये व्हॉल्व्हद्वारे हवा भरली जाते, त्याला काय म्हणतात?",
+    "options": [
+      "Tube",
+      "Cord plies",
+      "Well",
+      "Tread"
+    ],
+    "optionsMarathi": [
+      "ट्युब (Tube)",
+      "प्लाय",
+      "वेल",
+      "थ्रेड"
+    ],
+    "answer": "A",
+    "explanation": "In tube-type tyres, the inner tube is an airtight rubber bag that contains the pressurized air.",
+    "explanationMarathi": "टायरच्या आत हवा धरून ठेवणाऱ्या पिशवीला \\\"ट्युब\\\" म्हणतात."
+  },
+  {
+    "id": 975,
+    "chapterId": 26,
+    "question": "Factors that will prevent equitable distribution of load between two tyres of dual assembly are—",
+    "questionMarathi": "ड्युअल असेंब्लीमध्ये दोन टायर्सवर समान भार न येण्याची कारणे कोणती?",
+    "options": [
+      "The relative diameter of twin tyres",
+      "The amount of air pressure in each tyre",
+      "Loose wheel bearings",
+      "All are correct"
+    ],
+    "optionsMarathi": [
+      "दोन टायर्सच्या व्यासातील फरक",
+      "प्रत्येक टायरमधील हवेचा दाब",
+      "सैल व्हील बेअरिंग्ज",
+      "वरील सर्व"
+    ],
+    "answer": "D",
+    "explanation": "Unequal diameters, differing pressures, or mechanical looseness can cause one tyre in a dual pair to carry more load than the other.",
+    "explanationMarathi": "जर दोन टायरचा आकार किंवा हवा वेगवेगळी असेल, तर एकावर जास्त भार येतो."
+  },
+  {
+    "id": 976,
+    "chapterId": 26,
+    "question": "Steel belt radial tyres offer ______ less resistance as compared to conventional tyres.",
+    "questionMarathi": "स्टील बेल्ट रेडिअल टायर पारंपारिक टायरपेक्षा किती टक्के कमी रोध (Resistance) देतात?",
+    "options": [
+      "5%",
+      "28%",
+      "90%",
+      "99%"
+    ],
+    "optionsMarathi": [
+      "५%",
+      "२८% (28%)",
+      "९०%",
+      "९९%"
+    ],
+    "answer": "B",
+    "explanation": "Radial tyres typically offer significantly lower rolling resistance (often cited around 25-30%) compared to bias-ply tyres, leading to better fuel economy.",
+    "explanationMarathi": "रेडिअल टायर फिरताना कमी रोध निर्माण करतात, ज्यामुळे इंधन बचत होते."
+  },
+  {
+    "id": 977,
+    "chapterId": 26,
+    "question": "The radial tyres have ______ carrying capacity than conventional tyres.",
+    "questionMarathi": "रेडिअल टायरची भार वाहून नेण्याची क्षमता पारंपारिक टायरपेक्षा कशी असते?",
+    "options": [
+      "Less",
+      "Same",
+      "More",
+      "None of these"
+    ],
+    "optionsMarathi": [
+      "कमी",
+      "तेवढीच",
+      "जास्त (More)",
+      "यापैकी नाही"
+    ],
+    "answer": "C",
+    "explanation": "Due to their construction, radial tyres generally provide a larger contact patch and can carry heavier loads more effectively than conventional bias-ply tyres.",
+    "explanationMarathi": "रेडिअल टायरची रचना अधिक मजबूत असल्याने ते जास्त वजन पेलू शकतात."
+  },
+  {
+    "id": 978,
+    "chapterId": 26,
+    "question": "The tyre should create ______ noise while running on the road.",
+    "questionMarathi": "रस्त्यावर धावताना टायरने किती आवाज केला पाहिजे?",
+    "options": [
+      "Maximum",
+      "Minimum",
+      "Both",
+      "None of these"
+    ],
+    "optionsMarathi": [
+      "जास्तीत जास्त",
+      "कमीतकमी (Minimum)",
+      "दोन्ही",
+      "यापैकी नाही"
+    ],
+    "answer": "B",
+    "explanation": "One of the requirements for a good tyre design is to minimize the noise generated by the tread pattern as it contacts the road.",
+    "explanationMarathi": "चांगल्या टायरचे वैशिष्ट्य म्हणजे त्याचा रस्त्यावर धावताना आवाज कमी असावा."
+  },
+  {
+    "id": 979,
+    "chapterId": 26,
+    "question": "Disc wheel consists of a ______ rim.",
+    "questionMarathi": "डिस्क व्हीलची रिम (Rim) कशापासून बनलेली असते?",
+    "options": [
+      "Rubber",
+      "Steel",
+      "Copper",
+      "None"
+    ],
+    "optionsMarathi": [
+      "रबर",
+      "स्टील (Steel)",
+      "तांबे",
+      "काहीही नाही"
+    ],
+    "answer": "B",
+    "explanation": "Most standard disc wheels are made of pressed and welded steel.",
+    "explanationMarathi": "डिस्क व्हीलची रिम प्रामुख्याने स्टीलपासून बनवलेली असते."
+  },
+  {
+    "id": 980,
+    "chapterId": 26,
+    "question": "To perform a good function the wheel must be—",
+    "questionMarathi": "चांगले कार्य करण्यासाठी चाक कसे असावे?",
+    "options": [
+      "Strong enough",
+      "Able to grip the road surface",
+      "Both are correct",
+      "None of the above"
+    ],
+    "optionsMarathi": [
+      "मजबूत असावे",
+      "रस्त्यावर पकड मिळवणारे असावे",
+      "दोन्ही बरोबर (Both)",
+      "यापैकी नाही"
+    ],
+    "answer": "C",
+    "explanation": "Wheels must be structurally strong to support the vehicle and provide a stable mounting surface for the tyres to grip the road.",
+    "explanationMarathi": "चाक मजबूत असावे आणि टायरची रस्त्यावर पकड चांगली असावी."
+  },
+  {
+    "id": 981,
+    "chapterId": 26,
+    "question": "Which of the following is a type of wheel?",
+    "questionMarathi": "खालीलपैकी कोणता चाकाचा (Wheel) प्रकार आहे?",
+    "options": [
+      "Disc wheel",
+      "Wire wheel",
+      "Split wheel",
+      "All are correct"
+    ],
+    "optionsMarathi": [
+      "डिस्क व्हील",
+      "वायर व्हील",
+      "स्प्लिट व्हील",
+      "वरील सर्व"
+    ],
+    "answer": "D",
+    "explanation": "Common automotive wheel types include steel disc wheels, spoked wire wheels, and multi-piece split wheels (often for heavy duty).",
+    "explanationMarathi": "वाहनांमध्ये डिस्क, वायर आणि स्प्लिट अशा वेगवेगळ्या प्रकारचे चाके वापरली जातात."
+  },
+  {
+    "id": 982,
+    "chapterId": 26,
+    "question": "Which of the following is a type of tyre?",
+    "questionMarathi": "खालीलपैकी कोणता टायरचा प्रकार आहे?",
+    "options": [
+      "Tube tyre",
+      "Tubeless tyre",
+      "Both are correct",
+      "None of these"
+    ],
+    "optionsMarathi": [
+      "ट्युब टायर",
+      "ट्युबलेस टायर",
+      "दोन्ही बरोबर",
+      "यापैकी नाही"
+    ],
+    "answer": "C",
+    "explanation": "Tyres are generally categorized as either tube-type or tubeless.",
+    "explanationMarathi": "टायरचे मुख्य दोन प्रकार म्हणजे ट्युब असलेले आणि ट्युब नसलेले."
+  },
+  {
+    "id": 983,
+    "chapterId": 26,
+    "question": "The two top plies of the tyre are referred to as—",
+    "questionMarathi": "टायरच्या सर्वात वरच्या दोन थरांना (Plies) काय म्हणतात?",
+    "options": [
+      "Tread",
+      "Casing",
+      "Breaker",
+      "None of these"
+    ],
+    "optionsMarathi": [
+      "थ्रेड",
+      "केसिंग",
+      "ब्रेकर (Breaker)",
+      "यापैकी नाही"
+    ],
+    "answer": "C",
+    "explanation": "In some tyre designs, the layers just beneath the tread are called breaker plies, designed to protect the casing.",
+    "explanationMarathi": "थ्रेडच्या खाली असलेल्या आणि केसिंगचे रक्षण करणाऱ्या थरांना \\\"ब्रेकर\\\" म्हणतात."
+  },
+  {
+    "id": 984,
+    "chapterId": 26,
+    "question": "The tyre ______ are made up of layers of cord impregnated with rubber.",
+    "questionMarathi": "टायरचे ______ रबर मिश्रित धाग्यांच्या थरांनी बनलेले असतात.",
+    "options": [
+      "Casing",
+      "Breaker",
+      "Tread",
+      "None of these"
+    ],
+    "optionsMarathi": [
+      "केसिंग (Casing)",
+      "ब्रेकर",
+      "थ्रेड",
+      "यापैकी नाही"
+    ],
+    "answer": "A",
+    "explanation": "The tyre casing (carcass) is the structural part made of multiple rubber-coated cord layers.",
+    "explanationMarathi": "टायरचा मुख्य सांगाडा (केसिंग) हा रबर आणि धाग्यांपासून बनलेला असतो."
+  },
+  {
+    "id": 985,
+    "chapterId": 26,
+    "question": "The tyre casing are made up of layers of cord impregnated with—",
+    "questionMarathi": "टायर केसिंगमध्ये वापरल्या जाणाऱ्या धाग्यांना कशाचे कोटिंग असते?",
+    "options": [
+      "Steel",
+      "Rubber",
+      "Copper",
+      "None of these"
+    ],
+    "optionsMarathi": [
+      "स्टील",
+      "रबर (Rubber)",
+      "तांबे",
+      "यापैकी नाही"
+    ],
+    "answer": "B",
+    "explanation": "The fabric cords in a tyre are thoroughly saturated (impregnated) with rubber compounds for adhesion and flexibility.",
+    "explanationMarathi": "केसिंगमधील धागे रबरामध्ये भिजवलेले (Impregnated) असतात."
+  },
+  {
+    "id": 986,
+    "chapterId": 26,
+    "question": "The shoulder to shoulder width of the tyre represents the—",
+    "questionMarathi": "टायरच्या एका खांद्यापासून दुसऱ्या खांद्यापर्यंतच्या रुंदीला काय म्हणतात?",
+    "options": [
+      "Breaker",
+      "Side well",
+      "Tread",
+      "None of these"
+    ],
+    "optionsMarathi": [
+      "ब्रेकर",
+      "साईडवॉल",
+      "थ्रेड (Tread)",
+      "यापैकी नाही"
+    ],
+    "answer": "C",
+    "explanation": "The tread is the patterned part of the tyre that comes into contact with the road, measured from shoulder to shoulder.",
+    "explanationMarathi": "टायरचा रस्त्याला स्पर्श होणारा रुंद भाग म्हणजे \\\"थ्रेड\\\"."
+  },
+  {
+    "id": 987,
+    "chapterId": 26,
+    "question": "That part of the rim which provides lateral support to the tyre is called—",
+    "questionMarathi": "रिमचा जो भाग टायरला बाजूने (Lateral) आधार देतो, त्याला काय म्हणतात?",
+    "options": [
+      "Well",
+      "Gutter",
+      "Flange",
+      "None of these"
+    ],
+    "optionsMarathi": [
+      "वेल",
+      "गटर",
+      "फ्लॅन्ज (Flange)",
+      "यापैकी नाही"
+    ],
+    "answer": "C",
+    "explanation": "The flange is the vertical or curved edge of the rim that prevents the tyre from sliding off sideways.",
+    "explanationMarathi": "टायर बाहेर निसटू नये म्हणून रिमच्या कडेला असलेल्या उंचावलेल्या भागाला \\\"फ्लॅन्ज\\\" म्हणतात."
+  },
+  {
+    "id": 988,
+    "chapterId": 26,
+    "question": "That part of the rim which provides radial support to the tyre is called—",
+    "questionMarathi": "रिमचा जो भाग टायरला खालून (Radial) आधार देतो, त्याला काय म्हणतात?",
+    "options": [
+      "Well",
+      "Bead seat",
+      "Flange",
+      "Gutter"
+    ],
+    "optionsMarathi": [
+      "वेल",
+      "बीड सीट (Bead seat)",
+      "फ्लॅन्ज",
+      "गटर"
+    ],
+    "answer": "B",
+    "explanation": "The bead seat is the flat part of the rim where the tyre bead rests and seals under pressure.",
+    "explanationMarathi": "टायरचे बीड रिमवर ज्या जागी बसतात, त्याला \\\"बीड सीट\\\" म्हणतात."
+  },
+  {
+    "id": 989,
+    "chapterId": 26,
+    "question": "The hole or slot in the rim which accommodates the valve for tyre inflation is called—",
+    "questionMarathi": "रिममधील ज्या छिद्रातून हवा भरण्याचा व्हॉल्व्ह बाहेर येतो, त्याला काय म्हणतात?",
+    "options": [
+      "Well",
+      "Flange",
+      "Valve aperture",
+      "None of these"
+    ],
+    "optionsMarathi": [
+      "वेल",
+      "फ्लॅन्ज",
+      "व्हॉल्व्ह अपर्चर (Valve aperture)",
+      "यापैकी नाही"
+    ],
+    "answer": "C",
+    "explanation": "The valve aperture is the specific hole in the wheel rim designed for the tyre valve stem.",
+    "explanationMarathi": "हवा भरण्याच्या व्हॉल्व्हसाठी असलेल्या छिद्राला \\\"व्हॉल्व्ह अपर्चर\\\" म्हणतात."
+  },
+  {
+    "id": 990,
+    "chapterId": 26,
+    "question": "The groove in the rim base in which rim parts are retained is called—",
+    "questionMarathi": "रिमच्या बेसमध्ये असलेल्या खाचेला काय म्हणतात?",
+    "options": [
+      "Well",
+      "Flange",
+      "Bead seat",
+      "Gutter"
+    ],
+    "optionsMarathi": [
+      "वेल",
+      "फ्लॅन्ज",
+      "बीड सीट",
+      "गटर (Gutter)"
+    ],
+    "answer": "D",
+    "explanation": "The gutter is a specialized groove in some rim designs for retaining rings or other components.",
+    "explanationMarathi": "रिममधील खोल खाचेला \\\"गटर\\\" असे म्हटले जाते."
+  },
+  {
+    "id": 991,
+    "chapterId": 26,
+    "question": "If the size of the tyre is 8.20 × 20 × 10 PR. This shows that the width of tyre from shoulder to shoulder is—",
+    "questionMarathi": "जर टायरचा आकार 8.20 × 20 असा असेल, तर त्यातील रुंदी कोणती?",
+    "options": [
+      "8.20\"",
+      "20\"",
+      "10\"",
+      "20 × 10\""
+    ],
+    "optionsMarathi": [
+      "८.२० इंच (8.20\")",
+      "२० इंच",
+      "१० इंच",
+      "२० x १० इंच"
+    ],
+    "answer": "A",
+    "explanation": "In this notation, the first number (8.20) represents the nominal section width of the tyre in inches.",
+    "explanationMarathi": "दिलेल्या मापात ८.२० हा आकडा टायरची इंचामधील रुंदी दर्शवतो."
+  },
+  {
+    "id": 992,
+    "chapterId": 26,
+    "question": "For wheel and tyre trouble the causes of trouble Wheel wobble is—",
+    "questionMarathi": "चाक डगमगणे (Wheel wobble) कशामुळे होऊ शकते?",
+    "options": [
+      "Worn hub bearing of the wheel",
+      "Unbalanced wheel",
+      "Both are correct",
+      "None"
+    ],
+    "optionsMarathi": [
+      "हब बेअरिंग घासले जाणे",
+      "चाकाचा असमतोल",
+      "दोन्ही बरोबर (Both)",
+      "यापैकी नाही"
+    ],
+    "answer": "C",
+    "explanation": "Wheel wobble can be caused by mechanical looseness in bearings or by the wheel assembly being out of balance.",
+    "explanationMarathi": "बेअरिंग खराब असणे किंवा व्हील अलाइनमेंट-बॅलन्सिंग नसणे यामुळे चाक डगमगते."
+  },
+  {
+    "id": 993,
+    "chapterId": 26,
+    "question": "For wheel and tyre troubles the cause of wheel bounce is—",
+    "questionMarathi": "चाक उसळण्याचे (Wheel bounce) कारण काय असू शकते?",
+    "options": [
+      "Eccentricity of the wheel and tyre",
+      "Incorrect tyre pressure",
+      "Unbalanced wheel",
+      "All are correct"
+    ],
+    "optionsMarathi": [
+      "चाक किंवा टायरचा वेडेवाकडेपणा",
+      "चुकीचा हवेचा दाब",
+      "चाकाचा असमतोल",
+      "वरील सर्व"
+    ],
+    "answer": "D",
+    "explanation": "Bouncing is often caused by heavy spots in the tyre/wheel assembly (unbalanced) or by the wheel not being perfectly round (eccentric).",
+    "explanationMarathi": "चाकाचा बॅलन्स नसणे किंवा चाक वेडेवाकडे असणे यामुळे ते रस्त्यावर उसळते."
+  },
+  {
+    "id": 994,
+    "chapterId": 26,
+    "question": "What is the remedy of the cause fault ‘Air in hydraulics system’?",
+    "questionMarathi": "हायड्रॉलिक सिस्टममध्ये हवा असल्यास काय उपाय करावा?",
+    "options": [
+      "Bleed the system",
+      "Adjust brake pedal",
+      "Use brake oil",
+      "All are correct"
+    ],
+    "optionsMarathi": [
+      "सिस्टम ब्लीड करणे (Bleed)",
+      "ब्रेक पेडल ॲडजस्ट करणे",
+      "ब्रेक ऑइल वापरणे",
+      "वरील सर्व"
+    ],
+    "answer": "A",
+    "explanation": "The standard procedure to remove air from hydraulic brakes is bleeding the system.",
+    "explanationMarathi": "ब्रेक सिस्टममधील हवा काढण्यासाठी \\\"ब्लीडिंग\\\" करणे हाच उपाय आहे."
+  },
+  {
+    "id": 995,
+    "chapterId": 26,
+    "question": "The main component of vacuum servo brake is—",
+    "questionMarathi": "व्हॅक्युम सर्वो ब्रेकचा मुख्य घटक कोणता?",
+    "options": [
+      "Exhauster",
+      "Vacuum tank",
+      "Vacuum booster",
+      "All are correct"
+    ],
+    "optionsMarathi": [
+      "एक्झॉस्टर",
+      "व्हॅक्युम टँक",
+      "व्हॅक्युम बूस्टर",
+      "वरील सर्व"
+    ],
+    "answer": "D",
+    "explanation": "A vacuum servo system requires a source of vacuum (manifold or exhauster), a storage tank, and the booster unit itself.",
+    "explanationMarathi": "व्हॅक्युम ब्रेक सिस्टममध्ये बूस्टर, टँक आणि व्हॅक्युम तयार करणारा घटक हे सर्व असतात."
+  },
+  {
+    "id": 996,
+    "chapterId": 26,
+    "question": "Vacuum tank is connected to the valve of brake booster through a ______ pipe?",
+    "questionMarathi": "व्हॅक्युम टँक बूस्टरला कोणत्या पाईपद्वारे जोडलेला असतो?",
+    "options": [
+      "Rubber",
+      "Steel",
+      "Copper",
+      "None"
+    ],
+    "optionsMarathi": [
+      "रबर",
+      "स्टील (Steel)",
+      "तांबे",
+      "काहीही नाही"
+    ],
+    "answer": "B",
+    "explanation": "Steel piping is often used for vacuum lines to prevent them from collapsing under the negative pressure.",
+    "explanationMarathi": "व्हॅक्युम प्रेशरमुळे पाईप चपटी होऊ नये म्हणून सहसा स्टीलची पाईप वापरली जाते."
+  },
+  {
+    "id": 997,
+    "chapterId": 26,
+    "question": "The main component of air pressure brakes is—",
+    "questionMarathi": "एअर प्रेशर ब्रेकचा (Air brake) मुख्य घटक कोणता?",
+    "options": [
+      "Brake valve",
+      "Unloader valve",
+      "Line filter",
+      "All are correct"
+    ],
+    "optionsMarathi": [
+      "ब्रेक व्हॉल्व्ह",
+      "अनलोडर व्हॉल्व्ह",
+      "लाईन फिल्टर",
+      "वरील सर्व"
+    ],
+    "answer": "D",
+    "explanation": "Air brake systems use various valves to control, regulate, and clean the pressurized air.",
+    "explanationMarathi": "एअर ब्रेक सिस्टिममध्ये व्हॉल्व्ह आणि फिल्टर हे महत्त्वाचे भाग असतात."
+  },
+  {
+    "id": 998,
+    "chapterId": 26,
+    "question": "The main component of air pressure brake is—",
+    "questionMarathi": "एअर प्रेशर ब्रेकचा आणखी एक महत्त्वाचा घटक कोणता?",
+    "options": [
+      "Air compressor",
+      "Slack adjuster",
+      "Air tank",
+      "All are correct"
+    ],
+    "optionsMarathi": [
+      "एअर कॉम्प्रेसर",
+      "स्लॅक ॲडजस्टर",
+      "एअर टँक",
+      "वरील सर्व"
+    ],
+    "answer": "D",
+    "explanation": "The compressor generates pressure, the tank stores it, and the slack adjuster ensures proper clearance at the brakes.",
+    "explanationMarathi": "कॉम्प्रेसर, एअर टँक आणि स्लॅक ॲडजस्टर हे एअर ब्रेकचे प्रमुख भाग आहेत."
+  },
+  {
+    "id": 999,
+    "chapterId": 26,
+    "question": "What is the cause of the fault ‘insufficient braking’?",
+    "questionMarathi": "ब्रेक अपुरे पडण्याचे (Insufficient braking) कारण काय असू शकते?",
+    "options": [
+      "Insufficient air in the system",
+      "Brake shoes worn out",
+      "Brakes require re-adjusting",
+      "All are correct"
+    ],
+    "optionsMarathi": [
+      "सिस्टममध्ये कमी हवा असणे",
+      "ब्रेक शू घासले जाणे",
+      "री-ॲडजस्टमेंटची गरज",
+      "वरील सर्व"
+    ],
+    "answer": "D",
+    "explanation": "Poor braking performance can result from mechanical wear, incorrect adjustments, or insufficient operating pressure (in air/hydraulic systems).",
+    "explanationMarathi": "हवा कमी असणे किंवा ब्रेक शूची झीज होणे यांमुळे ब्रेक कमी लागतात."
+  },
+  {
+    "id": 1000,
+    "chapterId": 26,
+    "question": "What are the features of a good quality clutch?",
+    "questionMarathi": "उत्तम प्रतीच्या क्लचची वैशिष्ट्ये कोणती?",
+    "options": [
+      "Pick up load without any noise",
+      "Have capacity to damp out vibrations",
+      "Both are correct",
+      "None"
+    ],
+    "optionsMarathi": [
+      "आवाज न करता ताकद पेलणे",
+      "व्हायब्रेशन्स शोषून घेणे",
+      "दोन्ही बरोबर (Both)",
+      "यापैकी नाही"
+    ],
+    "answer": "C",
+    "explanation": "A good clutch should engage smoothly (noiseless) and help dampen torsional vibrations from the engine.",
+    "explanationMarathi": "चांगला क्लच आवाज न करता ताकद ट्रान्सफर करतो आणि धक्के शोषून घेतो."
+  },
+  {
+    "id": 1001,
+    "chapterId": 26,
+    "question": "______ and spline clutches are preferred in synchronized mechanism.",
+    "questionMarathi": "सिंक्रोनायझर मेकॅनिझममध्ये प्रामुख्याने कोणता क्लच वापरला जातो?",
+    "options": [
+      "Cat",
+      "Rat",
+      "Dog",
+      "Mat"
+    ],
+    "optionsMarathi": [
+      "कॅट",
+      "रॅट",
+      "डॉग (Dog)",
+      "मॅट"
+    ],
+    "answer": "C",
+    "explanation": "Dog clutches are used within synchromesh gearboxes to lock gears to the shaft for power transmission.",
+    "explanationMarathi": "गिअरबॉक्समध्ये \\\"डॉग क्लच\\\" चा वापर गिअर्सना लॉक करण्यासाठी केला जातो."
+  },
+  {
+    "id": 1002,
+    "chapterId": 26,
+    "question": "Should all clutch springs in a multi spring clutch be of the same length and strength?",
+    "questionMarathi": "मल्टी-स्प्रिंग क्लचमधील सर्व स्प्रिंग्सची लांबी आणि ताकद सारखी असावी का?",
+    "options": [
+      "Yes",
+      "No",
+      "Yes-No",
+      "None of these"
+    ],
+    "optionsMarathi": [
+      "हो (Yes)",
+      "नाही",
+      "हो-नाही",
+      "यापैकी नाही"
+    ],
+    "answer": "A",
+    "explanation": "Equal spring tension is critical to ensure even pressure on the clutch plate and prevent chattering or slippage.",
+    "explanationMarathi": "हो, सर्व स्प्रिंग्स समान ताकदीचे असावेत, अन्यथा क्लच प्लेटवर दाब विषम पडेल."
+  },
+  {
+    "id": 1003,
+    "chapterId": 26,
+    "question": "A good quality clutch should pick up load without any noise—",
+    "questionMarathi": "चांगल्या प्रतीच्या क्लचने विनाआवाज भार पेलला पाहिजे. (बरोबर/चूक)",
+    "options": [
+      "False",
+      "True",
+      "Both",
+      "None"
+    ],
+    "optionsMarathi": [
+      "चूक",
+      "बरोबर (True)",
+      "दोन्ही",
+      "यापैकी नाही"
+    ],
+    "answer": "B",
+    "explanation": "Smooth and quiet engagement is a hallmark of a properly functioning and high-quality clutch.",
+    "explanationMarathi": "हो, क्लचचे कार्य शांत आणि सुरळीत असावे."
+  },
+  {
+    "id": 1004,
+    "chapterId": 26,
+    "question": "A wet clutch is one which runs in oil in which the plates are linked with cork.",
+    "questionMarathi": "ओला क्लच (Wet clutch) तेलामध्ये चालतो आणि त्यात कॉर्कचे आवरण असते. (बरोबर/चूक)",
+    "options": [
+      "True",
+      "False",
+      "Both",
+      "None"
+    ],
+    "optionsMarathi": [
+      "बरोबर (True)",
+      "चूक",
+      "दोन्ही",
+      "यापैकी नाही"
+    ],
+    "answer": "A",
+    "explanation": "Wet clutches operate in an oil bath to help with cooling and lubrication, and traditionally used materials like cork for friction surfaces.",
+    "explanationMarathi": "हो, ओला क्लच तेलात बुडवलेला असतो, ज्यामुळे तो लवकर गरम होत नाही."
+  },
+  {
+    "id": 1005,
+    "chapterId": 26,
+    "question": "Chassis and body are same thing—",
+    "questionMarathi": "चॅसिस (Chassis) आणि बॉडी (Body) एकच आहेत का?",
+    "options": [
+      "True",
+      "False",
+      "Both",
+      "None"
+    ],
+    "optionsMarathi": [
+      "हो",
+      "नाही (False)",
+      "दोन्ही",
+      "यापैकी नाही"
+    ],
+    "answer": "B",
+    "explanation": "The chassis is the underlying frame and mechanical components, while the body is the shell that sits on top for passengers and cargo.",
+    "explanationMarathi": "नाही, चॅसिस म्हणजे गाडीचा सांगाडा आणि इंजिनचा भाग, तर बॉडी म्हणजे वरचे बाह्य कवच."
+  },
+  {
+    "id": 1006,
+    "chapterId": 26,
+    "question": "Is it correct or not? A frame is that part of a car which supports the body, engine and power train.",
+    "questionMarathi": "फ्रेम हा गाडीचा तो भाग आहे जो बॉडी, इंजिन आणि पॉवर ट्रेनला आधार देतो. (बरोबर/चूक)",
+    "options": [
+      "Correct",
+      "Incorrect",
+      "Both",
+      "None"
+    ],
+    "optionsMarathi": [
+      "बरोबर (Correct)",
+      "चूक",
+      "दोन्ही",
+      "यापैकी नाही"
+    ],
+    "answer": "A",
+    "explanation": "The vehicle frame (or chassis frame) is the main structural member that supports all major components.",
+    "explanationMarathi": "बरोबर, फ्रेम हा गाडीचा मुख्य आधार स्तंभ आहे."
+  },
+  {
+    "id": 1007,
+    "chapterId": 26,
+    "question": "Factor effecting retardation is—",
+    "questionMarathi": "गाडीचा वेग कमी होण्यावर (Retardation) परिणाम करणारा घटक कोणता?",
+    "options": [
+      "Pressure exerted on braking surface",
+      "Weight carried on wheels",
+      "Radius of brake drum",
+      "All are correct"
+    ],
+    "optionsMarathi": [
+      "ब्रेकचा दाब",
+      "चाकांवरील वजन",
+      "ब्रेक ड्रमची त्रिज्या",
+      "वरील सर्व"
+    ],
+    "answer": "D",
+    "explanation": "Braking effectiveness (retardation) depends on the friction force (pressure), the vehicle's mass, and the leverage provided by the drum/disc size.",
+    "explanationMarathi": "ब्रेकचा दाब, गाडीचे वजन आणि ड्रमचा आकार या सर्वांवर ब्रेकिंगची कार्यक्षमता अवलंबून असते."
+  },
+  {
+    "id": 1008,
+    "chapterId": 26,
+    "question": "Which of the following is a type of brake?",
+    "questionMarathi": "खालीलपैकी कोणता ब्रेकचा प्रकार आहे?",
+    "options": [
+      "Mechanical brake",
+      "Hydraulic brake",
+      "Both are correct",
+      "None"
+    ],
+    "optionsMarathi": [
+      "मेकॅनिकल ब्रेक",
+      "हायड्रॉलिक ब्रेक",
+      "दोन्ही बरोबर",
+      "यापैकी नाही"
+    ],
+    "answer": "C",
+    "explanation": "Mechanical and hydraulic are the two primary methods of activating automotive brakes.",
+    "explanationMarathi": "मेकॅनिकल आणि हायड्रॉलिक हे दोन्ही ब्रेक्सचे प्रकार आहेत."
+  },
+  {
+    "id": 1009,
+    "chapterId": 26,
+    "question": "Which of the following is a type of brake?",
+    "questionMarathi": "ब्रेकचा आणखी एक प्रकार कोणता?",
+    "options": [
+      "Air pressure brake",
+      "Hydraulic disc brake",
+      "Vacuum assisted brake",
+      "All are correct"
+    ],
+    "optionsMarathi": [
+      "एअर प्रेशर ब्रेक",
+      "हायड्रॉलिक डिस्क ब्रेक",
+      "व्हॅक्युम असिस्टेड ब्रेक",
+      "वरील सर्व"
+    ],
+    "answer": "D",
+    "explanation": "Automobiles use various types of braking systems including air brakes, disc brakes, and vacuum-boosted systems.",
+    "explanationMarathi": "एअर ब्रेक, डिस्क ब्रेक आणि व्हॅक्युम ब्रेक हे सर्व आधुनिक वाहनांमध्ये वापरले जातात."
+  },
+  {
+    "id": 1010,
+    "chapterId": 27,
+    "question": "The shape of single cable brake is—",
+    "questionMarathi": "सिंगल केबल ब्रेकचा आकार (Lever housing) कसा असतो?",
+    "options": [
+      "P-lever housed",
+      "S-lever housed",
+      "T-lever housed",
+      "L-lever housed"
+    ],
+    "optionsMarathi": [
+      "P-लिव्हर",
+      "S-लिव्हर",
+      "T-लिव्हर (T-lever)",
+      "L-लिव्हर"
+    ],
+    "answer": "C",
+    "explanation": "Single cable mechanical brakes often utilize a T-shaped lever housing to distribute force effectively.",
+    "explanationMarathi": "सिंगल केबल मेकॅनिकल ब्रेक मध्ये प्रामुख्याने \\\"T\\\" आकाराचे लिव्हर हौसिंग वापरले जाते."
+  },
+  {
+    "id": 1011,
+    "chapterId": 27,
+    "question": "The formula F/A = constant (A = Area, F = weight/force) is called—",
+    "questionMarathi": "F/A = constant (क्षेत्रफळ आणि बल) या सूत्राला काय म्हणतात?",
+    "options": [
+      "Snell’s law",
+      "Pascal’s law",
+      "Hydraulic law",
+      "None of these"
+    ],
+    "optionsMarathi": [
+      "स्नेलचा नियम",
+      "पास्कलचा नियम (Pascal’s law)",
+      "हायड्रॉलिक नियम",
+      "यापैकी नाही"
+    ],
+    "answer": "B",
+    "explanation": "Pascal's law states that pressure applied to a confined fluid is transmitted undiminished in all directions (Pressure = Force/Area).",
+    "explanationMarathi": "पास्कलच्या नियमानुसार, बंदिस्त द्रवावर लावलेला दाब सर्व दिशांना समान पसरतो."
+  },
+  {
+    "id": 1012,
+    "chapterId": 27,
+    "question": "The principle on which the hydraulic system is based, where a pump or foot pedal moves oil through a small cylinder, is called the—",
+    "questionMarathi": "हायड्रॉलिक सिस्टम ज्या तत्त्वावर आधारित आहे, त्यातील लहान सिलिंडरला काय म्हणतात?",
+    "options": [
+      "Master cylinder",
+      "Wheel cylinder",
+      "Both are correct",
+      "None"
+    ],
+    "optionsMarathi": [
+      "मास्टर सिलिंडर (Master cylinder)",
+      "व्हील सिलिंडर",
+      "दोन्ही बरोबर",
+      "यापैकी नाही"
+    ],
+    "answer": "A",
+    "explanation": "The master cylinder is the primary device that converts mechanical pedal force into hydraulic pressure.",
+    "explanationMarathi": "ब्रेक पेडल दाबल्यावर ऑइलवर प्रेशर निर्माण करणाऱ्या मुख्य भागाला \\\"मास्टर सिलिंडर\\\" म्हणतात."
+  },
+  {
+    "id": 1013,
+    "chapterId": 27,
+    "question": "4 × 4 drive chassis vehicle consists of ______ wheels and all of them are the driving wheels.",
+    "questionMarathi": "4 × 4 ड्राईव्ह चॅसिस असलेल्या वाहनात किती चाके असतात आणि किती चाकांना शक्ती मिळते?",
+    "options": [
+      "4",
+      "2",
+      "6",
+      "None"
+    ],
+    "optionsMarathi": [
+      "४ (4)",
+      "२",
+      "६",
+      "यापैकी नाही"
+    ],
+    "answer": "A",
+    "explanation": "A 4x4 drive means the vehicle has 4 wheels total, and all 4 receive power from the engine.",
+    "explanationMarathi": "4x4 म्हणजे गाडीला ४ चाके आहेत आणि चारही चाकांना इंजिनकडून शक्ती मिळते."
+  },
+  {
+    "id": 1014,
+    "chapterId": 27,
+    "question": "6 × 2 drive chassis vehicle consists of ______ wheels out of which ______ wheels are the driving wheels.",
+    "questionMarathi": "6 × 2 ड्राईव्ह चॅसिस वाहनात किती चाके असतात आणि किती \\\"ड्राईव्ह\\\" चाके असतात?",
+    "options": [
+      "6, 6",
+      "2, 6",
+      "6, 2",
+      "All of them"
+    ],
+    "optionsMarathi": [
+      "६, ६",
+      "२, ६",
+      "६ आणि २ (6, 2)",
+      "वरील सर्व"
+    ],
+    "answer": "C",
+    "explanation": "A 6x2 designation means the vehicle has 6 wheels (often on 3 axles) and 2 of them are driven by the engine.",
+    "explanationMarathi": "6x2 म्हणजे एकूण ६ चाके आणि त्यापैकी २ चाकांना इंजिनची शक्ती मिळते."
+  },
+  {
+    "id": 1015,
+    "chapterId": 27,
+    "question": "6 × 4 drive chassis vehicle consists of ______ wheels out of which ______ wheels are the driving wheels.",
+    "questionMarathi": "6 × 4 ड्राईव्ह चॅसिस वाहनात किती चाके असतात आणि किती \\\"ड्राईव्ह\\\" चाके असतात?",
+    "options": [
+      "6, 6",
+      "6, 4",
+      "4, 6",
+      "None"
+    ],
+    "optionsMarathi": [
+      "६, ६",
+      "६ आणि ४ (6, 4)",
+      "४, ६",
+      "यापैकी नाही"
+    ],
+    "answer": "B",
+    "explanation": "A 6x4 drive means a 6-wheeled vehicle where 4 of the wheels (usually the rear dual axles) provide traction.",
+    "explanationMarathi": "6x4 म्हणजे ६ चाके आणि त्यातील ४ चाकांना इंजिनची ताकद मिळते."
+  },
+  {
+    "id": 1016,
+    "chapterId": 27,
+    "question": "Which of the following is a type of frames?",
+    "questionMarathi": "खालीलपैकी कोणता फ्रेमचा प्रकार आहे?",
+    "options": [
+      "Conventional frame",
+      "Integral construction",
+      "Half integral chassis",
+      "All are correct"
+    ],
+    "optionsMarathi": [
+      "पारंपारिक फ्रेम",
+      "इंटिग्रल कन्स्ट्रक्शन (Monocoque)",
+      "हाफ इंटिग्रल चॅसिस",
+      "वरील सर्व"
+    ],
+    "answer": "D",
+    "explanation": "Vehicle frames can be separate (conventional), part of the body (integral/unibody), or a combination.",
+    "explanationMarathi": "वाहनांमध्ये कन्व्हेन्शनल, इंटिग्रल आणि हाफ इंटिग्रल अशा विविध प्रकारच्या फ्रेम्स वापरल्या जातात."
+  },
+  {
+    "id": 1017,
+    "chapterId": 27,
+    "question": "The clutch is fitted in between the ______ and ______box.",
+    "questionMarathi": "क्लच हा ______ आणि ______ यांच्यामध्ये बसवलेला असतो.",
+    "options": [
+      "Engine, wheel",
+      "Engine, gear",
+      "Wheel, body",
+      "None of these"
+    ],
+    "optionsMarathi": [
+      "इंजिन, चाक",
+      "इंजिन आणि गिअरबॉक्स (Engine, gear)",
+      "चाक, बॉडी",
+      "यापैकी नाही"
+    ],
+    "answer": "B",
+    "explanation": "The clutch sits between the engine flywheel and the transmission (gearbox) to connect or disconnect power.",
+    "explanationMarathi": "इंजिन आणि गिअरबॉक्सच्या मध्ये क्लच बसवलेला असतो, जो शक्तीचा प्रवाह जोडण्याचे किंवा तोडण्याचे काम करतो."
+  },
+  {
+    "id": 1018,
+    "chapterId": 27,
+    "question": "The lubricant used for clock and watches is—",
+    "questionMarathi": "घड्याळांसाठी (Clocks/Watches) कोणते वंगण (Lubricant) वापरले जाते?",
+    "options": [
+      "Hezel-nut oil",
+      "Olive oil",
+      "Sperm oil",
+      "All are correct"
+    ],
+    "optionsMarathi": [
+      "हेझेल-नट ऑइल",
+      "ऑलिव्ह ऑइल",
+      "स्पर्म ऑइल (Sperm oil)",
+      "वरील सर्व"
+    ],
+    "answer": "D",
+    "explanation": "Fine precision instruments like watches historically used specialized light oils like sperm oil or nut-based oils.",
+    "explanationMarathi": "घड्याळांसारख्या नाजूक यंत्रांसाठी अतिशय पातळ आणि शुद्ध तेलांचा वापर केला जातो."
+  },
+  {
+    "id": 1019,
+    "chapterId": 27,
+    "question": "The oil consumption may be high due to which reason?",
+    "questionMarathi": "इंजिन ऑइलचा वापर (Consumption) जास्त होण्याची कारणे कोणती असू शकतात?",
+    "options": [
+      "Loose bearing",
+      "Tapered or out-of round cylinders",
+      "Worn piston rings",
+      "All are correct"
+    ],
+    "optionsMarathi": [
+      "लूज बेअरिंग",
+      "सिलिंडरचा आकार बदलणे",
+      "पिस्टन रिंग झिजणे",
+      "वरील सर्व"
+    ],
+    "answer": "D",
+    "explanation": "Worn rings or cylinders allow oil to leak into the combustion chamber, while loose bearings increase internal splash and leakage.",
+    "explanationMarathi": "पिस्टन रिंग झिजल्यामुळे किंवा सिलिंडर वेडेवाकडे झाल्यामुळे ऑइल जास्त जळते."
+  },
+  {
+    "id": 1020,
+    "chapterId": 27,
+    "question": "The oil pressure may be low due to which reason?",
+    "questionMarathi": "ऑइल प्रेशर कमी होण्याची कारणे कोणती असू शकतात?",
+    "options": [
+      "Less oil in the oil pan",
+      "Loose connection in the oil lines",
+      "Too weak relief valve spring",
+      "All are correct"
+    ],
+    "optionsMarathi": [
+      "ऑइल पॅनमध्ये ऑइल कमी असणे",
+      "ऑइल लाईनमध्ये गळती",
+      "रिलीफ व्हॉल्व्ह स्प्रिंग कमकुवत असणे",
+      "वरील सर्व"
+    ],
+    "answer": "D",
+    "explanation": "Low oil levels, leaks, or a failing pressure relief valve all contribute to a drop in system oil pressure.",
+    "explanationMarathi": "ऑइल कमी असणे किंवा पाईपमध्ये गळती असणे यामुळे ऑइलचे प्रेशर कमी होते."
+  },
+  {
+    "id": 1021,
+    "chapterId": 27,
+    "question": "Which of the following is a type of lubrication system?",
+    "questionMarathi": "खालीलपैकी कोणता वंगण प्रणालीचा (Lubrication system) प्रकार आहे?",
+    "options": [
+      "Splash type",
+      "Dry sump",
+      "Pressure type",
+      "All are correct"
+    ],
+    "optionsMarathi": [
+      "स्प्लॅश टाईप",
+      "ड्राय संप",
+      "प्रेशर टाईप",
+      "वरील सर्व"
+    ],
+    "answer": "D",
+    "explanation": "Engines use various methods like splashing oil, pressurized flow, or specialized dry sump systems for lubrication.",
+    "explanationMarathi": "इंजिनमध्ये स्प्लॅश, प्रेशर आणि ड्राय संप अशा विविध पद्धतीने वंगण केले जाते."
+  },
+  {
+    "id": 1022,
+    "chapterId": 27,
+    "question": "The essential requirement of good lubricating oil is—",
+    "questionMarathi": "चांगल्या वंगण तेलाची (Lubricating oil) मुख्य गरज काय आहे?",
+    "options": [
+      "High wear resistance properties",
+      "High anti-friction characteristics",
+      "Maximum resistance to oxidization",
+      "All are correct"
+    ],
+    "optionsMarathi": [
+      "झीज रोखण्याची क्षमता",
+      "घर्षण कमी करण्याची क्षमता",
+      "ऑक्सिडेशनला रोखणे",
+      "वरील सर्व"
+    ],
+    "answer": "D",
+    "explanation": "A good lubricant must reduce friction, prevent wear, and remain chemically stable (resist oxidation) under heat.",
+    "explanationMarathi": "चांगल्या तेलामुळे घर्षण कमी होऊन इंजिनचे आयुष्य वाढते."
+  },
+  {
+    "id": 1023,
+    "chapterId": 27,
+    "question": "In Gear type oil pump, the number of gears used is—",
+    "questionMarathi": "गिअर टाईप ऑइल पंपमध्ये किती गिअर्स असतात?",
+    "options": [
+      "4",
+      "2",
+      "3",
+      "5"
+    ],
+    "optionsMarathi": [
+      "४",
+      "२ (2)",
+      "३",
+      "५"
+    ],
+    "answer": "B",
+    "explanation": "A standard gear-type oil pump consists of two meshing gears (one driven, one idler) to move the oil.",
+    "explanationMarathi": "गिअर टाईप ऑइल पंपमध्ये दोन गिअर्स एकमेकांत गुंतलेले असतात."
+  },
+  {
+    "id": 1024,
+    "chapterId": 27,
+    "question": "The valve seats made in the engine are—",
+    "questionMarathi": "इंजिनमध्ये कोणत्या प्रकारचे व्हॉल्व्ह सीट्स (Valve seats) असतात?",
+    "options": [
+      "Wide seat",
+      "Narrow seat",
+      "Interference seat",
+      "All are correct"
+    ],
+    "optionsMarathi": [
+      "वाईड सीट",
+      "नॅरो सीट",
+      "इंटरफरन्स सीट",
+      "वरील सर्व"
+    ],
+    "answer": "D",
+    "explanation": "Valve seats come in various designs to optimize sealing and heat transfer.",
+    "explanationMarathi": "इंजिनच्या गरजेनुसार विविध आकाराचे व्हॉल्व्ह सीट्स तयार केले जातात."
+  },
+  {
+    "id": 1025,
+    "chapterId": 27,
+    "question": "Which of the following is the maintenance of Air-cooled engine?",
+    "questionMarathi": "एअर-कूल्ड इंजिनची देखभाल कशी करावी?",
+    "options": [
+      "Keep fins of cylinder and head always clean of dust and oil",
+      "Keep the ducts always properly positioned",
+      "Keep the ducts always clean of dust and dirt",
+      "All are correct"
+    ],
+    "optionsMarathi": [
+      "सिलिंडरचे फिन्स स्वच्छ ठेवणे",
+      "डक्ट्स योग्य ठिकाणी असणे",
+      "डक्ट्स धूळ विरहित ठेवणे",
+      "वरील सर्व"
+    ],
+    "answer": "D",
+    "explanation": "Air-cooled engines rely on clean fins and clear air ducts to dissipate heat effectively.",
+    "explanationMarathi": "एअर कूल्ड इंजिनमध्ये हवा फिरण्यासाठी फिन्स आणि डक्ट्स स्वच्छ ठेवणे खूप महत्त्वाचे आहे."
+  },
+  {
+    "id": 1026,
+    "chapterId": 27,
+    "question": "The viscosity is measured by—",
+    "questionMarathi": "व्हिस्कोसिटी (चिकटपणा) कशाद्वारे मोजली जाते?",
+    "options": [
+      "Fathometer",
+      "Lectometer",
+      "Viscosimeter",
+      "None of these"
+    ],
+    "optionsMarathi": [
+      "फॅदोमीटर",
+      "लॅक्टोमीटर",
+      "व्हिस्कोसिमीटर (Viscosimeter)",
+      "यापैकी नाही"
+    ],
+    "answer": "C",
+    "explanation": "A viscometer (or viscosimeter) is an instrument used to measure the resistance to flow (viscosity) of a fluid.",
+    "explanationMarathi": "द्रवाचा प्रवाहीपणा किंवा चिकटपणा मोजण्यासाठी व्हिस्कोसिमीटरचा वापर होतो."
+  },
+  {
+    "id": 1027,
+    "chapterId": 27,
+    "question": "Which of the following are additives in oil?",
+    "questionMarathi": "खालीलपैकी कोणते घटक ऑइलमध्ये ॲडिटिव्ह्ज (Additives) म्हणून वापरले जातात?",
+    "options": [
+      "Viscosity-index improver",
+      "Foam inhibitors",
+      "Rust inhibitors",
+      "All are correct"
+    ],
+    "optionsMarathi": [
+      "व्हिस्कोसिटी इंडेक्स इम्प्रुव्हर",
+      "फोम इनहिबिटर्स",
+      "रस्ट इनहिबिटर्स",
+      "वरील सर्व"
+    ],
+    "answer": "D",
+    "explanation": "Modern engine oils contain additives to improve viscosity stability, prevent foaming, and inhibit rust/corrosion.",
+    "explanationMarathi": "ऑइलची गुणवत्ता सुधारण्यासाठी त्यात हे सर्व रासायनिक घटक मिसळले जातात."
+  },
+  {
+    "id": 1028,
+    "chapterId": 27,
+    "question": "Grease is which type of lubricant?",
+    "questionMarathi": "ग्रीस (Grease) हा कोणत्या प्रकारचा लुब्रिकंट आहे?",
+    "options": [
+      "Solid",
+      "Semi solid",
+      "Liquid",
+      "None of these"
+    ],
+    "optionsMarathi": [
+      "स्थायू (Solid)",
+      "अर्ध-स्थायू (Semi solid)",
+      "द्रवरूप (Liquid)",
+      "यापैकी नाही"
+    ],
+    "answer": "B",
+    "explanation": "Grease is a semi-solid lubricant, consisting of oil thickened with a soap base.",
+    "explanationMarathi": "ग्रीस हा अर्ध-स्थायू (Semi-solid) स्वरूपात असतो."
+  },
+  {
+    "id": 1029,
+    "chapterId": 27,
+    "question": "______ are fairly water proof and are useful for water pumps, chassis and wheel bearings.",
+    "questionMarathi": "वॉटर पंप आणि चाकांच्या बेअरिंगसाठी कोणते वॉटरप्रूफ ग्रीस वापरले जाते?",
+    "options": [
+      "Calcium based greases",
+      "Sodium based greases",
+      "Aluminium based greases",
+      "None of these"
+    ],
+    "optionsMarathi": [
+      "कॅल्शिअम बेस्ड ग्रीस (Calcium based)",
+      "सोडिअम बेस्ड",
+      "ॲल्युमिनीयम बेस्ड",
+      "यापैकी नाही"
+    ],
+    "answer": "A",
+    "explanation": "Calcium-based (cup) grease is water-resistant, making it ideal for components exposed to moisture.",
+    "explanationMarathi": "कॅल्शिअमवर आधारित ग्रीस पाण्याला विरोध करते, म्हणून ते वॉटर पंपसाठी वापरतात."
+  },
+  {
+    "id": 1030,
+    "chapterId": 27,
+    "question": "______ are able to withstand moderately high temperatures and tend to absorb water, which reduces rusting problem.",
+    "questionMarathi": "जास्त तापमान सहन करू शकणारे आणि गंज रोखण्यासाठी पाणी शोषून घेणारे ग्रीस कोणते?",
+    "options": [
+      "Calcium based greases",
+      "Sodium based greases",
+      "Aluminium based greases",
+      "None of these"
+    ],
+    "optionsMarathi": [
+      "कॅल्शिअम बेस्ड",
+      "सोडिअम बेस्ड ग्रीस (Sodium based)",
+      "ॲल्युमिनीयम बेस्ड",
+      "यापैकी नाही"
+    ],
+    "answer": "B",
+    "explanation": "Sodium-based greases have good heat resistance and can emulsify water, which helps protect against internal rust.",
+    "explanationMarathi": "सोडिअम बेस्ड ग्रीस जास्त उष्णता सहन करू शकते आणि गंज रोखण्यास मदत करते."
+  },
+  {
+    "id": 1031,
+    "chapterId": 27,
+    "question": "For very heavy pressure and slow speed, the lubricant used is—",
+    "questionMarathi": "खूप जास्त दाब आणि कमी वेग असताना कोणते वंगण वापरले जाते?",
+    "options": [
+      "Graphite",
+      "Soapstone",
+      "Both",
+      "None"
+    ],
+    "optionsMarathi": [
+      "ग्रॅफाइट",
+      "सोपस्टोन",
+      "दोन्ही बरोबर (Both)",
+      "यापैकी नाही"
+    ],
+    "answer": "C",
+    "explanation": "Solid lubricants like graphite and soapstone are effective for heavy loads at slow speeds where liquid films might fail.",
+    "explanationMarathi": "अति भारासाठी ग्रॅफाइट किंवा सोपस्टोन सारखी वंगणे प्रभावी ठरतात."
+  },
+  {
+    "id": 1032,
+    "chapterId": 27,
+    "question": "Friction is ______ when the material is soft.",
+    "questionMarathi": "जेव्हा पदार्थ मऊ असतो, तेव्हा घर्षण (Friction) कसे असते?",
+    "options": [
+      "Low",
+      "High",
+      "Same",
+      "None of these"
+    ],
+    "optionsMarathi": [
+      "कमी",
+      "जास्त (High)",
+      "समान",
+      "यापैकी नाही"
+    ],
+    "answer": "B",
+    "explanation": "Softer materials tend to deform and have more surface contact area, which generally leads to higher friction.",
+    "explanationMarathi": "मऊ पदार्थ एकमेकांना जास्त चिकटतात, त्यामुळे घर्षण वाढते."
+  },
+  {
+    "id": 1033,
+    "chapterId": 27,
+    "question": "Friction is ______ when the surfaces are smooth and highly polished.",
+    "questionMarathi": "जेव्हा पृष्ठभाग गुळगुळीत आणि पॉलिश केलेला असतो, तेव्हा घर्षण कसे असते?",
+    "options": [
+      "Low",
+      "High",
+      "Same",
+      "None of these"
+    ],
+    "optionsMarathi": [
+      "कमी (Low)",
+      "जास्त",
+      "समान",
+      "यापैकी नाही"
+    ],
+    "answer": "A",
+    "explanation": "Polishing surfaces reduces irregularities, thereby decreasing the friction between them.",
+    "explanationMarathi": "गुळगुळीत पृष्ठभागावर घर्षण कमी होते."
+  },
+  {
+    "id": 1034,
+    "chapterId": 27,
+    "question": "Friction is ______ when pressure is low?",
+    "questionMarathi": "जेव्हा दाब (Pressure) कमी असतो, तेव्हा घर्षण कसे असते?",
+    "options": [
+      "Low",
+      "High",
+      "Same",
+      "None of these"
+    ],
+    "optionsMarathi": [
+      "कमी (Low)",
+      "जास्त",
+      "समान",
+      "यापैकी नाही"
+    ],
+    "answer": "A",
+    "explanation": "Friction is directly proportional to the normal force (pressure) pressing the surfaces together.",
+    "explanationMarathi": "दाब कमी असल्यास घर्षण सुद्धा कमी असते."
+  },
+  {
+    "id": 1035,
+    "chapterId": 27,
+    "question": "The lubricating system consists of—",
+    "questionMarathi": "लुब्रिकेटिंग सिस्टममध्ये कशाचा समावेश होतो?",
+    "options": [
+      "Engine lubrication system",
+      "Chassis lubrication system",
+      "Both",
+      "None"
+    ],
+    "optionsMarathi": [
+      "इंजिन लुब्रिकेशन",
+      "चॅसिस लुब्रिकेशन",
+      "दोन्ही बरोबर (Both)",
+      "यापैकी नाही"
+    ],
+    "answer": "C",
+    "explanation": "Automobiles require lubrication both internally for the engine and externally for chassis components like joints and bearings.",
+    "explanationMarathi": "गाडीत इंजिन आणि चॅसिस या दोन्ही भागांना वंगणाची गरज असते."
+  },
+  {
+    "id": 1036,
+    "chapterId": 27,
+    "question": "What is the function of lubricating oil?",
+    "questionMarathi": "लुब्रिकेटिंग ऑइलचे कार्य काय आहे?",
+    "options": [
+      "To minimize friction and wear",
+      "To cool by carrying away heat",
+      "To cushion the parts against vibration and impact",
+      "All are correct"
+    ],
+    "optionsMarathi": [
+      "घर्षण आणि झीज कमी करणे",
+      "उष्णता वाहून नेणे (Cooling)",
+      "धक्क्यांपासून संरक्षण करणे",
+      "वरील सर्व"
+    ],
+    "answer": "D",
+    "explanation": "Oil reduces friction, acts as a coolant, and provides a hydraulic cushion to protect moving parts.",
+    "explanationMarathi": "घर्षण कमी करणे, इंजिन थंड ठेवणे आणि भागांचे रक्षण करणे ही ऑइलची मुख्य कामे आहेत."
+  },
+  {
+    "id": 1037,
+    "chapterId": 27,
+    "question": "Lubrication of all moving parts is essential to—",
+    "questionMarathi": "सर्व फिरणाऱ्या भागांचे वंगण करणे कशासाठी आवश्यक आहे?",
+    "options": [
+      "Increase friction",
+      "Reduce friction",
+      "Increase velocity",
+      "None of these"
+    ],
+    "optionsMarathi": [
+      "घर्षण वाढवण्यासाठी",
+      "घर्षण कमी करण्यासाठी (Reduce friction)",
+      "वेग वाढवण्यासाठी",
+      "यापैकी नाही"
+    ],
+    "answer": "B",
+    "explanation": "The primary reason for lubrication is to minimize the friction between surfaces in relative motion.",
+    "explanationMarathi": "घर्षण कमी करणे हे वंगणाचे सर्वात महत्त्वाचे उद्दिष्ट आहे."
+  },
+  {
+    "id": 1038,
+    "chapterId": 27,
+    "question": "The primary objects of lubrication are—",
+    "questionMarathi": "वंगण करण्याचे प्राथमिक उद्दिष्ट कोणते आहे?",
+    "options": [
+      "To reduce friction between the moving parts",
+      "To reduce wear of the moving parts",
+      "To act as a cooling medium for moving heat",
+      "All are correct"
+    ],
+    "optionsMarathi": [
+      "फिरणाऱ्या भागांमधील घर्षण कमी करणे",
+      "झीज कमी करणे",
+      "उष्णता बाहेर काढणे",
+      "वरील सर्व"
+    ],
+    "answer": "D",
+    "explanation": "Lubrication aims to extend part life by reducing heat, wear, and resistance.",
+    "explanationMarathi": "इंजिनचे आयुष्य वाढवण्यासाठी घर्षण, झीज आणि उष्णता कमी करणे गरजेचे आहे."
+  },
+  {
+    "id": 1039,
+    "chapterId": 27,
+    "question": "What is the possible cause for internal leakage in cooling system?",
+    "questionMarathi": "कूलिंग सिस्टममध्ये अंतर्गत गळतीचे (Internal leakage) कारण काय असू शकते?",
+    "options": [
+      "Defective cylinder head gasket",
+      "Cracked cylinder wall",
+      "Loose cylinder head bolt",
+      "All are correct"
+    ],
+    "optionsMarathi": [
+      "हेड गॅस्केट खराब असणे",
+      "सिलिंडरच्या भिंतीला तडा असणे",
+      "हेड बोल्ट ढिले असणे",
+      "वरील सर्व"
+    ],
+    "answer": "D",
+    "explanation": "Internal leaks occur when coolant enters the combustion chamber or oil passages, often due to gasket failure or cracks.",
+    "explanationMarathi": "गॅस्केट खराब झाल्यास किंवा सिलिंडरला तडा गेल्यास पाणी इंजिनच्या आतल्या भागात शिरते."
+  },
+  {
+    "id": 1040,
+    "chapterId": 27,
+    "question": "What is the possible cause of water loss in cooling system?",
+    "questionMarathi": "कूलिंग सिस्टममधील पाणी कमी होण्याची कारणे कोणती असू शकतात?",
+    "options": [
+      "Boiling",
+      "External or internal leakage",
+      "Restricted radiator or inoperative thermostat",
+      "All are correct"
+    ],
+    "optionsMarathi": [
+      "पाण्याची वाफ होणे (Boiling)",
+      "गळती असणे",
+      "रेडिएटर किंवा थर्मोस्टॅट खराब असणे",
+      "वरील सर्व"
+    ],
+    "answer": "D",
+    "explanation": "Water loss can happen via evaporation (boiling), leaks, or circulation blockages causing overheating.",
+    "explanationMarathi": "पाणी उकळणे किंवा कुठेही गळती असणे यामुळे रेडिएटरमधील पाणी कमी होते."
+  },
+  {
+    "id": 1041,
+    "chapterId": 27,
+    "question": "What is the possible cause of external leakage in cooling system?",
+    "questionMarathi": "बाहेरून होणाऱ्या पाण्याची गळती (External leakage) कशामुळे असू शकते?",
+    "options": [
+      "Loose hose clips",
+      "Defective rubber hose",
+      "Loose core plugs",
+      "All are correct"
+    ],
+    "optionsMarathi": [
+      "होस पाईप क्लिप ढिली असणे",
+      "रबर पाईप खराब असणे",
+      "कोअर प्लग ढिले असणे",
+      "वरील सर्व"
+    ],
+    "answer": "D",
+    "explanation": "Visible leaks are usually from damaged hoses, loose connections, or failing core (freeze) plugs.",
+    "explanationMarathi": "पाईप खराब असणे किंवा त्याचे जोड ढिले असणे यामुळे पाणी बाहेरून गळते."
+  },
+  {
+    "id": 1042,
+    "chapterId": 27,
+    "question": "Thermal efficiency is ______ due to more loss of heat to the cylinder walls.",
+    "questionMarathi": "जर उष्णता सिलिंडरच्या भिंतींद्वारे जास्त बाहेर पडली, तर थर्मल इफिशिअन्सी (कार्यक्षमता) काय होते?",
+    "options": [
+      "Decreased",
+      "Increased",
+      "Same",
+      "None of these"
+    ],
+    "optionsMarathi": [
+      "कमी होते (Decreased)",
+      "वाढते",
+      "तेवढीच राहते",
+      "यापैकी नाही"
+    ],
+    "answer": "A",
+    "explanation": "High heat loss to the walls means less heat is converted to mechanical work, decreasing overall efficiency.",
+    "explanationMarathi": "जास्त उष्णता वाया गेल्यामुळे इंजिनची कार्यक्षमता कमी होते."
+  },
+  {
+    "id": 1043,
+    "chapterId": 27,
+    "question": "The type of radiator when the water flows from top to bottom is—",
+    "questionMarathi": "ज्या रेडिएटरमध्ये पाणी वरून खाली वाहते, त्याला काय म्हणतात?",
+    "options": [
+      "Down flow type radiator",
+      "Cross flow type radiator",
+      "Both are correct",
+      "None of these"
+    ],
+    "optionsMarathi": [
+      "डाऊन फ्लो रेडिएटर (Down flow)",
+      "क्रॉस फ्लो रेडिएटर",
+      "दोन्ही बरोबर",
+      "यापैकी नाही"
+    ],
+    "answer": "A",
+    "explanation": "In a down-flow radiator, the core tubes are vertical, and coolant flows from the top tank to the bottom tank.",
+    "explanationMarathi": "पाणी वरून खालच्या दिशेने वाहत असल्यास त्याला डाऊन फ्लो रेडिएटर म्हणतात."
+  },
+  {
+    "id": 1044,
+    "chapterId": 27,
+    "question": "The type of Radiator when water flows horizontally from one side to another is—",
+    "questionMarathi": "ज्या रेडिएटरमध्ये पाणी आडव्या दिशेने (एका बाजूकडून दुसऱ्या बाजूकडे) वाहते, त्याला काय म्हणतात?",
+    "options": [
+      "Down flow type radiator",
+      "Cross flow type radiator",
+      "Both are correct",
+      "None of these"
+    ],
+    "optionsMarathi": [
+      "डाऊन फ्लो रेडिएटर",
+      "क्रॉस फ्लो रेडिएटर (Cross flow)",
+      "दोन्ही बरोबर",
+      "यापैकी नाही"
+    ],
+    "answer": "B",
+    "explanation": "In a cross-flow radiator, the core tubes are horizontal, and coolant flows from one side tank to the other.",
+    "explanationMarathi": "पाणी आडव्या दिशेने वाहत असल्यास त्याला क्रॉस फ्लो रेडिएटर म्हणतात."
+  },
+  {
+    "id": 1045,
+    "chapterId": 27,
+    "question": "Which of the following is a much better heat conductor?",
+    "questionMarathi": "खालीलपैकी कोणता पदार्थ उष्णतेचा अधिक चांगला वाहक (Conductor) आहे?",
+    "options": [
+      "Cast iron",
+      "Steel",
+      "Aluminum",
+      "None of these"
+    ],
+    "optionsMarathi": [
+      "कास्ट आर्यन",
+      "स्टील",
+      "ॲल्युमिनीयम (Aluminum)",
+      "यापैकी नाही"
+    ],
+    "answer": "C",
+    "explanation": "Aluminum has a higher thermal conductivity than iron or steel, which is why it's favored for radiators and heads.",
+    "explanationMarathi": "ॲल्युमिनीयममधून उष्णता अतिशय वेगाने वाहून नेली जाते."
+  },
+  {
+    "id": 1046,
+    "chapterId": 27,
+    "question": "Which of the following methods is used for engine cooling?",
+    "questionMarathi": "इंजिन थंड करण्यासाठी खालीलपैकी कोणती पद्धत वापरली जाते?",
+    "options": [
+      "Liquid cooling",
+      "Steam cooling",
+      "Air cooling",
+      "All are correct"
+    ],
+    "optionsMarathi": [
+      "लिक्विड कूलिंग",
+      "स्टीम कूलिंग",
+      "एअर कूलिंग",
+      "वरील सर्व"
+    ],
+    "answer": "D",
+    "explanation": "Common methods include air cooling (fins) and liquid cooling (water/coolant), with steam being used in some historical/special systems.",
+    "explanationMarathi": "हवा आणि पाणी (लिक्विड) या दोन्ही पद्धती इंजिन थंड करण्यासाठी वापरल्या जातात."
+  },
+  {
+    "id": 1047,
+    "chapterId": 27,
+    "question": "For effective air cooling, the surface area of the metal which comes in contact with air is ______ by providing fins.",
+    "questionMarathi": "प्रभावी एअर कूलिंगसाठी \\\"फिन्स\\\" (Fins) लावून पृष्ठभागाचे क्षेत्रफळ काय केले जाते?",
+    "options": [
+      "Decreased",
+      "Increased",
+      "Same",
+      "None"
+    ],
+    "optionsMarathi": [
+      "कमी केले जाते",
+      "वाढवले जाते (Increased)",
+      "तेवढेच ठेवले जाते",
+      "काहीही नाही"
+    ],
+    "answer": "B",
+    "explanation": "Fins increase the total surface area exposed to air, allowing more heat to be dissipated.",
+    "explanationMarathi": "फिन्समुळे इंजिनचा हवेला स्पर्श होणारा पृष्ठभाग वाढतो आणि कूलिंग जलद होते."
+  },
+  {
+    "id": 1048,
+    "chapterId": 27,
+    "question": "What is the disadvantage of a water cooling system?",
+    "questionMarathi": "वॉटर कूलिंग सिस्टमचा तोटा काय आहे?",
+    "options": [
+      "Increase in weight of the vehicle",
+      "Less engine sound",
+      "Quick transfer of heat",
+      "None of these"
+    ],
+    "optionsMarathi": [
+      "वाहनाचे वजन वाढणे (Increase in weight)",
+      "कमी आवाज",
+      "जलद उष्णता वहन",
+      "यापैकी नाही"
+    ],
+    "answer": "A",
+    "explanation": "Liquid cooling requires a radiator, water pump, hoses, and coolant, adding significant weight to the vehicle.",
+    "explanationMarathi": "वॉटर कूलिंग सिस्टिममध्ये रेडिएटर, पंप आणि पाणी यामुळे गाडीचे वजन वाढते."
+  },
+  {
+    "id": 1049,
+    "chapterId": 27,
+    "question": "The circulation in a thermo-syphon cooling system is through convection currents. (True/False)",
+    "questionMarathi": "थर्मो-सायफन कूलिंग सिस्टममध्ये पाण्याचे अभिसरण \\\"कॉन्व्हेक्शन करंट्स\\\" द्वारे होते. (बरोबर/चूक)",
+    "options": [
+      "True",
+      "False",
+      "Neither true nor false",
+      "None"
+    ],
+    "optionsMarathi": [
+      "बरोबर (True)",
+      "चूक",
+      "दोन्ही नाही",
+      "यापैकी नाही"
+    ],
+    "answer": "A",
+    "explanation": "Thermo-syphon systems rely on the natural density change of heated water to circulate it without a pump.",
+    "explanationMarathi": "हो, गरम पाणी हलके होऊन वर जाते आणि थंड पाणी खाली येते, यालाच कॉन्व्हेक्शन करंट्स म्हणतात."
+  },
+  {
+    "id": 1050,
+    "chapterId": 27,
+    "question": "Which of the following methods are used for engine cooling?",
+    "questionMarathi": "इंजिन थंड करण्यासाठी मुख्यत्वे कोणत्या पद्धती वापरतात?",
+    "options": [
+      "Air cooling",
+      "Water cooling",
+      "Both (A) and (B)",
+      "None of these"
+    ],
+    "optionsMarathi": [
+      "एअर कूलिंग",
+      "वॉटर कूलिंग",
+      "दोन्ही A आणि B",
+      "यापैकी नाही"
+    ],
+    "answer": "C",
+    "explanation": "Air cooling and water (liquid) cooling are the two primary automotive cooling technologies.",
+    "explanationMarathi": "हवा आणि पाणी या इंजिन थंड करण्याच्या दोन मुख्य पद्धती आहेत."
+  },
+  {
+    "id": 1051,
+    "chapterId": 27,
+    "question": "What is the advantage of a water-cooled system?",
+    "questionMarathi": "वॉटर कूल्ड सिस्टमचा फायदा काय आहे?",
+    "options": [
+      "Quick transfer of heat",
+      "Less engine sound",
+      "Easier method to control temperature",
+      "All of the above"
+    ],
+    "optionsMarathi": [
+      "जलद उष्णता वहन",
+      "इंजिनचा आवाज कमी होणे",
+      "तापमान नियंत्रण सोपे असणे",
+      "वरील सर्व"
+    ],
+    "answer": "D",
+    "explanation": "Water cooling allows for more uniform temperature control and often muffles engine noise better than air-cooled designs.",
+    "explanationMarathi": "पाण्यामुळे इंजिनचे तापमान चांगले नियंत्रित राहते आणि आवाजही कमी येतो."
+  },
+  {
+    "id": 1052,
+    "chapterId": 27,
+    "question": "Which of the following is a coupling incorporated between the engine and the rear road wheels?",
+    "questionMarathi": "इंजिन आणि मागच्या चाकांमधील शक्ती जोडणाऱ्या यंत्रणेला काय म्हणतात?",
+    "options": [
+      "Engine",
+      "Rear axle",
+      "Transmission",
+      "None of these"
+    ],
+    "optionsMarathi": [
+      "इंजिन",
+      "रिअर ॲक्सल",
+      "ट्रान्समिशन (Transmission)",
+      "यापैकी नाही"
+    ],
+    "answer": "C",
+    "explanation": "Transmission (including the gearbox and drive shafts) transmits the engine power to the road wheels.",
+    "explanationMarathi": "इंजिनची शक्ती चाकांपर्यंत पोहोचवणाऱ्या संपूर्ण यंत्रणेला ट्रान्समिशन म्हणतात."
+  },
+  {
+    "id": 1053,
+    "chapterId": 27,
+    "question": "What is the mechanism used to steer the front wheels so that vehicles could be directed to right or left?",
+    "questionMarathi": "गाडी उजवीकडे किंवा डावीकडे वळवण्यासाठी कोणती यंत्रणा वापरली जाते?",
+    "options": [
+      "Steering system",
+      "Brake system",
+      "Electrical system",
+      "None of these"
+    ],
+    "optionsMarathi": [
+      "स्टीयरिंग सिस्टम (Steering system)",
+      "ब्रेक सिस्टम",
+      "इलेक्ट्रिकल सिस्टम",
+      "यापैकी नाही"
+    ],
+    "answer": "A",
+    "explanation": "The steering system allows the driver to control the direction of travel by pivoting the front wheels.",
+    "explanationMarathi": "गाडीची दिशा बदलण्यासाठी स्टीयरिंग सिस्टमचा वापर होतो."
+  },
+  {
+    "id": 1054,
+    "chapterId": 27,
+    "question": "Vehicle without body is known as—",
+    "questionMarathi": "बॉडी नसलेल्या वाहनाच्या सांगाड्याला काय म्हणतात?",
+    "options": [
+      "Wheel",
+      "Ring",
+      "Axle",
+      "Chassis"
+    ],
+    "optionsMarathi": [
+      "व्हील",
+      "रिंग",
+      "ॲक्सल",
+      "चॅसिस (Chassis)"
+    ],
+    "answer": "D",
+    "explanation": "A chassis is the vehicle's internal framework with all mechanical parts but without the passenger body.",
+    "explanationMarathi": "बॉडी नसलेल्या पूर्ण चालू कंडिशनमधील सांगाड्याला \\\"चॅसिस\\\" म्हणतात."
+  },
+  {
+    "id": 1055,
+    "chapterId": 27,
+    "question": "Which of the following is called the power plant of a vehicle?",
+    "questionMarathi": "वाहनाचा \\\"पॉवर प्लांट\\\" (शक्ती निर्माण करणारे केंद्र) कशाला म्हणतात?",
+    "options": [
+      "Axle",
+      "Chassis",
+      "Wheel",
+      "Engine"
+    ],
+    "optionsMarathi": [
+      "ॲक्सल",
+      "चॅसिस",
+      "चाक",
+      "इंजिन (Engine)"
+    ],
+    "answer": "D",
+    "explanation": "The engine is the power plant where thermal energy is converted into mechanical work to move the vehicle.",
+    "explanationMarathi": "इंजिनमध्ये शक्ती निर्माण होते, म्हणून त्याला पॉवर प्लांट म्हणतात."
+  },
+  {
+    "id": 1056,
+    "chapterId": 27,
+    "question": "Which of the following is a general name for an automobile?",
+    "questionMarathi": "स्वयंचलित वाहनासाठी खालीलपैकी कोणते नाव वापरले जाते?",
+    "options": [
+      "Auto",
+      "Motor",
+      "Car",
+      "All of the above"
+    ],
+    "optionsMarathi": [
+      "ऑटो",
+      "मोटार",
+      "कार",
+      "वरील सर्व"
+    ],
+    "answer": "D",
+    "explanation": "Automobiles are commonly referred to as cars, motors, or autos depending on the region and context.",
+    "explanationMarathi": "या सर्व शब्दांचा वापर स्वयंचलित वाहनांसाठी केला जातो."
+  },
+  {
+    "id": 1057,
+    "chapterId": 27,
+    "question": "The first motor car appeared in India in which year?",
+    "questionMarathi": "भारतात पहिली मोटार कार कधी आली?",
+    "options": [
+      "1870",
+      "1898",
+      "1753",
+      "1947"
+    ],
+    "optionsMarathi": [
+      "१८७०",
+      "१८९८ (1898)",
+      "१७५३",
+      "१९४७"
+    ],
+    "answer": "B",
+    "explanation": "History records the first motor car in India arriving in 1898 (in Calcutta).",
+    "explanationMarathi": "१८९८ मध्ये भारतात पहिली कार आली होती."
+  },
+  {
+    "id": 1058,
+    "chapterId": 28,
+    "question": "The first successful American car was built by—",
+    "questionMarathi": "पहिली यशस्वी अमेरिकन कार कोणी बनवली?",
+    "options": [
+      "Duryea Brothers",
+      "Lanchester",
+      "Both of them",
+      "None of these"
+    ],
+    "optionsMarathi": [
+      "डुरिया ब्रदर्स (Duryea Brothers)",
+      "लँचेस्टर",
+      "दोन्ही",
+      "यापैकी नाही"
+    ],
+    "answer": "A",
+    "explanation": "The Duryea Brothers (Charles and Frank) built the first successful gasoline-powered car in America in 1893.",
+    "explanationMarathi": "१८९३ मध्ये डुरिया ब्रदर्सनी अमेरिकेतील पहिली यशस्वी पेट्रोलवर चालणारी कार बनवली."
+  },
+  {
+    "id": 1059,
+    "chapterId": 28,
+    "question": "Which of the following are the Indian manufacturers of scooters?",
+    "questionMarathi": "खालीलपैकी कोण भारतीय स्कूटर उत्पादक आहेत?",
+    "options": [
+      "Andhra Pradesh Scooters",
+      "A.P.I.",
+      "Bajaj Auto",
+      "All of the above"
+    ],
+    "optionsMarathi": [
+      "आंध्र प्रदेश स्कूटर्स",
+      "A.P.I.",
+      "बजाज ऑटो",
+      "वरील सर्व"
+    ],
+    "answer": "D",
+    "explanation": "Historically, API (Automobile Products of India), Bajaj Auto, and Andhra Pradesh Scooters were key manufacturers in India.",
+    "explanationMarathi": "भारतात बजाज ऑटो, API आणि आंध्र प्रदेश स्कूटर्स हे सर्व स्कूटर बनवणारे प्रमुख उत्पादक होते."
+  },
+  {
+    "id": 1060,
+    "chapterId": 28,
+    "question": "Which of the following is the Indian manufacturer of motor cycles?",
+    "questionMarathi": "खालीलपैकी कोण भारतीय मोटारसायकल उत्पादक आहे?",
+    "options": [
+      "Royal Enfield",
+      "A.P.I.",
+      "Bajaj Auto",
+      "None of these"
+    ],
+    "optionsMarathi": [
+      "रॉयल एनफिल्ड",
+      "A.P.I.",
+      "बजाज ऑटो (Bajaj Auto)",
+      "यापैकी नाही"
+    ],
+    "answer": "C",
+    "explanation": "While Royal Enfield is famous for motorcycles, the provided answer (C) Bajaj Auto is also a major Indian motorcycle manufacturer.",
+    "explanationMarathi": "बजाज ऑटो हे भारतातील एक मोठे मोटारसायकल उत्पादक आहेत."
+  },
+  {
+    "id": 1061,
+    "chapterId": 28,
+    "question": "Which is the Indian manufacturer of Jeeps?",
+    "questionMarathi": "भारतात जीप (Jeeps) बनवणारी कंपनी कोणती?",
+    "options": [
+      "Ashok leyland",
+      "Hindustan motors",
+      "Mahindra and Mahindra",
+      "None of these"
+    ],
+    "optionsMarathi": [
+      "अशोक लेलँड",
+      "हिंदुस्तान मोटर्स",
+      "महिंद्रा अँड महिंद्रा (Mahindra & Mahindra)",
+      "यापैकी नाही"
+    ],
+    "answer": "C",
+    "explanation": "Mahindra & Mahindra is the primary manufacturer of Jeeps and SUV-style vehicles in India.",
+    "explanationMarathi": "महिंद्रा अँड महिंद्रा ही भारतातील मुख्य जीप उत्पादक कंपनी आहे."
+  },
+  {
+    "id": 1062,
+    "chapterId": 28,
+    "question": "Which is the Indian manufacturer of trucks?",
+    "questionMarathi": "भारतात ट्रक (Trucks) बनवणारी कंपनी कोणती?",
+    "options": [
+      "Ashok leyland",
+      "Hindustan motors",
+      "Premier automobile",
+      "All of the above"
+    ],
+    "optionsMarathi": [
+      "अशोक लेलँड",
+      "हिंदुस्तान मोटर्स",
+      "प्रीमियर ऑटोमोबाईल",
+      "वरील सर्व"
+    ],
+    "answer": "D",
+    "explanation": "Ashok Leyland, Tata, and Premier (in early days) have all been manufacturers of trucks in India.",
+    "explanationMarathi": "अशोक लेलँड, हिंदुस्तान मोटर्स आणि प्रीमियम हे सर्व भारतात ट्रक बनवत असत."
+  },
+  {
+    "id": 1063,
+    "chapterId": 28,
+    "question": "Which of the following is the Indian manufacturer of moped?",
+    "questionMarathi": "खालीलपैकी कोण भारतात मोपेड (Moped) बनवणारी कंपनी आहे?",
+    "options": [
+      "Enfield India",
+      "Indian automotives",
+      "Moped India",
+      "All of the above"
+    ],
+    "optionsMarathi": [
+      "एनफिल्ड इंडिया",
+      "इंडियन ऑटोमोटिव्हज",
+      "मोपेड इंडिया",
+      "वरील सर्व"
+    ],
+    "answer": "D",
+    "explanation": "Historically, multiple companies including Enfield and Moped India manufactured mopeds in the Indian market.",
+    "explanationMarathi": "मोपेड इंडिया आणि एनफिल्ड या कंपन्यांनी भारतात मोपेड बनवल्या आहेत."
+  },
+  {
+    "id": 1064,
+    "chapterId": 28,
+    "question": "Indian manufacturer of Tractors are—",
+    "questionMarathi": "भारतातील ट्रॅक्टर उत्पादक कंपन्या कोणत्या आहेत?",
+    "options": [
+      "Eicher",
+      "Escorts",
+      "Gujarat tractors",
+      "All of the above"
+    ],
+    "optionsMarathi": [
+      "आयशर (Eicher)",
+      "एस्कॉर्ट्स",
+      "गुजरात ट्रॅक्टर्स",
+      "वरील सर्व"
+    ],
+    "answer": "D",
+    "explanation": "Eicher, Escorts, and Gujarat Tractors are all established names in the Indian tractor industry.",
+    "explanationMarathi": "आयशर, एस्कॉर्ट्स आणि गुजरात ट्रॅक्टर्स हे सर्व भारतातील प्रसिद्ध ट्रॅक्टर ब्रँड्स आहेत."
+  },
+  {
+    "id": 1065,
+    "chapterId": 28,
+    "question": "Which of the following are the kinds of Maruti Udyog?",
+    "questionMarathi": "मारुती उद्योगच्या (Maruti Udyog) सुरुवातीच्या काळात कोणते मॉडेल्स प्रसिद्ध होते?",
+    "options": [
+      "Maruti 800 car",
+      "Maruti 800 deluxe car",
+      "Maruti 800 flat roof van",
+      "All of the above"
+    ],
+    "optionsMarathi": [
+      "मारुती ८०० कार",
+      "मारुती ८०० डिलक्स",
+      "मारुती ८०० फ्लॅट रूफ व्हॅन",
+      "वरील सर्व"
+    ],
+    "answer": "D",
+    "explanation": "Maruti Udyog Limited launched several variants of the 800 model, including standard cars, deluxe versions, and vans.",
+    "explanationMarathi": "मारुतीने सुरुवातीला ८०० कार, डिलक्स आणि व्हॅन असे विविध प्रकार आणले होते."
+  },
+  {
+    "id": 1066,
+    "chapterId": 28,
+    "question": "In 1935 ______ made an automobile industry in India.",
+    "questionMarathi": "१९३५ मध्ये भारतात ऑटोमोबाईल उद्योगाची पायाभरणी कोणी केली?",
+    "options": [
+      "Sir M. Visvesvaraya",
+      "Sir Rajdoot",
+      "Sir Charles and Frank",
+      "None of these"
+    ],
+    "optionsMarathi": [
+      "सर एम. विश्वेश्वरय्या",
+      "सर राजदूत",
+      "सर चार्ल्स आणि फ्रँक",
+      "यापैकी नाही"
+    ],
+    "answer": "A",
+    "explanation": "Sir M. Visvesvaraya played a significant role in planning and promoting the automobile industry in India during the 1930s.",
+    "explanationMarathi": "सर एम. विश्वेश्वरय्या यांनी १९३० च्या दशकात भारतात ऑटोमोबाईल उद्योग सुरू करण्यासाठी प्रयत्न केले."
+  },
+  {
+    "id": 1067,
+    "chapterId": 28,
+    "question": "Full name of LMV is—",
+    "questionMarathi": "\\\"LMV\\\" चे पूर्ण नाव काय आहे?",
+    "options": [
+      "Light medium vehicle",
+      "Light motor vehicle",
+      "Length motor vehicle",
+      "Length medium vehicle"
+    ],
+    "optionsMarathi": [
+      "लाईट मिडियम व्हेईकल",
+      "लाईट मोटार व्हेईकल (Light Motor Vehicle)",
+      "लेंथ मोटार व्हेईकल",
+      "लेंथ मिडियम व्हेईकल"
+    ],
+    "answer": "B",
+    "explanation": "LMV stands for Light Motor Vehicle, which typically includes cars, jeeps, and small delivery vans.",
+    "explanationMarathi": "LMV म्हणजे हलकी मोटार वाहने, ज्यात कार आणि जीपचा समावेश होतो."
+  },
+  {
+    "id": 1068,
+    "chapterId": 28,
+    "question": "HTV means—",
+    "questionMarathi": "\\\"HTV\\\" म्हणजे काय?",
+    "options": [
+      "Heavy Truck Motor",
+      "Meany Motor Vehicle",
+      "Heavy Transport Vehicle",
+      "All of the above"
+    ],
+    "optionsMarathi": [
+      "हेव्ही ट्रक मोटार",
+      "मिडल मोटार व्हेईकल",
+      "हेव्ही ट्रान्सपोर्ट व्हेईकल (Heavy Transport Vehicle)",
+      "वरील सर्व"
+    ],
+    "answer": "C",
+    "explanation": "HTV stands for Heavy Transport Vehicle, used for large trucks and heavy machinery transport.",
+    "explanationMarathi": "HTV म्हणजे अवजड वाहतूक वाहने, जसे की मोठे ट्रक."
+  },
+  {
+    "id": 1069,
+    "chapterId": 28,
+    "question": "The different parts of vehicles are—",
+    "questionMarathi": "वाहनाचे मुख्य भाग कोणते असतात?",
+    "options": [
+      "Chassis",
+      "Body",
+      "Both of them",
+      "None"
+    ],
+    "optionsMarathi": [
+      "चॅसिस",
+      "बॉडी",
+      "दोन्ही बरोबर (Both)",
+      "काहीही नाही"
+    ],
+    "answer": "C",
+    "explanation": "A vehicle is primarily composed of a mechanical chassis and a protective/functional body.",
+    "explanationMarathi": "वाहन हे प्रामुख्याने चॅसिस आणि बॉडी मिळून बनलेले असते."
+  },
+  {
+    "id": 1070,
+    "chapterId": 28,
+    "question": "The Motor Vehicle Act as amended upto 1977 has the following chapters—",
+    "questionMarathi": "१९७७ च्या सुधारित मोटार वाहन कायद्यात किती प्रकरणे (Chapters) होती?",
+    "options": [
+      "10",
+      "12",
+      "135",
+      "None of these"
+    ],
+    "optionsMarathi": [
+      "१० (10)",
+      "१२",
+      "१३५",
+      "यापैकी नाही"
+    ],
+    "answer": "A",
+    "explanation": "The 1977 version of the Motor Vehicle Act in India contained 10 chapters.",
+    "explanationMarathi": "१९७७ सालच्या मोटार वाहन कायद्यात एकूण १० प्रकरणे होती."
+  },
+  {
+    "id": 1071,
+    "chapterId": 28,
+    "question": "The motor vehicle Act, 1977 has the following sections—",
+    "questionMarathi": "१९७७ च्या मोटार वाहन कायद्यात किती कलमे (Sections) होती?",
+    "options": [
+      "130",
+      "153",
+      "135",
+      "180"
+    ],
+    "optionsMarathi": [
+      "१३०",
+      "१५३",
+      "१३५ (135)",
+      "१८०"
+    ],
+    "answer": "C",
+    "explanation": "The historical 1977 Act featured 135 different sections.",
+    "explanationMarathi": "१९७७ च्या कायद्यात एकूण १३५ कलमे होती."
+  },
+  {
+    "id": 1072,
+    "chapterId": 28,
+    "question": "The motor vehicle Act 1977 has ______ schedules.",
+    "questionMarathi": "१९७७ च्या मोटार वाहन कायद्यात किती वेळापत्रक (Schedules) होती?",
+    "options": [
+      "20",
+      "15",
+      "10",
+      "12"
+    ],
+    "optionsMarathi": [
+      "२०",
+      "१५",
+      "१०",
+      "१२ (12)"
+    ],
+    "answer": "D",
+    "explanation": "The Act included 12 schedules detailing various forms, signs, and rules.",
+    "explanationMarathi": "१९७७ च्या कायद्यात १२ वेळापत्रकांचा समावेश होता."
+  },
+  {
+    "id": 1073,
+    "chapterId": 28,
+    "question": "The first chapter of the act indicates about—",
+    "questionMarathi": "मोटार वाहन कायद्याचे पहिले प्रकरण कशाबद्दल आहे?",
+    "options": [
+      "Control of transport vehicle",
+      "Preliminary",
+      "Offences",
+      "None of the above"
+    ],
+    "optionsMarathi": [
+      "ट्रान्सपोर्ट वाहन नियंत्रण",
+      "प्रारंभिक/प्रास्ताविक (Preliminary)",
+      "गुन्हे",
+      "यापैकी नाही"
+    ],
+    "answer": "B",
+    "explanation": "Chapter I of most acts is \"Preliminary\", covering titles, definitions, and extent.",
+    "explanationMarathi": "कोणत्याही कायद्याचे पहिले प्रकरण हे नेहमी \\\"प्रास्ताविक\\\" किंवा \\\"प्रारंभिक\\\" असते."
+  },
+  {
+    "id": 1074,
+    "chapterId": 28,
+    "question": "The control of transport vehicle is explained in which chapter?",
+    "questionMarathi": "ट्रान्सपोर्ट वाहनांचे नियंत्रण कोणत्या प्रकरणात दिले आहे?",
+    "options": [
+      "I",
+      "II",
+      "III",
+      "IV"
+    ],
+    "optionsMarathi": [
+      "१",
+      "२",
+      "३",
+      "४ (IV)"
+    ],
+    "answer": "D",
+    "explanation": "In the 1977 Act, Chapter IV dealt specifically with the control of transport vehicles.",
+    "explanationMarathi": "प्रकरण ४ मध्ये ट्रान्सपोर्ट वाहनांच्या नियंत्रणाचे नियम आहेत."
+  },
+  {
+    "id": 1075,
+    "chapterId": 28,
+    "question": "The offences, penalties and procedures are indicated in which of the following chapters?",
+    "questionMarathi": "गुन्हे, दंड आणि कार्यपद्धती कोणत्या प्रकरणात दिली आहे?",
+    "options": [
+      "IX",
+      "X",
+      "VI",
+      "D"
+    ],
+    "optionsMarathi": [
+      "९ (IX)",
+      "१०",
+      "६",
+      "५"
+    ],
+    "answer": "A",
+    "explanation": "Chapter IX of the Act covers various offences and the corresponding penalties.",
+    "explanationMarathi": "प्रकरण ९ मध्ये वाहतूक नियमांचे उल्लंघन आणि त्यासाठी असणाऱ्या दंडाची माहिती आहे."
+  },
+  {
+    "id": 1076,
+    "chapterId": 28,
+    "question": "The insurance of motor vehicles against third party risks are indicated in which of the following chapters?",
+    "questionMarathi": "थर्ड पार्टी इन्शुरन्सबद्दलची माहिती कोणत्या प्रकरणात आहे?",
+    "options": [
+      "X",
+      "VII",
+      "VIII",
+      "IX"
+    ],
+    "optionsMarathi": [
+      "१०",
+      "७",
+      "८ (VIII)",
+      "९"
+    ],
+    "answer": "C",
+    "explanation": "Chapter VIII deals with the compulsory insurance of vehicles against third-party risks.",
+    "explanationMarathi": "प्रकरण ८ मध्ये वाहनांच्या विमा (Insurance) संबंधीचे नियम दिले आहेत."
+  },
+  {
+    "id": 1077,
+    "chapterId": 28,
+    "question": "The chapter IV explains about—",
+    "questionMarathi": "प्रकरण ४ मध्ये कशाची माहिती दिली आहे?",
+    "options": [
+      "License of driver",
+      "Control of transport vehicles",
+      "Offences",
+      "Miscellaneous"
+    ],
+    "optionsMarathi": [
+      "ड्रायव्हरचा परवाना",
+      "ट्रान्सपोर्ट वाहनांचे नियंत्रण",
+      "गुन्हे",
+      "किरकोळ"
+    ],
+    "answer": "B",
+    "explanation": "As previously noted, Chapter IV is dedicated to the Control of Transport Vehicles.",
+    "explanationMarathi": "प्रकरण ४ हे ट्रान्सपोर्ट वाहनांच्या नियंत्रणाशी संबंधित आहे."
+  },
+  {
+    "id": 1078,
+    "chapterId": 28,
+    "question": "The control of traffic is explained in which of the following chapter—",
+    "questionMarathi": "ट्रॅफिक नियंत्रण (Control of traffic) कोणत्या प्रकरणात दिले आहे?",
+    "options": [
+      "V",
+      "VI",
+      "VIII",
+      "X"
+    ],
+    "optionsMarathi": [
+      "५",
+      "६ (VI)",
+      "८",
+      "१०"
+    ],
+    "answer": "B",
+    "explanation": "Chapter VI of the Act covers the control and regulation of traffic.",
+    "explanationMarathi": "प्रकरण ६ मध्ये वाहतुकीचे नियमन आणि नियंत्रणाची माहिती आहे."
+  },
+  {
+    "id": 1079,
+    "chapterId": 28,
+    "question": "The chapter X explains about—",
+    "questionMarathi": "प्रकरण १० मध्ये काय दिले आहे?",
+    "options": [
+      "Control of traffic",
+      "Preliminary",
+      "Miscellaneous",
+      "Risks"
+    ],
+    "optionsMarathi": [
+      "ट्रॅफिक नियंत्रण",
+      "प्रास्ताविक",
+      "मिश्र/किरकोळ (Miscellaneous)",
+      "धोके"
+    ],
+    "answer": "C",
+    "explanation": "Chapter X is usually the concluding \"Miscellaneous\" section covering various additional rules.",
+    "explanationMarathi": "प्रकरण १० मध्ये किरकोळ आणि संकीर्ण नियमांचा समावेश होतो."
+  },
+  {
+    "id": 1080,
+    "chapterId": 28,
+    "question": "The Registration of motor vehicles is indicated in which of the following chapter—",
+    "questionMarathi": "वाहनांची नोंदणी (Registration) कोणत्या प्रकरणात दिली आहे?",
+    "options": [
+      "I",
+      "II",
+      "III",
+      "IV"
+    ],
+    "optionsMarathi": [
+      "१",
+      "२",
+      "३ (III)",
+      "४"
+    ],
+    "answer": "C",
+    "explanation": "Chapter III of the 1977 Act outlined the procedures for vehicle registration.",
+    "explanationMarathi": "प्रकरण ३ मध्ये वाहनांची नोंदणी कशी करावी, याचे नियम दिले आहेत."
+  },
+  {
+    "id": 1081,
+    "chapterId": 28,
+    "question": "The construction, equipment and maintenance of motor vehicles are explained in which of the following chapter?",
+    "questionMarathi": "वाहनांची रचना आणि देखभाल कोणत्या प्रकरणात दिली आहे?",
+    "options": [
+      "V",
+      "I",
+      "II",
+      "III"
+    ],
+    "optionsMarathi": [
+      "५ (V)",
+      "१",
+      "२",
+      "३"
+    ],
+    "answer": "A",
+    "explanation": "Chapter V specifies the standards for construction, equipment, and maintenance of motor vehicles.",
+    "explanationMarathi": "प्रकरण ५ मध्ये वाहनांचे स्वरूप आणि देखभालीचे नियम दिले आहेत."
+  },
+  {
+    "id": 1082,
+    "chapterId": 28,
+    "question": "The first schedule of the act is about—",
+    "questionMarathi": "कायद्याचे पहिले वेळापत्रक (First Schedule) कशाबद्दल आहे?",
+    "options": [
+      "Test of competence to driver",
+      "Forms",
+      "Offence",
+      "None of these"
+    ],
+    "optionsMarathi": [
+      "ड्रायव्हिंग टेस्ट",
+      "फॉर्म्स (Forms)",
+      "गुन्हे",
+      "यापैकी नाही"
+    ],
+    "answer": "B",
+    "explanation": "The First Schedule lists the various administrative forms required by the Act.",
+    "explanationMarathi": "पहिल्या वेळापत्रकात विविध अर्जांचे नमुने (Forms) दिलेले असतात."
+  },
+  {
+    "id": 1083,
+    "chapterId": 28,
+    "question": "The test of competence to drive is indicated in which of the following schedule?",
+    "questionMarathi": "ड्रायव्हिंग टेस्ट (Test of competence) कोणत्या वेळापत्रकात दिली आहे?",
+    "options": [
+      "First",
+      "Second",
+      "Third",
+      "Fifth"
+    ],
+    "optionsMarathi": [
+      "पहिले",
+      "दुसरे",
+      "तिसरे (Third)",
+      "पाचवे"
+    ],
+    "answer": "C",
+    "explanation": "The Third Schedule details the competency test for obtaining a driving license.",
+    "explanationMarathi": "तिसऱ्या वेळापत्रकात गाडी चालवण्याच्या कौशल्याची चाचणी कशी घ्यावी, हे दिले आहे."
+  },
+  {
+    "id": 1084,
+    "chapterId": 28,
+    "question": "The twelfth schedule indicates about—",
+    "questionMarathi": "बारावे वेळापत्रक (Twelfth Schedule) कशाबद्दल आहे?",
+    "options": [
+      "Repeat of certain enactments",
+      "Signals",
+      "Traffic signs",
+      "None of the above"
+    ],
+    "optionsMarathi": [
+      "काही कायद्यांची पुनरावृत्ती/रद्द (Repeals)",
+      "सिग्नल्स",
+      "वाहतूक चिन्हे",
+      "यापैकी नाही"
+    ],
+    "answer": "A",
+    "explanation": "The Twelfth Schedule covers the repeal of certain previous enactments.",
+    "explanationMarathi": "बाराव्या वेळापत्रकात जुने कायदे रद्द किंवा पुनरावृत्ती करण्याबाबत माहिती आहे."
+  },
+  {
+    "id": 1085,
+    "chapterId": 28,
+    "question": "The registration marks are in which of the following schedule?",
+    "questionMarathi": "नोंदणी चिन्ह (Registration marks) कोणत्या वेळापत्रकात आहेत?",
+    "options": [
+      "First",
+      "Second",
+      "Sixth",
+      "Fifth"
+    ],
+    "optionsMarathi": [
+      "पहिले",
+      "दुसरे",
+      "सहावे (Sixth)",
+      "पाचवे"
+    ],
+    "answer": "C",
+    "explanation": "The Sixth Schedule outlines the format for vehicle registration marks.",
+    "explanationMarathi": "सहाव्या वेळापत्रकात वाहनांच्या नोंदणी क्रमांकाच्या स्वरूपाबद्दल माहिती आहे."
+  },
+  {
+    "id": 1086,
+    "chapterId": 28,
+    "question": "The limits of speed for motor vehicles are in which of the following schedule?",
+    "questionMarathi": "वाहनांच्या वेगाची मर्यादा कोणत्या वेळापत्रकात दिली आहे?",
+    "options": [
+      "First",
+      "Eight",
+      "Sixth",
+      "Fifth"
+    ],
+    "optionsMarathi": [
+      "पहिले",
+      "आठवे (Eighth)",
+      "सहावे",
+      "पाचवे"
+    ],
+    "answer": "B",
+    "explanation": "The Eighth Schedule sets the maximum speed limits for different types of motor vehicles.",
+    "explanationMarathi": "आठव्या वेळापत्रकात वाहनांच्या कमाल वेग मर्यादेची माहिती दिली आहे."
+  },
+  {
+    "id": 1087,
+    "chapterId": 28,
+    "question": "The traffic signs are indicated in which of the following schedule?",
+    "questionMarathi": "वाहतूक चिन्हे (Traffic signs) कोणत्या वेळापत्रकात दिली आहेत?",
+    "options": [
+      "Second",
+      "Ninth",
+      "Sixth",
+      "First"
+    ],
+    "optionsMarathi": [
+      "दुसरे",
+      "नवे (Ninth)",
+      "सहावे",
+      "पहिले"
+    ],
+    "answer": "B",
+    "explanation": "The Ninth Schedule displays the mandatory, cautionary, and informatory traffic signs.",
+    "explanationMarathi": "नव्या वेळापत्रकात सर्व रस्ते चिन्हे आणि संकेतांची माहिती दिली आहे."
+  },
+  {
+    "id": 1088,
+    "chapterId": 28,
+    "question": "The repeat of certain enactments are in which of the following schedule?",
+    "questionMarathi": "काही कायदे रद्द (Repeat) करण्याबाबत माहिती कोणत्या वेळापत्रकात आहे?",
+    "options": [
+      "Twelfth",
+      "Fifth",
+      "Second",
+      "First"
+    ],
+    "optionsMarathi": [
+      "बारावे (Twelfth)",
+      "पाचवे",
+      "दुसरे",
+      "पहिले"
+    ],
+    "answer": "A",
+    "explanation": "As seen earlier, the Twelfth Schedule covers the repeal of older laws.",
+    "explanationMarathi": "बाराव्या वेळापत्रकात जुने कायदे रद्द करण्याबाबतचे नियम आहेत."
+  },
+  {
+    "id": 1089,
+    "chapterId": 28,
+    "question": "The sections 3–21 are in which of the following chapter—",
+    "questionMarathi": "कलम ३ ते २१ कोणत्या प्रकरणात येतात?",
+    "options": [
+      "IX",
+      "III",
+      "I",
+      "II"
+    ],
+    "optionsMarathi": [
+      "९",
+      "३",
+      "१",
+      "२ (II)"
+    ],
+    "answer": "D",
+    "explanation": "In the Motor Vehicle Act, Chapter II typically contains sections 3 through 21, relating to driver licenses.",
+    "explanationMarathi": "प्रकरण २ मध्ये कलम ३ ते २१ समाविष्ट आहेत."
+  },
+  {
+    "id": 1090,
+    "chapterId": 28,
+    "question": "The chapter X contains the sections—",
+    "questionMarathi": "प्रकरण १० मध्ये कोणती कलमे आहेत?",
+    "options": [
+      "22-41",
+      "132A-135",
+      "71-91",
+      "42-68"
+    ],
+    "optionsMarathi": [
+      "२२-४१",
+      "१३२A-१३५ (132A-135)",
+      "७१-९१",
+      "४२-६८"
+    ],
+    "answer": "B",
+    "explanation": "Chapter X (Miscellaneous) of the 1977 Act includes the final sections 132A to 135.",
+    "explanationMarathi": "प्रकरण १० मध्ये शेवटची कलमे म्हणजे १३२A ते १३५ येतात."
+  },
+  {
+    "id": 1091,
+    "chapterId": 28,
+    "question": "The chapter III contains the sections—",
+    "questionMarathi": "प्रकरण ३ मध्ये कोणती कलमे आहेत?",
+    "options": [
+      "22-41",
+      "132A-135",
+      "71-91",
+      "42-68"
+    ],
+    "optionsMarathi": [
+      "२२-४१ (22-41)",
+      "१३२A-१३५",
+      "७१-९१",
+      "४२-६८"
+    ],
+    "answer": "A",
+    "explanation": "Chapter III of the Act covers sections 22 to 41.",
+    "explanationMarathi": "प्रकरण ३ मध्ये कलम २२ ते ४१ चा समावेश होतो."
+  },
+  {
+    "id": 1092,
+    "chapterId": 28,
+    "question": "The chapter VI contains the sections—",
+    "questionMarathi": "प्रकरण ६ मध्ये कोणती कलमे आहेत?",
+    "options": [
+      "22-41",
+      "132-135",
+      "71-91",
+      "42-68"
+    ],
+    "optionsMarathi": [
+      "२२-४१",
+      "१३२-१३५",
+      "७१-९१ (71-91)",
+      "४२-६८"
+    ],
+    "answer": "C",
+    "explanation": "Chapter VI, relating to traffic control, spans sections 71 to 91.",
+    "explanationMarathi": "वाहतूक नियंत्रणाशी संबंधित कलम ७१ ते ९१ प्रकरण ६ मध्ये येतात."
+  },
+  {
+    "id": 1093,
+    "chapterId": 28,
+    "question": "The chapter VIII contains which section?",
+    "questionMarathi": "प्रकरण ८ मध्ये कोणते मुख्य कलम आहे?",
+    "options": [
+      "132A-135",
+      "55",
+      "92",
+      "1-2"
+    ],
+    "optionsMarathi": [
+      "१३२A-१३५",
+      "५५",
+      "९२ (92)",
+      "१-२"
+    ],
+    "answer": "C",
+    "explanation": "Chapter VIII includes Section 92, which relates to liability for accidents.",
+    "explanationMarathi": "प्रकरण ८ मध्ये कलम ९२ महत्त्वाचे आहे."
+  },
+  {
+    "id": 1094,
+    "chapterId": 28,
+    "question": "The miscellaneous contains which sections?",
+    "questionMarathi": "किरकोळ (Miscellaneous) प्रकरणात कोणती कलमे आहेत?",
+    "options": [
+      "132A-135",
+      "71-91",
+      "21A-21J",
+      "3-21"
+    ],
+    "optionsMarathi": [
+      "१३२A-१३५ (132A-135)",
+      "७१-९१",
+      "२१A-२१J",
+      "३-२१"
+    ],
+    "answer": "A",
+    "explanation": "As confirmed earlier, Chapter X (Miscellaneous) spans sections 132A to 135.",
+    "explanationMarathi": "शेवटची कलमे १३२A ते १३५ किरकोळ (Miscellaneous) भागात येतात."
+  },
+  {
+    "id": 1095,
+    "chapterId": 28,
+    "question": "The diseases and disabilities are indicated in which schedule?",
+    "questionMarathi": "आजार आणि अपंगत्वाची माहिती कोणत्या वेळापत्रकात दिली आहे?",
+    "options": [
+      "Second",
+      "First",
+      "Third",
+      "Fourth"
+    ],
+    "optionsMarathi": [
+      "दुसरे (Second)",
+      "पहिले",
+      "तिसरे",
+      "चौथे"
+    ],
+    "answer": "A",
+    "explanation": "The Second Schedule lists the diseases and disabilities that disqualify a person from holding a driving license.",
+    "explanationMarathi": "दुसऱ्या वेळापत्रकात ड्रायव्हिंगसाठी अपात्र ठरू शकणारे आजार आणि अपंगत्वाचे नियम आहेत."
+  },
+  {
+    "id": 1096,
+    "chapterId": 28,
+    "question": "The amount of compensation is Rs. ______ in case the accident results in the death of the victim (Historical).",
+    "questionMarathi": "अपघातात मृत्यू झाल्यास भरपाईची रक्कम किती असते? (जुना नियम)",
+    "options": [
+      "1000",
+      "15000",
+      "5000",
+      "None of these"
+    ],
+    "optionsMarathi": [
+      "१०००",
+      "१५००० (15000)",
+      "५०००",
+      "यापैकी नाही"
+    ],
+    "answer": "B",
+    "explanation": "Under the historical provisions of the 1977 era, the basic compensation for death was set at Rs. 15,000.",
+    "explanationMarathi": "जुन्या कायद्यानुसार मृत्यूसाठी १५,००० रुपये भरपाई दिली जात असे."
+  },
+  {
+    "id": 1097,
+    "chapterId": 28,
+    "question": "The amount of compensation is Rs. ______ for permanent disability (Historical).",
+    "questionMarathi": "कायमस्वरूपी अपंगत्वासाठी भरपाईची रक्कम किती असते? (जुना नियम)",
+    "options": [
+      "7500",
+      "15000",
+      "5000",
+      "1000"
+    ],
+    "optionsMarathi": [
+      "७५०० (7500)",
+      "१५०००",
+      "५०००",
+      "१०००"
+    ],
+    "answer": "A",
+    "explanation": "The compensation for permanent disability was historically half the death amount, at Rs. 7,500.",
+    "explanationMarathi": "जुन्या नियमानुसार कायमस्वरूपी अपंगत्वासाठी ७,५०० रुपये भरपाई दिली जात असे."
+  },
+  {
+    "id": 1098,
+    "chapterId": 28,
+    "question": "Where the compensation is paid from the solatium fund, the amount is Rs. ______ in case the victim dies (Historical).",
+    "questionMarathi": "हिट-अँड-रन प्रकरणात (Solatium fund) मृत्यू झाल्यास भरपाई किती दिली जाते? (जुना नियम)",
+    "options": [
+      "1000",
+      "5000",
+      "10000",
+      "20000"
+    ],
+    "optionsMarathi": [
+      "१०००",
+      "५००० (5000)",
+      "१००००",
+      "२००००"
+    ],
+    "answer": "B",
+    "explanation": "The Solatium Fund originally provided Rs. 5,000 for hit-and-run fatalities.",
+    "explanationMarathi": "जुन्या \\\"सोलेशिअम फंड\\\" (Solatium Fund) नुसार मृत्यूसाठी ५,००० रुपये दिले जात असत."
+  },
+  {
+    "id": 1099,
+    "chapterId": 28,
+    "question": "There are Rs. ______ compensation for grievous hurt (Historical).",
+    "questionMarathi": "गंभीर दुखापतीसाठी (Grievous hurt) भरपाई किती दिली जाते? (जुना नियम)",
+    "options": [
+      "1000",
+      "5000",
+      "10000",
+      "20000"
+    ],
+    "optionsMarathi": [
+      "१००० (1000)",
+      "५०००",
+      "१००००",
+      "२००००"
+    ],
+    "answer": "A",
+    "explanation": "The historical compensation for grievous hurt was Rs. 1,000.",
+    "explanationMarathi": "जुन्या कायद्यानुसार गंभीर दुखापत झाल्यास १,००० रुपये भरपाई मिळत असे."
+  },
+  {
+    "id": 1100,
+    "chapterId": 28,
+    "question": "Which of the following letters shall be used as the registration mark for Andhra Pradesh?",
+    "questionMarathi": "आंध्र प्रदेशसाठी कोणते नोंदणी अक्षर वापरले जाते?",
+    "options": [
+      "AP",
+      "AA",
+      "AT",
+      "All are correct"
+    ],
+    "optionsMarathi": [
+      "AP",
+      "AA",
+      "AT",
+      "वरील सर्व"
+    ],
+    "answer": "D",
+    "explanation": "While \"AP\" is the current standard, historical rules sometimes allowed variations like \"AA\" or \"AT\" for different districts.",
+    "explanationMarathi": "सध्या AP वापरले जाते, परंतु जुन्या नियमांत AA आणि AT ची मुभा होती."
+  },
+  {
+    "id": 1101,
+    "chapterId": 28,
+    "question": "Which of the following letters shall be used as the registration mark for Delhi?",
+    "questionMarathi": "दिल्लीसाठी कोणते नोंदणी अक्षर वापरले जाते?",
+    "options": [
+      "DL",
+      "DH",
+      "DE",
+      "All are correct"
+    ],
+    "optionsMarathi": [
+      "DL",
+      "DH",
+      "DE",
+      "वरील सर्व"
+    ],
+    "answer": "D",
+    "explanation": "Delhi uses \"DL\" currently, but historical series included \"DH\" and \"DE\".",
+    "explanationMarathi": "दिल्लीसाठी सध्या DL वापरले जाते, पण जुन्या मालिकांमध्ये DH आणि DE सुद्धा होते."
+  },
+  {
+    "id": 1102,
+    "chapterId": 28,
+    "question": "Which of the following letters shall be used as the registration mark for Bihar?",
+    "questionMarathi": "बिहारसाठी कोणते नोंदणी अक्षर वापरले जाते?",
+    "options": [
+      "BR",
+      "BH",
+      "BP",
+      "All are correct"
+    ],
+    "optionsMarathi": [
+      "BR",
+      "BH",
+      "BP",
+      "वरील सर्व"
+    ],
+    "answer": "D",
+    "explanation": "Bihar currently uses \"BR\", with \"BH\" and \"BP\" being used in older registration systems.",
+    "explanationMarathi": "बिहारसाठी सध्या BR हे अक्षर वापरले जाते."
+  },
+  {
+    "id": 1103,
+    "chapterId": 28,
+    "question": "Which letter is for Andaman?",
+    "questionMarathi": "अंदमान-निकोबारसाठी कोणते नोंदणी अक्षर आहे?",
+    "options": [
+      "AN",
+      "AA",
+      "AD",
+      "AT"
+    ],
+    "optionsMarathi": [
+      "AN (AN)",
+      "AA",
+      "AD",
+      "AT"
+    ],
+    "answer": "A",
+    "explanation": "The registration code for the Union Territory of Andaman and Nicobar Islands is \"AN\".",
+    "explanationMarathi": "अंदमान आणि निकोबार बेटांसाठी AN हे अक्षर वापरले जाते."
+  },
+  {
+    "id": 1104,
+    "chapterId": 28,
+    "question": "The letter for Punjab is—",
+    "questionMarathi": "पंजाबसाठी कोणते नोंदणी अक्षर वापरले जाते?",
+    "options": [
+      "PN",
+      "PU",
+      "PB",
+      "All of these"
+    ],
+    "optionsMarathi": [
+      "PN",
+      "PU",
+      "PB",
+      "वरील सर्व"
+    ],
+    "answer": "D",
+    "explanation": "While \"PB\" is the current standard, historical and district-specific codes vary.",
+    "explanationMarathi": "पंजाबसाठी सध्या मुख्यत्वे PB वापरले जाते."
+  },
+  {
+    "id": 1105,
+    "chapterId": 28,
+    "question": "In case of transport vehicle, which figure color is correct?",
+    "questionMarathi": "ट्रान्सपोर्ट वाहनांच्या नंबर प्लेटचा रंग कसा असावा?",
+    "options": [
+      "In black on white ground",
+      "In red on a yellow ground",
+      "Both are correct",
+      "None are correct"
+    ],
+    "optionsMarathi": [
+      "पांढऱ्या प्लेटवर काळी अक्षरे",
+      "पिवळ्या प्लेटवर काळी अक्षरे (काही ठिकाणी लाल)",
+      "दोन्ही बरोबर",
+      "यापैकी नाही"
+    ],
+    "answer": "A",
+    "explanation": "Standard transport vehicles historically used black numbers on a white ground (though current rules vary for commercial/private). Note: This question reflects older Act context.",
+    "explanationMarathi": "जुन्या नियमांनुसार ट्रान्सपोर्ट वाहनांसाठी पांढऱ्या प्लेटवर काळी अक्षरे असणे आवश्यक होते."
+  },
+  {
+    "id": 1106,
+    "chapterId": 28,
+    "question": "In case of temporary registration, which of the following color is correct?",
+    "questionMarathi": "तात्पुरत्या नोंदणीसाठी (Temporary registration) नंबर प्लेटचा रंग कसा असावा?",
+    "options": [
+      "In black on white ground",
+      "In red on yellow ground",
+      "Both are correct",
+      "None of the above"
+    ],
+    "optionsMarathi": [
+      "पांढऱ्यावर काळी अक्षरे",
+      "पिवळ्यावर लाल अक्षरे (In red on yellow)",
+      "दोन्ही बरोबर",
+      "यापैकी नाही"
+    ],
+    "answer": "B",
+    "explanation": "Temporary registrations are required to have red letters/numbers on a yellow background.",
+    "explanationMarathi": "तात्पुरत्या नोंदणीसाठी पिवळ्या प्लेटवर लाल रंगाची अक्षरे वापरली जातात."
+  },
+  {
+    "id": 1107,
+    "chapterId": 28,
+    "question": "The maximum speed per hour in kilometers for a medium motor vehicle is—",
+    "questionMarathi": "मिडियम मोटार वाहनासाठी (Medium motor vehicle) कमाल वेग मर्यादा किती आहे?",
+    "options": [
+      "50",
+      "40",
+      "60",
+      "80"
+    ],
+    "optionsMarathi": [
+      "५० (50)",
+      "४०",
+      "६०",
+      "८०"
+    ],
+    "answer": "A",
+    "explanation": "The Eighth Schedule sets 50 km/h as the limit for medium motor vehicles.",
+    "explanationMarathi": "मिडियम वाहनांसाठी ५० किमी प्रति तास ही वेग मर्यादा निश्चित केली आहे."
+  },
+  {
+    "id": 1108,
+    "chapterId": 28,
+    "question": "The maximum speed per hour in kilometers for a fire brigade vehicle is—",
+    "questionMarathi": "अग्निशमन दलाच्या (Fire brigade) वाहनासाठी कमाल वेग मर्यादा किती आहे?",
+    "options": [
+      "90",
+      "60",
+      "40",
+      "50"
+    ],
+    "optionsMarathi": [
+      "९०",
+      "६०",
+      "४०",
+      "५० (50)"
+    ],
+    "answer": "D",
+    "explanation": "Fire brigade vehicles are regulated to a 50 km/h limit under these specific historical schedules.",
+    "explanationMarathi": "अग्निशमन दलाच्या वाहनांसाठी ५० किमी प्रति तास ही मर्यादा आहे."
+  },
+  {
+    "id": 1109,
+    "chapterId": 28,
+    "question": "If the vehicle is a motor cycle then max. speed is—",
+    "questionMarathi": "मोटारसायकलसाठी कमाल वेग मर्यादा किती आहे?",
+    "options": [
+      "50",
+      "60",
+      "40",
+      "No limit"
+    ],
+    "optionsMarathi": [
+      "५० (50)",
+      "६०",
+      "४०",
+      "मर्यादा नाही"
+    ],
+    "answer": "A",
+    "explanation": "Under the 1977 Act schedules, the speed limit for motorcycles was set at 50 km/h.",
+    "explanationMarathi": "मोटारसायकलसाठी ५० किमी प्रति तास ही वेग मर्यादा आहे."
+  },
+  {
+    "id": 1110,
+    "chapterId": 28,
+    "question": "If the vehicle is a light motor vehicle (LMV) then max. speed is—",
+    "questionMarathi": "लाईट मोटार व्हेईकल (LMV) साठी कमाल वेग मर्यादा काय आहे?",
+    "options": [
+      "50",
+      "60",
+      "40",
+      "No limit"
+    ],
+    "optionsMarathi": [
+      "५०",
+      "६०",
+      "४०",
+      "मर्यादा नाही (No limit)"
+    ],
+    "answer": "D",
+    "explanation": "LMVs (private cars) historically had no set speed limit in the Eighth Schedule of the older Act, leaving it to local authorities.",
+    "explanationMarathi": "जुन्या कायद्यात LMV साठी कोणतीही ठराविक वेग मर्यादा दिलेली नव्हती."
   }
 ];

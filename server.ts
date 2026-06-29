@@ -1062,6 +1062,67 @@ Output JSON format:
     res.json({ success: true });
   });
 
+  // Coupons implementation
+  let memoryCoupons = [
+    { id: "1", code: "", discountPercent: 10, isActive: false },
+    { id: "2", code: "", discountPercent: 20, isActive: false },
+    { id: "3", code: "", discountPercent: 30, isActive: false },
+    { id: "4", code: "", discountPercent: 40, isActive: false },
+    { id: "5", code: "", discountPercent: 50, isActive: false }
+  ];
+
+  async function loadCoupons() {
+    if (isFirestoreAvailable) {
+      try {
+        const docSnap = await db.collection("config").doc("coupons").get();
+        if (docSnap.exists) {
+          const data = docSnap.data();
+          if (data && data.coupons && Array.isArray(data.coupons)) {
+            memoryCoupons = data.coupons;
+          }
+        }
+      } catch (e) {
+        handleFirestoreError(e, "loadCoupons");
+      }
+    }
+  }
+  loadCoupons();
+
+  app.get("/api/coupons", async (req, res) => {
+    await loadCoupons();
+    res.json({ success: true, coupons: memoryCoupons });
+  });
+
+  app.post("/api/admin/coupons", async (req, res) => {
+    const { coupons } = req.body;
+    if (!coupons || !Array.isArray(coupons)) {
+      return res.status(400).json({ error: "Invalid coupons payload" });
+    }
+    memoryCoupons = coupons;
+    if (isFirestoreAvailable) {
+      try {
+        await db.collection("config").doc("coupons").set({ coupons }, { merge: true });
+      } catch (err: any) {
+        handleFirestoreError(err, "coupons config POST");
+      }
+    }
+    res.json({ success: true, coupons: memoryCoupons });
+  });
+
+  app.post("/api/coupons/validate", async (req, res) => {
+    const { code } = req.body;
+    if (!code) return res.status(400).json({ error: "Code is required" });
+    
+    await loadCoupons();
+    const coupon = memoryCoupons.find(c => c.isActive && c.code.toUpperCase() === code.toUpperCase().trim());
+    
+    if (coupon) {
+      res.json({ success: true, valid: true, discountPercent: coupon.discountPercent });
+    } else {
+      res.json({ success: true, valid: false, error: "Invalid or expired coupon code" });
+    }
+  });
+
   // Security Email Alert Helper when Admin Bypass Code is used
   const ALLOWED_ADMIN_EMAILS = [
     "jemshery17@gmail.com",
