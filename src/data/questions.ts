@@ -236,6 +236,15 @@ export const CHAPTERS: Chapter[] = [
     "icon": "Zap",
     "section": "Electrical"
   },
+  {
+    "id": 32,
+    "name": "Electrical Basics (Questions 51-77)",
+    "nameMarathi": "विद्युत मूलभूत प्रश्नसंच ३ (५१ ते ७७)",
+    "description": "27 important MCQs on Electrical Basics.",
+    "descriptionMarathi": "विद्युत मूलभूत संकल्पनांवर आधारित २७ महत्त्वाचे प्रश्न.",
+    "icon": "Zap",
+    "section": "Electrical"
+  }
 ];
 export const QUESTIONS: Question[] = [
   {
@@ -24079,5 +24088,572 @@ export const QUESTIONS: Question[] = [
     "answer": "B",
     "explanation": "Electric fans use the magnetic effect of electric current to rotate the motor.",
     "explanationMarathi": "विद्युत पंखे मोटर फिरवण्यासाठी विद्युत प्रवाहाचा चुंबकीय प्रभाव वापरतात."
+  },
+  {
+    "id": 50051,
+    "chapterId": 32,
+    "question": "What will be the resistance of a 100 watt, 250 volt lamp?",
+    "questionMarathi": "100 वॉट 250 व्होल्ट लॅम्पचा रोध किती असेल?",
+    "options": [
+      "2500 ohm",
+      "625 ohm",
+      "0.4 ohm",
+      "2.5 ohm"
+    ],
+    "optionsMarathi": [
+      "2500 ओम",
+      "625 ओम",
+      "0.4 ओम",
+      "2.5 ओम"
+    ],
+    "answer": "B",
+    "explanation": "R = V^2 / P = (250*250)/100 = 625 ohms.",
+    "explanationMarathi": "R = V^2 / P = (250*250)/100 = 625 ओम."
+  },
+  {
+    "id": 50052,
+    "chapterId": 32,
+    "question": "If the thickness of the core lamination is halved, how much will the eddy current loss be?",
+    "questionMarathi": "जर कोरच्या लॅमिनेशनची जाडी निम्मी केली, तर एडी करंट लॉस किती होईल?",
+    "options": [
+      "Two times less",
+      "Half",
+      "Equal",
+      "Four times less"
+    ],
+    "optionsMarathi": [
+      "दोन पट कमी",
+      "निम्मी",
+      "समान",
+      "चार पट कमी (चौगुणा कम)"
+    ],
+    "answer": "D",
+    "explanation": "Eddy current loss is proportional to the square of lamination thickness.",
+    "explanationMarathi": "एडी करंट लॉस लॅमिनेशनच्या जाडीच्या वर्गाच्या प्रमाणात असतो."
+  },
+  {
+    "id": 50053,
+    "chapterId": 32,
+    "question": "Which supply is required for electroplating?",
+    "questionMarathi": "इलेक्ट्रोप्लेटिंगसाठी कोणता वीजपुरवठा आवश्यक आहे?",
+    "options": [
+      "AC",
+      "DC",
+      "Both AC and DC",
+      "None"
+    ],
+    "optionsMarathi": [
+      "AC",
+      "DC",
+      "AC आणि DC दोन्ही",
+      "कोणतेही नाही"
+    ],
+    "answer": "B",
+    "explanation": "Electroplating requires a steady direct current (DC).",
+    "explanationMarathi": "इलेक्ट्रोप्लेटिंगसाठी स्थिर डायरेक्ट करंट (DC) आवश्यक असतो."
+  },
+  {
+    "id": 50054,
+    "chapterId": 32,
+    "question": "Which of the following is the best conductor material?",
+    "questionMarathi": "खालीलपैकी कोणता सर्वोत्तम सुचालक (conductor) पदार्थ आहे?",
+    "options": [
+      "Mica",
+      "Bakelite",
+      "Marble",
+      "None of these"
+    ],
+    "optionsMarathi": [
+      "अभ्रक",
+      "बॅकेलाइट",
+      "मार्बल",
+      "यापैकी नाही"
+    ],
+    "answer": "D",
+    "explanation": "All the given options are insulators, so none is a good conductor.",
+    "explanationMarathi": "दिलेले सर्व पर्याय विसंवाहक (insulators) आहेत, त्यामुळे यापैकी कोणताही चांगला वाहक नाही."
+  },
+  {
+    "id": 50055,
+    "chapterId": 32,
+    "question": "During charging, a lead-acid cell converts electrical energy into:",
+    "questionMarathi": "चार्जिंग करताना लेड-ॲसिड सेल विद्युत ऊर्जेचे रूपांतर कशात करतो?",
+    "options": [
+      "Heat energy",
+      "Magnetic energy",
+      "Chemical energy",
+      "Light energy"
+    ],
+    "optionsMarathi": [
+      "उष्णता ऊर्जेत",
+      "चुंबकीय ऊर्जेत",
+      "रासायनिक ऊर्जेत",
+      "प्रकाश ऊर्जेत"
+    ],
+    "answer": "C",
+    "explanation": "It converts electrical energy into chemical energy during charging.",
+    "explanationMarathi": "चार्जिंग दरम्यान विद्युत ऊर्जेचे रासायनिक ऊर्जेत रूपांतर होते."
+  },
+  {
+    "id": 50056,
+    "chapterId": 32,
+    "question": "Which of the following is the best conductor?",
+    "questionMarathi": "खालीलपैकी सर्वात चांगला सुचालक कोणता आहे?",
+    "options": [
+      "Gold",
+      "Copper",
+      "Silver",
+      "Brass"
+    ],
+    "optionsMarathi": [
+      "सोने",
+      "तांबे",
+      "चांदी",
+      "पितळ"
+    ],
+    "answer": "C",
+    "explanation": "Silver has the highest electrical conductivity of all metals.",
+    "explanationMarathi": "सर्व धातूंमध्ये चांदीची विद्युत वाहकता सर्वाधिक असते."
+  },
+  {
+    "id": 50057,
+    "chapterId": 32,
+    "question": "The value of electromotive force (EMF) of a Daniell cell is:",
+    "questionMarathi": "डॅनियल सेलच्या विद्युत वाहक बलाचे (EMF) मूल्य किती असते?",
+    "options": [
+      "1.08 Volt",
+      "2.2 Volt",
+      "1.1 Volt",
+      "1.46 Volt"
+    ],
+    "optionsMarathi": [
+      "1.08 व्होल्ट",
+      "2.2 व्होल्ट",
+      "1.1 व्होल्ट",
+      "1.46 व्होल्ट"
+    ],
+    "answer": "C",
+    "explanation": "A standard Daniell cell has an EMF of approximately 1.1 V.",
+    "explanationMarathi": "प्रमाणित डॅनियल सेलचे EMF अंदाजे 1.1 V असते."
+  },
+  {
+    "id": 50058,
+    "chapterId": 32,
+    "question": "The permeability of paramagnetic materials is:",
+    "questionMarathi": "पॅरामॅग्नेटिक (Paramagnetic) पदार्थांची चुंबकशीलता किती असते?",
+    "options": [
+      "Unity",
+      "More than unity",
+      "Less than unity",
+      "Zero"
+    ],
+    "optionsMarathi": [
+      "एक",
+      "एकापेक्षा जास्त",
+      "एकापेक्षा कमी",
+      "शून्य"
+    ],
+    "answer": "B",
+    "explanation": "Paramagnetic materials have a relative permeability slightly greater than 1.",
+    "explanationMarathi": "पॅरामॅग्नेटिक पदार्थांची सापेक्ष चुंबकशीलता 1 पेक्षा थोडी जास्त असते."
+  },
+  {
+    "id": 50059,
+    "chapterId": 32,
+    "question": "If two lamps of 150 watts, 100 volts are connected in parallel, the total power will be:",
+    "questionMarathi": "जर 150 वॉट, 100 व्होल्टचे दोन लॅम्प समानांतर (parallel) जोडले, तर एकूण शक्ती किती असेल?",
+    "options": [
+      "150 watts",
+      "75 watts",
+      "300 watts",
+      "1500 watts"
+    ],
+    "optionsMarathi": [
+      "150 वॉट",
+      "75 वॉट",
+      "300 वॉट",
+      "1500 वॉट"
+    ],
+    "answer": "C",
+    "explanation": "In parallel, powers add up: 150W + 150W = 300W.",
+    "explanationMarathi": "समानांतर जोडणीमध्ये शक्ती (power) जोडली जाते: 150W + 150W = 300W."
+  },
+  {
+    "id": 50060,
+    "chapterId": 32,
+    "question": "What will be the value of a resistor marked with green, blue, yellow, and silver colors?",
+    "questionMarathi": "हिरवा, निळा, पिवळा आणि चंदेरी रंगाचे पट्टे असलेल्या रोधकाचे मूल्य काय असेल?",
+    "options": [
+      "5600Ω ±10%",
+      "56MΩ ±10%",
+      "560KΩ ±10%",
+      "None of these"
+    ],
+    "optionsMarathi": [
+      "5600Ω ±10%",
+      "56MΩ ±10%",
+      "560KΩ ±10%",
+      "यापैकी नाही"
+    ],
+    "answer": "C",
+    "explanation": "Green(5), Blue(6), Yellow(x10k), Silver(±10%) = 560kΩ ±10%.",
+    "explanationMarathi": "हिरवा(5), निळा(6), पिवळा(x10k), चंदेरी(±10%) = 560kΩ ±10%."
+  },
+  {
+    "id": 50061,
+    "chapterId": 32,
+    "question": "A white symbol on a blue background indicates which type of safety sign?",
+    "questionMarathi": "निळ्या पार्श्वभूमीवर पांढरे चिन्ह कोणत्या प्रकारच्या सुरक्षा चिन्हाचे संकेत देते?",
+    "options": [
+      "Mandatory (Positive)",
+      "Prohibitory",
+      "Warning",
+      "Informational"
+    ],
+    "optionsMarathi": [
+      "सकारात्मक (Mandatory)",
+      "निषेधात्मक",
+      "सचेतक",
+      "सूचनात्मक"
+    ],
+    "answer": "A",
+    "explanation": "Mandatory signs typically have a blue circular background with a white symbol.",
+    "explanationMarathi": "सकारात्मक (Mandatory) चिन्हांमध्ये निळ्या वर्तुळाकार पार्श्वभूमीवर पांढरे चिन्ह असते."
+  },
+  {
+    "id": 50062,
+    "chapterId": 32,
+    "question": "Heating elements are made of:",
+    "questionMarathi": "हीटिंग एलिमेंट्स कशापासून बनवले जातात?",
+    "options": [
+      "Copper",
+      "Nichrome",
+      "Eureka",
+      "Nickel"
+    ],
+    "optionsMarathi": [
+      "तांबे",
+      "नायक्रोम",
+      "युरिका",
+      "निकेल"
+    ],
+    "answer": "B",
+    "explanation": "Nichrome is used because of its high resistance and melting point.",
+    "explanationMarathi": "उच्च रोध आणि वितळण बिंदू असल्यामुळे नायक्रोम वापरले जाते."
+  },
+  {
+    "id": 50063,
+    "chapterId": 32,
+    "question": "Ohm's law is applicable to:",
+    "questionMarathi": "ओमचा नियम कशावर लागू होतो?",
+    "options": [
+      "AC only",
+      "DC only",
+      "Both AC and DC",
+      "None"
+    ],
+    "optionsMarathi": [
+      "फक्त AC",
+      "फक्त DC",
+      "AC व DC दोन्ही",
+      "कोणतेही नाही"
+    ],
+    "answer": "C",
+    "explanation": "Ohm's law applies to both AC (for purely resistive circuits) and DC.",
+    "explanationMarathi": "ओमचा नियम AC (केवळ रोधक सर्किट्ससाठी) आणि DC दोन्हीवर लागू होतो."
+  },
+  {
+    "id": 50064,
+    "chapterId": 32,
+    "question": "The capacity to do work is called:",
+    "questionMarathi": "कार्य करण्याच्या क्षमतेला काय म्हणतात?",
+    "options": [
+      "Power",
+      "Energy",
+      "Efficiency",
+      "Horsepower"
+    ],
+    "optionsMarathi": [
+      "शक्ती",
+      "ऊर्जा",
+      "दक्षता",
+      "हॉर्सपॉवर"
+    ],
+    "answer": "B",
+    "explanation": "Energy is defined as the capacity or ability to do work.",
+    "explanationMarathi": "कार्य करण्याच्या क्षमतेला ऊर्जा असे म्हणतात."
+  },
+  {
+    "id": 50065,
+    "chapterId": 32,
+    "question": "In a voltaic cell, the cathode is made of:",
+    "questionMarathi": "व्होल्टाइक सेलमध्ये कॅथोड कशाचा बनलेला असतो?",
+    "options": [
+      "Zinc",
+      "Copper",
+      "Carbon",
+      "Nickel"
+    ],
+    "optionsMarathi": [
+      "जस्त (Zinc)",
+      "तांबे",
+      "कार्बन",
+      "निकेल"
+    ],
+    "answer": "A",
+    "explanation": "The cathode (negative electrode) in a simple voltaic cell is made of zinc.",
+    "explanationMarathi": "साध्या व्होल्टाइक सेलमध्ये कॅथोड (ऋण इलेक्ट्रोड) जस्ताचा बनलेला असतो."
+  },
+  {
+    "id": 50066,
+    "chapterId": 32,
+    "question": "Between 200W and 856W lamps of the same voltage, which one will have higher resistance?",
+    "questionMarathi": "समान व्होल्टेज असलेल्या 200W आणि 856W लॅम्पपैकी कोणाचा रोध जास्त असेल?",
+    "options": [
+      "856W lamp",
+      "200W lamp",
+      "Will be equal",
+      "None of these"
+    ],
+    "optionsMarathi": [
+      "856W लॅम्प",
+      "200W लॅम्प",
+      "समान असेल",
+      "यापैकी नाही"
+    ],
+    "answer": "B",
+    "explanation": "Resistance R = V^2/P. So, lower wattage means higher resistance.",
+    "explanationMarathi": "रोध R = V^2/P. त्यामुळे, कमी वॉट असलेल्या लॅम्पचा रोध जास्त असतो."
+  },
+  {
+    "id": 50067,
+    "chapterId": 32,
+    "question": "Like poles of a magnet:",
+    "questionMarathi": "चुंबकाच्या समान ध्रुवांमध्ये काय होते?",
+    "options": [
+      "Attract",
+      "Repel",
+      "Strengthen",
+      "Nothing"
+    ],
+    "optionsMarathi": [
+      "आकर्षण",
+      "प्रतिकर्षण (Repel)",
+      "मजबुती",
+      "काहीही नाही"
+    ],
+    "answer": "B",
+    "explanation": "Like magnetic poles repel each other, while opposite poles attract.",
+    "explanationMarathi": "समान चुंबकीय ध्रुव एकमेकांना दूर ढकलतात (प्रतिकर्षण), तर विरुद्ध ध्रुव आकर्षित करतात."
+  },
+  {
+    "id": 50068,
+    "chapterId": 32,
+    "question": "If three resistors of 5 ohms each are connected in series with a 1.5V cell, the current in the circuit will be:",
+    "questionMarathi": "जर 5 ओहमचे तीन रोधक श्रेणीत (series) 1.5 व्होल्टच्या सेलला जोडले, तर सर्किटमध्ये करंटचे मूल्य किती असेल?",
+    "options": [
+      "10 A",
+      "1.0 A",
+      "0.1 A",
+      "None of these"
+    ],
+    "optionsMarathi": [
+      "10 A",
+      "1.0 A",
+      "0.1 A",
+      "यापैकी नाही"
+    ],
+    "answer": "C",
+    "explanation": "Total R = 5+5+5 = 15 ohms. I = V/R = 1.5 / 15 = 0.1 A.",
+    "explanationMarathi": "एकूण रोध = 5+5+5 = 15 ओहम. करंट (I) = V/R = 1.5 / 15 = 0.1 A."
+  },
+  {
+    "id": 50069,
+    "chapterId": 32,
+    "question": "In the Right-Hand Grip Rule, the thumb represents:",
+    "questionMarathi": "उजव्या हाताच्या नियमात अंगठा काय दर्शवतो?",
+    "options": [
+      "Magnetic force",
+      "North pole",
+      "South pole",
+      "Direction of current"
+    ],
+    "optionsMarathi": [
+      "चुंबकीय बल",
+      "उत्तर ध्रुव",
+      "दक्षिण ध्रुव",
+      "प्रवाहाची दिशा (Direction of current)"
+    ],
+    "answer": "D",
+    "explanation": "If a current-carrying conductor is held in the right hand, the thumb points to the direction of current.",
+    "explanationMarathi": "उजव्या हाताच्या नियमानुसार, अंगठा विद्युत प्रवाहाची दिशा दर्शवतो."
+  },
+  {
+    "id": 50070,
+    "chapterId": 32,
+    "question": "The value of current in a short circuit is:",
+    "questionMarathi": "शॉर्ट सर्किटमध्ये करंटचे मूल्य किती असते?",
+    "options": [
+      "Zero",
+      "Infinite",
+      "Low",
+      "Very low"
+    ],
+    "optionsMarathi": [
+      "शून्य",
+      "अनंत (Infinite)",
+      "कमी",
+      "खूप कमी"
+    ],
+    "answer": "B",
+    "explanation": "In an ideal short circuit, resistance is zero, so current approaches infinity.",
+    "explanationMarathi": "आदर्श शॉर्ट सर्किटमध्ये रोध शून्य असतो, त्यामुळे करंट अनंत (infinite) होतो."
+  },
+  {
+    "id": 50071,
+    "chapterId": 32,
+    "question": "The unit of heat is:",
+    "questionMarathi": "उष्णतेचे एकक कोणते आहे?",
+    "options": [
+      "Centigrade",
+      "Calorie",
+      "Calorie/Joule",
+      "Watt-second"
+    ],
+    "optionsMarathi": [
+      "सेंटिग्रेड",
+      "कॅलरी",
+      "कॅलरी/जूल",
+      "वॉट-सेकंद"
+    ],
+    "answer": "B",
+    "explanation": "Calorie is a traditional unit of heat energy.",
+    "explanationMarathi": "कॅलरी हे उष्णता ऊर्जेचे एकक आहे."
+  },
+  {
+    "id": 50072,
+    "chapterId": 32,
+    "question": "Which of the following is not one of the three main effects of electric current?",
+    "questionMarathi": "खालीलपैकी कोणता विद्युत प्रवाहाच्या तीन प्रमुख प्रभावांपैकी एक नाही?",
+    "options": [
+      "Chemical",
+      "Magnetic",
+      "Ray/Radiation",
+      "Heating"
+    ],
+    "optionsMarathi": [
+      "रासायनिक",
+      "चुंबकीय",
+      "किरण (Ray)",
+      "ऊष्मीय"
+    ],
+    "answer": "C",
+    "explanation": "The three main effects of electric current are heating, magnetic, and chemical.",
+    "explanationMarathi": "विद्युत प्रवाहाचे तीन मुख्य प्रभाव म्हणजे ऊष्मीय, चुंबकीय आणि रासायनिक."
+  },
+  {
+    "id": 50073,
+    "chapterId": 32,
+    "question": "The supply frequency in India is:",
+    "questionMarathi": "भारतात सप्लाय फ्रिक्वेन्सी (frequency) किती आहे?",
+    "options": [
+      "50 Hz",
+      "45 Hz",
+      "55 Hz",
+      "51 Hz"
+    ],
+    "optionsMarathi": [
+      "50 हर्ट्झ",
+      "45 हर्ट्झ",
+      "55 हर्ट्झ",
+      "51 हर्ट्झ"
+    ],
+    "answer": "A",
+    "explanation": "The standard AC supply frequency in India is 50 Hz.",
+    "explanationMarathi": "भारतातील प्रमाणित AC सप्लाय फ्रिक्वेन्सी 50 हर्ट्झ आहे."
+  },
+  {
+    "id": 50074,
+    "chapterId": 32,
+    "question": "High voltage cable values are typically:",
+    "questionMarathi": "उच्च व्होल्टेज (High voltage) केबलचे मूल्य साधारणपणे किती असते?",
+    "options": [
+      "250 Volts",
+      "11000 Volts",
+      "33000 Volts",
+      "22000 Volts"
+    ],
+    "optionsMarathi": [
+      "250 व्होल्ट",
+      "11000 व्होल्ट",
+      "33000 व्होल्ट",
+      "22000 व्होल्ट"
+    ],
+    "answer": "D",
+    "explanation": "Based on the options, 22000 V (22kV) represents a high voltage transmission cable level in some standards.",
+    "explanationMarathi": "दिलेल्या पर्यायांपैकी, 22000 V हे उच्च व्होल्टेज केबलचे मूल्य मानले जाते."
+  },
+  {
+    "id": 50075,
+    "chapterId": 32,
+    "question": "The rate of doing work is called:",
+    "questionMarathi": "कार्य करण्याच्या दराला काय म्हणतात?",
+    "options": [
+      "Power",
+      "Energy",
+      "Force",
+      "Torque"
+    ],
+    "optionsMarathi": [
+      "शक्ती (Power)",
+      "ऊर्जा",
+      "बल",
+      "टॉर्क"
+    ],
+    "answer": "A",
+    "explanation": "Power is defined as the rate at which work is done or energy is transferred.",
+    "explanationMarathi": "कार्य करण्याच्या दराला शक्ती (power) असे म्हणतात."
+  },
+  {
+    "id": 50076,
+    "chapterId": 32,
+    "question": "The formula to calculate dynamically induced EMF is:",
+    "questionMarathi": "गतिकरित्या प्रेरित (dynamically induced) EMF मोजण्याचे सूत्र काय आहे?",
+    "options": [
+      "BAVsinθ",
+      "KlVsinθ",
+      "BLVsinθ",
+      "BlVsinθ"
+    ],
+    "optionsMarathi": [
+      "BAVsinθ",
+      "KlVsinθ",
+      "BLVsinθ",
+      "BlVsinθ"
+    ],
+    "answer": "C",
+    "explanation": "EMF = B * L * v * sin(θ), where B is magnetic flux density, L is length, and v is velocity.",
+    "explanationMarathi": "EMF = B * L * v * sin(θ), जिथे B चुंबकीय क्षेत्र, L लांबी, आणि v वेग आहे."
+  },
+  {
+    "id": 50077,
+    "chapterId": 32,
+    "question": "A voltaic cell is a:",
+    "questionMarathi": "व्होल्टाइक सेल हा एक:",
+    "options": [
+      "Primary cell",
+      "Secondary cell",
+      "Dry cell",
+      "Alkaline cell"
+    ],
+    "optionsMarathi": [
+      "प्राथमिक सेल (Primary)",
+      "दुय्यम सेल (Secondary)",
+      "कोरडा सेल (Dry)",
+      "अल्कलाइन सेल"
+    ],
+    "answer": "A",
+    "explanation": "A voltaic cell is a non-rechargeable primary cell.",
+    "explanationMarathi": "व्होल्टाइक सेल हा रिचार्ज न करता येणारा प्राथमिक सेल आहे."
   }
 ];
