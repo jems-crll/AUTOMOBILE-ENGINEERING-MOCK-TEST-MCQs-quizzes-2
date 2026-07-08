@@ -1,13 +1,5 @@
 import { Question, Chapter } from "../types.js";
-import { DC_GENERATOR_QUESTIONS } from "./dcGeneratorQuestions.js";
-import { SINGLE_PHASE_MOTOR_QUESTIONS } from "./singlePhaseMotorQuestions.js";
-import { THREE_PHASE_MOTOR_QUESTIONS } from "./threePhaseMotorQuestions.js";
-import { ALTERNATOR_SYNCHRONOUS_MOTORS_QUESTIONS } from "./alternatorSynchronousMotorsQuestions.js";
-import { ELECTRONICS_QUESTIONS } from "./electronicsQuestions.js";
-import { CONTROL_PANEL_WIRING_QUESTIONS } from "./controlPanelWiringQuestions.js";
-import { AC_DC_DRIVE_QUESTIONS } from "./acDcDriveQuestions.js";
-import { INVERTER_UPS_QUESTIONS } from "./inverterUpsQuestions.js";
-import { POWER_TRANSMISSION_QUESTIONS } from "./powerTransmissionQuestions.js";
+
 
 export const CHAPTERS: Chapter[] = [
   {
@@ -195,43 +187,7 @@ export const CHAPTERS: Chapter[] = [
     "name": "SET 19 (Questions 549-578)",
     "nameMarathi": "प्रश्नसंच १९ (५४९ ते ५७८)",
     "description": "Engine stroke, piston rings, connecting rods, crankshafts, and engine cycles.",
-    "descriptionMarathi": "इंजिन स्ट्रोक, पिस्टन रिंग्ज, कनेक्टिंग रॉड्स, क्रँकशाफ्ट आणि इंजिन सायकल.",
-    "icon": "Activity",
-    "section": "Section 6"
-  },
-  {
-    "id": 22,
-    "name": "SET 20 (Questions 579-724)",
-    "nameMarathi": "प्रश्नसंच २० (५७९ ते ७२४)",
-    "description": "PFI fuel systems, starting systems, batteries, charging, alternators, safety glass, drive trains, clutches, and transmissions.",
-    "descriptionMarathi": "PFI फ्युएल सिस्टम, स्टार्टिंग सिस्टम, बॅटरी, चार्जिंग, अल्टरनेटर, सेफ्टी ग्लास, ड्राईव्ह ट्रेन, क्लच आणि ट्रान्समिशन.",
-    "icon": "Activity",
-    "section": "Section 6"
-  },
-  {
-    "id": 23,
-    "name": "SET 21 (Questions 725-781)",
-    "nameMarathi": "प्रश्नसंच २१ (७२५ ते ७८१)",
-    "description": "Automatic transmissions, 4WD systems, suspension types, steering geometry (Camber, Caster, Toe), and tyre maintenance.",
-    "descriptionMarathi": "ऑटोमॅटिक ट्रान्समिशन, 4WD सिस्टम, सस्पेन्शनचे प्रकार, स्टीयरिंग जॉमेट्री (कॅम्बर, कॅस्टर, टो) आणि टायर मेंटेनन्स.",
-    "icon": "Shield",
-    "section": "Section 6"
-  },
-  {
-    "id": 24,
-    "name": "SET 22 (Questions 782-850)",
-    "nameMarathi": "प्रश्नसंच २२ (७८२ ते ८५०)",
-    "description": "Braking mechanics, Master cylinders, ABS, Automotive painting, and Lighting systems (Candle power, Wiring colors).",
-    "descriptionMarathi": "ब्रेकिंग मेकॅनिक्स, मास्टर सिलिंडर, ABS, ऑटोमोबाईल पेंटिंग आणि लाइटिंग सिस्टम (कँडल पॉवर, वायरिंग रंग).",
-    "icon": "Zap",
-    "section": "Section 6"
-  },
-  {
-    "id": 25,
-    "name": "SET 23 (Questions 851-916)",
-    "nameMarathi": "प्रश्नसंच २३ (८५१ ते ९१६)",
-    "description": "Electrical wiring, Battery construction, SRS (Airbags), Differential mechanics, Universal joints, and Torque converters.",
-    "descriptionMarathi": "इलेक्ट्रिकल वायरिंग, बॅटरी रचना, SRS (एअरबॅग्स), डिफरेंशियल मेकॅनिक्स, युनिव्हर्सल जॉइंट्स आणि टॉर्क कन्व्हर्टर्स.",
+    "descriptionMarathi": "इंजिन स्ट्रोक, पिस्टन रिंग्ज, कनेक्टिंग रॉड्स, क्रँक�.",
     "icon": "Activity",
     "section": "Section 7"
   },
@@ -262,88 +218,9 @@ export const CHAPTERS: Chapter[] = [
     "icon": "History",
     "section": "Section 7"
   },
-  {
-    "id": 30,
-    "name": "DC Generator MCQs",
-    "nameMarathi": "डीसी जनरेटर प्रश्नसंच",
-    "description": "50 important MCQs on DC Generators.",
-    "descriptionMarathi": "डीसी जनरेटरवरील ५० महत्त्वाचे बहुपर्यायी प्रश्न.",
-    "icon": "Zap",
-    "section": "Electrical"
-  },
-  {
-    "id": 40,
-    "name": "Single Phase Motors",
-    "nameMarathi": "सिंगल फेज मोटर्स",
-    "description": "25 important MCQs on Single Phase Motors.",
-    "descriptionMarathi": "सिंगल फेज मोटर्सवरील २५ महत्त्वाचे बहुपर्यायी प्रश्न.",
-    "icon": "Zap",
-    "section": "Electrical"
-  },
-  {
-    "id": 50,
-    "name": "Three Phase Motors",
-    "nameMarathi": "थ्री फेज मोटर्स",
-    "description": "10 important MCQs on Three Phase Motors.",
-    "descriptionMarathi": "थ्री फेज मोटर्सवरील १० महत्त्वाचे बहुपर्यायी प्रश्न.",
-    "icon": "Zap",
-    "section": "Electrical"
-  },
-  {
-    "id": 60,
-    "name": "Alternators, Synchronous Motors and Converters",
-    "nameMarathi": "अल्टरनेटर, सिंक्रोनस मोटर्स आणि कन्व्हर्टर्स",
-    "description": "25 important MCQs on Alternators, Synchronous Motors and Converters.",
-    "descriptionMarathi": "अल्टरनेटर, सिंक्रोनस मोटर्स आणि कन्व्हर्टर्सवरील २५ महत्त्वाचे बहुपर्यायी प्रश्न.",
-    "icon": "Zap",
-    "section": "Electrical"
-  },
-  {
-    "id": 70,
-    "name": "Electronics MCQs",
-    "nameMarathi": "इलेक्ट्रॉनिक्स प्रश्नसंच",
-    "description": "50 important MCQs on Electronics.",
-    "descriptionMarathi": "इलेक्ट्रॉनिक्सवरील ५० महत्त्वाचे बहुपर्यायी प्रश्न.",
-    "icon": "Cpu",
-    "section": "Electrical"
-  },
-  {
-    "id": 80,
-    "name": "Control Panel Wiring",
-    "nameMarathi": "कंट्रोल पॅनल वायरिंग",
-    "description": "Important MCQs on Control Panel Wiring.",
-    "descriptionMarathi": "कंट्रोल पॅनल वायरिंगवरील महत्त्वाचे बहुपर्यायी प्रश्न.",
-    "icon": "Cpu",
-    "section": "Electrical"
-  },
-  {
-    "id": 90,
-    "name": "AC and DC Drives",
-    "nameMarathi": "AC आणि DC ड्राईव्ह",
-    "description": "Important MCQs on AC and DC Drives.",
-    "descriptionMarathi": "AC आणि DC ड्राईव्हवरील महत्त्वाचे बहुपर्यायी प्रश्न.",
-    "icon": "Zap",
-    "section": "Electrical"
-  },
-  {
-    "id": 100,
-    "name": "Inverter and UPS",
-    "nameMarathi": "इन्व्हर्टर आणि यूपीएस",
-    "description": "Important MCQs on Inverters and UPS.",
-    "descriptionMarathi": "इन्व्हर्टर आणि यूपीएसवरील महत्त्वाचे बहुपर्यायी प्रश्न.",
-    "icon": "Zap",
-    "section": "Electrical"
-  },
-  {
-    "id": 110,
-    "name": "Power Transmission",
-    "nameMarathi": "पॉवर ट्रान्समिशन",
-    "description": "Important MCQs on Power Transmission.",
-    "descriptionMarathi": "पॉवर ट्रान्समिशनवरील महत्त्वाचे बहुपर्यायी प्रश्न.",
-    "icon": "Zap",
-    "section": "Electrical"
-  }
+
 ];
+
 
 
 export const QUESTIONS: Question[] = [
@@ -23639,5 +23516,4 @@ export const QUESTIONS: Question[] = [
     "explanation": "LMVs (private cars) historically had no set speed limit in the Eighth Schedule of the older Act, leaving it to local authorities.",
     "explanationMarathi": "जुन्या कायद्यात LMV साठी कोणतीही ठराविक वेग मर्यादा दिलेली नव्हती."
   },
-  ...DC_GENERATOR_QUESTIONS, ...SINGLE_PHASE_MOTOR_QUESTIONS, ...THREE_PHASE_MOTOR_QUESTIONS, ...ALTERNATOR_SYNCHRONOUS_MOTORS_QUESTIONS, ...ELECTRONICS_QUESTIONS, ...CONTROL_PANEL_WIRING_QUESTIONS, ...AC_DC_DRIVE_QUESTIONS, ...INVERTER_UPS_QUESTIONS, ...POWER_TRANSMISSION_QUESTIONS
 ];
