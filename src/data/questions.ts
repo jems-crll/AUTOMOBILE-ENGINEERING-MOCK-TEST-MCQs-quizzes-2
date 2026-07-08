@@ -219,22 +219,22 @@ export const CHAPTERS: Chapter[] = [
     "section": "Section 7"
   },
   {
-    "id": 12,
+    "id": 30,
     "name": "Electrical Basics (Questions 1-25)",
     "nameMarathi": "विद्युत मूलभूत प्रश्नसंच १ (१ ते २५)",
     "description": "25 important MCQs on Electrical Basics.",
     "descriptionMarathi": "विद्युत मूलभूत संकल्पनांवर आधारित २५ महत्त्वाचे प्रश्न.",
     "icon": "Zap",
-    "section": "Section 1"
+    "section": "Electrical"
   },
   {
-    "id": 13,
+    "id": 31,
     "name": "Electrical Basics (Questions 26-50)",
     "nameMarathi": "विद्युत मूलभूत प्रश्नसंच २ (२६ ते ५०)",
     "description": "25 important MCQs on Electrical Basics.",
     "descriptionMarathi": "विद्युत मूलभूत संकल्पनांवर आधारित २५ महत्त्वाचे प्रश्न.",
     "icon": "Zap",
-    "section": "Section 1"
+    "section": "Electrical"
   },
 ];
 export const QUESTIONS: Question[] = [
@@ -23532,7 +23532,7 @@ export const QUESTIONS: Question[] = [
   },
   {
     "id": 50026,
-    "chapterId": 13,
+    "chapterId": 31,
     "question": "What is the electrochemical equivalent of silver?",
     "questionMarathi": "चांदीचा विद्युत रासायनिक तुल्यांक (Electrochemical Equivalent) किती आहे?",
     "options": ["0.18 mg/C", "1.118 mg/C", "0.3293 mg/C", "107.88 mg/C"],
@@ -23543,7 +23543,7 @@ export const QUESTIONS: Question[] = [
   },
   {
     "id": 50027,
-    "chapterId": 13,
+    "chapterId": 31,
     "question": "Which instrument is used to measure relative density?",
     "questionMarathi": "सापेक्ष घनता (relative density) मोजण्यासाठी कोणते यंत्र वापरले जाते?",
     "options": ["Pyrometer", "Thermometer", "Hydrometer", "Lactometer"],
@@ -23554,7 +23554,7 @@ export const QUESTIONS: Question[] = [
   },
   {
     "id": 50028,
-    "chapterId": 13,
+    "chapterId": 31,
     "question": "What is the unit of relative density?",
     "questionMarathi": "सापेक्ष घनतेचे (relative density) एकक काय आहे?",
     "options": ["kg/cm^3", "Per °C", "kg/m^3", "None"],
@@ -23565,7 +23565,7 @@ export const QUESTIONS: Question[] = [
   },
   {
     "id": 50029,
-    "chapterId": 13,
+    "chapterId": 31,
     "question": "Which material is suitable for making permanent magnets?",
     "questionMarathi": "स्थायी चुंबक (permanent magnet) बनवण्यासाठी कोणता पदार्थ योग्य आहे?",
     "options": ["Soft iron", "Silicon steel", "Cobalt", "All of the above"],
@@ -23576,7 +23576,7 @@ export const QUESTIONS: Question[] = [
   },
   {
     "id": 50030,
-    "chapterId": 13,
+    "chapterId": 31,
     "question": "What is the unit of magnetomotive force?",
     "questionMarathi": "चुंबकवाहक बलाचे (Magnetomotive Force) एकक काय आहे?",
     "options": ["Ampere turn", "Volt", "Ampere", "Weber"],
@@ -23587,7 +23587,7 @@ export const QUESTIONS: Question[] = [
   },
   {
     "id": 50031,
-    "chapterId": 13,
+    "chapterId": 31,
     "question": "What is the helix rule used to determine?",
     "questionMarathi": "हेलिक्स नियम (Helix Rule) कशासाठी वापरला जातो?",
     "options": ["Direction of current", "Direction of polarity", "Rotation", "All of the above"],
@@ -23598,7 +23598,7 @@ export const QUESTIONS: Question[] = [
   },
   {
     "id": 50032,
-    "chapterId": 13,
+    "chapterId": 31,
     "question": "Which of the following is a diamagnetic material?",
     "questionMarathi": "खालीलपैकी कोणता पदार्थ डायमॅग्नेटिक (diamagnetic) आहे?",
     "options": ["Nickel", "Iron", "Bismuth", "Aluminum"],
@@ -23609,7 +23609,7 @@ export const QUESTIONS: Question[] = [
   },
   {
     "id": 50033,
-    "chapterId": 13,
+    "chapterId": 31,
     "question": "What is the temperature coefficient of carbon?",
     "questionMarathi": "कार्बनचा तापमान गुणांक (temperature coefficient) कोणता असतो?",
     "options": ["NTC", "PTC", "Both", "None"],
@@ -23620,7 +23620,7 @@ export const QUESTIONS: Question[] = [
   },
   {
     "id": 50034,
-    "chapterId": 13,
+    "chapterId": 31,
     "question": "Two 50-ohm resistors are in series. What is their total resistance when in parallel?",
     "questionMarathi": "50-50 ओहमचे दोन रोध (resistors) श्रेणीमध्ये जोडलेले आहेत. ते समानांतर (parallel) जोडल्यास एकूण रोध किती असेल?",
     "options": ["25 ohms", "50 ohms", "1 ohm", "100 ohms"],
@@ -23631,7 +23631,7 @@ export const QUESTIONS: Question[] = [
   },
   {
     "id": 50035,
-    "chapterId": 13,
+    "chapterId": 31,
     "question": "According to Kirchhoff's law, the current at a junction in a circuit is:",
     "questionMarathi": "किरचॉफच्या नियमानुसार, सर्किटच्या जंक्शनवर एकूण प्रवाह (current) किती असतो?",
     "options": ["Equal to sum", "Sum of incoming current", "Zero", "All of the above"],
@@ -23642,7 +23642,7 @@ export const QUESTIONS: Question[] = [
   },
   {
     "id": 50036,
-    "chapterId": 13,
+    "chapterId": 31,
     "question": "What instrument is used to measure potential difference?",
     "questionMarathi": "विभवांतर (Potential Difference) मोजण्यासाठी कोणते यंत्र वापरले जाते?",
     "options": ["Volt meter", "Ohm meter", "Voltmeter", "Both 1 and 2"],
@@ -23653,7 +23653,7 @@ export const QUESTIONS: Question[] = [
   },
   {
     "id": 50037,
-    "chapterId": 13,
+    "chapterId": 31,
     "question": "When was the Indian Standards Institution (ISI) established?",
     "questionMarathi": "भारतीय मानक संस्था (ISI) ची स्थापना कधी झाली?",
     "options": ["1969", "1966", "1955", "1958"],
@@ -23664,7 +23664,7 @@ export const QUESTIONS: Question[] = [
   },
   {
     "id": 50038,
-    "chapterId": 13,
+    "chapterId": 31,
     "question": "In a Wheatstone bridge, if P=15 ohms, Q=10 ohms, S=25 ohms, what is the value of R?",
     "questionMarathi": "व्हीटस्टोन ब्रिजमध्ये, जर P=15 ओहम, Q=10 ओहम आणि S=25 ओहम असेल, तर R चे मूल्य काय असेल?",
     "options": ["30 ohms", "12 ohms", "12.5 ohms", "None"],
@@ -23675,7 +23675,7 @@ export const QUESTIONS: Question[] = [
   },
   {
     "id": 50039,
-    "chapterId": 13,
+    "chapterId": 31,
     "question": "What is the unit of work in the MKS system?",
     "questionMarathi": "MKS प्रणालीमध्ये कार्य (work) करण्याचे एकक काय आहे?",
     "options": ["kg meter", "Joule", "Joule/sec", "Newton meter"],
@@ -23686,7 +23686,7 @@ export const QUESTIONS: Question[] = [
   },
   {
     "id": 50040,
-    "chapterId": 13,
+    "chapterId": 31,
     "question": "1 HP is equal to how much?",
     "questionMarathi": "1 HP कितीच्या बरोबर आहे?",
     "options": ["75 kg meter", "1 Joule/sec", "75 kg meter/sec", "746 Joule"],
@@ -23697,7 +23697,7 @@ export const QUESTIONS: Question[] = [
   },
   {
     "id": 50041,
-    "chapterId": 13,
+    "chapterId": 31,
     "question": "What is the value of gravitational acceleration?",
     "questionMarathi": "गुरुत्वीय त्वरण (gravitational acceleration) चे मूल्य किती आहे?",
     "options": ["9.81 Joule", "9.81 meter/sec", "9.81 meter/sec^2", "All of the above"],
@@ -23708,7 +23708,7 @@ export const QUESTIONS: Question[] = [
   },
   {
     "id": 50042,
-    "chapterId": 13,
+    "chapterId": 31,
     "question": "When a sodium vapor lamp is switched on, what color light does it emit?",
     "questionMarathi": "सोडियम वेपर लॅम्प सुरू केल्यावर तो कोणत्या रंगाचा प्रकाश उत्सर्जित करतो?",
     "options": ["Red", "Pink", "Light yellow", "Blue white"],
@@ -23719,7 +23719,7 @@ export const QUESTIONS: Question[] = [
   },
   {
     "id": 50043,
-    "chapterId": 13,
+    "chapterId": 31,
     "question": "1 Watt is equal to:",
     "questionMarathi": "1 वॉट कितीच्या बरोबर आहे?",
     "options": ["1 Ampere/sec", "1 Joule/sec", "1 Volt/sec", "1 Newton/sec"],
@@ -23730,7 +23730,7 @@ export const QUESTIONS: Question[] = [
   },
   {
     "id": 50044,
-    "chapterId": 13,
+    "chapterId": 31,
     "question": "Which of the following is the formula for calculating electrical energy?",
     "questionMarathi": "विद्युत ऊर्जा (electrical energy) मोजण्यासाठी खालीलपैकी कोणते सूत्र आहे?",
     "options": ["V^2/R * t", "V * I * t", "P * t", "All of the above"],
@@ -23741,7 +23741,7 @@ export const QUESTIONS: Question[] = [
   },
   {
     "id": 50045,
-    "chapterId": 13,
+    "chapterId": 31,
     "question": "How many calorie units of energy in 1 kWh?",
     "questionMarathi": "1 किलोवॉट-तास (kWh) मध्ये किती कॅलरी ऊर्जा असते?",
     "options": ["1.36", "746", "735.5", "30-400"],
@@ -23752,7 +23752,7 @@ export const QUESTIONS: Question[] = [
   },
   {
     "id": 50046,
-    "chapterId": 13,
+    "chapterId": 31,
     "question": "If 25 lamps of 100 watts each run for 8 hours daily, what is the daily consumption in units?",
     "questionMarathi": "जर 25 लॅम्प्स, प्रत्येकी 100 वॉटचे, दररोज 8 तास चालत असतील, तर एका दिवसात किती युनिट्स खपत होतील?",
     "options": ["30-100", "30-1000", "2-60", "30-400"],
@@ -23763,7 +23763,7 @@ export const QUESTIONS: Question[] = [
   },
   {
     "id": 50047,
-    "chapterId": 13,
+    "chapterId": 31,
     "question": "What is the ampere range of a knife switch?",
     "questionMarathi": "नाइफ स्विचची (knife switch) ॲम्पीयर रेंज काय आहे?",
     "options": ["300", "600", "20000", "20"],
@@ -23774,7 +23774,7 @@ export const QUESTIONS: Question[] = [
   },
   {
     "id": 50048,
-    "chapterId": 13,
+    "chapterId": 31,
     "question": "What is the color of the earth wire?",
     "questionMarathi": "अर्थ (earth) वायरचा रंग कोणता असतो?",
     "options": ["Black", "Red", "Green", "Blue"],
@@ -23785,7 +23785,7 @@ export const QUESTIONS: Question[] = [
   },
   {
     "id": 50049,
-    "chapterId": 13,
+    "chapterId": 31,
     "question": "If phase wire and neutral wire come in contact, what is the circuit condition?",
     "questionMarathi": "जर फेज वायर आणि न्यूट्रल वायर एकमेकांच्या संपर्कात आल्या, तर सर्किटची स्थिती काय असते?",
     "options": ["Short", "Closed", "Open", "Total"],
@@ -23796,7 +23796,7 @@ export const QUESTIONS: Question[] = [
   },
   {
     "id": 50050,
-    "chapterId": 13,
+    "chapterId": 31,
     "question": "The rotation of an electric fan is which effect of electric current?",
     "questionMarathi": "विद्युत पंखा फिरणे हा विद्युत प्रवाहाचा कोणता प्रभाव आहे?",
     "options": ["Heating", "Magnetic", "Chemical", "All of the above"],
