@@ -1,4 +1,5 @@
 import express from "express";
+import translate from "translate-google";
 import cors from "cors";
 import path from "path";
 import { GoogleGenAI } from "@google/genai";
@@ -263,7 +264,7 @@ probeFirestore();
 async function generateContentWithRetry(ai: any, params: { model: string; contents: any; config?: any }, retries = 3, delayMs = 1000): Promise<any> {
   let attempt = 0;
   // Fall back across highly-available models to guarantee robust, error-free delivery
-  const modelsToTry = [params.model, "gemini-2.5-flash", "gemini-3.1-flash-lite", "gemini-flash-latest"];
+  const modelsToTry = [params.model, "gemini-2.5-flash", "gemini-1.5-flash-8b", "gemini-flash-latest"];
   
   for (const currentModel of modelsToTry) {
     for (attempt = 1; attempt <= retries; attempt++) {
@@ -330,10 +331,9 @@ const ai = apiKey
   app.post("/api/explain", async (req, res) => {
     const { question, optionSelected, correctAnswer, options, languageName, languageState, explanation, explanationTranslated } = req.body;
     try {
+      // If Gemini is not configured, we will fall back to translate-google directly below.
       if (!ai) {
-        return res.status(503).json({
-          error: "Gemini API Client is not configured. Please add GEMINI_API_KEY in Secrets.",
-        });
+        throw new Error("Gemini API Client is not configured.");
       }
 
       const langName = languageName || "Marathi";
@@ -341,7 +341,7 @@ const ai = apiKey
 
       const prompt = `
 You are an expert Automobile Engineering tutor. Explain the following Multiple Choice Question to a student clearly and concisely.
-The student wants explanations in a mix of ${langName} and English (bilingual/bilingual ${langName}, as typically understood by engineering students in ${langState}, using English terms for technical words but with ${langName} sentence structure).
+The student wants explanations completely and perfectly in ${langName}. Do not use English words if a ${langName} translation exists. It should be pure ${langName}.
 
 Question: ${question}
 Options:
@@ -360,7 +360,7 @@ Keep the tone encouraging, professional, and clear. Format the response nicely u
 `;
 
       const result = await generateContentWithRetry(ai, {
-        model: "gemini-3.5-flash",
+        model: "gemini-1.5-flash",
         contents: prompt,
       });
 
@@ -395,10 +395,9 @@ ${standardExp}
     const { chapterId, chapterName, count, languageName, languageState } = req.body;
     const countNum = Math.min(25, Math.max(5, parseInt(count) || 10));
     try {
+      // If Gemini is not configured, fall back to translate-google
       if (!ai) {
-        return res.status(503).json({
-          error: "Gemini API Client is not configured. Please add GEMINI_API_KEY in Secrets.",
-        });
+        throw new Error("GEMINI_MISSING");
       }
 
       const langName = languageName || "Marathi";
@@ -413,7 +412,7 @@ Chapter Name: ${chapterName}
 You must write each question in two versions:
 1. English (rigorous, technical)
 2. Regional Indian Language: ${langName} (used in ${langState}). 
-For the ${langName} version, use simple, natural sentence structures but retain standard English terms for complex technical words (e.g. use "clutch", "transmission", "suspension", "brake caliper", "alternator" instead of translating them literally, so it is extremely easy for engineering students to read).
+For the ${langName} version, use pure and proper ${langName}. Translate all technical words perfectly into ${langName} where possible. Do not mix English and ${langName}.
 
 The response MUST be a valid JSON array of objects. Do not include any explanation or markdown formatting outside of the JSON block. Do not wrap it in anything other than the JSON array.
 
@@ -491,10 +490,9 @@ Please ensure the questions are rigorous, strictly accurate, cover diverse topic
   app.post("/api/translate-questions", async (req, res) => {
     const { questions, languageName, languageState } = req.body;
     try {
+      // If Gemini is not configured, fall back to translate-google
       if (!ai) {
-        return res.status(503).json({
-          error: "Gemini API Client is not configured. Please add GEMINI_API_KEY in Secrets.",
-        });
+        throw new Error("GEMINI_MISSING");
       }
 
       if (!questions || !Array.isArray(questions)) {
@@ -509,7 +507,7 @@ You are an expert technical translator. Translate the following list of Automobi
 Follow these guidelines carefully:
 1. Retain the exact meanings, options, correct answers, and explanations.
 2. For each question, provide a translated version of the question, options, and explanation.
-3. Keep technical words (like "chassis", "thermostat", "ABS", "alternator", "torque converter", etc.) in English, but write them in simple natural script of ${langName}. The sentence structure must be in ${langName}.
+3. Translate everything perfectly and entirely into ${langName}. Do not leave technical words in English if a proper ${langName} translation exists. Everything must be purely in ${langName}.
 4. Return the result strictly as a JSON array of translated questions matching the input structure. Do not add any markdown blocks or intro/outro text.
 
 Input JSON:
@@ -544,16 +542,30 @@ Output JSON format:
 
       res.json({ translations });
     } catch (error: any) {
-      console.warn("Gemini API Error in translating questions, falling back to local bilingual mappings:", error.message || error);
+            console.warn("Gemini API Error in translating questions, falling back to translate-google:", error.message || error);
       
-      const fallbackTranslations = questions.map(q => ({
-        id: q.id,
-        questionTranslated: q.questionTranslated || q.questionMarathi || q.question,
-        optionsTranslated: q.optionsTranslated || q.optionsMarathi || q.options,
-        explanationTranslated: q.explanationTranslated || q.explanationMarathi || q.explanation
-      }));
-      
-      res.json({ translations: fallbackTranslations, isFallback: true });
+      try {
+        const langCode = (req.body.languageCode || "hi").toLowerCase();
+        // Extract only the fields we want to translate
+        const toTranslate = questions.map(q => ({
+           id: q.id,
+           questionTranslated: q.question,
+           optionsTranslated: q.options,
+           explanationTranslated: q.explanation || ""
+        }));
+        
+        const translatedArray = await translate(toTranslate, { to: langCode });
+        res.json({ translations: translatedArray });
+      } catch (fallbackErr: any) {
+        console.error("translate-google also failed:", fallbackErr.message || fallbackErr);
+        const fallbackTranslations = questions.map(q => ({
+          id: q.id,
+          questionTranslated: q.question,
+          optionsTranslated: q.options,
+          explanationTranslated: q.explanation || ""
+        }));
+        res.json({ translations: fallbackTranslations, isFallback: true });
+      }
     }
   });
 

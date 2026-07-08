@@ -287,7 +287,8 @@ export default function App() {
         body: JSON.stringify({
           questions: selected,
           languageName: selectedLanguage.name,
-          languageState: selectedLanguage.state
+          languageState: selectedLanguage.state,
+          languageCode: selectedLanguage.code
         })
       })
       .then((res) => {
