@@ -1,4 +1,10 @@
 import { Question, Chapter } from "../types.js";
+import { DC_GENERATOR_QUESTIONS } from "./dcGeneratorQuestions.js";
+import { SINGLE_PHASE_MOTOR_QUESTIONS } from "./singlePhaseMotorQuestions.js";
+import { THREE_PHASE_MOTOR_QUESTIONS } from "./threePhaseMotorQuestions.js";
+import { ALTERNATOR_SYNCHRONOUS_MOTORS_QUESTIONS } from "./alternatorSynchronousMotorsQuestions.js";
+import { ELECTRONICS_QUESTIONS } from "./electronicsQuestions.js";
+import { CONTROL_PANEL_WIRING_QUESTIONS } from "./controlPanelWiringQuestions.js";
 
 export const CHAPTERS: Chapter[] = [
   {
@@ -252,8 +258,63 @@ export const CHAPTERS: Chapter[] = [
     "descriptionMarathi": "भारतीय ऑटोमोबाईल उद्योग, मोटार वाहन कायदा १९७७ (प्रकरणे आणि वेळापत्रक), अपघात भरपाई आणि नोंदणी क्रमांक.",
     "icon": "History",
     "section": "Section 7"
+  },
+  {
+    "id": 30,
+    "name": "DC Generator MCQs",
+    "nameMarathi": "डीसी जनरेटर प्रश्नसंच",
+    "description": "50 important MCQs on DC Generators.",
+    "descriptionMarathi": "डीसी जनरेटरवरील ५० महत्त्वाचे बहुपर्यायी प्रश्न.",
+    "icon": "Zap",
+    "section": "Electrical"
+  },
+  {
+    "id": 40,
+    "name": "Single Phase Motors",
+    "nameMarathi": "सिंगल फेज मोटर्स",
+    "description": "25 important MCQs on Single Phase Motors.",
+    "descriptionMarathi": "सिंगल फेज मोटर्सवरील २५ महत्त्वाचे बहुपर्यायी प्रश्न.",
+    "icon": "Zap",
+    "section": "Electrical"
+  },
+  {
+    "id": 50,
+    "name": "Three Phase Motors",
+    "nameMarathi": "थ्री फेज मोटर्स",
+    "description": "10 important MCQs on Three Phase Motors.",
+    "descriptionMarathi": "थ्री फेज मोटर्सवरील १० महत्त्वाचे बहुपर्यायी प्रश्न.",
+    "icon": "Zap",
+    "section": "Electrical"
+  },
+  {
+    "id": 60,
+    "name": "Alternators, Synchronous Motors and Converters",
+    "nameMarathi": "अल्टरनेटर, सिंक्रोनस मोटर्स आणि कन्व्हर्टर्स",
+    "description": "25 important MCQs on Alternators, Synchronous Motors and Converters.",
+    "descriptionMarathi": "अल्टरनेटर, सिंक्रोनस मोटर्स आणि कन्व्हर्टर्सवरील २५ महत्त्वाचे बहुपर्यायी प्रश्न.",
+    "icon": "Zap",
+    "section": "Electrical"
+  },
+  {
+    "id": 70,
+    "name": "Electronics MCQs",
+    "nameMarathi": "इलेक्ट्रॉनिक्स प्रश्नसंच",
+    "description": "50 important MCQs on Electronics.",
+    "descriptionMarathi": "इलेक्ट्रॉनिक्सवरील ५० महत्त्वाचे बहुपर्यायी प्रश्न.",
+    "icon": "Cpu",
+    "section": "Electrical"
+  },
+  {
+    "id": 80,
+    "name": "Control Panel Wiring",
+    "nameMarathi": "कंट्रोल पॅनल वायरिंग",
+    "description": "Important MCQs on Control Panel Wiring.",
+    "descriptionMarathi": "कंट्रोल पॅनल वायरिंगवरील महत्त्वाचे बहुपर्यायी प्रश्न.",
+    "icon": "Cpu",
+    "section": "Electrical"
   }
 ];
+
 
 export const QUESTIONS: Question[] = [
   {
@@ -23547,5 +23608,6 @@ export const QUESTIONS: Question[] = [
     "answer": "D",
     "explanation": "LMVs (private cars) historically had no set speed limit in the Eighth Schedule of the older Act, leaving it to local authorities.",
     "explanationMarathi": "जुन्या कायद्यात LMV साठी कोणतीही ठराविक वेग मर्यादा दिलेली नव्हती."
-  }
+  },
+  ...DC_GENERATOR_QUESTIONS, ...SINGLE_PHASE_MOTOR_QUESTIONS, ...THREE_PHASE_MOTOR_QUESTIONS, ...ALTERNATOR_SYNCHRONOUS_MOTORS_QUESTIONS, ...ELECTRONICS_QUESTIONS, ...CONTROL_PANEL_WIRING_QUESTIONS
 ];
