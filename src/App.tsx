@@ -271,23 +271,7 @@ export default function App() {
       selected = selected.slice(0, 5);
     }
 
-    // Translate questions offline if the language is regional but not Marathi (Marathi has static translations)
     if (selectedLanguage.code !== "en" && selectedLanguage.code !== "mr") {
-      const translated = selected.filter(Boolean).map((q) => translateQuestionOffline(q, selectedLanguage.code));
-      setQuizState({
-        isActive: true,
-        questions: translated,
-        mode: config.mode,
-        chapterId: config.chapterId,
-        timeLimitMinutes: config.timeLimitMinutes,
-        setId: config.setId,
-      });
-      setLoadingTest(false);
-      return;
-    }
-
-    // Call API to translate questions if the language is regional but not Marathi (Marathi has static translations)
-    if (false && selectedLanguage.code !== "en" && selectedLanguage.code !== "mr") {
       setLoadingStatusText(
         selectedLanguage.code === "hi" ? "AI मुख्य भाषांतर करत आहे..." :
         selectedLanguage.code === "kn" ? "AI ಮುಖ್ಯ ಅನುವಾದಿಸುತ್ತಿದೆ..." :
@@ -306,7 +290,10 @@ export default function App() {
           languageState: selectedLanguage.state
         })
       })
-      .then((res) => res.json())
+      .then((res) => {
+        if (!res.ok) throw new Error("Translation API returned " + res.status);
+        return res.json();
+      })
       .then((data) => {
         if (data.translations && Array.isArray(data.translations)) {
           const translated = selected.map((q) => {
@@ -320,7 +307,7 @@ export default function App() {
                 explanationTranslated: t.explanationTranslated
               };
             }
-            return q;
+            return translateQuestionOffline(q, selectedLanguage.code);
           }).filter(Boolean) as Question[];
           setQuizState({
             isActive: true,
@@ -331,9 +318,10 @@ export default function App() {
             setId: config.setId,
           });
         } else {
+          const translated = selected.filter(Boolean).map((q) => translateQuestionOffline(q, selectedLanguage.code));
           setQuizState({
             isActive: true,
-            questions: selected,
+            questions: translated,
             mode: config.mode,
             chapterId: config.chapterId,
             timeLimitMinutes: config.timeLimitMinutes,
@@ -343,9 +331,10 @@ export default function App() {
       })
       .catch((err) => {
         console.error("Translation API error:", err);
+        const translated = selected.filter(Boolean).map((q) => translateQuestionOffline(q, selectedLanguage.code));
         setQuizState({
           isActive: true,
-          questions: selected,
+          questions: translated,
           mode: config.mode,
           chapterId: config.chapterId,
           timeLimitMinutes: config.timeLimitMinutes,
