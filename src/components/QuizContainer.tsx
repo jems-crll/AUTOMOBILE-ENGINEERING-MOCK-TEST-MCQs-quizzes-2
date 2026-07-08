@@ -219,6 +219,20 @@ export default function QuizContainer({
         />
       </div>
 
+      {/* Search Box */}
+      <div className="w-full">
+        <input
+          type="text"
+          placeholder={bilingual ? "प्रश्न शोधा..." : "Search questions..."}
+          value={searchQuery}
+          onChange={(e) => {
+            setSearchQuery(e.target.value);
+            setCurrentIndex(0);
+          }}
+          className="w-full p-2.5 bg-slate-900/60 border border-slate-800 text-white rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-amber-500/50"
+        />
+      </div>
+
       {!isPremium && (
         <div className="p-3.5 bg-gradient-to-r from-amber-500/10 to-amber-600/5 border border-amber-500/20 rounded-xl flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-amber-400 font-sans shadow-lg shadow-amber-500/5 animate-fade-in">
           <div className="flex items-center gap-2">
@@ -247,20 +261,6 @@ export default function QuizContainer({
         <div className="lg:col-span-3 flex flex-col gap-5 sm:gap-6">
           <div className="p-4 sm:p-6 md:p-8 bg-slate-900/40 border border-slate-800/80 rounded-xl backdrop-blur-md min-h-[300px] sm:min-h-[380px] flex flex-col justify-between">
             <div>
-              {/* Search Box */}
-              <div className="mb-4">
-                <input
-                  type="text"
-                  placeholder={bilingual ? "प्रश्न शोधा..." : "Search questions..."}
-                  value={searchQuery}
-                  onChange={(e) => {
-                    setSearchQuery(e.target.value);
-                    setCurrentIndex(0);
-                  }}
-                  className="w-full p-2.5 bg-slate-800 border border-slate-700 text-white rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-amber-500/50"
-                />
-              </div>
-
               {/* Question Header */}
               <div className="flex justify-between items-start gap-4 mb-4">
                 <span className="text-xs px-2.5 py-1 bg-slate-800 text-slate-400 rounded-full font-mono font-bold">
