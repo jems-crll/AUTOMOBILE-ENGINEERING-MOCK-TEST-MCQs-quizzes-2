@@ -31,8 +31,21 @@ export default function QuizContainer({
   subscriptionConfig,
 }: QuizContainerProps) {
   const [currentIndex, setCurrentIndex] = useState<number>(0);
+  const [searchQuery, setSearchQuery] = useState('');
   const [selectedAnswers, setSelectedAnswers] = useState<Record<number, string>>({});
   const [flaggedQuestions, setFlaggedQuestions] = useState<Record<number, boolean>>({});
+
+  const displayedQuestions = questions.filter(
+    (q) =>
+      q.question.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      (q.questionMarathi && q.questionMarathi.toLowerCase().includes(searchQuery.toLowerCase()))
+  );
+
+  useEffect(() => {
+    if (currentIndex >= displayedQuestions.length && displayedQuestions.length > 0) {
+      setCurrentIndex(0);
+    }
+  }, [displayedQuestions, currentIndex]);
   
   // Timer state
   const [secondsRemaining, setSecondsRemaining] = useState<number>(timeLimitMinutes * 60);
@@ -41,7 +54,7 @@ export default function QuizContainer({
   // Practice mode specific state
   const [hasAnsweredCurrent, setHasAnsweredCurrent] = useState<boolean>(false);
 
-  const currentQuestion = questions[currentIndex];
+  const currentQuestion = displayedQuestions[currentIndex];
 
   // Timer effect for Exam Mode
   useEffect(() => {
@@ -234,10 +247,24 @@ export default function QuizContainer({
         <div className="lg:col-span-3 flex flex-col gap-5 sm:gap-6">
           <div className="p-4 sm:p-6 md:p-8 bg-slate-900/40 border border-slate-800/80 rounded-xl backdrop-blur-md min-h-[300px] sm:min-h-[380px] flex flex-col justify-between">
             <div>
+              {/* Search Box */}
+              <div className="mb-4">
+                <input
+                  type="text"
+                  placeholder={bilingual ? "प्रश्न शोधा..." : "Search questions..."}
+                  value={searchQuery}
+                  onChange={(e) => {
+                    setSearchQuery(e.target.value);
+                    setCurrentIndex(0);
+                  }}
+                  className="w-full p-2.5 bg-slate-800 border border-slate-700 text-white rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-amber-500/50"
+                />
+              </div>
+
               {/* Question Header */}
               <div className="flex justify-between items-start gap-4 mb-4">
                 <span className="text-xs px-2.5 py-1 bg-slate-800 text-slate-400 rounded-full font-mono font-bold">
-                  Q. {currentIndex + 1} of {questions.length}
+                  Q. {currentIndex + 1} of {displayedQuestions.length}
                 </span>
 
                 {mode === "exam" && (
@@ -340,7 +367,7 @@ export default function QuizContainer({
 
               <button
                 onClick={handleNext}
-                disabled={currentIndex === questions.length - 1}
+                disabled={currentIndex === displayedQuestions.length - 1}
                 className="px-4 py-2 border border-slate-800 text-slate-300 rounded-lg hover:bg-slate-800 hover:text-white disabled:opacity-30 disabled:pointer-events-none transition text-xs font-semibold flex items-center gap-1.5 cursor-pointer"
               >
                 <span>{bilingual ? "पुढील" : "Next"}</span>
@@ -382,7 +409,7 @@ export default function QuizContainer({
 
             {/* Grid of question bubbles */}
             <div className="grid grid-cols-5 gap-2 mb-6">
-              {questions.map((q, idx) => {
+              {displayedQuestions.map((q, idx) => {
                 const isSelected = idx === currentIndex;
                 const isAnswered = q && !!selectedAnswers[q.id];
                 const isFlagged = q && flaggedQuestions[q.id];
