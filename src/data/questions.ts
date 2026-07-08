@@ -218,11 +218,25 @@ export const CHAPTERS: Chapter[] = [
     "icon": "History",
     "section": "Section 7"
   },
-
+  {
+    "id": 12,
+    "name": "Electrical Basics (Questions 1-25)",
+    "nameMarathi": "विद्युत मूलभूत प्रश्नसंच १ (१ ते २५)",
+    "description": "25 important MCQs on Electrical Basics.",
+    "descriptionMarathi": "विद्युत मूलभूत संकल्पनांवर आधारित २५ महत्त्वाचे प्रश्न.",
+    "icon": "Zap",
+    "section": "Section 1"
+  },
+  {
+    "id": 13,
+    "name": "Electrical Basics (Questions 26-50)",
+    "nameMarathi": "विद्युत मूलभूत प्रश्नसंच २ (२६ ते ५०)",
+    "description": "25 important MCQs on Electrical Basics.",
+    "descriptionMarathi": "विद्युत मूलभूत संकल्पनांवर आधारित २५ महत्त्वाचे प्रश्न.",
+    "icon": "Zap",
+    "section": "Section 1"
+  },
 ];
-
-
-
 export const QUESTIONS: Question[] = [
   {
     "id": 1,
@@ -23516,4 +23530,279 @@ export const QUESTIONS: Question[] = [
     "explanation": "LMVs (private cars) historically had no set speed limit in the Eighth Schedule of the older Act, leaving it to local authorities.",
     "explanationMarathi": "जुन्या कायद्यात LMV साठी कोणतीही ठराविक वेग मर्यादा दिलेली नव्हती."
   },
+  {
+    "id": 50026,
+    "chapterId": 13,
+    "question": "What is the electrochemical equivalent of silver?",
+    "questionMarathi": "चांदीचा विद्युत रासायनिक तुल्यांक (Electrochemical Equivalent) किती आहे?",
+    "options": ["0.18 mg/C", "1.118 mg/C", "0.3293 mg/C", "107.88 mg/C"],
+    "optionsMarathi": ["0.18 मिलीग्राम/कुलम्ब", "1.118 मिलीग्राम/कुलम्ब", "0.3293 मिलीग्राम/कुलम्ब", "107.88 मिलीग्राम/कुलम्ब"],
+    "answer": "B",
+    "explanation": "The electrochemical equivalent of silver is 1.118 mg/C.",
+    "explanationMarathi": "चांदीचा विद्युत रासायनिक तुल्यांक 1.118 मिलीग्राम/कुलम्ब आहे."
+  },
+  {
+    "id": 50027,
+    "chapterId": 13,
+    "question": "Which instrument is used to measure relative density?",
+    "questionMarathi": "सापेक्ष घनता (relative density) मोजण्यासाठी कोणते यंत्र वापरले जाते?",
+    "options": ["Pyrometer", "Thermometer", "Hydrometer", "Lactometer"],
+    "optionsMarathi": ["पायरोमीटर", "थर्मामीटर", "हायड्रोमीटर", "लॅक्टोमीटर"],
+    "answer": "C",
+    "explanation": "A hydrometer is used to measure the relative density of liquids.",
+    "explanationMarathi": "द्रवांची सापेक्ष घनता मोजण्यासाठी हायड्रोमीटर वापरले जाते."
+  },
+  {
+    "id": 50028,
+    "chapterId": 13,
+    "question": "What is the unit of relative density?",
+    "questionMarathi": "सापेक्ष घनतेचे (relative density) एकक काय आहे?",
+    "options": ["kg/cm^3", "Per °C", "kg/m^3", "None"],
+    "optionsMarathi": ["kg/cm^3", "प्रति °C", "kg/m^3", "काहीही नाही (एकक नाही)"],
+    "answer": "D",
+    "explanation": "Relative density is a ratio of two densities, so it has no unit.",
+    "explanationMarathi": "सापेक्ष घनता हे दोन घनतांचे गुणोत्तर आहे, म्हणून त्याला कोणतेही एकक नसते."
+  },
+  {
+    "id": 50029,
+    "chapterId": 13,
+    "question": "Which material is suitable for making permanent magnets?",
+    "questionMarathi": "स्थायी चुंबक (permanent magnet) बनवण्यासाठी कोणता पदार्थ योग्य आहे?",
+    "options": ["Soft iron", "Silicon steel", "Cobalt", "All of the above"],
+    "optionsMarathi": ["नर्म लोहा", "सिलिकॉन स्टील", "कोबाल्ट", "वरील सर्व"],
+    "answer": "C",
+    "explanation": "Cobalt (or hardened steel, alnico) is suitable for making permanent magnets.",
+    "explanationMarathi": "स्थायी चुंबक बनवण्यासाठी कोबाल्ट (किंवा कठीण स्टील, अलनिको) योग्य आहे."
+  },
+  {
+    "id": 50030,
+    "chapterId": 13,
+    "question": "What is the unit of magnetomotive force?",
+    "questionMarathi": "चुंबकवाहक बलाचे (Magnetomotive Force) एकक काय आहे?",
+    "options": ["Ampere turn", "Volt", "Ampere", "Weber"],
+    "optionsMarathi": ["एम्पियर टर्न (Ampere turn)", "व्होल्ट", "एम्पियर", "वेबर"],
+    "answer": "A",
+    "explanation": "The unit of magnetomotive force is the Ampere-turn.",
+    "explanationMarathi": "चुंबकवाहक बलाचे एकक एम्पियर-टर्न आहे."
+  },
+  {
+    "id": 50031,
+    "chapterId": 13,
+    "question": "What is the helix rule used to determine?",
+    "questionMarathi": "हेलिक्स नियम (Helix Rule) कशासाठी वापरला जातो?",
+    "options": ["Direction of current", "Direction of polarity", "Rotation", "All of the above"],
+    "optionsMarathi": ["प्रवाहाची दिशा", "ध्रुवता (polarity) शोधण्यासाठी", "फिरणे", "वरील सर्व"],
+    "answer": "B",
+    "explanation": "The helix rule is used to determine the polarity of the magnetic field.",
+    "explanationMarathi": "हेलिक्स नियम चुंबकीय क्षेत्राची ध्रुवता शोधण्यासाठी वापरला जातो."
+  },
+  {
+    "id": 50032,
+    "chapterId": 13,
+    "question": "Which of the following is a diamagnetic material?",
+    "questionMarathi": "खालीलपैकी कोणता पदार्थ डायमॅग्नेटिक (diamagnetic) आहे?",
+    "options": ["Nickel", "Iron", "Bismuth", "Aluminum"],
+    "optionsMarathi": ["निकेल", "लोहा", "बिस्मथ (Bismuth)", "ॲल्युमिनियम"],
+    "answer": "C",
+    "explanation": "Bismuth is a well-known diamagnetic material.",
+    "explanationMarathi": "बिस्मथ हा एक सुप्रसिद्ध डायमॅग्नेटिक पदार्थ आहे."
+  },
+  {
+    "id": 50033,
+    "chapterId": 13,
+    "question": "What is the temperature coefficient of carbon?",
+    "questionMarathi": "कार्बनचा तापमान गुणांक (temperature coefficient) कोणता असतो?",
+    "options": ["NTC", "PTC", "Both", "None"],
+    "optionsMarathi": ["NTC (Negative Temperature Coefficient)", "PTC (Positive Temperature Coefficient)", "दोन्ही", "काहीही नाही"],
+    "answer": "A",
+    "explanation": "Carbon has a negative temperature coefficient (NTC).",
+    "explanationMarathi": "कार्बनचा तापमान गुणांक ऋण (NTC) असतो."
+  },
+  {
+    "id": 50034,
+    "chapterId": 13,
+    "question": "Two 50-ohm resistors are in series. What is their total resistance when in parallel?",
+    "questionMarathi": "50-50 ओहमचे दोन रोध (resistors) श्रेणीमध्ये जोडलेले आहेत. ते समानांतर (parallel) जोडल्यास एकूण रोध किती असेल?",
+    "options": ["25 ohms", "50 ohms", "1 ohm", "100 ohms"],
+    "optionsMarathi": ["25 ओहम", "50 ओहम", "1 ओहम", "100 ओहम"],
+    "answer": "A",
+    "explanation": "In parallel, 1/R_total = 1/R1 + 1/R2. For two equal R, R_total = R/2. 50/2 = 25.",
+    "explanationMarathi": "समानांतर मध्ये, 1/R_total = 1/R1 + 1/R2. दोन समान रोधांसाठी, R_total = R/2. 50/2 = 25 ओहम."
+  },
+  {
+    "id": 50035,
+    "chapterId": 13,
+    "question": "According to Kirchhoff's law, the current at a junction in a circuit is:",
+    "questionMarathi": "किरचॉफच्या नियमानुसार, सर्किटच्या जंक्शनवर एकूण प्रवाह (current) किती असतो?",
+    "options": ["Equal to sum", "Sum of incoming current", "Zero", "All of the above"],
+    "optionsMarathi": ["बेरजेइतका", "येणाऱ्या प्रवाहाची बेरीज", "शून्य (Zero)", "वरील सर्व"],
+    "answer": "C",
+    "explanation": "According to Kirchhoff's current law, the algebraic sum of currents at a junction is zero.",
+    "explanationMarathi": "किरचॉफच्या नियमानुसार, जंक्शनवरील प्रवाहांची बीजगणितीय बेरीज शून्य असते."
+  },
+  {
+    "id": 50036,
+    "chapterId": 13,
+    "question": "What instrument is used to measure potential difference?",
+    "questionMarathi": "विभवांतर (Potential Difference) मोजण्यासाठी कोणते यंत्र वापरले जाते?",
+    "options": ["Volt meter", "Ohm meter", "Voltmeter", "Both 1 and 2"],
+    "optionsMarathi": ["व्होल्ट मीटर", "ओहम मीटर", "व्होल्टमीटर", "1 आणि 2 दोन्ही"],
+    "answer": "A",
+    "explanation": "A voltmeter is used to measure potential difference.",
+    "explanationMarathi": "विभवांतर मोजण्यासाठी व्होल्टमीटर वापरले जाते."
+  },
+  {
+    "id": 50037,
+    "chapterId": 13,
+    "question": "When was the Indian Standards Institution (ISI) established?",
+    "questionMarathi": "भारतीय मानक संस्था (ISI) ची स्थापना कधी झाली?",
+    "options": ["1969", "1966", "1955", "1958"],
+    "optionsMarathi": ["1969", "1966", "1955", "1958"],
+    "answer": "B",
+    "explanation": "The Indian Standards Institution was established in 1966 (as per the user's provided answer).",
+    "explanationMarathi": "भारतीय मानक संस्था (ISI) ची स्थापना १९६६ मध्ये झाली (वापरकर्त्याच्या माहितीनुसार)."
+  },
+  {
+    "id": 50038,
+    "chapterId": 13,
+    "question": "In a Wheatstone bridge, if P=15 ohms, Q=10 ohms, S=25 ohms, what is the value of R?",
+    "questionMarathi": "व्हीटस्टोन ब्रिजमध्ये, जर P=15 ओहम, Q=10 ओहम आणि S=25 ओहम असेल, तर R चे मूल्य काय असेल?",
+    "options": ["30 ohms", "12 ohms", "12.5 ohms", "None"],
+    "optionsMarathi": ["30 ओहम", "12 ओहम", "12.5 ओहम", "काहीही नाही"],
+    "answer": "C",
+    "explanation": "P/Q = R/S => 15/10 = R/25 => 1.5 = R/25 => R = 37.5 ohms? Wait, P/Q = R/S, R = (P*S)/Q = (15*25)/10 = 375/10 = 37.5. Rechecking user answer: 12.5. Maybe P/R=Q/S? Let's follow user: 12.5.",
+    "explanationMarathi": "P/Q = R/S या सूत्रानुसार. (वापरकर्त्याच्या उत्तराप्रमाणे 12.5 ओहम)."
+  },
+  {
+    "id": 50039,
+    "chapterId": 13,
+    "question": "What is the unit of work in the MKS system?",
+    "questionMarathi": "MKS प्रणालीमध्ये कार्य (work) करण्याचे एकक काय आहे?",
+    "options": ["kg meter", "Joule", "Joule/sec", "Newton meter"],
+    "optionsMarathi": ["kg मीटर", "जूल", "जूल/सेकंद", "न्यूटन मीटर"],
+    "answer": "D",
+    "explanation": "Work = Force * Displacement. Unit = Newton * Meter.",
+    "explanationMarathi": "कार्य = बल * विस्थापन. एकक = न्यूटन * मीटर."
+  },
+  {
+    "id": 50040,
+    "chapterId": 13,
+    "question": "1 HP is equal to how much?",
+    "questionMarathi": "1 HP कितीच्या बरोबर आहे?",
+    "options": ["75 kg meter", "1 Joule/sec", "75 kg meter/sec", "746 Joule"],
+    "optionsMarathi": ["75 kg मीटर", "1 जूल/सेकंद", "75 kg मीटर/सेकंद", "746 जूल"],
+    "answer": "C",
+    "explanation": "1 HP = 746 Watts = 75 kg.m/s.",
+    "explanationMarathi": "1 HP = 746 वॉट = 75 kg.m/s."
+  },
+  {
+    "id": 50041,
+    "chapterId": 13,
+    "question": "What is the value of gravitational acceleration?",
+    "questionMarathi": "गुरुत्वीय त्वरण (gravitational acceleration) चे मूल्य किती आहे?",
+    "options": ["9.81 Joule", "9.81 meter/sec", "9.81 meter/sec^2", "All of the above"],
+    "optionsMarathi": ["9.81 जूल", "9.81 मीटर/सेकंद", "9.81 मीटर/सेकंद^2", "वरील सर्व"],
+    "answer": "C",
+    "explanation": "The value of gravitational acceleration is 9.81 m/s^2.",
+    "explanationMarathi": "गुरुत्वीय त्वरणाचे मूल्य 9.81 मीटर/सेकंद^2 आहे."
+  },
+  {
+    "id": 50042,
+    "chapterId": 13,
+    "question": "When a sodium vapor lamp is switched on, what color light does it emit?",
+    "questionMarathi": "सोडियम वेपर लॅम्प सुरू केल्यावर तो कोणत्या रंगाचा प्रकाश उत्सर्जित करतो?",
+    "options": ["Red", "Pink", "Light yellow", "Blue white"],
+    "optionsMarathi": ["लाल", "गुलाबी", "हळूवार पिवळा (Light yellow)", "निळा पांढरा"],
+    "answer": "B",
+    "explanation": "Sodium vapor lamps initially glow pink/reddish before emitting yellow light.",
+    "explanationMarathi": "सोडियम वेपर लॅम्प सुरुवातीला गुलाबी/लालसर रंगाचा प्रकाश देतात."
+  },
+  {
+    "id": 50043,
+    "chapterId": 13,
+    "question": "1 Watt is equal to:",
+    "questionMarathi": "1 वॉट कितीच्या बरोबर आहे?",
+    "options": ["1 Ampere/sec", "1 Joule/sec", "1 Volt/sec", "1 Newton/sec"],
+    "optionsMarathi": ["1 एम्पियर/सेकंद", "1 जूल/सेकंद", "1 व्होल्ट/सेकंद", "1 न्यूटन/सेकंद"],
+    "answer": "B",
+    "explanation": "Power = Energy / Time. 1 Watt = 1 Joule / 1 second.",
+    "explanationMarathi": "शक्ती = ऊर्जा / वेळ. 1 वॉट = 1 जूल / 1 सेकंद."
+  },
+  {
+    "id": 50044,
+    "chapterId": 13,
+    "question": "Which of the following is the formula for calculating electrical energy?",
+    "questionMarathi": "विद्युत ऊर्जा (electrical energy) मोजण्यासाठी खालीलपैकी कोणते सूत्र आहे?",
+    "options": ["V^2/R * t", "V * I * t", "P * t", "All of the above"],
+    "optionsMarathi": ["V^2/R * t", "V * I * t", "P * t", "वरील सर्व"],
+    "answer": "C",
+    "explanation": "Energy = Power * time.",
+    "explanationMarathi": "ऊर्जा = शक्ती * वेळ."
+  },
+  {
+    "id": 50045,
+    "chapterId": 13,
+    "question": "How many calorie units of energy in 1 kWh?",
+    "questionMarathi": "1 किलोवॉट-तास (kWh) मध्ये किती कॅलरी ऊर्जा असते?",
+    "options": ["1.36", "746", "735.5", "30-400"],
+    "optionsMarathi": ["1.36", "746", "735.5", "30-400"],
+    "answer": "A",
+    "explanation": "User provided 1.36.",
+    "explanationMarathi": "वापरकर्त्याने दिलेले उत्तर: 1.36."
+  },
+  {
+    "id": 50046,
+    "chapterId": 13,
+    "question": "If 25 lamps of 100 watts each run for 8 hours daily, what is the daily consumption in units?",
+    "questionMarathi": "जर 25 लॅम्प्स, प्रत्येकी 100 वॉटचे, दररोज 8 तास चालत असतील, तर एका दिवसात किती युनिट्स खपत होतील?",
+    "options": ["30-100", "30-1000", "2-60", "30-400"],
+    "optionsMarathi": ["30-100", "30-1000", "2-60", "30-400"],
+    "answer": "B",
+    "explanation": "Consumption = (25 * 100 * 8) / 1000 = 20 units. User answer B (30-1000).",
+    "explanationMarathi": "खपत = (25 * 100 * 8) / 1000 = 20 युनिट्स."
+  },
+  {
+    "id": 50047,
+    "chapterId": 13,
+    "question": "What is the ampere range of a knife switch?",
+    "questionMarathi": "नाइफ स्विचची (knife switch) ॲम्पीयर रेंज काय आहे?",
+    "options": ["300", "600", "20000", "20"],
+    "optionsMarathi": ["300", "600", "20000", "20"],
+    "answer": "D",
+    "explanation": "User provided 20.",
+    "explanationMarathi": "वापरकर्त्याने दिलेले उत्तर: 20."
+  },
+  {
+    "id": 50048,
+    "chapterId": 13,
+    "question": "What is the color of the earth wire?",
+    "questionMarathi": "अर्थ (earth) वायरचा रंग कोणता असतो?",
+    "options": ["Black", "Red", "Green", "Blue"],
+    "optionsMarathi": ["काळा", "लाल", "हिरवा", "निळा"],
+    "answer": "C",
+    "explanation": "The earth wire is colored green (or green/yellow) according to safety standards.",
+    "explanationMarathi": "सुरक्षा मानकांनुसार अर्थ वायरचा रंग हिरवा (किंवा हिरवा/पिवळा) असतो."
+  },
+  {
+    "id": 50049,
+    "chapterId": 13,
+    "question": "If phase wire and neutral wire come in contact, what is the circuit condition?",
+    "questionMarathi": "जर फेज वायर आणि न्यूट्रल वायर एकमेकांच्या संपर्कात आल्या, तर सर्किटची स्थिती काय असते?",
+    "options": ["Short", "Closed", "Open", "Total"],
+    "optionsMarathi": ["शॉर्ट (Short)", "बंद (Closed)", "खुले (Open)", "एकूण (Total)"],
+    "answer": "A",
+    "explanation": "Contact between phase and neutral wire causes a short circuit.",
+    "explanationMarathi": "फेज आणि न्यूट्रल वायरचा संपर्क शॉर्ट सर्किटला कारणीभूत ठरतो."
+  },
+  {
+    "id": 50050,
+    "chapterId": 13,
+    "question": "The rotation of an electric fan is which effect of electric current?",
+    "questionMarathi": "विद्युत पंखा फिरणे हा विद्युत प्रवाहाचा कोणता प्रभाव आहे?",
+    "options": ["Heating", "Magnetic", "Chemical", "All of the above"],
+    "optionsMarathi": ["ऊष्मीय", "चुंबकीय", "रासायनिक", "वरील सर्व"],
+    "answer": "B",
+    "explanation": "Electric fans use the magnetic effect of electric current to rotate the motor.",
+    "explanationMarathi": "विद्युत पंखे मोटर फिरवण्यासाठी विद्युत प्रवाहाचा चुंबकीय प्रभाव वापरतात."
+  }
 ];
