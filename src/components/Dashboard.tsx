@@ -36,8 +36,17 @@ export default function Dashboard({
   const [questionSource, setQuestionSource] = useState<"static" | "ai">("static"); // default to offline textbook mode
   const [questionCount, setQuestionCount] = useState<number>(15);
   const [timeLimit, setTimeLimit] = useState<number>(15);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
 
   const isMarathi = selectedLanguage.code === "mr";
+
+  // Filter chapters based on search query
+  const filteredChapters = CHAPTERS.filter(
+    (ch) =>
+      ch.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      (ch.nameMarathi && ch.nameMarathi.includes(searchQuery))
+  );
 
   // Dynamic max questions based on selection
   const getAvailableQuestionCount = () => {
@@ -102,13 +111,26 @@ export default function Dashboard({
               <Icons.Zap className="text-amber-500 h-5 w-5 fill-amber-500/20" />
               <span>{isMarathi ? "मॉक टेस्ट कस्टमाइज" : "Customize Test"}</span>
             </h2>
-            <div className="flex items-center gap-1.5 px-2 py-1 bg-slate-950 border border-slate-800 text-slate-400 rounded-lg text-[10px] font-bold uppercase tracking-wider font-mono">
-              <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
-              <span>Offline Ready</span>
-            </div>
+            <button
+              onClick={() => setIsSearchOpen(!isSearchOpen)}
+              className="p-2 bg-slate-950 border border-slate-800 rounded-lg text-slate-400 hover:text-amber-500 transition-colors"
+            >
+              {isSearchOpen ? <Icons.X className="h-4 w-4" /> : <Icons.Search className="h-4 w-4" />}
+            </button>
           </div>
 
           <div className="flex flex-col gap-4 sm:gap-5">
+            {isSearchOpen && (
+              <div className="bg-slate-950 p-3 sm:p-4 rounded-xl border border-slate-850">
+                <input
+                  type="text"
+                  placeholder={isMarathi ? "विषय किंवा सेट शोधा..." : "Search chapters/tests..."}
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="w-full bg-slate-900 border border-slate-800 text-white rounded-lg p-2.5 sm:p-3 text-xs focus:outline-none focus:border-amber-500 transition font-sans"
+                />
+              </div>
+            )}
             {/* National State Language Selector */}
             <div className="bg-slate-950 p-3 sm:p-4 rounded-xl border border-slate-850">
               <label className="block text-xs font-bold text-amber-500 uppercase tracking-wider mb-2 flex items-center gap-1.5 font-mono">
@@ -164,7 +186,7 @@ export default function Dashboard({
                   {isMarathi ? "सर्व विषय (पूर्ण अभ्यासक्रम)" : "All Chapters (Complete Syllabus)"}
                 </option>
                 {Object.entries(
-                  CHAPTERS.reduce((acc, ch) => {
+                  filteredChapters.reduce((acc, ch) => {
                     const section = ch.section || "Other";
                     if (!acc[section]) acc[section] = [];
                     acc[section].push(ch);
@@ -561,7 +583,7 @@ export default function Dashboard({
               </h2>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {Array.from(new Set(CHAPTERS.map(ch => ch.section || "Other"))).map(sectionName => (
+              {Array.from(new Set(filteredChapters.map(ch => ch.section || "Other"))).map(sectionName => (
                 <div 
                   key={sectionName}
                   onClick={() => setSelectedSection(sectionName)}
@@ -572,7 +594,7 @@ export default function Dashboard({
                   </div>
                   <div>
                     <h3 className="text-lg font-bold text-white group-hover:text-amber-400 transition-colors">{sectionName}</h3>
-                    <p className="text-xs text-slate-400">{CHAPTERS.filter(ch => (ch.section || "Other") === sectionName).length} {isMarathi ? "विषय" : "Chapters"}</p>
+                    <p className="text-xs text-slate-400">{filteredChapters.filter(ch => (ch.section || "Other") === sectionName).length} {isMarathi ? "विषय" : "Chapters"}</p>
                   </div>
                 </div>
               ))}
@@ -593,7 +615,7 @@ export default function Dashboard({
               </h2>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {CHAPTERS.filter(ch => (ch.section || "Other") === selectedSection).map((ch) => {
+              {filteredChapters.filter(ch => (ch.section || "Other") === selectedSection).map((ch) => {
                 const stats = getChapterCompletionStatus(ch.id);
                 const totalQ = QUESTIONS.filter((q) => q.chapterId === ch.id).length;
 
