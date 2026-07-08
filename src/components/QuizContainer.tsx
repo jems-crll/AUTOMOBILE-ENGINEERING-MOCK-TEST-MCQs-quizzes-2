@@ -300,17 +300,15 @@ export default function QuizContainer({
                   </h2>
                 </div>
                 
-                {bilingual && (
+                {bilingual && currentQuestion.questionMarathi && (
                   <div className="animate-fade-in">
                     <div className="flex items-center gap-2 mb-1.5">
                       <span className="text-[10px] font-bold uppercase tracking-widest text-amber-500 bg-amber-500/10 px-2 py-0.5 rounded border border-amber-500/20">
-                        {selectedLanguage.nativeName || selectedLanguage.name}
+                        मराठी (Marathi)
                       </span>
                     </div>
                     <p className="text-sm md:text-base text-slate-300 bg-slate-950/40 p-3 sm:p-4 rounded-lg border border-slate-900 leading-relaxed font-sans italic">
-                      {selectedLanguage.code === "mr" 
-                        ? (currentQuestion.questionMarathi || currentQuestion.questionTranslated) 
-                        : (currentQuestion.questionTranslated || currentQuestion.questionMarathi)}
+                      {currentQuestion.questionMarathi}
                     </p>
                   </div>
                 )}
@@ -363,11 +361,11 @@ export default function QuizContainer({
                             <span className="block text-sm sm:text-base leading-snug break-words">{opt}</span>
                           </div>
                           
-                          {bilingual && (selectedLanguage.code === "mr" ? currentQuestion.optionsMarathi?.[idx] : currentQuestion.optionsTranslated?.[idx]) && (
+                          {bilingual && currentQuestion.optionsMarathi?.[idx] && (
                             <div>
-                              <span className="text-[8px] font-bold uppercase tracking-tighter text-amber-600 mb-0.5 block">{selectedLanguage.name}</span>
+                              <span className="text-[8px] font-bold uppercase tracking-tighter text-amber-600 mb-0.5 block">Marathi</span>
                               <span className="block text-xs sm:text-sm text-slate-400 break-words">
-                                {selectedLanguage.code === "mr" ? currentQuestion.optionsMarathi?.[idx] : currentQuestion.optionsTranslated?.[idx]}
+                                {currentQuestion.optionsMarathi[idx]}
                               </span>
                             </div>
                           )}
@@ -423,11 +421,25 @@ export default function QuizContainer({
                 </h4>
               </div>
 
-              <p className="text-sm text-slate-300 leading-relaxed font-sans">
-                {bilingual && (selectedLanguage.code === "mr" ? currentQuestion.explanationMarathi : currentQuestion.explanationTranslated)
-                  ? (selectedLanguage.code === "mr" ? currentQuestion.explanationMarathi : currentQuestion.explanationTranslated)
-                  : currentQuestion.explanation}
-              </p>
+              <div className="space-y-4">
+                <div>
+                  {bilingual && (
+                    <span className="text-[10px] font-bold uppercase tracking-widest text-slate-500 mb-1 block">English</span>
+                  )}
+                  <p className="text-sm text-slate-300 leading-relaxed font-sans">
+                    {currentQuestion.explanation}
+                  </p>
+                </div>
+                
+                {bilingual && currentQuestion.explanationMarathi && (
+                  <div className="pt-2 border-t border-slate-800">
+                    <span className="text-[10px] font-bold uppercase tracking-widest text-amber-600 mb-1 block">मराठी (Marathi)</span>
+                    <p className="text-sm text-slate-400 italic leading-relaxed">
+                      {currentQuestion.explanationMarathi}
+                    </p>
+                  </div>
+                )}
+              </div>
             </motion.div>
           )}
         </div>
