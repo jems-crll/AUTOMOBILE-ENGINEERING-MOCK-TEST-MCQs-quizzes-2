@@ -5,6 +5,9 @@ import { THREE_PHASE_MOTOR_QUESTIONS } from "./threePhaseMotorQuestions.js";
 import { ALTERNATOR_SYNCHRONOUS_MOTORS_QUESTIONS } from "./alternatorSynchronousMotorsQuestions.js";
 import { ELECTRONICS_QUESTIONS } from "./electronicsQuestions.js";
 import { CONTROL_PANEL_WIRING_QUESTIONS } from "./controlPanelWiringQuestions.js";
+import { AC_DC_DRIVE_QUESTIONS } from "./acDcDriveQuestions.js";
+import { INVERTER_UPS_QUESTIONS } from "./inverterUpsQuestions.js";
+import { POWER_TRANSMISSION_QUESTIONS } from "./powerTransmissionQuestions.js";
 
 export const CHAPTERS: Chapter[] = [
   {
@@ -311,6 +314,33 @@ export const CHAPTERS: Chapter[] = [
     "description": "Important MCQs on Control Panel Wiring.",
     "descriptionMarathi": "कंट्रोल पॅनल वायरिंगवरील महत्त्वाचे बहुपर्यायी प्रश्न.",
     "icon": "Cpu",
+    "section": "Electrical"
+  },
+  {
+    "id": 90,
+    "name": "AC and DC Drives",
+    "nameMarathi": "AC आणि DC ड्राईव्ह",
+    "description": "Important MCQs on AC and DC Drives.",
+    "descriptionMarathi": "AC आणि DC ड्राईव्हवरील महत्त्वाचे बहुपर्यायी प्रश्न.",
+    "icon": "Zap",
+    "section": "Electrical"
+  },
+  {
+    "id": 100,
+    "name": "Inverter and UPS",
+    "nameMarathi": "इन्व्हर्टर आणि यूपीएस",
+    "description": "Important MCQs on Inverters and UPS.",
+    "descriptionMarathi": "इन्व्हर्टर आणि यूपीएसवरील महत्त्वाचे बहुपर्यायी प्रश्न.",
+    "icon": "Zap",
+    "section": "Electrical"
+  },
+  {
+    "id": 110,
+    "name": "Power Transmission",
+    "nameMarathi": "पॉवर ट्रान्समिशन",
+    "description": "Important MCQs on Power Transmission.",
+    "descriptionMarathi": "पॉवर ट्रान्समिशनवरील महत्त्वाचे बहुपर्यायी प्रश्न.",
+    "icon": "Zap",
     "section": "Electrical"
   }
 ];
@@ -23609,5 +23639,5 @@ export const QUESTIONS: Question[] = [
     "explanation": "LMVs (private cars) historically had no set speed limit in the Eighth Schedule of the older Act, leaving it to local authorities.",
     "explanationMarathi": "जुन्या कायद्यात LMV साठी कोणतीही ठराविक वेग मर्यादा दिलेली नव्हती."
   },
-  ...DC_GENERATOR_QUESTIONS, ...SINGLE_PHASE_MOTOR_QUESTIONS, ...THREE_PHASE_MOTOR_QUESTIONS, ...ALTERNATOR_SYNCHRONOUS_MOTORS_QUESTIONS, ...ELECTRONICS_QUESTIONS, ...CONTROL_PANEL_WIRING_QUESTIONS
+  ...DC_GENERATOR_QUESTIONS, ...SINGLE_PHASE_MOTOR_QUESTIONS, ...THREE_PHASE_MOTOR_QUESTIONS, ...ALTERNATOR_SYNCHRONOUS_MOTORS_QUESTIONS, ...ELECTRONICS_QUESTIONS, ...CONTROL_PANEL_WIRING_QUESTIONS, ...AC_DC_DRIVE_QUESTIONS, ...INVERTER_UPS_QUESTIONS, ...POWER_TRANSMISSION_QUESTIONS
 ];
