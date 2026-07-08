@@ -177,13 +177,20 @@ export default function QuizContainer({
           </button>
           <div>
             <span className="text-[10px] font-bold uppercase tracking-wider text-amber-500 font-mono">
-              {mode === "exam" ? "EXAM MODE (परीक्षा)" : "PRACTICE MODE (सराव)"}
+              {bilingual 
+                ? (mode === "exam" ? "EXAM MODE (परीक्षा)" : "PRACTICE MODE (सराव)")
+                : (mode === "exam" ? "EXAM MODE" : "PRACTICE MODE")}
             </span>
-            <h3 className="text-sm font-semibold text-slate-200">
-              {chapterId === "all"
-                ? (bilingual ? "पूर्ण अभ्यासक्रम चाचणी" : "Full Syllabus Test")
-                : (bilingual ? `विषय ${chapterId} चाचणी` : `Chapter ${chapterId} Test`)}
-            </h3>
+            <div className="flex flex-col">
+              <h3 className="text-sm font-semibold text-slate-200 leading-tight">
+                {chapterId === "all" ? "Full Syllabus Test" : `Chapter ${chapterId} Test`}
+              </h3>
+              {bilingual && (
+                <span className="text-[11px] text-slate-400 font-medium">
+                  {chapterId === "all" ? "पूर्ण अभ्यासक्रम चाचणी" : `विषय ${chapterId} चाचणी`}
+                </span>
+              )}
+            </div>
           </div>
         </div>
 
@@ -283,14 +290,29 @@ export default function QuizContainer({
               </div>
 
               {/* Bilingual Stacked Questions */}
-              <div className="mb-6 sm:mb-8" id="question-text-block">
-                <h2 className="text-base sm:text-lg md:text-xl font-medium text-white mb-3 leading-snug">
-                  {currentQuestion.question}
-                </h2>
-                {bilingual && (selectedLanguage.code === "mr" ? currentQuestion.questionMarathi : currentQuestion.questionTranslated) && (
-                  <p className="text-sm md:text-base text-slate-300 bg-slate-950/40 p-3 sm:p-4 rounded-lg border border-slate-900 leading-relaxed font-sans italic">
-                    {selectedLanguage.code === "mr" ? currentQuestion.questionMarathi : currentQuestion.questionTranslated}
-                  </p>
+              <div className="mb-6 sm:mb-8 space-y-4" id="question-text-block">
+                <div>
+                  <div className="flex items-center gap-2 mb-1.5">
+                    <span className="text-[10px] font-bold uppercase tracking-widest text-slate-500 bg-slate-900 px-2 py-0.5 rounded border border-slate-800">English</span>
+                  </div>
+                  <h2 className="text-base sm:text-lg md:text-xl font-medium text-white leading-snug">
+                    {currentQuestion.question}
+                  </h2>
+                </div>
+                
+                {bilingual && (
+                  <div className="animate-fade-in">
+                    <div className="flex items-center gap-2 mb-1.5">
+                      <span className="text-[10px] font-bold uppercase tracking-widest text-amber-500 bg-amber-500/10 px-2 py-0.5 rounded border border-amber-500/20">
+                        {selectedLanguage.nativeName || selectedLanguage.name}
+                      </span>
+                    </div>
+                    <p className="text-sm md:text-base text-slate-300 bg-slate-950/40 p-3 sm:p-4 rounded-lg border border-slate-900 leading-relaxed font-sans italic">
+                      {selectedLanguage.code === "mr" 
+                        ? (currentQuestion.questionMarathi || currentQuestion.questionTranslated) 
+                        : (currentQuestion.questionTranslated || currentQuestion.questionMarathi)}
+                    </p>
+                  </div>
                 )}
               </div>
 
@@ -333,12 +355,23 @@ export default function QuizContainer({
                         {optionChar}
                       </span>
                       <div className="flex-1 min-w-0">
-                        <span className="block text-sm sm:text-base leading-snug break-words">{opt}</span>
-                        {bilingual && (selectedLanguage.code === "mr" ? currentQuestion.optionsMarathi?.[idx] : currentQuestion.optionsTranslated?.[idx]) && (
-                          <span className="block text-xs sm:text-sm text-slate-400 mt-1 break-words">
-                            {selectedLanguage.code === "mr" ? currentQuestion.optionsMarathi?.[idx] : currentQuestion.optionsTranslated?.[idx]}
-                          </span>
-                        )}
+                        <div className="flex flex-col gap-2">
+                          <div>
+                            {bilingual && (
+                              <span className="text-[8px] font-bold uppercase tracking-tighter text-slate-500 mb-0.5 block">English</span>
+                            )}
+                            <span className="block text-sm sm:text-base leading-snug break-words">{opt}</span>
+                          </div>
+                          
+                          {bilingual && (selectedLanguage.code === "mr" ? currentQuestion.optionsMarathi?.[idx] : currentQuestion.optionsTranslated?.[idx]) && (
+                            <div>
+                              <span className="text-[8px] font-bold uppercase tracking-tighter text-amber-600 mb-0.5 block">{selectedLanguage.name}</span>
+                              <span className="block text-xs sm:text-sm text-slate-400 break-words">
+                                {selectedLanguage.code === "mr" ? currentQuestion.optionsMarathi?.[idx] : currentQuestion.optionsTranslated?.[idx]}
+                              </span>
+                            </div>
+                          )}
+                        </div>
                       </div>
                       
                       {/* Icons for validation in practice mode */}

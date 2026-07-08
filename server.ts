@@ -264,7 +264,7 @@ probeFirestore();
 async function generateContentWithRetry(ai: any, params: { model: string; contents: any; config?: any }, retries = 3, delayMs = 1000): Promise<any> {
   let attempt = 0;
   // Fall back across highly-available models to guarantee robust, error-free delivery
-  const modelsToTry = [params.model, "gemini-2.5-flash", "gemini-1.5-flash-8b", "gemini-flash-latest"];
+  const modelsToTry = [params.model, "gemini-1.5-flash", "gemini-1.5-flash-8b", "gemini-2.0-flash-exp"];
   
   for (const currentModel of modelsToTry) {
     for (attempt = 1; attempt <= retries; attempt++) {
@@ -434,7 +434,7 @@ Please ensure the questions are rigorous, strictly accurate, cover diverse topic
 `;
 
       const result = await generateContentWithRetry(ai, {
-        model: "gemini-3.5-flash",
+        model: "gemini-1.5-flash",
         contents: prompt,
         config: {
           responseMimeType: "application/json",
@@ -530,7 +530,7 @@ Output JSON format:
 `;
 
       const result = await generateContentWithRetry(ai, {
-        model: "gemini-3.5-flash",
+        model: "gemini-1.5-flash",
         contents: prompt,
         config: {
           responseMimeType: "application/json",

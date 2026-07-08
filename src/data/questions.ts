@@ -24702,368 +24702,368 @@ export const QUESTIONS: Question[] = [
     "explanation": "A voltaic cell is a non-rechargeable primary cell.",
     "explanationMarathi": "व्होल्टाइक सेल हा रिचार्ज न करता येणारा प्राथमिक सेल आहे."
   },
-{
+  {
     "id": 50079,
     "chapterId": 33,
-    "question": "250 वॉट 250 वोल्ट वाले लैम्प का प्रतिरोध होगा ?",
-    "questionMarathi": "250 वॉट 250 वोल्ट वाले लैम्प का प्रतिरोध होगा ?",
+    "question": "What will be the resistance of a 250 Watt, 250 Volt lamp?",
+    "questionMarathi": "२५० वॉट, २५० व्होल्ट असलेल्या दिव्याचा (lamp) प्रतिरोध किती असेल?",
     "options": [
-      "25 ओम",
-      "250 ओम",
-      "1 ओम",
-      "626 ओम"
+      "25 Ohm",
+      "250 Ohm",
+      "1 Ohm",
+      "626 Ohm"
     ],
     "optionsMarathi": [
-      "25 ओम",
-      "250 ओम",
-      "1 ओम",
-      "626 ओम"
+      "२५ ओहम",
+      "२५० ओहम",
+      "१ ओहम",
+      "६२६ ओहम"
     ],
     "answer": "B",
-    "explanation": "P = V^2 / R  => R = V^2 / P = (250*250)/250 = 250 Ohm.",
-    "explanationMarathi": "P = V^2 / R  => R = V^2 / P = (250*250)/250 = 250 Ohm."
+    "explanation": "Resistance (R) = V^2 / P = (250 * 250) / 250 = 250 Ohm.",
+    "explanationMarathi": "प्रतिरोध (R) = V^2 / P = (२५० * २५०) / २५० = २५० ओहम."
   },
   {
     "id": 50080,
     "chapterId": 33,
-    "question": "परमिएन्स का मात्रक है ?",
-    "questionMarathi": "परमिएन्स का मात्रक है ?",
+    "question": "What is the unit of Permeance?",
+    "questionMarathi": "परमिएन्स (Permeance) चे एकक काय आहे?",
     "options": [
-      "वैबर/एम्पीयर",
-      "एम्पीयर/वैबर टर्न",
-      "वैबर/एम्पीयर टर्न",
-      "एम्पीयर-टर्न"
+      "Weber/Ampere",
+      "Ampere/Weber turn",
+      "Weber/Ampere turn",
+      "Ampere-turn"
     ],
     "optionsMarathi": [
-      "वैबर/एम्पीयर",
-      "एम्पीयर/वैबर टर्न",
-      "वैबर/एम्पीयर टर्न",
-      "एम्पीयर-टर्न"
+      "वेबर/अँपियर",
+      "अँपियर/वेबर टर्न",
+      "वेबर/अँपियर टर्न",
+      "अँपियर-टर्न"
     ],
     "answer": "C",
-    "explanation": "Permeance unit is Weber / Ampere-turn.",
-    "explanationMarathi": "परमिएन्स (Permeance) चे एकक Weber / Ampere-turn आहे."
+    "explanation": "The unit of Permeance is Weber per Ampere-turn.",
+    "explanationMarathi": "परमिएन्सचे एकक वेबर प्रति अँपियर-टर्न (Weber/Ampere turn) आहे."
   },
   {
     "id": 50081,
     "chapterId": 33,
-    "question": "निम्न में से रिलैक्टेंस की ईकाई क्या है।",
-    "questionMarathi": "निम्न में से रिलैक्टेंस की ईकाई क्या है।",
+    "question": "Which of the following is the unit of Reluctance?",
+    "questionMarathi": "खालीलपैकी रिलक्टन्स (Reluctance) चे एकक कोणते आहे?",
     "options": [
-      "एम्पीयर टर्न",
-      "एम्पीयर वैबर/टर्न",
-      "वैबर",
-      "एम्पीयर टर्न/वैबर"
+      "Ampere turn",
+      "Ampere Weber/turn",
+      "Weber",
+      "Ampere turn/Weber"
     ],
     "optionsMarathi": [
-      "एम्पीयर टर्न",
-      "एम्पीयर वैबर/टर्न",
-      "वैबर",
-      "एम्पीयर टर्न/वैबर"
+      "अँपियर टर्न",
+      "अँपियर वेबर/टर्न",
+      "वेबर",
+      "अँपियर टर्न/वेबर"
     ],
     "answer": "D",
-    "explanation": "Reluctance unit is Ampere-turn / Weber.",
-    "explanationMarathi": "रिलक्टन्स (Reluctance) चे एकक Ampere-turn / Weber आहे."
+    "explanation": "The unit of Reluctance is Ampere-turn per Weber.",
+    "explanationMarathi": "रिलक्टन्सचे एकक अँपियर-टर्न प्रति वेबर (Ampere turn/Weber) आहे."
   },
   {
     "id": 50082,
     "chapterId": 33,
-    "question": "1.1 kΩ ±10% मान वाले प्रतिरोधक का मान होगा।",
-    "questionMarathi": "1.1 kΩ ±10% मान वाले प्रतिरोधक का मान होगा।",
+    "question": "What will be the color code for a resistor of 1.1 kΩ ±10%?",
+    "questionMarathi": "१.१ kΩ ±१०% मूल्य असलेल्या रोधकाचे (resistor) रंग कोड काय असतील?",
     "options": [
-      "भुरा भुरा लाल चांदनी",
-      "भुरा काला सुनहरी सुनहरी",
-      "भुरा काला नारंगी चांदनी",
-      "भुरा काला भुरा लाल"
+      "Brown Brown Red Silver",
+      "Brown Black Gold Gold",
+      "Brown Black Orange Silver",
+      "Brown Black Brown Red"
     ],
     "optionsMarathi": [
-      "भुरा भुरा लाल चांदनी",
-      "भुरा काला सुनहरी सुनहरी",
-      "भुरा काला नारंगी चांदनी",
-      "भुरा काला भुरा लाल"
+      "तपकिरी तपकिरी लाल चांदी (Silver)",
+      "तपकिरी काळा सोनेरी सोनेरी",
+      "तपकिरी काळा नारंगी चांदी",
+      "तपकिरी काळा तपकिरी लाल"
     ],
     "answer": "A",
-    "explanation": "1.1 kOhm = 11 * 100 = Brown, Brown, Red, and 10% tolerance = Silver (चांदनी).",
-    "explanationMarathi": "1.1 kOhm = 11 * 100 = Brown (भुरा), Brown (भुरा), Red (लाल), 10% = Silver (चांदनी)."
+    "explanation": "1.1 kOhm = 11 * 100. Brown (1), Brown (1), Red (x100), Silver (±10%).",
+    "explanationMarathi": "१.१ kOhm = ११ * १००. तपकिरी (१), तपकिरी (१), लाल (x१००), आणि १०% टॉलरन्ससाठी चांदी (Silver)."
   },
   {
     "id": 50083,
     "chapterId": 33,
-    "question": "नियत मान वायर वाउण्ड प्रतिरोध बनाये जाते है।",
-    "questionMarathi": "नियत मान वायर वाउण्ड प्रतिरोध बनाये जाते है।",
+    "question": "Fixed value wire wound resistors are made in which range?",
+    "questionMarathi": "निश्चित मूल्याचे वायर वाउंड रोधक (resistors) कोणत्या श्रेणीत बनवले जातात?",
     "options": [
-      "1 से 50 औम",
-      "0.1 से 50 किलो ओम",
-      "1 से 50 किलो औम",
-      "0.1 से 50 औम"
+      "1 to 50 Ohm",
+      "0.1 to 50 kOhm",
+      "1 to 50 kOhm",
+      "0.1 to 50 Ohm"
     ],
     "optionsMarathi": [
-      "1 से 50 औम",
-      "0.1 से 50 किलो ओम",
-      "1 से 50 किलो औम",
-      "0.1 से 50 औम"
+      "१ ते ५० ओहम",
+      "०.१ ते ५० किलो ओहम",
+      "१ ते ५० किलो ओहम",
+      "०.१ ते ५० ओहम"
     ],
     "answer": "B",
-    "explanation": "Fixed value wire wound resistors are made from 0.1 to 50 kOhm.",
-    "explanationMarathi": "फिक्स्ड व्हॅल्यू वायर वाउण्ड रेजिस्टर्स 0.1 ते 50 किलो ओहम पर्यंत बनवले जातात."
+    "explanation": "Fixed value wire wound resistors are typically made from 0.1 to 50 kOhm.",
+    "explanationMarathi": "निश्चित मूल्याचे वायर वाउंड रोधक सामान्यतः ०.१ ते ५० किलो ओहमपर्यंत बनवले जातात."
   },
   {
     "id": 50084,
     "chapterId": 33,
-    "question": "एक 10 औम का प्रतिरोध यदि 5 ओम के प्रतिरोध के समांतर मे जुडा है तो कुल प्रतिरोध होगा",
-    "questionMarathi": "एक 10 औम का प्रतिरोध यदि 5 ओम के प्रतिरोध के समांतर मे जुडा है तो कुल प्रतिरोध होगा",
+    "question": "If a 10 Ohm resistor is connected in parallel with a 5 Ohm resistor, the total resistance will be:",
+    "questionMarathi": "जर १० ओहमचा रोधक ५ ओहमच्या रोधकाशी समांतर (parallel) जोडला असेल, तर एकूण रोध किती असेल?",
     "options": [
-      "15 औम",
-      "33.3 औम",
-      "3.33 ओम",
-      "1.5 औम"
+      "15 Ohm",
+      "33.3 Ohm",
+      "3.33 Ohm",
+      "1.5 Ohm"
     ],
     "optionsMarathi": [
-      "15 औम",
-      "33.3 औम",
-      "3.33 ओम",
-      "1.5 औम"
+      "१५ ओहम",
+      "३३.३ ओहम",
+      "३.३३ ओहम",
+      "१.५ ओहम"
     ],
     "answer": "C",
-    "explanation": "Parallel resistance = (10 * 5) / (10 + 5) = 50 / 15 = 3.33 Ohm.",
-    "explanationMarathi": "समांतर (Parallel) रेजिस्टन्स = (10 * 5) / (10 + 5) = 50 / 15 = 3.33 Ohm."
+    "explanation": "For parallel connection: 1/Rt = 1/R1 + 1/R2 => Rt = (10 * 5) / (10 + 5) = 50 / 15 = 3.33 Ohm.",
+    "explanationMarathi": "समांतर जोडणीसाठी: १/Rt = १/R१ + १/R२ => Rt = (१० * ५) / (१० + ५) = ५० / १५ = ३.३३ ओहम."
   },
   {
     "id": 50085,
     "chapterId": 33,
-    "question": "डिस्चार्ज के पश्चात लैड एसिड सेल की धनात्मक प्लेट का रंग हो जाता है",
-    "questionMarathi": "डिस्चार्ज के पश्चात लैड एसिड सेल की धनात्मक प्लेट का रंग हो जाता है",
+    "question": "After discharge, the color of the positive plate of a Lead Acid cell becomes:",
+    "questionMarathi": "डिस्चार्ज झाल्यानंतर लेड ॲसिड सेलच्या पॉझिटिव्ह प्लेटचा रंग काय होतो?",
     "options": [
-      "सफेद",
-      "भुरा",
-      "सलेटी",
-      "चोकलेटी"
+      "White",
+      "Brown",
+      "Gray",
+      "Chocolate"
     ],
     "optionsMarathi": [
-      "सफेद",
-      "भुरा",
-      "सलेटी",
-      "चोकलेटी"
+      "पांढरा",
+      "तपकिरी",
+      "राखी (Gray)",
+      "चॉकलेट"
     ],
     "answer": "A",
     "explanation": "After discharge, the positive plate becomes Lead Sulfate which is white.",
-    "explanationMarathi": "डिस्चार्ज नंतर पॉझिटिव्ह प्लेट लेड सल्फेट बनते ज्याचा रंग पांढरा असतो."
+    "explanationMarathi": "डिस्चार्ज झाल्यानंतर, पॉझिटिव्ह प्लेट लेड सल्फेट बनते जी पांढऱ्या रंगाची असते."
   },
   {
     "id": 50086,
     "chapterId": 33,
-    "question": "निम्न मे से ताप गुणांक का प्रतिक है",
-    "questionMarathi": "निम्न मे से ताप गुणांक का प्रतिक है",
+    "question": "Which of the following is the symbol for temperature coefficient?",
+    "questionMarathi": "खालीलपैकी कोणते तापमान गुणांकाचे (temperature coefficient) प्रतीक आहे?",
     "options": [
-      "\\pi",
-      "\\alpha",
-      "\\Sigma",
-      "\\mu"
+      "pi (π)",
+      "alpha (α)",
+      "sigma (Σ)",
+      "mu (μ)"
     ],
     "optionsMarathi": [
-      "\\pi",
-      "\\alpha",
-      "\\Sigma",
-      "\\mu"
+      "पाय (π)",
+      "अल्फा (α)",
+      "सिग्मा (Σ)",
+      "म्यु (μ)"
     ],
     "answer": "B",
-    "explanation": "Temperature coefficient is represented by alpha (α).",
-    "explanationMarathi": "टेम्परेचर कोएफिशियंट (ताप गुणांक) ला अल्फा (α) ने दर्शवितात."
+    "explanation": "The temperature coefficient is represented by the Greek letter alpha (α).",
+    "explanationMarathi": "तापमान गुणांक (Temperature coefficient) ग्रीक अक्षर अल्फा (α) द्वारे दर्शविला जातो."
   },
   {
     "id": 50087,
     "chapterId": 33,
-    "question": "चुम्बकन तीव्रता का मात्रक है",
-    "questionMarathi": "चुम्बकन तीव्रता का मात्रक है",
+    "question": "What is the unit of magnetization intensity?",
+    "questionMarathi": "चुंबकन तीव्रतेचे (Magnetization intensity) एकक काय आहे?",
     "options": [
-      "वैबर/मी.",
-      "न्यूटन/वैबर",
-      "वैबर/एम्पीयर -टर्न-मी.",
-      "वैबर/वर्ग मीटर"
+      "Weber/m",
+      "Newton/Weber",
+      "Weber/Ampere-turn-m",
+      "Weber/square meter"
     ],
     "optionsMarathi": [
-      "वैबर/मी.",
-      "न्यूटन/वैबर",
-      "वैबर/एम्पीयर -टर्न-मी.",
-      "वैबर/वर्ग मीटर"
+      "वेबर/मीटर",
+      "न्यूटन/वेबर",
+      "वेबर/अँपियर-टर्न-मीटर",
+      "वेबर/चौरस मीटर (Weber/sq. m)"
     ],
     "answer": "D",
-    "explanation": "Magnetic intensity / flux density unit is Weber / sq meter (Tesla).",
-    "explanationMarathi": "मॅग्नेटिक इंटेंसिटी किंवा फ्लक्स डेन्सिटी चे एकक Weber / sq meter आहे."
+    "explanation": "Magnetic intensity or flux density is measured in Weber per square meter (also known as Tesla).",
+    "explanationMarathi": "चुंबकीय तीव्रता किंवा फ्लक्स डेन्सिटी वेबर प्रति चौरस मीटर ( Weber/sq. m) मध्ये मोजली जाते, ज्याला टेस्ला असेही म्हणतात."
   },
   {
     "id": 50088,
     "chapterId": 33,
-    "question": "1 जूल बराबर है।",
-    "questionMarathi": "1 जूल बराबर है।",
+    "question": "1 Joule is equal to:",
+    "questionMarathi": "१ जूल कशाच्या बरोबरीचा असतो?",
     "options": [
-      "1 न्यूटन",
-      "1 वॉट",
-      "1 न्यूटन मी.",
-      "1 वॉट/सै."
+      "1 Newton",
+      "1 Watt",
+      "1 Newton meter",
+      "1 Watt/sec"
     ],
     "optionsMarathi": [
-      "1 न्यूटन",
-      "1 वॉट",
-      "1 न्यूटन मी.",
-      "1 वॉट/सै."
+      "१ न्यूटन",
+      "१ वॉट",
+      "१ न्यूटन मीटर",
+      "१ वॉट/सेकंद"
     ],
     "answer": "C",
-    "explanation": "1 Joule is equal to 1 Newton meter (N.m).",
-    "explanationMarathi": "1 जूल म्हणजे 1 न्यूटन मीटर (N.m)."
+    "explanation": "One Joule is the work done by a force of one Newton acting through a distance of one meter (1 J = 1 N.m).",
+    "explanationMarathi": "एक जूल म्हणजे एक न्यूटन बलाने एक मीटर अंतर पार केल्यावर केलेले कार्य (१ J = १ N.m)."
   },
   {
     "id": 50089,
     "chapterId": 33,
-    "question": "निम्न मे से स्थाई चुम्बक बनने के लिए उपयुक्त पदार्थ है",
-    "questionMarathi": "निम्न मे से स्थाई चुम्बक बनने के लिए उपयुक्त पदार्थ है",
+    "question": "Which of the following materials is suitable for making permanent magnets?",
+    "questionMarathi": "कायमस्वरूपी चुंबक बनवण्यासाठी खालीलपैकी कोणता पदार्थ योग्य आहे?",
     "options": [
-      "तांबा",
-      "म्युमेटल",
-      "परमैलाय",
-      "एलिनको"
+      "Copper",
+      "Mu-metal",
+      "Permalloy",
+      "Alnico"
     ],
     "optionsMarathi": [
-      "तांबा",
-      "म्युमेटल",
-      "परमैलाय",
-      "एलिनको"
+      "तांबे (Copper)",
+      "म्यु-मेटल (Mu-metal)",
+      "परमॅलॉय (Permalloy)",
+      "अलिनको (Alnico)"
     ],
     "answer": "D",
-    "explanation": "Alnico is suitable for making permanent magnets.",
-    "explanationMarathi": "कायमस्वरूपी चुंबक बनवण्यासाठी अलिनको (Alnico) हा पदार्थ योग्य आहे."
+    "explanation": "Alnico (Aluminum-Nickel-Cobalt alloy) is a common material used to create strong permanent magnets.",
+    "explanationMarathi": "अलिनको (Alnico - ॲल्युमिनियम-निकेल-कोबाल्ट संमिश्र) हा मजबूत कायमस्वरूपी चुंबक तयार करण्यासाठी वापरला जाणारा एक सामान्य पदार्थ आहे."
   },
   {
     "id": 50090,
     "chapterId": 33,
-    "question": "निम्न मे से कौनसा सेल रूक रूक कर विद्युत धारा प्रदान करता है",
-    "questionMarathi": "निम्न मे से कौनसा सेल रूक रूक कर विद्युत धारा प्रदान करता है",
+    "question": "Which of the following cells provides intermittent electric current?",
+    "questionMarathi": "खालीलपैकी कोणता सेल थांबून-थांबून (intermittent) विद्युत प्रवाह प्रदान करतो?",
     "options": [
-      "डेनियल",
-      "वोल्टेइक",
-      "लेकलांची",
-      "सिल्वर आक्साइड"
+      "Daniell cell",
+      "Voltaic cell",
+      "Leclanché cell",
+      "Silver oxide cell"
     ],
     "optionsMarathi": [
-      "डेनियल",
-      "वोल्टेइक",
-      "लेकलांची",
-      "सिल्वर आक्साइड"
+      "डेनियल सेल",
+      "व्होल्टाइक सेल",
+      "लेकलांची सेल (Leclanche)",
+      "सिल्व्हर ऑक्साईड सेल"
     ],
     "answer": "C",
-    "explanation": "Leclanche cell is used for intermittent current supply.",
-    "explanationMarathi": "लेकलांची (Leclanche) सेल थांबून-थांबून (intermittent) विद्युत धारा प्रदान करतो."
+    "explanation": "The Leclanché cell is ideal for intermittent use (like in doorbells) because it can recover during inactive periods.",
+    "explanationMarathi": "लेकलांची सेल (Leclanche cell) थांबून-थांबून वापरण्यासाठी (उदा. डोअरबेलमध्ये) आदर्श आहे कारण तो निष्क्रिय कालावधीत पुन्हा कार्यक्षम होऊ शकतो."
   },
   {
     "id": 50091,
     "chapterId": 33,
-    "question": "नियत मान वायर वाउण्ड प्रतिरोधक अधिकतम कितने वॉट तक बनाये जाते है ?",
-    "questionMarathi": "नियत मान वायर वाउण्ड प्रतिरोधक अधिकतम कितने वॉट तक बनाये जाते है ?",
+    "question": "What is the maximum power rating (Watts) for which fixed value wire wound resistors are typically made?",
+    "questionMarathi": "निश्चित मूल्याचे वायर वाउंड रोधक (resistors) सामान्यतः जास्तीत जास्त किती वॉट क्षमतेपर्यंत बनवले जातात?",
     "options": [
-      "1 वॉट",
-      "100 वॉट",
-      "50 वॉट",
-      "0.5 वॉट"
+      "1 Watt",
+      "100 Watts",
+      "50 Watts",
+      "0.5 Watt"
     ],
     "optionsMarathi": [
-      "1 वॉट",
-      "100 वॉट",
-      "50 वॉट",
-      "0.5 वॉट"
+      "१ वॉट",
+      "१०० वॉट",
+      "५० वॉट",
+      "०.५ वॉट"
     ],
     "answer": "C",
-    "explanation": "Fixed value wire wound resistors are typically made up to 50 Watts.",
-    "explanationMarathi": "निश्चित मूल्याचे वायर वाउंड रेझिस्टर जास्तीत जास्त 50 वॉट पर्यंत बनवले जातात."
+    "explanation": "Standard fixed value wire wound resistors are usually manufactured for power ratings up to 50 Watts.",
+    "explanationMarathi": "मानक निश्चित मूल्याचे वायर वाउंड रोधक सहसा ५० वॉटपर्यंतच्या पॉवर रेटिंगसाठी तयार केले जातात."
   },
   {
     "id": 50092,
     "chapterId": 33,
-    "question": "36KΩ ±4% मान वाले प्रतिरोधक का रंग निर्धारण होगा ?",
-    "questionMarathi": "36KΩ ±4% मान वाले प्रतिरोधक का रंग निर्धारण होगा ?",
+    "question": "What will be the color code for a resistor of 36 kΩ ±4%?",
+    "questionMarathi": "३६ kΩ ±४% मूल्य असलेल्या रोधकाचे (resistor) रंग कोड काय असतील?",
     "options": [
-      "नारंगी, हरा, पीला, पीला",
-      "नारंगी, नीला, नारंगी, पीला",
-      "नारंगी, नीला, लाल, नारंगी",
-      "नारंगी, नीला, हरा, पीला"
+      "Orange Green Yellow Yellow",
+      "Orange Blue Orange Yellow",
+      "Orange Blue Red Orange",
+      "Orange Blue Green Yellow"
     ],
     "optionsMarathi": [
-      "नारंगी, हरा, पीला, पीला",
-      "नारंगी, नीला, नारंगी, पीला",
-      "नारंगी, नीला, लाल, नारंगी",
-      "नारंगी, नीला, हरा, पीला"
+      "नारंगी हिरवा पिवळा पिवळा",
+      "नारंगी निळा नारंगी पिवळा",
+      "नारंगी निळा लाल नारंगी",
+      "नारंगी निळा हिरवा पिवळा"
     ],
     "answer": "B",
-    "explanation": "3 = Orange, 6 = Blue, kOhm means multiplier is 10^3 = Orange.",
-    "explanationMarathi": "3 = नारंगी, 6 = निळा, kOhm म्हणजे x1000 = नारंगी."
+    "explanation": "3 = Orange, 6 = Blue, 10^3 = Orange multiplier, and ±4% = Yellow (often used for ±4% or Gold/Silver for others). Note: Standard 4% is less common but usually Yellow in some scales.",
+    "explanationMarathi": "३ = नारंगी, ६ = निळा, १०^३ = नारंगी (मल्टिप्लायर), आणि ४% टॉलरन्ससाठी पिवळा (Yellow) रंग वापरला जातो."
   },
   {
     "id": 50093,
     "chapterId": 33,
-    "question": "फ्युज तार मे लैड व टिन की प्रतिशत मात्रा होती है ?",
-    "questionMarathi": "फ्युज तार मे लैड व टिन की प्रतिशत मात्रा होती है ?",
+    "question": "What is the percentage of Lead and Tin in a standard fuse wire?",
+    "questionMarathi": "मानक फ्यूज वायरमध्ये शिसे (Lead) आणि कथील (Tin) चे प्रमाण किती असते?",
     "options": [
-      "66% व 34%",
-      "37% व 63%",
-      "34% व 66%",
-      "63% व 37%"
+      "66% and 34%",
+      "37% and 63%",
+      "34% and 66%",
+      "63% and 37%"
     ],
     "optionsMarathi": [
-      "66% व 34%",
-      "37% व 63%",
-      "34% व 66%",
-      "63% व 37%"
+      "६६% आणि ३४%",
+      "३७% आणि ६३%",
+      "३४% आणि ६६%",
+      "६३% आणि ३७%"
     ],
     "answer": "B",
-    "explanation": "Standard fuse wire has 37% Lead and 63% Tin.",
-    "explanationMarathi": "फ्यूज वायर मध्ये 37% शिसे (Lead) आणि 63% कथील (Tin) असते."
+    "explanation": "Standard fuse wire is an alloy containing approximately 37% Lead and 63% Tin for an optimal melting point.",
+    "explanationMarathi": "मानक फ्यूज वायर हे सुमारे ३७% शिसे आणि ६३% कथील असलेले संमिश्र आहे जेणेकरून त्याचा वितळण बिंदू (melting point) योग्य राहतो."
   },
   {
     "id": 50094,
     "chapterId": 33,
-    "question": "नाईफ स्विच अधिकतम कितने एम्पीयर की धारा क्षमता के बनाये जाते है ?",
-    "questionMarathi": "नाईफ स्विच अधिकतम कितने एम्पीयर की धारा क्षमता के बनाये जाते है ?",
+    "question": "What is the maximum current capacity for which knife switches are typically made?",
+    "questionMarathi": "नाईफ स्विच (Knife switches) सामान्यतः जास्तीत जास्त किती अँपिअर क्षमतेचे बनवले जातात?",
     "options": [
-      "400 एम्पीयर",
-      "30 एम्पीयर",
-      "1000 एम्पीयर",
-      "100 एम्पीयर"
+      "400 Ampere",
+      "30 Ampere",
+      "1000 Ampere",
+      "100 Ampere"
     ],
     "optionsMarathi": [
-      "400 एम्पीयर",
-      "30 एम्पीयर",
-      "1000 एम्पीयर",
-      "100 एम्पीयर"
+      "४०० अँपिअर",
+      "३० अँपिअर",
+      "१००० अँपिअर",
+      "१०० अँपिअर"
     ],
     "answer": "C",
-    "explanation": "Knife switches are made for currents up to 1000 Amperes.",
-    "explanationMarathi": "नाईफ स्विच जास्तीत जास्त 1000 अँपियर क्षमतेपर्यंत बनवले जातात."
+    "explanation": "Large industrial knife switches are designed to handle currents up to 1000 Amperes.",
+    "explanationMarathi": "मोठे औद्योगिक नाईफ स्विच १००० अँपिअर पर्यंतचा विद्युत प्रवाह हाताळण्यासाठी डिझाइन केलेले असतात."
   },
   {
     "id": 50095,
     "chapterId": 33,
-    "question": "निम्न मे से कौनसा पदार्थ विद्युत का सबसे अच्छा चालक है ?",
-    "questionMarathi": "निम्न मे से कौनसा पदार्थ विद्युत का सबसे अच्छा चालक है ?",
+    "question": "Which of the following substances is the best conductor of electricity among the given options?",
+    "questionMarathi": "खालीलपैकी कोणता पदार्थ विद्युत प्रवाहाचा सर्वोत्तम वाहक (conductor) आहे?",
     "options": [
-      "पॉसलिन",
-      "माइका",
-      "नाइक्रोम",
-      "एस्बेस्टस"
+      "Porcelain",
+      "Mica",
+      "Nichrome",
+      "Asbestos"
     ],
     "optionsMarathi": [
-      "पॉसलिन",
-      "माइका",
-      "नाइक्रोम",
-      "एस्बेस्टस"
+      "पोरसिलेन (Porcelain)",
+      "मायका (Mica)",
+      "नायक्रोम (Nichrome)",
+      "एस्बेस्टोस (Asbestos)"
     ],
     "answer": "C",
-    "explanation": "Among the options, Nichrome is a conductor (alloy), while others are insulators.",
-    "explanationMarathi": "दिलेल्या पर्यायांपैकी, नायक्रोम (Nichrome) हा विद्युत वाहक आहे, तर इतर दुर्वाहक आहेत."
+    "explanation": "Among the options provided, Nichrome is a resistive conductor, while porcelain, mica, and asbestos are insulators.",
+    "explanationMarathi": "दिलेल्या पर्यायांपैकी, नायक्रोम (Nichrome) हा एक वाहक (संमिश्र) आहे, तर पोरसिलेन, मायका आणि एस्बेस्टोस हे विद्युत दुर्वाहक (insulators) आहेत."
   },
   {
     "id": 50096,
     "chapterId": 33,
-    "question": "रंग संकेत तालिका के अनुसार बैंगनी रंग का दूसरी पट्टी का मान होता है ?",
-    "questionMarathi": "रंग संकेत तालिका के अनुसार बैंगनी रंग का दूसरी पट्टी का मान होता है ?",
+    "question": "According to the resistor color code chart, what is the value of the Violet color on the second band?",
+    "questionMarathi": "रोधक (resistor) रंग कोड चार्टनुसार, दुसऱ्या पट्टीवरील जांभळ्या (Violet) रंगाचे मूल्य काय असते?",
     "options": [
       "8",
       "7",
@@ -25071,176 +25071,176 @@ export const QUESTIONS: Question[] = [
       "9"
     ],
     "optionsMarathi": [
-      "8",
-      "7",
-      "6",
-      "9"
+      "८",
+      "७",
+      "६",
+      "९"
     ],
     "answer": "B",
-    "explanation": "Violet color band represents the number 7.",
-    "explanationMarathi": "रंग कोड नुसार जांभळा (Violet) रंग 7 दर्शवतो."
+    "explanation": "In the standard resistor color code, the Violet color represents the digit 7.",
+    "explanationMarathi": "मानक रोधक रंग कोडमध्ये, जांभळा (Violet) रंग ७ हा अंक दर्शवतो."
   },
   {
     "id": 50097,
     "chapterId": 33,
-    "question": "किसी पदार्थ के परमाणु का सबसे हल्का भाग होता है ?",
-    "questionMarathi": "किसी पदार्थ के परमाणु का सबसे हल्का भाग होता है ?",
+    "question": "What is the lightest part of an atom of any substance?",
+    "questionMarathi": "कोणत्याही पदार्थाच्या अणूचा (atom) सर्वात हलका भाग कोणता असतो?",
     "options": [
-      "प्रोटोन",
-      "इलैक्ट्रोन",
-      "न्यूट्रोन",
-      "नाभिक"
+      "Proton",
+      "Electron",
+      "Neutron",
+      "Nucleus"
     ],
     "optionsMarathi": [
-      "प्रोटोन",
-      "इलैक्ट्रोन",
-      "न्यूट्रोन",
-      "नाभिक"
+      "प्रोटॉन",
+      "इलेक्ट्रॉन",
+      "न्यूट्रॉन",
+      "केंद्रक (Nucleus)"
     ],
     "answer": "B",
-    "explanation": "The electron is the lightest subatomic particle in an atom.",
-    "explanationMarathi": "इलेक्ट्रॉन हा अणूतील सर्वात हलका कण आहे."
+    "explanation": "The electron is much lighter than both protons and neutrons (approximately 1/1836th of a proton's mass).",
+    "explanationMarathi": "इलेक्ट्रॉन हा प्रोटॉन आणि न्यूट्रॉनपेक्षा खूप हलका असतो (प्रोटॉनच्या वस्तुमानाच्या साधारणपणे १/१८३६ पट)."
   },
   {
     "id": 50098,
     "chapterId": 33,
-    "question": "1.8Ω ±5% का रंग निर्धारण होगा ?",
-    "questionMarathi": "1.8Ω ±5% का रंग निर्धारण होगा ?",
+    "question": "What will be the color code for a resistor of 1.8 Ω ±5%?",
+    "questionMarathi": "१.८ Ω ±५% मूल्य असलेल्या रोधकाचे (resistor) रंग कोड काय असतील?",
     "options": [
-      "काला, सलेटी, लाल, सुनहरी",
-      "भूरा, काला, सलेटी, सुनहरी",
-      "भूरा, सलेटी, सुनहरी, सुनहरी",
-      "भूरा, बैंगनी, चांदनी, सुनहरी"
+      "Black Gray Red Gold",
+      "Brown Black Gray Gold",
+      "Brown Gray Gold Gold",
+      "Brown Violet Silver Gold"
     ],
     "optionsMarathi": [
-      "काला, सलेटी, लाल, सुनहरी",
-      "भूरा, काला, सलेटी, सुनहरी",
-      "भूरा, सलेटी, सुनहरी, सुनहरी",
-      "भूरा, बैंगनी, चांदनी, सुनहरी"
+      "काळा राखी लाल सोनेरी",
+      "तपकिरी काळा राखी सोनेरी",
+      "तपकिरी राखी सोनेरी सोनेरी",
+      "तपकिरी जांभळा चांदी सोनेरी"
     ],
     "answer": "C",
-    "explanation": "1 = Brown, 8 = Gray, multiplier 0.1 = Gold, 5% = Gold.",
-    "explanationMarathi": "1 = भुरा, 8 = सलेटी, x0.1 = सुनहरी, आणि 5% = सुनहरी."
+    "explanation": "1 = Brown, 8 = Gray, 0.1 multiplier = Gold, ±5% tolerance = Gold.",
+    "explanationMarathi": "१ = तपकिरी (Brown), ८ = राखी (Gray), ०.१ मल्टिप्लायर = सोनेरी (Gold), आणि ५% टॉलरन्ससाठी सोनेरी (Gold)."
   },
   {
     "id": 50099,
     "chapterId": 33,
-    "question": "एक मोटे चालक की अपेक्षा पतले चालक मे से बहने वाली धारा का मान होगा ?",
-    "questionMarathi": "एक मोटे चालक की अपेक्षा पतले चालक मे से बहने वाली धारा का मान होगा ?",
+    "question": "Compared to a thick conductor, the current flowing through a thin conductor will be:",
+    "questionMarathi": "जाड वाहकाच्या (conductor) तुलनेत पातळ वाहकातून वाहणाऱ्या विद्युत प्रवाहाचे मूल्य काय असेल?",
     "options": [
-      "अधिक",
-      "कम",
-      "शून्य",
-      "अनन्त"
+      "Higher",
+      "Lower",
+      "Zero",
+      "Infinite"
     ],
     "optionsMarathi": [
-      "अधिक",
-      "कम",
+      "जास्त",
+      "कमी",
       "शून्य",
-      "अनन्त"
+      "अनंत"
     ],
     "answer": "B",
-    "explanation": "A thinner conductor has higher resistance, hence it allows less current.",
-    "explanationMarathi": "पातळ वायर्सचा रेजिस्टन्स जास्त असतो, त्यामुळे त्यातून कमी विद्युत धारा वाहते."
+    "explanation": "A thinner wire has higher resistance than a thick one, therefore it allows less current to flow through it.",
+    "explanationMarathi": "पातळ तारेचा रोध (resistance) जाड तारेपेक्षा जास्त असतो, त्यामुळे त्यातून कमी विद्युत प्रवाह वाहतो."
   },
   {
     "id": 50100,
     "chapterId": 33,
-    "question": "सिल्वर नाइट्रेट के घोल मे 1 सेकण्ड तक धारा प्रवाह से कितनी चांदी कैथोड पर मिले की धारा का मान 1 एम्पी हो?",
-    "questionMarathi": "सिल्वर नाइट्रेट के घोल मे 1 सेकण्ड तक धारा प्रवाह से कितनी चांदी कैथोड पर मिले की धारा का मान 1 एम्पी हो?",
+    "question": "How much silver will be deposited on the cathode in 1 second if 1 Ampere current flows through a silver nitrate solution?",
+    "questionMarathi": "सिल्व्हर नायट्रेटच्या द्रावणातून १ अँपिअर प्रवाह १ सेकंद वाहिल्यास कॅथोडवर किती चांदी जमा होईल?",
     "options": [
-      "0.00118 ग्राम",
-      "0.0118 ग्राम",
-      "0.000118 ग्राम",
-      "0.001118 ग्राम"
+      "0.00118 gram",
+      "0.0118 gram",
+      "0.000118 gram",
+      "0.001118 gram"
     ],
     "optionsMarathi": [
-      "0.00118 ग्राम",
-      "0.0118 ग्राम",
-      "0.000118 ग्राम",
-      "0.001118 ग्राम"
+      "०.००११८ ग्रॅम",
+      "०.०११८ ग्रॅम",
+      "०.०००११८ ग्रॅम",
+      "०.००१११८ ग्रॅम"
     ],
     "answer": "D",
-    "explanation": "Electrochemical equivalent of silver is 0.001118 g/Coulomb.",
-    "explanationMarathi": "चांदीचा इलेक्ट्रोकेमिकल इक्विव्हॅलंट (Z) 0.001118 ग्रॅम प्रति कुलॉम्ब आहे."
+    "explanation": "The electrochemical equivalent (ECE) of silver is 0.001118 g/C, which is the mass deposited by 1 Ampere in 1 second.",
+    "explanationMarathi": "चांदीचा इलेक्ट्रोकेमिकल इक्विव्हॅलंट (ECE) ०.००१११८ ग्रॅम/कुलॉम्ब आहे, म्हणजेच १ अँपिअर प्रवाहाने १ सेकंदात जमा झालेले वस्तुमान."
   },
   {
     "id": 50101,
     "chapterId": 33,
-    "question": "निम्न मे से किस प्रकार का घोल विद्युत का कुचालक है ?",
-    "questionMarathi": "निम्न मे से किस प्रकार का घोल विद्युत का कुचालक है ?",
+    "question": "Which of the following solutions is an insulator of electricity?",
+    "questionMarathi": "खालीलपैकी कोणते द्रावण विद्युत दुर्वाहक (insulator) आहे?",
     "options": [
-      "तेजाब",
-      "नमक मिला पानी",
-      "अलकोहल",
-      "पानी मिला क्षार"
+      "Acid",
+      "Saltwater",
+      "Alcohol",
+      "Alkaline solution"
     ],
     "optionsMarathi": [
-      "तेजाब",
-      "नमक मिला पानी",
-      "अलकोहल",
-      "पानी मिला क्षार"
+      "ॲसिड (तेजाब)",
+      "मिठाचे पाणी",
+      "अल्कोहोल",
+      "अल्कधर्मी द्रावण"
     ],
     "answer": "C",
-    "explanation": "Alcohol does not ionize in water and is an insulator.",
-    "explanationMarathi": "अल्कोहोल (Alcohol) पाण्यात आयोनाइज होत नाही, म्हणून ते विद्युत दुर्वाहक आहे."
+    "explanation": "Alcohol does not dissociate into ions in water, making it a non-conductor (insulator) of electricity.",
+    "explanationMarathi": "अल्कोहोलचे पाण्यात आयनमध्ये विघटन होत नाही, त्यामुळे ते विद्युत दुर्वाहक (insulator) असते."
   },
   {
     "id": 50102,
     "chapterId": 33,
-    "question": "निम्न मे से फैराडे के विद्युत अपघटय के नियमानुसार सही है -",
-    "questionMarathi": "निम्न मे से फैराडे के विद्युत अपघटय के नियमानुसार सही है -",
+    "question": "According to Faraday's Laws of Electrolysis, which of the following is correct?",
+    "questionMarathi": "फॅरेडेच्या विद्युत अपघटनाच्या (electrolysis) नियमांनुसार खालीलपैकी कोणते बरोबर आहे?",
     "options": [
       "m = z.i.t",
       "m = I.t",
       "m = z/I.t",
-      "उपरोक्त सभी"
+      "All of the above"
     ],
     "optionsMarathi": [
       "m = z.i.t",
       "m = I.t",
       "m = z/I.t",
-      "उपरोक्त सभी"
+      "वरील सर्व"
     ],
     "answer": "A",
-    "explanation": "Faraday's first law of electrolysis: m = Z * I * t.",
-    "explanationMarathi": "फॅरेडेच्या पहिल्या नियमानुसार वस्तुमान (m) = Z * I * t असते."
+    "explanation": "Faraday's first law states that the mass (m) of a substance liberated at an electrode is proportional to the total charge passed (Q = I*t), so m = Z * I * t.",
+    "explanationMarathi": "फॅरेडेचा पहिला नियम असे सांगतो की इलेक्ट्रोडवर मुक्त झालेले वस्तुमान (m) हे त्यातून प्रवाहित झालेल्या एकूण शुल्काच्या (Q = I*t) प्रमाणात असते, म्हणून m = Z * I * t."
   },
   {
     "id": 50103,
     "chapterId": 33,
-    "question": "एक कूलाम कि विद्युत किसी इलैक्ट्रलाईट मे से प्रवाहित करने पर मुक्त द्रव्यमान है ?",
-    "questionMarathi": "एक कूलाम कि विद्युत किसी इलैक्ट्रलाईट मे से प्रवाहित करने पर मुक्त द्रव्यमान है ?",
+    "question": "What is the term for the mass liberated by passing 1 Coulomb of electricity through an electrolyte?",
+    "questionMarathi": "विद्युत अपघटनीतून (electrolyte) १ कुलॉम्ब विद्युत प्रवाह प्रवाहित केल्यावर मुक्त झालेल्या वस्तुमानाला काय म्हणतात?",
     "options": [
-      "विद्युत रासायनिक तुल्यांक",
-      "रासायनिक तुल्यांक",
-      "अपघटन",
-      "उपरोक्त सभी"
+      "Electrochemical equivalent",
+      "Chemical equivalent",
+      "Decomposition",
+      "All of the above"
     ],
     "optionsMarathi": [
-      "विद्युत रासायनिक तुल्यांक",
+      "विद्युत रासायनिक तुल्यांक (Electrochemical equivalent)",
       "रासायनिक तुल्यांक",
-      "अपघटन",
-      "उपरोक्त सभी"
+      "विघटन (Decomposition)",
+      "वरील सर्व"
     ],
     "answer": "A",
-    "explanation": "Mass liberated by 1 Coulomb of charge is called Electrochemical Equivalent.",
-    "explanationMarathi": "१ कुलॉम्ब विद्युत प्रवाहाने मुक्त झालेल्या वस्तुमानाला विद्युत रासायनिक तुल्यांक (Electrochemical Equivalent) म्हणतात."
+    "explanation": "The electrochemical equivalent (ECE) is defined as the mass of a substance deposited or liberated by 1 Coulomb of electricity.",
+    "explanationMarathi": "विद्युत रासायनिक तुल्यांक (ECE) म्हणजे १ कुलॉम्ब विद्युत प्रवाहाने जमा झालेले किंवा मुक्त झालेले पदार्थाचे वस्तुमान होय."
   },
   {
     "id": 50104,
     "chapterId": 33,
-    "question": "विद्युत की मात्रा का मात्रक होता है ?",
-    "questionMarathi": "विद्युत की मात्रा का मात्रक होता है ?",
+    "question": "What is the unit of quantity of electricity?",
+    "questionMarathi": "विद्युत प्रवाहाच्या प्रमाणाचे (Quantity of electricity) एकक काय आहे?",
     "options": [
-      "कूलाम (Coulomb)",
-      "एम्पियर (Ampere)",
-      "व्होल्ट (Volt)",
-      "वॉट (Watt)"
+      "Coulomb",
+      "Ampere",
+      "Volt",
+      "Watt"
     ],
     "optionsMarathi": [
-      "कूलाम (Coulomb)",
-      "एम्पियर (Ampere)",
+      "कुलॉम्ब (Coulomb)",
+      "अँपिअर (Ampere)",
       "व्होल्ट (Volt)",
       "वॉट (Watt)"
     ],
