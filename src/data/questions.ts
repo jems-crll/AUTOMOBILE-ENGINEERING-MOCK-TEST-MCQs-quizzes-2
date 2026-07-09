@@ -316,6 +316,15 @@ export const CHAPTERS: Chapter[] = [
     "descriptionMarathi": "विद्युत मूलभूत बहुपर्यायी प्रश्न.",
     "icon": "Zap",
     "section": "Electrical"
+  },
+  {
+    "id": 37,
+    "name": "Electrical Set 8 (Q 186 - 210)",
+    "nameMarathi": "विद्युत संच 8 (प्र 186 ते 210)",
+    "description": "Electrical Basics and Machines MCQs.",
+    "descriptionMarathi": "विद्युत मूलभूत आणि मशीन्स बहुपर्यायी प्रश्न.",
+    "icon": "Zap",
+    "section": "Electrical"
   }
 ];
 
@@ -25060,5 +25069,530 @@ export const QUESTIONS: Question[] = [
   "answer": "B",
   "explanation": "Mica is a natural mineral that can withstand high temperatures and fire. It is an insulator but a good conductor of heat.",
   "explanationMarathi": "अभ्रक हा एक असा नैसर्गिक खनिज पदार्थ आहे ज्याच्यावर आगीचा किंवा अतिउच्च तापमानाचा कोणताही परिणाम होत नाही. तो विजेचा अचालक पण उष्णतेचा चांगला वाहक आहे, म्हणूनच तो इस्त्रीमध्ये वापरला जातो."
+},
+{
+  "id": 1186,
+  "chapterId": 37,
+  "question": "According to the resistor color coding table, what is the tolerance value for the fourth yellow band?",
+  "questionMarathi": "रेझिस्टरच्या कलर कोडिंग तक्त्यानुसार, पिवळ्या रंगाच्या चौथ्या पट्टीचे टॉलरन्स (सहिष्णुता) मूल्य काय असते?",
+  "options": [
+    "±2%",
+    "±3%",
+    "±4%",
+    "±10%"
+  ],
+  "optionsMarathi": [
+    "±2%",
+    "±3%",
+    "±4%",
+    "±10%"
+  ],
+  "answer": "C",
+  "explanation": "According to the resistor color code, yellow stands for 4. If it appears on the tolerance band, it represents ±4%.",
+  "explanationMarathi": "रेझिस्टरच्या कलर कोडिंगनुसार पिवळ्या रंगाचा अंक ४ असतो. जर पिवळा रंग चौथ्या पट्टीवर (Tolerance band) असेल, तर त्याची सहनशीलता (Tolerance) ±४% मानली जाते."
+},
+{
+  "id": 1187,
+  "chapterId": 37,
+  "question": "To which class of insulators does Mica belong?",
+  "questionMarathi": "अभ्रक (Mica) हा कोणत्या वर्गाचा अचालक (Insulator) पदार्थ आहे?",
+  "options": [
+    "Class Y",
+    "Class B",
+    "Class C",
+    "Class F"
+  ],
+  "optionsMarathi": [
+    "Y चा",
+    "B चा",
+    "C चा",
+    "F चा"
+  ],
+  "answer": "C",
+  "explanation": "Mica is a Class C insulator. Class C materials can safely withstand temperatures above 180°C.",
+  "explanationMarathi": "अभ्रक हे 'Class C' प्रकारचे अचालक आहे. 'Class C' मधील अचालक पदार्थ १८०°C पेक्षा जास्त तापमान सुरक्षितपणे सहन करू शकतात."
+},
+{
+  "id": 1188,
+  "chapterId": 37,
+  "question": "Which switch is used in staircase wiring?",
+  "questionMarathi": "जिन्याच्या वायरिंगमध्ये कोणत्या स्विचचा वापर केला जातो?",
+  "options": [
+    "One-way",
+    "Intermediate",
+    "Two-way",
+    "All of these"
+  ],
+  "optionsMarathi": [
+    "वन-वे (One-way)",
+    "इंटरमीडिएट (Intermediate)",
+    "टू-वे (Two-way)",
+    "वरील सर्व"
+  ],
+  "answer": "C",
+  "explanation": "A Two-way switch is used in staircase wiring to control a single lamp from two different locations (top and bottom).",
+  "explanationMarathi": "जिन्याच्या वायरिंगमध्ये (Staircase Wiring) 'टू-वे स्विच' वापरला जातो. यामुळे आपण एकच दिवा जिन्याच्या खालून आणि वरून अशा दोन्ही ठिकाणांहून नियंत्रित (चालू किंवा बंद) करू शकतो."
+},
+{
+  "id": 1189,
+  "chapterId": 37,
+  "question": "In a series circuit, resistors of 4, 5, and 8 ohms are connected. If 5A current flows through the 4-ohm resistor, how much current will flow through the 8-ohm resistor?",
+  "questionMarathi": "एका सिरीज सर्किटमध्ये (श्रेणी परिपथ) ४, ५, आणि ८ ओहमचे रेझिस्टर्स जोडलेले आहेत. जर ४ ओहमच्या रेझिस्टरमधून ५ एम्पिअर करंट वाहत असेल, तर ८ ओहमच्या रेझिस्टरमधून किती करंट वाहेल?",
+  "options": [
+    "10 A",
+    "4 A",
+    "5 A",
+    "1 A"
+  ],
+  "optionsMarathi": [
+    "१० एम्पिअर",
+    "४ एम्पिअर",
+    "५ एम्पिअर",
+    "१ एम्पिअर"
+  ],
+  "answer": "C",
+  "explanation": "In a series circuit, the same current flows through all components. Therefore, the 8-ohm resistor will also have 5A current.",
+  "explanationMarathi": "सिरीज सर्किटमध्ये (श्रेणी परिपथ) विद्युत प्रवाह (Current) सर्व रेझिस्टर्समधून समान वाहतो. त्यामुळे जर ४ ओहम रेझिस्टरमधून ५ एम्पिअर करंट वाहत असेल, तर ८ ओहम रेझिस्टरमधूनही ५ एम्पिअर करंटच वाहेल."
+},
+{
+  "id": 1190,
+  "chapterId": 37,
+  "question": "Which of the following is equal to 1 Watt?",
+  "questionMarathi": "खालीलपैकी १ वॉट बरोबर काय असते?",
+  "options": [
+    "1 Joule",
+    "1 Joule/second",
+    "1 Newton meter",
+    "1 kg meter/minute"
+  ],
+  "optionsMarathi": [
+    "१ जूल",
+    "१ जूल/सेकंद",
+    "१ न्यूटन मीटर",
+    "१ किग्रॅ मीटर/मिनिट"
+  ],
+  "answer": "B",
+  "explanation": "Watt is the unit of power. 1 Watt is defined as the rate of doing work at 1 Joule per second.",
+  "explanationMarathi": "विद्युत शक्तीचे (Power) एकक 'वॉट' आहे. १ वॉट म्हणजे १ जूल प्रति सेकंद काम करण्याचा दर होय. (पॉवर = कार्य / वेळ)."
+},
+{
+  "id": 1191,
+  "chapterId": 37,
+  "question": "On what does the magnetic flux density in an electromagnet's core depend?",
+  "questionMarathi": "इलेक्ट्रोमॅग्नेटच्या कोरमध्ये निर्माण होणारी चुंबकीय फ्लक्सची घनता कशावर अवलंबून असते?",
+  "options": [
+    "Current value",
+    "Number of turns",
+    "Core length",
+    "All of these"
+  ],
+  "optionsMarathi": [
+    "विद्युत प्रवाहाच्या मूल्यावर (Current value)",
+    "टर्न्सच्या संख्येवर (Number of turns)",
+    "कोरच्या लांबीवर",
+    "वरील सर्व"
+  ],
+  "answer": "D",
+  "explanation": "Magnetic flux density depends on the current flowing through it, the number of turns in the coil, and the length of the core.",
+  "explanationMarathi": "इलेक्ट्रोमॅग्नेटच्या कोरमधील चुंबकीय फ्लक्सची घनता ही त्यातून वाहणारा विद्युत प्रवाह, कॉइलमधील टर्न्सची संख्या आणि कोरची लांबी या सर्वच बाबींवर अवलंबून असते."
+},
+{
+  "id": 1192,
+  "chapterId": 37,
+  "question": "Which alloy is made from iron and nickel?",
+  "questionMarathi": "लोखंड आणि निकेलपासून बनलेला संमिश्र धातू (Alloy) कोणता आहे?",
+  "options": [
+    "Mumetal",
+    "Eureka",
+    "Permalloy",
+    "Alnico"
+  ],
+  "optionsMarathi": [
+    "म्युमेटल (Mumetal)",
+    "युरेका (Eureka)",
+    "परमॅलॉय (Permalloy)",
+    "अलनिको (Alnico)"
+  ],
+  "answer": "C",
+  "explanation": "Permalloy is an alloy made from iron and nickel, known for its high magnetic permeability.",
+  "explanationMarathi": "लोखंड (Iron) आणि निकेल (Nickel) यांच्या मिश्रणातून 'परमॅलॉय' हा संमिश्र धातू तयार होतो. याची चुंबकीय पारगम्यता (Magnetic Permeability) खूप जास्त असते."
+},
+{
+  "id": 1193,
+  "chapterId": 37,
+  "question": "What is the Electromotive Force (EMF) of a Leclanche cell?",
+  "questionMarathi": "लेक्लांचे सेलचे (Leclanche Cell) इलेक्ट्रोमोटिव्ह फोर्स (EMF - विद्युत वाहक बल) किती असते?",
+  "options": [
+    "1.1 V",
+    "1.46 V",
+    "1.08 V",
+    "1.35 V"
+  ],
+  "optionsMarathi": [
+    "१.१ व्होल्ट",
+    "१.४६ व्होल्ट",
+    "१.०८ व्होल्ट",
+    "१.३५ व्होल्ट"
+  ],
+  "answer": "B",
+  "explanation": "A Leclanche cell typically has an EMF between 1.46V and 1.5V.",
+  "explanationMarathi": "लेक्लांचे सेलचे इलेक्ट्रोमोटिव्ह फोर्स (EMF) साधारणपणे १.४६ व्होल्ट ते १.५ व्होल्ट इतके असते."
+},
+{
+  "id": 1194,
+  "chapterId": 37,
+  "question": "What is the speed of electric current?",
+  "questionMarathi": "विद्युत प्रवाहाची (Electric current) गती किती असते?",
+  "options": [
+    "3 x 10^8 m",
+    "6.24 x 10^18 m",
+    "3 x 10^8 m/s",
+    "3 x 10^18 m/s"
+  ],
+  "optionsMarathi": [
+    "३ × १०⁸ मीटर",
+    "६.२४ × १०¹⁸ मीटर",
+    "३ × १०⁸ मीटर/सेकंद",
+    "३ × १०¹⁸ मीटर/सेकंद"
+  ],
+  "answer": "C",
+  "explanation": "Electric current travels at the speed of light, which is approximately 3 x 10^8 meters per second.",
+  "explanationMarathi": "विद्युत प्रवाहाची गती ही बहुतांश वेळा प्रकाशाच्या गतीइतकीच मानली जाते, म्हणजेच ३ × १०⁸ मीटर प्रति सेकंद असते."
+},
+{
+  "id": 1195,
+  "chapterId": 37,
+  "question": "Where is the needle of an Ohmmeter when it is in the 'OFF' state?",
+  "questionMarathi": "ओहम मीटरचा (Ohmmeter) काटा 'ऑफ' (OFF) अवस्थेत असताना कुठे असतो?",
+  "options": [
+    "Zero",
+    "Center",
+    "Infinity",
+    "Anywhere"
+  ],
+  "optionsMarathi": [
+    "शून्यावर",
+    "मध्यभागी",
+    "अनंतावर (Infinity)",
+    "कुठेही असू शकतो"
+  ],
+  "answer": "C",
+  "explanation": "In the OFF state, the circuit is open. Since open circuits have infinite resistance, the needle stays at the infinity (∞) symbol.",
+  "explanationMarathi": "जब ओहम मीटर 'ऑफ' अवस्थेत असतो, तेव्हा सर्किट ओपन असते. ओपन सर्किटचा रेझिस्टन्स अनंत (Infinity) असतो, त्यामुळे ओहम मीटरचा काटा 'अनंत' (∞) या चिन्हावर स्थिर राहतो."
+},
+{
+  "id": 1196,
+  "chapterId": 37,
+  "question": "What material are the connecting terminals of a carbon resistor made of?",
+  "questionMarathi": "कार्बन रेझिस्टरचे संयोजक बिंदू (Connecting terminals) कोणत्या धातूपासून बनवले जातात?",
+  "options": [
+    "Aluminum",
+    "Tin-coated Copper",
+    "Brass",
+    "Silver"
+  ],
+  "optionsMarathi": [
+    "ॲल्युमिनियमचे",
+    "टिनचा लेप दिलेल्या तांब्याचे (Tin-coated Copper)",
+    "पितळेचे",
+    "चांदीचे"
+  ],
+  "answer": "B",
+  "explanation": "Terminals are made of copper with a thin tin coating to prevent corrosion and ensure easy soldering.",
+  "explanationMarathi": "कार्बन रेझिस्टरच्या टर्मिनल्सवर सोल्डरिंग करणे सोपे जावे आणि गंज लागू नये म्हणून तांब्याच्या तारांवर टिनचा पातळ लेप (Tin coating) दिलेला असतो."
+},
+{
+  "id": 1197,
+  "chapterId": 37,
+  "question": "How many Joules are in one kilowatt-hour (1 kWh)?",
+  "questionMarathi": "एका किलोवॉट तास (1 kWh) मध्ये किती जूल असतात?",
+  "options": [
+    "1000 Joules",
+    "3.6 x 10^5 Joules",
+    "3.6 x 10^6 Joules",
+    "All of these"
+  ],
+  "optionsMarathi": [
+    "१००० जूल",
+    "३.६ × १०⁵ जूल",
+    "३.६ × १०⁶ जूल",
+    "वरील सर्व"
+  ],
+  "answer": "C",
+  "explanation": "1 kWh = 1000W * 3600s = 3,600,000 Joules (3.6 x 10^6 J). This is also known as 1 unit of electricity.",
+  "explanationMarathi": "१ किलोवॉट = १००० वॉट आणि १ तास = ३६०० सेकंद. ऊर्जा = वॉट x सेकंद = १००० x ३६०० = ३६,००,००० जूल (म्हणजेच ३.६ x १०^६ जूल). यालाच आपण विजेचे '१ युनिट' म्हणतो."
+},
+{
+  "id": 1198,
+  "chapterId": 37,
+  "question": "Which of the following lamps will have the highest resistance?",
+  "questionMarathi": "खालीलपैकी कोणत्या लॅम्पचा (दिवा) रेझिस्टन्स (प्रतिरोध) सर्वात जास्त असेल?",
+  "options": [
+    "10 Watt",
+    "100 Watt",
+    "40 Watt",
+    "60 Watt"
+  ],
+  "optionsMarathi": [
+    "१० वॉट",
+    "१०० वॉट",
+    "४० वॉट",
+    "६० वॉट"
+  ],
+  "answer": "A",
+  "explanation": "Resistance is inversely proportional to power (R = V^2/P). The lower the wattage, the higher the resistance.",
+  "explanationMarathi": "सुत्रांनुसार, रेझिस्टन्स हा पॉवरच्या व्यस्त प्रमाणात असतो (R = V^2/P). म्हणजेच ज्या दिव्याची वॉट (पॉवर) सर्वात कमी असेल, त्याचा रेझिस्टन्स सर्वात जास्त असेल. म्हणून १० वॉटच्या लॅम्पचा रेझिस्टन्स सर्वाधिक असेल."
+},
+{
+  "id": 1199,
+  "chapterId": 37,
+  "question": "What will be the total resistance if two resistors of 4 ohms and 7 ohms are connected in parallel?",
+  "questionMarathi": "४ ओहम व ७ ओहमच्या दोन रेझिस्टरना पॅरलल सर्किटमध्ये (समांतर परिपथ) जोडल्यास एकूण (तुल्य) रेझिस्टन्स किती होईल?",
+  "options": [
+    "2 ohms",
+    "2.54 ohms",
+    "25.4 ohms",
+    "None of these"
+  ],
+  "optionsMarathi": [
+    "२ ओहम",
+    "२.५४ ओहम",
+    "२५.४ ओहम",
+    "वरीलपैकी काहीही नाही"
+  ],
+  "answer": "B",
+  "explanation": "R_total = (R1 * R2) / (R1 + R2) = (4 * 7) / (4 + 7) = 28 / 11 = 2.54 ohms.",
+  "explanationMarathi": "पॅरलल जोडणीचे सूत्र: R_total = (R1 x R2) / (R1 + R2) = (४ x ७) / (४ + ७) = २८ / ११ = २.५४ ओहम."
+},
+{
+  "id": 1200,
+  "chapterId": 37,
+  "question": "What is the specific gravity of a fully charged lead-acid battery?",
+  "questionMarathi": "लेड ॲसिड बॅटरी पूर्ण चार्ज (Fully Charged) असलेल्या अवस्थेत तिची विशिष्ट घनता (Specific Gravity) किती असते?",
+  "options": [
+    "1.25 to 1.28",
+    "Above 1.28",
+    "Below 1.25",
+    "Below 1.18"
+  ],
+  "optionsMarathi": [
+    "१.२५ ते १.२८",
+    "१.२८ पेक्षा जास्त",
+    "१.२५ पेक्षा कमी",
+    "१.१८ पेक्षा कमी"
+  ],
+  "answer": "B",
+  "explanation": "A fully charged lead-acid cell shows a specific gravity of around 1.28 or slightly higher on a hydrometer.",
+  "explanationMarathi": "लेड ॲसिड सेल पूर्ण चार्ज झाल्यावर हायड्रोमीटरने मोजली जाणारी इलेक्ट्रोलाइटची विशिष्ट घनता १.२८ च्या आसपास किंवा त्यापेक्षा थोडी जास्त दर्शवली जाते."
+},
+{
+  "id": 1201,
+  "chapterId": 37,
+  "question": "Which of the following is not a rotating part in a motor?",
+  "questionMarathi": "मोटरमध्ये खालीलपैकी कोणता भाग फिरणारा (गुमने वाला) भाग नाही?",
+  "options": [
+    "Field Winding",
+    "Armature Winding",
+    "Cooling Fan",
+    "Armature Core"
+  ],
+  "optionsMarathi": [
+    "फील्ड वाइंडिंग (Field Winding)",
+    "आर्मेचर वाइंडिंग (Armature Winding)",
+    "कूलिंग फॅन (Cooling Fan)",
+    "आर्मेचर कोर (Armature Core)"
+  ],
+  "answer": "A",
+  "explanation": "In most motors, field winding is mounted on the stator (stationary part), while armature and fans rotate.",
+  "explanationMarathi": "डीसी मोटर किंवा अनेक मोटर्समध्ये 'फील्ड वाइंडिंग' ही स्टेटरवर (स्थिर भागावर) बसवलेली असते, त्यामुळे तो फिरणारा भाग नाही. आर्मेचर, आर्मेचर कोर आणि फॅन हे मोटर चालू असताना फिरतात."
+},
+{
+  "id": 1202,
+  "chapterId": 37,
+  "question": "How is the shunt field winding constructed?",
+  "questionMarathi": "शंट फील्ड वाइंडिंग (Shunt Field Winding) कशी असते?",
+  "options": [
+    "Thin wire",
+    "Thick wire",
+    "Few turns",
+    "Both A and C"
+  ],
+  "optionsMarathi": [
+    "पातळ तारेची",
+    "जाड तारेची",
+    "कमी टर्न्सची (कम टर्न की)",
+    "A आणि C दोन्ही"
+  ],
+  "answer": "A",
+  "explanation": "Shunt field winding is made of thin wire with many turns to have high resistance and withstand supply voltage.",
+  "explanationMarathi": "शंट फील्ड वाइंडिंग ही नेहमी पातळ तारेची (Thin wire) आणि जास्त टर्न्सची (More turns) बनवली जाते, जेणेकरून तिचा रेझिस्टन्स जास्त राईल आणि ती थेट सप्लाय व्होल्टेज सहन करू शकेल."
+},
+{
+  "id": 1203,
+  "chapterId": 37,
+  "question": "What happens to the torque of a DC series motor if the load is increased?",
+  "questionMarathi": "एका डीसी सिरीज मोटरवर (DC Series Motor) लोड वाढवल्यास त्याचा टॉर्क (Torque) वर काय परिणाम होतो?",
+  "options": [
+    "Increases",
+    "Decreases",
+    "Stays constant",
+    "None of these"
+  ],
+  "optionsMarathi": [
+    "वाढतो (बढता है)",
+    "कमी होतो (घटता है)",
+    "स्थिर राहतो (नियत रहता है)",
+    "वरीलपैकी काहीही नाही"
+  ],
+  "answer": "A",
+  "explanation": "Torque is proportional to the square of the armature current (T ∝ Ia^2). Load increase causes higher current and rapid torque increase.",
+  "explanationMarathi": "डीसी सिरीज मोटरचा टॉर्क हा आर्मेचर करंटच्या वर्गाच्या थेट प्रमाणात असतो (T ∝ Ia^2). त्यामुळे लोड वाढल्यास करंट वाढतो आणि टॉर्क खूप वेगाने वाढतो."
+},
+{
+  "id": 1204,
+  "chapterId": 37,
+  "question": "What is the field coil of a generator made of?",
+  "questionMarathi": "जनरेटरची फील्ड कॉइल (Field Coil) कशापासून बनवली जाते?",
+  "options": [
+    "Lamination Sheet",
+    "Copper",
+    "Steel",
+    "Cast Iron"
+  ],
+  "optionsMarathi": [
+    "लॅमिनेशन शीट (Lamination Sheet)",
+    "कॉपर (तांबे)",
+    "स्टील",
+    "कास्ट आयरन (बीड)"
+  ],
+  "answer": "B",
+  "explanation": "Field coils are made of enameled copper wire for high conductivity and efficiency.",
+  "explanationMarathi": "विद्युत वाहक म्हणून सर्वोत्तम कार्यक्षमतेसाठी जनरेटर किंवा मोटरची फील्ड कॉइल (वाइंडिंग) नेहमी तांब्याच्या (Copper) इनॅमल्ड वायरपासून बनवली जाते."
+},
+{
+  "id": 1205,
+  "chapterId": 37,
+  "question": "Which of the following losses increases when the load current increases?",
+  "questionMarathi": "लोड करंट वाढल्यास खालीलपैकी कोणती हानी (Loss) सुद्धा वाढते?",
+  "options": [
+    "Shunt Copper Loss",
+    "Friction Loss",
+    "Armature Copper Loss",
+    "Iron Loss"
+  ],
+  "optionsMarathi": [
+    "शंट तांबा हानी (Shunt Copper Loss)",
+    "घर्षण हानी (Friction Loss)",
+    "आर्मेचर तांबा हानी (Armature Copper Loss)",
+    "लोह हानी (Iron Loss)"
+  ],
+  "answer": "C",
+  "explanation": "Armature copper loss is Ia^2 * Ra. As load current (Ia) increases, this loss increases significantly.",
+  "explanationMarathi": "आर्मेचर कॉपर लॉस हा Ia^2 Ra या सूत्राने काढतात. त्यामुळे जसा लोड करंट (Ia) वाढेल, तसा आर्मेचर कॉपर लॉस खूप जास्त प्रमाणात वाढतो. लोह हानी आणि शंट हानी हे स्थिर (Constant) लॉसेस असतात."
+},
+{
+  "id": 1206,
+  "chapterId": 37,
+  "question": "What is the purpose of using interpoles in a generator?",
+  "questionMarathi": "जनरेटरमध्ये इंटरपोल (Interpol) चा वापर कोणता प्रभाव कमी करण्यासाठी केला जातो?",
+  "options": [
+    "Heating effect",
+    "Armature Reaction",
+    "Commutation",
+    "Sparking"
+  ],
+  "optionsMarathi": [
+    "हिटिंग प्रभाव (Heating effect)",
+    "आर्मेचर रिॲक्शन (Armature Reaction)",
+    "कम्युटेशन (Commutation)",
+    "स्पार्किंग (Sparking)"
+  ],
+  "answer": "C",
+  "explanation": "Interpoles are used to improve commutation and reduce sparking at the brushes by neutralizing armature reaction in the commutating zone.",
+  "explanationMarathi": "इंटरपोल्स हे मुख्य पोल्सच्या मध्ये बसवले जातात. ते आर्मेचर रिॲक्शनचा प्रभाव कमी करून कम्युटेशन प्रक्रिया सुधारतात आणि ब्रशवर होणारी स्पार्किंग रोखतात. मुख्य उद्दिष्ट 'कम्युटेशन' सुधारणे हे असते."
+},
+{
+  "id": 1207,
+  "chapterId": 37,
+  "question": "What causes the 'Flashing Over' fault?",
+  "questionMarathi": "'ध्रुवाच्छादन दोष' (Flashing Over / Fault) खालीलपैकी कोणत्या कारणामुळे होतो?",
+  "options": [
+    "Impure electrodes",
+    "Electrolyte issues",
+    "Hydrogen gas",
+    "All of these"
+  ],
+  "optionsMarathi": [
+    "अशुद्ध इलेक्ट्रोडमुळे",
+    "इलेक्ट्रोलाइटच्या कारणामुळे",
+    "हायड्रोजन गॅसमुळे",
+    "वरील सर्व कारणांमुळे"
+  ],
+  "answer": "D",
+  "explanation": "Internal battery faults can be caused by impurities, gas accumulation, and poor electrolyte quality.",
+  "explanationMarathi": "बॅटरी किंवा केमिकल सेल्समध्ये येणारे विविध अंतर्गत दोष हे इलेक्ट्रोडमधील अशुद्धता, रासायनिक प्रक्रियांदरम्यान निघणारे गॅसेस आणि इलेक्ट्रोलाइटची खराब गुणवत्ता या सर्वांच्या एकत्रित परिणामांमुळे होऊ शकतात."
+},
+{
+  "id": 1208,
+  "chapterId": 37,
+  "question": "A DC series generator supplies 210V and 3A to a load. If the series field current is 3A, what is the armature current?",
+  "questionMarathi": "एक डीसी सिरीज जनरेटर लोडला २१० व्होल्ट आणि ३ एम्पिअर करंट पुरवतो. जर सिरीज फील्ड करंट ३ एम्पिअर असेल, तर आर्मेचर करंट किती असेल?",
+  "options": [
+    "70 A",
+    "3 A",
+    "30 A",
+    "33 A"
+  ],
+  "optionsMarathi": [
+    "७० एम्पिअर",
+    "३ एम्पिअर",
+    "३० एम्पिअर",
+    "३३ एम्पिअर"
+  ],
+  "answer": "B",
+  "explanation": "In a series generator, the armature, field, and load are all in series, so Ia = If = IL = 3A.",
+  "explanationMarathi": "डीसी सिरीज जनरेटरमध्ये आर्मेचर, सिरीज फील्ड आणि लोड हे तिन्ही एकाच रेषेत (सिरीजमध्ये) जोडलेले असतात. त्यामुळे सिरीज सर्किटच्या नियमानुसार, आर्मेचर करंट (Ia), सिरीज फील्ड करंट (Ise) आणि लोड करंट (IL) हे तिन्ही समान असतात (Ia = Ise = IL = ३ एम्पिअर)."
+},
+{
+  "id": 1209,
+  "chapterId": 37,
+  "question": "In a DC cumulative compound generator, how do the shunt and series magnetic fields relate to each other?",
+  "questionMarathi": "डीसी कम्युलेटिव्ह कंपाउंड जनरेटरमध्ये (Cumulative Compound Generator) शंट आणि सिरीज फील्डचे चुंबकीय क्षेत्र एकमेकांसाठी कसे असते?",
+  "options": [
+    "Supportive",
+    "Opposing",
+    "Very weak",
+    "Equal"
+  ],
+  "optionsMarathi": [
+    "सहाय्यक (दोन्ही एकमेकांना मदत करतात)",
+    "विरोधी (एकमेकांच्या विरुद्ध असतात)",
+    "अत्यंत कमजोर",
+    "समान"
+  ],
+  "answer": "A",
+  "explanation": "In a cumulative generator, the magnetic flux from the shunt field and series field add up to support each other (Φtotal = Φsh + Φse).",
+  "explanationMarathi": "'कम्युलेटिव्ह' (Cumulative) चा अर्थच एकत्रित होणे असा आहे. या जनरेटरमध्ये शंट फील्ड आणि सिरीज फील्ड या दोन्हीचे चुंबकीय फ्लक्स एकमेकांना मदत करतात (सहाय्य करतात), ज्यामुळे एकूण फ्लक्स वाढतो (Φtotal = Φsh + Φse)."
+},
+{
+  "id": 1210,
+  "chapterId": 37,
+  "question": "Which rule is used to find the direction of induced EMF in a DC generator?",
+  "questionMarathi": "डीसी जनरेटरमध्ये प्रेरित ईएमएफ (Induced EMF) ची दिशा शोधण्यासाठी कोणाचा नियम वापरला जातो?",
+  "options": [
+    "Fleming's Left Hand Rule",
+    "Fleming's Right Hand Rule",
+    "Lenz's Law",
+    "Ohm's Law"
+  ],
+  "optionsMarathi": [
+    "फ्लेमिंगचा डाव्या हाताचा नियम",
+    "फ्लेमिंगचा उजव्या हाताचा नियम",
+    "लेन्झचा नियम",
+    "ओहमचा नियम"
+  ],
+  "answer": "B",
+  "explanation": "Fleming's Right-Hand Rule is used to determine the direction of induced EMF in a generator.",
+  "explanationMarathi": "डीसी जनरेटरमध्ये निर्माण होणाऱ्या विद्युत वाहक बलाची (EMF) दिशा शोधण्यासाठी नेहमी 'फ्लेमिंगचा उजव्या हाताचा नियम' वापरला जातो. (डाव्या हाताचा नियम मोटरसाठी वापरतात)."
 }
 ];
