@@ -1,8 +1,6 @@
 import express from "express";
-import translate from "translate-google";
 import cors from "cors";
 import path from "path";
-import { GoogleGenAI } from "@google/genai";
 import dotenv from "dotenv";
 import { QUESTIONS } from "./src/data/questions.js";
 import Razorpay from "razorpay";
@@ -314,141 +312,39 @@ const PORT = Number(process.env.PORT) || 3000;
 
 app.use(express.json());
 
-// Initialize Gemini API client
-const apiKey = process.env.GEMINI_API_KEY;
-const ai = apiKey
-  ? new GoogleGenAI({
-      apiKey: apiKey,
-      httpOptions: {
-        headers: {
-          "User-Agent": "aistudio-build",
-        },
-      },
-    })
-  : null;
+// Gemini API DISABLED (OFFLINE MODE)
+const ai = null;
+const apiKey = null;
 
-  // API endpoint for explaining questions
+  // API endpoint for explaining questions (AI DISABLED - USING OFFLINE DATA)
   app.post("/api/explain", async (req, res) => {
-    const { question, optionSelected, correctAnswer, options, languageName, languageState, explanation, explanationTranslated } = req.body;
-    try {
-      // If Gemini is not configured, we will fall back to translate-google directly below.
-      if (!ai) {
-        throw new Error("Gemini API Client is not configured.");
-      }
+    const { question, optionSelected, correctAnswer, options, languageName, explanation, explanationMarathi } = req.body;
+    
+    const isMr = languageName?.toLowerCase().includes("marathi") || languageName?.toLowerCase().includes("mr");
+    const standardExp = isMr ? (explanationMarathi || explanation) : explanation;
 
-      const langName = languageName || "Marathi";
-      const langState = languageState || "Maharashtra";
+    const formattedExp = `
+### **Verified Explanation / सविस्तर स्पष्टीकरण:**
 
-      const prompt = `
-You are an expert Automobile Engineering tutor. Explain the following Multiple Choice Question to a student clearly and concisely.
-The student wants explanations completely and perfectly in ${langName}. Do not use English words if a ${langName} translation exists. It should be pure ${langName}.
-
-Question: ${question}
-Options:
-${options.map((opt: string, idx: number) => `${String.fromCharCode(65 + idx)}) ${opt}`).join("\n")}
-
-Correct Answer: ${correctAnswer}
-Student Selected Option: ${optionSelected || "None (Skipped)"}
-
-Please provide:
-1. Direct confirmation (Was the student correct or incorrect?).
-2. Detailed explanation of why the correct answer is right (explain the engineering principles/concepts in bilingual ${langName}-English).
-3. Why other options are incorrect or in what context they apply (briefly).
-4. Translate any very complex technical terms into simple words and give a practical real-world automobile example if applicable.
-
-Keep the tone encouraging, professional, and clear. Format the response nicely using clean Markdown.
-`;
-
-      const result = await generateContentWithRetry(ai, {
-        model: "gemini-1.5-flash",
-        contents: prompt,
-      });
-
-      res.json({ explanation: result.text });
-    } catch (error: any) {
-      console.warn("Gemini API Error in generating explanation, using local standard fallback:", error.message || error);
-      
-      const standardExp = explanationTranslated || explanation || "This question tests fundamental principles of Automobile Engineering. Please verify your course textbook or syllabus for deep structural details of this assembly.";
-      const isMr = languageName?.toLowerCase().includes("marathi") || languageName?.toLowerCase().includes("mr");
-
-      const fallbackText = `
-### ⚠️ AI Engine High Demand / तात्पुरती AI लोड मर्यादा
-*The AI tutor is currently experiencing very high demand or is temporarily unavailable. Below is the verified standard explanation for this question:*
+**Correct Answer / बरोबर उत्तर:** ${correctAnswer}
+**Your Option / तुमचा पर्याय:** ${optionSelected || "None (न निवडलेला)"}
 
 ---
 
-**Correct Answer / बरोबर उत्तर:** ${correctAnswer}
-**Your Option / तुमचा पर्याय:** ${optionSelected}
-
-### **Standard Explanation / सविस्तर स्पष्टीकरण:**
 ${standardExp}
 
 ---
-*We apologize for the interruption. You can continue taking tests seamlessly.*
+*Verified from Automobile Engineering Textbook (ऑफलाइन माहिती).*
 `;
-      res.json({ explanation: fallbackText, isFallback: true });
-    }
+    res.json({ explanation: formattedExp, isFallback: false });
   });
 
-  // API endpoint for generating questions dynamically (Endless 1000+ Questions Mode)
+  // API endpoint for generating questions dynamically (AI DISABLED - USING LOCAL BANK)
   app.post("/api/generate-questions", async (req, res) => {
-    const { chapterId, chapterName, count, languageName, languageState } = req.body;
+    const { chapterId, count, languageName } = req.body;
     const countNum = Math.min(25, Math.max(5, parseInt(count) || 10));
+    
     try {
-      // If Gemini is not configured, fall back to translate-google
-      if (!ai) {
-        throw new Error("GEMINI_MISSING");
-      }
-
-      const langName = languageName || "Marathi";
-      const langState = languageState || "Maharashtra";
-
-      const prompt = `
-You are an elite Automobile Engineering professor and exam designer for Indian technical education boards (like MSBTE, GTU, TNDTE, etc.).
-Generate ${countNum} high-quality, textbook-level Multiple Choice Questions (MCQs) for the following chapter:
-Chapter ID: ${chapterId === "all" ? "Mixed" : chapterId}
-Chapter Name: ${chapterName}
-
-You must write each question in two versions:
-1. English (rigorous, technical)
-2. Regional Indian Language: ${langName} (used in ${langState}). 
-For the ${langName} version, use pure and proper ${langName}. Translate all technical words perfectly into ${langName} where possible. Do not mix English and ${langName}.
-
-The response MUST be a valid JSON array of objects. Do not include any explanation or markdown formatting outside of the JSON block. Do not wrap it in anything other than the JSON array.
-
-Strict JSON format:
-[
-  {
-    "id": <a unique random positive integer between 1000 and 99999>,
-    "chapterId": ${chapterId === "all" ? 1 : chapterId},
-    "question": "Question text in English",
-    "questionTranslated": "Question text in ${langName}",
-    "options": ["Option A in English", "Option B in English", "Option C in English", "Option D in English"],
-    "optionsTranslated": ["Option A in ${langName}", "Option B in ${langName}", "Option C in ${langName}", "Option D in ${langName}"],
-    "answer": "A", // must be A, B, C, or D
-    "explanation": "Clear, informative explanation of why the correct answer is right and others are incorrect, written primarily in ${langName} with English technical terms."
-  }
-]
-
-Please ensure the questions are rigorous, strictly accurate, cover diverse topics within the chapter, and do not repeat simple introductory facts. Keep the correct answers evenly distributed among A, B, C, and D.
-`;
-
-      const result = await generateContentWithRetry(ai, {
-        model: "gemini-1.5-flash",
-        contents: prompt,
-        config: {
-          responseMimeType: "application/json",
-        }
-      });
-
-      const responseText = result.text?.trim() || "[]";
-      const questions = JSON.parse(responseText);
-
-      res.json({ questions });
-    } catch (error: any) {
-      console.warn("Gemini API Error in generating questions, using robust local database fallback:", error.message || error);
-      
-      try {
         // Filter questions by chapter
         let filtered = [...QUESTIONS];
         if (chapterId !== "all") {
@@ -467,106 +363,42 @@ Please ensure the questions are rigorous, strictly accurate, cover diverse topic
         const isMr = languageName?.toLowerCase().includes("marathi") || languageName?.toLowerCase().includes("mr");
 
         const fallbackQuestions = filtered.map((q) => ({
-          id: q.id + 50000 + Math.floor(Math.random() * 10000), // Ensure random unique IDs
+          id: q.id + 50000 + Math.floor(Math.random() * 10000), 
           chapterId: q.chapterId,
           question: q.question,
           questionTranslated: isMr ? q.questionMarathi : q.question,
           options: q.options,
           optionsTranslated: isMr ? q.optionsMarathi : q.options,
           answer: q.answer,
-          explanation: isMr ? (q.explanationMarathi || q.explanation) : q.explanation
+          explanation: isMr ? (q.explanationMarathi || q.explanation) : q.explanation,
+          explanationMarathi: q.explanationMarathi
         }));
 
-        console.log(`Successfully generated ${fallbackQuestions.length} fallback questions from local Textbook Bank.`);
-        res.json({ questions: fallbackQuestions, isFallback: true });
-      } catch (fallbackError: any) {
-        console.error("Critical: Fallback generation failed:", fallbackError);
-        res.status(500).json({ error: "Failed to generate questions. Standard textbook bank fallback failed." });
+        res.json({ questions: fallbackQuestions });
+      } catch (error) {
+        console.error("Local question generation failed:", error);
+        res.status(500).json({ error: "Failed to load questions from local bank." });
       }
-    }
   });
 
-  // API endpoint for translating static questions to any Indian language on demand
+  // API endpoint for translating (AI DISABLED - USING OFFLINE PASSTHROUGH)
   app.post("/api/translate-questions", async (req, res) => {
-    const { questions, languageName, languageState } = req.body;
-    try {
-      // If Gemini is not configured, fall back to translate-google
-      if (!ai) {
-        throw new Error("GEMINI_MISSING");
-      }
+    const { questions, languageName } = req.body;
+    const isMr = languageName?.toLowerCase().includes("marathi") || languageName?.toLowerCase().includes("mr");
+    
+    // Simply map to existing Marathi if available, else keep English
+    const translations = questions.map(q => {
+        // Try to find the original question in our database to get its Marathi version
+        const original = QUESTIONS.find(oq => oq.id === q.id);
+        return {
+            id: q.id,
+            questionTranslated: isMr ? (original?.questionMarathi || q.question) : q.question,
+            optionsTranslated: isMr ? (original?.optionsMarathi || q.options) : q.options,
+            explanationTranslated: isMr ? (original?.explanationMarathi || q.explanation) : q.explanation
+        };
+    });
 
-      if (!questions || !Array.isArray(questions)) {
-        return res.status(400).json({ error: "Invalid questions payload" });
-      }
-
-      const langName = languageName || "Marathi";
-      const langState = languageState || "Maharashtra";
-
-      const prompt = `
-You are an expert technical translator. Translate the following list of Automobile Engineering questions into ${langName} (the language of ${langState}, India).
-Follow these guidelines carefully:
-1. Retain the exact meanings, options, correct answers, and explanations.
-2. For each question, provide a translated version of the question, options, and explanation.
-3. Translate everything perfectly and entirely into ${langName}. Do not leave technical words in English if a proper ${langName} translation exists. Everything must be purely in ${langName}.
-4. Return the result strictly as a JSON array of translated questions matching the input structure. Do not add any markdown blocks or intro/outro text.
-
-Input JSON:
-${JSON.stringify(questions.map(q => ({
-  id: q.id,
-  question: q.question,
-  options: q.options,
-  explanation: q.explanation
-})))}
-
-Output JSON format:
-[
-  {
-    "id": <same id>,
-    "questionTranslated": "Translated question text",
-    "optionsTranslated": ["Translated option A", "Translated option B", "Translated option C", "Translated option D"],
-    "explanationTranslated": "Translated explanation"
-  }
-]
-`;
-
-      const result = await generateContentWithRetry(ai, {
-        model: "gemini-1.5-flash",
-        contents: prompt,
-        config: {
-          responseMimeType: "application/json",
-        }
-      });
-
-      const responseText = result.text?.trim() || "[]";
-      const translations = JSON.parse(responseText);
-
-      res.json({ translations });
-    } catch (error: any) {
-            console.warn("Gemini API Error in translating questions, falling back to translate-google:", error.message || error);
-      
-      try {
-        const langCode = (req.body.languageCode || "hi").toLowerCase();
-        // Extract only the fields we want to translate
-        const toTranslate = questions.map(q => ({
-           id: q.id,
-           questionTranslated: q.question,
-           optionsTranslated: q.options,
-           explanationTranslated: q.explanation || ""
-        }));
-        
-        const translatedArray = await translate(toTranslate, { to: langCode });
-        res.json({ translations: translatedArray });
-      } catch (fallbackErr: any) {
-        console.error("translate-google also failed:", fallbackErr.message || fallbackErr);
-        const fallbackTranslations = questions.map(q => ({
-          id: q.id,
-          questionTranslated: q.question,
-          optionsTranslated: q.options,
-          explanationTranslated: q.explanation || ""
-        }));
-        res.json({ translations: fallbackTranslations, isFallback: true });
-      }
-    }
+    res.json({ translations });
   });
 
   // Simple server-side in-memory database of webhook-verified premium users

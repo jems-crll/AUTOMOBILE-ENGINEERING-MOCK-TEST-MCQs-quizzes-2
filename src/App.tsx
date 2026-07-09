@@ -273,65 +273,15 @@ export default function App() {
 
     if (selectedLanguage.code !== "en" && selectedLanguage.code !== "mr") {
       setLoadingStatusText(
-        selectedLanguage.code === "hi" ? "AI मुख्य भाषांतर करत आहे..." :
-        selectedLanguage.code === "kn" ? "AI ಮುಖ್ಯ ಅನುವಾದಿಸುತ್ತಿದೆ..." :
-        selectedLanguage.code === "te" ? "AI ముఖ్య అనువదిస్తోంది..." :
-        selectedLanguage.code === "ta" ? "AI முக்கிய மொழிபெயர்க்கிறது..." :
-        selectedLanguage.code === "gu" ? "AI મુખ્ય અનુવાદ કરી રહ્યું છે..." :
-        "AI Translating questions..."
+        selectedLanguage.code === "hi" ? "मुख्य भाषांतर संकलित होत आहे..." :
+        selectedLanguage.code === "kn" ? "ಮುಖ್ಯ ಅನುವಾದ ಸಂಕಲಿಸಲಾಗುತ್ತಿದೆ..." :
+        selectedLanguage.code === "te" ? "ముఖ్య అనువాదం సంకలనం చేయబడుతోంది..." :
+        selectedLanguage.code === "ta" ? "முக்கிய மொழிபெயர்ப்பு தொகுக்கப்படுகிறது..." :
+        selectedLanguage.code === "gu" ? "મુખ્ય અનુવાદ સંકલિત થઈ રહ્યો છે..." :
+        "Compiling local translations..."
       );
 
-      fetch(`/api/translate-questions`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          questions: selected,
-          languageName: selectedLanguage.name,
-          languageState: selectedLanguage.state,
-          languageCode: selectedLanguage.code
-        })
-      })
-      .then((res) => {
-        if (!res.ok) throw new Error("Translation API returned " + res.status);
-        return res.json();
-      })
-      .then((data) => {
-        if (data.translations && Array.isArray(data.translations)) {
-          const translated = selected.map((q) => {
-            if (!q) return null;
-            const t = data.translations.find((item: any) => item && item.id === q.id);
-            if (t) {
-              return {
-                ...q,
-                questionTranslated: t.questionTranslated,
-                optionsTranslated: t.optionsTranslated,
-                explanationTranslated: t.explanationTranslated
-              };
-            }
-            return translateQuestionOffline(q, selectedLanguage.code);
-          }).filter(Boolean) as Question[];
-          setQuizState({
-            isActive: true,
-            questions: translated,
-            mode: config.mode,
-            chapterId: config.chapterId,
-            timeLimitMinutes: config.timeLimitMinutes,
-            setId: config.setId,
-          });
-        } else {
-          const translated = selected.filter(Boolean).map((q) => translateQuestionOffline(q, selectedLanguage.code));
-          setQuizState({
-            isActive: true,
-            questions: translated,
-            mode: config.mode,
-            chapterId: config.chapterId,
-            timeLimitMinutes: config.timeLimitMinutes,
-            setId: config.setId,
-          });
-        }
-      })
-      .catch((err) => {
-        console.error("Translation API error:", err);
+      setTimeout(() => {
         const translated = selected.filter(Boolean).map((q) => translateQuestionOffline(q, selectedLanguage.code));
         setQuizState({
           isActive: true,
@@ -341,10 +291,8 @@ export default function App() {
           timeLimitMinutes: config.timeLimitMinutes,
           setId: config.setId,
         });
-      })
-      .finally(() => {
         setLoadingTest(false);
-      });
+      }, 800);
     } else {
       setQuizState({
         isActive: true,
@@ -415,8 +363,8 @@ export default function App() {
           </h2>
           <p className="text-xs text-slate-400 max-w-xs leading-relaxed">
             {selectedLanguage.code === "mr" 
-              ? "कृपया थांबा, आमचे प्रगत AI ऑटोमोबाईल अभियांत्रिकीचे सविस्तर प्रश्न संकलित करत आहे..." 
-              : "Please wait while our advanced AI engine compiles and localizes detailed Automobile Engineering MCQs..."}
+              ? "कृपया थांबा, ऑटोमोबाईल अभियांत्रिकीचे सविस्तर प्रश्न संकलित होत आहेत..." 
+              : "Please wait while our engine compiles and localizes detailed Automobile Engineering MCQs..."}
           </p>
 
           <div className="w-full bg-slate-950 h-1.5 rounded-full mt-6 overflow-hidden border border-slate-850">

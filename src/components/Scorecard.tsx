@@ -94,8 +94,8 @@ export default function Scorecard({
       return {
         title: bilingual ? "अधिक अभ्यासाची गरज!" : "Needs More Study!",
         desc: bilingual 
-          ? "चिंता करू नका! प्रश्नांची उत्तरे तपासा, AI कडून संकल्पना समजून घ्या आणि पुन्हा प्रयत्न करा."
-          : "Don't worry! Review the incorrect answers, understand concepts with AI, and try again.",
+          ? "चिंता करू नका! प्रश्नांची उत्तरे तपासा, संकल्पना समजून घ्या आणि पुन्हा प्रयत्न करा."
+          : "Don't worry! Review the incorrect answers, understand concepts, and try again.",
         color: "text-rose-400",
         bg: "bg-rose-500/10",
         border: "border-rose-500/30",
@@ -256,9 +256,9 @@ export default function Scorecard({
             {currentReviewQuestion && (
               <h3 className="text-base md:text-lg font-bold text-white mb-2">{currentReviewQuestion.question}</h3>
             )}
-            {currentReviewQuestion && bilingual && (selectedLanguage.code === "mr" ? currentReviewQuestion.questionMarathi : currentReviewQuestion.questionTranslated) && (
+            {currentReviewQuestion && bilingual && currentReviewQuestion.questionMarathi && (
               <p className="text-sm text-slate-400 bg-slate-950/20 p-3 rounded-lg border border-slate-900 mb-6 italic font-sans">
-                {selectedLanguage.code === "mr" ? currentReviewQuestion.questionMarathi : currentReviewQuestion.questionTranslated}
+                {currentReviewQuestion.questionMarathi}
               </p>
             )}
 
@@ -286,8 +286,8 @@ export default function Scorecard({
                       </span>
                       <div>
                         <span>{opt}</span>
-                        {currentReviewQuestion && bilingual && (selectedLanguage.code === "mr" ? currentReviewQuestion.optionsMarathi?.[idx] : currentReviewQuestion.optionsTranslated?.[idx]) && (
-                          <span className="block text-[11px] text-slate-500 mt-0.5">{selectedLanguage.code === "mr" ? currentReviewQuestion.optionsMarathi?.[idx] : currentReviewQuestion.optionsTranslated?.[idx]}</span>
+                        {currentReviewQuestion && bilingual && currentReviewQuestion.optionsMarathi?.[idx] && (
+                          <span className="block text-[11px] text-slate-500 mt-0.5 italic">{currentReviewQuestion.optionsMarathi[idx]}</span>
                         )}
                       </div>
                     </div>
@@ -308,11 +308,18 @@ export default function Scorecard({
                 <span>{bilingual ? "स्पष्टीकरण" : "Explanation"}</span>
               </div>
 
-              <p className="text-xs md:text-sm text-slate-400 leading-relaxed font-sans">
-                {currentReviewQuestion && (bilingual && (selectedLanguage.code === "mr" ? currentReviewQuestion.explanationMarathi : currentReviewQuestion.explanationTranslated)
-                  ? (selectedLanguage.code === "mr" ? currentReviewQuestion.explanationMarathi : currentReviewQuestion.explanationTranslated)
-                  : currentReviewQuestion.explanation)}
-              </p>
+              <div className="space-y-3">
+                <p className="text-xs md:text-sm text-slate-400 leading-relaxed font-sans">
+                  {currentReviewQuestion && currentReviewQuestion.explanation}
+                </p>
+                {currentReviewQuestion && bilingual && currentReviewQuestion.explanationMarathi && (
+                  <div className="pt-2 border-t border-slate-800">
+                    <p className="text-[11px] md:text-xs text-slate-500 italic leading-relaxed font-sans">
+                      {currentReviewQuestion.explanationMarathi}
+                    </p>
+                  </div>
+                )}
+              </div>
             </div>
           </div>
         </div>
