@@ -24556,5 +24556,509 @@ export const QUESTIONS: Question[] = [
   "answer": "A",
   "explanation": "Red is typically used for the phase (live) wire in a single-phase system.",
   "explanationMarathi": "फेज वायरसाठी लाल रंग वापरला जातो."
+},
+{
+  "id": 1160,
+  "chapterId": 36,
+  "question": "What will be the value of resistance in an open circuit?",
+  "questionMarathi": "एका खुल्या परिपथामध्ये (Open Circuit) रोधाचे मूल्य किती असेल?",
+  "options": [
+    "High",
+    "Zero",
+    "Infinite",
+    "Low"
+  ],
+  "optionsMarathi": [
+    "उच्च",
+    "शून्य",
+    "अनंत",
+    "निम्न"
+  ],
+  "answer": "C",
+  "explanation": "In an open circuit, the path is broken, preventing current flow. For current to be zero, the resistance must be infinite.",
+  "explanationMarathi": "ओपन सर्किट म्हणजेच वायर तुटलेली असणे. वायर तुटल्यामुळे त्यामधून करंट वाहू शकत नाही. करंट पूर्णपणे शून्य होण्यासाठी मार्गातील रोध (Resistance) खूप जास्त म्हणजेच 'अनंत' (Infinite) असावा लागतो."
+},
+{
+  "id": 1162,
+  "chapterId": 36,
+  "question": "What is the ampere capacity (range) of an HRC fuse?",
+  "questionMarathi": "HRC फ्यूजची अँपिअर क्षमता (रेंज) काय असते?",
+  "options": [
+    "30 to 1000",
+    "2 to 60",
+    "5 to 3000",
+    "15 to 100"
+  ],
+  "optionsMarathi": [
+    "30 ते 1000",
+    "2 ते 60",
+    "5 ते 3000",
+    "15 ते 100"
+  ],
+  "answer": "C",
+  "explanation": "HRC (High Rupturing Capacity) fuses are used in large factories and power circuits, with capacities ranging from 5A to 3000A.",
+  "explanationMarathi": "HRC (High Rupturing Capacity) फ्यूज हे मोठ्या कारखान्यांमध्ये आणि पावर सर्किट्समध्ये वापरले जातात. त्यांची करंट वाहून नेण्याची आणि सुरक्षितपणे सर्किट खंडित करण्याची क्षमता खूप जास्त असते, जी बाजारात सामान्यतः 5A पासून 3000A पर्यंत उपलब्ध असते."
+},
+{
+  "id": 1163,
+  "chapterId": 36,
+  "question": "What is the container in which a chemical reaction is carried out called?",
+  "questionMarathi": "ज्या पात्रात रासायनिक क्रिया घडवून आणली जाते, त्याला काय म्हणतात?",
+  "options": [
+    "Chemical vessel",
+    "Separator",
+    "Voltameter",
+    "Voltmeter"
+  ],
+  "optionsMarathi": [
+    "रासायनिक पात्र",
+    "सेपरेटर",
+    "वोल्टामीटर",
+    "वोल्टमीटर"
+  ],
+  "answer": "C",
+  "explanation": "The vessel in which electrolysis (chemical process) is performed is called a 'Voltameter'. A voltmeter measures voltage.",
+  "explanationMarathi": "ज्या भांड्यात किंवा पात्रात इलेक्ट्रोलायसिस (रासायनिक प्रक्रिया) केली जाते, त्याला 'वोल्टामीटर' (Voltameter) म्हणतात. वोल्टमीटर हे व्होल्टेज मोजण्याचे साधन आहे, त्यामुळे या दोन्हीत गोंधळ होऊ देऊ नका."
+},
+{
+  "id": 1164,
+  "chapterId": 36,
+  "question": "Of what material is the anode made in a dry cell?",
+  "questionMarathi": "ड्राय सेल (शुष्क सेल) मध्ये ॲनोड कोणत्या पदार्थाचा बनलेला असतो?",
+  "options": [
+    "Zinc",
+    "Carbon",
+    "Copper",
+    "Lead"
+  ],
+  "optionsMarathi": [
+    "जस्त (झिंक)",
+    "कार्बन",
+    "तांबे",
+    "लेड (शिसें)"
+  ],
+  "answer": "B",
+  "explanation": "In a dry cell, the central black rod is made of carbon and acts as the positive terminal (anode).",
+  "explanationMarathi": "ड्राय सेलमध्ये मधील जी काळी काडी (Rod) असते, ती कार्बनची बनलेली असते आणि ती पॉझिटिव्ह टर्मिनल म्हणजेच 'ॲनोड' म्हणून काम करते. तर बाहेरील जस्ताचे कव्हर कॅथोड म्हणून काम करते."
+},
+{
+  "id": 1165,
+  "chapterId": 36,
+  "question": "If an atom has 2 electrons in the 'K' shell, how many electrons will be in the 'M' shell?",
+  "questionMarathi": "अणूच्या 'K' कक्षेत 2 इलेक्ट्रॉन आहेत, तर 'M' कक्षेत किती इलेक्ट्रॉन असतील?",
+  "options": [
+    "8",
+    "18",
+    "32",
+    "64"
+  ],
+  "optionsMarathi": [
+    "8",
+    "18",
+    "32",
+    "64"
+  ],
+  "answer": "B",
+  "explanation": "The formula for max electrons is 2n^2. For M shell (n=3), it is 2 * (3)^2 = 18.",
+  "explanationMarathi": "कोणत्या कक्षेतील जास्तीत जास्त इलेक्ट्रॉन शोधण्याचे सूत्र 2n^2 आहे. पहिल्या कक्षेसाठी (K) n=1, दुसऱ्या कक्षेसाठी (L) n=2 आणि तिसऱ्या कक्षेसाठी (M) n=3 असते. त्यानुसार, 2 x (3)^2 = 2 x 9 = 18 इलेक्ट्रॉन असतील."
+},
+{
+  "id": 1166,
+  "chapterId": 36,
+  "question": "Which of the following is the best electrical conductor?",
+  "questionMarathi": "खालीलपैकी सर्वात चांगला विद्युत वाहक कोणता आहे?",
+  "options": [
+    "Carbon",
+    "Brass",
+    "Copper",
+    "Aluminum"
+  ],
+  "optionsMarathi": [
+    "कार्बन",
+    "पितळ",
+    "तांबे",
+    "ॲल्युमिनियम"
+  ],
+  "answer": "C",
+  "explanation": "Copper has a high number of free electrons, making it the best and most affordable conductor after silver.",
+  "explanationMarathi": "तांब्यामध्ये (Copper) मुक्त इलेक्ट्रॉन्सची संख्या खूप जास्त असते, ज्यामुळे चांदीनंतर तांबे हा वीज वाहून नेण्यासाठी सर्वात चांगला आणि स्वस्त वाहक (Conductor) मानला जातो."
+},
+{
+  "id": 1167,
+  "chapterId": 36,
+  "question": "What is the SI unit of Density?",
+  "questionMarathi": "घनतेचे (Density) SI एकक काय आहे?",
+  "options": [
+    "g/cm³",
+    "kg/cm³",
+    "lb/cm³",
+    "kg/m³"
+  ],
+  "optionsMarathi": [
+    "ग्रॅम/सेमी³",
+    "किग्रॅ/सेमी³",
+    "पाऊंड/सेमी³",
+    "किग्रॅ/मीटर³"
+  ],
+  "answer": "D",
+  "explanation": "Density is mass divided by volume. In SI, mass is in kg and volume is in cubic meters (m³).",
+  "explanationMarathi": "घनता म्हणजे वजन भागिले घनफळ (Mass/Volume). SI पद्धतीमध्ये वजनाचे एकक किलोग्राम (kg) आहे आणि घनफळाचे एकक घनमीटर (m³) आहे. म्हणून याचे एकक kg/m³ (किग्रॅ/मीटर³) होते."
+},
+{
+  "id": 1168,
+  "chapterId": 36,
+  "question": "Which statement is false according to Ohm's law?",
+  "questionMarathi": "खालीलपैकी ओहमच्या नियमानुसार कोणते विधान चुकीचे (असत्य) आहे?",
+  "options": [
+    "P = V.I",
+    "V = I.R",
+    "I = R/V",
+    "P = I^2.R"
+  ],
+  "optionsMarathi": [
+    "P = V.I",
+    "V = I.R",
+    "I = R/V",
+    "P = I^2.R"
+  ],
+  "answer": "C",
+  "explanation": "The correct formula for current is I = V/R. Therefore, I = R/V is incorrect.",
+  "explanationMarathi": "ओहमच्या नियमानुसार मुख्य सूत्र V = I x R आहे. यावरून जर करंट काढायचा असेल तर त्याचे सूत्र I = V / R असायला हवे. पण पर्यायात I = R / V दिले आहे, जे चुकीचे आहे."
+},
+{
+  "id": 1169,
+  "chapterId": 36,
+  "question": "How many electrons are in the outer shell of an insulator?",
+  "questionMarathi": "अचालक (Insulator) पदार्थाच्या अणूच्या शेवटच्या कक्षेत किती इलेक्ट्रॉन असतात?",
+  "options": [
+    "1",
+    "4",
+    "2",
+    "8"
+  ],
+  "optionsMarathi": [
+    "1",
+    "4",
+    "2",
+    "8"
+  ],
+  "answer": "D",
+  "explanation": "Insulators have a full outer shell (octet). Typically, they have 8 electrons, which prevents current flow.",
+  "explanationMarathi": "अचालक (इन्सुलेटर) पदार्थांची बाह्य कक्षा पूर्णपणे भरलेली असते (त्यांचे अष्टक पूर्ण असते). स्थिर राहण्यासाठी त्यांच्या शेवटच्या कक्षेत सामान्यतः 8 इलेक्ट्रॉन्स असतात, ज्यामुळे ते स्वतःमधून करंट वाहू देत नाहीत."
+},
+{
+  "id": 1170,
+  "chapterId": 36,
+  "question": "What is the symbol for Magnetic Flux Density?",
+  "questionMarathi": "चुंबकीय फ्लक्स घनतेचे (Magnetic Flux Density) प्रतीक चिन्ह कोणते आहे?",
+  "options": [
+    "Ø",
+    "B",
+    "H",
+    "T"
+  ],
+  "optionsMarathi": [
+    "Ø",
+    "B",
+    "H",
+    "T"
+  ],
+  "answer": "B",
+  "explanation": "Magnetic flux density is represented by 'B'. 'Ø' is for flux and 'T' (Tesla) is the unit.",
+  "explanationMarathi": "चुंबकीय फ्लक्स घनतेला विज्ञानात नेहमी 'B' या अक्षराने दर्शवले जाते. (Ø हे चुंबकीय फ्लक्सचे चिन्ह आहे आणि T हे त्याचे एकक-टेस्ला आहे)."
+},
+{
+  "id": 1171,
+  "chapterId": 36,
+  "question": "What percentage of silicon is used in silicon steel?",
+  "questionMarathi": "सिलिकॉन स्टीलमध्ये सिलिकॉनचे प्रमाण किती टक्के ठेवले जाते?",
+  "options": [
+    "10%",
+    "97%",
+    "22%",
+    "2.4%"
+  ],
+  "optionsMarathi": [
+    "10 टक्के",
+    "97 टक्के",
+    "22 टक्के",
+    "2.4 टक्के"
+  ],
+  "answer": "D",
+  "explanation": "Silicon is added to iron (typically 2.4% to 4.5%) to reduce hysteresis loss in transformer or motor cores.",
+  "explanationMarathi": "ट्रान्सफॉर्मर किंवा मोटरच्या कोअरमध्ये हिस्टेरेसिस लॉस (Hysteresis Loss) कमी करण्यासाठी लोखंडात थोड्या प्रमाणात सिलिकॉन मिसळले जाते. हे प्रमाण साधारणपणे 2.4% ते 4.5% च्या दरम्यान असते."
+},
+{
+  "id": 1172,
+  "chapterId": 36,
+  "question": "Which of the following is not a property of a magnet?",
+  "questionMarathi": "खालीलपैकी कोणता एक गुणधर्म चुंबकाचा नाही?",
+  "options": [
+    "Induction",
+    "Attraction",
+    "Repulsion",
+    "Single Pole"
+  ],
+  "optionsMarathi": [
+    "प्रेरण (Induction)",
+    "आकर्षण (Attraction)",
+    "प्रकर्षण/प्रतिकर्षण (Repulsion)",
+    "एक ध्रुव (Single Pole)"
+  ],
+  "answer": "D",
+  "explanation": "A magnet always has two poles: North (N) and South (S). It can never exist as a single pole.",
+  "explanationMarathi": "चुंबकाला कितीही बारीक तुकड्यांमध्ये तोडले, तरी त्याला नेहमी उत्तर (N) आणि दक्षिण (S) असे दोन ध्रुव असतातच. चुंबक कधीही एकाच ध्रुवाचा असू शकत नाही."
+},
+{
+  "id": 1173,
+  "chapterId": 36,
+  "question": "What will be the resistance of a 220V and 220W lamp?",
+  "questionMarathi": "220 व्होल्ट आणि 220 वॉटच्या दिव्याचा (Lamp) रोध किती असेल?",
+  "options": [
+    "220 ohms",
+    "440 ohms",
+    "22 ohms",
+    "44 ohms"
+  ],
+  "optionsMarathi": [
+    "220 ओम",
+    "440 ओम",
+    "22 ओम",
+    "44 ओम"
+  ],
+  "answer": "A",
+  "explanation": "Resistance R = V^2 / P. So, R = (220 * 220) / 220 = 220 ohms.",
+  "explanationMarathi": "रोध काढण्याचे सूत्र R = V^2 / P आहे. इथे व्होल्टेज (V) = 220 आणि पॉवर (P) = 220 वॉट आहे. R = (220 x 220) / 220 = 220 Ω (ओम)."
+},
+{
+  "id": 1174,
+  "chapterId": 36,
+  "question": "Who discovered the heating effect of electric current?",
+  "questionMarathi": "विद्युत प्रवाहाच्या औष्णिक सिद्धांताचा (Heating Effect) शोध कोणत्या वैज्ञानिकाने लावला?",
+  "options": [
+    "Ohm",
+    "Oersted",
+    "Joule",
+    "Faraday"
+  ],
+  "optionsMarathi": [
+    "ओहम",
+    "ओरेस्टेड",
+    "जूल",
+    "फॅराडे"
+  ],
+  "answer": "C",
+  "explanation": "James Prescott Joule discovered that current flowing through a wire produces heat (H = I^2Rt).",
+  "explanationMarathi": "जेम्स प्रेस्कॉट जूल यांनी शोध लावला की जेव्हा एखाद्या वायरमधून करंट वाहतो, तेव्हा त्यात उष्णता निर्माण होते. म्हणूनच याला 'जूलचा नियम' (H = I^2Rt) असे म्हणतात."
+},
+{
+  "id": 1175,
+  "chapterId": 36,
+  "question": "Which of the following is a diamagnetic substance?",
+  "questionMarathi": "खालीलपैकी डायमॅग्नेटिक (डाया चुम्बकीय) पदार्थ कोणता आहे?",
+  "options": [
+    "Bismuth",
+    "Antimony",
+    "Water",
+    "All of these"
+  ],
+  "optionsMarathi": [
+    "बिस्मथ",
+    "अँटिमनी",
+    "पाणी",
+    "वरील सर्व"
+  ],
+  "answer": "D",
+  "explanation": "Diamagnetic materials like bismuth, antimony, and water are slightly repelled by a magnetic field.",
+  "explanationMarathi": "डायमॅग्नेटिक पदार्थ ते असतात जो चुंबकाकडे आकर्षित न होता थोडे दूर ढकलले (प्रतिकर्षित केले) जातात. बिस्मथ, अँटिमनी आणि पाणी हे तिन्ही याच प्रकारचे पदार्थ आहेत."
+},
+{
+  "id": 1176,
+  "chapterId": 36,
+  "question": "Which of the following is the symbol for the unit of current?",
+  "questionMarathi": "खालीलपैकी करंटच्या (विद्युत प्रवाह) एककाचे प्रतीक कोणते आहे?",
+  "options": [
+    "A",
+    "I",
+    "V",
+    "All of these"
+  ],
+  "optionsMarathi": [
+    "A",
+    "I",
+    "V",
+    "वरील सर्व"
+  ],
+  "answer": "A",
+  "explanation": "The unit of current is Ampere, and its symbol is 'A'. Current itself is represented by 'I'.",
+  "explanationMarathi": "करंटचे एकक 'अँपिअर' आहे आणि त्याचे प्रतीक चिन्ह 'A' असे आहे. (करंट स्वतः 'I' ने दर्शवला जातो, पण त्याच्या एककाला 'A' लिहितात)."
+},
+{
+  "id": 1177,
+  "chapterId": 36,
+  "question": "If a battery provides 7A current for 10 hours, what will be its capacity?",
+  "questionMarathi": "जर एक बॅटरी 7 अँपिअरचा करंट 10 तासांपर्यंत देते, तर तिची क्षमता किती असेल?",
+  "options": [
+    "70 Ah",
+    "7 Ah",
+    "0.7 Ah",
+    "700 Ah"
+  ],
+  "optionsMarathi": [
+    "70 Ah",
+    "7 Ah",
+    "0.7 Ah",
+    "700 Ah"
+  ],
+  "answer": "A",
+  "explanation": "Capacity = Current x Time. So, 7A * 10h = 70 Ah.",
+  "explanationMarathi": "बॅटरीची क्षमता अँपिअर-अवर (Ah) मध्ये मोजली जाते. क्षमता = करंट x वेळ = 7 A x 10 तास = 70 Ah."
+},
+{
+  "id": 1178,
+  "chapterId": 36,
+  "question": "Which of the following is the symbol for efficiency?",
+  "questionMarathi": "खालीलपैकी कार्यक्षमतेचे (Efficiency/दक्षता) प्रतीक कोणते आहे?",
+  "options": [
+    "β",
+    "α",
+    "η",
+    "%"
+  ],
+  "optionsMarathi": [
+    "β",
+    "α",
+    "η",
+    "%"
+  ],
+  "answer": "C",
+  "explanation": "The Greek letter 'eta' (η) is used to represent efficiency in electrical and mechanical fields.",
+  "explanationMarathi": "इलेक्ट्रिकल किंवा मेकॅनिकल क्षेत्रात कार्यक्षमता दर्शवण्यासाठी ग्रीक अक्षर 'η' (इटा) चा वापर केला जातो."
+},
+{
+  "id": 1179,
+  "chapterId": 36,
+  "question": "What defect occurs in a lead-acid cell if it is not used for more than a month?",
+  "questionMarathi": "लेड ॲसिड सेलचा 1 महिन्यापेक्षा जास्त काळ वापर न केल्यास कोणता दोष निर्माण होतो?",
+  "options": [
+    "Sedimentation",
+    "Sulphation",
+    "Buckling",
+    "Corrosion"
+  ],
+  "optionsMarathi": [
+    "सेडिमेंटेशन",
+    "सल्फेशन",
+    "बकलिंग",
+    "कोरोझन"
+  ],
+  "answer": "B",
+  "explanation": "If left unused or uncharged, a hard white layer of lead sulfate forms on the plates, called sulphation.",
+  "explanationMarathi": "जर लेड ॲसिड बॅटरी खूप दिवस चार्ज न करता किंवा न वापरता तशीच ठेवून दिली, तर तिच्या प्लेट्सवर 'लेड सल्फेट'चा कडक पांढरा थर जमा होतो. याला 'सल्फेशन' म्हणतात, ज्यामुळे बॅटरी खराब होते."
+},
+{
+  "id": 1180,
+  "chapterId": 36,
+  "question": "On what does the resistance of any conductor depend?",
+  "questionMarathi": "कोणत्याही वाहकाचा (Wire) रोध कशावर अवलंबून असतो?",
+  "options": [
+    "Length",
+    "Material type",
+    "Temperature",
+    "All of these"
+  ],
+  "optionsMarathi": [
+    "लांबीवर",
+    "पदार्थाच्या प्रकारावर",
+    "तापमानावर",
+    "वरील सर्व गोष्टींवर"
+  ],
+  "answer": "D",
+  "explanation": "Resistance depends on length (increases with length), material type, and ambient temperature.",
+  "explanationMarathi": "वायरचा रोध हा वायरच्या लांबीवर (लांबी वाढली की रोध वाढतो), ती वायर कोणत्या धातूची आहे त्यावर आणि वातावरणाच्या तापमानावर या तिन्ही गोष्टींवर अवलंबून असतो."
+},
+{
+  "id": 1181,
+  "chapterId": 36,
+  "question": "If 2.5A current flows through a 20-ohm resistor, what will be the voltage?",
+  "questionMarathi": "जर 20 ओमच्या रोधामधून 2.5 अँपिअरचा करंट वाहत असेल, तर विभवांतर (व्होल्टेज) किती असेल?",
+  "options": [
+    "100 V",
+    "20 V",
+    "10 V",
+    "50 V"
+  ],
+  "optionsMarathi": [
+    "100 व्होल्ट",
+    "20 व्होल्ट",
+    "10 व्होल्ट",
+    "50 व्होल्ट"
+  ],
+  "answer": "D",
+  "explanation": "According to Ohm's law, V = I * R. So, V = 2.5 * 20 = 50V.",
+  "explanationMarathi": "ओहमच्या नियमानुसार व्होल्टेज V = I x R असते. इथे करंट (I) = 2.5 आणि रोध (R) = 20 आहे. म्हणून, V = 2.5 x 20 = 50 V (व्होल्ट)."
+},
+{
+  "id": 1182,
+  "chapterId": 36,
+  "question": "What is coated on zinc in a voltaic cell to remove the 'Local Action' defect?",
+  "questionMarathi": "व्होल्टेइक सेलमध्ये 'स्थानिक क्रिया' (Local Action) हा दोष दूर करण्यासाठी जस्तावर कशाचा थर दिला जातो?",
+  "options": [
+    "Tin",
+    "Lead",
+    "Mercury",
+    "Copper"
+  ],
+  "optionsMarathi": [
+    "टिनचा",
+    "शिशाचा",
+    "पाऱ्याचा",
+    "तांब्याचा"
+  ],
+  "answer": "C",
+  "explanation": "A layer of mercury is applied to the zinc plate to prevent local action caused by impurities (amalgamation).",
+  "explanationMarathi": "जस्ताच्या प्लेटमधील अशुद्धतेमुळे स्थानिक क्रिया दोष निर्माण होतो. हा दोष टाळण्यासाठी जस्ताच्या पट्टीवर पाऱ्याचा (Mercury) थर दिला जातो, या प्रक्रियेला अमलगमेशन म्हणतात."
+},
+{
+  "id": 1183,
+  "chapterId": 36,
+  "question": "What is the melting point of copper?",
+  "questionMarathi": "खालीलपैकी तांब्याचा वितळण बिंदू (Melting Point) कोणता आहे?",
+  "options": [
+    "960 °C",
+    "1080 °C",
+    "3500 °C",
+    "1260 °C"
+  ],
+  "optionsMarathi": [
+    "960 °C",
+    "1080 °C",
+    "3500 °C",
+    "1260 °C"
+  ],
+  "answer": "B",
+  "explanation": "Copper melts at approximately 1085 °C. 1080 °C is the closest option.",
+  "explanationMarathi": "तांबे हा धातू पूर्णपणे वितळण्यासाठी सुमारे 1085 °C तापमानाची गरज असते. दिलेल्या पर्यायांमध्ये सर्वात जवळचा पर्याय '1080 °C' हा आहे."
+},
+{
+  "id": 1184,
+  "chapterId": 36,
+  "question": "Which insulator is not affected by fire (does not burn)?",
+  "questionMarathi": "खालीलपैकी कोणता अचालक (Insulator) आगीमुळे प्रभावित होत नाही (जळत नाही)?",
+  "options": [
+    "Bakelite",
+    "Mica",
+    "Ebonite",
+    "PVC"
+  ],
+  "optionsMarathi": [
+    "बेकेलाईट",
+    "अभ्रक (मायका)",
+    "इबोनाईट",
+    "पीव्हीसी"
+  ],
+  "answer": "B",
+  "explanation": "Mica is a natural mineral that can withstand high temperatures and fire. It is an insulator but a good conductor of heat.",
+  "explanationMarathi": "अभ्रक हा एक असा नैसर्गिक खनिज पदार्थ आहे ज्याच्यावर आगीचा किंवा अतिउच्च तापमानाचा कोणताही परिणाम होत नाही. तो विजेचा अचालक पण उष्णतेचा चांगला वाहक आहे, म्हणूनच तो इस्त्रीमध्ये वापरला जातो."
 }
 ];
