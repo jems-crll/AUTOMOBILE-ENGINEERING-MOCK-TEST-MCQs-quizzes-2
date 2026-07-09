@@ -307,6 +307,15 @@ export const CHAPTERS: Chapter[] = [
     "descriptionMarathi": "विद्युत मूलभूत बहुपर्यायी प्रश्न.",
     "icon": "Zap",
     "section": "Electrical"
+  },
+  {
+    "id": 36,
+    "name": "Electrical Set 7 (Q 160 - 184)",
+    "nameMarathi": "विद्युत संच 7 (प्र 160 ते 184)",
+    "description": "Electrical Basics MCQs.",
+    "descriptionMarathi": "विद्युत मूलभूत बहुपर्यायी प्रश्न.",
+    "icon": "Zap",
+    "section": "Electrical"
   }
 ];
 
