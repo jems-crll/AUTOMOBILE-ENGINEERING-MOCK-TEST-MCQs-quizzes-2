@@ -21,11 +21,11 @@ interface AnalyticsProps {
 export default function Analytics({ attempts, bilingual, onClearHistory }: AnalyticsProps) {
   if (attempts.length === 0) {
     return (
-      <div className="flex flex-col items-center justify-center p-12 bg-slate-900/40 border border-slate-800 rounded-xl min-h-[300px] text-center">
-        <div className="p-4 bg-slate-800/60 rounded-full text-slate-500 mb-4">
+      <div className="flex flex-col items-center justify-center p-12 bg-white dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800 rounded-xl min-h-[300px] text-center">
+        <div className="p-4 bg-slate-100 dark:bg-slate-800/60 rounded-full text-slate-500 mb-4">
           <Icons.Inbox className="h-8 w-8" />
         </div>
-        <h3 className="text-lg font-bold text-slate-300 mb-1">
+        <h3 className="text-lg font-bold text-slate-700 dark:text-slate-300 mb-1">
           {bilingual ? "चाचणी इतिहास उपलब्ध नाही" : "No Test History Yet"}
         </h3>
         <p className="text-xs text-slate-500 max-w-sm">
@@ -87,10 +87,10 @@ export default function Analytics({ attempts, bilingual, onClearHistory }: Analy
     if (active && payload && payload.length) {
       const data = payload[0].payload;
       return (
-        <div className="bg-slate-950 border border-slate-800 p-3 rounded-lg shadow-lg">
+        <div className="bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 p-3 rounded-lg shadow-lg">
           <p className="text-xs font-mono font-bold text-amber-500">{data.date} (Attempt {data.name})</p>
-          <p className="text-sm font-bold text-white mt-1">Score: <span className="text-emerald-400">{data.score}%</span></p>
-          <p className="text-[11px] text-slate-400 mt-1 max-w-[200px] truncate">{data.chapter}</p>
+          <p className="text-sm font-bold text-slate-900 dark:text-white mt-1">Score: <span className="text-emerald-400">{data.score}%</span></p>
+          <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-1 max-w-[200px] truncate">{data.chapter}</p>
         </div>
       );
     }
@@ -102,7 +102,7 @@ export default function Analytics({ attempts, bilingual, onClearHistory }: Analy
       {/* Upper Grid stats */}
       <div className="flex items-center justify-between gap-4">
         <div>
-          <h2 className="text-2xl font-bold text-white tracking-tight">{bilingual ? "प्रगती आणि विश्लेषण" : "Performance Analytics"}</h2>
+          <h2 className="text-2xl font-bold text-slate-900 dark:text-white tracking-tight">{bilingual ? "प्रगती आणि विश्लेषण" : "Performance Analytics"}</h2>
           <p className="text-xs text-slate-500 mt-0.5">{bilingual ? "तुमच्या गुणांचे सविस्तर आलेख आणि प्रगती अहवाल" : "Bilingual review of test progression and target learning zones"}</p>
         </div>
         <button
@@ -120,8 +120,8 @@ export default function Analytics({ attempts, bilingual, onClearHistory }: Analy
 
       {/* Graphical Chart panel */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        <div className="lg:col-span-2 p-5 bg-slate-900/60 border border-slate-800 rounded-xl backdrop-blur-md flex flex-col justify-between">
-          <h3 className="text-sm font-bold uppercase tracking-wider text-slate-400 mb-6 flex items-center gap-2">
+        <div className="lg:col-span-2 p-5 bg-white dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 rounded-xl backdrop-blur-md flex flex-col justify-between">
+          <h3 className="text-sm font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-6 flex items-center gap-2">
             <Icons.TrendingUp className="h-4 w-4 text-amber-500" />
             <span>{bilingual ? "गुण प्रगती आलेख" : "Score Progression Trend"}</span>
           </h3>
@@ -149,8 +149,8 @@ export default function Analytics({ attempts, bilingual, onClearHistory }: Analy
         {/* Strengths and Weaknesses Card */}
         <div className="lg:col-span-1 flex flex-col gap-5">
           {/* Strengths */}
-          <div className="p-5 bg-slate-900/60 border border-slate-800 rounded-xl backdrop-blur-md flex-1">
-            <h3 className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-4 flex items-center gap-2">
+          <div className="p-5 bg-white dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 rounded-xl backdrop-blur-md flex-1">
+            <h3 className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-4 flex items-center gap-2">
               <Icons.CheckCircle className="h-4 w-4 text-emerald-400" />
               <span>{bilingual ? "मजबूत विषय (Score ≥ 70%)" : "Strong Areas (Score ≥ 70%)"}</span>
             </h3>
@@ -158,8 +158,8 @@ export default function Analytics({ attempts, bilingual, onClearHistory }: Analy
             {hasData && strengths.length > 0 ? (
               <div className="flex flex-col gap-2.5">
                 {strengths.map((item) => (
-                  <div key={item.id} className="flex justify-between items-center p-2.5 bg-slate-950/40 border border-slate-850 rounded-lg">
-                    <span className="text-xs text-slate-200 truncate pr-2 font-medium">{item.name}</span>
+                  <div key={item.id} className="flex justify-between items-center p-2.5 bg-slate-50 dark:bg-slate-950/40 border border-slate-200 dark:border-slate-850 rounded-lg">
+                    <span className="text-xs text-slate-800 dark:text-slate-200 truncate pr-2 font-medium">{item.name}</span>
                     <span className="text-xs font-mono font-extrabold text-emerald-400">{item.average}%</span>
                   </div>
                 ))}
@@ -172,8 +172,8 @@ export default function Analytics({ attempts, bilingual, onClearHistory }: Analy
           </div>
 
           {/* Weaknesses */}
-          <div className="p-5 bg-slate-900/60 border border-slate-800 rounded-xl backdrop-blur-md flex-1">
-            <h3 className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-4 flex items-center gap-2">
+          <div className="p-5 bg-white dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 rounded-xl backdrop-blur-md flex-1">
+            <h3 className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-4 flex items-center gap-2">
               <Icons.AlertTriangle className="h-4 w-4 text-rose-400" />
               <span>{bilingual ? "अभ्यासाची गरज (Score < 70%)" : "Target Zones (Score < 70%)"}</span>
             </h3>
@@ -181,8 +181,8 @@ export default function Analytics({ attempts, bilingual, onClearHistory }: Analy
             {hasData && weaknesses.length > 0 ? (
               <div className="flex flex-col gap-2.5">
                 {weaknesses.map((item) => (
-                  <div key={item.id} className="flex justify-between items-center p-2.5 bg-slate-950/40 border border-slate-850 rounded-lg">
-                    <span className="text-xs text-slate-200 truncate pr-2 font-medium">{item.name}</span>
+                  <div key={item.id} className="flex justify-between items-center p-2.5 bg-slate-50 dark:bg-slate-950/40 border border-slate-200 dark:border-slate-850 rounded-lg">
+                    <span className="text-xs text-slate-800 dark:text-slate-200 truncate pr-2 font-medium">{item.name}</span>
                     <span className="text-xs font-mono font-extrabold text-rose-400">{item.average}%</span>
                   </div>
                 ))}
@@ -197,8 +197,8 @@ export default function Analytics({ attempts, bilingual, onClearHistory }: Analy
       </div>
 
       {/* History table list */}
-      <div className="p-5 bg-slate-900/60 border border-slate-800 rounded-xl backdrop-blur-md">
-        <h3 className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-4 flex items-center gap-2">
+      <div className="p-5 bg-white dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 rounded-xl backdrop-blur-md">
+        <h3 className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-4 flex items-center gap-2">
           <Icons.History className="h-4 w-4 text-blue-400" />
           <span>{bilingual ? "सर्व चाचणी इतिहास" : "Detailed Attempt Log"}</span>
         </h3>
@@ -206,7 +206,7 @@ export default function Analytics({ attempts, bilingual, onClearHistory }: Analy
         <div className="overflow-x-auto">
           <table className="w-full text-left text-xs border-collapse">
             <thead>
-              <tr className="border-b border-slate-800 text-slate-500 font-bold uppercase tracking-wider">
+              <tr className="border-b border-slate-200 dark:border-slate-800 text-slate-500 font-bold uppercase tracking-wider">
                 <th className="pb-3 pr-4">{bilingual ? "तारीख" : "Date"}</th>
                 <th className="pb-3 pr-4">{bilingual ? "विषय" : "Chapter"}</th>
                 <th className="pb-3 pr-4 text-center">{bilingual ? "गुण" : "Score"}</th>
@@ -220,21 +220,21 @@ export default function Analytics({ attempts, bilingual, onClearHistory }: Analy
                 const secs = a.timeSpentSeconds % 60;
 
                 return (
-                  <tr key={a.id} className="text-slate-300 hover:bg-slate-900/20">
-                    <td className="py-3.5 pr-4 font-mono text-slate-400">
+                  <tr key={a.id} className="text-slate-700 dark:text-slate-300 hover:bg-white dark:bg-slate-900/20">
+                    <td className="py-3.5 pr-4 font-mono text-slate-500 dark:text-slate-400">
                       {new Date(a.date).toLocaleDateString(bilingual ? "mr-IN" : "en-US", {
                         year: "numeric",
                         month: "short",
                         day: "numeric",
                       })}
                     </td>
-                    <td className="py-3.5 pr-4 font-semibold text-slate-200">{a.chapterName}</td>
+                    <td className="py-3.5 pr-4 font-semibold text-slate-800 dark:text-slate-200">{a.chapterName}</td>
                     <td className="py-3.5 pr-4 text-center font-mono font-bold">
                       <span className={percent >= 60 ? (percent >= 85 ? "text-emerald-400" : "text-amber-400") : "text-rose-400"}>
                         {a.score} / {a.totalQuestions} ({percent}%)
                       </span>
                     </td>
-                    <td className="py-3.5 text-center font-mono text-slate-400">{mins}m {secs}s</td>
+                    <td className="py-3.5 text-center font-mono text-slate-500 dark:text-slate-400">{mins}m {secs}s</td>
                   </tr>
                 );
               })}

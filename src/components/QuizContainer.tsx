@@ -147,15 +147,15 @@ export default function QuizContainer({
 
   if (!questions || questions.length === 0 || !currentQuestion) {
     return (
-      <div className="flex flex-col items-center justify-center p-12 bg-slate-900 border border-slate-800 rounded-3xl mt-8">
+      <div className="flex flex-col items-center justify-center p-12 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl mt-8">
         <Icons.AlertCircle className="w-12 h-12 text-rose-500 mb-4" />
-        <h2 className="text-xl font-bold text-white mb-2">No Questions Found</h2>
-        <p className="text-slate-400 text-center mb-6 max-w-md">
+        <h2 className="text-xl font-bold text-slate-900 dark:text-white mb-2">No Questions Found</h2>
+        <p className="text-slate-500 dark:text-slate-400 text-center mb-6 max-w-md">
           There are no questions available for this selection.
         </p>
         <button
           onClick={onExit}
-          className="px-6 py-2.5 bg-slate-800 hover:bg-slate-700 text-white font-semibold rounded-xl border border-slate-700 hover:border-slate-600 transition"
+          className="px-6 py-2.5 bg-slate-100 dark:bg-slate-800 hover:bg-slate-700 text-slate-900 dark:text-white font-semibold rounded-xl border border-slate-300 dark:border-slate-700 hover:border-slate-600 transition"
         >
           Return to Dashboard
         </button>
@@ -166,11 +166,11 @@ export default function QuizContainer({
   return (
     <div className="flex flex-col gap-6">
       {/* Top Session Status Bar */}
-      <div className="flex flex-wrap items-center justify-between gap-4 p-4 bg-slate-900/60 border border-slate-800 rounded-xl backdrop-blur-md">
+      <div className="flex flex-wrap items-center justify-between gap-4 p-4 bg-white dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 rounded-xl backdrop-blur-md">
         <div className="flex items-center gap-3">
           <button
             onClick={onExit}
-            className="p-2 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-lg hover:text-white transition"
+            className="p-2 bg-slate-100 dark:bg-slate-800 hover:bg-slate-700 text-slate-700 dark:text-slate-300 rounded-lg hover:text-slate-900 dark:text-white transition"
             title="Exit Practice"
           >
             <Icons.X className="h-4 w-4" />
@@ -179,7 +179,7 @@ export default function QuizContainer({
             <span className="text-[10px] font-bold uppercase tracking-wider text-amber-500 font-mono">
               {mode === "exam" ? "EXAM MODE (परीक्षा)" : "PRACTICE MODE (सराव)"}
             </span>
-            <h3 className="text-sm font-semibold text-slate-200">
+            <h3 className="text-sm font-semibold text-slate-800 dark:text-slate-200">
               {chapterId === "all"
                 ? (bilingual ? "पूर्ण अभ्यासक्रम चाचणी" : "Full Syllabus Test")
                 : (bilingual ? `विषय ${chapterId} चाचणी` : `Chapter ${chapterId} Test`)}
@@ -195,8 +195,8 @@ export default function QuizContainer({
               <span>{formatTime(secondsRemaining)}</span>
             </div>
           ) : (
-            <div className="flex items-center gap-2 px-3 py-1.5 bg-slate-800 text-slate-400 rounded-lg font-mono text-xs">
-              <Icons.Clock className="h-3 w.5-3" />
+            <div className="flex items-center gap-2 px-3 py-1.5 bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 rounded-lg font-mono text-xs">
+              <Icons.Clock className="h-3 w-3" />
               <span>{bilingual ? "गेलेला वेळ:" : "Elapsed"}: {formatTime(timeSpent)}</span>
             </div>
           )}
@@ -212,7 +212,7 @@ export default function QuizContainer({
       </div>
 
       {/* Progress Bar */}
-      <div className="w-full bg-slate-950 h-1.5 rounded-full overflow-hidden border border-slate-900">
+      <div className="w-full bg-slate-50 dark:bg-slate-950 h-1.5 rounded-full overflow-hidden border border-slate-200 dark:border-slate-900">
         <div
           className="bg-gradient-to-r from-amber-500 to-amber-600 h-full transition-all duration-300"
           style={{ width: `${progressPercentage}%` }}
@@ -229,7 +229,7 @@ export default function QuizContainer({
             setSearchQuery(e.target.value);
             setCurrentIndex(0);
           }}
-          className="w-full p-2.5 bg-slate-900/60 border border-slate-800 text-white rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-amber-500/50"
+          className="w-full p-2.5 bg-white dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-white rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-amber-500/50"
         />
       </div>
 
@@ -259,11 +259,11 @@ export default function QuizContainer({
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-5 sm:gap-6">
         {/* Left Side: Question Panel */}
         <div className="lg:col-span-3 flex flex-col gap-5 sm:gap-6">
-          <div className="p-4 sm:p-6 md:p-8 bg-slate-900/40 border border-slate-800/80 rounded-xl backdrop-blur-md min-h-[300px] sm:min-h-[380px] flex flex-col justify-between">
+          <div className="p-4 sm:p-6 md:p-8 bg-white dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800/80 rounded-xl backdrop-blur-md min-h-[300px] sm:min-h-[380px] flex flex-col justify-between">
             <div>
               {/* Question Header */}
               <div className="flex justify-between items-start gap-4 mb-4">
-                <span className="text-xs px-2.5 py-1 bg-slate-800 text-slate-400 rounded-full font-mono font-bold">
+                <span className="text-xs px-2.5 py-1 bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 rounded-full font-mono font-bold">
                   Q. {currentIndex + 1} of {displayedQuestions.length}
                 </span>
 
@@ -273,7 +273,7 @@ export default function QuizContainer({
                     className={`flex items-center gap-1.5 text-xs font-semibold px-3 py-1 rounded-full border transition ${
                       flaggedQuestions[currentQuestion.id]
                         ? "bg-amber-500/10 border-amber-500 text-amber-400 animate-bounce"
-                        : "bg-slate-800/50 border-slate-700 text-slate-400 hover:text-slate-300"
+                        : "bg-slate-100 dark:bg-slate-800/50 border-slate-300 dark:border-slate-700 text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:text-slate-300"
                     }`}
                   >
                     <Icons.Bookmark className="h-3 w-3" />
@@ -285,7 +285,7 @@ export default function QuizContainer({
               {/* Bilingual Stacked Questions */}
               <div className="mb-6 sm:mb-8 space-y-4" id="question-text-block">
                 <div>
-                  <h2 className="text-base sm:text-lg md:text-xl font-medium text-white leading-snug">
+                  <h2 className="text-base sm:text-lg md:text-xl font-medium text-slate-900 dark:text-white leading-snug">
                     {currentQuestion.question}
                   </h2>
                 </div>
@@ -297,7 +297,7 @@ export default function QuizContainer({
                         मराठी (Marathi)
                       </span>
                     </div>
-                    <p className="text-sm md:text-base text-slate-300 bg-slate-950/40 p-3 sm:p-4 rounded-lg border border-slate-900 leading-relaxed font-sans italic">
+                    <p className="text-sm md:text-base text-slate-700 dark:text-slate-300 bg-slate-50 dark:bg-slate-950/40 p-3 sm:p-4 rounded-lg border border-slate-200 dark:border-slate-900 leading-relaxed font-sans italic">
                       {currentQuestion.questionMarathi}
                     </p>
                   </div>
@@ -311,7 +311,7 @@ export default function QuizContainer({
                   const isSelected = selectedAnswers[currentQuestion.id] === optionChar;
                   const isCorrectAnswer = currentQuestion.answer === optionChar;
 
-                  let optionStyle = "bg-slate-950/80 border-slate-800 text-slate-300 hover:border-slate-700 hover:bg-slate-900/60";
+                  let optionStyle = "bg-slate-50 dark:bg-slate-950/80 border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 hover:border-slate-300 dark:border-slate-700 hover:bg-white dark:bg-slate-900/60";
 
                   if (mode === "practice" && hasAnsweredCurrent) {
                     if (isCorrectAnswer) {
@@ -321,7 +321,7 @@ export default function QuizContainer({
                       // If user selected incorrect option, highlight it red
                       optionStyle = "bg-rose-500/10 border-rose-500 text-rose-400";
                     } else {
-                      optionStyle = "bg-slate-950/40 border-slate-900 text-slate-600 opacity-60";
+                      optionStyle = "bg-slate-50 dark:bg-slate-950/40 border-slate-200 dark:border-slate-900 text-slate-600 opacity-60";
                     }
                   } else if (isSelected) {
                     optionStyle = "bg-amber-500/10 border-amber-500 text-amber-400 font-semibold";
@@ -338,14 +338,14 @@ export default function QuizContainer({
                       <span className={`flex items-center justify-center h-6 w-6 rounded-full text-xs font-bold border font-mono shrink-0 ${
                         isSelected 
                           ? (mode === "practice" && isCorrectAnswer ? "bg-emerald-500 text-slate-950 border-emerald-500" : (mode === "practice" ? "bg-rose-500 text-slate-950 border-rose-500" : "bg-amber-500 text-slate-950 border-amber-500"))
-                          : (mode === "practice" && isCorrectAnswer && hasAnsweredCurrent ? "bg-emerald-500 text-slate-950 border-emerald-500" : "border-slate-800 text-slate-400")
+                          : (mode === "practice" && isCorrectAnswer && hasAnsweredCurrent ? "bg-emerald-500 text-slate-950 border-emerald-500" : "border-slate-200 dark:border-slate-800 text-slate-500 dark:text-slate-400")
                       }`}>
                         {optionChar}
                       </span>
                       <div className="flex-1 min-w-0">
                         <span className="block text-sm sm:text-base leading-snug break-words">{opt}</span>
                         {bilingual && currentQuestion.optionsMarathi?.[idx] && (
-                          <span className="block text-xs sm:text-sm text-slate-400 mt-1 break-words italic">
+                          <span className="block text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1 break-words italic">
                             {currentQuestion.optionsMarathi[idx]}
                           </span>
                         )}
@@ -365,11 +365,11 @@ export default function QuizContainer({
             </div>
 
             {/* Bottom Controls inside Question Panel */}
-            <div className="flex justify-between items-center pt-4 border-t border-slate-850">
+            <div className="flex justify-between items-center pt-4 border-t border-slate-200 dark:border-slate-850">
               <button
                 onClick={handlePrev}
                 disabled={currentIndex === 0}
-                className="px-4 py-2 border border-slate-800 text-slate-300 rounded-lg hover:bg-slate-800 hover:text-white disabled:opacity-30 disabled:pointer-events-none transition text-xs font-semibold flex items-center gap-1.5 cursor-pointer"
+                className="px-4 py-2 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 rounded-lg hover:bg-slate-100 dark:bg-slate-800 hover:text-slate-900 dark:text-white disabled:opacity-30 disabled:pointer-events-none transition text-xs font-semibold flex items-center gap-1.5 cursor-pointer"
               >
                 <Icons.ArrowLeft className="h-4 w-4" />
                 <span>{bilingual ? "मागील" : "Previous"}</span>
@@ -378,7 +378,7 @@ export default function QuizContainer({
               <button
                 onClick={handleNext}
                 disabled={currentIndex === displayedQuestions.length - 1}
-                className="px-4 py-2 border border-slate-800 text-slate-300 rounded-lg hover:bg-slate-800 hover:text-white disabled:opacity-30 disabled:pointer-events-none transition text-xs font-semibold flex items-center gap-1.5 cursor-pointer"
+                className="px-4 py-2 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 rounded-lg hover:bg-slate-100 dark:bg-slate-800 hover:text-slate-900 dark:text-white disabled:opacity-30 disabled:pointer-events-none transition text-xs font-semibold flex items-center gap-1.5 cursor-pointer"
               >
                 <span>{bilingual ? "पुढील" : "Next"}</span>
                 <Icons.ArrowRight className="h-4 w-4" />
@@ -391,24 +391,24 @@ export default function QuizContainer({
             <motion.div
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
-              className="p-6 bg-slate-900/60 border border-slate-800 rounded-xl"
+              className="p-6 bg-white dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 rounded-xl"
             >
-              <div className="flex items-center gap-2 mb-3 border-b border-slate-800 pb-2">
+              <div className="flex items-center gap-2 mb-3 border-b border-slate-200 dark:border-slate-800 pb-2">
                 <Icons.Lightbulb className="text-amber-500 h-5 w-5" />
-                <h4 className="text-sm font-bold uppercase tracking-wider text-slate-200">
+                <h4 className="text-sm font-bold uppercase tracking-wider text-slate-800 dark:text-slate-200">
                   {bilingual ? "स्पष्टीकरण" : "Explanation"}
                 </h4>
               </div>
 
               <div className="space-y-4">
-                <p className="text-sm text-slate-300 leading-relaxed font-sans">
+                <p className="text-sm text-slate-700 dark:text-slate-300 leading-relaxed font-sans">
                   {currentQuestion.explanation}
                 </p>
                 
                 {bilingual && currentQuestion.explanationMarathi && (
-                  <div className="pt-3 border-t border-slate-800">
+                  <div className="pt-3 border-t border-slate-200 dark:border-slate-800">
                     <span className="text-[10px] font-bold uppercase tracking-widest text-amber-500 mb-1 block">मराठी स्पष्टीकरण (Marathi)</span>
-                    <p className="text-sm text-slate-400 italic leading-relaxed font-sans">
+                    <p className="text-sm text-slate-500 dark:text-slate-400 italic leading-relaxed font-sans">
                       {currentQuestion.explanationMarathi}
                     </p>
                   </div>
@@ -420,8 +420,8 @@ export default function QuizContainer({
 
         {/* Right Side: Quiz Navigation Console */}
         <div className="lg:col-span-1">
-          <div className="p-5 bg-slate-900/60 border border-slate-800 rounded-xl backdrop-blur-md sticky top-6">
-            <h3 className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-4 flex items-center gap-2">
+          <div className="p-5 bg-white dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 rounded-xl backdrop-blur-md sticky top-6">
+            <h3 className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-4 flex items-center gap-2">
               <Icons.Compass className="h-4 w-4 text-amber-500" />
               {bilingual ? "चाचणी नेव्हिगेशन" : "Test Console"}
             </h3>
@@ -433,7 +433,7 @@ export default function QuizContainer({
                 const isAnswered = q && !!selectedAnswers[q.id];
                 const isFlagged = q && flaggedQuestions[q.id];
 
-                let bubbleStyle = "bg-slate-950/60 border-slate-850 text-slate-400 hover:border-slate-700";
+                let bubbleStyle = "bg-slate-50 dark:bg-slate-950/60 border-slate-200 dark:border-slate-850 text-slate-500 dark:text-slate-400 hover:border-slate-300 dark:border-slate-700";
 
                 if (isSelected) {
                   bubbleStyle = "bg-amber-500 text-slate-950 font-bold border-amber-500 shadow-md shadow-amber-500/10";
@@ -446,7 +446,7 @@ export default function QuizContainer({
                 } else if (isFlagged) {
                   bubbleStyle = "bg-amber-500/15 border-amber-500/40 text-amber-400 font-medium";
                 } else if (isAnswered) {
-                  bubbleStyle = "bg-slate-800 border-slate-700 text-slate-200 font-medium";
+                  bubbleStyle = "bg-slate-100 dark:bg-slate-800 border-slate-300 dark:border-slate-700 text-slate-800 dark:text-slate-200 font-medium";
                 }
 
                 return (
@@ -463,13 +463,13 @@ export default function QuizContainer({
             </div>
 
             {/* Legend / Info */}
-            <div className="flex flex-col gap-2.5 text-[11px] text-slate-400 border-t border-slate-800/80 pt-4">
+            <div className="flex flex-col gap-2.5 text-[11px] text-slate-500 dark:text-slate-400 border-t border-slate-200 dark:border-slate-800/80 pt-4">
               <div className="flex items-center gap-2">
-                <span className="h-3 w-3 bg-slate-800 border border-slate-700 rounded-sm" />
+                <span className="h-3 w-3 bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-sm" />
                 <span>{bilingual ? "उत्तर दिलेले" : "Answered"}</span>
               </div>
               <div className="flex items-center gap-2">
-                <span className="h-3 w-3 bg-slate-950/60 border border-slate-850 rounded-sm" />
+                <span className="h-3 w-3 bg-slate-50 dark:bg-slate-950/60 border border-slate-200 dark:border-slate-850 rounded-sm" />
                 <span>{bilingual ? "उत्तर न दिलेले" : "Not Answered"}</span>
               </div>
               {mode === "exam" ? (
@@ -493,7 +493,7 @@ export default function QuizContainer({
 
             {/* Exam specific instructions warnings */}
             {mode === "exam" && (
-              <div className="mt-5 p-3.5 bg-slate-950/80 border border-slate-850 rounded-lg text-[10px] text-slate-500 leading-normal">
+              <div className="mt-5 p-3.5 bg-slate-50 dark:bg-slate-950/80 border border-slate-200 dark:border-slate-850 rounded-lg text-[10px] text-slate-500 leading-normal">
                 <Icons.AlertTriangle className="h-3 w-3 text-amber-500/80 inline mr-1 -mt-0.5" />
                 {bilingual 
                   ? "परीक्षा मोडमध्ये, तुम्ही पूर्ण करून सबमिट करेपर्यंत कोणतीही उत्तरे उघड केली जाणार नाहीत." 

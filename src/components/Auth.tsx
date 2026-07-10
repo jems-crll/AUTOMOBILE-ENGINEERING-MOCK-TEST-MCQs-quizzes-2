@@ -484,7 +484,7 @@ export default function Auth({ onLoginSuccess, selectedLanguage }: AuthProps) {
   };
 
   return (
-    <div className="min-h-[80vh] flex flex-col justify-center py-10 px-4 sm:px-6 lg:px-8 font-sans text-slate-100">
+    <div className="min-h-[80vh] flex flex-col justify-center py-10 px-4 sm:px-6 lg:px-8 font-sans text-slate-900 dark:text-slate-100">
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
         <div className="flex justify-center mb-4">
           <div 
@@ -496,14 +496,14 @@ export default function Auth({ onLoginSuccess, selectedLanguage }: AuthProps) {
             <Icons.Wrench className="h-8 w-8 stroke-[2.5]" />
           </div>
         </div>
-        <h2 className="text-center text-2xl md:text-3xl font-black text-white tracking-tight">
+        <h2 className="text-center text-2xl md:text-3xl font-black text-slate-900 dark:text-white tracking-tight">
           {authMode === "login" && (isMarathi ? "ऑटोमोबाईल मॉक टेस्ट लॉगिन" : "Automobile Mock Test Login")}
           {authMode === "signup" && (isMarathi ? "नवीन खाते तयार करा" : "Create New Account")}
           {authMode === "verify_otp" && (isMarathi ? "ओटीपी तपासा" : "Verify Account")}
           {authMode === "forgot_password" && (isMarathi ? "पासवर्ड विसरलात?" : "Forgot Password")}
           {authMode === "forgot_username" && (isMarathi ? "युझरनेम विसरलात?" : "Forgot Username")}
         </h2>
-        <p className="mt-2 text-center text-xs text-slate-400">
+        <p className="mt-2 text-center text-xs text-slate-500 dark:text-slate-400">
           {isMarathi 
             ? "सर्व फीचर्स आणि सराव चाचण्या वापरण्यासाठी खालील माहिती भरा" 
             : "Fill in the details below to access all study and exam features"}
@@ -511,7 +511,7 @@ export default function Auth({ onLoginSuccess, selectedLanguage }: AuthProps) {
       </div>
 
       <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-        <div className="bg-slate-900 border border-slate-800 rounded-3xl p-6 sm:p-8 shadow-2xl backdrop-blur-md">
+        <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 sm:p-8 shadow-2xl backdrop-blur-md">
           {errorMessage && (
             <div className="mb-4 p-3 bg-red-500/10 border border-red-500/30 text-red-400 rounded-xl text-xs font-semibold flex items-center gap-2">
               <Icons.AlertCircle className="h-4 w-4 text-red-500 shrink-0" />
@@ -532,7 +532,7 @@ export default function Auth({ onLoginSuccess, selectedLanguage }: AuthProps) {
               {/* Optional Username input for Signup */}
               {authMode === "signup" && (
                 <div>
-                  <label className="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-1.5">
+                  <label className="block text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1.5">
                     {isMarathi ? "युझरनेम (Username)" : "Username"}
                   </label>
                   <div className="relative">
@@ -543,14 +543,14 @@ export default function Auth({ onLoginSuccess, selectedLanguage }: AuthProps) {
                       placeholder="e.g. jemshery"
                       value={username}
                       onChange={(e) => setUsername(e.target.value)}
-                      className="w-full bg-slate-950 border border-slate-800 focus:border-amber-500 text-slate-100 rounded-xl pl-10 pr-4 py-3 text-sm focus:outline-none transition-colors"
+                      className="w-full bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 focus:border-amber-500 text-slate-900 dark:text-slate-100 rounded-xl pl-10 pr-4 py-3 text-sm focus:outline-none transition-colors"
                     />
                   </div>
                 </div>
               )}
 
               <div>
-                <label className="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-1.5">
+                <label className="block text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1.5">
                   {authMode === "login" 
                     ? (isMarathi ? "ईमेल पत्ता किंवा युझरनेम" : "Email Address or Username")
                     : (isMarathi ? "ईमेल पत्ता" : "Email Address")}
@@ -563,14 +563,14 @@ export default function Auth({ onLoginSuccess, selectedLanguage }: AuthProps) {
                     placeholder={authMode === "login" ? "student@test.com or student" : "student@test.com"}
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="w-full bg-slate-950 border border-slate-800 focus:border-amber-500 text-slate-100 rounded-xl pl-10 pr-4 py-3 text-sm focus:outline-none transition-colors"
+                    className="w-full bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 focus:border-amber-500 text-slate-900 dark:text-slate-100 rounded-xl pl-10 pr-4 py-3 text-sm focus:outline-none transition-colors"
                   />
                 </div>
               </div>
 
               <div>
                 <div className="flex justify-between items-center mb-1.5">
-                  <label className="block text-xs font-bold text-slate-400 uppercase tracking-wider">
+                  <label className="block text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
                     {isMarathi ? "पासवर्ड" : "Password"}
                   </label>
                   {authMode === "login" && (
@@ -597,7 +597,7 @@ export default function Auth({ onLoginSuccess, selectedLanguage }: AuthProps) {
                     placeholder="••••••••"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    className="w-full bg-slate-950 border border-slate-800 focus:border-amber-500 text-slate-100 rounded-xl pl-10 pr-4 py-3 text-sm focus:outline-none transition-colors"
+                    className="w-full bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 focus:border-amber-500 text-slate-900 dark:text-slate-100 rounded-xl pl-10 pr-4 py-3 text-sm focus:outline-none transition-colors"
                   />
                 </div>
               </div>
@@ -623,7 +623,7 @@ export default function Auth({ onLoginSuccess, selectedLanguage }: AuthProps) {
           {authMode === "verify_otp" && (
             <form className="space-y-4" onSubmit={handleVerifyOtpSubmit}>
               <div>
-                <label className="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-1.5">
+                <label className="block text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1.5">
                   {isMarathi ? "ओटीपी प्रविष्ट करा" : "Enter OTP"}
                 </label>
                 <div className="relative">
@@ -635,7 +635,7 @@ export default function Auth({ onLoginSuccess, selectedLanguage }: AuthProps) {
                     placeholder="123456"
                     value={otp}
                     onChange={(e) => setOtp(e.target.value)}
-                    className="w-full bg-slate-950 border border-slate-800 focus:border-amber-500 text-slate-100 rounded-xl pl-10 pr-4 py-3 text-sm focus:outline-none transition-colors tracking-[0.5em] font-mono text-center"
+                    className="w-full bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 focus:border-amber-500 text-slate-900 dark:text-slate-100 rounded-xl pl-10 pr-4 py-3 text-sm focus:outline-none transition-colors tracking-[0.5em] font-mono text-center"
                   />
                 </div>
                 <p className="mt-2 text-[10px] text-slate-500 text-center">
@@ -660,7 +660,7 @@ export default function Auth({ onLoginSuccess, selectedLanguage }: AuthProps) {
                 )}
               </button>
               
-              <div className="flex flex-col gap-3 text-center mt-3 pt-4 border-t border-slate-800/60">
+              <div className="flex flex-col gap-3 text-center mt-3 pt-4 border-t border-slate-200 dark:border-slate-800/60">
                 <button
                   type="button"
                   onClick={handleResendOtp}
@@ -678,7 +678,7 @@ export default function Auth({ onLoginSuccess, selectedLanguage }: AuthProps) {
                     setOtp("");
                   }}
                   disabled={isProcessing}
-                  className="text-xs text-slate-500 hover:text-slate-400 disabled:opacity-50 font-semibold cursor-pointer"
+                  className="text-xs text-slate-500 hover:text-slate-500 dark:text-slate-400 disabled:opacity-50 font-semibold cursor-pointer"
                 >
                   {isMarathi ? "मागे जा" : "Go Back"}
                 </button>
@@ -692,7 +692,7 @@ export default function Auth({ onLoginSuccess, selectedLanguage }: AuthProps) {
               {!recoveredInfo ? (
                 <form onSubmit={handleForgotPasswordSubmit} className="space-y-4">
                   <div>
-                    <label className="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-1.5">
+                    <label className="block text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1.5">
                       {isMarathi ? "नोंदणीकृत ईमेल किंवा युझरनेम" : "Registered Email or Username"}
                     </label>
                     <div className="relative">
@@ -703,7 +703,7 @@ export default function Auth({ onLoginSuccess, selectedLanguage }: AuthProps) {
                         placeholder="student@test.com or student"
                         value={recoveryEmail}
                         onChange={(e) => setRecoveryEmail(e.target.value)}
-                        className="w-full bg-slate-950 border border-slate-800 focus:border-amber-500 text-slate-100 rounded-xl pl-10 pr-4 py-3 text-sm focus:outline-none transition-colors"
+                        className="w-full bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 focus:border-amber-500 text-slate-900 dark:text-slate-100 rounded-xl pl-10 pr-4 py-3 text-sm focus:outline-none transition-colors"
                       />
                     </div>
                   </div>
@@ -717,9 +717,9 @@ export default function Auth({ onLoginSuccess, selectedLanguage }: AuthProps) {
                 </form>
               ) : (
                 <div className="space-y-4">
-                  <div className="p-3 bg-slate-950 border border-slate-850 rounded-xl text-xs space-y-1">
-                    <div className="text-slate-400">{isMarathi ? "युझर ईमेल:" : "User Email:"} <span className="text-white font-semibold">{recoveredInfo.email}</span></div>
-                    <div className="text-slate-400">{isMarathi ? "सध्याचा पासवर्ड:" : "Current Password:"} <span className="text-amber-400 font-mono font-bold">{recoveredInfo.password}</span></div>
+                  <div className="p-3 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-850 rounded-xl text-xs space-y-1">
+                    <div className="text-slate-500 dark:text-slate-400">{isMarathi ? "युझर ईमेल:" : "User Email:"} <span className="text-slate-900 dark:text-white font-semibold">{recoveredInfo.email}</span></div>
+                    <div className="text-slate-500 dark:text-slate-400">{isMarathi ? "सध्याचा पासवर्ड:" : "Current Password:"} <span className="text-amber-400 font-mono font-bold">{recoveredInfo.password}</span></div>
                     <p className="text-[10px] text-slate-500 leading-tight mt-1">
                       {isMarathi 
                         ? "(टीप: सुरक्षिततेसाठी तुम्ही खाली थेट नवीन पासवर्ड रिसेट देखील करू शकता)" 
@@ -729,7 +729,7 @@ export default function Auth({ onLoginSuccess, selectedLanguage }: AuthProps) {
 
                   <form onSubmit={handlePasswordResetSubmit} className="space-y-4 pt-2">
                     <div>
-                      <label className="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-1.5">
+                      <label className="block text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1.5">
                         {isMarathi ? "नवीन पासवर्ड प्रविष्ट करा" : "Enter New Password"}
                       </label>
                       <div className="relative">
@@ -740,7 +740,7 @@ export default function Auth({ onLoginSuccess, selectedLanguage }: AuthProps) {
                           placeholder="••••••••"
                           value={newPassword}
                           onChange={(e) => setNewPassword(e.target.value)}
-                          className="w-full bg-slate-950 border border-slate-800 focus:border-amber-500 text-slate-100 rounded-xl pl-10 pr-4 py-3 text-sm focus:outline-none transition-colors"
+                          className="w-full bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 focus:border-amber-500 text-slate-900 dark:text-slate-100 rounded-xl pl-10 pr-4 py-3 text-sm focus:outline-none transition-colors"
                         />
                       </div>
                     </div>
@@ -762,7 +762,7 @@ export default function Auth({ onLoginSuccess, selectedLanguage }: AuthProps) {
                   setErrorMessage("");
                   setSuccessMessage("");
                 }}
-                className="w-full py-2 bg-slate-950 hover:bg-slate-900 border border-slate-850 rounded-xl text-xs text-slate-300 font-bold transition cursor-pointer"
+                className="w-full py-2 bg-slate-50 dark:bg-slate-950 hover:bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-850 rounded-xl text-xs text-slate-700 dark:text-slate-300 font-bold transition cursor-pointer"
               >
                 {isMarathi ? "लॉगिन कडे परत जा" : "Back to Login"}
               </button>
@@ -774,7 +774,7 @@ export default function Auth({ onLoginSuccess, selectedLanguage }: AuthProps) {
             <div className="space-y-4">
               <form onSubmit={handleForgotUsernameSubmit} className="space-y-4">
                 <div>
-                  <label className="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-1.5">
+                  <label className="block text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1.5">
                     {isMarathi ? "तुमचा नोंदणीकृत ईमेल पत्ता" : "Your Registered Email Address"}
                   </label>
                   <div className="relative">
@@ -785,7 +785,7 @@ export default function Auth({ onLoginSuccess, selectedLanguage }: AuthProps) {
                       placeholder="student@test.com"
                       value={recoveryEmail}
                       onChange={(e) => setRecoveryEmail(e.target.value)}
-                      className="w-full bg-slate-950 border border-slate-800 focus:border-amber-500 text-slate-100 rounded-xl pl-10 pr-4 py-3 text-sm focus:outline-none transition-colors"
+                      className="w-full bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 focus:border-amber-500 text-slate-900 dark:text-slate-100 rounded-xl pl-10 pr-4 py-3 text-sm focus:outline-none transition-colors"
                     />
                   </div>
                 </div>
@@ -805,7 +805,7 @@ export default function Auth({ onLoginSuccess, selectedLanguage }: AuthProps) {
                   setErrorMessage("");
                   setSuccessMessage("");
                 }}
-                className="w-full py-2 bg-slate-950 hover:bg-slate-900 border border-slate-850 rounded-xl text-xs text-slate-300 font-bold transition cursor-pointer"
+                className="w-full py-2 bg-slate-50 dark:bg-slate-950 hover:bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-850 rounded-xl text-xs text-slate-700 dark:text-slate-300 font-bold transition cursor-pointer"
               >
                 {isMarathi ? "लॉगिन कडे परत जा" : "Back to Login"}
               </button>
@@ -814,7 +814,7 @@ export default function Auth({ onLoginSuccess, selectedLanguage }: AuthProps) {
 
           {/* Navigation links between login and signup */}
           {authMode === "login" && (
-            <div className="mt-4 flex flex-col gap-3 pt-4 border-t border-slate-800/60 text-center">
+            <div className="mt-4 flex flex-col gap-3 pt-4 border-t border-slate-200 dark:border-slate-800/60 text-center">
               <button
                 onClick={() => {
                   setAuthMode("signup");
@@ -832,7 +832,7 @@ export default function Auth({ onLoginSuccess, selectedLanguage }: AuthProps) {
                   setSuccessMessage("");
                   setRecoveryEmail("");
                 }}
-                className="text-xs text-slate-500 hover:text-slate-400 font-medium transition-colors cursor-pointer"
+                className="text-xs text-slate-500 hover:text-slate-500 dark:text-slate-400 font-medium transition-colors cursor-pointer"
               >
                 {isMarathi ? "युझरनेम विसरलात? येथे शोधा" : "Forgot your username? Find it here"}
               </button>
@@ -840,7 +840,7 @@ export default function Auth({ onLoginSuccess, selectedLanguage }: AuthProps) {
           )}
 
           {authMode === "signup" && (
-            <div className="mt-4 pt-4 border-t border-slate-800/60 text-center">
+            <div className="mt-4 pt-4 border-t border-slate-200 dark:border-slate-800/60 text-center">
               <button
                 onClick={() => {
                   setAuthMode("login");
@@ -859,11 +859,11 @@ export default function Auth({ onLoginSuccess, selectedLanguage }: AuthProps) {
 
       {/* Custom Admin Bypass Modal */}
       {showBypassModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md">
-          <div className="bg-slate-900 border border-slate-800 rounded-3xl p-6 w-full max-w-md shadow-2xl relative text-slate-100">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-50 dark:bg-slate-950/80 backdrop-blur-md">
+          <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 w-full max-w-md shadow-2xl relative text-slate-900 dark:text-slate-100">
             <button
               onClick={() => setShowBypassModal(false)}
-              className="absolute top-4 right-4 text-slate-500 hover:text-slate-300 p-1.5 hover:bg-slate-800/50 rounded-xl transition cursor-pointer"
+              className="absolute top-4 right-4 text-slate-500 hover:text-slate-700 dark:text-slate-300 p-1.5 hover:bg-slate-100 dark:bg-slate-800/50 rounded-xl transition cursor-pointer"
             >
               <Icons.X className="h-5 w-5" />
             </button>
@@ -872,10 +872,10 @@ export default function Auth({ onLoginSuccess, selectedLanguage }: AuthProps) {
               <div className="mx-auto w-12 h-12 bg-amber-500/10 border border-amber-500/30 rounded-2xl flex items-center justify-center text-amber-500 mb-3">
                 <Icons.ShieldCheck className="h-6 w-6" />
               </div>
-              <h3 className="text-xl font-extrabold text-white">
+              <h3 className="text-xl font-extrabold text-slate-900 dark:text-white">
                 {isMarathi ? "🔐 गुप्त ॲडमीन प्रवेश" : "🔐 Secret Admin Access"}
               </h3>
-              <p className="text-xs text-slate-400 mt-1">
+              <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
                 {isMarathi ? "प्रणालीच्या सुरक्षिततेसाठी अधिकृत प्रवेश" : "Authorized access for system security"}
               </p>
             </div>
@@ -898,7 +898,7 @@ export default function Auth({ onLoginSuccess, selectedLanguage }: AuthProps) {
               /* Screen A: Enter Bypass Code */
               <form onSubmit={handleBypassPassSubmit} className="space-y-4">
                 <div>
-                  <label className="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-1.5">
+                  <label className="block text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1.5">
                     {isMarathi ? "गुप्त पासवर्ड प्रविष्ट करा" : "Enter Secret Password"}
                   </label>
                   <input
@@ -908,7 +908,7 @@ export default function Auth({ onLoginSuccess, selectedLanguage }: AuthProps) {
                     placeholder="••••••••"
                     value={bypassPass}
                     onChange={(e) => setBypassPass(e.target.value)}
-                    className="w-full bg-slate-950 border border-slate-800 focus:border-amber-500 text-slate-100 rounded-xl px-4 py-3 text-sm focus:outline-none transition-colors"
+                    className="w-full bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 focus:border-amber-500 text-slate-900 dark:text-slate-100 rounded-xl px-4 py-3 text-sm focus:outline-none transition-colors"
                   />
                 </div>
 
@@ -938,7 +938,7 @@ export default function Auth({ onLoginSuccess, selectedLanguage }: AuthProps) {
             ) : (
               /* Screen B: Forgot Bypass Flow */
               <div className="space-y-4">
-                <p className="text-xs text-slate-400 leading-relaxed">
+                <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
                   {isMarathi 
                     ? "गुप्त पासवर्ड पुनर्प्राप्त करण्यासाठी खाली तुमचा अधिकृत बॅकअप ईमेल प्रविष्ट करा. तुमच्या ईमेलवर ६ अंकी लॉगिन ओटीपी (OTP) पाठवला जाईल."
                     : "To recover the secret password, enter your authorized backup email below. A 6-digit login OTP will be sent to your email."}
@@ -948,7 +948,7 @@ export default function Auth({ onLoginSuccess, selectedLanguage }: AuthProps) {
                   /* Form to enter recovery email */
                   <form onSubmit={handleBypassForgotSubmit} className="space-y-4">
                     <div>
-                      <label className="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-1.5">
+                      <label className="block text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1.5">
                         {isMarathi ? "अधिकृत ईमेल प्रविष्ट करा" : "Enter Authorized Email"}
                       </label>
                       <input
@@ -957,7 +957,7 @@ export default function Auth({ onLoginSuccess, selectedLanguage }: AuthProps) {
                         placeholder="example@gmail.com"
                         value={bypassEmail}
                         onChange={(e) => setBypassEmail(e.target.value)}
-                        className="w-full bg-slate-950 border border-slate-800 focus:border-amber-500 text-slate-100 rounded-xl px-4 py-3 text-sm focus:outline-none transition-colors"
+                        className="w-full bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 focus:border-amber-500 text-slate-900 dark:text-slate-100 rounded-xl px-4 py-3 text-sm focus:outline-none transition-colors"
                       />
                     </div>
 
@@ -969,7 +969,7 @@ export default function Auth({ onLoginSuccess, selectedLanguage }: AuthProps) {
                           setBypassModalError("");
                           setBypassModalSuccess("");
                         }}
-                        className="flex-1 py-2.5 bg-slate-850 hover:bg-slate-800 border border-slate-800 text-slate-300 font-bold rounded-xl transition text-xs text-center cursor-pointer"
+                        className="flex-1 py-2.5 bg-slate-850 hover:bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 font-bold rounded-xl transition text-xs text-center cursor-pointer"
                       >
                         {isMarathi ? "मागे" : "Go Back"}
                       </button>
@@ -993,7 +993,7 @@ export default function Auth({ onLoginSuccess, selectedLanguage }: AuthProps) {
                   /* Form to enter OTP and log in */
                   <form onSubmit={handleBypassOtpVerifySubmit} className="space-y-4">
                     <div>
-                      <label className="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-1.5">
+                      <label className="block text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1.5">
                         {isMarathi ? "६ अंकी ओटीपी प्रविष्ट करा" : "Enter 6-Digit OTP"}
                       </label>
                       <input
@@ -1003,7 +1003,7 @@ export default function Auth({ onLoginSuccess, selectedLanguage }: AuthProps) {
                         placeholder="123456"
                         value={bypassOtp}
                         onChange={(e) => setBypassOtp(e.target.value)}
-                        className="w-full bg-slate-950 border border-slate-800 focus:border-amber-500 text-slate-100 rounded-xl px-4 py-3 text-sm focus:outline-none transition-colors font-mono text-center tracking-[0.5em] text-lg"
+                        className="w-full bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 focus:border-amber-500 text-slate-900 dark:text-slate-100 rounded-xl px-4 py-3 text-sm focus:outline-none transition-colors font-mono text-center tracking-[0.5em] text-lg"
                       />
                     </div>
 
@@ -1015,7 +1015,7 @@ export default function Auth({ onLoginSuccess, selectedLanguage }: AuthProps) {
                           setBypassModalError("");
                           setBypassModalSuccess("");
                         }}
-                        className="flex-1 py-2.5 bg-slate-850 hover:bg-slate-800 border border-slate-800 text-slate-300 font-bold rounded-xl transition text-xs text-center cursor-pointer"
+                        className="flex-1 py-2.5 bg-slate-850 hover:bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 font-bold rounded-xl transition text-xs text-center cursor-pointer"
                       >
                         {isMarathi ? "ईमेल बदला" : "Change Email"}
                       </button>

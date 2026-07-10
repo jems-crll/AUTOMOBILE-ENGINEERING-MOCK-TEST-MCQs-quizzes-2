@@ -12,6 +12,25 @@ import AdminPanel from "./components/AdminPanel";
 import { translateQuestionOffline } from "./utils/localTranslator";
 
 export default function App() {
+  const [theme, setTheme] = useState<"dark" | "light">(() => {
+    try {
+      const stored = localStorage.getItem("omto_theme");
+      if (stored === "light") return "light";
+      return "dark"; // Default dark
+    } catch (_) {
+      return "dark";
+    }
+  });
+
+  useEffect(() => {
+    if (theme === "dark") {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+    localStorage.setItem("omto_theme", theme);
+  }, [theme]);
+
   const [currentUser, setCurrentUser] = useState<User | null>(() => {
     try {
       const stored = sessionStorage.getItem("omto_current_user");
@@ -256,9 +275,9 @@ export default function App() {
 
     let selected: Question[] = [];
     if (config.chapterId !== "all" && config.setId && config.setId !== "all") {
-      // Load specified set sequentially
-      const startIdx = (config.setId - 1) * 20;
-      const endIdx = Math.min(config.setId * 20, filtered.length);
+      // Load specified set sequentially (50 questions per set)
+      const startIdx = (config.setId - 1) * 50;
+      const endIdx = Math.min(config.setId * 50, filtered.length);
       selected = filtered.slice(startIdx, endIdx);
     } else {
       // Shuffle
@@ -347,27 +366,27 @@ export default function App() {
   // Render spinning mechanical gear loader
   if (loadingTest) {
     return (
-      <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col items-center justify-center p-6 selection:bg-amber-500/20 selection:text-amber-400 font-sans">
-        <div className="relative flex flex-col items-center max-w-md w-full bg-slate-900/40 p-10 rounded-3xl border border-slate-800/80 text-center backdrop-blur-md shadow-2xl">
+      <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 flex flex-col items-center justify-center p-6 selection:bg-amber-500/20 selection:text-amber-400 font-sans">
+        <div className="relative flex flex-col items-center max-w-md w-full bg-white dark:bg-slate-900/40 p-10 rounded-3xl border border-slate-200 dark:border-slate-800/80 text-center backdrop-blur-md shadow-2xl">
           <div className="relative mb-8 w-24 h-24 flex items-center justify-center">
             <Icons.Settings className="h-20 w-20 text-amber-500 animate-spin" style={{ animationDuration: "10s" }} />
             <Icons.Settings className="absolute top-1 right-1 h-10 w-10 text-amber-600/60 animate-spin" style={{ animationDuration: "5s", animationDirection: "reverse" }} />
-            <Icons.Wrench className="absolute h-8 w-8 text-white animate-pulse" />
+            <Icons.Wrench className="absolute h-8 w-8 text-slate-900 dark:text-white animate-pulse" />
           </div>
 
           <span className="text-[10px] font-extrabold uppercase tracking-widest text-amber-500 font-mono bg-amber-500/10 px-3 py-1 rounded-full mb-3">
             {selectedLanguage.nativeName} ({selectedLanguage.name})
           </span>
-          <h2 className="text-xl font-black text-white tracking-tight leading-snug mb-2">
+          <h2 className="text-xl font-black text-slate-900 dark:text-white tracking-tight leading-snug mb-2">
             {loadingStatusText}
           </h2>
-          <p className="text-xs text-slate-400 max-w-xs leading-relaxed">
+          <p className="text-xs text-slate-500 dark:text-slate-400 max-w-xs leading-relaxed">
             {selectedLanguage.code === "mr" 
               ? "कृपया थांबा, ऑटोमोबाईल अभियांत्रिकीचे सविस्तर प्रश्न संकलित होत आहेत..." 
               : "Please wait while our engine compiles and localizes detailed Automobile Engineering MCQs..."}
           </p>
 
-          <div className="w-full bg-slate-950 h-1.5 rounded-full mt-6 overflow-hidden border border-slate-850">
+          <div className="w-full bg-slate-50 dark:bg-slate-950 h-1.5 rounded-full mt-6 overflow-hidden border border-slate-200 dark:border-slate-850">
             <div className="bg-gradient-to-r from-amber-500 to-amber-600 h-full w-2/3 animate-pulse" />
           </div>
         </div>
@@ -377,9 +396,9 @@ export default function App() {
 
   if (!currentUser) {
     return (
-      <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col justify-between selection:bg-amber-500/20 selection:text-amber-400 antialiased font-sans">
+      <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 flex flex-col justify-between selection:bg-amber-500/20 selection:text-amber-400 antialiased font-sans">
         {/* Top Header */}
-        <header className="border-b border-slate-900 bg-slate-950/80 backdrop-blur sticky top-0 z-40">
+        <header className="border-b border-slate-200 dark:border-slate-900 bg-slate-50 dark:bg-slate-950/80 backdrop-blur sticky top-0 z-40">
           <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-3 flex items-center justify-between gap-4">
             {/* Logo Branding */}
             <div className="flex items-center gap-2 sm:gap-3">
@@ -388,18 +407,27 @@ export default function App() {
               </div>
               <div className="min-w-0">
                 <div className="flex items-center gap-1.5 sm:gap-2">
-                  <span className="text-[10px] bg-slate-800 text-slate-400 font-mono px-1.5 py-0.5 rounded font-bold">OMTO</span>
+                  <span className="text-[10px] bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 font-mono px-1.5 py-0.5 rounded font-bold">OMTO</span>
                   <span className="h-1 w-1 sm:h-1.5 sm:w-1.5 rounded-full bg-emerald-500" />
                   <span className="text-[9px] sm:text-[10px] uppercase font-bold text-slate-500 font-mono truncate">Automobile Engg</span>
                 </div>
-                <h1 className="text-sm sm:text-lg md:text-xl font-black font-sans tracking-tight text-white mt-0.5 leading-none truncate">
+                <h1 className="text-sm sm:text-lg md:text-xl font-black font-sans tracking-tight text-slate-900 dark:text-white mt-0.5 leading-none truncate">
                   ऑटोमोबाईल मॉक टेस्ट <span className="hidden sm:inline text-amber-500 font-normal">| MCQ Test</span>
                 </h1>
               </div>
             </div>
             
             {/* National State Language Selector */}
-            <div className="flex items-center bg-slate-900 border border-slate-850 pl-2 pr-0.5 sm:pl-2.5 sm:pr-1 py-1 rounded-xl gap-1 sm:gap-2 shadow shrink-0">
+            
+            <button
+              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+              className="p-1.5 sm:p-2 bg-slate-50 dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-850 text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white rounded-lg transition cursor-pointer"
+              title="Toggle Theme"
+            >
+              {theme === "dark" ? <Icons.Sun className="h-4 w-4" /> : <Icons.Moon className="h-4 w-4" />}
+            </button>
+            <div className="flex items-center bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-850 pl-2 pr-0.5 sm:pl-2.5 sm:pr-1 py-1 rounded-xl gap-1 sm:gap-2 shadow">
+
               <Icons.Globe className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-amber-500 shrink-0" />
               <select
                 value={selectedLanguage.code}
@@ -410,10 +438,10 @@ export default function App() {
                     localStorage.setItem("omto_selected_language", JSON.stringify(lang));
                   }
                 }}
-                className="bg-transparent border-none text-[11px] sm:text-xs font-bold text-slate-200 focus:outline-none pr-1 sm:pr-1.5 cursor-pointer font-sans"
+                className="bg-transparent border-none text-[11px] sm:text-xs font-bold text-slate-800 dark:text-slate-200 focus:outline-none pr-1 sm:pr-1.5 cursor-pointer font-sans"
               >
                 {STATE_LANGUAGES.map((lang) => (
-                  <option key={lang.code} value={lang.code} className="bg-slate-950 text-slate-100 text-xs">
+                  <option key={lang.code} value={lang.code} className="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 text-xs">
                     {lang.nativeName}
                   </option>
                 ))}
@@ -428,7 +456,7 @@ export default function App() {
         </main>
 
         {/* Footer */}
-        <footer className="border-t border-slate-900 bg-slate-950 py-6 text-center text-xs text-slate-500 font-mono">
+        <footer className="border-t border-slate-200 dark:border-slate-900 bg-slate-50 dark:bg-slate-950 py-6 text-center text-xs text-slate-500 font-mono">
           <p>© 2026 OMTO Automobile Engineering Lab. {selectedLanguage.code === "mr" ? "सर्व हक्क राखीव." : "All Rights Reserved."}</p>
         </footer>
       </div>
@@ -436,10 +464,10 @@ export default function App() {
   }
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col justify-between selection:bg-amber-500/20 selection:text-amber-400 antialiased font-sans">
+    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 flex flex-col justify-between selection:bg-amber-500/20 selection:text-amber-400 antialiased font-sans">
       
       {/* Top Banner and Header */}
-      <header className="border-b border-slate-900 bg-slate-950/80 backdrop-blur sticky top-0 z-40">
+      <header className="border-b border-slate-200 dark:border-slate-900 bg-slate-50 dark:bg-slate-950/80 backdrop-blur sticky top-0 z-40">
         <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-2.5 sm:py-4 flex items-center justify-between gap-3">
           
           {/* Logo Branding */}
@@ -449,11 +477,11 @@ export default function App() {
             </div>
             <div className="min-w-0">
               <div className="flex items-center gap-1.5 sm:gap-2">
-                <span className="text-[10px] bg-slate-800 text-slate-400 font-mono px-1.5 py-0.5 rounded font-bold">OMTO</span>
+                <span className="text-[10px] bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 font-mono px-1.5 py-0.5 rounded font-bold">OMTO</span>
                 <span className="h-1 sm:h-1.5 sm:w-1.5 rounded-full bg-emerald-500" />
                 <span className="text-[9px] sm:text-[10px] uppercase font-bold text-slate-500 font-mono truncate">Automobile Engg</span>
               </div>
-              <h1 className="text-sm sm:text-lg md:text-xl font-black font-sans tracking-tight text-white mt-0.5 leading-none truncate">
+              <h1 className="text-sm sm:text-lg md:text-xl font-black font-sans tracking-tight text-slate-900 dark:text-white mt-0.5 leading-none truncate">
                 ऑटोमोबाईल मॉक टेस्ट <span className="hidden sm:inline text-amber-500 font-normal">| MCQ Test</span>
               </h1>
             </div>
@@ -463,7 +491,7 @@ export default function App() {
           {!quizState && (
             <div className="flex items-center gap-2 sm:gap-3 md:gap-4 shrink-0">
               {/* Tab selector */}
-              <nav className="hidden lg:flex bg-slate-900 border border-slate-850 p-1 rounded-lg text-xs font-semibold">
+              <nav className="hidden lg:flex bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-850 p-1 rounded-lg text-xs font-semibold">
                 <button
                   onClick={() => {
                     setActiveTab("dashboard");
@@ -471,8 +499,8 @@ export default function App() {
                   }}
                   className={`px-4 py-2 rounded-md transition flex items-center gap-1.5 cursor-pointer ${
                     activeTab === "dashboard" && !scorecardState
-                      ? "bg-slate-800 text-amber-400"
-                      : "text-slate-400 hover:text-slate-200"
+                      ? "bg-slate-100 dark:bg-slate-800 text-amber-400"
+                      : "text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:text-slate-200"
                   }`}
                 >
                   <Icons.LayoutDashboard className="h-3.5 w-3.5" />
@@ -485,8 +513,8 @@ export default function App() {
                   }}
                   className={`px-4 py-2 rounded-md transition flex items-center gap-1.5 cursor-pointer ${
                     activeTab === "analytics" && !scorecardState
-                      ? "bg-slate-800 text-amber-400"
-                      : "text-slate-400 hover:text-slate-200"
+                      ? "bg-slate-100 dark:bg-slate-800 text-amber-400"
+                      : "text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:text-slate-200"
                   }`}
                 >
                   <Icons.TrendingUp className="h-3.5 w-3.5" />
@@ -500,8 +528,8 @@ export default function App() {
                     }}
                     className={`px-4 py-2 rounded-md transition flex items-center gap-1.5 cursor-pointer ${
                       activeTab === "admin" && !scorecardState
-                        ? "bg-slate-800 text-amber-400"
-                        : "text-slate-400 hover:text-slate-200"
+                        ? "bg-slate-100 dark:bg-slate-800 text-amber-400"
+                        : "text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:text-slate-200"
                     }`}
                   >
                     <Icons.ShieldAlert className="h-3.5 w-3.5" />
@@ -511,7 +539,16 @@ export default function App() {
               </nav>
 
               {/* National State Language Selector */}
-              <div className="hidden sm:flex items-center bg-slate-900 border border-slate-850 pl-2 pr-0.5 sm:pl-2.5 sm:pr-1 py-1 rounded-xl gap-1 sm:gap-2 shadow">
+              
+            <button
+              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+              className="p-1.5 sm:p-2 bg-slate-50 dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-850 text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white rounded-lg transition cursor-pointer"
+              title="Toggle Theme"
+            >
+              {theme === "dark" ? <Icons.Sun className="h-4 w-4" /> : <Icons.Moon className="h-4 w-4" />}
+            </button>
+            <div className="hidden sm:flex items-center bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-850 pl-2 pr-0.5 sm:pl-2.5 sm:pr-1 py-1 rounded-xl gap-1 sm:gap-2 shadow">
+
                 <Icons.Globe className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-amber-500 shrink-0" />
                 <select
                   value={selectedLanguage.code}
@@ -522,10 +559,10 @@ export default function App() {
                       localStorage.setItem("omto_selected_language", JSON.stringify(lang));
                     }
                   }}
-                  className="bg-transparent border-none text-[11px] sm:text-xs font-bold text-slate-200 focus:outline-none pr-1 sm:pr-1.5 cursor-pointer font-sans font-sans"
+                  className="bg-transparent border-none text-[11px] sm:text-xs font-bold text-slate-800 dark:text-slate-200 focus:outline-none pr-1 sm:pr-1.5 cursor-pointer font-sans font-sans"
                 >
                   {STATE_LANGUAGES.map((lang) => (
-                    <option key={lang.code} value={lang.code} className="bg-slate-950 text-slate-100 text-xs">
+                    <option key={lang.code} value={lang.code} className="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 text-xs">
                       {lang.nativeName}
                     </option>
                   ))}
@@ -533,9 +570,9 @@ export default function App() {
               </div>
 
               {/* User Session Profile Header Info */}
-              <div className="flex items-center gap-2 border-l border-slate-850 pl-2 sm:pl-3 md:pl-4">
+              <div className="flex items-center gap-2 border-l border-slate-200 dark:border-slate-850 pl-2 sm:pl-3 md:pl-4">
                 <div className="hidden md:flex flex-col text-right">
-                  <span className="text-xs text-slate-300 font-bold truncate max-w-[120px]">{currentUser.email}</span>
+                  <span className="text-xs text-slate-700 dark:text-slate-300 font-bold truncate max-w-[120px]">{currentUser.email}</span>
                   <span className="text-[10px] font-mono font-black flex items-center gap-1 justify-end">
                     {currentUser.isPremium ? (
                       <span className="text-emerald-400 flex items-center gap-0.5">
@@ -566,7 +603,7 @@ export default function App() {
                     setCurrentUser(null);
                   }}
                   title={selectedLanguage.code === "mr" ? "लॉगआउट" : "Logout"}
-                  className="p-1.5 sm:p-2 bg-slate-900 hover:bg-slate-800 border border-slate-850 text-slate-400 hover:text-white rounded-lg transition cursor-pointer"
+                  className="p-1.5 sm:p-2 bg-white dark:bg-slate-900 hover:bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-850 text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:text-white rounded-lg transition cursor-pointer"
                 >
                   <Icons.LogOut className="h-3.5 sm:h-4 sm:w-4 w-3.5" />
                 </button>
@@ -626,11 +663,11 @@ export default function App() {
         {!quizState && !scorecardState && (
           <>
             {/* Small Tab bar for mobile and tablet devices */}
-            <div className="lg:hidden mb-6 flex bg-slate-900 border border-slate-850 p-1 rounded-lg text-xs font-semibold">
+            <div className="lg:hidden mb-6 flex bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-850 p-1 rounded-lg text-xs font-semibold">
               <button
                 onClick={() => setActiveTab("dashboard")}
                 className={`flex-1 py-2.5 rounded-md text-center transition ${
-                  activeTab === "dashboard" ? "bg-slate-800 text-amber-400" : "text-slate-400"
+                  activeTab === "dashboard" ? "bg-slate-100 dark:bg-slate-800 text-amber-400" : "text-slate-500 dark:text-slate-400"
                 }`}
               >
                 {selectedLanguage.code === "mr" ? "डॅशबोर्ड" : "Dashboard"}
@@ -638,7 +675,7 @@ export default function App() {
               <button
                 onClick={() => setActiveTab("analytics")}
                 className={`flex-1 py-2.5 rounded-md text-center transition ${
-                  activeTab === "analytics" ? "bg-slate-800 text-amber-400" : "text-slate-400"
+                  activeTab === "analytics" ? "bg-slate-100 dark:bg-slate-800 text-amber-400" : "text-slate-500 dark:text-slate-400"
                 }`}
               >
                 {selectedLanguage.code === "mr" ? "प्रगती" : "Analytics"}
@@ -647,7 +684,7 @@ export default function App() {
                 <button
                   onClick={() => setActiveTab("admin")}
                   className={`flex-1 py-2.5 rounded-md text-center transition ${
-                    activeTab === "admin" ? "bg-slate-800 text-amber-400" : "text-slate-400"
+                    activeTab === "admin" ? "bg-slate-100 dark:bg-slate-800 text-amber-400" : "text-slate-500 dark:text-slate-400"
                   }`}
                 >
                   {selectedLanguage.code === "mr" ? "ॲडमीन" : "Admin"}
@@ -681,12 +718,12 @@ export default function App() {
                   onUpdateSubscriptionConfig={(updated) => setSubscriptionConfig(updated)}
                 />
               ) : (
-                <div className="bg-slate-900 border border-slate-850 rounded-3xl p-8 max-w-md mx-auto text-center space-y-4 shadow-2xl">
+                <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-850 rounded-3xl p-8 max-w-md mx-auto text-center space-y-4 shadow-2xl">
                   <div className="p-3 bg-red-500/10 text-red-500 rounded-2xl w-fit mx-auto border border-red-500/20">
                     <Icons.ShieldAlert className="h-8 w-8" />
                   </div>
-                  <h3 className="text-lg font-black text-white">Access Denied / प्रवेश नाकारला</h3>
-                  <p className="text-xs text-slate-400">
+                  <h3 className="text-lg font-black text-slate-900 dark:text-white">Access Denied / प्रवेश नाकारला</h3>
+                  <p className="text-xs text-slate-500 dark:text-slate-400">
                     {selectedLanguage.code === "mr" 
                       ? "हे पेज पाहण्यासाठी तुमच्याकडे ॲडमीन अधिकार असणे आवश्यक आहे." 
                       : "You need administrator privileges to view this page."}
@@ -717,7 +754,7 @@ export default function App() {
       />
 
       {/* Footer copyright */}
-      <footer className="border-t border-slate-900 bg-slate-950 py-6 text-center text-xs text-slate-500 font-mono">
+      <footer className="border-t border-slate-200 dark:border-slate-900 bg-slate-50 dark:bg-slate-950 py-6 text-center text-xs text-slate-500 font-mono">
         <p>© 2026 OMTO Automobile Engineering Lab. {selectedLanguage.code === "mr" ? "सर्व हक्क राखीव." : "All Rights Reserved."}</p>
       </footer>
     </div>

@@ -376,15 +376,15 @@ export default function AdminPanel({
   });
 
   return (
-    <div className="bg-slate-900 border border-slate-850 rounded-3xl p-6 sm:p-8 shadow-2xl animate-fade-in text-slate-100">
+    <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-850 rounded-3xl p-6 sm:p-8 shadow-2xl animate-fade-in text-slate-900 dark:text-slate-100">
       {/* Header section */}
-      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-slate-800 pb-5 mb-6">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-slate-200 dark:border-slate-800 pb-5 mb-6">
         <div>
-          <h2 className="text-xl sm:text-2xl font-black text-white tracking-tight flex items-center gap-2">
+          <h2 className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white tracking-tight flex items-center gap-2">
             <Icons.ShieldAlert className="h-6 w-6 text-amber-500" />
             <span>{isMarathi ? "ॲडमीन डॅशबोर्ड" : "Admin Control Panel"}</span>
           </h2>
-          <p className="text-xs text-slate-400 mt-1">
+          <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
             {isMarathi 
               ? "विद्यार्थ्यांच्या सबस्क्रिप्शन व प्रीमियम खात्यांचे व्यवस्थापन करा" 
               : "Manage students, edit subscription status, and monitor user logins"}
@@ -392,13 +392,13 @@ export default function AdminPanel({
         </div>
 
         {/* View togglers */}
-        <div className="flex flex-wrap gap-2 bg-slate-950 p-1 rounded-xl border border-slate-850">
+        <div className="flex flex-wrap gap-2 bg-slate-50 dark:bg-slate-950 p-1 rounded-xl border border-slate-200 dark:border-slate-850">
           <button
             onClick={() => setActiveTab("list")}
             className={`px-4 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 cursor-pointer ${
               activeTab === "list" 
                 ? "bg-amber-500 text-slate-950" 
-                : "text-slate-400 hover:text-slate-200"
+                : "text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:text-slate-200"
             }`}
           >
             <Icons.Users className="h-3.5 w-3.5" />
@@ -409,7 +409,7 @@ export default function AdminPanel({
             className={`px-4 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 cursor-pointer ${
               activeTab === "pricing" 
                 ? "bg-amber-500 text-slate-950" 
-                : "text-slate-400 hover:text-slate-200"
+                : "text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:text-slate-200"
             }`}
           >
             <Icons.Settings className="h-3.5 w-3.5" />
@@ -420,7 +420,7 @@ export default function AdminPanel({
             className={`px-4 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 cursor-pointer ${
               activeTab === "coupons" 
                 ? "bg-amber-500 text-slate-950" 
-                : "text-slate-400 hover:text-slate-200"
+                : "text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:text-slate-200"
             }`}
           >
             <Icons.Tag className="h-3.5 w-3.5" />
@@ -431,7 +431,7 @@ export default function AdminPanel({
             className={`px-4 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 cursor-pointer ${
               activeTab === "guide" 
                 ? "bg-amber-500 text-slate-950" 
-                : "text-slate-400 hover:text-slate-200"
+                : "text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:text-slate-200"
             }`}
           >
             <Icons.DatabaseBackup className="h-3.5 w-3.5" />
@@ -445,19 +445,19 @@ export default function AdminPanel({
           {/* Column 1: Manage & Directory */}
           <div className="lg:col-span-2 space-y-5">
             {/* Search filter utility */}
-            <div className="flex items-center gap-3 bg-slate-950 border border-slate-850 rounded-2xl px-4 py-2">
+            <div className="flex items-center gap-3 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-850 rounded-2xl px-4 py-2">
               <Icons.Search className="h-4 w-4 text-slate-500 shrink-0" />
               <input
                 type="text"
                 placeholder={isMarathi ? "नाव किंवा ईमेलने शोधा..." : "Search students by name or email..."}
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="bg-transparent border-none text-xs text-slate-200 focus:outline-none w-full placeholder-slate-600 font-medium"
+                className="bg-transparent border-none text-xs text-slate-800 dark:text-slate-200 focus:outline-none w-full placeholder-slate-600 font-medium"
               />
               {searchQuery && (
                 <button 
                   onClick={() => setSearchQuery("")}
-                  className="text-slate-500 hover:text-slate-300 transition"
+                  className="text-slate-500 hover:text-slate-700 dark:text-slate-300 transition"
                 >
                   <Icons.X className="h-3.5 w-3.5" />
                 </button>
@@ -465,9 +465,9 @@ export default function AdminPanel({
             </div>
 
             {/* Students List Card */}
-            <div className="bg-slate-950 border border-slate-850 rounded-2xl overflow-hidden">
-              <div className="p-4 bg-slate-900/40 border-b border-slate-850 flex justify-between items-center">
-                <span className="text-xs font-bold text-slate-400">
+            <div className="bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-850 rounded-2xl overflow-hidden">
+              <div className="p-4 bg-white dark:bg-slate-900/40 border-b border-slate-200 dark:border-slate-850 flex justify-between items-center">
+                <span className="text-xs font-bold text-slate-500 dark:text-slate-400">
                   {isMarathi ? `एकूण विद्यार्थी: ${filteredStudents.length}` : `Total Registered: ${filteredStudents.length}`}
                 </span>
                 <span className="text-[10px] bg-emerald-500/10 text-emerald-400 font-semibold px-2 py-0.5 rounded-full border border-emerald-500/20">
@@ -487,14 +487,14 @@ export default function AdminPanel({
                   {filteredStudents.map((student) => (
                     <div 
                       key={student.email} 
-                      className={`p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4 transition hover:bg-slate-900/30 ${
+                      className={`p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4 transition hover:bg-white dark:bg-slate-900/30 ${
                         student.isBlocked ? "opacity-60 bg-red-950/5" : ""
                       }`}
                     >
                       {/* Left: User description & email */}
                       <div className="space-y-1 min-w-0 flex-1">
                         <div className="flex items-center gap-2 flex-wrap">
-                          <span className={`font-black text-sm text-white truncate max-w-[180px]`}>
+                          <span className={`font-black text-sm text-slate-900 dark:text-white truncate max-w-[180px]`}>
                             {student.username || (student.email ? student.email.split("@")[0] : "Student")}
                           </span>
 
@@ -517,13 +517,13 @@ export default function AdminPanel({
                               {isMarathi ? "प्रीमियम" : "PREMIUM"}
                             </span>
                           ) : (
-                            <span className="text-[9px] bg-slate-800 text-slate-400 font-bold px-2 py-0.5 rounded border border-slate-700">
+                            <span className="text-[9px] bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 font-bold px-2 py-0.5 rounded border border-slate-300 dark:border-slate-700">
                               {isMarathi ? "मोफत सदस्य" : "FREE USER"}
                             </span>
                           )}
                         </div>
 
-                        <div className="text-xs text-slate-400 font-mono flex items-center gap-1.5 truncate">
+                        <div className="text-xs text-slate-500 dark:text-slate-400 font-mono flex items-center gap-1.5 truncate">
                           <Icons.Mail className="h-3 w-3 text-slate-500 shrink-0" />
                           <span className="truncate">{student.email}</span>
                         </div>
@@ -553,7 +553,7 @@ export default function AdminPanel({
                           disabled={student.isBlocked}
                           className={`px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1 cursor-pointer select-none ${
                             student.isBlocked
-                              ? "bg-slate-900 text-slate-600 border border-slate-850 cursor-not-allowed"
+                              ? "bg-white dark:bg-slate-900 text-slate-600 border border-slate-200 dark:border-slate-850 cursor-not-allowed"
                               : student.isPremium
                               ? "bg-amber-500/10 hover:bg-amber-500/20 text-amber-400 border border-amber-500/25"
                               : "bg-emerald-500 hover:bg-emerald-600 text-slate-950"
@@ -577,8 +577,8 @@ export default function AdminPanel({
                           onClick={() => handleToggleBlock(student.email)}
                           className={`p-1.5 rounded-lg text-xs border transition cursor-pointer select-none ${
                             student.isBlocked
-                              ? "bg-red-500 hover:bg-red-600 text-white border-red-500"
-                              : "bg-slate-900 hover:bg-slate-800 text-slate-400 hover:text-red-400 border-slate-850"
+                              ? "bg-red-500 hover:bg-red-600 text-slate-900 dark:text-white border-red-500"
+                              : "bg-white dark:bg-slate-900 hover:bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 hover:text-red-400 border-slate-200 dark:border-slate-850"
                           }`}
                           title={student.isBlocked ? (isMarathi ? "अनब्लॉक करा" : "Unblock Student") : (isMarathi ? "ब्लॉक करा" : "Block Student")}
                         >
@@ -588,7 +588,7 @@ export default function AdminPanel({
                         {/* Delete Button */}
                         <button
                           onClick={() => handleDeleteStudent(student.email)}
-                          className="p-1.5 bg-slate-900 hover:bg-red-950/40 text-slate-500 hover:text-red-400 border border-slate-850 rounded-lg transition cursor-pointer select-none"
+                          className="p-1.5 bg-white dark:bg-slate-900 hover:bg-red-950/40 text-slate-500 hover:text-red-400 border border-slate-200 dark:border-slate-850 rounded-lg transition cursor-pointer select-none"
                           title={isMarathi ? "पूर्णपणे काढून टाका" : "Delete Student Record"}
                         >
                           <Icons.Trash2 className="h-3.5 w-3.5" />
@@ -603,8 +603,8 @@ export default function AdminPanel({
 
           {/* Column 2: Add Student Form */}
           <div className="space-y-6">
-            <div className="bg-slate-950 border border-slate-850 rounded-2xl p-5 space-y-4">
-              <h3 className="text-sm font-black text-white uppercase tracking-wider flex items-center gap-2 border-b border-slate-850 pb-3">
+            <div className="bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-850 rounded-2xl p-5 space-y-4">
+              <h3 className="text-sm font-black text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-2 border-b border-slate-200 dark:border-slate-850 pb-3">
                 <Icons.UserPlus className="h-4 w-4 text-emerald-500" />
                 <span>{isMarathi ? "नवीन विद्यार्थी जोडा" : "Add New Student"}</span>
               </h3>
@@ -612,7 +612,7 @@ export default function AdminPanel({
               <form onSubmit={handleAddStudent} className="space-y-4">
                 {/* Email Address */}
                 <div className="space-y-1.5">
-                  <label className="block text-[10px] font-bold text-slate-400 uppercase tracking-wide">
+                  <label className="block text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wide">
                     {isMarathi ? "ईमेल आयडी" : "Email Address"}
                   </label>
                   <input
@@ -621,13 +621,13 @@ export default function AdminPanel({
                     placeholder="student@example.com"
                     value={newEmail}
                     onChange={(e) => setNewEmail(e.target.value)}
-                    className="w-full bg-slate-900 border border-slate-800 text-slate-100 rounded-xl px-3 py-2 text-xs focus:outline-none focus:border-amber-500 transition font-mono"
+                    className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-slate-100 rounded-xl px-3 py-2 text-xs focus:outline-none focus:border-amber-500 transition font-mono"
                   />
                 </div>
 
                 {/* Username / Full Name */}
                 <div className="space-y-1.5">
-                  <label className="block text-[10px] font-bold text-slate-400 uppercase tracking-wide">
+                  <label className="block text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wide">
                     {isMarathi ? "विद्यार्थ्याचे नाव" : "Student Full Name"}
                   </label>
                   <input
@@ -636,13 +636,13 @@ export default function AdminPanel({
                     placeholder={isMarathi ? "उदा. गणेश पाटील" : "e.g. Rahul Sharma"}
                     value={newUsername}
                     onChange={(e) => setNewUsername(e.target.value)}
-                    className="w-full bg-slate-900 border border-slate-800 text-slate-100 rounded-xl px-3 py-2 text-xs focus:outline-none focus:border-amber-500 transition"
+                    className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-slate-100 rounded-xl px-3 py-2 text-xs focus:outline-none focus:border-amber-500 transition"
                   />
                 </div>
 
                 {/* Expiry Date */}
                 <div className="space-y-1.5">
-                  <label className="block text-[10px] font-bold text-slate-400 uppercase tracking-wide">
+                  <label className="block text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wide">
                     {isMarathi ? "सबस्क्रिप्शन मुदत तारीख" : "Subscription Expiry"}
                   </label>
                   <input
@@ -650,19 +650,19 @@ export default function AdminPanel({
                     required
                     value={newExpiryDate}
                     onChange={(e) => setNewExpiryDate(e.target.value)}
-                    className="w-full bg-slate-900 border border-slate-800 text-slate-100 rounded-xl px-3 py-2 text-xs focus:outline-none focus:border-amber-500 transition font-mono"
+                    className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-slate-100 rounded-xl px-3 py-2 text-xs focus:outline-none focus:border-amber-500 transition font-mono"
                   />
                 </div>
 
                 {/* Is Premium Checkbox */}
-                <label className="flex items-center gap-2.5 p-2.5 bg-slate-900/60 border border-slate-850 rounded-xl cursor-pointer hover:border-slate-800 transition select-none">
+                <label className="flex items-center gap-2.5 p-2.5 bg-white dark:bg-slate-900/60 border border-slate-200 dark:border-slate-850 rounded-xl cursor-pointer hover:border-slate-200 dark:border-slate-800 transition select-none">
                   <input
                     type="checkbox"
                     checked={newIsPremium}
                     onChange={(e) => setNewIsPremium(e.target.checked)}
-                    className="rounded border-slate-800 text-emerald-500 bg-slate-950 focus:ring-emerald-500/20 h-3.5 w-3.5 cursor-pointer accent-emerald-500"
+                    className="rounded border-slate-200 dark:border-slate-800 text-emerald-500 bg-slate-50 dark:bg-slate-950 focus:ring-emerald-500/20 h-3.5 w-3.5 cursor-pointer accent-emerald-500"
                   />
-                  <span className="text-xs text-slate-300 font-bold">
+                  <span className="text-xs text-slate-700 dark:text-slate-300 font-bold">
                     {isMarathi ? "थेट प्रीमियम खाते द्या" : "Activate Premium Sub immediately"}
                   </span>
                 </label>
@@ -692,7 +692,7 @@ export default function AdminPanel({
             </div>
 
             {/* Quick Helper card */}
-            <div className="bg-slate-950 border border-slate-850 rounded-2xl p-4 text-[10.5px] text-slate-400 leading-relaxed space-y-2 font-sans">
+            <div className="bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-850 rounded-2xl p-4 text-[10.5px] text-slate-500 dark:text-slate-400 leading-relaxed space-y-2 font-sans">
               <span className="font-bold text-amber-500 uppercase tracking-wider text-[9px] block">
                 {isMarathi ? "💡 डेटाबेस टीप" : "💡 Synchronization Notice"}
               </span>
@@ -705,13 +705,13 @@ export default function AdminPanel({
           </div>
         </div>
       ) : activeTab === "pricing" ? (
-        <div className="max-w-2xl mx-auto bg-slate-900/60 border border-slate-800 p-6 sm:p-8 rounded-2xl space-y-6 animate-fade-in">
+        <div className="max-w-2xl mx-auto bg-white dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 p-6 sm:p-8 rounded-2xl space-y-6 animate-fade-in">
           <div>
-            <h3 className="text-lg font-black text-white tracking-tight flex items-center gap-2">
+            <h3 className="text-lg font-black text-slate-900 dark:text-white tracking-tight flex items-center gap-2">
               <Icons.Sparkles className="h-5 w-5 text-amber-500 fill-amber-500/20" />
               <span>{isMarathi ? "सबस्क्रिप्शन किंमत आणि प्लॅन सेटिंग्ज" : "Subscription Plan & Pricing"}</span>
             </h3>
-            <p className="text-xs text-slate-400 mt-1">
+            <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
               {isMarathi
                 ? "इथून तुम्ही प्रीमियम सबस्क्रिप्शनची किंमत, मूळ किंमत, मुदत आणि वर्णन बदलू शकता."
                 : "Configure the checkout subscription amounts, discounts, billing period, and names dynamically."}
@@ -735,7 +735,7 @@ export default function AdminPanel({
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="space-y-1.5">
-                <label className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">
+                <label className="text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider block">
                   {isMarathi ? "सबस्क्रिप्शन शुल्क (₹)" : "Subscription Fee (₹)"}
                 </label>
                 <input
@@ -744,12 +744,12 @@ export default function AdminPanel({
                   min="1"
                   value={pricingAmount}
                   onChange={(e) => setPricingAmount(Number(e.target.value))}
-                  className="w-full bg-slate-950 border border-slate-850 focus:border-amber-500 text-slate-100 rounded-xl px-4 py-2.5 text-xs focus:outline-none transition font-semibold"
+                  className="w-full bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-850 focus:border-amber-500 text-slate-900 dark:text-slate-100 rounded-xl px-4 py-2.5 text-xs focus:outline-none transition font-semibold"
                 />
               </div>
 
               <div className="space-y-1.5">
-                <label className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">
+                <label className="text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider block">
                   {isMarathi ? "मूळ किंमत / छापील किंमत (₹)" : "Original / Strikeout Price (₹)"}
                 </label>
                 <input
@@ -758,13 +758,13 @@ export default function AdminPanel({
                   min="1"
                   value={pricingOriginalAmount}
                   onChange={(e) => setPricingOriginalAmount(Number(e.target.value))}
-                  className="w-full bg-slate-950 border border-slate-850 focus:border-amber-500 text-slate-100 rounded-xl px-4 py-2.5 text-xs focus:outline-none transition font-semibold"
+                  className="w-full bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-850 focus:border-amber-500 text-slate-900 dark:text-slate-100 rounded-xl px-4 py-2.5 text-xs focus:outline-none transition font-semibold"
                 />
               </div>
             </div>
 
             <div className="space-y-1.5">
-              <label className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">
+              <label className="text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider block">
                 {isMarathi ? "पेमेंट मुदत" : "Billing Period / Access Duration"}
               </label>
               <select
@@ -777,7 +777,7 @@ export default function AdminPanel({
                     setPricingPeriod(val);
                   }
                 }}
-                className="w-full bg-slate-950 border border-slate-850 focus:border-amber-500 text-slate-100 rounded-xl px-4 py-2.5 text-xs focus:outline-none transition font-semibold cursor-pointer"
+                className="w-full bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-850 focus:border-amber-500 text-slate-900 dark:text-slate-100 rounded-xl px-4 py-2.5 text-xs focus:outline-none transition font-semibold cursor-pointer"
               >
                 <option value="lifetime">{isMarathi ? "लाइफटाईम (Lifetime Access)" : "Lifetime Access"}</option>
                 <option value="1 month">{isMarathi ? "१ महिना (1 Month Access)" : "1 Month Access"}</option>
@@ -790,7 +790,7 @@ export default function AdminPanel({
 
             {(!["lifetime", "1 month", "3 months", "6 months", "1 year"].includes(pricingPeriod)) && (
               <div className="space-y-1.5 animate-fade-in">
-                <label className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">
+                <label className="text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider block">
                   {isMarathi ? "कस्टम मुदत प्रविष्ट करा (उदा. 45 Days, 2 Months)" : "Enter Custom Duration (e.g. 45 Days, 2 Months)"}
                 </label>
                 <input
@@ -799,13 +799,13 @@ export default function AdminPanel({
                   placeholder={isMarathi ? "उदा. 45 Days, 3 Months" : "e.g. 45 Days, 3 Months"}
                   value={pricingPeriod}
                   onChange={(e) => setPricingPeriod(e.target.value)}
-                  className="w-full bg-slate-950 border border-slate-850 focus:border-amber-500 text-slate-100 rounded-xl px-4 py-2.5 text-xs focus:outline-none transition font-semibold"
+                  className="w-full bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-850 focus:border-amber-500 text-slate-900 dark:text-slate-100 rounded-xl px-4 py-2.5 text-xs focus:outline-none transition font-semibold"
                 />
               </div>
             )}
 
             <div className="space-y-1.5">
-              <label className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">
+              <label className="text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider block">
                 {isMarathi ? "पॅकेज नाव (इंग्रजी)" : "Package Name (English)"}
               </label>
               <input
@@ -813,12 +813,12 @@ export default function AdminPanel({
                 required
                 value={pricingDetailsEn}
                 onChange={(e) => setPricingDetailsEn(e.target.value)}
-                className="w-full bg-slate-950 border border-slate-850 focus:border-amber-500 text-slate-100 rounded-xl px-4 py-2.5 text-xs focus:outline-none transition font-semibold"
+                className="w-full bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-850 focus:border-amber-500 text-slate-900 dark:text-slate-100 rounded-xl px-4 py-2.5 text-xs focus:outline-none transition font-semibold"
               />
             </div>
 
             <div className="space-y-1.5">
-              <label className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">
+              <label className="text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider block">
                 {isMarathi ? "पॅकेज नाव (मराठी)" : "Package Name (Marathi)"}
               </label>
               <input
@@ -826,14 +826,14 @@ export default function AdminPanel({
                 required
                 value={pricingDetailsMr}
                 onChange={(e) => setPricingDetailsMr(e.target.value)}
-                className="w-full bg-slate-950 border border-slate-850 focus:border-amber-500 text-slate-100 rounded-xl px-4 py-2.5 text-xs focus:outline-none transition font-semibold"
+                className="w-full bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-850 focus:border-amber-500 text-slate-900 dark:text-slate-100 rounded-xl px-4 py-2.5 text-xs focus:outline-none transition font-semibold"
               />
             </div>
 
             <button
               type="submit"
               disabled={pricingSaving}
-              className={`w-full py-3 bg-amber-500 hover:bg-amber-600 disabled:bg-slate-800 text-slate-950 font-black rounded-xl text-xs transition flex items-center justify-center gap-2 cursor-pointer shadow-lg shadow-amber-500/10 ${
+              className={`w-full py-3 bg-amber-500 hover:bg-amber-600 disabled:bg-slate-100 dark:bg-slate-800 text-slate-950 font-black rounded-xl text-xs transition flex items-center justify-center gap-2 cursor-pointer shadow-lg shadow-amber-500/10 ${
                 pricingSaving ? "animate-pulse" : ""
               }`}
             >
@@ -852,13 +852,13 @@ export default function AdminPanel({
           </form>
 
           {/* Admin Bypass Code Configuration Card */}
-          <div className="border-t border-slate-800 pt-8 mt-8 space-y-6">
+          <div className="border-t border-slate-200 dark:border-slate-800 pt-8 mt-8 space-y-6">
             <div>
-              <h3 className="text-lg font-black text-white tracking-tight flex items-center gap-2">
+              <h3 className="text-lg font-black text-slate-900 dark:text-white tracking-tight flex items-center gap-2">
                 <Icons.Key className="h-5 w-5 text-amber-500" />
                 <span>{isMarathi ? "बायपास कोड मॅनेजमेंट (Admin Bypass Code)" : "Admin Bypass Code Management"}</span>
               </h3>
-              <p className="text-xs text-slate-400 mt-1">
+              <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
                 {isMarathi
                   ? "हा बायपास कोड वापरून विद्यार्थी किंवा तुम्ही पासवर्ड न वापरता डायरेक्ट लॉगिन करू शकता. हा वारंवार बदलत राहा."
                   : "Change the admin bypass code periodically to keep registration or testing access secure."}
@@ -881,7 +881,7 @@ export default function AdminPanel({
               )}
 
               <div className="space-y-1.5">
-                <label className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">
+                <label className="text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider block">
                   {isMarathi ? "बायपास पासवर्ड कोड" : "Bypass Password Code"}
                 </label>
                 <div className="relative">
@@ -894,7 +894,7 @@ export default function AdminPanel({
                     placeholder="e.g. OMTOADMIN"
                     value={bypassCode}
                     onChange={(e) => setBypassCode(e.target.value.toUpperCase().trim())}
-                    className="w-full bg-slate-950 border border-slate-850 focus:border-amber-500 text-slate-100 rounded-xl pl-10 pr-4 py-2.5 text-xs focus:outline-none transition font-semibold font-mono"
+                    className="w-full bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-850 focus:border-amber-500 text-slate-900 dark:text-slate-100 rounded-xl pl-10 pr-4 py-2.5 text-xs focus:outline-none transition font-semibold font-mono"
                   />
                 </div>
               </div>
@@ -902,7 +902,7 @@ export default function AdminPanel({
               <button
                 type="submit"
                 disabled={bypassSaving}
-                className={`w-full py-3 bg-slate-800 hover:bg-slate-750 disabled:bg-slate-900 text-amber-400 border border-slate-700 font-black rounded-xl text-xs transition flex items-center justify-center gap-2 cursor-pointer shadow-lg`}
+                className={`w-full py-3 bg-slate-100 dark:bg-slate-800 hover:bg-slate-750 disabled:bg-white dark:bg-slate-900 text-amber-400 border border-slate-300 dark:border-slate-700 font-black rounded-xl text-xs transition flex items-center justify-center gap-2 cursor-pointer shadow-lg`}
               >
                 {bypassSaving ? (
                   <>
@@ -920,13 +920,13 @@ export default function AdminPanel({
           </div>
         </div>
       ) : activeTab === "coupons" ? (
-        <div className="max-w-4xl mx-auto bg-slate-900/60 border border-slate-800 p-6 sm:p-8 rounded-2xl space-y-8 animate-fade-in">
+        <div className="max-w-4xl mx-auto bg-white dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 p-6 sm:p-8 rounded-2xl space-y-8 animate-fade-in">
           <div>
-            <h3 className="text-lg font-black text-white tracking-tight flex items-center gap-2">
+            <h3 className="text-lg font-black text-slate-900 dark:text-white tracking-tight flex items-center gap-2">
               <Icons.Tag className="h-5 w-5 text-amber-500" />
               <span>{isMarathi ? "कूपन कोड मॅनेजमेंट" : "Coupon Code Management"}</span>
             </h3>
-            <p className="text-xs text-slate-400 mt-1">
+            <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
               {isMarathi
                 ? "विद्यार्थ्यांना सवलत देण्यासाठी ५ कूपन कोड सेट करा."
                 : "Set up 5 coupon codes to offer discounts to students."}
@@ -950,7 +950,7 @@ export default function AdminPanel({
 
             <div className="grid grid-cols-1 gap-4">
               {coupons.map((coupon, index) => (
-                <div key={coupon.id} className="p-4 bg-slate-950 border border-slate-850 rounded-xl grid grid-cols-1 sm:grid-cols-12 gap-4 items-center">
+                <div key={coupon.id} className="p-4 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-850 rounded-xl grid grid-cols-1 sm:grid-cols-12 gap-4 items-center">
                   <div className="sm:col-span-1">
                     <span className="text-xs font-black text-slate-500">#{index + 1}</span>
                   </div>
@@ -964,7 +964,7 @@ export default function AdminPanel({
                       placeholder="e.g. SAVE50"
                       value={coupon.code}
                       onChange={(e) => handleUpdateCoupon(coupon.id, "code", e.target.value.toUpperCase().trim())}
-                      className="w-full bg-slate-900 border border-slate-800 text-slate-100 rounded-lg px-3 py-2 text-xs focus:outline-none focus:border-amber-500 transition font-mono font-bold"
+                      className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-slate-100 rounded-lg px-3 py-2 text-xs focus:outline-none focus:border-amber-500 transition font-mono font-bold"
                     />
                   </div>
 
@@ -979,7 +979,7 @@ export default function AdminPanel({
                         max="100"
                         value={coupon.discountPercent}
                         onChange={(e) => handleUpdateCoupon(coupon.id, "discountPercent", Number(e.target.value))}
-                        className="w-full bg-slate-900 border border-slate-800 text-slate-100 rounded-lg pl-3 pr-8 py-2 text-xs focus:outline-none focus:border-amber-500 transition font-mono font-bold"
+                        className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-slate-100 rounded-lg pl-3 pr-8 py-2 text-xs focus:outline-none focus:border-amber-500 transition font-mono font-bold"
                       />
                       <span className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-500 font-bold text-xs">%</span>
                     </div>
@@ -992,7 +992,7 @@ export default function AdminPanel({
                       </span>
                       <div 
                         onClick={() => handleUpdateCoupon(coupon.id, "isActive", !coupon.isActive)}
-                        className={`w-10 h-5 rounded-full transition-colors relative ${coupon.isActive ? "bg-emerald-500" : "bg-slate-800"}`}
+                        className={`w-10 h-5 rounded-full transition-colors relative ${coupon.isActive ? "bg-emerald-500" : "bg-slate-100 dark:bg-slate-800"}`}
                       >
                         <div className={`absolute top-1 w-3 h-3 rounded-full bg-white transition-all ${coupon.isActive ? "left-6" : "left-1"}`}></div>
                       </div>
@@ -1005,7 +1005,7 @@ export default function AdminPanel({
             <button
               type="submit"
               disabled={couponsSaving}
-              className={`w-full py-3 bg-amber-500 hover:bg-amber-600 disabled:bg-slate-800 text-slate-950 font-black rounded-xl text-xs transition flex items-center justify-center gap-2 cursor-pointer shadow-lg shadow-amber-500/10 ${
+              className={`w-full py-3 bg-amber-500 hover:bg-amber-600 disabled:bg-slate-100 dark:bg-slate-800 text-slate-950 font-black rounded-xl text-xs transition flex items-center justify-center gap-2 cursor-pointer shadow-lg shadow-amber-500/10 ${
                 couponsSaving ? "animate-pulse" : ""
               }`}
             >
@@ -1024,26 +1024,26 @@ export default function AdminPanel({
           </form>
         </div>
       ) : activeTab === "guide" ? (
-          <div className="bg-slate-950 border border-slate-850 rounded-2xl p-5 space-y-4">
-            <div className="flex items-center gap-2 border-b border-slate-850 pb-3">
+          <div className="bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-850 rounded-2xl p-5 space-y-4">
+            <div className="flex items-center gap-2 border-b border-slate-200 dark:border-slate-850 pb-3">
               <Icons.DatabaseBackup className="h-5 w-5 text-amber-500" />
-              <h3 className="text-sm font-black text-white uppercase tracking-wider">
+              <h3 className="text-sm font-black text-slate-900 dark:text-white uppercase tracking-wider">
                 {isMarathi ? "तुमचा स्वतःचा खरा डेटाबेस कसा कनेक्ट कराल?" : "Database Connection Integration Guide"}
               </h3>
             </div>
             
-            <p className="text-xs text-slate-400 leading-relaxed font-sans">
+            <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed font-sans">
               {isMarathi
                 ? "सध्या हा ॲप स्थानिक ब्राउझर मेमरी (LocalStorage) वापरतो. तुम्ही जेव्हा हे ॲप तुमच्या विद्यार्थ्यांसाठी लाईव्ह कराल, तेव्हा तुम्ही खालीलपैकी कोणत्याही पद्धतीने डेटाबेस कनेक्ट करू शकता. येथे आम्ही पूर्ण कोड तयार केला आहे:"
                 : "Currently this app saves students inside standard LocalStorage. When deploying this for real student registration, you can integrate Firebase, Google Sheets, or SQL databases. Below are clean copy-paste templates ready to go:"}
             </p>
 
             {/* Sub Tabs for guides */}
-            <div className="flex gap-2 bg-slate-900 p-1 rounded-xl border border-slate-850 max-w-lg">
+            <div className="flex gap-2 bg-white dark:bg-slate-900 p-1 rounded-xl border border-slate-200 dark:border-slate-850 max-w-lg">
               <button
                 onClick={() => setGuideSubTab("firebase")}
                 className={`flex-1 py-1.5 rounded-lg text-[11px] font-bold transition cursor-pointer ${
-                  guideSubTab === "firebase" ? "bg-amber-500 text-slate-950" : "text-slate-400 hover:text-slate-200"
+                  guideSubTab === "firebase" ? "bg-amber-500 text-slate-950" : "text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:text-slate-200"
                 }`}
               >
                 Firebase Firestore
@@ -1051,7 +1051,7 @@ export default function AdminPanel({
               <button
                 onClick={() => setGuideSubTab("sheets")}
                 className={`flex-1 py-1.5 rounded-lg text-[11px] font-bold transition cursor-pointer ${
-                  guideSubTab === "sheets" ? "bg-amber-500 text-slate-950" : "text-slate-400 hover:text-slate-200"
+                  guideSubTab === "sheets" ? "bg-amber-500 text-slate-950" : "text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:text-slate-200"
                 }`}
               >
                 Google Sheets API
@@ -1059,7 +1059,7 @@ export default function AdminPanel({
               <button
                 onClick={() => setGuideSubTab("sql")}
                 className={`flex-1 py-1.5 rounded-lg text-[11px] font-bold transition cursor-pointer ${
-                  guideSubTab === "sql" ? "bg-amber-500 text-slate-950" : "text-slate-400 hover:text-slate-200"
+                  guideSubTab === "sql" ? "bg-amber-500 text-slate-950" : "text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:text-slate-200"
                 }`}
               >
                 REST API (Node/SQL)
@@ -1069,11 +1069,11 @@ export default function AdminPanel({
             {/* Guide details */}
             {guideSubTab === "firebase" && (
               <div className="space-y-3 animate-fade-in text-xs">
-                <p className="text-slate-300 font-bold">1. Firebase cloud setup instructions:</p>
-                <p className="text-slate-400 leading-relaxed font-sans">
-                  Firebase is the easiest cloud database. Create a Firestore collection named <code className="bg-slate-900 px-1 py-0.5 rounded text-amber-400 font-mono text-[10.5px]">students</code> where each document ID is the student's email, containing fields: <code className="text-amber-400 font-mono text-[10px]">username</code>, <code className="text-amber-400 font-mono text-[10px]">isPremium</code>, and <code className="text-amber-400 font-mono text-[10px]">expiryDate</code>.
+                <p className="text-slate-700 dark:text-slate-300 font-bold">1. Firebase cloud setup instructions:</p>
+                <p className="text-slate-500 dark:text-slate-400 leading-relaxed font-sans">
+                  Firebase is the easiest cloud database. Create a Firestore collection named <code className="bg-white dark:bg-slate-900 px-1 py-0.5 rounded text-amber-400 font-mono text-[10.5px]">students</code> where each document ID is the student's email, containing fields: <code className="text-amber-400 font-mono text-[10px]">username</code>, <code className="text-amber-400 font-mono text-[10px]">isPremium</code>, and <code className="text-amber-400 font-mono text-[10px]">expiryDate</code>.
                 </p>
-                <div className="bg-slate-900 p-3 rounded-lg border border-slate-800 font-mono text-[10.5px] overflow-x-auto text-amber-300 whitespace-pre leading-relaxed">
+                <div className="bg-white dark:bg-slate-900 p-3 rounded-lg border border-slate-200 dark:border-slate-800 font-mono text-[10.5px] overflow-x-auto text-amber-300 whitespace-pre leading-relaxed">
 {`// src/db/firebaseConfig.ts
 import { initializeApp } from "firebase/app";
 import { getFirestore, doc, setDoc, getDoc, updateDoc } from "firebase/firestore";
@@ -1104,11 +1104,11 @@ export async function updateStudentSubscription(email: string, isPremium: boolea
 
             {guideSubTab === "sheets" && (
               <div className="space-y-3 animate-fade-in text-xs">
-                <p className="text-slate-300 font-bold">2. Connect via Google Sheets (Free No-Code Backend):</p>
-                <p className="text-slate-400 leading-relaxed font-sans">
-                  You can use a simple Google Sheet as your subscription database. Create a Sheet with headers: <code className="bg-slate-900 px-1 py-0.5 rounded text-amber-400 font-mono text-[10.5px]">Name, Email, Status, Expiry</code>. Then publish a Google Apps Script Web App to handle GET/POST:
+                <p className="text-slate-700 dark:text-slate-300 font-bold">2. Connect via Google Sheets (Free No-Code Backend):</p>
+                <p className="text-slate-500 dark:text-slate-400 leading-relaxed font-sans">
+                  You can use a simple Google Sheet as your subscription database. Create a Sheet with headers: <code className="bg-white dark:bg-slate-900 px-1 py-0.5 rounded text-amber-400 font-mono text-[10.5px]">Name, Email, Status, Expiry</code>. Then publish a Google Apps Script Web App to handle GET/POST:
                 </p>
-                <div className="bg-slate-900 p-3 rounded-lg border border-slate-800 font-mono text-[10.5px] overflow-x-auto text-amber-300 whitespace-pre leading-relaxed">
+                <div className="bg-white dark:bg-slate-900 p-3 rounded-lg border border-slate-200 dark:border-slate-800 font-mono text-[10.5px] overflow-x-auto text-amber-300 whitespace-pre leading-relaxed">
 {`// Google Apps Script (Tools > Extensions > Apps Script)
 function doPost(e) {
   var data = JSON.parse(e.postData.contents);
@@ -1136,11 +1136,11 @@ const addStudentToGoogleSheet = async (student) => {
 
             {guideSubTab === "sql" && (
               <div className="space-y-3 animate-fade-in text-xs">
-                <p className="text-slate-300 font-bold">3. Express backend REST API Integration (PostgreSQL/SQL):</p>
-                <p className="text-slate-400 leading-relaxed font-sans">
+                <p className="text-slate-700 dark:text-slate-300 font-bold">3. Express backend REST API Integration (PostgreSQL/SQL):</p>
+                <p className="text-slate-500 dark:text-slate-400 leading-relaxed font-sans">
                   For secure, enterprise-grade applications, connect this Admin Panel to a Node.js Express server backed by an SQL database:
                 </p>
-                <div className="bg-slate-900 p-3 rounded-lg border border-slate-800 font-mono text-[10.5px] overflow-x-auto text-amber-300 whitespace-pre leading-relaxed">
+                <div className="bg-white dark:bg-slate-900 p-3 rounded-lg border border-slate-200 dark:border-slate-800 font-mono text-[10.5px] overflow-x-auto text-amber-300 whitespace-pre leading-relaxed">
 {`// server.ts (Express subscription endpoints)
 app.post("/api/admin/subscriptions", async (req, res) => {
   const { email, isPremium, expiryDate } = req.body;

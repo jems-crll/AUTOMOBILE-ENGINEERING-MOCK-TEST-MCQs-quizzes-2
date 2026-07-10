@@ -191,20 +191,20 @@ export default function RazorpayModal({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-sm">
-      <div className="bg-slate-900 border border-slate-800 rounded-3xl max-w-md w-full p-6 shadow-2xl animate-fade-in text-slate-100 overflow-y-auto max-h-[90vh] custom-scrollbar">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-50 dark:bg-slate-950/80 backdrop-blur-sm">
+      <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl max-w-md w-full p-6 shadow-2xl animate-fade-in text-slate-900 dark:text-slate-100 overflow-y-auto max-h-[90vh] custom-scrollbar">
         
         {/* Header */}
-        <div className="flex items-center justify-between border-b border-slate-800 pb-4 mb-4">
+        <div className="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 pb-4 mb-4">
           <div className="flex items-center gap-2">
             <Icons.Crown className="h-5 w-5 text-amber-500 fill-amber-500/10" />
-            <h3 className="font-extrabold text-white text-lg font-sans">
+            <h3 className="font-extrabold text-slate-900 dark:text-white text-lg font-sans">
               {isMarathi ? "प्रीमियम पॅक अनलॉक करा" : "Unlock Premium Features"}
             </h3>
           </div>
           <button
             onClick={onClose}
-            className="p-1 rounded-lg hover:bg-slate-800 text-slate-400 hover:text-white transition cursor-pointer"
+            className="p-1 rounded-lg hover:bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:text-white transition cursor-pointer"
           >
             <Icons.X className="h-5 w-5" />
           </button>
@@ -216,10 +216,10 @@ export default function RazorpayModal({
               <Icons.Check className="h-8 w-8 stroke-[3]" />
             </div>
             <div>
-              <h4 className="text-xl font-bold text-white mb-1">
+              <h4 className="text-xl font-bold text-slate-900 dark:text-white mb-1">
                 {isMarathi ? "पेमेंट यशस्वीरित्या सबमिट झाले!" : "Payment Verified Successfully!"}
               </h4>
-              <p className="text-xs text-slate-400 px-4">
+              <p className="text-xs text-slate-500 dark:text-slate-400 px-4">
                 {isMarathi 
                   ? "तुमचे प्रीमियम सबस्क्रिप्शन सुरू करण्यात आले आहे. सर्व प्रगत सराव संच, उत्तरे आणि स्पष्टीकरणे अनलॉक झाले आहेत!" 
                   : "Your Premium access is now fully active. All advanced sets, answers, and detailed explanations are unlocked!"}
@@ -227,23 +227,23 @@ export default function RazorpayModal({
             </div>
             <div className="px-3 py-1.5 bg-emerald-500/10 text-emerald-400 rounded-lg text-[10px] font-mono uppercase tracking-widest font-bold flex flex-col gap-0.5">
               <span>{isMarathi ? "सक्रिय आयडी:" : "ACTIVATION ID:"}</span>
-              <span className="text-white select-all">{txnId || "PROMO_OMTO"}</span>
+              <span className="text-slate-900 dark:text-white select-all">{txnId || "PROMO_OMTO"}</span>
             </div>
           </div>
         ) : (
           <div className="space-y-4">
             
             {/* Package details */}
-            <div className="p-4 bg-slate-950 border border-slate-850 rounded-2xl flex flex-col gap-3">
+            <div className="p-4 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-850 rounded-2xl flex flex-col gap-3">
               <div className="flex justify-between items-start">
                 <div>
                   <span className="text-[10px] bg-amber-500/10 text-amber-500 border border-amber-500/20 px-2.5 py-0.5 rounded-full font-bold uppercase tracking-wider font-mono">
                     {subscriptionConfig.billingPeriod.toUpperCase()} ACCESS
                   </span>
-                  <h4 className="font-black text-slate-100 text-base mt-2 font-sans leading-tight">
+                  <h4 className="font-black text-slate-900 dark:text-slate-100 text-base mt-2 font-sans leading-tight">
                     {isMarathi ? subscriptionConfig.detailsMr : subscriptionConfig.detailsEn}
                   </h4>
-                  <p className="text-xs text-slate-400 mt-1">
+                  <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
                     {isMarathi 
                       ? "सर्व धड्यांचे सराव संच, उत्तरे, प्रगत मॉक टेस्ट आणि सविस्तर स्पष्टीकरणांसह" 
                       : "Full access to all chapters, practice sets, answers & detailed explanations"}
@@ -253,19 +253,19 @@ export default function RazorpayModal({
                   {subscriptionConfig.originalAmount > subscriptionConfig.amount && (
                     <div className="text-xs text-slate-500 line-through">₹{subscriptionConfig.originalAmount}</div>
                   )}
-                  <div className="text-xl font-black text-white">₹{currentAmount}</div>
+                  <div className="text-xl font-black text-slate-900 dark:text-white">₹{currentAmount}</div>
                   {discountPercent > 0 && (
                     <div className="text-[10px] text-emerald-400 font-bold">{isMarathi ? `${discountPercent}% सूट` : `${discountPercent}% OFF`}</div>
                   )}
                 </div>
               </div>
 
-              <div className="pt-3 border-t border-slate-800/60 flex items-center justify-between text-xs text-slate-400">
+              <div className="pt-3 border-t border-slate-200 dark:border-slate-800/60 flex items-center justify-between text-xs text-slate-500 dark:text-slate-400">
                 <span className="flex items-center gap-1 overflow-hidden max-w-[200px]">
                   <Icons.User className="h-3.5 w-3.5 text-slate-500 shrink-0" />
                   <span className="truncate">{currentUser.email}</span>
                 </span>
-                <span className="font-mono text-[10px] text-slate-500 bg-slate-900 px-2 py-0.5 rounded shrink-0">
+                <span className="font-mono text-[10px] text-slate-500 bg-white dark:bg-slate-900 px-2 py-0.5 rounded shrink-0">
                   ORDER_OMTO_8293
                 </span>
               </div>
@@ -282,7 +282,7 @@ export default function RazorpayModal({
                     ACTIVE
                   </span>
                 </div>
-                <p className="text-[10.5px] text-slate-300 leading-relaxed font-sans">
+                <p className="text-[10.5px] text-slate-700 dark:text-slate-300 leading-relaxed font-sans">
                   {isMarathi
                     ? "तुम्ही चाचणी पर्यावरणामध्ये आहात. लाइव्ह पेमेंट गेटवे बंद असल्यास किंवा अडचण आल्यास, खालील बटणावर क्लिक करून त्वरित प्रीमियम अनलॉक करू शकता."
                     : "You are in a preview/testing environment. If the live payment gateway has issues or is closed, click the button below to instantly unlock Premium Features."}
@@ -324,7 +324,7 @@ export default function RazorpayModal({
                     }
                   }}
                   disabled={isProcessing}
-                  className="w-full py-2.5 bg-indigo-600 hover:bg-indigo-700 hover:text-white text-white text-xs font-black rounded-xl transition flex items-center justify-center gap-1.5 cursor-pointer shadow-lg shadow-indigo-600/10"
+                  className="w-full py-2.5 bg-indigo-600 hover:bg-indigo-700 hover:text-slate-900 dark:text-white text-slate-900 dark:text-white text-xs font-black rounded-xl transition flex items-center justify-center gap-1.5 cursor-pointer shadow-lg shadow-indigo-600/10"
                 >
                   <Icons.Zap className="h-3.5 w-3.5 fill-current" />
                   <span>{isMarathi ? "इन्स्टंट प्रीमियम अनलॉक करा (चाचणी)" : "Simulate Instant Success (Demo)"}</span>
@@ -333,7 +333,7 @@ export default function RazorpayModal({
             )}
 
             {/* Coupon Code Section */}
-            <div className="p-4 bg-slate-950 border border-slate-850 rounded-2xl space-y-3">
+            <div className="p-4 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-850 rounded-2xl space-y-3">
               <label className="text-[10px] font-bold text-slate-500 uppercase tracking-wider block">
                 {isMarathi ? "कूपन कोड आहे का?" : "Have a Coupon Code?"}
               </label>
@@ -343,13 +343,13 @@ export default function RazorpayModal({
                   placeholder={isMarathi ? "उदा. SAVE50" : "e.g. SAVE50"}
                   value={couponCode}
                   onChange={(e) => setCouponCode(e.target.value.toUpperCase().trim())}
-                  className="flex-1 bg-slate-900 border border-slate-800 text-slate-100 rounded-xl px-3 py-2 text-xs focus:outline-none focus:border-amber-500 transition font-mono font-bold"
+                  className="flex-1 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-slate-100 rounded-xl px-3 py-2 text-xs focus:outline-none focus:border-amber-500 transition font-mono font-bold"
                 />
                 <button
                   type="button"
                   onClick={handleApplyCoupon}
                   disabled={isApplyingCoupon || !couponCode.trim()}
-                  className="px-4 py-2 bg-slate-800 hover:bg-slate-700 disabled:bg-slate-900 text-amber-500 text-[10px] font-black rounded-xl border border-slate-700 transition cursor-pointer select-none"
+                  className="px-4 py-2 bg-slate-100 dark:bg-slate-800 hover:bg-slate-700 disabled:bg-white dark:bg-slate-900 text-amber-500 text-[10px] font-black rounded-xl border border-slate-300 dark:border-slate-700 transition cursor-pointer select-none"
                 >
                   {isApplyingCoupon ? <Icons.Loader2 className="h-3 w-3 animate-spin" /> : (isMarathi ? "लागू करा" : "APPLY")}
                 </button>
@@ -368,7 +368,7 @@ export default function RazorpayModal({
                 <Icons.Zap className="h-4 w-4" />
                 <span>{isMarathi ? "इन्स्टंट प्रीमियम अ‍ॅक्सेस" : "Instant Premium Access"}</span>
               </div>
-              <p className="text-[11px] text-slate-300 leading-relaxed">
+              <p className="text-[11px] text-slate-700 dark:text-slate-300 leading-relaxed">
                 {isMarathi
                   ? `प्रीमियम फीचर्स वापरण्यासाठी खालील लिंकवर क्लिक करून ₹${currentAmount} पेमेंट पूर्ण करा. पेमेंट यशस्वी झाल्यावर तुमचे खाते लगेच प्रीमियम मध्ये अपग्रेड होईल.`
                   : `To unlock premium features, click the button below to complete your payment of ₹${currentAmount}. Your account will be instantly upgraded upon successful payment.`}
@@ -380,7 +380,7 @@ export default function RazorpayModal({
                 type="button"
                 onClick={handleOpenPaymentLink}
                 disabled={isProcessing}
-                className={`w-full py-4 bg-emerald-500 hover:bg-emerald-600 disabled:bg-slate-800 text-slate-950 disabled:text-slate-500 font-black rounded-xl transition flex items-center justify-center gap-2 cursor-pointer shadow-lg shadow-emerald-500/10 ${
+                className={`w-full py-4 bg-emerald-500 hover:bg-emerald-600 disabled:bg-slate-100 dark:bg-slate-800 text-slate-950 disabled:text-slate-500 font-black rounded-xl transition flex items-center justify-center gap-2 cursor-pointer shadow-lg shadow-emerald-500/10 ${
                   isProcessing ? "animate-pulse" : ""
                 }`}
               >
