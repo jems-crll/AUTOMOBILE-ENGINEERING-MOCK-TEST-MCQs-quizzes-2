@@ -325,6 +325,15 @@ export const CHAPTERS: Chapter[] = [
     "descriptionMarathi": "विद्युत मूलभूत आणि मशीन्स बहुपर्यायी प्रश्न.",
     "icon": "Zap",
     "section": "Electrical"
+  },
+  {
+    "id": 38,
+    "name": "Electrical Set 9 (Q 211 - 235)",
+    "nameMarathi": "विद्युत संच 9 (प्र २११ ते २३५)",
+    "description": "Electrical Basics and Machines MCQs.",
+    "descriptionMarathi": "विद्युत मूलभूत आणि मशीन्स बहुपर्यायी प्रश्न.",
+    "icon": "Zap",
+    "section": "Electrical"
   }
 ];
 
@@ -27673,5 +27682,530 @@ export const QUESTIONS: Question[] = [
     "answer": "B",
     "explanation": "Fleming's Right-Hand Rule is used to determine the direction of induced EMF in a generator.",
     "explanationMarathi": "डीसी जनरेटरमध्ये निर्माण होणाऱ्या विद्युत वाहक बलाची (EMF) दिशा शोधण्यासाठी नेहमी 'फ्लेमिंगचा उजव्या हाताचा नियम' वापरला जातो. (डाव्या हाताचा नियम मोटरसाठी वापरतात)."
+  },
+  {
+    "id": 1211,
+    "chapterId": 38,
+    "question": "What is the number of parallel paths in a lap wound armature?",
+    "questionMarathi": "लॅप वाऊंड आर्मेचरमध्ये समांतर मार्गांची (Paths) संख्या किती असते?",
+    "options": [
+      "Two",
+      "Four",
+      "Equal to the number of poles",
+      "One pair less than the number of poles"
+    ],
+    "optionsMarathi": [
+      "दोन",
+      "चार",
+      "पोलच्या संख्येएवढी",
+      "पोलच्या संख्येपेक्षा एक जोडी कमी"
+    ],
+    "answer": "C",
+    "explanation": "In lap winding, the number of parallel paths in the armature (A) is always equal to the number of generator poles (P), i.e., A = P. (Note: in wave winding, it is always 2).",
+    "explanationMarathi": "लॅप वाइंडिंग (Lap winding) मध्ये, आर्मेचरमधील समांतर मार्गांची संख्या (A) ही नेहमी जनरेटरच्या पोलच्या संख्येएवढी (P) असते, म्हणजेच A = P. (टीप: वेव्ह वाइंडिंगमध्ये ती नेहमी २ असते)."
+  },
+  {
+    "id": 1212,
+    "chapterId": 38,
+    "question": "Which of the following generators is also called a 'Constant Voltage Generator'?",
+    "questionMarathi": "खालीलपैकी कोणत्या जनरेटरला 'स्थिर व्होल्टेज जनरेटर' (Constant Voltage Generator) असेही म्हणतात?",
+    "options": [
+      "Shunt",
+      "Series",
+      "Compound",
+      "Differential Compound"
+    ],
+    "optionsMarathi": [
+      "शंट",
+      "सिरीज",
+      "कंपाउंड",
+      "डिफेरेन्शियल कंपाउंड"
+    ],
+    "answer": "A",
+    "explanation": "A DC shunt generator is called a 'constant voltage generator' because its terminal voltage changes very negligibly from no-load to full-load, thereby providing a stable voltage.",
+    "explanationMarathi": "डीसी शंट जनरेटरला 'स्थिर व्होल्टेज जनरेटर' म्हटले जाते. कारण, नो-लोड (No-load) कडून फुल-लोड (Full-load) कडे जाताना याच्या टर्मिनल व्होल्टेजमध्ये अत्यंत नगण्य बदल होतो, त्यामुळे तो स्थिर व्होल्टेज पुरवतो."
+  },
+  {
+    "id": 1213,
+    "chapterId": 38,
+    "question": "What is the force applied in the opposite direction to destroy residual magnetism called?",
+    "questionMarathi": "अवशिष्ट चुंबकत्व (Residual Magnetism) नष्ट करण्यासाठी विरुद्ध दिशेने लावलेल्या बलाला काय म्हणतात?",
+    "options": [
+      "Permeability",
+      "Coercivity",
+      "Permeance",
+      "Resistivity"
+    ],
+    "optionsMarathi": [
+      "चुंबकशीलता (Permeability)",
+      "निग्रहिता (Coercivity)",
+      "परमिएन्स (Permeance)",
+      "रोधकता (Resistivity)"
+    ],
+    "answer": "B",
+    "explanation": "The demagnetizing force that must be applied in the opposite direction to completely eliminate the residual magnetism in a magnetic material is called coercivity.",
+    "explanationMarathi": "एखाद्या चुंबकीय पदार्थामधील शिल्लक राहिलेले चुंबकत्व पूर्णपणे नष्ट करण्यासाठी विरुद्ध दिशेने जो चुंबकीय बल (Demagnetizing force) लावावा लागतो, त्याला निग्रहिता (Coercivity) असे म्हणतात."
+  },
+  {
+    "id": 1214,
+    "chapterId": 38,
+    "question": "Which of the following formulas is not correct according to Ohm's Law?",
+    "questionMarathi": "खालीलपैकी कोणते सूत्र ओहमच्या नियमानुसार (Ohm's Law) योग्य नाही?",
+    "options": [
+      "P = I * R",
+      "I = V / R",
+      "P = V^2 / R",
+      "V ∝ I"
+    ],
+    "optionsMarathi": [
+      "P = I * R",
+      "I = V / R",
+      "P = V^2 / R",
+      "V ∝ I"
+    ],
+    "answer": "A",
+    "explanation": "According to Ohm's Law, V = I * R. The formula for electrical power (P) is P = V * I or P = I^2 * R or P = V^2 / R. Therefore, the formula P = I * R is physically incorrect.",
+    "explanationMarathi": "ओहमच्या नियमानुसार V = I * R असते. विद्युत शक्तीचे (Power) सूत्र P = V * I किंवा P = I^2 * R किंवा P = V^2 / R असे असते. त्यामुळे P = I * R हे सूत्र भौतिकशास्त्रानुसार चुकीचे आहे."
+  },
+  {
+    "id": 1215,
+    "chapterId": 38,
+    "question": "If 5 resistors of 1 ohm each are connected in parallel, what will be the total resistance?",
+    "questionMarathi": "प्रत्येकी 1 ओहम असलेले 5 रोध (Resistors) समांतर (Parallel) जोडल्यास एकूण रोध (Total Resistance) किती असेल?",
+    "options": [
+      "5 x 1",
+      "1 x 5",
+      "1/5",
+      "5/1"
+    ],
+    "optionsMarathi": [
+      "5 x 1",
+      "1 x 5",
+      "1/5",
+      "5/1"
+    ],
+    "answer": "C",
+    "explanation": "When multiple resistors of equal value are connected in parallel, the total resistance formula is R_total = R / n. Here, the value of one resistor is R = 1 ohm and the total number is n = 5. Therefore, the total resistance will be 1/5 ohm.",
+    "explanationMarathi": "जेव्हा समान मूल्याचे अनेक रोध समांतर (Parallel) जोडले जातात, तेव्हा एकूण रोध काढण्याचे सूत्र R_total = R / n असते. येथे एका रोधाचे मूल्य R = 1 ओहम आणि एकूण संख्या n = 5 आहे. म्हणून एकूण रोध 1/5 ओहम असेल."
+  },
+  {
+    "id": 1216,
+    "chapterId": 38,
+    "question": "In how much time will a 25-watt bulb consume 1 unit of electrical energy?",
+    "questionMarathi": "एक 25 वॉटचा दिवा किती वेळात 1 युनिट विद्युत ऊर्जेचा वापर करेल?",
+    "options": [
+      "In 10 hours",
+      "In 20 hours",
+      "In 30 hours",
+      "In 40 hours"
+    ],
+    "optionsMarathi": [
+      "10 तासांत",
+      "20 तासांत",
+      "30 तासांत",
+      "40 तासांत"
+    ],
+    "answer": "D",
+    "explanation": "1 unit of electricity equals 1 kWh (1000 Wh). Time (hours) = total energy / power = 1000 Wh / 25 W = 40 hours. Therefore, this bulb will consume 1 unit of electricity after running for 40 hours.",
+    "explanationMarathi": "1 युनिट म्हणजेच 1 kWh (1000 Wh). वेळ (तास) = एकूण ऊर्जा / पॉवर = 1000 Wh / 25 W = 40 तास. त्यामुळे हा दिवा ४० तास चालल्यावर १ युनिट वीज खर्च करेल."
+  },
+  {
+    "id": 1217,
+    "chapterId": 38,
+    "question": "What is the symbol of the SI unit of temperature?",
+    "questionMarathi": "तापमानाच्या (Temperature) SI एककाचे (Unit) प्रतीक काय आहे?",
+    "options": [
+      "°C (Centigrade)",
+      "°F (Fahrenheit)",
+      "K (Kelvin)",
+      "°R (Reaumur)"
+    ],
+    "optionsMarathi": [
+      "°C (सेन्टीग्रेड)",
+      "°F (फॅरेनहाइट)",
+      "K (केल्विन)",
+      "°R (रुमर)"
+    ],
+    "answer": "C",
+    "explanation": "According to the International System of Units (SI), the standard unit of temperature is Kelvin, and its symbol is 'K'.",
+    "explanationMarathi": "आंतरराष्ट्रीय एकक प्रणाली (SI System) नुसार तापमानाचे प्रमाणित एकक केल्विन (Kelvin) आहे आणि त्याचे प्रतीक 'K' आहे."
+  },
+  {
+    "id": 1218,
+    "chapterId": 38,
+    "question": "What percentage of the total copper loss is the shunt field loss in a generator?",
+    "questionMarathi": "जनरेटरमध्ये शंट फील्ड लॉस (Shunt field loss) हा एकूण कॉपर लॉसच्या (Copper loss) किती टक्के असतो?",
+    "options": [
+      "30 to 40",
+      "20 to 35",
+      "25 to 30",
+      "20 to 30"
+    ],
+    "optionsMarathi": [
+      "30 ते 40",
+      "20 ते 35",
+      "25 ते 30",
+      "20 ते 30"
+    ],
+    "answer": "D",
+    "explanation": "Out of the total copper losses in a DC generator, the shunt field copper loss is typically about 20% to 30%. (The maximum copper loss occurs in the armature).",
+    "explanationMarathi": "डीसी जनरेटरमध्ये होणाऱ्या एकूण कॉपर लॉसपैकी शंट फील्ड कॉपर लॉस हा साधारणपणे २०% ते ३०% इतका असतो. (सर्वाधिक कॉपर लॉस आर्मेचरमध्ये होतो)."
+  },
+  {
+    "id": 1219,
+    "chapterId": 38,
+    "question": "What will happen if a series generator is run without any load?",
+    "questionMarathi": "सिरीज जनरेटरला विना लोड (Without load) चालवल्यास काय होईल?",
+    "options": [
+      "Will give higher voltage",
+      "Will give lower voltage",
+      "Will not generate voltage",
+      "Speed will increase"
+    ],
+    "optionsMarathi": [
+      "जास्त व्होल्टेज देईल",
+      "कमी व्होल्टेज देईल",
+      "व्होल्टेज देणार नाही",
+      "गती वाढेल"
+    ],
+    "answer": "C",
+    "explanation": "The field winding of a series generator is connected in series with the armature. If no load is connected to the generator (Open Circuit), no current will flow through the circuit, and no magnetic flux will be produced. As a result, no voltage will build up.",
+    "explanationMarathi": "सिरीज जनरेटरची field winding आर्मेचरच्या सिरीजमध्ये (एकसर) जोडलेली असते. जर जनरेटरला लोड जोडलेला नसेल (Open Circuit), तर सर्किटमधून कोणताही प्रवाह (Current) वाहणार नाही आणि चुंबकीय फ्लक्स (Flux) तयार होणार नाही. परिणामी व्होल्टेज तयार (build-up) होणार नाही."
+  },
+  {
+    "id": 1220,
+    "chapterId": 38,
+    "question": "Why is the outer part of a Goliath Edison Screw Type Holder made of porcelain?",
+    "questionMarathi": "गोलियथ एडिसन स्क्रू टाईप होल्डरचा (Goliath Edison Screw Type Holder) बाहेरील भाग पोर्सिलेनचा (Porcelain) का बनवला जातो?",
+    "options": [
+      "To provide strength",
+      "To protect against high temperatures",
+      "To protect against electric shock",
+      "Because it is cheap"
+    ],
+    "optionsMarathi": [
+      "मजबूती देण्यासाठी",
+      "उच्च तापमानापासून बचाव करण्यासाठी",
+      "इलेक्ट्रिक शॉकपासून बचाव करण्यासाठी",
+      "स्वस्त असल्यामुळे"
+    ],
+    "answer": "B",
+    "explanation": "Goliath Edison Screw (GES) holders are generally used for lamps with capacities of more than 300 watts. These lamps generate a lot of heat. Porcelain does not melt or deteriorate even at high temperatures, so it is used to protect against high heat.",
+    "explanationMarathi": "गोलियथ एडिसन स्क्रू (GES) होल्डर्स साधारणपणे ३०० वॉट पेक्षा जास्त क्षमतेच्या दिव्यांसाठी वापरले जातात. हे दिवे खूप उष्णता निर्माण करतात. पोर्सिलेन हे उच्च तापमानालाही वितळत किंवा खराब होत नाही, म्हणून उष्णतेपासून बचाव करण्यासाठी याचा वापर केला जातो."
+  },
+  {
+    "id": 1221,
+    "chapterId": 38,
+    "question": "What is the space around a magnet where its influence can be felt called?",
+    "questionMarathi": "चुंबकाच्या सभोवतालची अशी जागा जिथे त्याचा प्रभाव जाणवू शकतो, त्याला काय म्हणतात?",
+    "options": [
+      "Magnetic neutral axis",
+      "Magnetic axis",
+      "Magnetic field",
+      "Magnetic flux"
+    ],
+    "optionsMarathi": [
+      "चुंबकीय उदासीन अक्ष (Magnetic neutral axis)",
+      "चुंबकीय अक्ष (Magnetic axis)",
+      "चुंबकीय क्षेत्र (Magnetic field)",
+      "चुंबकीय प्रवाह (Magnetic flux)"
+    ],
+    "answer": "C",
+    "explanation": "The specific space around any magnet where the effect of its magnetic force (attraction or repulsion) is felt is called a magnetic field.",
+    "explanationMarathi": "कोणत्याही चुंबकाच्या सभोवतालचा असा विशिष्ट भाग जिथे त्याच्या चुंबकीय शक्तीचा (आकर्षण किंवा प्रतिकर्षण) प्रभाव जाणवतो, त्याला चुंबकीय क्षेत्र (Magnetic Field) म्हणतात."
+  },
+  {
+    "id": 1222,
+    "chapterId": 38,
+    "question": "Which of the following insulator classes has a maximum temperature limit of 155°C?",
+    "questionMarathi": "खालीलपैकी कोणत्या इन्सुलेटर (Insulator) श्रेणीचे तापमान 155°C असते?",
+    "options": [
+      "H",
+      "E",
+      "F",
+      "C"
+    ],
+    "optionsMarathi": [
+      "H",
+      "E",
+      "F",
+      "C"
+    ],
+    "answer": "C",
+    "explanation": "Different classes of insulation and their safe maximum temperatures are: Y (90°C), A (105°C), E (120°C), B (130°C), F (155°C), H (180°C), C (>180°C). Therefore, the class F insulation is rated for 155°C.",
+    "explanationMarathi": "इन्सुलेटरच्या (Insulation) विविध श्रेणी आणि त्यांचे सुरक्षित कमाल तापमान खालीलप्रमाणे असते: Y (90°C), A (105°C), E (120°C), B (130°C), F (155°C), H (180°C), C (>180°C). त्यामुळे 155°C तापमान सहन करण्याची क्षमता F श्रेणीची आहे."
+  },
+  {
+    "id": 1223,
+    "chapterId": 38,
+    "question": "Which of the following tools is used for marking on a metal sheet?",
+    "questionMarathi": "धातूमच्या शीटवर खुणा (Marking) करण्यासाठी खालीलपैकी कोणत्या साधनाचा वापर करतात?",
+    "options": [
+      "Poker",
+      "Rawl plug tool",
+      "Nipper",
+      "Center punch"
+    ],
+    "optionsMarathi": [
+      "पोकर (Poker)",
+      "रावल प्लग टूल (Rawl plug tool)",
+      "निप्पर (Nipper)",
+      "सेंटर पंच (Center punch)"
+    ],
+    "answer": "D",
+    "explanation": "A center punch is used to make an accurate mark on a metal surface before drilling, helping to guide the drill bit correctly.",
+    "explanationMarathi": "धातूच्या पृष्ठभागावर ड्रिलिंग करण्यापूर्वी अचूक खूण करण्यासाठी आणि ड्रिल बिटला योग्य दिशा देण्यासाठी 'सेंटर पंच'चा वापर केला जातो."
+  },
+  {
+    "id": 1224,
+    "chapterId": 38,
+    "question": "Which are the ratio arms of a Wheatstone bridge?",
+    "questionMarathi": "व्हीटस्टोन ब्रिजच्या (Wheatstone bridge) गुणोत्तर भुजा (Ratio arms) कोणत्या असतात?",
+    "options": [
+      "S",
+      "P and Q",
+      "R",
+      "All of the above"
+    ],
+    "optionsMarathi": [
+      "S",
+      "P आणि Q",
+      "R",
+      "वरील सर्व"
+    ],
+    "answer": "B",
+    "explanation": "In a Wheatstone bridge circuit, the two arms P and Q are called the ratio arms. R is the known resistance and S is the unknown resistance.",
+    "explanationMarathi": "व्हीटस्टोन ब्रिज सर्किटमध्ये P आणि Q या दोन भुजांना 'गुणोत्तर भुजा' (Ratio arms) म्हणतात. R हा ज्ञात रोध (Known resistance) आणि S हा अज्ञात रोध (Unknown resistance) असतो."
+  },
+  {
+    "id": 1225,
+    "chapterId": 38,
+    "question": "What do the positive plates of a lead-acid cell turn into after charging?",
+    "questionMarathi": "लेड ॲसिड सेलच्या धन प्लेट्स (Positive plates) चार्जिंगनंतर कशामध्ये बदलतात?",
+    "options": [
+      "Lead peroxide",
+      "Spongy lead",
+      "Lead sulphate",
+      "Lead"
+    ],
+    "optionsMarathi": [
+      "लेड पेरॉक्साइड (Lead peroxide)",
+      "स्पॉन्जी लेड (Spongy lead)",
+      "लेड सल्फेट (Lead sulphate)",
+      "लेड (Lead)"
+    ],
+    "answer": "A",
+    "explanation": "In a fully charged lead-acid battery, the positive plate is made of lead peroxide (PbO2 - dark brown color) and the negative plate is made of spongy lead (Pb - grey color).",
+    "explanationMarathi": "फुल्ली चार्ज (Fully charged) झालेल्या लेड ॲसिड बॅटरीमध्ये, धन प्लेट (Positive plate) लेड पेरॉक्साइडची (PbO_2 - गडद तपकिरी रंगाची) बनलेली असते आणि ऋण प्लेट (Negative plate) स्पॉन्जी लेडची (Pb - राखाडी रंगाची) बनलेली असते."
+  },
+  {
+    "id": 1226,
+    "chapterId": 38,
+    "question": "How is the speed obtained when using the armature control method of a DC motor compared to the normal speed?",
+    "questionMarathi": "डीसी मोटरच्या आर्मेचर नियंत्रण पद्धतीचा (Armature control method) वापर केल्यास मिळणारी गती सामान्य गतीपेक्षा कशी असते?",
+    "options": [
+      "More",
+      "Less",
+      "Very high",
+      "Infinite"
+    ],
+    "optionsMarathi": [
+      "जास्त (More)",
+      "कमी (Less)",
+      "खूप जास्त (Very high)",
+      "अनंत (Infinite)"
+    ],
+    "answer": "B",
+    "explanation": "By using the armature resistance control method, the speed of a DC motor can only be decreased below its normal (base) speed. To obtain speeds higher than normal speed, the field control method is used.",
+    "explanationMarathi": "आर्मेचर रेझिस्टन्स कंट्रोल पद्धतीचा वापर करून डीसी मोटरची गती केवळ तिच्या सामान्य गतीपेक्षा (Base speed) कमी करता येते. सामान्य गतीपेक्षा जास्त गती मिळवण्यासाठी 'फील्ड कंट्रोल पद्धत' (Field control method) वापरली जाते."
+  },
+  {
+    "id": 1227,
+    "chapterId": 38,
+    "question": "If a current of 1.5 Amperes flows through an appliance with 4 ohms resistance, what will be its electrical power?",
+    "questionMarathi": "4 ओहम रोध (Resistance) असलेल्या उपकरणातून 1.5 अँपिअर इतका विद्युत प्रवाह वाहत असल्यास, त्याची विद्युत शक्ती (Power) किती असेल?",
+    "options": [
+      "6 Watt",
+      "9 Watt",
+      "2.66 Watt",
+      "24 Watt"
+    ],
+    "optionsMarathi": [
+      "6 वॉट",
+      "9 वॉट",
+      "2.66 वॉट",
+      "24 वॉट"
+    ],
+    "answer": "B",
+    "explanation": "The formula for electrical power is P = I^2 * R. Here, I = 1.5 A and R = 4 ohms. Therefore, P = (1.5)^2 * 4 = 2.25 * 4 = 9 Watts.",
+    "explanationMarathi": "विद्युत शक्तीचे (Power) सूत्र P = I^2 * R आहे. येथे, I = 1.5 A आणि R = 4 Ω. म्हणून, P = (1.5)^2 * 4 = 2.25 * 4 = 9 वॉट."
+  },
+  {
+    "id": 1228,
+    "chapterId": 38,
+    "question": "What is the unit of mass in the Metric system?",
+    "questionMarathi": "मेट्रिक प्रणालीमध्ये (Metric system) वस्तुमानाचे (Mass) एकक काय आहे?",
+    "options": [
+      "Pound",
+      "Gram",
+      "Kilogram",
+      "Newton"
+    ],
+    "optionsMarathi": [
+      "पौंड (Pound)",
+      "ग्राम (Gram)",
+      "किलोग्रॅम (Kilogram)",
+      "न्यूटन (Newton)"
+    ],
+    "answer": "C",
+    "explanation": "In the MKS (Meter-Kilogram-Second) or SI metric system, the standard unit of mass is the 'Kilogram' (kg).",
+    "explanationMarathi": "MKS (मीटर-किलोग्रॅम-सेकंद) या किंवा SI मेट्रिक प्रणालीमध्ये वस्तुमानाचे प्रमाणित एकक 'किलोग्रॅम' (kg) हे असते."
+  },
+  {
+    "id": 1229,
+    "chapterId": 38,
+    "question": "Which of the following metals has the highest resistance?",
+    "questionMarathi": "खालीलपैकी कोणत्या धातूचा रोध (Resistance) सर्वात जास्त आहे?",
+    "options": [
+      "Nichrome",
+      "Copper",
+      "Iron",
+      "Aluminium"
+    ],
+    "optionsMarathi": [
+      "नायक्रोम (Nichrome)",
+      "तांबे (Copper)",
+      "लोखंड (Iron)",
+      "ॲल्युमिनियम (Aluminium)"
+    ],
+    "answer": "A",
+    "explanation": "Nichrome is an alloy (nickel and chromium). Its electrical resistance is much higher than that of copper, aluminum, and iron. Therefore, it is used in heater coils to generate high heat.",
+    "explanationMarathi": "नायक्रोम हा एक संमिश्र धातू (Alloy) आहे (निकेल आणि क्रोमियम). याचा विद्युत रोध तांबे, ॲल्युमिनियम आणि लोखंडापेक्षा खूप जास्त असतो. त्यामुळे उच्च उष्णता निर्माण करण्यासाठी याचा वापर हीटरच्या कॉइलमध्ये होतो."
+  },
+  {
+    "id": 1230,
+    "chapterId": 38,
+    "question": "What will be the value of a carbon resistor with green, black, red, and gold color bands?",
+    "questionMarathi": "हिरवा, काळा, लाल आणि सोनेरी रंगाचे पट्टे (Color bands) असलेल्या कार्बन रेझिस्टरचे मूल्य काय असेल?",
+    "options": [
+      "50 KΩ ± 5%",
+      "5 KΩ ± 5%",
+      "500 Ω ± 5%",
+      "5 Ω ± 5%"
+    ],
+    "optionsMarathi": [
+      "50 KΩ ± 5%",
+      "5 KΩ ± 5%",
+      "500 Ω ± 5%",
+      "5 Ω ± 5%"
+    ],
+    "answer": "B",
+    "explanation": "According to resistor color coding: Green = 5, Black = 0. The third band is Red, which has a multiplier of 10^2 (100). The fourth band is Gold, which represents a tolerance of ±5%. Value = 50 * 100 = 5000 Ω, which is 5 KΩ ± 5%.",
+    "explanationMarathi": "रेझिस्टरच्या कलर कोडिंगनुसार: हिरवा (Green) = 5, काळा (Black) = 0. तिसरा पट्टा लाल (Red) आहे, ज्याचा गुणक (Multiplier) 10^2 म्हणजेच 100 आहे. चौथा पट्टा सोनेरी (Gold) आहे, ज्याची सहनशीलता (Tolerance) ± 5% असते. मूल्य = 50 * 100 = 5000 Ω म्हणजेच 5 KΩ ± 5%."
+  },
+  {
+    "id": 1231,
+    "chapterId": 38,
+    "question": "Which size (SWG) of G.I. (Galvanized Iron) wire is used for an earthing electrode?",
+    "questionMarathi": "अर्थिंग इलेक्ट्रोडसाठी कोणत्या मापाची (SWG) जी.आय. (GI) तार वापरली जाते?",
+    "options": [
+      "14 SWG",
+      "10 SWG",
+      "4 SWG",
+      "8 SWG"
+    ],
+    "optionsMarathi": [
+      "14 SWG",
+      "10 SWG",
+      "4 SWG",
+      "8 SWG"
+    ],
+    "answer": "D",
+    "explanation": "Generally, 8 SWG (Standard Wire Gauge) Galvanized Iron (GI) wire is used for the earthing lead so that fault current can easily flow into the ground and the resistance of the wire remains low.",
+    "explanationMarathi": "सामान्यतः अर्थिंग लीडसाठी 8 SWG (Standard Wire Gauge) आकाराची गॅल्वनाइज्ड आयर्न (GI) तार वापरली जाते, जेणेकरून फॉल्ट करंट (Fault current) सहजपणे जमिनीत वाहून जाऊ शकेल आणि तारेचा रोध कमी राहील."
+  },
+  {
+    "id": 1232,
+    "chapterId": 38,
+    "question": "Which of the following substances is used to reduce the value of earth resistance?",
+    "questionMarathi": "अर्थ रेझिस्टन्सचे (Earth resistance) मूल्य कमी करण्यासाठी खालीलपैकी कोणत्या पदार्थाचा वापर केला जातो?",
+    "options": [
+      "Salt",
+      "Coal",
+      "Wood sawdust",
+      "Both A and B"
+    ],
+    "optionsMarathi": [
+      "मीठ (Salt)",
+      "कोळसा (Coal)",
+      "लाकडाचा भुसा",
+      "A आणि B दोन्ही"
+    ],
+    "answer": "D",
+    "explanation": "To maintain moisture in the earthing pit and increase electrical conductivity to reduce earth resistance, alternate layers of salt and coal are used.",
+    "explanationMarathi": "अर्थिंग खड्ड्यामध्ये जमिनीतील ओलावा (Moisture) टिकवून ठेवण्यासाठी आणि विद्युत चालकता वाढवून अर्थ रेझिस्टन्स कमी करण्यासाठी मीठ आणि कोळसा यांच्या एका आड एक थरांचा वापर केला जातो."
+  },
+  {
+    "id": 1233,
+    "chapterId": 38,
+    "question": "In which of the following is Fleming's Left-Hand Rule used?",
+    "questionMarathi": "फ्लेमिंगचा डाव्या हाताचा नियम (Fleming's Left Hand Rule) कशामध्ये वापरला जातो?",
+    "options": [
+      "In motors",
+      "In generators",
+      "In transformers",
+      "In solenoids"
+    ],
+    "optionsMarathi": [
+      "मोटरमध्ये",
+      "जनरेटरमध्ये",
+      "ट्रान्सफॉर्मरमध्ये",
+      "सोलेनोइडमध्ये"
+    ],
+    "answer": "A",
+    "explanation": "Fleming's Left-Hand Rule is used to find the direction of the force acting on a conductor placed in a magnetic field in a DC motor. (The right-hand rule is used for generators).",
+    "explanationMarathi": "फ्लेमिंगचा डाव्या हाताचा नियम हा डीसी मोटरमध्ये चुंबकीय क्षेत्रात ठेवलेल्या वाहकावर (Conductor) कार्य करणाऱ्या बलाची (Force) दिशा शोधण्यासाठी वापरला जातो. (जनरेटरसाठी उजव्या हाताचा नियम वापरतात)."
+  },
+  {
+    "id": 1234,
+    "chapterId": 38,
+    "question": "Which of the following is the unit of Work?",
+    "questionMarathi": "खालीलपैकी कार्याचे (Work) एकक कोणते आहे?",
+    "options": [
+      "Newton",
+      "Joule",
+      "Watt",
+      "Volt"
+    ],
+    "optionsMarathi": [
+      "न्यूटन (Newton)",
+      "जूल (Joule)",
+      "वॉट (Watt)",
+      "व्होल्ट (Volt)"
+    ],
+    "answer": "B",
+    "explanation": "According to physics, the international standard (SI) unit of both work and energy is the 'Joule' (J).",
+    "explanationMarathi": "भौतिकशास्त्रानुसार कार्य (Work) आणि ऊर्जा (Energy) या दोन्हींचे आंतरराष्ट्रीय प्रमाणित एकक (SI Unit) 'जूल' (Joule) हे आहे."
+  },
+  {
+    "id": 1235,
+    "chapterId": 38,
+    "question": "Which of the following is a scalar quantity?",
+    "questionMarathi": "खालीलपैकी कोणती एक अदिश राशी (Scalar quantity) आहे?",
+    "options": [
+      "Velocity",
+      "Electric Current",
+      "Force",
+      "Acceleration"
+    ],
+    "optionsMarathi": [
+      "वेग (Velocity)",
+      "विद्युत प्रवाह (Electric Current)",
+      "बल (Force)",
+      "प्रवेग (Acceleration)"
+    ],
+    "answer": "B",
+    "explanation": "A scalar quantity has only magnitude and no direction (e.g. length, mass, time, temperature, work, energy, electric current).",
+    "explanationMarathi": "'अदिश राशी' (Scalar Quantity) म्हणजे अशी राशी जिला व्यक्त करण्यासाठी केवळ परिमाण (Magnitude) आवश्यक असते, दिशा (Direction) नाही. (उदा. लांबी, वस्तुमान, वेळ, तापमान, कार्य, ऊर्जा, विद्युत प्रवाह इ.)"
   }
 ];
