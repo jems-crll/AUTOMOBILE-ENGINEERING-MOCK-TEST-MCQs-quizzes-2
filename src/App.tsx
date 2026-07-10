@@ -153,6 +153,11 @@ export default function App() {
     chapterId: number | "all";
     timeLimitMinutes: number;
     setId?: number | "all";
+    initialCurrentIndex?: number;
+    initialSelectedAnswers?: Record<number, string>;
+    initialTimeSpent?: number;
+    initialSecondsRemaining?: number;
+    initialFlaggedQuestions?: Record<number, boolean>;
   } | null>(null);
 
   // Scorecard states
@@ -255,9 +260,28 @@ export default function App() {
     timeLimitMinutes: number;
     source: "static" | "ai";
     setId?: number | "all";
+    resumeState?: any;
   }) => {
     setScorecardState(null);
     setLoadingTest(true);
+
+    if (config.resumeState) {
+      setQuizState({
+        isActive: true,
+        questions: config.resumeState.questions,
+        mode: config.resumeState.mode,
+        chapterId: config.resumeState.chapterId,
+        timeLimitMinutes: config.resumeState.timeLimitMinutes,
+        setId: config.resumeState.setId,
+        initialCurrentIndex: config.resumeState.currentIndex,
+        initialSelectedAnswers: config.resumeState.selectedAnswers,
+        initialTimeSpent: config.resumeState.timeSpent,
+        initialSecondsRemaining: config.resumeState.secondsRemaining,
+        initialFlaggedQuestions: config.resumeState.flaggedQuestions,
+      });
+      setLoadingTest(false);
+      return;
+    }
 
     let chapterName = "";
     if (config.chapterId === "all") {
@@ -630,6 +654,11 @@ export default function App() {
             isPremium={currentUser?.isPremium ?? false}
             onUpgradeClick={() => setIsRazorpayOpen(true)}
             subscriptionConfig={subscriptionConfig}
+            initialCurrentIndex={quizState.initialCurrentIndex}
+            initialSelectedAnswers={quizState.initialSelectedAnswers}
+            initialTimeSpent={quizState.initialTimeSpent}
+            initialSecondsRemaining={quizState.initialSecondsRemaining}
+            initialFlaggedQuestions={quizState.initialFlaggedQuestions}
           />
         )}
 

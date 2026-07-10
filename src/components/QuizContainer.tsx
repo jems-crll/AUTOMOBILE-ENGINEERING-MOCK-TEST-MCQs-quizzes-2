@@ -15,6 +15,11 @@ interface QuizContainerProps {
   isPremium?: boolean;
   onUpgradeClick?: () => void;
   subscriptionConfig: SubscriptionConfig;
+  initialCurrentIndex?: number;
+  initialSelectedAnswers?: Record<number, string>;
+  initialTimeSpent?: number;
+  initialSecondsRemaining?: number;
+  initialFlaggedQuestions?: Record<number, boolean>;
 }
 
 export default function QuizContainer({
@@ -29,11 +34,16 @@ export default function QuizContainer({
   isPremium = false,
   onUpgradeClick,
   subscriptionConfig,
+  initialCurrentIndex,
+  initialSelectedAnswers,
+  initialTimeSpent,
+  initialSecondsRemaining,
+  initialFlaggedQuestions,
 }: QuizContainerProps) {
-  const [currentIndex, setCurrentIndex] = useState<number>(0);
+  const [currentIndex, setCurrentIndex] = useState<number>(initialCurrentIndex ?? 0);
   const [searchQuery, setSearchQuery] = useState('');
-  const [selectedAnswers, setSelectedAnswers] = useState<Record<number, string>>({});
-  const [flaggedQuestions, setFlaggedQuestions] = useState<Record<number, boolean>>({});
+  const [selectedAnswers, setSelectedAnswers] = useState<Record<number, string>>(initialSelectedAnswers ?? {});
+  const [flaggedQuestions, setFlaggedQuestions] = useState<Record<number, boolean>>(initialFlaggedQuestions ?? {});
 
   const displayedQuestions = questions.filter(
     (q) =>
@@ -48,13 +58,34 @@ export default function QuizContainer({
   }, [displayedQuestions, currentIndex]);
   
   // Timer state
-  const [secondsRemaining, setSecondsRemaining] = useState<number>(timeLimitMinutes * 60);
-  const [timeSpent, setTimeSpent] = useState<number>(0);
+  const [secondsRemaining, setSecondsRemaining] = useState<number>(initialSecondsRemaining ?? timeLimitMinutes * 60);
+  const [timeSpent, setTimeSpent] = useState<number>(initialTimeSpent ?? 0);
 
   // Practice mode specific state
   const [hasAnsweredCurrent, setHasAnsweredCurrent] = useState<boolean>(false);
 
   const currentQuestion = displayedQuestions[currentIndex];
+
+  // Dynamically save active quiz state on change
+  useEffect(() => {
+    try {
+      const stateToSave = {
+        chapterId,
+        mode,
+        questions,
+        timeLimitMinutes,
+        currentIndex,
+        selectedAnswers,
+        timeSpent,
+        secondsRemaining,
+        flaggedQuestions,
+        savedAt: new Date().getTime()
+      };
+      localStorage.setItem("omto_active_quiz_state", JSON.stringify(stateToSave));
+    } catch (e) {
+      console.error("Failed to save active quiz state:", e);
+    }
+  }, [chapterId, mode, questions, timeLimitMinutes, currentIndex, selectedAnswers, timeSpent, secondsRemaining, flaggedQuestions]);
 
   // Timer effect for Exam Mode
   useEffect(() => {
@@ -126,6 +157,11 @@ export default function QuizContainer({
   };
 
   const handleSubmit = () => {
+    try {
+      localStorage.removeItem("omto_active_quiz_state");
+    } catch (e) {
+      console.error(e);
+    }
     // Calculate final score
     let score = 0;
     questions.forEach((q) => {

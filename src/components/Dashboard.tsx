@@ -12,6 +12,7 @@ interface DashboardProps {
     timeLimitMinutes: number;
     source: "static" | "ai";
     setId?: number | "all";
+    resumeState?: any;
   }) => void;
   attempts: QuizAttempt[];
   selectedLanguage: StateLanguage;
@@ -33,6 +34,19 @@ export default function Dashboard({
   const [activeCategory, setActiveCategory] = useState<"Automobile" | "Electrical" | null>(null);
   const [selectedSection, setSelectedSection] = useState<string | null>(null);
   const [expandedChapterId, setExpandedChapterId] = useState<number | null>(null);
+
+  // Load saved active quiz state if any
+  const [activeQuizState, setActiveQuizState] = useState<any>(() => {
+    try {
+      const saved = localStorage.getItem("omto_active_quiz_state");
+      if (saved) {
+        return JSON.parse(saved);
+      }
+    } catch (e) {
+      console.error("Error reading saved active quiz state:", e);
+    }
+    return null;
+  });
   
   const isMarathi = selectedLanguage.code === "mr";
   const isDemoMode = !currentUser?.isPremium;
@@ -135,57 +149,166 @@ export default function Dashboard({
       </div>
 
       {/* Continue Learning / Recent Activity */}
-      <div className="bg-gradient-to-r from-slate-900 to-slate-800 dark:from-slate-800 dark:to-slate-900 rounded-3xl p-6 sm:p-8 text-white relative overflow-hidden shadow-lg border border-slate-800 dark:border-slate-700">
-        <div className="absolute top-0 right-0 p-8 opacity-10 pointer-events-none">
-          <Icons.Zap className="w-32 h-32" />
-        </div>
-        <div className="relative z-10">
-          <div className="flex items-center gap-2 mb-2">
-            <Icons.Clock className="h-4 w-4 text-amber-400" />
-            <h3 className="text-sm font-bold text-amber-400 uppercase tracking-wide">
-              {headerText}
-            </h3>
+      {activeQuizState ? (
+        /* Case A: Active Incomplete Quiz State is present */
+        <div className="bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 rounded-3xl p-6 sm:p-8 text-white relative overflow-hidden shadow-lg border border-amber-500/20">
+          <div className="absolute top-0 right-0 p-8 opacity-10 pointer-events-none">
+            <Icons.Zap className="w-32 h-32 text-amber-500 animate-pulse" />
           </div>
-          <h2 className="text-xl sm:text-2xl font-black mb-2">
-            {titleText}
-          </h2>
-          <p className="text-slate-300 text-sm mb-6 max-w-md">
-            {descText}
-          </p>
-          
-          <button 
-            onClick={() => {
-              if (lastAttempt && lastAttempt.chapterId !== "all") {
-                const chapterToStart = CHAPTERS.find(c => c.id === lastAttempt.chapterId) || recommendedChapter;
-                const totalQ = QUESTIONS.filter(q => q.chapterId === chapterToStart.id).length;
-                onStartTest({ 
-                  chapterId: chapterToStart.id, 
-                  mode: "practice", 
-                  questionCount: isDemoMode ? 5 : Math.min(50, totalQ), 
-                  timeLimitMinutes: isDemoMode ? 5 : 40, 
-                  source: "static", 
-                  setId: lastAttempt.setId || 1 
-                });
-              } else {
-                // Default start with 50 questions
-                const totalQ = QUESTIONS.filter(q => q.chapterId === 1).length;
-                onStartTest({ 
-                  chapterId: 1, 
-                  mode: "practice", 
-                  questionCount: isDemoMode ? 5 : Math.min(50, totalQ), 
-                  timeLimitMinutes: isDemoMode ? 5 : 40, 
-                  source: "static", 
-                  setId: 1 
-                });
-              }
-            }}
-            className="bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold px-6 py-3 rounded-xl transition flex items-center gap-2 shadow-lg shadow-amber-500/20 active:scale-95"
-          >
-            <Icons.Play className="w-4 h-4 fill-current" />
-            {btnText}
-          </button>
+          <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
+            <div className="space-y-2">
+              <div className="flex items-center gap-2">
+                <span className="flex h-2 w-2 rounded-full bg-amber-500 animate-ping" />
+                <span className="text-xs font-bold text-amber-400 uppercase tracking-wide">
+                  {isMarathi ? "अपूर्ण चाचणी (चालू ठेवा)" : "Active Incomplete Test"}
+                </span>
+              </div>
+              <h2 className="text-xl sm:text-2xl font-black">
+                {(() => {
+                  if (activeQuizState.chapterId === "all") {
+                    return isMarathi ? "सर्व चॅप्टर (पूर्ण अभ्यासक्रम)" : "All Chapters Mixed";
+                  }
+                  const activeCh = CHAPTERS.find(c => c.id === activeQuizState.chapterId);
+                  let name = activeCh ? (isMarathi ? activeCh.nameMarathi : activeCh.name) : `Chapter ${activeQuizState.chapterId}`;
+                  if (activeQuizState.setId && activeQuizState.setId !== "all") {
+                    name += ` - ${isMarathi ? `संच ${activeQuizState.setId}` : `Set ${activeQuizState.setId}`}`;
+                  }
+                  return name;
+                })()}
+              </h2>
+              <p className="text-slate-300 text-sm max-w-xl">
+                {isMarathi 
+                  ? `तुम्ही एकूण ${activeQuizState.questions.length} पैकी ${activeQuizState.currentIndex + 1} प्रश्नांवर आहात. अर्धवट सोडलेली ही चाचणी पूर्ण करा.`
+                  : `You are on question ${activeQuizState.currentIndex + 1} of ${activeQuizState.questions.length}. Finish your incomplete test.`}
+              </p>
+              <div className="text-xs text-amber-400/80 font-mono">
+                {isMarathi ? "मोड:" : "Mode:"} {activeQuizState.mode === "exam" ? (isMarathi ? "परीक्षा" : "Exam") : (isMarathi ? "सराव" : "Practice")}
+              </div>
+            </div>
+
+            <div className="flex flex-wrap items-center gap-3 shrink-0">
+              <button 
+                onClick={() => {
+                  onStartTest({
+                    chapterId: activeQuizState.chapterId,
+                    mode: activeQuizState.mode,
+                    questionCount: activeQuizState.questions.length,
+                    timeLimitMinutes: activeQuizState.timeLimitMinutes,
+                    source: "static",
+                    setId: activeQuizState.setId,
+                    resumeState: activeQuizState
+                  });
+                }}
+                className="bg-amber-500 hover:bg-amber-400 text-slate-950 font-black px-6 py-3 rounded-xl transition flex items-center gap-2 shadow-lg shadow-amber-500/20 active:scale-95 cursor-pointer text-sm"
+              >
+                <Icons.Play className="w-4 h-4 fill-current" />
+                {isMarathi ? "चाचणी येथूनच पुढे सुरू करा" : "Resume Test"}
+              </button>
+              <button
+                onClick={() => {
+                  if (window.confirm(isMarathi ? "तुम्हाला ही अपूर्ण चाचणी रद्द करायची आहे का?" : "Are you sure you want to discard this incomplete test?")) {
+                    try {
+                      localStorage.removeItem("omto_active_quiz_state");
+                      setActiveQuizState(null);
+                    } catch (e) {
+                      console.error(e);
+                    }
+                  }
+                }}
+                className="px-4 py-3 border border-slate-700 hover:bg-slate-850 text-slate-300 hover:text-white rounded-xl transition text-xs font-bold cursor-pointer"
+              >
+                {isMarathi ? "चाचणी रद्द करा" : "Discard"}
+              </button>
+            </div>
+          </div>
         </div>
-      </div>
+      ) : lastAttempt ? (
+        /* Case B: There is no active incomplete test, but lastAttempt exists (Show previous completed practice) */
+        <div className="bg-gradient-to-r from-slate-900 to-slate-800 dark:from-slate-800 dark:to-slate-900 rounded-3xl p-6 sm:p-8 text-white relative overflow-hidden shadow-lg border border-slate-800 dark:border-slate-700">
+          <div className="absolute top-0 right-0 p-8 opacity-10 pointer-events-none">
+            <Icons.CheckCircle2 className="w-32 h-32 text-emerald-500" />
+          </div>
+          <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
+            <div className="space-y-2">
+              <div className="flex items-center gap-2">
+                <Icons.Award className="h-4 w-4 text-emerald-400" />
+                <span className="text-xs font-bold text-emerald-400 uppercase tracking-wide">
+                  {isMarathi ? "मागील पूर्ण केलेला सराव" : "Previous Completed Practice"}
+                </span>
+              </div>
+              <h2 className="text-xl sm:text-2xl font-black">
+                {lastAttempt.chapterName}
+              </h2>
+              <p className="text-slate-300 text-sm max-w-xl">
+                {(() => {
+                  const lastCh = CHAPTERS.find(c => c.id === lastAttempt.chapterId);
+                  const lastSection = lastCh?.section === "Electrical" ? (isMarathi ? "इलेक्ट्रिकल" : "Electrical") : (isMarathi ? "ऑटोमोबाईल" : "Automobile");
+                  return isMarathi
+                    ? `विभाग: ${lastSection} | प्राप्त गुण: ${lastAttempt.score} / ${lastAttempt.totalQuestions} (${Math.round((lastAttempt.score / lastAttempt.totalQuestions) * 100)}%)`
+                    : `Section: ${lastSection} | Score: ${lastAttempt.score} / ${lastAttempt.totalQuestions} (${Math.round((lastAttempt.score / lastAttempt.totalQuestions) * 100)}%)`;
+                })()}
+              </p>
+              <div className="text-xs text-slate-400 font-mono">
+                {isMarathi ? "दिनांक:" : "Date:"} {new Date(lastAttempt.date).toLocaleDateString(isMarathi ? 'mr-IN' : 'en-US')} | {isMarathi ? "गेलेला वेळ:" : "Time spent:"} {Math.round(lastAttempt.timeSpentSeconds / 60)} {isMarathi ? "मि" : "min"}
+              </div>
+            </div>
+
+            <button 
+              onClick={() => {
+                onStartTest({
+                  chapterId: lastAttempt.chapterId,
+                  mode: "practice",
+                  questionCount: isDemoMode ? 5 : lastAttempt.totalQuestions,
+                  timeLimitMinutes: isDemoMode ? 5 : 40,
+                  source: "static",
+                  setId: lastAttempt.setId || 1
+                });
+              }}
+              className="bg-emerald-600 hover:bg-emerald-500 text-slate-950 font-black px-6 py-3 rounded-xl transition flex items-center gap-2 shadow-lg shadow-emerald-500/20 active:scale-95 cursor-pointer text-sm shrink-0 w-fit"
+            >
+              <Icons.RotateCcw className="w-4 h-4" />
+              {isMarathi ? "पुन्हा सराव सुरू करा" : "Restart Practice"}
+            </button>
+          </div>
+        </div>
+      ) : (
+        /* Case C: Fresh User - Automobile Set 1 (Q 1 - 50) */
+        <div className="bg-gradient-to-r from-slate-900 to-slate-800 dark:from-slate-800 dark:to-slate-900 rounded-3xl p-6 sm:p-8 text-white relative overflow-hidden shadow-lg border border-slate-800 dark:border-slate-700">
+          <div className="absolute top-0 right-0 p-8 opacity-10 pointer-events-none">
+            <Icons.Play className="w-32 h-32 text-amber-500" />
+          </div>
+          <div className="relative z-10 space-y-2">
+            <div className="flex items-center gap-2">
+              <Icons.Star className="h-4 w-4 text-amber-400" />
+              <span className="text-xs font-bold text-amber-400 uppercase tracking-wide">
+                {isMarathi ? "येथून सुरुवात करा" : "Start Here"}
+              </span>
+            </div>
+            <h2 className="text-xl sm:text-2xl font-black">
+              {isMarathi ? "ऑटोमोबाईल संच 1 (प्र 1 ते 50)" : "Automobile Set 1 (Q 1 - 50)"}
+            </h2>
+            <p className="text-slate-300 text-sm max-w-xl pb-4">
+              {isMarathi ? "पहिल्या विषयापासून तुमचा सराव सुरु करा." : "Begin your professional practice from the very first chapter."}
+            </p>
+            <button 
+              onClick={() => {
+                onStartTest({
+                  chapterId: 1,
+                  mode: "practice",
+                  questionCount: isDemoMode ? 5 : 50,
+                  timeLimitMinutes: isDemoMode ? 5 : 40,
+                  source: "static",
+                  setId: 1
+                });
+              }}
+              className="bg-amber-500 hover:bg-amber-400 text-slate-950 font-black px-6 py-3 rounded-xl transition flex items-center gap-2 shadow-lg shadow-amber-500/20 active:scale-95 cursor-pointer text-sm w-fit"
+            >
+              <Icons.Play className="w-4 h-4 fill-current" />
+              {isMarathi ? "सराव सुरू करा" : "Start Practice"}
+            </button>
+          </div>
+        </div>
+      )}
 
       {/* Main Interactive Category Area */}
       <AnimatePresence mode="wait">
