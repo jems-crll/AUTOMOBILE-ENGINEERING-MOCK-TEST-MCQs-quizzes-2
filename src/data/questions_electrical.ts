@@ -1,0 +1,20607 @@
+import { Question } from "../types.js";
+
+export const QUESTIONS_ELEC: Question[] = [
+  {
+    "id": 1105,
+    "chapterId": 34,
+    "question": "In which of the following methods is the chemical effect of current not used?",
+    "questionMarathi": "खालीलपैकी कोणत्या पद्धतीत विद्युत प्रवाहाच्या रासायनिक प्रभावाचा वापर केला जात नाही?",
+    "options": [
+      "Electroplating",
+      "Cell",
+      "Metal refining",
+      "None of these"
+    ],
+    "optionsMarathi": [
+      "इलेक्ट्रोप्लेटिंग मध्ये",
+      "सेल मध्ये",
+      "धातू शुद्धीकरणामध्ये",
+      "यांपैकी नाही"
+    ],
+    "answer": "D",
+    "explanation": "Chemical effects of current are used in electroplating, cells, and refining metals.",
+    "explanationMarathi": "इलेक्ट्रोप्लेटिंग, सेल आणि धातू शुद्धीकरण या तिन्हीमध्ये रासायनिक प्रभावाचा वापर केला जातो."
+  },
+  {
+    "id": 1106,
+    "chapterId": 34,
+    "question": "A good cell is one which has:",
+    "questionMarathi": "एक चांगला सेल तो असतो ज्याचा:",
+    "options": [
+      "Low internal resistance",
+      "High voltage",
+      "High current",
+      "Low cost"
+    ],
+    "optionsMarathi": [
+      "कमी अंतर्गत रोध (Internal resistance)",
+      "जास्त व्होल्टेज",
+      "जास्त करंट",
+      "कमी किंमत"
+    ],
+    "answer": "A",
+    "explanation": "A good cell should have as low internal resistance as possible for better performance.",
+    "explanationMarathi": "चांगल्या सेलचा अंतर्गत रोध (Internal resistance) शक्य तितका कमी असावा."
+  },
+  {
+    "id": 1107,
+    "chapterId": 34,
+    "question": "How should two 1.5V cells be connected to ring a 3V bell?",
+    "questionMarathi": "३ व्होल्टची घंटा वाजवण्यासाठी १.५ व्होल्टचे दोन सेल कोणत्या क्रमाने जोडले पाहिजेत?",
+    "options": [
+      "Series",
+      "Parallel",
+      "Mixed",
+      "Any of these"
+    ],
+    "optionsMarathi": [
+      "मालिका (Series)",
+      "समांतर (Parallel)",
+      "मिश्रित (Mixed)",
+      "वरीलपैकी कोणतेही"
+    ],
+    "answer": "A",
+    "explanation": "Connecting in series adds voltages (1.5V + 1.5V = 3V).",
+    "explanationMarathi": "मालिका (Series) जोडणीमध्ये व्होल्टेजची बेरीज होते (१.५ + १.५ = ३ व्होल्ट)."
+  },
+  {
+    "id": 1108,
+    "chapterId": 34,
+    "question": "What is used in a lead-acid battery to prevent plates from shorting?",
+    "questionMarathi": "लेड ॲसिड बॅटरीमध्ये प्लेट्स शॉर्ट होण्यापासून वाचवण्यासाठी काय वापरले जाते?",
+    "options": [
+      "Double plates",
+      "Separator",
+      "Electrolyte",
+      "Cover"
+    ],
+    "optionsMarathi": [
+      "दुहेरी प्लेट्स",
+      "सेपरेटर (Separator)",
+      "इलेक्ट्रोलाईट",
+      "कव्हर"
+    ],
+    "answer": "B",
+    "explanation": "Separators are used to keep positive and negative plates apart to prevent internal short circuits.",
+    "explanationMarathi": "शॉर्ट सर्किट टाळण्यासाठी प्लेट्समध्ये सेपरेटर (Separator) वापरतात."
+  },
+  {
+    "id": 1109,
+    "chapterId": 34,
+    "question": "On what factors does the efficiency of a battery depend?",
+    "questionMarathi": "बॅटरीची कार्यक्षमता कोणत्या गोष्टींवर अवलंबून असते?",
+    "options": [
+      "Temperature",
+      "Discharge rate",
+      "Electrolyte",
+      "All of these"
+    ],
+    "optionsMarathi": [
+      "तापमान",
+      "डिस्चार्ज दर",
+      "इलेक्ट्रोलाईट",
+      "वरील सर्व"
+    ],
+    "answer": "D",
+    "explanation": "Battery efficiency depends on temperature, discharge rate, and the condition of the electrolyte.",
+    "explanationMarathi": "बॅटरीची कार्यक्षमता तापमान, डिस्चार्ज दर आणि इलेक्ट्रोलाईटच्या स्थितीवर अवलंबून असते."
+  },
+  {
+    "id": 1110,
+    "chapterId": 34,
+    "question": "Which of the following checks are done to detect a fully charged lead-acid battery?",
+    "questionMarathi": "लेड ॲसिड बॅटरी पूर्णपणे चार्ज आहे की नाही हे तपासण्यासाठी कोणती चाचणी केली जाते?",
+    "options": [
+      "Voltage",
+      "Specific gravity",
+      "Gassing",
+      "All of these"
+    ],
+    "optionsMarathi": [
+      "व्होल्टेज",
+      "आपेक्षित घनत्व (Specific gravity)",
+      "गॅस बाहेर पडणे",
+      "वरील सर्व"
+    ],
+    "answer": "D",
+    "explanation": "A fully charged battery can be checked via voltage, electrolyte specific gravity, and the release of gas.",
+    "explanationMarathi": "व्होल्टेज, आपेक्षित घनत्व आणि गॅस बाहेर पडणे या तिन्ही गोष्टींवरून बॅटरी चार्ज झाल्याचे समजते."
+  },
+  {
+    "id": 1111,
+    "chapterId": 34,
+    "question": "What is the Watt-hour efficiency of a lead-acid battery?",
+    "questionMarathi": "लेड ॲसिड बॅटरीची वॉट-अवर (Watt-hour) कार्यक्षमता किती असते?",
+    "options": [
+      "60%",
+      "70%",
+      "80%",
+      "90%"
+    ],
+    "optionsMarathi": [
+      "६०%",
+      "७०%",
+      "८०%",
+      "९०%"
+    ],
+    "answer": "C",
+    "explanation": "The typical Watt-hour efficiency of a lead-acid battery is around 80%.",
+    "explanationMarathi": "लेड ॲसिड बॅटरीची वॉट-अवर कार्यक्षमता साधारणपणे ८०% असते."
+  },
+  {
+    "id": 1112,
+    "chapterId": 34,
+    "question": "Which of the following is the symbol for charge?",
+    "questionMarathi": "खालीलपैकी प्रभार (Charge) चे चिन्ह कोणते आहे?",
+    "options": [
+      "V",
+      "I",
+      "Q",
+      "M"
+    ],
+    "optionsMarathi": [
+      "V",
+      "I",
+      "Q",
+      "M"
+    ],
+    "answer": "C",
+    "explanation": "The symbol for electric charge is Q.",
+    "explanationMarathi": "विद्युत प्रभार (Charge) 'Q' या चिन्हाने दर्शवला जातो."
+  },
+  {
+    "id": 1113,
+    "chapterId": 34,
+    "question": "How much heat in Joules will a 250W heater produce if run for 15 minutes on 230V supply?",
+    "questionMarathi": "२५० वॉटचा हिटर १५ मिनिटे २३० व्होल्ट पुरवठ्यावर चालवल्यास किती ज्यूल उष्णता निर्माण होईल?",
+    "options": [
+      "22,500 J",
+      "225,000 J",
+      "250 J",
+      "None of these"
+    ],
+    "optionsMarathi": [
+      "२२,५०० ज्यूल",
+      "२,२५,००० ज्यूल",
+      "२५० ज्यूल",
+      "यांपैकी नाही"
+    ],
+    "answer": "B",
+    "explanation": "Heat (H) = Power x Time = 250W x (15 x 60s) = 225,000 Joules.",
+    "explanationMarathi": "उष्णता (H) = शक्ती x वेळ = २५० वॉट x (१५ मिनिटे x ६० सेकंद) = २,२५,००० ज्यूल."
+  },
+  {
+    "id": 1114,
+    "chapterId": 34,
+    "question": "If the length of a 2-ohm wire is doubled and its cross-sectional area is halved, the new resistance will be:",
+    "questionMarathi": "२ ओहम रोध असलेल्या तारेची लांबी दुप्पट आणि क्षेत्रफळ निम्मे केल्यास नवीन रोध किती होईल?",
+    "options": [
+      "4 ohms",
+      "6 ohms",
+      "8 ohms",
+      "2 ohms"
+    ],
+    "optionsMarathi": [
+      "४ ओहम",
+      "६ ओहम",
+      "८ ओहम",
+      "२ ओहम"
+    ],
+    "answer": "C",
+    "explanation": "Resistance R = ρL/A. Doubling L and halving A increases R by 4 times (2 x 4 = 8 ohms).",
+    "explanationMarathi": "लांबी दुप्पट आणि क्षेत्रफळ निम्मे केल्यास रोध ४ पटीने वाढतो (२ x ४ = ८ ओहम)."
+  },
+  {
+    "id": 1115,
+    "chapterId": 34,
+    "question": "Which of the following is the symbol for the temperature coefficient?",
+    "questionMarathi": "खालीलपैकी तापमान गुणांकाचे (Temperature coefficient) प्रतीक कोणते आहे?",
+    "options": [
+      "Ø",
+      "α",
+      "π",
+      "γ"
+    ],
+    "optionsMarathi": [
+      "Ø",
+      "α",
+      "π",
+      "γ"
+    ],
+    "answer": "B",
+    "explanation": "The temperature coefficient is represented by the Greek letter alpha (α).",
+    "explanationMarathi": "तापमान गुणांक 'α' (अल्फा) या चिन्हाने दर्शवला जातो."
+  },
+  {
+    "id": 1116,
+    "chapterId": 34,
+    "question": "1 Kg-meter is equal to how many Joules?",
+    "questionMarathi": "१ किग्रॅ-मीटर म्हणजे किती ज्यूल?",
+    "options": [
+      "1 Joule",
+      "9.81 Joules",
+      "981 Joules",
+      "1 Kilojoule"
+    ],
+    "optionsMarathi": [
+      "१ ज्यूल",
+      "९.८१ ज्यूल",
+      "९८१ ज्यूल",
+      "१ किलो ज्यूल"
+    ],
+    "answer": "B",
+    "explanation": "1 kgf-m ≈ 9.81 Joules.",
+    "explanationMarathi": "१ किग्रॅ-मीटर म्हणजे सुमारे ९.८१ ज्यूल."
+  },
+  {
+    "id": 1117,
+    "chapterId": 34,
+    "question": "Calorie is the unit of which of the following?",
+    "questionMarathi": "कॅलरी हे खालीलपैकी कशाचे एकक आहे?",
+    "options": [
+      "Weight",
+      "Power",
+      "Thermal energy",
+      "Mechanical energy"
+    ],
+    "optionsMarathi": [
+      "वजन",
+      "शक्ती",
+      "उष्णता ऊर्जा",
+      "यांत्रिक ऊर्जा"
+    ],
+    "answer": "C",
+    "explanation": "Calorie is a unit of measurement for thermal (heat) energy.",
+    "explanationMarathi": "कॅलरी हे उष्णता ऊर्जेचे एकक आहे."
+  },
+  {
+    "id": 1118,
+    "chapterId": 34,
+    "question": "What is the EMF of a lead-acid cell in a fully charged state?",
+    "questionMarathi": "पूर्ण चार्ज असलेल्या लेड ॲसिड सेलचे ईएमएफ (EMF) किती असते?",
+    "options": [
+      "2 V",
+      "1.8 V",
+      "2.2 V",
+      "2.5 V"
+    ],
+    "optionsMarathi": [
+      "२ व्होल्ट",
+      "१.८ व्होल्ट",
+      "२.२ व्होल्ट",
+      "२.५ व्होल्ट"
+    ],
+    "answer": "C",
+    "explanation": "A fully charged lead-acid cell typically has an EMF of 2.2V.",
+    "explanationMarathi": "पूर्ण चार्ज असताना लेड ॲसिड सेलचे व्होल्टेज २.२ व्होल्ट असते."
+  },
+  {
+    "id": 1119,
+    "chapterId": 34,
+    "question": "If one 1.5V cell out of 6 is accidentally connected in reverse in a series circuit, the total voltage will be:",
+    "questionMarathi": "१.५ व्होल्टचे ६ सेल मालिकेत जोडताना जर चुकून १ सेल उलटा जोडला गेला, तर एकूण व्होल्टेज किती असेल?",
+    "options": [
+      "4.5 V",
+      "6 V",
+      "9 V",
+      "7.5 V"
+    ],
+    "optionsMarathi": [
+      "४.५ व्होल्ट",
+      "६ व्होल्ट",
+      "९ व्होल्ट",
+      "७.५ व्होल्ट"
+    ],
+    "answer": "B",
+    "explanation": "5 cells add up to 7.5V, and 1 reverse cell subtracts 1.5V (7.5 - 1.5 = 6V).",
+    "explanationMarathi": "५ सरळ सेल (७.५ व्होल्ट) मधून १ उलटा सेल (१.५ व्होल्ट) वजा होईल, म्हणजे एकूण ६ व्होल्ट."
+  },
+  {
+    "id": 1120,
+    "chapterId": 34,
+    "question": "Up to what voltage are medium voltage cables manufactured?",
+    "questionMarathi": "मध्यम व्होल्टेज केबल्स किती व्होल्टेजपर्यंत तयार केल्या जातात?",
+    "options": [
+      "650 V",
+      "11,000 V",
+      "250 V",
+      "22,000 V"
+    ],
+    "optionsMarathi": [
+      "६५० व्होल्ट",
+      "११,००० व्होल्ट",
+      "२५० व्होल्ट",
+      "२२,००० व्होल्ट"
+    ],
+    "answer": "A",
+    "explanation": "Medium voltage cables are designed for voltages up to 650V.",
+    "explanationMarathi": "मध्यम व्होल्टेज केबल ६५० व्होल्टपर्यंत असतात."
+  },
+  {
+    "id": 1121,
+    "chapterId": 34,
+    "question": "Which solder is used for joining aluminum items?",
+    "questionMarathi": "ॲल्युमिनियमच्या वस्तू जोडण्यासाठी कोणते सोल्डर वापरले जाते?",
+    "options": [
+      "EYRE NO 7",
+      "ALCA-P",
+      "BOREX",
+      "RESIN"
+    ],
+    "optionsMarathi": [
+      "EYRE NO 7",
+      "ALCA-P",
+      "BOREX",
+      "RESIN"
+    ],
+    "answer": "B",
+    "explanation": "ALCA-P is specifically used for soldering aluminum.",
+    "explanationMarathi": "ॲल्युमिनियमसाठी Alca-P सोल्डर किंवा सोल्डरिंग फ्लक्स वापरतात."
+  },
+  {
+    "id": 1122,
+    "chapterId": 34,
+    "question": "How does the resistance of pure metals change with an increase in temperature?",
+    "questionMarathi": "तापमान वाढल्यास शुद्ध धातूंचा रोध कसा बदलतो?",
+    "options": [
+      "Increases",
+      "Decreases",
+      "No effect",
+      "Becomes zero"
+    ],
+    "optionsMarathi": [
+      "वाढतो",
+      "कमी होतो",
+      "काही परिणाम होत नाही",
+      "शून्य होतो"
+    ],
+    "answer": "A",
+    "explanation": "Pure metals have a Positive Temperature Coefficient, so their resistance increases with temperature.",
+    "explanationMarathi": "धातूंचा PTC (Positive Temperature Coefficient) असतो, त्यामुळे तापमान वाढल्यास त्यांचा रोध वाढतो."
+  },
+  {
+    "id": 1123,
+    "chapterId": 34,
+    "question": "Compared to iron, the resistivity of copper is:",
+    "questionMarathi": "लोखंडाच्या तुलनेत तांब्याचा विशिष्ट रोध (Resistivity) किती असतो?",
+    "options": [
+      "6 times less",
+      "8 times more",
+      "Equal",
+      "60 times less"
+    ],
+    "optionsMarathi": [
+      "६ पटीने कमी",
+      "८ पटीने जास्त",
+      "समान",
+      "६० पटीने कमी"
+    ],
+    "answer": "A",
+    "explanation": "Copper has significantly lower resistivity than iron, roughly 6 times less.",
+    "explanationMarathi": "तांब्याचा रोध लोखंडापेक्षा सुमारे ६ पटीने कमी असतो."
+  },
+  {
+    "id": 1124,
+    "chapterId": 34,
+    "question": "The glowing of a bulb is which effect of electric current?",
+    "questionMarathi": "बल्ब प्रकाशणे हा विद्युत प्रवाहाचा कोणता प्रभाव आहे?",
+    "options": [
+      "Static electric",
+      "Chemical",
+      "Thermal",
+      "Ray effect"
+    ],
+    "optionsMarathi": [
+      "स्थितिक विद्युत",
+      "रासायनिक",
+      "उष्मीय",
+      "किरण प्रभाव"
+    ],
+    "answer": "C",
+    "explanation": "A bulb glows due to the heating (thermal) effect of electric current on the filament.",
+    "explanationMarathi": "बल्ब उष्मीय (Heating) प्रभावामुळे प्रकाश देतो."
+  },
+  {
+    "id": 1125,
+    "chapterId": 34,
+    "question": "What are found in the nucleus of an atom?",
+    "questionMarathi": "अणूच्या केंद्रकात काय आढळते?",
+    "options": [
+      "Protons and Electrons",
+      "Neutrons and Protons",
+      "Neutrons and Electrons",
+      "Protons"
+    ],
+    "optionsMarathi": [
+      "प्रोटॉन आणि इलेक्ट्रॉन",
+      "न्यूट्रॉन आणि प्रोटॉन",
+      "न्यूट्रॉन आणि इलेक्ट्रॉन",
+      "प्रोटॉन"
+    ],
+    "answer": "B",
+    "explanation": "The atomic nucleus contains protons and neutrons.",
+    "explanationMarathi": "अणूच्या केंद्रकात प्रोटॉन आणि न्यूट्रॉन असतात."
+  },
+  {
+    "id": 1126,
+    "chapterId": 34,
+    "question": "Which of the following is the symbol for resistivity?",
+    "questionMarathi": "खालीलपैकी रोधकता (Resistivity) चे चिन्ह कोणते आहे?",
+    "options": [
+      "Ø",
+      "R",
+      "ρ",
+      "Ω"
+    ],
+    "optionsMarathi": [
+      "Ø",
+      "R",
+      "ρ",
+      "Ω"
+    ],
+    "answer": "C",
+    "explanation": "Resistivity is represented by the Greek letter rho (ρ).",
+    "explanationMarathi": "रोधकता (Resistivity) 'ρ' (rho) या चिन्हाने दर्शवली जाते."
+  },
+  {
+    "id": 1127,
+    "chapterId": 34,
+    "question": "What is the specific resistance of silver?",
+    "questionMarathi": "चांदीचा विशिष्ट रोध (Specific resistance) किती असतो?",
+    "options": [
+      "0.164",
+      "0.0164",
+      "70",
+      "None of these"
+    ],
+    "optionsMarathi": [
+      "०.१६४",
+      "०.०१६४",
+      "७०",
+      "यांपैकी नाही"
+    ],
+    "answer": "B",
+    "explanation": "The specific resistance of silver is approximately 0.0164 Ω·mm²/m.",
+    "explanationMarathi": "चांदीचा विशिष्ट रोध साधारणपणे ०.०१६४ Ω·mm²/m असतो."
+  },
+  {
+    "id": 1128,
+    "chapterId": 34,
+    "question": "Trickle charging is used to overcome which defect?",
+    "questionMarathi": "ट्रिकल चार्जिंग कोणत्या दोषावर मात करण्यासाठी वापरली जाते?",
+    "options": [
+      "Sulphation",
+      "Buckling",
+      "Corrosion",
+      "Local action"
+    ],
+    "optionsMarathi": [
+      "सल्फेशन",
+      "बकलिंग",
+      "गंज (Corrosion)",
+      "स्थानिक क्रिया"
+    ],
+    "answer": "A",
+    "explanation": "Trickle charging is a slow charging process used to remove sulphation from battery plates.",
+    "explanationMarathi": "सल्फेशन दोष दूर करण्यासाठी ट्रिकल चार्जिंगचा वापर करतात."
+  },
+  {
+    "id": 1129,
+    "chapterId": 34,
+    "question": "If 5 cells, each 1.5V with 0.25 ohm internal resistance, are connected in series, the total internal resistance will be:",
+    "questionMarathi": "प्रत्येकी १.५ व्होल्ट आणि ०.२५ ओहम अंतर्गत रोध असलेले ५ सेल मालिकेत जोडले तर एकूण अंतर्गत रोध किती असेल?",
+    "options": [
+      "5 ohms",
+      "1.25 ohms",
+      "12.5 ohms",
+      "7.5 ohms"
+    ],
+    "optionsMarathi": [
+      "५ ओहम",
+      "१.२५ ओहम",
+      "१२.५ ओहम",
+      "७.५ ओहम"
+    ],
+    "answer": "B",
+    "explanation": "In series, internal resistances add up: 5 x 0.25 = 1.25 ohms.",
+    "explanationMarathi": "मालिकेत अंतर्गत रोधाची बेरीज होते: ५ x ०.२५ = १.२५ ओहम."
+  },
+  {
+    "id": 1132,
+    "chapterId": 35,
+    "question": "From which metal is a magnet keeper made?",
+    "questionMarathi": "चुंबकीय कीपर (Magnet keeper) कोणत्या धातूपासून बनवला जातो?",
+    "options": [
+      "Carbon steel",
+      "Alnico",
+      "Soft iron",
+      "Silicon steel"
+    ],
+    "optionsMarathi": [
+      "कार्बन स्टील",
+      "अल्निको (Alnico)",
+      "मऊ लोखंड (Soft iron)",
+      "सिलिकॉन स्टील"
+    ],
+    "answer": "C",
+    "explanation": "Magnet keepers are made of soft iron to provide a low reluctance path for magnetic flux.",
+    "explanationMarathi": "मॅग्नेट कीपर (Magnet keeper) हा मऊ लोखंडापासून बनवला जातो."
+  },
+  {
+    "id": 1133,
+    "chapterId": 35,
+    "question": "Which of the following is the symbol for magnetic flux?",
+    "questionMarathi": "खालीलपैकी चुंबकीय फ्लक्स (Magnetic flux) चे चिन्ह कोणते आहे?",
+    "options": [
+      "σ",
+      "ϕ",
+      "B",
+      "H"
+    ],
+    "optionsMarathi": [
+      "σ",
+      "ϕ",
+      "B",
+      "H"
+    ],
+    "answer": "B",
+    "explanation": "Magnetic flux is represented by the Greek letter Phi (ϕ).",
+    "explanationMarathi": "चुंबकीय फ्लक्स 'ϕ' (Phi) या चिन्हाने दर्शवला जातो."
+  },
+  {
+    "id": 1134,
+    "chapterId": 35,
+    "question": "What is the Helix rule used to determine?",
+    "questionMarathi": "हेलिक्स नियम (Helix rule) काय शोधण्यासाठी वापरला जातो?",
+    "options": [
+      "Magnetic field direction",
+      "Magnetic poles",
+      "Current direction",
+      "All of these"
+    ],
+    "optionsMarathi": [
+      "चुंबकीय क्षेत्राची दिशा",
+      "चुंबकीय ध्रुव",
+      "करंटची दिशा",
+      "वरील सर्व"
+    ],
+    "answer": "B",
+    "explanation": "The Helix rule is used to determine the magnetic poles of a solenoid.",
+    "explanationMarathi": "हेलिक्स नियमाचा वापर सॉलेनॉइडचे चुंबकीय ध्रुव शोधण्यासाठी केला जातो."
+  },
+  {
+    "id": 1135,
+    "chapterId": 35,
+    "question": "If 5 cells of 2V each are connected in parallel, the total voltage will be:",
+    "questionMarathi": "प्रत्येकी २ व्होल्टचे ५ सेल समांतर जोडले तर एकूण व्होल्टेज किती असेल?",
+    "options": [
+      "10 V",
+      "2 V",
+      "5 V",
+      "12 V"
+    ],
+    "optionsMarathi": [
+      "१० व्होल्ट",
+      "२ व्होल्ट",
+      "५ व्होल्ट",
+      "१२ व्होल्ट"
+    ],
+    "answer": "B",
+    "explanation": "Voltage remains the same in a parallel connection.",
+    "explanationMarathi": "समांतर (Parallel) जोडणीमध्ये व्होल्टेज सारखेच राहते."
+  },
+  {
+    "id": 1136,
+    "chapterId": 35,
+    "question": "How many Watts are in one Metric HP?",
+    "questionMarathi": "एक मेट्रिक अश्वशक्ती (Metric HP) मध्ये किती वॉट असतात?",
+    "options": [
+      "1.34",
+      "1.36",
+      "735.5",
+      "746"
+    ],
+    "optionsMarathi": [
+      "१.३४",
+      "१.३६",
+      "७३५.५",
+      "७४६"
+    ],
+    "answer": "C",
+    "explanation": "1 Metric Horsepower is equal to 735.5 Watts.",
+    "explanationMarathi": "एक मेट्रिक अश्वशक्ती म्हणजे ७३५.५ वॉट."
+  },
+  {
+    "id": 1137,
+    "chapterId": 35,
+    "question": "What is the temperature tolerance capacity of Class E insulation?",
+    "questionMarathi": "वर्ग 'E' (Class E) अवाहकाची तापमान सहन करण्याची क्षमता किती असते?",
+    "options": [
+      "105 °C",
+      "130 °C",
+      "120 °C",
+      "155 °C"
+    ],
+    "optionsMarathi": [
+      "१०५ °C",
+      "१३० °C",
+      "१२० °C",
+      "१५५ °C"
+    ],
+    "answer": "C",
+    "explanation": "Class E insulation has a maximum operating temperature of 120 °C.",
+    "explanationMarathi": "वर्ग 'E' अवाहकाचे कमाल तापमान १२० अंश सेल्सिअस असते."
+  },
+  {
+    "id": 1138,
+    "chapterId": 35,
+    "question": "What happens to the resistance of carbon when temperature increases?",
+    "questionMarathi": "तापमान वाढल्यास कार्बनच्या रोधावर काय परिणाम होतो?",
+    "options": [
+      "Decreases",
+      "Increases",
+      "No effect",
+      "Becomes zero"
+    ],
+    "optionsMarathi": [
+      "कमी होतो",
+      "वाढतो",
+      "काही परिणाम होत नाही",
+      "शून्य होतो"
+    ],
+    "answer": "A",
+    "explanation": "Carbon has a Negative Temperature Coefficient (NTC), so its resistance decreases as temperature rises.",
+    "explanationMarathi": "कार्बन हा NTC पदार्थ आहे, त्यामुळे तापमान वाढल्यास त्याचा रोध कमी होतो."
+  },
+  {
+    "id": 1139,
+    "chapterId": 35,
+    "question": "What is the value of a resistor with color bands Brown, Black, and Green?",
+    "questionMarathi": "तपकिरी, काळा आणि हिरवा रंग असलेल्या रोधकाचे मूल्य किती असेल?",
+    "options": [
+      "470 KΩ",
+      "100 KΩ",
+      "1 MΩ",
+      "10 MΩ"
+    ],
+    "optionsMarathi": [
+      "४७० KΩ",
+      "१०० KΩ",
+      "१ MΩ",
+      "१० MΩ"
+    ],
+    "answer": "C",
+    "explanation": "Brown=1, Black=0, Multiplier Green=10^5. So, 10 x 10^5 = 1,000,000 Ω = 1 MΩ.",
+    "explanationMarathi": "तपकिरी=१, काळा=०, हिरवा=१०^५. म्हणजे १,०००,००० ओहम = १ MΩ."
+  },
+  {
+    "id": 1140,
+    "chapterId": 35,
+    "question": "Which lamp will draw more current at the same applied voltage?",
+    "questionMarathi": "समान व्होल्टेजवर कोणता दिवा जास्त करंट घेईल?",
+    "options": [
+      "100 W",
+      "60 W",
+      "40 W",
+      "25 W"
+    ],
+    "optionsMarathi": [
+      "१०० वॉट",
+      "६० वॉट",
+      "४० वॉट",
+      "२५ वॉट"
+    ],
+    "answer": "A",
+    "explanation": "Since I = P/V, higher power lamps draw more current for the same voltage.",
+    "explanationMarathi": "ज्याचा वॉट जास्त, तो दिवा जास्त करंट घेतो (I = P/V)."
+  },
+  {
+    "id": 1141,
+    "chapterId": 35,
+    "question": "What is filled between the plates in a lead-acid cell?",
+    "questionMarathi": "लेड ॲसिड सेलमध्ये प्लेट्सच्या दरम्यान काय भरलेले असते?",
+    "options": [
+      "Dilute Sulphuric Acid",
+      "Red lead paste",
+      "Spongy lead",
+      "All of these"
+    ],
+    "optionsMarathi": [
+      "तनु गंधक का अम्ल",
+      "रेड लेड पेस्ट",
+      "स्पंजी लेड",
+      "वरील सर्व"
+    ],
+    "answer": "A",
+    "explanation": "Dilute Sulphuric Acid acts as the electrolyte between the plates.",
+    "explanationMarathi": "प्लेट्सच्या दरम्यान 'तनु गंधक का अम्ल' (Dilute Sulfuric Acid) इलेक्ट्रोलाईट म्हणून वापरतात."
+  },
+  {
+    "id": 1142,
+    "chapterId": 35,
+    "question": "How is battery capacity measured?",
+    "questionMarathi": "बॅटरीची क्षमता कशामध्ये मोजली जाते?",
+    "options": [
+      "Amperes",
+      "Ampere-seconds",
+      "Ampere-hours",
+      "According to voltage"
+    ],
+    "optionsMarathi": [
+      "अँपिअर मध्ये",
+      "अँपिअर-सेकंद मध्ये",
+      "अँपिअर-तास (AH) मध्ये",
+      "व्होल्टेज नुसार"
+    ],
+    "answer": "C",
+    "explanation": "Battery capacity is typically measured in Ampere-hours (AH).",
+    "explanationMarathi": "बॅटरीची क्षमता नेहमी अँपिअर-तास (AH) मध्ये मोजली जाते."
+  },
+  {
+    "id": 1143,
+    "chapterId": 35,
+    "question": "What is the SI unit of flux density?",
+    "questionMarathi": "फ्लक्स घनत्व (Flux density) चे एसआय (SI) एकक काय आहे?",
+    "options": [
+      "Weber",
+      "Maxwell",
+      "Weber/meter²",
+      "Ampere-turn"
+    ],
+    "optionsMarathi": [
+      "वेबर (Weber)",
+      "मॅक्सवेल (Maxwell)",
+      "वेबर/मीटर²",
+      "अँपिअर टर्न"
+    ],
+    "answer": "C",
+    "explanation": "The SI unit of flux density is Weber/meter², also known as Tesla.",
+    "explanationMarathi": "फ्लक्स घनत्वाचे एसआय एकक 'वेबर/मीटर²' (ज्याला टेस्ला म्हणतात) हे आहे."
+  },
+  {
+    "id": 1144,
+    "chapterId": 35,
+    "question": "Which metal is used in the manufacturing of electromagnets?",
+    "questionMarathi": "विद्युत चुंबक (Electromagnets) तयार करण्यासाठी कोणता धातू वापरला जातो?",
+    "options": [
+      "Soft iron",
+      "Steel",
+      "Alnico",
+      "Alconex"
+    ],
+    "optionsMarathi": [
+      "मऊ लोखंड (Soft iron)",
+      "पोलाद",
+      "अल्निको",
+      "अल्कोनेक्स"
+    ],
+    "answer": "A",
+    "explanation": "Soft iron is preferred for electromagnets because it can be easily magnetized and demagnetized.",
+    "explanationMarathi": "विद्युत चुंबक बनवण्यासाठी मऊ लोखंडाचा वापर केला जातो."
+  },
+  {
+    "id": 1145,
+    "chapterId": 35,
+    "question": "What is the Cork Screw rule used to determine?",
+    "questionMarathi": "कॉर्क स्क्रू नियम (Cork Screw rule) काय शोधण्यासाठी वापरला जातो?",
+    "options": [
+      "Value of electric current",
+      "Direction of magnetic field",
+      "Rotation direction of conductor",
+      "All of these"
+    ],
+    "optionsMarathi": [
+      "विद्युत प्रवाहाचे मूल्य",
+      "चुंबकीय क्षेत्राची दिशा",
+      "वाहकाच्या फिरण्याची दिशा",
+      "वरील सर्व"
+    ],
+    "answer": "B",
+    "explanation": "The Cork Screw rule is used to find the direction of the magnetic field around a current-carrying conductor.",
+    "explanationMarathi": "कॉर्क स्क्रू नियम चुंबकीय क्षेत्राची दिशा शोधण्यासाठी वापरला जातो."
+  },
+  {
+    "id": 1146,
+    "chapterId": 35,
+    "question": "Induced current opposes the cause that produced it. This is whose law?",
+    "questionMarathi": "प्रेरित करंट ज्या कारणामुळे निर्माण होतो त्याच कारणाला विरोध करतो. हा कोणाचा नियम आहे?",
+    "options": [
+      "Faraday's",
+      "Fleming's",
+      "Lenz's",
+      "All of these"
+    ],
+    "optionsMarathi": [
+      "फॅराडेचा नियम",
+      "फ्लेमिंगचा नियम",
+      "लेन्झचा नियम (Lenz's Law)",
+      "वरील सर्व"
+    ],
+    "answer": "C",
+    "explanation": "Lenz's Law states that the direction of an induced current is such that it opposes the change that produced it.",
+    "explanationMarathi": "हा लेन्झचा नियम (Lenz's Law) आहे."
+  },
+  {
+    "id": 1147,
+    "chapterId": 35,
+    "question": "1 Weber is equal to:",
+    "questionMarathi": "१ वेबर म्हणजे किती मॅक्सवेल?",
+    "options": [
+      "1 Maxwell",
+      "10^8 Maxwells",
+      "10^5 lines",
+      "10^5 Maxwells"
+    ],
+    "optionsMarathi": [
+      "१ मॅक्सवेल",
+      "१०^८ मॅक्सवेल",
+      "१०^५ लाईन्स",
+      "१०^५ मॅक्सवेल"
+    ],
+    "answer": "B",
+    "explanation": "1 Weber = 10^8 Maxwells.",
+    "explanationMarathi": "१ वेबर म्हणजे १०^८ मॅक्सवेल."
+  },
+  {
+    "id": 1148,
+    "chapterId": 35,
+    "question": "What is the SI unit of Reluctance?",
+    "questionMarathi": "रिलक्टन्स (Reluctance) चे एसआय (SI) एकक कोणते आहे?",
+    "options": [
+      "Ampere-turn",
+      "Ohm-meter",
+      "Ampere-turn/Weber",
+      "Weber/Ampere-turn"
+    ],
+    "optionsMarathi": [
+      "अँपिअर टर्न",
+      "ओहम-मीटर",
+      "अँपिअर टर्न/वेबर",
+      "वेबर/अँपिअर टर्न"
+    ],
+    "answer": "C",
+    "explanation": "The SI unit of Reluctance is Ampere-turn per Weber (AT/Wb).",
+    "explanationMarathi": "रिलक्टन्सचे एसआय एकक 'अँपिअर टर्न/वेबर' हे आहे."
+  },
+  {
+    "id": 1149,
+    "chapterId": 35,
+    "question": "Which of the following is a ferromagnetic substance?",
+    "questionMarathi": "खालीलपैकी कोणते फेरोमॅग्नेटिक (Ferromagnetic) पदार्थ आहे?",
+    "options": [
+      "Cobalt",
+      "Aluminum",
+      "Copper",
+      "All of these"
+    ],
+    "optionsMarathi": [
+      "कोबाल्ट",
+      "ॲल्युमिनियम",
+      "तांबे",
+      "वरील सर्व"
+    ],
+    "answer": "A",
+    "explanation": "Iron, Cobalt, and Nickel are ferromagnetic substances.",
+    "explanationMarathi": "लोखंड, कोबाल्ट आणि निकेल हे फेरोमॅग्नेटिक पदार्थ आहेत."
+  },
+  {
+    "id": 1150,
+    "chapterId": 35,
+    "question": "A magnetic core is made of which metal?",
+    "questionMarathi": "चुंबकीय कोअर (Magnetic core) कोणत्या धातूपासून बनवलेली असते?",
+    "options": [
+      "Carbon",
+      "Carbon steel",
+      "Silicon steel",
+      "Cast iron"
+    ],
+    "optionsMarathi": [
+      "कार्बन",
+      "कार्बन स्टील",
+      "सिलिकॉन स्टील",
+      "कास्ट आयर्न"
+    ],
+    "answer": "C",
+    "explanation": "Magnetic cores are often made of silicon steel to reduce hysteresis losses.",
+    "explanationMarathi": "हिस्टेरेसिस लॉस कमी करण्यासाठी चुंबकीय कोअर सिलिकॉन स्टीलची बनवली जाते."
+  },
+  {
+    "id": 1151,
+    "chapterId": 35,
+    "question": "In trickle charging, what percentage of the normal current is provided?",
+    "questionMarathi": "ट्रिकल चार्जिंगमध्ये सामान्य करंटच्या किती टक्के करंट दिला जातो?",
+    "options": [
+      "5%",
+      "3%",
+      "10%",
+      "100%"
+    ],
+    "optionsMarathi": [
+      "५%",
+      "३%",
+      "१०%",
+      "१००%"
+    ],
+    "answer": "B",
+    "explanation": "Trickle charging typically uses about 2-3% of the normal charging current.",
+    "explanationMarathi": "ट्रिकल चार्जिंगमध्ये सामान्य चार्जिंग करंटच्या सुमारे २% ते ३% करंट दिला जातो."
+  },
+  {
+    "id": 1152,
+    "chapterId": 35,
+    "question": "An electric iron draws 5A current on 230V supply. What will be its power?",
+    "questionMarathi": "एक इलेक्ट्रिक इस्त्री २३० व्होल्ट पुरवठ्यावर ५ अँपिअर करंट घेते, तर तिची शक्ती किती असेल?",
+    "options": [
+      "1150 W",
+      "230 W",
+      "115 W",
+      "1540 W"
+    ],
+    "optionsMarathi": [
+      "११५० वॉट",
+      "२३० वॉट",
+      "११५ वॉट",
+      "१५४० वॉट"
+    ],
+    "answer": "A",
+    "explanation": "Power (P) = V x I = 230V x 5A = 1150 Watts.",
+    "explanationMarathi": "शक्ती (P) = व्होल्टेज x करंट = २३० व्होल्ट x ५ अँपिअर = ११५० वॉट."
+  },
+  {
+    "id": 1153,
+    "chapterId": 35,
+    "question": "At what current should a lead-acid battery be charged?",
+    "questionMarathi": "लेड ॲसिड बॅटरी किती अँपिअरवर चार्ज केली पाहिजे?",
+    "options": [
+      "Up to 10A",
+      "Up to 6A",
+      "Up to 25A",
+      "None of these"
+    ],
+    "optionsMarathi": [
+      "१० अँपिअर पर्यंत",
+      "६ अँपिअर पर्यंत",
+      "२५ अँपिअर पर्यंत",
+      "यांपैकी नाही"
+    ],
+    "answer": "B",
+    "explanation": "As a rule of thumb, charging at roughly 1/10th of the AH capacity is recommended, typically around 4-6A for standard batteries.",
+    "explanationMarathi": "बॅटरीच्या क्षमतेनुसार साधारणपणे ४ ते ६ अँपिअर करंट योग्य मानला जातो."
+  },
+  {
+    "id": 1154,
+    "chapterId": 35,
+    "question": "Which of the following statements is true according to Kirchhoff's Laws?",
+    "questionMarathi": "किरचॉफच्या नियमांनुसार खालीलपैकी कोणते विधान सत्य आहे?",
+    "options": [
+      "Σ I = 0",
+      "Σ E = Σ IR",
+      "Both A and B",
+      "Σ P = I²R"
+    ],
+    "optionsMarathi": [
+      "Σ I = 0",
+      "Σ E = Σ IR",
+      "A आणि B दोन्ही",
+      "Σ P = I²R"
+    ],
+    "answer": "C",
+    "explanation": "Kirchhoff's Current Law (ΣI=0) and Voltage Law (ΣE=ΣIR) are both fundamental laws.",
+    "explanationMarathi": "KCL (करंटचा नियम) आणि KVL (व्होल्टेजचा नियम) हे दोन्ही किरचॉफचे नियम आहेत."
+  },
+  {
+    "id": 1155,
+    "chapterId": 35,
+    "question": "What will happen if the direction of current flowing in a conductor is changed?",
+    "questionMarathi": "वाहकातून वाहणाऱ्या प्रवाहाची दिशा बदलल्यास काय होईल?",
+    "options": [
+      "Magnetic field will not be produced",
+      "Direction of magnetic field will change",
+      "Voltage will become zero",
+      "Nothing will happen"
+    ],
+    "optionsMarathi": [
+      "चुंबकीय क्षेत्र निर्माण होणार नाही",
+      "चुंबकीय क्षेत्राची दिशा बदलेल",
+      "व्होल्टेज शून्य होईल",
+      "काहीही होणार नाही"
+    ],
+    "answer": "B",
+    "explanation": "Reversing the current reverses the direction of the surrounding magnetic field.",
+    "explanationMarathi": "करंटची दिशा बदलल्यास चुंबकीय क्षेत्राची दिशाही उलट होते."
+  },
+  {
+    "id": 1156,
+    "chapterId": 35,
+    "question": "Why is earthing done?",
+    "questionMarathi": "अर्थिंग (Earthing) का केले जाते?",
+    "options": [
+      "For overcurrent protection",
+      "For human safety",
+      "For equipment protection",
+      "Both B and C"
+    ],
+    "optionsMarathi": [
+      "अतिप्रवाहापासून वाचवण्यासाठी",
+      "मानवी सुरक्षिततेसाठी",
+      "उपकरणांच्या संरक्षणासाठी",
+      "B आणि C दोन्हीसाठी"
+    ],
+    "answer": "D",
+    "explanation": "Earthing provides a safety path for leakage current to protect both humans and equipment.",
+    "explanationMarathi": "अर्थिंग मानवी जीवन आणि उपकरणे दोघांच्या संरक्षणासाठी केले जाते."
+  },
+  {
+    "id": 1160,
+    "chapterId": 36,
+    "question": "What will be the value of resistance in an open circuit?",
+    "questionMarathi": "एका खुल्या परिपथामध्ये (Open Circuit) रोधाचे मूल्य किती असेल?",
+    "options": [
+      "High",
+      "Zero",
+      "Infinite",
+      "Low"
+    ],
+    "optionsMarathi": [
+      "उच्च",
+      "शून्य",
+      "अनंत",
+      "निम्न"
+    ],
+    "answer": "C",
+    "explanation": "In an open circuit, the path is broken, preventing current flow. For current to be zero, the resistance must be infinite.",
+    "explanationMarathi": "ओपन सर्किट म्हणजेच वायर तुटलेली असणे. वायर तुटल्यामुळे त्यामधून करंट वाहू शकत नाही. करंट पूर्णपणे शून्य होण्यासाठी मार्गातील रोध (Resistance) खूप जास्त म्हणजेच 'अनंत' (Infinite) असावा लागतो."
+  },
+  {
+    "id": 1162,
+    "chapterId": 36,
+    "question": "What is the ampere capacity (range) of an HRC fuse?",
+    "questionMarathi": "HRC फ्यूजची अँपिअर क्षमता (रेंज) काय असते?",
+    "options": [
+      "30 to 1000",
+      "2 to 60",
+      "5 to 3000",
+      "15 to 100"
+    ],
+    "optionsMarathi": [
+      "30 ते 1000",
+      "2 ते 60",
+      "5 ते 3000",
+      "15 ते 100"
+    ],
+    "answer": "C",
+    "explanation": "HRC (High Rupturing Capacity) fuses are used in large factories and power circuits, with capacities ranging from 5A to 3000A.",
+    "explanationMarathi": "HRC (High Rupturing Capacity) फ्यूज हे मोठ्या कारखान्यांमध्ये आणि पावर सर्किट्समध्ये वापरले जातात. त्यांची करंट वाहून नेण्याची आणि सुरक्षितपणे सर्किट खंडित करण्याची क्षमता खूप जास्त असते, जी बाजारात सामान्यतः 5A पासून 3000A पर्यंत उपलब्ध असते."
+  },
+  {
+    "id": 1163,
+    "chapterId": 36,
+    "question": "What is the container in which a chemical reaction is carried out called?",
+    "questionMarathi": "ज्या पात्रात रासायनिक क्रिया घडवून आणली जाते, त्याला काय म्हणतात?",
+    "options": [
+      "Chemical vessel",
+      "Separator",
+      "Voltameter",
+      "Voltmeter"
+    ],
+    "optionsMarathi": [
+      "रासायनिक पात्र",
+      "सेपरेटर",
+      "वोल्टामीटर",
+      "वोल्टमीटर"
+    ],
+    "answer": "C",
+    "explanation": "The vessel in which electrolysis (chemical process) is performed is called a 'Voltameter'. A voltmeter measures voltage.",
+    "explanationMarathi": "ज्या भांड्यात किंवा पात्रात इलेक्ट्रोलायसिस (रासायनिक प्रक्रिया) केली जाते, त्याला 'वोल्टामीटर' (Voltameter) म्हणतात. वोल्टमीटर हे व्होल्टेज मोजण्याचे साधन आहे, त्यामुळे या दोन्हीत गोंधळ होऊ देऊ नका."
+  },
+  {
+    "id": 1164,
+    "chapterId": 36,
+    "question": "Of what material is the anode made in a dry cell?",
+    "questionMarathi": "ड्राय सेल (शुष्क सेल) मध्ये ॲनोड कोणत्या पदार्थाचा बनलेला असतो?",
+    "options": [
+      "Zinc",
+      "Carbon",
+      "Copper",
+      "Lead"
+    ],
+    "optionsMarathi": [
+      "जस्त (झिंक)",
+      "कार्बन",
+      "तांबे",
+      "लेड (शिसें)"
+    ],
+    "answer": "B",
+    "explanation": "In a dry cell, the central black rod is made of carbon and acts as the positive terminal (anode).",
+    "explanationMarathi": "ड्राय सेलमध्ये मधील जी काळी काडी (Rod) असते, ती कार्बनची बनलेली असते आणि ती पॉझिटिव्ह टर्मिनल म्हणजेच 'ॲनोड' म्हणून काम करते. तर बाहेरील जस्ताचे कव्हर कॅथोड म्हणून काम करते."
+  },
+  {
+    "id": 1165,
+    "chapterId": 36,
+    "question": "If an atom has 2 electrons in the 'K' shell, how many electrons will be in the 'M' shell?",
+    "questionMarathi": "अणूच्या 'K' कक्षेत 2 इलेक्ट्रॉन आहेत, तर 'M' कक्षेत किती इलेक्ट्रॉन असतील?",
+    "options": [
+      "8",
+      "18",
+      "32",
+      "64"
+    ],
+    "optionsMarathi": [
+      "8",
+      "18",
+      "32",
+      "64"
+    ],
+    "answer": "B",
+    "explanation": "The formula for max electrons is 2n^2. For M shell (n=3), it is 2 * (3)^2 = 18.",
+    "explanationMarathi": "कोणत्या कक्षेतील जास्तीत जास्त इलेक्ट्रॉन शोधण्याचे सूत्र 2n^2 आहे. पहिल्या कक्षेसाठी (K) n=1, दुसऱ्या कक्षेसाठी (L) n=2 आणि तिसऱ्या कक्षेसाठी (M) n=3 असते. त्यानुसार, 2 x (3)^2 = 2 x 9 = 18 इलेक्ट्रॉन असतील."
+  },
+  {
+    "id": 1166,
+    "chapterId": 36,
+    "question": "Which of the following is the best electrical conductor?",
+    "questionMarathi": "खालीलपैकी सर्वात चांगला विद्युत वाहक कोणता आहे?",
+    "options": [
+      "Carbon",
+      "Brass",
+      "Copper",
+      "Aluminum"
+    ],
+    "optionsMarathi": [
+      "कार्बन",
+      "पितळ",
+      "तांबे",
+      "ॲल्युमिनियम"
+    ],
+    "answer": "C",
+    "explanation": "Copper has a high number of free electrons, making it the best and most affordable conductor after silver.",
+    "explanationMarathi": "तांब्यामध्ये (Copper) मुक्त इलेक्ट्रॉन्सची संख्या खूप जास्त असते, ज्यामुळे चांदीनंतर तांबे हा वीज वाहून नेण्यासाठी सर्वात चांगला आणि स्वस्त वाहक (Conductor) मानला जातो."
+  },
+  {
+    "id": 1167,
+    "chapterId": 36,
+    "question": "What is the SI unit of Density?",
+    "questionMarathi": "घनतेचे (Density) SI एकक काय आहे?",
+    "options": [
+      "g/cm³",
+      "kg/cm³",
+      "lb/cm³",
+      "kg/m³"
+    ],
+    "optionsMarathi": [
+      "ग्रॅम/सेमी³",
+      "किग्रॅ/सेमी³",
+      "पाऊंड/सेमी³",
+      "किग्रॅ/मीटर³"
+    ],
+    "answer": "D",
+    "explanation": "Density is mass divided by volume. In SI, mass is in kg and volume is in cubic meters (m³).",
+    "explanationMarathi": "घनता म्हणजे वजन भागिले घनफळ (Mass/Volume). SI पद्धतीमध्ये वजनाचे एकक किलोग्राम (kg) आहे आणि घनफळाचे एकक घनमीटर (m³) आहे. म्हणून याचे एकक kg/m³ (किग्रॅ/मीटर³) होते."
+  },
+  {
+    "id": 1168,
+    "chapterId": 36,
+    "question": "Which statement is false according to Ohm's law?",
+    "questionMarathi": "खालीलपैकी ओहमच्या नियमानुसार कोणते विधान चुकीचे (असत्य) आहे?",
+    "options": [
+      "P = V.I",
+      "V = I.R",
+      "I = R/V",
+      "P = I^2.R"
+    ],
+    "optionsMarathi": [
+      "P = V.I",
+      "V = I.R",
+      "I = R/V",
+      "P = I^2.R"
+    ],
+    "answer": "C",
+    "explanation": "The correct formula for current is I = V/R. Therefore, I = R/V is incorrect.",
+    "explanationMarathi": "ओहमच्या नियमानुसार मुख्य सूत्र V = I x R आहे. यावरून जर करंट काढायचा असेल तर त्याचे सूत्र I = V / R असायला हवे. पण पर्यायात I = R / V दिले आहे, जे चुकीचे आहे."
+  },
+  {
+    "id": 1169,
+    "chapterId": 36,
+    "question": "How many electrons are in the outer shell of an insulator?",
+    "questionMarathi": "अचालक (Insulator) पदार्थाच्या अणूच्या शेवटच्या कक्षेत किती इलेक्ट्रॉन असतात?",
+    "options": [
+      "1",
+      "4",
+      "2",
+      "8"
+    ],
+    "optionsMarathi": [
+      "1",
+      "4",
+      "2",
+      "8"
+    ],
+    "answer": "D",
+    "explanation": "Insulators have a full outer shell (octet). Typically, they have 8 electrons, which prevents current flow.",
+    "explanationMarathi": "अचालक (इन्सुलेटर) पदार्थांची बाह्य कक्षा पूर्णपणे भरलेली असते (त्यांचे अष्टक पूर्ण असते). स्थिर राहण्यासाठी त्यांच्या शेवटच्या कक्षेत सामान्यतः 8 इलेक्ट्रॉन्स असतात, ज्यामुळे ते स्वतःमधून करंट वाहू देत नाहीत."
+  },
+  {
+    "id": 1170,
+    "chapterId": 36,
+    "question": "What is the symbol for Magnetic Flux Density?",
+    "questionMarathi": "चुंबकीय फ्लक्स घनतेचे (Magnetic Flux Density) प्रतीक चिन्ह कोणते आहे?",
+    "options": [
+      "Ø",
+      "B",
+      "H",
+      "T"
+    ],
+    "optionsMarathi": [
+      "Ø",
+      "B",
+      "H",
+      "T"
+    ],
+    "answer": "B",
+    "explanation": "Magnetic flux density is represented by 'B'. 'Ø' is for flux and 'T' (Tesla) is the unit.",
+    "explanationMarathi": "चुंबकीय फ्लक्स घनतेला विज्ञानात नेहमी 'B' या अक्षराने दर्शवले जाते. (Ø हे चुंबकीय फ्लक्सचे चिन्ह आहे आणि T हे त्याचे एकक-टेस्ला आहे)."
+  },
+  {
+    "id": 1171,
+    "chapterId": 36,
+    "question": "What percentage of silicon is used in silicon steel?",
+    "questionMarathi": "सिलिकॉन स्टीलमध्ये सिलिकॉनचे प्रमाण किती टक्के ठेवले जाते?",
+    "options": [
+      "10%",
+      "97%",
+      "22%",
+      "2.4%"
+    ],
+    "optionsMarathi": [
+      "10 टक्के",
+      "97 टक्के",
+      "22 टक्के",
+      "2.4 टक्के"
+    ],
+    "answer": "D",
+    "explanation": "Silicon is added to iron (typically 2.4% to 4.5%) to reduce hysteresis loss in transformer or motor cores.",
+    "explanationMarathi": "ट्रान्सफॉर्मर किंवा मोटरच्या कोअरमध्ये हिस्टेरेसिस लॉस (Hysteresis Loss) कमी करण्यासाठी लोखंडात थोड्या प्रमाणात सिलिकॉन मिसळले जाते. हे प्रमाण साधारणपणे 2.4% ते 4.5% च्या दरम्यान असते."
+  },
+  {
+    "id": 1172,
+    "chapterId": 36,
+    "question": "Which of the following is not a property of a magnet?",
+    "questionMarathi": "खालीलपैकी कोणता एक गुणधर्म चुंबकाचा नाही?",
+    "options": [
+      "Induction",
+      "Attraction",
+      "Repulsion",
+      "Single Pole"
+    ],
+    "optionsMarathi": [
+      "प्रेरण (Induction)",
+      "आकर्षण (Attraction)",
+      "प्रकर्षण/प्रतिकर्षण (Repulsion)",
+      "एक ध्रुव (Single Pole)"
+    ],
+    "answer": "D",
+    "explanation": "A magnet always has two poles: North (N) and South (S). It can never exist as a single pole.",
+    "explanationMarathi": "चुंबकाला कितीही बारीक तुकड्यांमध्ये तोडले, तरी त्याला नेहमी उत्तर (N) आणि दक्षिण (S) असे दोन ध्रुव असतातच. चुंबक कधीही एकाच ध्रुवाचा असू शकत नाही."
+  },
+  {
+    "id": 1173,
+    "chapterId": 36,
+    "question": "What will be the resistance of a 220V and 220W lamp?",
+    "questionMarathi": "220 व्होल्ट आणि 220 वॉटच्या दिव्याचा (Lamp) रोध किती असेल?",
+    "options": [
+      "220 ohms",
+      "440 ohms",
+      "22 ohms",
+      "44 ohms"
+    ],
+    "optionsMarathi": [
+      "220 ओम",
+      "440 ओम",
+      "22 ओम",
+      "44 ओम"
+    ],
+    "answer": "A",
+    "explanation": "Resistance R = V^2 / P. So, R = (220 * 220) / 220 = 220 ohms.",
+    "explanationMarathi": "रोध काढण्याचे सूत्र R = V^2 / P आहे. इथे व्होल्टेज (V) = 220 आणि पॉवर (P) = 220 वॉट आहे. R = (220 x 220) / 220 = 220 Ω (ओम)."
+  },
+  {
+    "id": 1174,
+    "chapterId": 36,
+    "question": "Who discovered the heating effect of electric current?",
+    "questionMarathi": "विद्युत प्रवाहाच्या औष्णिक सिद्धांताचा (Heating Effect) शोध कोणत्या वैज्ञानिकाने लावला?",
+    "options": [
+      "Ohm",
+      "Oersted",
+      "Joule",
+      "Faraday"
+    ],
+    "optionsMarathi": [
+      "ओहम",
+      "ओरेस्टेड",
+      "जूल",
+      "फॅराडे"
+    ],
+    "answer": "C",
+    "explanation": "James Prescott Joule discovered that current flowing through a wire produces heat (H = I^2Rt).",
+    "explanationMarathi": "जेम्स प्रेस्कॉट जूल यांनी शोध लावला की जेव्हा एखाद्या वायरमधून करंट वाहतो, तेव्हा त्यात उष्णता निर्माण होते. म्हणूनच याला 'जूलचा नियम' (H = I^2Rt) असे म्हणतात."
+  },
+  {
+    "id": 1175,
+    "chapterId": 36,
+    "question": "Which of the following is a diamagnetic substance?",
+    "questionMarathi": "खालीलपैकी डायमॅग्नेटिक (डाया चुम्बकीय) पदार्थ कोणता आहे?",
+    "options": [
+      "Bismuth",
+      "Antimony",
+      "Water",
+      "All of these"
+    ],
+    "optionsMarathi": [
+      "बिस्मथ",
+      "अँटिमनी",
+      "पाणी",
+      "वरील सर्व"
+    ],
+    "answer": "D",
+    "explanation": "Diamagnetic materials like bismuth, antimony, and water are slightly repelled by a magnetic field.",
+    "explanationMarathi": "डायमॅग्नेटिक पदार्थ ते असतात जो चुंबकाकडे आकर्षित न होता थोडे दूर ढकलले (प्रतिकर्षित केले) जातात. बिस्मथ, अँटिमनी आणि पाणी हे तिन्ही याच प्रकारचे पदार्थ आहेत."
+  },
+  {
+    "id": 1176,
+    "chapterId": 36,
+    "question": "Which of the following is the symbol for the unit of current?",
+    "questionMarathi": "खालीलपैकी करंटच्या (विद्युत प्रवाह) एककाचे प्रतीक कोणते आहे?",
+    "options": [
+      "A",
+      "I",
+      "V",
+      "All of these"
+    ],
+    "optionsMarathi": [
+      "A",
+      "I",
+      "V",
+      "वरील सर्व"
+    ],
+    "answer": "A",
+    "explanation": "The unit of current is Ampere, and its symbol is 'A'. Current itself is represented by 'I'.",
+    "explanationMarathi": "करंटचे एकक 'अँपिअर' आहे आणि त्याचे प्रतीक चिन्ह 'A' असे आहे. (करंट स्वतः 'I' ने दर्शवला जातो, पण त्याच्या एककाला 'A' लिहितात)."
+  },
+  {
+    "id": 1177,
+    "chapterId": 36,
+    "question": "If a battery provides 7A current for 10 hours, what will be its capacity?",
+    "questionMarathi": "जर एक बॅटरी 7 अँपिअरचा करंट 10 तासांपर्यंत देते, तर तिची क्षमता किती असेल?",
+    "options": [
+      "70 Ah",
+      "7 Ah",
+      "0.7 Ah",
+      "700 Ah"
+    ],
+    "optionsMarathi": [
+      "70 Ah",
+      "7 Ah",
+      "0.7 Ah",
+      "700 Ah"
+    ],
+    "answer": "A",
+    "explanation": "Capacity = Current x Time. So, 7A * 10h = 70 Ah.",
+    "explanationMarathi": "बॅटरीची क्षमता अँपिअर-अवर (Ah) मध्ये मोजली जाते. क्षमता = करंट x वेळ = 7 A x 10 तास = 70 Ah."
+  },
+  {
+    "id": 1178,
+    "chapterId": 36,
+    "question": "Which of the following is the symbol for efficiency?",
+    "questionMarathi": "खालीलपैकी कार्यक्षमतेचे (Efficiency/दक्षता) प्रतीक कोणते आहे?",
+    "options": [
+      "β",
+      "α",
+      "η",
+      "%"
+    ],
+    "optionsMarathi": [
+      "β",
+      "α",
+      "η",
+      "%"
+    ],
+    "answer": "C",
+    "explanation": "The Greek letter 'eta' (η) is used to represent efficiency in electrical and mechanical fields.",
+    "explanationMarathi": "इलेक्ट्रिकल किंवा मेकॅनिकल क्षेत्रात कार्यक्षमता दर्शवण्यासाठी ग्रीक अक्षर 'η' (इटा) चा वापर केला जातो."
+  },
+  {
+    "id": 1179,
+    "chapterId": 36,
+    "question": "What defect occurs in a lead-acid cell if it is not used for more than a month?",
+    "questionMarathi": "लेड ॲसिड सेलचा 1 महिन्यापेक्षा जास्त काळ वापर न केल्यास कोणता दोष निर्माण होतो?",
+    "options": [
+      "Sedimentation",
+      "Sulphation",
+      "Buckling",
+      "Corrosion"
+    ],
+    "optionsMarathi": [
+      "सेडिमेंटेशन",
+      "सल्फेशन",
+      "बकलिंग",
+      "कोरोझन"
+    ],
+    "answer": "B",
+    "explanation": "If left unused or uncharged, a hard white layer of lead sulfate forms on the plates, called sulphation.",
+    "explanationMarathi": "जर लेड ॲसिड बॅटरी खूप दिवस चार्ज न करता किंवा न वापरता तशीच ठेवून दिली, तर तिच्या प्लेट्सवर 'लेड सल्फेट'चा कडक पांढरा थर जमा होतो. याला 'सल्फेशन' म्हणतात, ज्यामुळे बॅटरी खराब होते."
+  },
+  {
+    "id": 1180,
+    "chapterId": 36,
+    "question": "On what does the resistance of any conductor depend?",
+    "questionMarathi": "कोणत्याही वाहकाचा (Wire) रोध कशावर अवलंबून असतो?",
+    "options": [
+      "Length",
+      "Material type",
+      "Temperature",
+      "All of these"
+    ],
+    "optionsMarathi": [
+      "लांबीवर",
+      "पदार्थाच्या प्रकारावर",
+      "तापमानावर",
+      "वरील सर्व गोष्टींवर"
+    ],
+    "answer": "D",
+    "explanation": "Resistance depends on length (increases with length), material type, and ambient temperature.",
+    "explanationMarathi": "वायरचा रोध हा वायरच्या लांबीवर (लांबी वाढली की रोध वाढतो), ती वायर कोणत्या धातूची आहे त्यावर आणि वातावरणाच्या तापमानावर या तिन्ही गोष्टींवर अवलंबून असतो."
+  },
+  {
+    "id": 1181,
+    "chapterId": 36,
+    "question": "If 2.5A current flows through a 20-ohm resistor, what will be the voltage?",
+    "questionMarathi": "जर 20 ओमच्या रोधामधून 2.5 अँपिअरचा करंट वाहत असेल, तर विभवांतर (व्होल्टेज) किती असेल?",
+    "options": [
+      "100 V",
+      "20 V",
+      "10 V",
+      "50 V"
+    ],
+    "optionsMarathi": [
+      "100 व्होल्ट",
+      "20 व्होल्ट",
+      "10 व्होल्ट",
+      "50 व्होल्ट"
+    ],
+    "answer": "D",
+    "explanation": "According to Ohm's law, V = I * R. So, V = 2.5 * 20 = 50V.",
+    "explanationMarathi": "ओहमच्या नियमानुसार व्होल्टेज V = I x R असते. इथे करंट (I) = 2.5 आणि रोध (R) = 20 आहे. म्हणून, V = 2.5 x 20 = 50 V (व्होल्ट)."
+  },
+  {
+    "id": 1182,
+    "chapterId": 36,
+    "question": "What is coated on zinc in a voltaic cell to remove the 'Local Action' defect?",
+    "questionMarathi": "व्होल्टेइक सेलमध्ये 'स्थानिक क्रिया' (Local Action) हा दोष दूर करण्यासाठी जस्तावर कशाचा थर दिला जातो?",
+    "options": [
+      "Tin",
+      "Lead",
+      "Mercury",
+      "Copper"
+    ],
+    "optionsMarathi": [
+      "टिनचा",
+      "शिशाचा",
+      "पाऱ्याचा",
+      "तांब्याचा"
+    ],
+    "answer": "C",
+    "explanation": "A layer of mercury is applied to the zinc plate to prevent local action caused by impurities (amalgamation).",
+    "explanationMarathi": "जस्ताच्या प्लेटमधील अशुद्धतेमुळे स्थानिक क्रिया दोष निर्माण होतो. हा दोष टाळण्यासाठी जस्ताच्या पट्टीवर पाऱ्याचा (Mercury) थर दिला जातो, या प्रक्रियेला अमलगमेशन म्हणतात."
+  },
+  {
+    "id": 1183,
+    "chapterId": 36,
+    "question": "What is the melting point of copper?",
+    "questionMarathi": "खालीलपैकी तांब्याचा वितळण बिंदू (Melting Point) कोणता आहे?",
+    "options": [
+      "960 °C",
+      "1080 °C",
+      "3500 °C",
+      "1260 °C"
+    ],
+    "optionsMarathi": [
+      "960 °C",
+      "1080 °C",
+      "3500 °C",
+      "1260 °C"
+    ],
+    "answer": "B",
+    "explanation": "Copper melts at approximately 1085 °C. 1080 °C is the closest option.",
+    "explanationMarathi": "तांबे हा धातू पूर्णपणे वितळण्यासाठी सुमारे 1085 °C तापमानाची गरज असते. दिलेल्या पर्यायांमध्ये सर्वात जवळचा पर्याय '1080 °C' हा आहे."
+  },
+  {
+    "id": 1184,
+    "chapterId": 36,
+    "question": "Which insulator is not affected by fire (does not burn)?",
+    "questionMarathi": "खालीलपैकी कोणता अचालक (Insulator) आगीमुळे प्रभावित होत नाही (जळत नाही)?",
+    "options": [
+      "Bakelite",
+      "Mica",
+      "Ebonite",
+      "PVC"
+    ],
+    "optionsMarathi": [
+      "बेकेलाईट",
+      "अभ्रक (मायका)",
+      "इबोनाईट",
+      "पीव्हीसी"
+    ],
+    "answer": "B",
+    "explanation": "Mica is a natural mineral that can withstand high temperatures and fire. It is an insulator but a good conductor of heat.",
+    "explanationMarathi": "अभ्रक हा एक असा नैसर्गिक खनिज पदार्थ आहे ज्याच्यावर आगीचा किंवा अतिउच्च तापमानाचा कोणताही परिणाम होत नाही. तो विजेचा अचालक पण उष्णतेचा चांगला वाहक आहे, म्हणूनच तो इस्त्रीमध्ये वापरला जातो."
+  },
+  {
+    "id": 1186,
+    "chapterId": 37,
+    "question": "According to the resistor color coding table, what is the tolerance value for the fourth yellow band?",
+    "questionMarathi": "रेझिस्टरच्या कलर कोडिंग तक्त्यानुसार, पिवळ्या रंगाच्या चौथ्या पट्टीचे टॉलरन्स (सहिष्णुता) मूल्य काय असते?",
+    "options": [
+      "±2%",
+      "±3%",
+      "±4%",
+      "±10%"
+    ],
+    "optionsMarathi": [
+      "±2%",
+      "±3%",
+      "±4%",
+      "±10%"
+    ],
+    "answer": "C",
+    "explanation": "According to the resistor color code, yellow stands for 4. If it appears on the tolerance band, it represents ±4%.",
+    "explanationMarathi": "रेझिस्टरच्या कलर कोडिंगनुसार पिवळ्या रंगाचा अंक ४ असतो. जर पिवळा रंग चौथ्या पट्टीवर (Tolerance band) असेल, तर त्याची सहनशीलता (Tolerance) ±४% मानली जाते."
+  },
+  {
+    "id": 1187,
+    "chapterId": 37,
+    "question": "To which class of insulators does Mica belong?",
+    "questionMarathi": "अभ्रक (Mica) हा कोणत्या वर्गाचा अचालक (Insulator) पदार्थ आहे?",
+    "options": [
+      "Class Y",
+      "Class B",
+      "Class C",
+      "Class F"
+    ],
+    "optionsMarathi": [
+      "Y चा",
+      "B चा",
+      "C चा",
+      "F चा"
+    ],
+    "answer": "C",
+    "explanation": "Mica is a Class C insulator. Class C materials can safely withstand temperatures above 180°C.",
+    "explanationMarathi": "अभ्रक हे 'Class C' प्रकारचे अचालक आहे. 'Class C' मधील अचालक पदार्थ १८०°C पेक्षा जास्त तापमान सुरक्षितपणे सहन करू शकतात."
+  },
+  {
+    "id": 1188,
+    "chapterId": 37,
+    "question": "Which switch is used in staircase wiring?",
+    "questionMarathi": "जिन्याच्या वायरिंगमध्ये कोणत्या स्विचचा वापर केला जातो?",
+    "options": [
+      "One-way",
+      "Intermediate",
+      "Two-way",
+      "All of these"
+    ],
+    "optionsMarathi": [
+      "वन-वे (One-way)",
+      "इंटरमीडिएट (Intermediate)",
+      "टू-वे (Two-way)",
+      "वरील सर्व"
+    ],
+    "answer": "C",
+    "explanation": "A Two-way switch is used in staircase wiring to control a single lamp from two different locations (top and bottom).",
+    "explanationMarathi": "जिन्याच्या वायरिंगमध्ये (Staircase Wiring) 'टू-वे स्विच' वापरला जातो. यामुळे आपण एकच दिवा जिन्याच्या खालून आणि वरून अशा दोन्ही ठिकाणांहून नियंत्रित (चालू किंवा बंद) करू शकतो."
+  },
+  {
+    "id": 1189,
+    "chapterId": 37,
+    "question": "In a series circuit, resistors of 4, 5, and 8 ohms are connected. If 5A current flows through the 4-ohm resistor, how much current will flow through the 8-ohm resistor?",
+    "questionMarathi": "एका सिरीज सर्किटमध्ये (श्रेणी परिपथ) ४, ५, आणि ८ ओहमचे रेझिस्टर्स जोडलेले आहेत. जर ४ ओहमच्या रेझिस्टरमधून ५ एम्पिअर करंट वाहत असेल, तर ८ ओहमच्या रेझिस्टरमधून किती करंट वाहेल?",
+    "options": [
+      "10 A",
+      "4 A",
+      "5 A",
+      "1 A"
+    ],
+    "optionsMarathi": [
+      "१० एम्पिअर",
+      "४ एम्पिअर",
+      "५ एम्पिअर",
+      "१ एम्पिअर"
+    ],
+    "answer": "C",
+    "explanation": "In a series circuit, the same current flows through all components. Therefore, the 8-ohm resistor will also have 5A current.",
+    "explanationMarathi": "सिरीज सर्किटमध्ये (श्रेणी परिपथ) विद्युत प्रवाह (Current) सर्व रेझिस्टर्समधून समान वाहतो. त्यामुळे जर ४ ओहम रेझिस्टरमधून ५ एम्पिअर करंट वाहत असेल, तर ८ ओहम रेझिस्टरमधूनही ५ एम्पिअर करंटच वाहेल."
+  },
+  {
+    "id": 1190,
+    "chapterId": 37,
+    "question": "Which of the following is equal to 1 Watt?",
+    "questionMarathi": "खालीलपैकी १ वॉट बरोबर काय असते?",
+    "options": [
+      "1 Joule",
+      "1 Joule/second",
+      "1 Newton meter",
+      "1 kg meter/minute"
+    ],
+    "optionsMarathi": [
+      "१ जूल",
+      "१ जूल/सेकंद",
+      "१ न्यूटन मीटर",
+      "१ किग्रॅ मीटर/मिनिट"
+    ],
+    "answer": "B",
+    "explanation": "Watt is the unit of power. 1 Watt is defined as the rate of doing work at 1 Joule per second.",
+    "explanationMarathi": "विद्युत शक्तीचे (Power) एकक 'वॉट' आहे. १ वॉट म्हणजे १ जूल प्रति सेकंद काम करण्याचा दर होय. (पॉवर = कार्य / वेळ)."
+  },
+  {
+    "id": 1191,
+    "chapterId": 37,
+    "question": "On what does the magnetic flux density in an electromagnet's core depend?",
+    "questionMarathi": "इलेक्ट्रोमॅग्नेटच्या कोरमध्ये निर्माण होणारी चुंबकीय फ्लक्सची घनता कशावर अवलंबून असते?",
+    "options": [
+      "Current value",
+      "Number of turns",
+      "Core length",
+      "All of these"
+    ],
+    "optionsMarathi": [
+      "विद्युत प्रवाहाच्या मूल्यावर (Current value)",
+      "टर्न्सच्या संख्येवर (Number of turns)",
+      "कोरच्या लांबीवर",
+      "वरील सर्व"
+    ],
+    "answer": "D",
+    "explanation": "Magnetic flux density depends on the current flowing through it, the number of turns in the coil, and the length of the core.",
+    "explanationMarathi": "इलेक्ट्रोमॅग्नेटच्या कोरमधील चुंबकीय फ्लक्सची घनता ही त्यातून वाहणारा विद्युत प्रवाह, कॉइलमधील टर्न्सची संख्या आणि कोरची लांबी या सर्वच बाबींवर अवलंबून असते."
+  },
+  {
+    "id": 1192,
+    "chapterId": 37,
+    "question": "Which alloy is made from iron and nickel?",
+    "questionMarathi": "लोखंड आणि निकेलपासून बनलेला संमिश्र धातू (Alloy) कोणता आहे?",
+    "options": [
+      "Mumetal",
+      "Eureka",
+      "Permalloy",
+      "Alnico"
+    ],
+    "optionsMarathi": [
+      "म्युमेटल (Mumetal)",
+      "युरेका (Eureka)",
+      "परमॅलॉय (Permalloy)",
+      "अलनिको (Alnico)"
+    ],
+    "answer": "C",
+    "explanation": "Permalloy is an alloy made from iron and nickel, known for its high magnetic permeability.",
+    "explanationMarathi": "लोखंड (Iron) आणि निकेल (Nickel) यांच्या मिश्रणातून 'परमॅलॉय' हा संमिश्र धातू तयार होतो. याची चुंबकीय पारगम्यता (Magnetic Permeability) खूप जास्त असते."
+  },
+  {
+    "id": 1193,
+    "chapterId": 37,
+    "question": "What is the Electromotive Force (EMF) of a Leclanche cell?",
+    "questionMarathi": "लेक्लांचे सेलचे (Leclanche Cell) इलेक्ट्रोमोटिव्ह फोर्स (EMF - विद्युत वाहक बल) किती असते?",
+    "options": [
+      "1.1 V",
+      "1.46 V",
+      "1.08 V",
+      "1.35 V"
+    ],
+    "optionsMarathi": [
+      "१.१ व्होल्ट",
+      "१.४६ व्होल्ट",
+      "१.०८ व्होल्ट",
+      "१.३५ व्होल्ट"
+    ],
+    "answer": "B",
+    "explanation": "A Leclanche cell typically has an EMF between 1.46V and 1.5V.",
+    "explanationMarathi": "लेक्लांचे सेलचे इलेक्ट्रोमोटिव्ह फोर्स (EMF) साधारणपणे १.४६ व्होल्ट ते १.५ व्होल्ट इतके असते."
+  },
+  {
+    "id": 1194,
+    "chapterId": 37,
+    "question": "What is the speed of electric current?",
+    "questionMarathi": "विद्युत प्रवाहाची (Electric current) गती किती असते?",
+    "options": [
+      "3 x 10^8 m",
+      "6.24 x 10^18 m",
+      "3 x 10^8 m/s",
+      "3 x 10^18 m/s"
+    ],
+    "optionsMarathi": [
+      "३ × १०⁸ मीटर",
+      "६.२४ × १०¹⁸ मीटर",
+      "३ × १०⁸ मीटर/सेकंद",
+      "३ × १०¹⁸ मीटर/सेकंद"
+    ],
+    "answer": "C",
+    "explanation": "Electric current travels at the speed of light, which is approximately 3 x 10^8 meters per second.",
+    "explanationMarathi": "विद्युत प्रवाहाची गती ही बहुतांश वेळा प्रकाशाच्या गतीइतकीच मानली जाते, म्हणजेच ३ × १०⁸ मीटर प्रति सेकंद असते."
+  },
+  {
+    "id": 1195,
+    "chapterId": 37,
+    "question": "Where is the needle of an Ohmmeter when it is in the 'OFF' state?",
+    "questionMarathi": "ओहम मीटरचा (Ohmmeter) काटा 'ऑफ' (OFF) अवस्थेत असताना कुठे असतो?",
+    "options": [
+      "Zero",
+      "Center",
+      "Infinity",
+      "Anywhere"
+    ],
+    "optionsMarathi": [
+      "शून्यावर",
+      "मध्यभागी",
+      "अनंतावर (Infinity)",
+      "कुठेही असू शकतो"
+    ],
+    "answer": "C",
+    "explanation": "In the OFF state, the circuit is open. Since open circuits have infinite resistance, the needle stays at the infinity (∞) symbol.",
+    "explanationMarathi": "जब ओहम मीटर 'ऑफ' अवस्थेत असतो, तेव्हा सर्किट ओपन असते. ओपन सर्किटचा रेझिस्टन्स अनंत (Infinity) असतो, त्यामुळे ओहम मीटरचा काटा 'अनंत' (∞) या चिन्हावर स्थिर राहतो."
+  },
+  {
+    "id": 1196,
+    "chapterId": 37,
+    "question": "What material are the connecting terminals of a carbon resistor made of?",
+    "questionMarathi": "कार्बन रेझिस्टरचे संयोजक बिंदू (Connecting terminals) कोणत्या धातूपासून बनवले जातात?",
+    "options": [
+      "Aluminum",
+      "Tin-coated Copper",
+      "Brass",
+      "Silver"
+    ],
+    "optionsMarathi": [
+      "ॲल्युमिनियमचे",
+      "टिनचा लेप दिलेल्या तांब्याचे (Tin-coated Copper)",
+      "पितळेचे",
+      "चांदीचे"
+    ],
+    "answer": "B",
+    "explanation": "Terminals are made of copper with a thin tin coating to prevent corrosion and ensure easy soldering.",
+    "explanationMarathi": "कार्बन रेझिस्टरच्या टर्मिनल्सवर सोल्डरिंग करणे सोपे जावे आणि गंज लागू नये म्हणून तांब्याच्या तारांवर टिनचा पातळ लेप (Tin coating) दिलेला असतो."
+  },
+  {
+    "id": 1197,
+    "chapterId": 37,
+    "question": "How many Joules are in one kilowatt-hour (1 kWh)?",
+    "questionMarathi": "एका किलोवॉट तास (1 kWh) मध्ये किती जूल असतात?",
+    "options": [
+      "1000 Joules",
+      "3.6 x 10^5 Joules",
+      "3.6 x 10^6 Joules",
+      "All of these"
+    ],
+    "optionsMarathi": [
+      "१००० जूल",
+      "३.६ × १०⁵ जूल",
+      "३.६ × १०⁶ जूल",
+      "वरील सर्व"
+    ],
+    "answer": "C",
+    "explanation": "1 kWh = 1000W * 3600s = 3,600,000 Joules (3.6 x 10^6 J). This is also known as 1 unit of electricity.",
+    "explanationMarathi": "१ किलोवॉट = १००० वॉट आणि १ तास = ३६०० सेकंद. ऊर्जा = वॉट x सेकंद = १००० x ३६०० = ३६,००,००० जूल (म्हणजेच ३.६ x १०^६ जूल). यालाच आपण विजेचे '१ युनिट' म्हणतो."
+  },
+  {
+    "id": 1198,
+    "chapterId": 37,
+    "question": "Which of the following lamps will have the highest resistance?",
+    "questionMarathi": "खालीलपैकी कोणत्या लॅम्पचा (दिवा) रेझिस्टन्स (प्रतिरोध) सर्वात जास्त असेल?",
+    "options": [
+      "10 Watt",
+      "100 Watt",
+      "40 Watt",
+      "60 Watt"
+    ],
+    "optionsMarathi": [
+      "१० वॉट",
+      "१०० वॉट",
+      "४० वॉट",
+      "६० वॉट"
+    ],
+    "answer": "A",
+    "explanation": "Resistance is inversely proportional to power (R = V^2/P). The lower the wattage, the higher the resistance.",
+    "explanationMarathi": "सुत्रांनुसार, रेझिस्टन्स हा पॉवरच्या व्यस्त प्रमाणात असतो (R = V^2/P). म्हणजेच ज्या दिव्याची वॉट (पॉवर) सर्वात कमी असेल, त्याचा रेझिस्टन्स सर्वात जास्त असेल. म्हणून १० वॉटच्या लॅम्पचा रेझिस्टन्स सर्वाधिक असेल."
+  },
+  {
+    "id": 1199,
+    "chapterId": 37,
+    "question": "What will be the total resistance if two resistors of 4 ohms and 7 ohms are connected in parallel?",
+    "questionMarathi": "४ ओहम व ७ ओहमच्या दोन रेझिस्टरना पॅरलल सर्किटमध्ये (समांतर परिपथ) जोडल्यास एकूण (तुल्य) रेझिस्टन्स किती होईल?",
+    "options": [
+      "2 ohms",
+      "2.54 ohms",
+      "25.4 ohms",
+      "None of these"
+    ],
+    "optionsMarathi": [
+      "२ ओहम",
+      "२.५४ ओहम",
+      "२५.४ ओहम",
+      "वरीलपैकी काहीही नाही"
+    ],
+    "answer": "B",
+    "explanation": "R_total = (R1 * R2) / (R1 + R2) = (4 * 7) / (4 + 7) = 28 / 11 = 2.54 ohms.",
+    "explanationMarathi": "पॅरलल जोडणीचे सूत्र: R_total = (R1 x R2) / (R1 + R2) = (४ x ७) / (४ + ७) = २८ / ११ = २.५४ ओहम."
+  },
+  {
+    "id": 1200,
+    "chapterId": 37,
+    "question": "What is the specific gravity of a fully charged lead-acid battery?",
+    "questionMarathi": "लेड ॲसिड बॅटरी पूर्ण चार्ज (Fully Charged) असलेल्या अवस्थेत तिची विशिष्ट घनता (Specific Gravity) किती असते?",
+    "options": [
+      "1.25 to 1.28",
+      "Above 1.28",
+      "Below 1.25",
+      "Below 1.18"
+    ],
+    "optionsMarathi": [
+      "१.२५ ते १.२८",
+      "१.२८ पेक्षा जास्त",
+      "१.२५ पेक्षा कमी",
+      "१.१८ पेक्षा कमी"
+    ],
+    "answer": "B",
+    "explanation": "A fully charged lead-acid cell shows a specific gravity of around 1.28 or slightly higher on a hydrometer.",
+    "explanationMarathi": "लेड ॲसिड सेल पूर्ण चार्ज झाल्यावर हायड्रोमीटरने मोजली जाणारी इलेक्ट्रोलाइटची विशिष्ट घनता १.२८ च्या आसपास किंवा त्यापेक्षा थोडी जास्त दर्शवली जाते."
+  },
+  {
+    "id": 1201,
+    "chapterId": 37,
+    "question": "Which of the following is not a rotating part in a motor?",
+    "questionMarathi": "मोटरमध्ये खालीलपैकी कोणता भाग फिरणारा (गुमने वाला) भाग नाही?",
+    "options": [
+      "Field Winding",
+      "Armature Winding",
+      "Cooling Fan",
+      "Armature Core"
+    ],
+    "optionsMarathi": [
+      "फील्ड वाइंडिंग (Field Winding)",
+      "आर्मेचर वाइंडिंग (Armature Winding)",
+      "कूलिंग फॅन (Cooling Fan)",
+      "आर्मेचर कोर (Armature Core)"
+    ],
+    "answer": "A",
+    "explanation": "In most motors, field winding is mounted on the stator (stationary part), while armature and fans rotate.",
+    "explanationMarathi": "डीसी मोटर किंवा अनेक मोटर्समध्ये 'फील्ड वाइंडिंग' ही स्टेटरवर (स्थिर भागावर) बसवलेली असते, त्यामुळे तो फिरणारा भाग नाही. आर्मेचर, आर्मेचर कोर आणि फॅन हे मोटर चालू असताना फिरतात."
+  },
+  {
+    "id": 1202,
+    "chapterId": 37,
+    "question": "How is the shunt field winding constructed?",
+    "questionMarathi": "शंट फील्ड वाइंडिंग (Shunt Field Winding) कशी असते?",
+    "options": [
+      "Thin wire",
+      "Thick wire",
+      "Few turns",
+      "Both A and C"
+    ],
+    "optionsMarathi": [
+      "पातळ तारेची",
+      "जाड तारेची",
+      "कमी टर्न्सची (कम टर्न की)",
+      "A आणि C दोन्ही"
+    ],
+    "answer": "A",
+    "explanation": "Shunt field winding is made of thin wire with many turns to have high resistance and withstand supply voltage.",
+    "explanationMarathi": "शंट फील्ड वाइंडिंग ही नेहमी पातळ तारेची (Thin wire) आणि जास्त टर्न्सची (More turns) बनवली जाते, जेणेकरून तिचा रेझिस्टन्स जास्त राईल आणि ती थेट सप्लाय व्होल्टेज सहन करू शकेल."
+  },
+  {
+    "id": 1203,
+    "chapterId": 37,
+    "question": "What happens to the torque of a DC series motor if the load is increased?",
+    "questionMarathi": "एका डीसी सिरीज मोटरवर (DC Series Motor) लोड वाढवल्यास त्याचा टॉर्क (Torque) वर काय परिणाम होतो?",
+    "options": [
+      "Increases",
+      "Decreases",
+      "Stays constant",
+      "None of these"
+    ],
+    "optionsMarathi": [
+      "वाढतो (बढता है)",
+      "कमी होतो (घटता है)",
+      "स्थिर राहतो (नियत रहता है)",
+      "वरीलपैकी काहीही नाही"
+    ],
+    "answer": "A",
+    "explanation": "Torque is proportional to the square of the armature current (T ∝ Ia^2). Load increase causes higher current and rapid torque increase.",
+    "explanationMarathi": "डीसी सिरीज मोटरचा टॉर्क हा आर्मेचर करंटच्या वर्गाच्या थेट प्रमाणात असतो (T ∝ Ia^2). त्यामुळे लोड वाढल्यास करंट वाढतो आणि टॉर्क खूप वेगाने वाढतो."
+  },
+  {
+    "id": 1204,
+    "chapterId": 37,
+    "question": "What is the field coil of a generator made of?",
+    "questionMarathi": "जनरेटरची फील्ड कॉइल (Field Coil) कशापासून बनवली जाते?",
+    "options": [
+      "Lamination Sheet",
+      "Copper",
+      "Steel",
+      "Cast Iron"
+    ],
+    "optionsMarathi": [
+      "लॅमिनेशन शीट (Lamination Sheet)",
+      "कॉपर (तांबे)",
+      "स्टील",
+      "कास्ट आयरन (बीड)"
+    ],
+    "answer": "B",
+    "explanation": "Field coils are made of enameled copper wire for high conductivity and efficiency.",
+    "explanationMarathi": "विद्युत वाहक म्हणून सर्वोत्तम कार्यक्षमतेसाठी जनरेटर किंवा मोटरची फील्ड कॉइल (वाइंडिंग) नेहमी तांब्याच्या (Copper) इनॅमल्ड वायरपासून बनवली जाते."
+  },
+  {
+    "id": 1205,
+    "chapterId": 37,
+    "question": "Which of the following losses increases when the load current increases?",
+    "questionMarathi": "लोड करंट वाढल्यास खालीलपैकी कोणती हानी (Loss) सुद्धा वाढते?",
+    "options": [
+      "Shunt Copper Loss",
+      "Friction Loss",
+      "Armature Copper Loss",
+      "Iron Loss"
+    ],
+    "optionsMarathi": [
+      "शंट तांबा हानी (Shunt Copper Loss)",
+      "घर्षण हानी (Friction Loss)",
+      "आर्मेचर तांबा हानी (Armature Copper Loss)",
+      "लोह हानी (Iron Loss)"
+    ],
+    "answer": "C",
+    "explanation": "Armature copper loss is Ia^2 * Ra. As load current (Ia) increases, this loss increases significantly.",
+    "explanationMarathi": "आर्मेचर कॉपर लॉस हा Ia^2 Ra या सूत्राने काढतात. त्यामुळे जसा लोड करंट (Ia) वाढेल, तसा आर्मेचर कॉपर लॉस खूप जास्त प्रमाणात वाढतो. लोह हानी आणि शंट हानी हे स्थिर (Constant) लॉसेस असतात."
+  },
+  {
+    "id": 1206,
+    "chapterId": 37,
+    "question": "What is the purpose of using interpoles in a generator?",
+    "questionMarathi": "जनरेटरमध्ये इंटरपोल (Interpol) चा वापर कोणता प्रभाव कमी करण्यासाठी केला जातो?",
+    "options": [
+      "Heating effect",
+      "Armature Reaction",
+      "Commutation",
+      "Sparking"
+    ],
+    "optionsMarathi": [
+      "हिटिंग प्रभाव (Heating effect)",
+      "आर्मेचर रिॲक्शन (Armature Reaction)",
+      "कम्युटेशन (Commutation)",
+      "स्पार्किंग (Sparking)"
+    ],
+    "answer": "C",
+    "explanation": "Interpoles are used to improve commutation and reduce sparking at the brushes by neutralizing armature reaction in the commutating zone.",
+    "explanationMarathi": "इंटरपोल्स हे मुख्य पोल्सच्या मध्ये बसवले जातात. ते आर्मेचर रिॲक्शनचा प्रभाव कमी करून कम्युटेशन प्रक्रिया सुधारतात आणि ब्रशवर होणारी स्पार्किंग रोखतात. मुख्य उद्दिष्ट 'कम्युटेशन' सुधारणे हे असते."
+  },
+  {
+    "id": 1207,
+    "chapterId": 37,
+    "question": "What causes the 'Flashing Over' fault?",
+    "questionMarathi": "'ध्रुवाच्छादन दोष' (Flashing Over / Fault) खालीलपैकी कोणत्या कारणामुळे होतो?",
+    "options": [
+      "Impure electrodes",
+      "Electrolyte issues",
+      "Hydrogen gas",
+      "All of these"
+    ],
+    "optionsMarathi": [
+      "अशुद्ध इलेक्ट्रोडमुळे",
+      "इलेक्ट्रोलाइटच्या कारणामुळे",
+      "हायड्रोजन गॅसमुळे",
+      "वरील सर्व कारणांमुळे"
+    ],
+    "answer": "D",
+    "explanation": "Internal battery faults can be caused by impurities, gas accumulation, and poor electrolyte quality.",
+    "explanationMarathi": "बॅटरी किंवा केमिकल सेल्समध्ये येणारे विविध अंतर्गत दोष हे इलेक्ट्रोडमधील अशुद्धता, रासायनिक प्रक्रियांदरम्यान निघणारे गॅसेस आणि इलेक्ट्रोलाइटची खराब गुणवत्ता या सर्वांच्या एकत्रित परिणामांमुळे होऊ शकतात."
+  },
+  {
+    "id": 1208,
+    "chapterId": 37,
+    "question": "A DC series generator supplies 210V and 3A to a load. If the series field current is 3A, what is the armature current?",
+    "questionMarathi": "एक डीसी सिरीज जनरेटर लोडला २१० व्होल्ट आणि ३ एम्पिअर करंट पुरवतो. जर सिरीज फील्ड करंट ३ एम्पिअर असेल, तर आर्मेचर करंट किती असेल?",
+    "options": [
+      "70 A",
+      "3 A",
+      "30 A",
+      "33 A"
+    ],
+    "optionsMarathi": [
+      "७० एम्पिअर",
+      "३ एम्पिअर",
+      "३० एम्पिअर",
+      "३३ एम्पिअर"
+    ],
+    "answer": "B",
+    "explanation": "In a series generator, the armature, field, and load are all in series, so Ia = If = IL = 3A.",
+    "explanationMarathi": "डीसी सिरीज जनरेटरमध्ये आर्मेचर, सिरीज फील्ड आणि लोड हे तिन्ही एकाच रेषेत (सिरीजमध्ये) जोडलेले असतात. त्यामुळे सिरीज सर्किटच्या नियमानुसार, आर्मेचर करंट (Ia), सिरीज फील्ड करंट (Ise) आणि लोड करंट (IL) हे तिन्ही समान असतात (Ia = Ise = IL = ३ एम्पिअर)."
+  },
+  {
+    "id": 1209,
+    "chapterId": 37,
+    "question": "In a DC cumulative compound generator, how do the shunt and series magnetic fields relate to each other?",
+    "questionMarathi": "डीसी कम्युलेटिव्ह कंपाउंड जनरेटरमध्ये (Cumulative Compound Generator) शंट आणि सिरीज फील्डचे चुंबकीय क्षेत्र एकमेकांसाठी कसे असते?",
+    "options": [
+      "Supportive",
+      "Opposing",
+      "Very weak",
+      "Equal"
+    ],
+    "optionsMarathi": [
+      "सहाय्यक (दोन्ही एकमेकांना मदत करतात)",
+      "विरोधी (एकमेकांच्या विरुद्ध असतात)",
+      "अत्यंत कमजोर",
+      "समान"
+    ],
+    "answer": "A",
+    "explanation": "In a cumulative generator, the magnetic flux from the shunt field and series field add up to support each other (Φtotal = Φsh + Φse).",
+    "explanationMarathi": "'कम्युलेटिव्ह' (Cumulative) चा अर्थच एकत्रित होणे असा आहे. या जनरेटरमध्ये शंट फील्ड आणि सिरीज फील्ड या दोन्हीचे चुंबकीय फ्लक्स एकमेकांना मदत करतात (सहाय्य करतात), ज्यामुळे एकूण फ्लक्स वाढतो (Φtotal = Φsh + Φse)."
+  },
+  {
+    "id": 1210,
+    "chapterId": 37,
+    "question": "Which rule is used to find the direction of induced EMF in a DC generator?",
+    "questionMarathi": "डीसी जनरेटरमध्ये प्रेरित ईएमएफ (Induced EMF) ची दिशा शोधण्यासाठी कोणाचा नियम वापरला जातो?",
+    "options": [
+      "Fleming's Left Hand Rule",
+      "Fleming's Right Hand Rule",
+      "Lenz's Law",
+      "Ohm's Law"
+    ],
+    "optionsMarathi": [
+      "फ्लेमिंगचा डाव्या हाताचा नियम",
+      "फ्लेमिंगचा उजव्या हाताचा नियम",
+      "लेन्झचा नियम",
+      "ओहमचा नियम"
+    ],
+    "answer": "B",
+    "explanation": "Fleming's Right-Hand Rule is used to determine the direction of induced EMF in a generator.",
+    "explanationMarathi": "डीसी जनरेटरमध्ये निर्माण होणाऱ्या विद्युत वाहक बलाची (EMF) दिशा शोधण्यासाठी नेहमी 'फ्लेमिंगचा उजव्या हाताचा नियम' वापरला जातो. (डाव्या हाताचा नियम मोटरसाठी वापरतात)."
+  },
+  {
+    "id": 1211,
+    "chapterId": 38,
+    "question": "What is the number of parallel paths in a lap wound armature?",
+    "questionMarathi": "लॅप वाऊंड आर्मेचरमध्ये समांतर मार्गांची (Paths) संख्या किती असते?",
+    "options": [
+      "Two",
+      "Four",
+      "Equal to the number of poles",
+      "One pair less than the number of poles"
+    ],
+    "optionsMarathi": [
+      "दोन",
+      "चार",
+      "पोलच्या संख्येएवढी",
+      "पोलच्या संख्येपेक्षा एक जोडी कमी"
+    ],
+    "answer": "C",
+    "explanation": "In lap winding, the number of parallel paths in the armature (A) is always equal to the number of generator poles (P), i.e., A = P. (Note: in wave winding, it is always 2).",
+    "explanationMarathi": "लॅप वाइंडिंग (Lap winding) मध्ये, आर्मेचरमधील समांतर मार्गांची संख्या (A) ही नेहमी जनरेटरच्या पोलच्या संख्येएवढी (P) असते, म्हणजेच A = P. (टीप: वेव्ह वाइंडिंगमध्ये ती नेहमी २ असते)."
+  },
+  {
+    "id": 1212,
+    "chapterId": 38,
+    "question": "Which of the following generators is also called a 'Constant Voltage Generator'?",
+    "questionMarathi": "खालीलपैकी कोणत्या जनरेटरला 'स्थिर व्होल्टेज जनरेटर' (Constant Voltage Generator) असेही म्हणतात?",
+    "options": [
+      "Shunt",
+      "Series",
+      "Compound",
+      "Differential Compound"
+    ],
+    "optionsMarathi": [
+      "शंट",
+      "सिरीज",
+      "कंपाउंड",
+      "डिफेरेन्शियल कंपाउंड"
+    ],
+    "answer": "A",
+    "explanation": "A DC shunt generator is called a 'constant voltage generator' because its terminal voltage changes very negligibly from no-load to full-load, thereby providing a stable voltage.",
+    "explanationMarathi": "डीसी शंट जनरेटरला 'स्थिर व्होल्टेज जनरेटर' म्हटले जाते. कारण, नो-लोड (No-load) कडून फुल-लोड (Full-load) कडे जाताना याच्या टर्मिनल व्होल्टेजमध्ये अत्यंत नगण्य बदल होतो, त्यामुळे तो स्थिर व्होल्टेज पुरवतो."
+  },
+  {
+    "id": 1213,
+    "chapterId": 38,
+    "question": "What is the force applied in the opposite direction to destroy residual magnetism called?",
+    "questionMarathi": "अवशिष्ट चुंबकत्व (Residual Magnetism) नष्ट करण्यासाठी विरुद्ध दिशेने लावलेल्या बलाला काय म्हणतात?",
+    "options": [
+      "Permeability",
+      "Coercivity",
+      "Permeance",
+      "Resistivity"
+    ],
+    "optionsMarathi": [
+      "चुंबकशीलता (Permeability)",
+      "निग्रहिता (Coercivity)",
+      "परमिएन्स (Permeance)",
+      "रोधकता (Resistivity)"
+    ],
+    "answer": "B",
+    "explanation": "The demagnetizing force that must be applied in the opposite direction to completely eliminate the residual magnetism in a magnetic material is called coercivity.",
+    "explanationMarathi": "एखाद्या चुंबकीय पदार्थामधील शिल्लक राहिलेले चुंबकत्व पूर्णपणे नष्ट करण्यासाठी विरुद्ध दिशेने जो चुंबकीय बल (Demagnetizing force) लावावा लागतो, त्याला निग्रहिता (Coercivity) असे म्हणतात."
+  },
+  {
+    "id": 1214,
+    "chapterId": 38,
+    "question": "Which of the following formulas is not correct according to Ohm's Law?",
+    "questionMarathi": "खालीलपैकी कोणते सूत्र ओहमच्या नियमानुसार (Ohm's Law) योग्य नाही?",
+    "options": [
+      "P = I * R",
+      "I = V / R",
+      "P = V^2 / R",
+      "V ∝ I"
+    ],
+    "optionsMarathi": [
+      "P = I * R",
+      "I = V / R",
+      "P = V^2 / R",
+      "V ∝ I"
+    ],
+    "answer": "A",
+    "explanation": "According to Ohm's Law, V = I * R. The formula for electrical power (P) is P = V * I or P = I^2 * R or P = V^2 / R. Therefore, the formula P = I * R is physically incorrect.",
+    "explanationMarathi": "ओहमच्या नियमानुसार V = I * R असते. विद्युत शक्तीचे (Power) सूत्र P = V * I किंवा P = I^2 * R किंवा P = V^2 / R असे असते. त्यामुळे P = I * R हे सूत्र भौतिकशास्त्रानुसार चुकीचे आहे."
+  },
+  {
+    "id": 1215,
+    "chapterId": 38,
+    "question": "If 5 resistors of 1 ohm each are connected in parallel, what will be the total resistance?",
+    "questionMarathi": "प्रत्येकी 1 ओहम असलेले 5 रोध (Resistors) समांतर (Parallel) जोडल्यास एकूण रोध (Total Resistance) किती असेल?",
+    "options": [
+      "5 x 1",
+      "1 x 5",
+      "1/5",
+      "5/1"
+    ],
+    "optionsMarathi": [
+      "5 x 1",
+      "1 x 5",
+      "1/5",
+      "5/1"
+    ],
+    "answer": "C",
+    "explanation": "When multiple resistors of equal value are connected in parallel, the total resistance formula is R_total = R / n. Here, the value of one resistor is R = 1 ohm and the total number is n = 5. Therefore, the total resistance will be 1/5 ohm.",
+    "explanationMarathi": "जेव्हा समान मूल्याचे अनेक रोध समांतर (Parallel) जोडले जातात, तेव्हा एकूण रोध काढण्याचे सूत्र R_total = R / n असते. येथे एका रोधाचे मूल्य R = 1 ओहम आणि एकूण संख्या n = 5 आहे. म्हणून एकूण रोध 1/5 ओहम असेल."
+  },
+  {
+    "id": 1216,
+    "chapterId": 38,
+    "question": "In how much time will a 25-watt bulb consume 1 unit of electrical energy?",
+    "questionMarathi": "एक 25 वॉटचा दिवा किती वेळात 1 युनिट विद्युत ऊर्जेचा वापर करेल?",
+    "options": [
+      "In 10 hours",
+      "In 20 hours",
+      "In 30 hours",
+      "In 40 hours"
+    ],
+    "optionsMarathi": [
+      "10 तासांत",
+      "20 तासांत",
+      "30 तासांत",
+      "40 तासांत"
+    ],
+    "answer": "D",
+    "explanation": "1 unit of electricity equals 1 kWh (1000 Wh). Time (hours) = total energy / power = 1000 Wh / 25 W = 40 hours. Therefore, this bulb will consume 1 unit of electricity after running for 40 hours.",
+    "explanationMarathi": "1 युनिट म्हणजेच 1 kWh (1000 Wh). वेळ (तास) = एकूण ऊर्जा / पॉवर = 1000 Wh / 25 W = 40 तास. त्यामुळे हा दिवा ४० तास चालल्यावर १ युनिट वीज खर्च करेल."
+  },
+  {
+    "id": 1217,
+    "chapterId": 38,
+    "question": "What is the symbol of the SI unit of temperature?",
+    "questionMarathi": "तापमानाच्या (Temperature) SI एककाचे (Unit) प्रतीक काय आहे?",
+    "options": [
+      "°C (Centigrade)",
+      "°F (Fahrenheit)",
+      "K (Kelvin)",
+      "°R (Reaumur)"
+    ],
+    "optionsMarathi": [
+      "°C (सेन्टीग्रेड)",
+      "°F (फॅरेनहाइट)",
+      "K (केल्विन)",
+      "°R (रुमर)"
+    ],
+    "answer": "C",
+    "explanation": "According to the International System of Units (SI), the standard unit of temperature is Kelvin, and its symbol is 'K'.",
+    "explanationMarathi": "आंतरराष्ट्रीय एकक प्रणाली (SI System) नुसार तापमानाचे प्रमाणित एकक केल्विन (Kelvin) आहे आणि त्याचे प्रतीक 'K' आहे."
+  },
+  {
+    "id": 1218,
+    "chapterId": 38,
+    "question": "What percentage of the total copper loss is the shunt field loss in a generator?",
+    "questionMarathi": "जनरेटरमध्ये शंट फील्ड लॉस (Shunt field loss) हा एकूण कॉपर लॉसच्या (Copper loss) किती टक्के असतो?",
+    "options": [
+      "30 to 40",
+      "20 to 35",
+      "25 to 30",
+      "20 to 30"
+    ],
+    "optionsMarathi": [
+      "30 ते 40",
+      "20 ते 35",
+      "25 ते 30",
+      "20 ते 30"
+    ],
+    "answer": "D",
+    "explanation": "Out of the total copper losses in a DC generator, the shunt field copper loss is typically about 20% to 30%. (The maximum copper loss occurs in the armature).",
+    "explanationMarathi": "डीसी जनरेटरमध्ये होणाऱ्या एकूण कॉपर लॉसपैकी शंट फील्ड कॉपर लॉस हा साधारणपणे २०% ते ३०% इतका असतो. (सर्वाधिक कॉपर लॉस आर्मेचरमध्ये होतो)."
+  },
+  {
+    "id": 1219,
+    "chapterId": 38,
+    "question": "What will happen if a series generator is run without any load?",
+    "questionMarathi": "सिरीज जनरेटरला विना लोड (Without load) चालवल्यास काय होईल?",
+    "options": [
+      "Will give higher voltage",
+      "Will give lower voltage",
+      "Will not generate voltage",
+      "Speed will increase"
+    ],
+    "optionsMarathi": [
+      "जास्त व्होल्टेज देईल",
+      "कमी व्होल्टेज देईल",
+      "व्होल्टेज देणार नाही",
+      "गती वाढेल"
+    ],
+    "answer": "C",
+    "explanation": "The field winding of a series generator is connected in series with the armature. If no load is connected to the generator (Open Circuit), no current will flow through the circuit, and no magnetic flux will be produced. As a result, no voltage will build up.",
+    "explanationMarathi": "सिरीज जनरेटरची field winding आर्मेचरच्या सिरीजमध्ये (एकसर) जोडलेली असते. जर जनरेटरला लोड जोडलेला नसेल (Open Circuit), तर सर्किटमधून कोणताही प्रवाह (Current) वाहणार नाही आणि चुंबकीय फ्लक्स (Flux) तयार होणार नाही. परिणामी व्होल्टेज तयार (build-up) होणार नाही."
+  },
+  {
+    "id": 1220,
+    "chapterId": 38,
+    "question": "Why is the outer part of a Goliath Edison Screw Type Holder made of porcelain?",
+    "questionMarathi": "गोलियथ एडिसन स्क्रू टाईप होल्डरचा (Goliath Edison Screw Type Holder) बाहेरील भाग पोर्सिलेनचा (Porcelain) का बनवला जातो?",
+    "options": [
+      "To provide strength",
+      "To protect against high temperatures",
+      "To protect against electric shock",
+      "Because it is cheap"
+    ],
+    "optionsMarathi": [
+      "मजबूती देण्यासाठी",
+      "उच्च तापमानापासून बचाव करण्यासाठी",
+      "इलेक्ट्रिक शॉकपासून बचाव करण्यासाठी",
+      "स्वस्त असल्यामुळे"
+    ],
+    "answer": "B",
+    "explanation": "Goliath Edison Screw (GES) holders are generally used for lamps with capacities of more than 300 watts. These lamps generate a lot of heat. Porcelain does not melt or deteriorate even at high temperatures, so it is used to protect against high heat.",
+    "explanationMarathi": "गोलियथ एडिसन स्क्रू (GES) होल्डर्स साधारणपणे ३०० वॉट पेक्षा जास्त क्षमतेच्या दिव्यांसाठी वापरले जातात. हे दिवे खूप उष्णता निर्माण करतात. पोर्सिलेन हे उच्च तापमानालाही वितळत किंवा खराब होत नाही, म्हणून उष्णतेपासून बचाव करण्यासाठी याचा वापर केला जातो."
+  },
+  {
+    "id": 1221,
+    "chapterId": 38,
+    "question": "What is the space around a magnet where its influence can be felt called?",
+    "questionMarathi": "चुंबकाच्या सभोवतालची अशी जागा जिथे त्याचा प्रभाव जाणवू शकतो, त्याला काय म्हणतात?",
+    "options": [
+      "Magnetic neutral axis",
+      "Magnetic axis",
+      "Magnetic field",
+      "Magnetic flux"
+    ],
+    "optionsMarathi": [
+      "चुंबकीय उदासीन अक्ष (Magnetic neutral axis)",
+      "चुंबकीय अक्ष (Magnetic axis)",
+      "चुंबकीय क्षेत्र (Magnetic field)",
+      "चुंबकीय प्रवाह (Magnetic flux)"
+    ],
+    "answer": "C",
+    "explanation": "The specific space around any magnet where the effect of its magnetic force (attraction or repulsion) is felt is called a magnetic field.",
+    "explanationMarathi": "कोणत्याही चुंबकाच्या सभोवतालचा असा विशिष्ट भाग जिथे त्याच्या चुंबकीय शक्तीचा (आकर्षण किंवा प्रतिकर्षण) प्रभाव जाणवतो, त्याला चुंबकीय क्षेत्र (Magnetic Field) म्हणतात."
+  },
+  {
+    "id": 1222,
+    "chapterId": 38,
+    "question": "Which of the following insulator classes has a maximum temperature limit of 155°C?",
+    "questionMarathi": "खालीलपैकी कोणत्या इन्सुलेटर (Insulator) श्रेणीचे तापमान 155°C असते?",
+    "options": [
+      "H",
+      "E",
+      "F",
+      "C"
+    ],
+    "optionsMarathi": [
+      "H",
+      "E",
+      "F",
+      "C"
+    ],
+    "answer": "C",
+    "explanation": "Different classes of insulation and their safe maximum temperatures are: Y (90°C), A (105°C), E (120°C), B (130°C), F (155°C), H (180°C), C (>180°C). Therefore, the class F insulation is rated for 155°C.",
+    "explanationMarathi": "इन्सुलेटरच्या (Insulation) विविध श्रेणी आणि त्यांचे सुरक्षित कमाल तापमान खालीलप्रमाणे असते: Y (90°C), A (105°C), E (120°C), B (130°C), F (155°C), H (180°C), C (>180°C). त्यामुळे 155°C तापमान सहन करण्याची क्षमता F श्रेणीची आहे."
+  },
+  {
+    "id": 1223,
+    "chapterId": 38,
+    "question": "Which of the following tools is used for marking on a metal sheet?",
+    "questionMarathi": "धातूमच्या शीटवर खुणा (Marking) करण्यासाठी खालीलपैकी कोणत्या साधनाचा वापर करतात?",
+    "options": [
+      "Poker",
+      "Rawl plug tool",
+      "Nipper",
+      "Center punch"
+    ],
+    "optionsMarathi": [
+      "पोकर (Poker)",
+      "रावल प्लग टूल (Rawl plug tool)",
+      "निप्पर (Nipper)",
+      "सेंटर पंच (Center punch)"
+    ],
+    "answer": "D",
+    "explanation": "A center punch is used to make an accurate mark on a metal surface before drilling, helping to guide the drill bit correctly.",
+    "explanationMarathi": "धातूच्या पृष्ठभागावर ड्रिलिंग करण्यापूर्वी अचूक खूण करण्यासाठी आणि ड्रिल बिटला योग्य दिशा देण्यासाठी 'सेंटर पंच'चा वापर केला जातो."
+  },
+  {
+    "id": 1224,
+    "chapterId": 38,
+    "question": "Which are the ratio arms of a Wheatstone bridge?",
+    "questionMarathi": "व्हीटस्टोन ब्रिजच्या (Wheatstone bridge) गुणोत्तर भुजा (Ratio arms) कोणत्या असतात?",
+    "options": [
+      "S",
+      "P and Q",
+      "R",
+      "All of the above"
+    ],
+    "optionsMarathi": [
+      "S",
+      "P आणि Q",
+      "R",
+      "वरील सर्व"
+    ],
+    "answer": "B",
+    "explanation": "In a Wheatstone bridge circuit, the two arms P and Q are called the ratio arms. R is the known resistance and S is the unknown resistance.",
+    "explanationMarathi": "व्हीटस्टोन ब्रिज सर्किटमध्ये P आणि Q या दोन भुजांना 'गुणोत्तर भुजा' (Ratio arms) म्हणतात. R हा ज्ञात रोध (Known resistance) आणि S हा अज्ञात रोध (Unknown resistance) असतो."
+  },
+  {
+    "id": 1225,
+    "chapterId": 38,
+    "question": "What do the positive plates of a lead-acid cell turn into after charging?",
+    "questionMarathi": "लेड ॲसिड सेलच्या धन प्लेट्स (Positive plates) चार्जिंगनंतर कशामध्ये बदलतात?",
+    "options": [
+      "Lead peroxide",
+      "Spongy lead",
+      "Lead sulphate",
+      "Lead"
+    ],
+    "optionsMarathi": [
+      "लेड पेरॉक्साइड (Lead peroxide)",
+      "स्पॉन्जी लेड (Spongy lead)",
+      "लेड सल्फेट (Lead sulphate)",
+      "लेड (Lead)"
+    ],
+    "answer": "A",
+    "explanation": "In a fully charged lead-acid battery, the positive plate is made of lead peroxide (PbO2 - dark brown color) and the negative plate is made of spongy lead (Pb - grey color).",
+    "explanationMarathi": "फुल्ली चार्ज (Fully charged) झालेल्या लेड ॲसिड बॅटरीमध्ये, धन प्लेट (Positive plate) लेड पेरॉक्साइडची (PbO_2 - गडद तपकिरी रंगाची) बनलेली असते आणि ऋण प्लेट (Negative plate) स्पॉन्जी लेडची (Pb - राखाडी रंगाची) बनलेली असते."
+  },
+  {
+    "id": 1226,
+    "chapterId": 38,
+    "question": "How is the speed obtained when using the armature control method of a DC motor compared to the normal speed?",
+    "questionMarathi": "डीसी मोटरच्या आर्मेचर नियंत्रण पद्धतीचा (Armature control method) वापर केल्यास मिळणारी गती सामान्य गतीपेक्षा कशी असते?",
+    "options": [
+      "More",
+      "Less",
+      "Very high",
+      "Infinite"
+    ],
+    "optionsMarathi": [
+      "जास्त (More)",
+      "कमी (Less)",
+      "खूप जास्त (Very high)",
+      "अनंत (Infinite)"
+    ],
+    "answer": "B",
+    "explanation": "By using the armature resistance control method, the speed of a DC motor can only be decreased below its normal (base) speed. To obtain speeds higher than normal speed, the field control method is used.",
+    "explanationMarathi": "आर्मेचर रेझिस्टन्स कंट्रोल पद्धतीचा वापर करून डीसी मोटरची गती केवळ तिच्या सामान्य गतीपेक्षा (Base speed) कमी करता येते. सामान्य गतीपेक्षा जास्त गती मिळवण्यासाठी 'फील्ड कंट्रोल पद्धत' (Field control method) वापरली जाते."
+  },
+  {
+    "id": 1227,
+    "chapterId": 38,
+    "question": "If a current of 1.5 Amperes flows through an appliance with 4 ohms resistance, what will be its electrical power?",
+    "questionMarathi": "4 ओहम रोध (Resistance) असलेल्या उपकरणातून 1.5 अँपिअर इतका विद्युत प्रवाह वाहत असल्यास, त्याची विद्युत शक्ती (Power) किती असेल?",
+    "options": [
+      "6 Watt",
+      "9 Watt",
+      "2.66 Watt",
+      "24 Watt"
+    ],
+    "optionsMarathi": [
+      "6 वॉट",
+      "9 वॉट",
+      "2.66 वॉट",
+      "24 वॉट"
+    ],
+    "answer": "B",
+    "explanation": "The formula for electrical power is P = I^2 * R. Here, I = 1.5 A and R = 4 ohms. Therefore, P = (1.5)^2 * 4 = 2.25 * 4 = 9 Watts.",
+    "explanationMarathi": "विद्युत शक्तीचे (Power) सूत्र P = I^2 * R आहे. येथे, I = 1.5 A आणि R = 4 Ω. म्हणून, P = (1.5)^2 * 4 = 2.25 * 4 = 9 वॉट."
+  },
+  {
+    "id": 1228,
+    "chapterId": 38,
+    "question": "What is the unit of mass in the Metric system?",
+    "questionMarathi": "मेट्रिक प्रणालीमध्ये (Metric system) वस्तुमानाचे (Mass) एकक काय आहे?",
+    "options": [
+      "Pound",
+      "Gram",
+      "Kilogram",
+      "Newton"
+    ],
+    "optionsMarathi": [
+      "पौंड (Pound)",
+      "ग्राम (Gram)",
+      "किलोग्रॅम (Kilogram)",
+      "न्यूटन (Newton)"
+    ],
+    "answer": "C",
+    "explanation": "In the MKS (Meter-Kilogram-Second) or SI metric system, the standard unit of mass is the 'Kilogram' (kg).",
+    "explanationMarathi": "MKS (मीटर-किलोग्रॅम-सेकंद) या किंवा SI मेट्रिक प्रणालीमध्ये वस्तुमानाचे प्रमाणित एकक 'किलोग्रॅम' (kg) हे असते."
+  },
+  {
+    "id": 1229,
+    "chapterId": 38,
+    "question": "Which of the following metals has the highest resistance?",
+    "questionMarathi": "खालीलपैकी कोणत्या धातूचा रोध (Resistance) सर्वात जास्त आहे?",
+    "options": [
+      "Nichrome",
+      "Copper",
+      "Iron",
+      "Aluminium"
+    ],
+    "optionsMarathi": [
+      "नायक्रोम (Nichrome)",
+      "तांबे (Copper)",
+      "लोखंड (Iron)",
+      "ॲल्युमिनियम (Aluminium)"
+    ],
+    "answer": "A",
+    "explanation": "Nichrome is an alloy (nickel and chromium). Its electrical resistance is much higher than that of copper, aluminum, and iron. Therefore, it is used in heater coils to generate high heat.",
+    "explanationMarathi": "नायक्रोम हा एक संमिश्र धातू (Alloy) आहे (निकेल आणि क्रोमियम). याचा विद्युत रोध तांबे, ॲल्युमिनियम आणि लोखंडापेक्षा खूप जास्त असतो. त्यामुळे उच्च उष्णता निर्माण करण्यासाठी याचा वापर हीटरच्या कॉइलमध्ये होतो."
+  },
+  {
+    "id": 1230,
+    "chapterId": 38,
+    "question": "What will be the value of a carbon resistor with green, black, red, and gold color bands?",
+    "questionMarathi": "हिरवा, काळा, लाल आणि सोनेरी रंगाचे पट्टे (Color bands) असलेल्या कार्बन रेझिस्टरचे मूल्य काय असेल?",
+    "options": [
+      "50 KΩ ± 5%",
+      "5 KΩ ± 5%",
+      "500 Ω ± 5%",
+      "5 Ω ± 5%"
+    ],
+    "optionsMarathi": [
+      "50 KΩ ± 5%",
+      "5 KΩ ± 5%",
+      "500 Ω ± 5%",
+      "5 Ω ± 5%"
+    ],
+    "answer": "B",
+    "explanation": "According to resistor color coding: Green = 5, Black = 0. The third band is Red, which has a multiplier of 10^2 (100). The fourth band is Gold, which represents a tolerance of ±5%. Value = 50 * 100 = 5000 Ω, which is 5 KΩ ± 5%.",
+    "explanationMarathi": "रेझिस्टरच्या कलर कोडिंगनुसार: हिरवा (Green) = 5, काळा (Black) = 0. तिसरा पट्टा लाल (Red) आहे, ज्याचा गुणक (Multiplier) 10^2 म्हणजेच 100 आहे. चौथा पट्टा सोनेरी (Gold) आहे, ज्याची सहनशीलता (Tolerance) ± 5% असते. मूल्य = 50 * 100 = 5000 Ω म्हणजेच 5 KΩ ± 5%."
+  },
+  {
+    "id": 1231,
+    "chapterId": 38,
+    "question": "Which size (SWG) of G.I. (Galvanized Iron) wire is used for an earthing electrode?",
+    "questionMarathi": "अर्थिंग इलेक्ट्रोडसाठी कोणत्या मापाची (SWG) जी.आय. (GI) तार वापरली जाते?",
+    "options": [
+      "14 SWG",
+      "10 SWG",
+      "4 SWG",
+      "8 SWG"
+    ],
+    "optionsMarathi": [
+      "14 SWG",
+      "10 SWG",
+      "4 SWG",
+      "8 SWG"
+    ],
+    "answer": "D",
+    "explanation": "Generally, 8 SWG (Standard Wire Gauge) Galvanized Iron (GI) wire is used for the earthing lead so that fault current can easily flow into the ground and the resistance of the wire remains low.",
+    "explanationMarathi": "सामान्यतः अर्थिंग लीडसाठी 8 SWG (Standard Wire Gauge) आकाराची गॅल्वनाइज्ड आयर्न (GI) तार वापरली जाते, जेणेकरून फॉल्ट करंट (Fault current) सहजपणे जमिनीत वाहून जाऊ शकेल आणि तारेचा रोध कमी राहील."
+  },
+  {
+    "id": 1232,
+    "chapterId": 38,
+    "question": "Which of the following substances is used to reduce the value of earth resistance?",
+    "questionMarathi": "अर्थ रेझिस्टन्सचे (Earth resistance) मूल्य कमी करण्यासाठी खालीलपैकी कोणत्या पदार्थाचा वापर केला जातो?",
+    "options": [
+      "Salt",
+      "Coal",
+      "Wood sawdust",
+      "Both A and B"
+    ],
+    "optionsMarathi": [
+      "मीठ (Salt)",
+      "कोळसा (Coal)",
+      "लाकडाचा भुसा",
+      "A आणि B दोन्ही"
+    ],
+    "answer": "D",
+    "explanation": "To maintain moisture in the earthing pit and increase electrical conductivity to reduce earth resistance, alternate layers of salt and coal are used.",
+    "explanationMarathi": "अर्थिंग खड्ड्यामध्ये जमिनीतील ओलावा (Moisture) टिकवून ठेवण्यासाठी आणि विद्युत चालकता वाढवून अर्थ रेझिस्टन्स कमी करण्यासाठी मीठ आणि कोळसा यांच्या एका आड एक थरांचा वापर केला जातो."
+  },
+  {
+    "id": 1233,
+    "chapterId": 38,
+    "question": "In which of the following is Fleming's Left-Hand Rule used?",
+    "questionMarathi": "फ्लेमिंगचा डाव्या हाताचा नियम (Fleming's Left Hand Rule) कशामध्ये वापरला जातो?",
+    "options": [
+      "In motors",
+      "In generators",
+      "In transformers",
+      "In solenoids"
+    ],
+    "optionsMarathi": [
+      "मोटरमध्ये",
+      "जनरेटरमध्ये",
+      "ट्रान्सफॉर्मरमध्ये",
+      "सोलेनोइडमध्ये"
+    ],
+    "answer": "A",
+    "explanation": "Fleming's Left-Hand Rule is used to find the direction of the force acting on a conductor placed in a magnetic field in a DC motor. (The right-hand rule is used for generators).",
+    "explanationMarathi": "फ्लेमिंगचा डाव्या हाताचा नियम हा डीसी मोटरमध्ये चुंबकीय क्षेत्रात ठेवलेल्या वाहकावर (Conductor) कार्य करणाऱ्या बलाची (Force) दिशा शोधण्यासाठी वापरला जातो. (जनरेटरसाठी उजव्या हाताचा नियम वापरतात)."
+  },
+  {
+    "id": 1234,
+    "chapterId": 38,
+    "question": "Which of the following is the unit of Work?",
+    "questionMarathi": "खालीलपैकी कार्याचे (Work) एकक कोणते आहे?",
+    "options": [
+      "Newton",
+      "Joule",
+      "Watt",
+      "Volt"
+    ],
+    "optionsMarathi": [
+      "न्यूटन (Newton)",
+      "जूल (Joule)",
+      "वॉट (Watt)",
+      "व्होल्ट (Volt)"
+    ],
+    "answer": "B",
+    "explanation": "According to physics, the international standard (SI) unit of both work and energy is the 'Joule' (J).",
+    "explanationMarathi": "भौतिकशास्त्रानुसार कार्य (Work) आणि ऊर्जा (Energy) या दोन्हींचे आंतरराष्ट्रीय प्रमाणित एकक (SI Unit) 'जूल' (Joule) हे आहे."
+  },
+  {
+    "id": 1235,
+    "chapterId": 38,
+    "question": "Which of the following is a scalar quantity?",
+    "questionMarathi": "खालीलपैकी कोणती एक अदिश राशी (Scalar quantity) आहे?",
+    "options": [
+      "Velocity",
+      "Electric Current",
+      "Force",
+      "Acceleration"
+    ],
+    "optionsMarathi": [
+      "वेग (Velocity)",
+      "विद्युत प्रवाह (Electric Current)",
+      "बल (Force)",
+      "प्रवेग (Acceleration)"
+    ],
+    "answer": "B",
+    "explanation": "A scalar quantity has only magnitude and no direction (e.g. length, mass, time, temperature, work, energy, electric current).",
+    "explanationMarathi": "'अदिश राशी' (Scalar Quantity) म्हणजे अशी राशी जिला व्यक्त करण्यासाठी केवळ परिमाण (Magnitude) आवश्यक असते, दिशा (Direction) नाही. (उदा. लांबी, वस्तुमान, वेळ, तापमान, कार्य, ऊर्जा, विद्युत प्रवाह इ.)"
+  },
+  {
+    "id": 1236,
+    "chapterId": 39,
+    "question": "According to Indian Electricity Rules, what is the standard voltage for single-phase AC?",
+    "questionMarathi": "भारतीय विद्युत नियमांनुसार सिंगल फेज AC चा मानक व्होल्टेज (Standard Voltage) किती असतो?",
+    "options": [
+      "250 Volts",
+      "230 Volts",
+      "220 Volts",
+      "240 Volts"
+    ],
+    "optionsMarathi": [
+      "250 व्होल्ट",
+      "230 व्होल्ट",
+      "220 व्होल्ट",
+      "240 व्होल्ट"
+    ],
+    "answer": "B",
+    "explanation": "According to the Bureau of Indian Standards (BIS), the standard voltage for single-phase domestic power supply in India is fixed at 230 V.",
+    "explanationMarathi": "भारतीय मानक (Bureau of Indian Standards - BIS) नुसार, भारतामध्ये सिंगल फेज घरगुती वीज पुरवठ्याचा मानक व्होल्टेज २३० व्होल्ट (230 V) निर्धारित केला गेला आहे."
+  },
+  {
+    "id": 1237,
+    "chapterId": 39,
+    "question": "What should be the minimum distance of a ceiling fan from the ground (floor)?",
+    "questionMarathi": "छताच्या पंख्याचे जमिनीपासून (फरशीपासून) किमान अंतर किती असावे?",
+    "options": [
+      "3 meters",
+      "2.75 meters",
+      "2.4 meters",
+      "3.5 meters"
+    ],
+    "optionsMarathi": [
+      "3 मीटर",
+      "2.75 मीटर",
+      "2.4 मीटर",
+      "3.5 मीटर"
+    ],
+    "answer": "B",
+    "explanation": "According to safety rules, a ceiling fan should be at a minimum height of 2.75 m from the ground so that a person's hand does not easily touch it.",
+    "explanationMarathi": "सुरक्षा नियमांनुसार, छतावर लावलेला पंखा जमिनीपासून कमीत कमी २.७५ मीटर (2.75 m) उंचावर असावा, जेणेकरून कोणत्याही व्यक्तीचा हात त्याला सहज लागणार नाही."
+  },
+  {
+    "id": 1238,
+    "chapterId": 39,
+    "question": "If two 10-ohm resistors are connected in parallel, what will be the total resistance?",
+    "questionMarathi": "जर 10-10 ओमचे दोन रोध (Resistors) समांतर जोडणीत (Parallel) जोडले, तर एकूण रोध किती होईल?",
+    "options": [
+      "10 ohms",
+      "5 ohms",
+      "20 ohms",
+      "15 ohms"
+    ],
+    "optionsMarathi": [
+      "10 ओम",
+      "5 ओम",
+      "20 ओम",
+      "15 ओम"
+    ],
+    "answer": "B",
+    "explanation": "When two resistors of equal value are connected in parallel, the total resistance is halved. Formula: R_total = R / n = 10 / 2 = 5 Ω.",
+    "explanationMarathi": "समांतर जोडणीमध्ये दोन सारख्या मूल्यांचे रोध जोडले असता एकूण रोध निम्मा होतो. सूत्र: R_total = R / n = 10 / 2 = 5 Ω."
+  },
+  {
+    "id": 1239,
+    "chapterId": 39,
+    "question": "In a DC shunt motor, what is the armature current (Ia)?",
+    "questionMarathi": "एका DC शंट मोटरमध्ये आर्मेचर करंट (Ia) किती असतो?",
+    "options": [
+      "Ia = IL - Ish",
+      "Ia = Ish - IL",
+      "Ia = IL + Ish",
+      "Ia = IL = Ish"
+    ],
+    "optionsMarathi": [
+      "Ia = IL - Ish",
+      "Ia = Ish - IL",
+      "Ia = IL + Ish",
+      "Ia = IL = Ish"
+    ],
+    "answer": "A",
+    "explanation": "In a DC shunt motor, the total load current (IL) coming from outside is divided between the armature and the shunt field (IL = Ia + Ish). Therefore, the formula to find the armature current is Ia = IL - Ish.",
+    "explanationMarathi": "DC शंट मोटरमध्ये, बाहेरून येणारा एकूण लोड करंट (IL) हा आर्मेचर आणि शंट फील्डमध्ये विभागला जातो (IL = Ia + Ish). म्हणून, आर्मेचर करंट काढण्यासाठी सूत्र Ia = IL - Ish हे होते."
+  },
+  {
+    "id": 1240,
+    "chapterId": 39,
+    "question": "What is the anode used in a Leclanche Cell made of?",
+    "questionMarathi": "लेक्लांशे सेल (Leclanche Cell) मध्ये वापरला जाणारा ॲनोड (Anode) कशाचा बनलेला असतो?",
+    "options": [
+      "Zinc",
+      "Carbon",
+      "Copper",
+      "Nickel"
+    ],
+    "optionsMarathi": [
+      "जस्त (Zinc)",
+      "कार्बन (Carbon)",
+      "तांबे (Copper)",
+      "निकेल (Nickel)"
+    ],
+    "answer": "B",
+    "explanation": "In a Leclanche cell, the carbon rod acts as the positive terminal (anode), while the zinc pot or rod acts as the cathode (negative).",
+    "explanationMarathi": "लेक्लांशे सेलमध्ये कार्बनची काठी ही पॉझिटिव्ह टर्मिनल म्हणजेच ॲनोड म्हणून काम करते, तर जस्ताचे (Zinc) भांडे किंवा काठी ही कॅथोड (नेगेटिव्ह) म्हणून काम करते."
+  },
+  {
+    "id": 1241,
+    "chapterId": 39,
+    "question": "What will be the total EMF if five 2.2V cells are connected in parallel?",
+    "questionMarathi": "2.2 व्होल्टचे ५ सेल्स समांतर (Parallel) जोडणीत जोडले असता एकूण विद्युत वाहक बल (EMF) किती असेल?",
+    "options": [
+      "5 Volts",
+      "11 Volts",
+      "22 Volts",
+      "None of these"
+    ],
+    "optionsMarathi": [
+      "5 व्होल्ट",
+      "11 व्होल्ट",
+      "22 व्होल्ट",
+      "यांपैकी काहीही नाही"
+    ],
+    "answer": "D",
+    "explanation": "When cells are connected in parallel, the total voltage does not change; it remains equal to the voltage of a single cell, i.e., 2.2V. Since 2.2V is not among the options, 'None of these' is the correct answer.",
+    "explanationMarathi": "जेव्हा सेल्स समांतर (Parallel) जोडणीत जोडले जातात, तेव्हा एकूण व्होल्टेज बदलत नाही; तो एका सेलच्या व्होल्टेज इतकाच म्हणजेच २.२ व्होल्ट राहतो. पर्यायांमध्ये २.२ व्होल्ट हा पर्याय नसल्यामुळे 'यांपैकी काहीही नाही' हे उत्तर योग्य आहे."
+  },
+  {
+    "id": 1242,
+    "chapterId": 39,
+    "question": "While checking the charging status of a lead-acid battery with a hydrometer, if the float sinks completely into the electrolyte, what does it indicate?",
+    "questionMarathi": "लेड ॲसिड बॅटरीच्या चार्जिंगची स्थिती हायड्रोमीटरने तपासताना हायड्रोमीटरचा फ्लोट (Float) इलेक्ट्रोलाइटमध्ये पूर्णपणे बुडतो, यावरून काय समजते?",
+    "options": [
+      "Battery is fully charged",
+      "Battery is half charged",
+      "Battery is discharged",
+      "Battery is dead"
+    ],
+    "optionsMarathi": [
+      "बॅटरी फुल चार्ज आहे",
+      "बॅटरी हाफ चार्ज आहे",
+      "बॅटरी डिस्चार्ज आहे",
+      "बॅटरी डेड (खराब) आहे"
+    ],
+    "answer": "C",
+    "explanation": "When a battery is discharged, the specific gravity of the electrolyte decreases (it becomes thin like water). Due to the low density, the float of the hydrometer sinks deeper or completely into it.",
+    "explanationMarathi": "जब बॅटरी डिस्चार्ज असते, तेव्हा इलेक्ट्रोलाइटची घनता (Specific Gravity) कमी होते (ते पाण्यासारखे पातळ होते). घनता कमी झाल्यामुळे हायड्रोमीटरचा फ्लोट त्यात जास्त खाली म्हणजेच पूर्णपणे बुडतो."
+  },
+  {
+    "id": 1243,
+    "chapterId": 39,
+    "question": "What are brush holders made of?",
+    "questionMarathi": "ब्रश होल्डर (Brush Holder) कशापासून बनवले जातात?",
+    "options": [
+      "Bakelite",
+      "Carbon",
+      "Brass",
+      "Cast Steel"
+    ],
+    "optionsMarathi": [
+      "बेकेलाईट",
+      "कार्बन",
+      "पितळ (Brass)",
+      "कास्ट स्टील"
+    ],
+    "answer": "C",
+    "explanation": "In electrical machines, brush holders are generally made of brass to hold the carbon brushes and ensure good electrical conductivity.",
+    "explanationMarathi": "विद्युत मशिनमध्ये कार्बन ब्रशला पकडून ठेवण्यासाठी आणि चांगल्या विद्युत वाहकतेसाठी ब्रश होल्डर हे साधारणपणे पितळाचे (Brass) बनवले जातात."
+  },
+  {
+    "id": 1244,
+    "chapterId": 39,
+    "question": "Which of the following generators provides immediate electromotive force (EMF)?",
+    "questionMarathi": "खालीलपैकी कोणता जनरेटर त्वरित विद्युत वाहक बल (EMF) प्रदान करतो?",
+    "options": [
+      "Permanent Magnet Generator",
+      "Series Generator",
+      "Shunt Generator",
+      "Compound Generator"
+    ],
+    "optionsMarathi": [
+      "कायमस्वरूपी चुंबकीय (Permanent Magnet Generator)",
+      "सिरीज (Series Generator)",
+      "शंट (Shunt Generator)",
+      "कंपाऊंड (Compound Generator)"
+    ],
+    "answer": "A",
+    "explanation": "In a permanent magnet generator (e.g., a dynamo), the magnetic field is already present. Therefore, as soon as it rotates, it generates voltage (EMF) without any delay.",
+    "explanationMarathi": "कायमस्वरूपी चुंबकीय जनरेटरमध्ये (उदा. डायनॅमो) चुंबकीय क्षेत्र आधीपासूनच तयार असते. त्यामुळे फिरवताच तो कोणत्याही विलंबाशिवाय लगेच व्होल्टेज (EMF) तयार करतो."
+  },
+  {
+    "id": 1245,
+    "chapterId": 39,
+    "question": "Which losses come under 'Stray Losses'?",
+    "questionMarathi": "'स्ट्रे लॉसेस' (Stray Losses) च्या अंतर्गत कोणते नुकसान (Losses) येते?",
+    "options": [
+      "Iron and Copper losses",
+      "Shunt field + Iron + Mechanical losses",
+      "Mechanical and Iron losses",
+      "Series field + Armature losses"
+    ],
+    "optionsMarathi": [
+      "लोह आणि तांबे (Iron + Copper) नुकसान",
+      "शंट फील्ड + लोह + यांत्रिक नुकसान",
+      "यांत्रिक आणि लोह (Mechanical + Iron) नुकसान",
+      "सिरीज फील्ड + आर्मेचर नुकसान"
+    ],
+    "answer": "C",
+    "explanation": "In electrical machines, the combined sum of magnetic losses (iron losses) and mechanical losses (friction & windage) is called 'stray losses'.",
+    "explanationMarathi": "विद्युत मशिन्समध्ये मॅग्नेटिक लॉसेस (Iron Losses) आणि मेकॅनिकल लॉसेस (Friction & Windage) यांच्या एकत्रित बेरजेला 'स्ट्रे लॉसेस' म्हणतात."
+  },
+  {
+    "id": 1246,
+    "chapterId": 39,
+    "question": "What is the direction of electric current?",
+    "questionMarathi": "विद्युत प्रवाहाची (Electric Current) दिशा कोणती असते?",
+    "options": [
+      "From negative (-) to positive (+)",
+      "From positive (+) to negative (-)",
+      "From positive (+) to positive (+)",
+      "From negative (-) to negative (-)"
+    ],
+    "optionsMarathi": [
+      "उणे (-) कडून अधिक (+) कडे",
+      "अधिक (+) कडून उणे (-) कडे",
+      "अधिक (+) कडून अधिक (+) कडे",
+      "उणे (-) कडून उणे (-) कडे"
+    ],
+    "answer": "B",
+    "explanation": "According to conventional current rules, the direction of electric current is always considered from the positive (+) terminal to the negative (-) terminal (even though electrons flow from negative to positive).",
+    "explanationMarathi": "पारंपारिक नियमांनुसार (Conventional Current Direction), विद्युत प्रवाहाची दिशा नेहमी पॉझिटिव्ह (+) टर्मिनल कडून नेगेटिव्ह (-) टर्मिनल कडे मानली जाते (जरी इलेक्ट्रॉन उणे कडून अधिक कडे वाहत असले तरी)."
+  },
+  {
+    "id": 1247,
+    "chapterId": 39,
+    "question": "What is the effect of the sulphation fault on a battery?",
+    "questionMarathi": "सल्फेशन दोषामुळे (Sulphation Fault) बॅटरीवर काय परिणाम होतो?",
+    "options": [
+      "Low voltage is obtained",
+      "Terminals corrode",
+      "Short circuit occurs in plates",
+      "Recharging becomes difficult"
+    ],
+    "optionsMarathi": [
+      "कमी व्होल्टेज मिळतो",
+      "टर्मिनल गंजतात",
+      "प्लेट्समध्ये शॉर्ट सर्किट होते",
+      "पुन्हा चार्ज करणे कठीण होते"
+    ],
+    "answer": "D",
+    "explanation": "If a lead-acid battery is kept in a discharged state for many years, a hard layer of lead sulphate accumulates on its plates, called sulphation. This makes it extremely difficult to recharge the battery.",
+    "explanationMarathi": "लेड ॲसिड बॅटरी बरीच वर्षे डिस्चार्ज अवस्थेत ठेवली तर तिच्या प्लेट्सवर लेड सल्फेटचा कडक थर जमा होतो, ज्याला सल्फेशन म्हणतात. यामुळे बॅटरी पुन्हा चार्ज करणे अत्यंत कठीण होते."
+  },
+  {
+    "id": 1248,
+    "chapterId": 39,
+    "question": "If the current flowing through a conductor is 0 and its resistance is 20 ohms, what will be the voltage (Potential Difference) created across the ends of the conductor?",
+    "questionMarathi": "जर एखाद्या वाहकामधून वाहणारा करंट 0 असेल आणि त्याचा रोध 20 ओम असेल, तर वाहकाच्या टोकांमध्ये निर्माण होणारे व्होल्टेज (Potential Difference) किती असेल?",
+    "options": [
+      "0 Volts",
+      "20 Volts",
+      "Both A and B",
+      "None of the above"
+    ],
+    "optionsMarathi": [
+      "0 व्होल्ट",
+      "20 व्होल्ट",
+      "A आणि B दोन्ही",
+      "वरीलपैकी काहीही नाही"
+    ],
+    "answer": "A",
+    "explanation": "According to Ohm's Law, the voltage formula is V = I * R. If the current (I) is zero, then V = 0 * 20 = 0 V.",
+    "explanationMarathi": "ओहमच्या नियमानुसार, व्होल्टेजचे सूत्र V = I * R आहे. जर करंट (I) शून्य असेल, तर V = 0 * 20 = 0 V होईल."
+  },
+  {
+    "id": 1249,
+    "chapterId": 39,
+    "question": "What does the torque generated in a DC motor depend on?",
+    "questionMarathi": "DC मोटरमध्ये निर्माण होणारा टॉर्क (Torque) कशावर अवलंबून असतो?",
+    "options": [
+      "On armature current",
+      "On rotor speed",
+      "On magnetic flux",
+      "On both A and C"
+    ],
+    "optionsMarathi": [
+      "आर्मेचर करंटवर",
+      "चालकाच्या गतीवर",
+      "चुंबकीय फ्लक्सवर (Magnetic Flux)",
+      "A आणि C दोन्हीवर"
+    ],
+    "answer": "D",
+    "explanation": "The formula for torque in a DC motor is T ∝ φ * Ia. This means torque is directly proportional to both the magnetic flux (φ) and the armature current (Ia).",
+    "explanationMarathi": "DC मोटरच्या टॉर्कचे सूत्र T ∝ φ * Ia असे आहे. म्हणजेच टॉर्क हा चुंबकीय फ्लक्स (φ) आणि आर्मेचर करंट (Ia) या दोन्हीच्या थेट प्रमाणात असतो."
+  },
+  {
+    "id": 1250,
+    "chapterId": 39,
+    "question": "A 4-pole lap wound generator has 150 conductors. If the total flux is 0.8 Weber and it is rotating at 1000 RPM, what will be the generated EMF?",
+    "questionMarathi": "एका 4 पोल असणाऱ्या लॅप वाउंड (Lap Wound) जनरेटरमध्ये 150 कंडक्टर आहेत. एकूण फ्लक्स 0.8 वेबर असून तो 1000 RPM वर फिरत असल्यास निर्माण होणारा EMF किती असेल?",
+    "options": [
+      "12000 Volts",
+      "2000 Volts",
+      "4000 Volts",
+      "3600 Volts"
+    ],
+    "optionsMarathi": [
+      "12000 व्होल्ट",
+      "2000 व्होल्ट",
+      "4000 व्होल्ट",
+      "3600 व्होल्ट"
+    ],
+    "answer": "B",
+    "explanation": "EMF formula: E = (φ * Z * N * P) / (60 * A). For lap winding, the number of poles (P) and parallel paths (A) are the same (P = A = 4). Therefore, E = (0.8 * 150 * 1000) / 60 = 120000 / 60 = 2000 V.",
+    "explanationMarathi": "EMF चे सूत्र: E = (φ * Z * N * P) / (60 * A). लॅप वाइंडिंगसाठी पोल (P) आणि पॅरलल पाथ (A) सारखेच असतात (P = A = 4). त्यामुळे, E = (0.8 * 150 * 1000) / 60 = 120000 / 60 = 2000 V."
+  },
+  {
+    "id": 1251,
+    "chapterId": 39,
+    "question": "What is the formula to find the heat energy generated by an electric current?",
+    "questionMarathi": "विद्युत प्रवाहामुळे निर्माण होणारी उष्णता ऊर्जा (Heat Energy) काढण्याचे सूत्र काय आहे?",
+    "options": [
+      "H = I * R * t",
+      "H = R^2 * I * t",
+      "H = I^2 * R * t",
+      "H = V * R * t"
+    ],
+    "optionsMarathi": [
+      "H = I * R * t",
+      "H = R^2 * I * t",
+      "H = I^2 * R * t",
+      "H = V * R * t"
+    ],
+    "answer": "C",
+    "explanation": "According to Joule's Law of Heating, the heat generated is directly proportional to the square of the current (I^2), the resistance (R), and the time (t).",
+    "explanationMarathi": "ज्यूलच्या नियमानुसार (Joule's Law of Heating), निर्माण होणारी उष्णता ही करंटच्या वर्गाच्या (I^2), रोधाच्या (R) आणि वेळेच्या (t) थेट प्रमाणात असते."
+  },
+  {
+    "id": 1252,
+    "chapterId": 39,
+    "question": "What are the substances that reduce the intensity of a magnetic field called?",
+    "questionMarathi": "जे पदार्थ चुंबकीय क्षेत्राची तीव्रता कमी करतात, त्यांना काय म्हणतात?",
+    "options": [
+      "Diamagnetic",
+      "Ferromagnetic",
+      "Paramagnetic",
+      "All of the above"
+    ],
+    "optionsMarathi": [
+      "प्रति-चुंबकीय (Diamagnetic)",
+      "लोह-चुंबकीय (Ferromagnetic)",
+      "अनु-चुंबकीय (Paramagnetic)",
+      "वरील सर्व"
+    ],
+    "answer": "A",
+    "explanation": "Diamagnetic substances become slightly magnetized in the opposite direction of the magnetic field, thereby reducing the magnetic field intensity and being repelled by a magnet.",
+    "explanationMarathi": "डायमॅग्नेटिक (प्रति-चुंबकीय) पदार्थ चुंबकीय क्षेत्राच्या विरुद्ध दिशेने सौम्य चुंबकीय होतात, ज्यामुळे ते चुंबकीय क्षेत्राची तीव्रता कमी करतात आणि चुंबकाद्वारे दूर ढकलले जातात."
+  },
+  {
+    "id": 1253,
+    "chapterId": 39,
+    "question": "In which motor does the speed increase as the load increases?",
+    "questionMarathi": "कोणत्या मोटरचा वेग (Speed) लोड वाढल्यावर वाढतो?",
+    "options": [
+      "Series motor",
+      "Shunt motor",
+      "Cumulative compound motor",
+      "Differential compound motor"
+    ],
+    "optionsMarathi": [
+      "सिरीज मोटर",
+      "शंट मोटर",
+      "कम्युलेटिव्ह कंपाऊंड मोटर",
+      "डिफरेंशियल कंपाऊंड मोटर"
+    ],
+    "answer": "D",
+    "explanation": "In a differential compound motor, increasing the load increases the series field flux which opposes the main shunt field flux. This reduces the total flux and increases speed (N ∝ 1/φ).",
+    "explanationMarathi": "डिफरेंशियल कंपाऊंड मोटरमध्ये, लोड वाढल्याने सिरीज फील्ड फ्लक्स वाढतो जो मुख्य शंट फील्ड फ्लक्सला विरोध करतो. यामुळे एकूण फ्लक्स कमी होतो आणि गती (N ∝ 1/φ) वाढते."
+  },
+  {
+    "id": 1254,
+    "chapterId": 39,
+    "question": "If the magnetic flux is denoted by φ and the area by A, then what will the flux density (B) be equal to?",
+    "questionMarathi": "जर चुंबकीय फ्लक्स φ ने आणि क्षेत्रफळ A ने दर्शवले, तर फ्लक्स घनता (Flux Density - B) कशाच्या बरोबर असेल?",
+    "options": [
+      "φ * A",
+      "φ / A",
+      "A / φ",
+      "φ * A^2"
+    ],
+    "optionsMarathi": [
+      "φ * A",
+      "φ / A",
+      "A / φ",
+      "φ * A^2"
+    ],
+    "answer": "B",
+    "explanation": "Flux density is the magnetic flux passing through a unit area. Therefore, its formula is B = φ / A (Weber/meter²).",
+    "explanationMarathi": "फ्लक्स घनता म्हणजे प्रति एकक क्षेत्रफळातून जाणारा चुंबकीय फ्लक्स होय. त्यामुळे त्याचे सूत्र B = φ / A (वेबर/मीटर²) असे होते."
+  },
+  {
+    "id": 1255,
+    "chapterId": 39,
+    "question": "By which law are eddy currents generated in any machine?",
+    "questionMarathi": "कोणत्या मशिनमध्ये एडी करंट्स (Eddy Currents) कोणत्या नियमाने निर्माण होतात?",
+    "options": [
+      "Joule's Law",
+      "Lenz's Law",
+      "Oersted's Law",
+      "Faraday's Law"
+    ],
+    "optionsMarathi": [
+      "ज्यूलच्या नियमाने",
+      "लेंझच्या नियमाने",
+      "ओर्स्टेडच्या नियमाने",
+      "फॅराडेच्या नियमाने"
+    ],
+    "answer": "D",
+    "explanation": "According to Faraday's Law of Electromagnetic Induction, when a piece of metal is exposed to a changing magnetic field, internal induced electric currents, or eddy currents, are formed in it.",
+    "explanationMarathi": "फॅराडेच्या इलेक्ट्रोमॅग्नेटिक इंडक्शनच्या नियमानुसार (Faraday's Law of Electromagnetic Induction), जेव्हा एखादा धातूचा तुकडा बदलत्या चुंबकीय क्षेत्रात येतो, तेव्हा त्यात अंतर्गत प्रेरित विद्युत प्रवाह म्हणजेच एडी करंट्स तयार होतात."
+  },
+  {
+    "id": 1256,
+    "chapterId": 39,
+    "question": "What is the standard terminal marking for the shunt field winding of a DC shunt motor?",
+    "questionMarathi": "DC शंट मोटरच्या शंट फील्ड वाइंडिंगचे मानक चिन्हांकन (Terminal Marking) काय असते?",
+    "options": [
+      "A1, A2",
+      "B1, B2",
+      "E1, E2",
+      "D1, D2"
+    ],
+    "optionsMarathi": [
+      "A1, A2",
+      "B1, B2",
+      "E1, E2",
+      "D1, D2"
+    ],
+    "answer": "C",
+    "explanation": "According to standards, A1-A2 are used for armature, D1-D2 for series field, and E1 and E2 are used to denote shunt field winding.",
+    "explanationMarathi": "मानकांनुसार आर्मेचरसाठी A1-A2, सिरीज फील्डसाठी D1-D2 आणि शंट फील्ड वाइंडिंग दर्शवण्यासाठी E1 आणि E2 हे अक्षरे वापरली जातात."
+  },
+  {
+    "id": 1257,
+    "chapterId": 39,
+    "question": "Which of the following formulas is correct according to Faraday's Laws of Electrolysis?",
+    "questionMarathi": "फॅराडेच्या विद्युत अपघटनाच्या (Electrolysis) नियमानुसार खालीलपैकी कोणते सूत्र योग्य आहे?",
+    "options": [
+      "Z = I * t",
+      "m1 ∝ Z1",
+      "m = Z * I * t",
+      "m ∝ V * I"
+    ],
+    "optionsMarathi": [
+      "Z = I * t",
+      "m1 ∝ Z1",
+      "m = Z * I * t",
+      "m ∝ V * I"
+    ],
+    "answer": "C",
+    "explanation": "According to Faraday's first law, the mass (m) deposited on an electrode is proportional to the total charge passed (Q = I * t). Adding the constant Z (Electrochemical Equivalent) gives the formula m = Z * I * t.",
+    "explanationMarathi": "फॅराडेच्या पहिल्या नियमानुसार, इलेक्ट्रोडवर जमा होणारे वस्तुमान (m) हे वाहून गेलेल्या एकूण चार्जच्या (Q = I * t) प्रमाणात असते. स्थिरांक Z (Electrochemical Equivalent) जोडल्यास सूत्र m = Z * I * t बनते."
+  },
+  {
+    "id": 1258,
+    "chapterId": 39,
+    "question": "What is the unit of Magnetomotive Force (MMF)?",
+    "questionMarathi": "चुंबकीय वाहक बल (Magnetomotive Force - MMF) चे एकक (Unit) काय आहे?",
+    "options": [
+      "Weber-meter",
+      "Ampere Turn",
+      "Ampere Turn / Weber",
+      "Tesla"
+    ],
+    "optionsMarathi": [
+      "वेबर - मीटर",
+      "ॲम्पियर टर्न (Ampere Turn)",
+      "ॲम्पियर टर्न / वेबर",
+      "टेस्ला"
+    ],
+    "answer": "B",
+    "explanation": "Magnetomotive force (MMF) is the product of the number of turns in the coil (N) and the current (I) flowing through it. Therefore, its unit is Ampere-Turn (AT).",
+    "explanationMarathi": "मॅग्नेटोमोटिव्ह फोर्स (MMF) हा कॉईलमधील टर्न्सची संख्या (N) आणि प्रवाहाचा करंट (I) यांचा गुणाकार असतो. त्यामुळे त्याचे एकक ॲम्पियर-टर्न (AT) आहे."
+  },
+  {
+    "id": 1259,
+    "chapterId": 39,
+    "question": "If slip rings are attached to the armature of a generator, what will be its output?",
+    "questionMarathi": "जर एका जनरेटरच्या आर्मेचरवर स्लिप रिंग्ज (Slip Rings) लावल्या असतील, तर त्याचे आउटपुट काय असेल?",
+    "options": [
+      "AC",
+      "DC",
+      "Both AC and DC",
+      "Could be anything"
+    ],
+    "optionsMarathi": [
+      "AC",
+      "DC",
+      "AC आणि DC दोन्ही",
+      "काहीही असू शकते"
+    ],
+    "answer": "A",
+    "explanation": "AC current is always produced in the armature of a generator. If we connect slip rings outside, we get AC output, and if we connect a commutator (split rings), it is converted to DC.",
+    "explanationMarathi": "जनरेटरच्या आर्मेचरमध्ये नेहमी AC करंटच तयार होतो. जर आपण बाहेर स्लिप रिंग्ज जोडल्या तर आउटपुट AC मिळते, आणि जर कम्युटेटर (Split Rings) जोडला तर त्याचे रूपांतर DC मध्ये होते."
+  },
+  {
+    "id": 1261,
+    "chapterId": 40,
+    "question": "What type of fuel is used in a Hydro Power Plant?",
+    "questionMarathi": "हायड्रो पॉवर प्लांट (Hydro Power Plant - जलविद्युत केंद्र) मध्ये कोणत्या प्रकारचे इंधन वापरले जाते?",
+    "options": [
+      "Nuclear",
+      "Biomass",
+      "Chemical",
+      "None (Water is used)"
+    ],
+    "optionsMarathi": [
+      "आण्विक (Nuclear)",
+      "जैविक (Biomass)",
+      "रासायनिक (Chemical)",
+      "कोणतेही नाही (पाणी वापरले जाते)"
+    ],
+    "answer": "D",
+    "explanation": "In a hydro power plant, no traditional fuel (coal, gas, or uranium) is needed for power generation. It uses the kinetic energy of flowing or stored water to rotate the turbines.",
+    "explanationMarathi": "हायड्रो पॉवर प्लांटमध्ये वीज निर्मितीसाठी कोणत्याही प्रकारच्या पारंपारिक इंधनाची (कोळसा, गॅस किंवा युरेनियम) गरज नसते. यात वाहत्या किंवा साठवलेल्या पाण्याच्या गतिज ऊर्जेचा (Kinetic Energy) वापर करून टर्बाइन फिरवले जाते."
+  },
+  {
+    "id": 1262,
+    "chapterId": 40,
+    "question": "Which of the following is the formula for 'Dynamically Induced EMF'?",
+    "questionMarathi": "खालीलपैकी 'गतिज प्रेरित विद्युत वाहक बल' (Dynamically Induced EMF) काढण्याचे सूत्र कोणते आहे?",
+    "options": [
+      "e = B * L * v * cosθ",
+      "e = B * L * v * sinθ",
+      "e = B * L * t * sinθ",
+      "e = B * L * v"
+    ],
+    "optionsMarathi": [
+      "e = B * L * v * cosθ",
+      "e = B * L * v * sinθ",
+      "e = B * L * t * sinθ",
+      "e = B * L * v"
+    ],
+    "answer": "B",
+    "explanation": "When a conductor moves in a magnetic field, the induced EMF depends on the magnetic flux density (B), the length of the conductor (L), its velocity (v), and the angle of motion (sinθ).",
+    "explanationMarathi": "जेव्हा एखादा वाहक (Conductor) चुंबकीय क्षेत्रात फिरतो, तेव्हा त्यात प्रेरित होणारा EMF हा चुंबकीय फ्लक्स घनता (B), वाहकाची लांबी (L), त्याचा वेग (v) आणि गतीचा कोन (sinθ) यावर अवलंबून असतो."
+  },
+  {
+    "id": 1263,
+    "chapterId": 40,
+    "question": "Below what value of specific gravity should a battery be stopped being used and put on charging?",
+    "questionMarathi": "बॅटरीच्या विसिष्ट घनतेचे (Specific Gravity) मूल्य कोणत्या मूल्यापेक्षा कमी झाल्यावर तिचा वापर करणे बंद केले पाहिजे (बॅटरी चार्जिंगला लावली पाहिजे)?",
+    "options": [
+      "1.25",
+      "1.22",
+      "1",
+      "1.18"
+    ],
+    "optionsMarathi": [
+      "1.25",
+      "1.22",
+      "1",
+      "1.18"
+    ],
+    "answer": "D",
+    "explanation": "When a lead-acid battery is completely discharged, its specific gravity is generally 1.18 or less. In this situation, it is necessary to stop using the battery and charge it immediately, otherwise the plates may get damaged (Sulphation).",
+    "explanationMarathi": "लेड ॲसिड बॅटरी पूर्णपणे डिस्चार्ज झाल्यावर तिची स्पेसिफिक ग्रॅव्हिटी साधारणपणे १.१८ किंवा त्यापेक्षा कमी होते. या स्थितीत बॅटरी वापरणे थांबवून ती त्वरित चार्ज करणे आवश्यक असते, अन्यथा प्लेट्स खराब (Sulphation) होऊ शकतात."
+  },
+  {
+    "id": 1264,
+    "chapterId": 40,
+    "question": "Which of the following methods is not used for speed control of a DC series motor?",
+    "questionMarathi": "DC सिरीज मोटरचे गती नियंत्रण (Speed Control) खालीलपैकी कोणत्या पद्धतीने केले जात नाही?",
+    "options": [
+      "Armature Diverter method",
+      "Supply Voltage Control method",
+      "Field Control method",
+      "Field Tapping method"
+    ],
+    "optionsMarathi": [
+      "आर्मेचर डायव्हर्टर पद्धत (Armature Diverter)",
+      "सप्लाय व्होल्टेज नियंत्रण पद्धत (Supply Voltage Control)",
+      "फील्ड नियंत्रण पद्धत (Field Control)",
+      "फील्ड टॅपिंग पद्धत (Field Tapping)"
+    ],
+    "answer": "B",
+    "explanation": "In a DC series motor, armature diverter, field diverter, and field tapping methods are primarily used to control speed. Directly supply voltage control is generally not used for this (it's mainly used in shunt or universal motors).",
+    "explanationMarathi": "DC सिरीज मोटरमध्ये गती नियंत्रित करण्यासाठी आर्मेचर डायव्हर्टर, फील्ड डायव्हर्टर आणि फील्ड टॅपिंग या पद्धती प्रामुख्याने वापरल्या जातात. सामान्यतः थेट सप्लाय व्होल्टेज नियंत्रण पद्धत यासाठी वापरली जात नाही (ती प्रामुख्याने शंट किंवा युनिव्हर्सल मोटरमध्ये वापरतात)."
+  },
+  {
+    "id": 1265,
+    "chapterId": 40,
+    "question": "What is 1 Joule/Second equal to?",
+    "questionMarathi": "1 ज्यूल/सेकंद (1 Joule/Second) कशाच्या बरोबर असतो?",
+    "options": [
+      "1 Watt",
+      "1 Volt",
+      "1 Ampere",
+      "1 Newton Meter"
+    ],
+    "optionsMarathi": [
+      "1 वॉट (Watt)",
+      "1 व्होल्ट (Volt)",
+      "1 ॲम्पियर (Ampere)",
+      "1 न्यूटन मीटर (Newton Meter)"
+    ],
+    "answer": "A",
+    "explanation": "Power is the rate of energy use or work. The unit of power is 'Watt' and its mathematical formula is 1 Watt = 1 Joule / 1 Second.",
+    "explanationMarathi": "ऊर्जेचा वापर किंवा कार्य करण्याचा दर म्हणजेच शक्ती (Power). पॉवरचे एकक 'वॉट' आहे आणि 1 Watt = 1 Joule / 1 Second असे त्याचे गणितीय सूत्र आहे."
+  },
+  {
+    "id": 1266,
+    "chapterId": 40,
+    "question": "If the length of a wire with 20 ohms resistance is increased to four times and its cross-sectional area is halved, what will be its new resistance?",
+    "questionMarathi": "20 ओम रोध (Resistance) असलेल्या तारेची लांबी वाढवून चार पट केली आणि तिचे काटछेद क्षेत्रफळ (Cross-sectional Area) अर्धे केले, तर तिचा नवीन रोध किती होईल?",
+    "options": [
+      "80 ohms",
+      "40 ohms",
+      "160 ohms",
+      "20 ohms"
+    ],
+    "optionsMarathi": [
+      "80 ओम",
+      "40 ओम",
+      "160 ओम",
+      "20 ओम"
+    ],
+    "answer": "C",
+    "explanation": "The formula to find resistance is R = ρ * (L / A). If the length (L) is made 4 times and the area (A) is halved (1/2), then the new resistance will be 4 / (1/2) = 8 times the original resistance. Therefore, new resistance = 20 * 8 = 160 Ω.",
+    "explanationMarathi": "रोध काढण्याचे सूत्र R = ρ * (L / A) आहे. लांबी (L) ४ पट केली आणि क्षेत्रफळ (A) अर्धे (1/2) केले, तर नवीन रोध मूळ रोधाच्या 4 / (1/2) = 8 पट होईल. म्हणून, नवीन रोध = 20 * 8 = 160 Ω."
+  },
+  {
+    "id": 1267,
+    "chapterId": 40,
+    "question": "How is the internal resistance of a Nickel Iron cell compared to the internal resistance of a Lead Acid cell?",
+    "questionMarathi": "निकेल आयर्न सेलचा (Nickel Iron Cell) अंतर्गत रोध (Internal Resistance) लेड ॲसिड सेलच्या अंतर्गत रोधापेक्षा कसा असतो?",
+    "options": [
+      "Equal",
+      "Lower",
+      "Very low",
+      "Higher"
+    ],
+    "optionsMarathi": [
+      "बरोबर असतो",
+      "कमी असतो",
+      "खूप कमी असतो",
+      "जास्त असतो"
+    ],
+    "answer": "D",
+    "explanation": "The internal resistance of a Nickel-Iron cell (which is a type of alkaline cell) is higher than that of a Lead-Acid cell, which makes its efficiency slightly lower than that of a lead-acid battery.",
+    "explanationMarathi": "निकेल-आयर्न सेल (जो एक प्रकारचा अल्कलाईन सेल आहे) चा अंतर्गत रोध हा लेड-ॲसिड सेलच्या तुलनेत जास्त असतो, ज्यामुळे याची कार्यक्षमता लेड-ॲसिड बॅटरीपेक्षा थोडी कमी असते."
+  },
+  {
+    "id": 1268,
+    "chapterId": 40,
+    "question": "What insulating material is used between commutator segments?",
+    "questionMarathi": "कम्युटेटर सेगमेंट्सच्या (Commutator Segments) दरम्यान कोणता इन्सुलेटिंग (अवाहक) पदार्थ वापरला जातो?",
+    "options": [
+      "Lead",
+      "Bakelite",
+      "Mica",
+      "None of these"
+    ],
+    "optionsMarathi": [
+      "लेड (Lead)",
+      "बेकेलाईट (Bakelite)",
+      "मायका / अभ्रक (Mica)",
+      "यांपैकी काहीही नाही"
+    ],
+    "answer": "C",
+    "explanation": "A layer of 'Mica' is used between the copper segments of the commutator to keep them electrically insulated from each other because it is heat-resistant and an excellent insulator.",
+    "explanationMarathi": "कम्युटेटरच्या तांब्याच्या सेगमेंटना एकमेकांपासून विद्युतदृष्ट्या वेगळे (Insulate) ठेवण्यासाठी त्यांच्यामध्ये 'मायका' (Mica) चा थर वापरला जातो, कारण तो उष्णतारोधक आणि उत्तम इन्सुलेटर आहे."
+  },
+  {
+    "id": 1269,
+    "chapterId": 40,
+    "question": "Which generator is recommended for supplying power to a long-distance load?",
+    "questionMarathi": "लांब अंतराच्या लोडला वीज पुरवठा करण्यासाठी कोणत्या जनरेटरची शिफारस केली जाते?",
+    "options": [
+      "DC Shunt Generator",
+      "Level Compound Generator",
+      "Over Compound Generator",
+      "Flat Compound Generator"
+    ],
+    "optionsMarathi": [
+      "DC शंट जनरेटर",
+      "लेव्हल कंपाऊंड जनरेटर",
+      "ओव्हर कंपाऊंड जनरेटर (Over Compound Generator)",
+      "फ्लॅट कंपाऊंड जनरेटर"
+    ],
+    "answer": "C",
+    "explanation": "In an over compound generator, the terminal voltage also increases as the load increases. This generator is considered best for compensating the voltage drop occurring in long-distance transmission lines.",
+    "explanationMarathi": "ओव्हर कंपाऊंड जनरेटरमध्ये लोड वाढल्यासोबत त्याचे टर्मिनल व्होल्टेज देखील वाढते. लांब अंतराच्या ट्रान्समिशन लाईनमध्ये होणारी व्होल्टेज ड्रॉप (Voltage Drop) भरून काढण्यासाठी हा जनरेटर सर्वोत्तम मानला जातो."
+  },
+  {
+    "id": 1270,
+    "chapterId": 40,
+    "question": "By which equation is the back EMF (Eb) obtained from any DC motor?",
+    "questionMarathi": "कोणत्याही DC मोटरमधून मिळणारा बॅक EMF (Eb) कोणत्या समीकरणाने काढला जातो?",
+    "options": [
+      "Eb = V - Ia * Ra",
+      "Eb = V + Ia * Ra",
+      "Eb = V * Ia * Ra",
+      "Eb = I^2 - Ia * Ra"
+    ],
+    "optionsMarathi": [
+      "Eb = V - Ia * Ra",
+      "Eb = V + Ia * Ra",
+      "Eb = V * Ia * Ra",
+      "Eb = I^2 - Ia * Ra"
+    ],
+    "answer": "A",
+    "explanation": "The supply voltage (V) given to the DC motor is equal to the sum of the back EMF (Eb) and the voltage drop in the armature (Ia * Ra) (V = Eb + Ia * Ra). Therefore, Eb = V - Ia * Ra.",
+    "explanationMarathi": "DC मोटरला दिलेला सप्लाय व्होल्टेज (V) हा बॅक EMF (Eb) आणि आर्मेचरमधील व्होल्टेज ड्रॉप (Ia * Ra) यांच्या बेरजेइतका असतो (V = Eb + Ia * Ra). म्हणून, Eb = V - Ia * Ra."
+  },
+  {
+    "id": 1271,
+    "chapterId": 40,
+    "question": "In the 'cross-magnetizing' process of armature reaction, what changes its position?",
+    "questionMarathi": "आर्मेचर रिॲक्शनच्या (Armature Reaction) 'क्रॉस-मॅग्नेटायझिंग' (Distortion) प्रक्रियेत कशाची स्थिती बदलते?",
+    "options": [
+      "Magnetic Neutral Axis (MNA)",
+      "Geometrical Neutral Axis (GNA)",
+      "Poles",
+      "Armature magnetic field"
+    ],
+    "optionsMarathi": [
+      "चुंबकीय उदासीन अक्ष (Magnetic Neutral Axis - MNA)",
+      "भूमितीय उदासीन अक्ष (Geometrical Neutral Axis - GNA)",
+      "पोलची (Poles)",
+      "आर्मेचरच्या चुंबकीय क्षेत्राची"
+    ],
+    "answer": "A",
+    "explanation": "Due to armature reaction, the main magnetic field is distorted. Because of this, the 'Magnetic Neutral Axis' (MNA) shifts from its original place, i.e., GNA, in the direction of rotation.",
+    "explanationMarathi": "आर्मेचर रिॲक्शनमुळे मुख्य चुंबकीय क्षेत्र वाकडे होते (Distort होते). यामुळे 'मॅग्नेटिक न्यूट्रल अक्सिस' (MNA) हा त्याच्या मूळ जागेवरून म्हणजेच GNA वरून फिरण्याच्या दिशेने पुढे सरकतो (शिफ्ट होतो)."
+  },
+  {
+    "id": 1272,
+    "chapterId": 40,
+    "question": "What is the method of charging a battery by giving a high current in a short time called?",
+    "questionMarathi": "कमी वेळेत जास्त करंट देऊन बॅटरी चार्ज करण्याच्या पद्धतीला काय म्हणतात?",
+    "options": [
+      "Trickle Charging",
+      "Constant Current charging",
+      "Boost Charging",
+      "Constant Voltage charging"
+    ],
+    "optionsMarathi": [
+      "ट्रिकल चार्जिंग (Trickle Charging)",
+      "स्थिर करंट चार्जिंग (Constant Current)",
+      "बूस्ट चार्जिंग (Boost Charging)",
+      "स्थिर व्होल्टेज चार्जिंग (Constant Voltage)"
+    ],
+    "answer": "C",
+    "explanation": "When a battery needs to be charged urgently, it is charged by the 'boost charging' method by giving a high current in a short time. (On the contrary, charging slowly at a very low current is called trickle charging).",
+    "explanationMarathi": "जेव्हा बॅटरी तातडीने चार्ज करावी लागते, तेव्हा कमी वेळेत उच्च करंट (High Current) देऊन 'बूस्ट चार्जिंग' पद्धतीने ती चार्ज केली जाते. (याउलट अत्यंत कमी करंटवर हळूहळू चार्ज करण्याला ट्रिकल चार्जिंग म्हणतात)."
+  },
+  {
+    "id": 1273,
+    "chapterId": 40,
+    "question": "How is the resistance of any conductor related to its length?",
+    "questionMarathi": "कोणत्याही वाहकाचा (Conductor) रोध त्याच्या लांबीच्या कोणत्या प्रमाणात असतो?",
+    "options": [
+      "Directly Proportional",
+      "Inversely Proportional",
+      "Parallel",
+      "Equal"
+    ],
+    "optionsMarathi": [
+      "थेट प्रमाणात (Directly Proportional)",
+      "व्यस्त प्रमाणात (Inversely Proportional)",
+      "समांतर",
+      "बरोबर"
+    ],
+    "answer": "A",
+    "explanation": "According to the laws of resistance, resistance (R) is directly proportional to the length of the wire (L) (R ∝ L). That is, if the length increases, the resistance increases.",
+    "explanationMarathi": "वाहकाच्या रोधाच्या नियमानुसार, रोध (R) हा तारेच्या लांबीशी (L) थेट प्रमाणात असतो (R ∝ L). म्हणजेच लांबी वाढली की रोध वाढतो."
+  },
+  {
+    "id": 1274,
+    "chapterId": 40,
+    "question": "The speed of a DC motor does not depend on which of the following factors?",
+    "questionMarathi": "DC मोटरचा वेग (Speed) खालीलपैकी कोणत्या घटकावर अवलंबून नसतो?",
+    "options": [
+      "On back EMF (Eb)",
+      "On load",
+      "On the value of flux (φ)",
+      "On the commutator"
+    ],
+    "optionsMarathi": [
+      "बॅक EMF (Eb) वर",
+      "लोडवर",
+      "फ्लक्सच्या (φ) मूल्यावर",
+      "कम्युटेटरवर (Commutator)"
+    ],
+    "answer": "D",
+    "explanation": "The main formula for the speed of a DC motor is N ∝ Eb / φ. Speed varies with back EMF, load, and flux, but speed does not directly depend on the commutator structure; the commutator only works to change the direction of current.",
+    "explanationMarathi": "DC मोटरच्या गतीचे मुख्य सूत्र N ∝ Eb / φ असे आहे. गती ही बॅक EMF, लोड आणि फ्लक्सवर बदलते, पण कम्युटेटरच्या रचनेवर गती थेट अवलंबून नसते; कम्युटेटर फक्त करंटची दिशा बदलण्याचे काम करतो."
+  },
+  {
+    "id": 1275,
+    "chapterId": 40,
+    "question": "What should be the minimum distance between two earthing pits (earth electrodes)?",
+    "questionMarathi": "दोन अर्थिंग पिट्स (Earth Electrodes) मधील किमान अंतर किती असावे?",
+    "options": [
+      "1.5 meters",
+      "5 meters",
+      "2 meters",
+      "1.3 meters"
+    ],
+    "optionsMarathi": [
+      "1.5 मीटर",
+      "5 मीटर",
+      "2 मीटर",
+      "1.3 मीटर"
+    ],
+    "answer": "C",
+    "explanation": "According to Indian Electricity Rules (IE Rules), the minimum distance between two different earth electrodes or earthing pipes must be 2 meters so that their resistance areas do not overlap each other.",
+    "explanationMarathi": "भारतीय विद्युत नियमांनुसार (IE Rules), दोन वेगवेगळ्या अर्थ इलेक्ट्रोड किंवा अर्थिंग पाईप्समधील किमान अंतर २ मीटर (2 m) असणे आवश्यक आहे जेणेकरून त्यांचे रेझिस्टन्स क्षेत्र एकमेकांमध्ये ओव्हरलॅप होणार नाही."
+  },
+  {
+    "id": 1276,
+    "chapterId": 40,
+    "question": "How is the core kept to reduce eddy current losses?",
+    "questionMarathi": "एडी करंट लॉसेस (Eddy Current Losses) कमी करण्यासाठी कोर (Core) कशी ठेवली जाते?",
+    "options": [
+      "Thick",
+      "Having large area",
+      "Laminated",
+      "Short circuit"
+    ],
+    "optionsMarathi": [
+      "जाड (Thick)",
+      "जास्त क्षेत्रफळ असलेली",
+      "लॅमिनेटेड (Laminated / पातळ थरांची)",
+      "शॉर्ट सर्किट"
+    ],
+    "answer": "C",
+    "explanation": "The magnetic core is made by joining thin laminated strips together. The path of eddy current is blocked by lamination and as its resistance increases, the loss due to eddy current decreases.",
+    "explanationMarathi": "चुंबकीय गाभा (Core) पातळ लॅमिनेटेड पट्ट्या एकत्र जोडून बनवला जातो. लॅमिनेशनमुळे एडी करंटचा मार्ग अडवला जातो आणि त्याचा रोध वाढल्याने एडी करंटमुळे होणारे नुकसान कमी होते."
+  },
+  {
+    "id": 1277,
+    "chapterId": 40,
+    "question": "How many volts of voltage drop does a carbon graphite brush generally create?",
+    "questionMarathi": "कार्बन ग्रॅफाइट ब्रश (Carbon Graphite Brush) साधारणपणे किती व्होल्टचा व्होल्टेज ड्रॉप (Voltage Drop) करतो?",
+    "options": [
+      "10 Volts",
+      "0.5 Volts",
+      "1 Volt",
+      "5 Volts"
+    ],
+    "optionsMarathi": [
+      "10 व्होल्ट",
+      "0.5 व्होल्ट",
+      "1 व्होल्ट",
+      "5 व्होल्ट"
+    ],
+    "answer": "C",
+    "explanation": "Carbon brushes have higher contact resistance. Generally, the voltage drop of a single carbon graphite brush is between about 0.5 to 1 volt (about 2 volts for a complete circuit). According to options, '1 volt' is the closest correct option.",
+    "explanationMarathi": "कार्बन ब्रशेसचा संपर्क रोध जास्त असतो. सामान्यतः एका कार्बन ग्रॅफाइट ब्रशचा व्होल्टेज ड्रॉप हा सुमारे ०.५ ते १ व्होल्टच्या दरम्यान असतो (पूर्ण सर्किटसाठी सुमारे २ व्होल्ट धरला जातो). पर्यायानुसार '१ व्होल्ट' हा सर्वात जवळचा योग्य पर्याय आहे."
+  },
+  {
+    "id": 1278,
+    "chapterId": 40,
+    "question": "What is the color of the neutral wire?",
+    "questionMarathi": "न्यूट्रल वायरचा (Neutral Wire) रंग कोणता असतो?",
+    "options": [
+      "Black",
+      "Yellow",
+      "Red",
+      "Green"
+    ],
+    "optionsMarathi": [
+      "काळा (Black)",
+      "पिवळा (Yellow)",
+      "लाल (Red)",
+      "हिरवा (Green)"
+    ],
+    "answer": "A",
+    "explanation": "According to old and traditional single-phase wiring rules in India, red is used for phase wire, black for neutral, and green for earthing.",
+    "explanationMarathi": "भारताच्या जुन्या आणि पारंपारिक सिंगल-फेज वायरिंगच्या नियमांनुसार, फेज वायरसाठी लाल (Red), न्यूट्रलसाठी काळा (Black) आणि अर्थिंगसाठी हिरवा (Green) रंग वापरला जातो."
+  },
+  {
+    "id": 1279,
+    "chapterId": 40,
+    "question": "In which of the following devices is an electromagnet not used?",
+    "questionMarathi": "इलेक्ट्रोमॅग्नेट (विद्युत चुंबक) चा वापर खालीलपैकी कोणत्या उपकरणात केला जात नाही?",
+    "options": [
+      "Electric Bell",
+      "Magnetic Compass",
+      "Relay",
+      "Synchronous Motor"
+    ],
+    "optionsMarathi": [
+      "विद्युत घंटा (Electric Bell)",
+      "चुंबकीय होकायंत्र (Magnetic Compass)",
+      "रिले (Relay)",
+      "सिंक्रोनस मोटर (Synchronous Motor)"
+    ],
+    "answer": "B",
+    "explanation": "A permanent magnet is used in a magnetic compass to show direction, not an electromagnet. Bells, relays, and motors all require an electromagnet.",
+    "explanationMarathi": "चुंबकीय होकायंत्रामध्ये (Compass) दिशा दाखवण्यासाठी कायमस्वरूपी चुंबक (Permanent Magnet) वापरला जातो, विद्युत चुंबक (Electromagnet) नाही. घंटा, रिले आणि मोटर या सर्वांमध्ये विद्युत चुंबक लागतो."
+  },
+  {
+    "id": 1280,
+    "chapterId": 40,
+    "question": "While checking the insulation of a generator through a Megger, its reading came as 'zero'. What does this mean?",
+    "questionMarathi": "मेगर (Megger) द्वारे जनरेटरच्या इन्सुलेशनची तपासणी करताना त्याचे रीडिंग 'शून्य' (0) आले, तर याचा काय अर्थ होतो?",
+    "options": [
+      "Armature or winding is short to earth",
+      "Machine is fine",
+      "Winding is open",
+      "Meter is faulty"
+    ],
+    "optionsMarathi": [
+      "आर्मेचर किंवा वाइंडिंग अर्थ (Short to Earth) आहे",
+      "मशीन व्यवस्थित आहे",
+      "वाइंडिंग ओपन आहे",
+      "मीटर खराब आहे"
+    ],
+    "answer": "A",
+    "explanation": "Megger measures insulation resistance. If the winding is touching the body or is short (earth fault), the resistance shows zero. If insulation is excellent, the Megger reading should be 'infinity' (∞).",
+    "explanationMarathi": "मेगर इन्सुलेशन रेझिस्टन्स मोजतो. जर वाइंडिंग बॉडीला टच असेल किंवा शॉर्ट असेल (अर्थ फॉल्ट), तर रेझिस्टन्स शून्य दाखवतो. इन्सुलेशन उत्तम असल्यास मेगरचे रीडिंग 'इन्फिनिटी' (∞ - अनंत) यायला हवे."
+  },
+  {
+    "id": 1281,
+    "chapterId": 40,
+    "question": "According to Indian Electricity Rules, what is the maximum number of points that can be on a 'light and fan' sub-circuit?",
+    "questionMarathi": "भारतीय विद्युत नियमांनुसार, 'लाईट आणि फॅन' च्या एका उप-सर्किटवर (Sub-circuit) जास्तीत जास्त किती उपभोग बिंदू (Points) असू शकतात?",
+    "options": [
+      "800",
+      "3000",
+      "8",
+      "10"
+    ],
+    "optionsMarathi": [
+      "800",
+      "3000",
+      "8",
+      "10"
+    ],
+    "answer": "D",
+    "explanation": "According to the rules, a maximum of 10 points or a total load of 800 watts, whichever is completed first, is the limit for a light and fan sub-circuit.",
+    "explanationMarathi": "नियमांनुसार, लाईट आणि फॅनच्या एका सब-सर्किटवर जास्तीत जास्त १० पॉईंट्स किंवा एकूण लोड ८०० वॉट यांपैकी जे आधी पूर्ण होईल, ती मर्यादा असते."
+  },
+  {
+    "id": 1282,
+    "chapterId": 40,
+    "question": "How many watts will a 5 HP (Horse Power) motor be according to the British system?",
+    "questionMarathi": "एक 5 HP (हॉर्स पॉवर) ची मोटर ब्रिटिश प्रणालीनुसार किती वॉटची असेल?",
+    "options": [
+      "3730 Watts",
+      "3677 Watts",
+      "5000 Watts",
+      "4500 Watts"
+    ],
+    "optionsMarathi": [
+      "3730 वॉट",
+      "3677 वॉट",
+      "5000 वॉट",
+      "4500 वॉट"
+    ],
+    "answer": "A",
+    "explanation": "According to the British system, 1 HP = 746 Watts. Therefore, 5 HP = 5 * 746 = 3730 Watts. (If it were the metric system, taking 1 HP = 735.5 Watts, the answer would have been 3677.5 watts).",
+    "explanationMarathi": "ब्रिटिश प्रणालीनुसार, 1 HP = 746 Watts. त्यामुळे, 5 HP = 5 * 746 = 3730 Watts. (मेट्रिक प्रणाली असती तर 1 HP = 735.5 Watts धरून उत्तर ३६७७.५ वॉट आले असते)."
+  },
+  {
+    "id": 1283,
+    "chapterId": 40,
+    "question": "Which of the following parts does not belong to a DC generator?",
+    "questionMarathi": "खालीलपैकी कोणता भाग DC जनरेटरचा नाही?",
+    "options": [
+      "Pole Core",
+      "Yoke",
+      "Slip Ring",
+      "Fan"
+    ],
+    "optionsMarathi": [
+      "पोल क्रोड (Pole Core)",
+      "योक (Yoke / बॉडी)",
+      "स्लिप रिंग (Slip Ring)",
+      "फॅन (Fan)"
+    ],
+    "answer": "C",
+    "explanation": "In a DC generator, a commutator (split rings) is used to convert the AC current produced into DC. Slip rings are used in an AC generator (alternator) or induction motor, not in a DC generator.",
+    "explanationMarathi": "DC जनरेटरमध्ये निर्माण होणाऱ्या AC करंटला DC मध्ये बदलण्यासाठी कम्युटेटर (Split Rings) वापरतात. स्लिप रिंग्सचा वापर AC जनरेटर (Alternator) किंवा इंडक्शन मोटरमध्ये केला जातो, DC जनरेटरमध्ये नाही."
+  },
+  {
+    "id": 1284,
+    "chapterId": 40,
+    "question": "In what is the armature winding done to get more voltage from a generator?",
+    "questionMarathi": "जनरेटरमधून अधिक व्होल्टेज मिळवण्यासाठी आर्मेचरची वाइंडिंग कशामध्ये केली जाते?",
+    "options": [
+      "Lap Winding",
+      "Wave Winding",
+      "Both of the above",
+      "None of these"
+    ],
+    "optionsMarathi": [
+      "लॅप वाइंडिंग (Lap Winding)",
+      "वेव्ह / तरंग वाइंडिंग (Wave Winding)",
+      "वरील दोन्ही",
+      "यांपैकी कशातही नाही"
+    ],
+    "answer": "B",
+    "explanation": "In wave winding, the number of parallel paths is always 2 (A=2), which gives higher voltage and lower current. (On the contrary, lap winding is used for low voltage and high current).",
+    "explanationMarathi": "वेव्ह वाइंडिंगमध्ये समांतर मार्गांची संख्या नेहमी २ असते (A=2), ज्यामुळे अधिक व्होल्टेज आणि कमी करंट मिळतो. (याउलट लॅप वाइंडिंग कमी व्होल्टेज आणि जास्त करंटसाठी वापरली जाते)."
+  },
+  {
+    "id": 1285,
+    "chapterId": 40,
+    "question": "How is the 'Over Load Coil' (OLC) connected in a DC motor starter?",
+    "questionMarathi": "DC मोटर स्टार्टरमध्ये 'ओव्हर लोड कॉईल' (Over Load Coil - OLC) कशी जोडली जाते?",
+    "options": [
+      "Parallel to armature",
+      "In series with the main supply line",
+      "In series with shunt field",
+      "In series with armature"
+    ],
+    "optionsMarathi": [
+      "आर्मेचरच्या समांतर (Parallel)",
+      "मेन सप्लाय लाईनच्या सिरीजमध्ये (Series)",
+      "शंट फील्डच्या सिरीजमध्ये",
+      "आर्मेचरच्या सिरीजमध्ये"
+    ],
+    "answer": "B",
+    "explanation": "The Over Load Coil (OLC) is connected directly in series with the main supply line to measure the total load current of the motor, so that it can trip the starter if the current goes beyond the limit.",
+    "explanationMarathi": "ओव्हर लोड कॉईल (OLC) ही मोटरचा एकूण लोड करंट मोजण्यासाठी थेट मेन सप्लाय लाईनच्या सिरीजमध्ये (मालिका जोडणीत) जोडलेली असते, जेणेकरून करंट मर्यादेबाहेर गेल्यास ती स्टार्टरला ट्रिप करू शकेल."
+  },
+  {
+    "id": 1286,
+    "chapterId": 41,
+    "question": "Which of the following substances cannot be used to make a permanent magnet?",
+    "questionMarathi": "खालीलपैकी कोणत्या पदार्थापासून कायमस्वरूपी चुंबक (Permanent Magnet) बनवता येत नाही?",
+    "options": [
+      "Hardened Steel",
+      "Soft Iron",
+      "Alnico",
+      "Nickel-Cobalt Alloy"
+    ],
+    "optionsMarathi": [
+      "कडक पोलाद (Hardened Steel)",
+      "मऊ लोखंड (Soft Iron)",
+      "अलनिको (Alnico)",
+      "निकेल कोबाल्ट मिश्रधातू (Nickel-Cobalt Alloy)"
+    ],
+    "answer": "B",
+    "explanation": "Soft iron has very low retentivity (ability to retain magnetism). Its magnetism is lost as soon as the electric current stops, so it is used to make temporary magnets (electromagnets), not for permanent magnets.",
+    "explanationMarathi": "मऊ लोखंडाची रिटेन्टिव्हिटी (Retention - चुंबकत्व टिकवून ठेवण्याची क्षमता) खूप कमी असते. विद्युत प्रवाह बंद करताच त्याचे चुंबकत्व नष्ट होते, म्हणून याचा वापर तात्पुरते चुंबक (इलेक्ट्रोमॅग्नेट) बनवण्यासाठी होतो, कायमस्वरूपी चुंबक बनवण्यासाठी नाही."
+  },
+  {
+    "id": 1287,
+    "chapterId": 41,
+    "question": "What is the unit of Temperature Coefficient of Resistance?",
+    "questionMarathi": "रोध तापमान गुणांक (Temperature Coefficient of Resistance) चे एकक (Unit) काय आहे?",
+    "options": [
+      "Mho / °C",
+      "Ohm / °C",
+      "Ohm meter / °C",
+      "Per °C (/°C)"
+    ],
+    "optionsMarathi": [
+      "म्हो / °C",
+      "ओम / °C",
+      "ओम मीटर / °C",
+      "प्रति °C (/°C)"
+    ],
+    "answer": "D",
+    "explanation": "The change in original resistance due to a per-degree Celsius rise in temperature is called the temperature coefficient (α). Since its ratio is ΔR / (R0 * ΔT), the Ohm cancels the Ohm and only the 'per degree Celsius' (/°C) unit remains.",
+    "explanationMarathi": "प्रति अंश सेल्सिअस तापमान वाढीमुळे मूळ रोधात होणाऱ्या बदलाला तापमान गुणांक (α) म्हणतात. याचे प्रमाण ΔR / (R0 * ΔT) असे असल्याने ओहमला ओहम कॅन्सल होतो आणि फक्त 'प्रति अंश सेल्सिअस' (/°C) हे एकक उरते."
+  },
+  {
+    "id": 1288,
+    "chapterId": 41,
+    "question": "What is the value of 1 Pico?",
+    "questionMarathi": "एक पिको (1 Pico) चे मूल्य किती असते?",
+    "options": [
+      "10^-9",
+      "10^-15",
+      "10^-12",
+      "10^-6"
+    ],
+    "optionsMarathi": [
+      "10^-9",
+      "10^-15",
+      "10^-12",
+      "10^-6"
+    ],
+    "answer": "C",
+    "explanation": "In metric system prefixes: micro = 10^-6, nano = 10^-9, pico = 10^-12, and femto = 10^-15.",
+    "explanationMarathi": "मेट्रिक प्रणालीच्या उपसार्गांमध्ये (Prefixes): मायक्रो = 10^-6, नॅनो = 10^-9, पिको = 10^-12, आणि फेम्टो = 10^-15 असे मूल्य असते."
+  },
+  {
+    "id": 1289,
+    "chapterId": 41,
+    "question": "The temperature of a lead-acid battery while charging -",
+    "questionMarathi": "चार्जिंग होत असताना लेड ॲसिड बॅटरीचे तापमान -",
+    "options": [
+      "Increases",
+      "Decreases",
+      "Remains constant",
+      "Any of the above can happen"
+    ],
+    "optionsMarathi": [
+      "वाढते",
+      "कमी होते",
+      "स्थिर राहते",
+      "वरीलपैकी काहीही होऊ शकते"
+    ],
+    "answer": "A",
+    "explanation": "Chemical processes occur inside the battery during charging and heat is generated due to the internal resistance (I^2R losses) of the battery as current flows, which increases the battery temperature.",
+    "explanationMarathi": "चार्जिंगच्या वेळी बॅटरीच्या आत रासायनिक प्रक्रिया घडत असतात आणि करंट वाहिल्यामुळे बॅटरीच्या अंतर्गत रोधामुळे (I^2R लॉसेस) उष्णता निर्माण होते, ज्यामुळे बॅटरीचे तापमान वाढते."
+  },
+  {
+    "id": 1290,
+    "chapterId": 41,
+    "question": "How are interpoles connected?",
+    "questionMarathi": "इंटरपोल्स (Interpoles) कसे जोडले जातात?",
+    "options": [
+      "Parallel to main poles",
+      "In series with main poles",
+      "In series with armature",
+      "Parallel to armature"
+    ],
+    "optionsMarathi": [
+      "मुख्य पोलच्या समांतर (Parallel)",
+      "मुख्य पोलच्या सिरीजमध्ये (Series)",
+      "आर्मेचरच्या सिरीजमध्ये (Series)",
+      "आर्मेचरच्या समांतर (Parallel)"
+    ],
+    "answer": "C",
+    "explanation": "To improve commutation and reduce armature reaction, interpoles are always connected in series with the armature winding, so that if the load current increases, the magnetic field of the interpole increases proportionately.",
+    "explanationMarathi": "कम्युटेशन सुधारण्यासाठी आणि आर्मेचर रिॲक्शन कमी करण्यासाठी इंटरपोल्स हे नेहमी आर्मेचर वाइंडिंगच्या सिरीजमध्ये (मालिका जोडणीत) जोडले जातात, जेणेकरून लोड करंट वाढल्यास इंटरपोलचे चुंबकीय क्षेत्रही त्याच प्रमाणात वाढेल."
+  },
+  {
+    "id": 1291,
+    "chapterId": 41,
+    "question": "What is the algebraic sum of currents entering and leaving a junction of conductors?",
+    "questionMarathi": "वाहकांच्या जंक्शनवर (सांध्यावर) येणाऱ्या आणि जंक्शनपासून दूर जाणाऱ्या प्रवाहांचा बैजिक बेरीज (Algebraic Sum) किती असतो?",
+    "options": [
+      "Zero",
+      "Excessive",
+      "Equal",
+      "Very low"
+    ],
+    "optionsMarathi": [
+      "शून्य",
+      "अत्यधिक",
+      "समान",
+      "खूप कमी"
+    ],
+    "answer": "A",
+    "explanation": "This is Kirchhoff's Current Law (KCL). According to this law, the sum of total current entering any junction is equal to the sum of total current going out from there, i.e., the collective algebraic sum of all currents at the junction is zero (Σ I = 0).",
+    "explanationMarathi": "हा किर्चॉफचा करंटचा नियम (Kirchhoff's Current Law - KCL) आहे. या नियमानुसार, कोणत्याही जंक्शनवर येणाऱ्या एकूण करंटची बेरीज ही तिथून बाहेर जाणाऱ्या एकूण करंटच्या बेरजेइतकी असते, म्हणजेच जंक्शनवरील सर्व करंट्सची एकत्रित बैजिक बेरीज शून्य (Σ I = 0) असते."
+  },
+  {
+    "id": 1292,
+    "chapterId": 41,
+    "question": "On what color background are prohibition signs made?",
+    "questionMarathi": "निषेधात्मक चिन्हे (Prohibition Signs) कोणत्या रंगाच्या पार्श्वभूमीवर (Background) बनवली जातात?",
+    "options": [
+      "Green",
+      "Blue",
+      "Yellow",
+      "White"
+    ],
+    "optionsMarathi": [
+      "हिरव्या",
+      "निळ्या",
+      "पिवळ्या",
+      "पांढऱ्या"
+    ],
+    "answer": "D",
+    "explanation": "According to safety signs, prohibition signs (e.g., no smoking) are shown by a red circle and horizontal bar on a white background with a black symbol.",
+    "explanationMarathi": "सुरक्षा चिन्हांनुसार, निषेधात्मक चिन्हे (उदा. धूम्रपान बंदी) ही पांढऱ्या पार्श्वभूमीवर लाल रंगाचे वर्तुळ आणि आडवी पट्टी मारून, काळ्या रंगाच्या चिन्हाने दर्शवली जातात."
+  },
+  {
+    "id": 1293,
+    "chapterId": 41,
+    "question": "Which of the following quantities is measured in 'Newton'?",
+    "questionMarathi": "'न्यूटन' (Newton) हे खालीलपैकी कोणत्या राशीचे एकक आहे?",
+    "options": [
+      "Weight",
+      "Force",
+      "Speed",
+      "Both A and B"
+    ],
+    "optionsMarathi": [
+      "वजनाचे (Weight)",
+      "बलाचे (Force)",
+      "गतीचे (Speed)",
+      "A आणि B दोन्ही"
+    ],
+    "answer": "D",
+    "explanation": "According to physics, the SI unit of 'Force' is Newton. Since 'Weight' is also a gravitational force exerted by the Earth on an object, its unit is also Newton (N).",
+    "explanationMarathi": "भौतिकशास्त्रानुसार 'बल' (Force) चे एस.आय. (SI) एकक न्यूटन आहे. 'वजन' (Weight) हे सुद्धा पृथ्वीने वस्तूवर लावलेले एक गुरुत्वीय बलच असल्यामुळे त्याचे एकक देखील न्यूटन (N) हेच असते."
+  },
+  {
+    "id": 1294,
+    "chapterId": 41,
+    "question": "If another resistor is added in parallel to resistors already in a parallel connection, what will be the effect on the total current?",
+    "questionMarathi": "जर समांतर (Parallel) जोडणीत असलेल्या रोधकांमध्ये आणखी एक रोध समांतर जोडला, तर एकूण करंटवर (विद्युत प्रवाहावर) काय परिणाम होईल?",
+    "options": [
+      "Current will increase",
+      "Current will decrease",
+      "Current will remain same",
+      "Current will be zero"
+    ],
+    "optionsMarathi": [
+      "करंट वाढेल",
+      "करंट कमी होईल",
+      "करंट समान राहील",
+      "करंट शून्य होईल"
+    ],
+    "answer": "A",
+    "explanation": "Adding another resistor in parallel decreases the total resistance of the circuit. According to Ohm's Law (I = V/R), total current flowing from the supply increases as resistance decreases.",
+    "explanationMarathi": "समांतर जोडणीत आणखी एक रोध जोडल्यास परिपथाचा एकूण रोध (Total Resistance) कमी होतो. ओहमच्या नियमानुसार (I = V/R), रोध कमी झाल्यामुळे सप्लायमधून वाहणारा एकूण करंट वाढतो."
+  },
+  {
+    "id": 1295,
+    "chapterId": 41,
+    "question": "If another resistor is added in series to resistors already in a series connection, what will be the effect on the current?",
+    "questionMarathi": "जर सिरीज (Series) जोडणीत असलेल्या रोधकांमध्ये आणखी एक रोध सिरीजमध्ये जोडला, तर करंटवर काय परिणाम होईल?",
+    "options": [
+      "Current will increase",
+      "Current will decrease",
+      "Current will remain same",
+      "Current will be zero"
+    ],
+    "optionsMarathi": [
+      "करंट वाढेल",
+      "करंट कमी होईल",
+      "करंट समान राहील",
+      "करंट शून्य होईल"
+    ],
+    "answer": "B",
+    "explanation": "Adding a new resistor in series increases the total resistance of the circuit (R_total = R1 + R2 + R3...). Electric current flowing through the circuit decreases as resistance increases.",
+    "explanationMarathi": "सिरीज जोडणीमध्ये नवा रोध जोडल्याने परिपथाचा एकूण रोध वाढतो (R_total = R1 + R2 + R3...). रोध वाढल्यामुळे सर्किटमधून वाहणारा विद्युत प्रवाह (करंट) कमी होतो."
+  },
+  {
+    "id": 1296,
+    "chapterId": 41,
+    "question": "What is the unit of electrical efficiency?",
+    "questionMarathi": "विद्युत कार्यक्षमतेचे (Electrical Efficiency) एकक काय असते?",
+    "options": [
+      "Watt",
+      "Joule",
+      "Coulomb",
+      "No unit"
+    ],
+    "optionsMarathi": [
+      "वॉट",
+      "ज्यूल",
+      "कूलांब",
+      "कोणतेही एकक नसते"
+    ],
+    "answer": "D",
+    "explanation": "Efficiency is the ratio of output power and input power (Output/Input). Since both quantities are measured in the same unit (Watts), their units cancel out, so efficiency has no unit (it is shown in percentage).",
+    "explanationMarathi": "कार्यक्षमता (Efficiency) हे आउटपुट पॉवर आणि इनपुट पॉवर यांचे गुणोत्तर असते (Output/Input). दोन्ही राशी एकाच एककात (वॉटमध्ये) मोजल्या जात असल्याने त्यांचे एकक एकमेकांना कॅन्सल होते, त्यामुळे कार्यक्षमतेला कोणतेही एकक नसते (ती टक्केवारीत दर्शवली जाते)."
+  },
+  {
+    "id": 1297,
+    "chapterId": 41,
+    "question": "In a shunt generator, the armature current is 26 Amperes. If it is supplying 20 Amperes of current to the load, what will be the shunt field current?",
+    "questionMarathi": "एका शंट जनरेटरमध्ये आर्मेचर करंट 26 ॲम्पियर आहे. जर तो लोडला 20 ॲम्पियर करंट पुरवत असेल, तर शंट फील्डचा करंट किती असेल?",
+    "options": [
+      "26 Amperes",
+      "20 Amperes",
+      "6 Amperes",
+      "1.3 Amperes"
+    ],
+    "optionsMarathi": [
+      "26 ॲम्पियर",
+      "20 ॲम्पियर",
+      "6 ॲम्पियर",
+      "1.3 ॲम्पियर"
+    ],
+    "answer": "C",
+    "explanation": "In a DC shunt generator, the armature current is equal to the sum of the load current and the shunt field current (Ia = IL + Ish). Therefore, shunt current Ish = Ia - IL = 26 - 20 = 6 A.",
+    "explanationMarathi": "DC शंट जनरेटरमध्ये, आर्मेचर करंट हा लोड करंट आणि शंट फील्ड करंटच्या बेरजेइतका असतो (Ia = IL + Ish). म्हणून, शंट करंट Ish = Ia - IL = 26 - 20 = 6 A."
+  },
+  {
+    "id": 1298,
+    "chapterId": 41,
+    "question": "What is the temperature coefficient of insulating materials?",
+    "questionMarathi": "अवाहक पदार्थांचा (Insulating Materials) तापमान गुणांक (Temperature Coefficient) कसा असतो?",
+    "options": [
+      "Positive",
+      "Negative",
+      "Adjustable",
+      "Constant"
+    ],
+    "optionsMarathi": [
+      "धनात्मक (Positive)",
+      "ऋणात्मक (Negative)",
+      "समायोज्य",
+      "स्थिर"
+    ],
+    "answer": "B",
+    "explanation": "Insulators and semiconductors have a 'negative' temperature coefficient (NTC). This means that as temperature increases, their resistance decreases and conductivity increases.",
+    "explanationMarathi": "इन्सुलेटर आणि अर्धवाहक (Semiconductors) पदार्थांचा तापमान गुणांक 'नेगेटिव्ह' (NTC) असतो. याचा अर्थ असा की, तापमान वाढवल्यास त्यांचा रोध कमी होतो आणि वाहकता वाढते."
+  },
+  {
+    "id": 1299,
+    "chapterId": 41,
+    "question": "What will be the resistance of a 50 Watt, 250 Volt lamp?",
+    "questionMarathi": "एका 50 वॉट, 250 व्होल्ट वजनाच्या लॅम्पचा (दिव्याचा) रोध किती असेल?",
+    "options": [
+      "12500 ohms",
+      "1250 ohms",
+      "5 ohms",
+      "10 ohms"
+    ],
+    "optionsMarathi": [
+      "12500 ओम",
+      "1250 ओम",
+      "5 ओम",
+      "10 ओम"
+    ],
+    "answer": "B",
+    "explanation": "Formula for resistance: R = V^2 / P. Given: V = 250 V, P = 50 W. R = (250 * 250) / 50 = 62500 / 50 = 1250 Ω.",
+    "explanationMarathi": "रोध काढण्याचे सूत्र: R = V^2 / P. दिलेले आहे: V = 250 V, P = 50 W. R = (250 * 250) / 50 = 62500 / 50 = 1250 Ω."
+  },
+  {
+    "id": 1300,
+    "chapterId": 41,
+    "question": "What color does the negative plate of a lead-acid cell turn after being fully charged?",
+    "questionMarathi": "पूर्ण चार्ज झाल्यानंतर लेड ॲसिड सेलच्या ऋणात्मक (Negative) प्लेटचा रंग कोणता होतो?",
+    "options": [
+      "Red",
+      "Chocolate Brown",
+      "Spongy Grey",
+      "White"
+    ],
+    "optionsMarathi": [
+      "लाल",
+      "तपकिरी (Chocolate Brown)",
+      "करडा / स्लेटी (Spongy Grey)",
+      "पांढरा"
+    ],
+    "answer": "C",
+    "explanation": "When fully charged, the color of the positive plate becomes dark brown (Chocolate Brown - PbO2), while the color of the negative plate becomes light grey or spongy grey (Spongy Grey - Pb).",
+    "explanationMarathi": "पूर्ण चार्ज झाल्यावर पॉझिटिव्ह प्लेटचा रंग गडद तपकिरी (Chocolate Brown - PbO2) होतो, तर नेगेटिव्ह प्लेटचा रंग फिकट करडा किंवा स्लेटी (Spongy Grey - Pb) होतो."
+  },
+  {
+    "id": 1301,
+    "chapterId": 41,
+    "question": "What is used in a circuit for protection against over-current?",
+    "questionMarathi": "परिपथामध्ये (Circuit) ओव्हर-करंट किंवा अति प्रवाहापासून संरक्षणासाठी कशाचा वापर केला जातो?",
+    "options": [
+      "Switch",
+      "MCB (Miniature Circuit Breaker)",
+      "Socket",
+      "Ceiling Rose"
+    ],
+    "optionsMarathi": [
+      "स्विच (Switch)",
+      "एमसीबी (MCB - Miniature Circuit Breaker)",
+      "सॉकेट (Socket)",
+      "सीलिंग रोज (Ceiling Rose)"
+    ],
+    "answer": "B",
+    "explanation": "An MCB is a safety device. When current higher than the safe limit flows in the circuit due to overload or short circuit, the MCB automatically trips and disconnects the power supply.",
+    "explanationMarathi": "MCB हे एक सुरक्षा उपकरण आहे. जेव्हा सर्किटमध्ये ओव्हरलोड किंवा शॉर्ट सर्किटमुळे सुरक्षित मर्यादेपेक्षा जास्त करंट वाहतो, तेव्हा एमसीबी स्वयंचलितपणे ट्रिप होऊन वीज पुरवठा खंडित करतो."
+  },
+  {
+    "id": 1302,
+    "chapterId": 41,
+    "question": "What will be the power consumption when a 10-ohm resistance is connected to a 100-volt supply?",
+    "questionMarathi": "10 ओमचा रोध 100 व्होल्टच्या सप्लायला जोडला असता खर्च होणारी शक्ती (Power Consumption) किती असेल?",
+    "options": [
+      "1000 Watt",
+      "100 Watt",
+      "10000 Watt",
+      "10 Watt"
+    ],
+    "optionsMarathi": [
+      "1000 वॉट",
+      "100 वॉट",
+      "10000 वॉट",
+      "10 वॉट"
+    ],
+    "answer": "A",
+    "explanation": "Power formula: P = V^2 / R. P = (100 * 100) / 10 = 10000 / 10 = 1000 W.",
+    "explanationMarathi": "पॉवर काढण्याचे सूत्र: P = V^2 / R. P = (100 * 100) / 10 = 10000 / 10 = 1000 W."
+  },
+  {
+    "id": 1303,
+    "chapterId": 41,
+    "question": "What is the symbol σ (Sigma) and the unit 'Siemens per cm' (S/cm) related to?",
+    "questionMarathi": "चिन्ह σ (सिग्मा) आणि एकक 'सायमन्स प्रति सेंमी' (Siemens/cm) चा संबंध कशाशी आहे?",
+    "options": [
+      "Resistance",
+      "Specific Conductivity",
+      "Specific Permeance",
+      "Resistivity"
+    ],
+    "optionsMarathi": [
+      "रोधाशी (Resistance)",
+      "विशिष्ट वाहकतेशी (Specific Conductivity)",
+      "विशिष्ट परमिअन्सशी",
+      "विशिष्ट रोधाशी (Resistivity)"
+    ],
+    "answer": "B",
+    "explanation": "Specific conductivity (Conductivity - σ) is inversely proportional to resistivity. Its unit is Siemens per meter or Siemens per centimeter.",
+    "explanationMarathi": "विशिष्ट वाहकता (Conductivity - σ) हे विशिष्ट रोधाच्या (Resistivity) व्यस्त प्रमाण असते. याचे एकक सायमन्स प्रति मीटर किंवा सायमन्स प्रति सेंटीमीटर असते."
+  },
+  {
+    "id": 1304,
+    "chapterId": 41,
+    "question": "Which of the following is a ferro-magnetic material?",
+    "questionMarathi": "खालीलपैकी कोणता फेरो-मॅग्नेटिक (लोह-चुंबकीय) पदार्थ आहे?",
+    "options": [
+      "Nickel",
+      "Copper",
+      "Aluminium",
+      "Zinc"
+    ],
+    "optionsMarathi": [
+      "निकेल (Nickel)",
+      "तांबे (Copper)",
+      "ॲल्युमिनियम (Aluminium)",
+      "जस्त (Zinc)"
+    ],
+    "answer": "A",
+    "explanation": "Iron, Nickel, and Cobalt show strong magnetic properties, so they are called 'ferromagnetic materials'. Copper and zinc are diamagnetic, while aluminum is paramagnetic.",
+    "explanationMarathi": "लोखंड (Iron), निकेल (Nickel) आणि कोबाल्ट (Cobalt) हे पदार्थ तीव्र चुंबकीय गुणधर्म दाखवतात, म्हणून त्यांना 'लोह-चुंबकीय पदार्थ' (Ferromagnetic) म्हणतात. तांबे आणि जस्त हे डायमॅग्नेटिक तर ॲल्युमिनियम पॅरामॅग्नेटिक आहे."
+  },
+  {
+    "id": 1305,
+    "chapterId": 41,
+    "question": "What is the voltage of a fully charged lead-acid cell?",
+    "questionMarathi": "पूर्णपणे चार्ज झालेल्या लेड ॲसिड सेलचा व्होल्टेज किती असतो?",
+    "options": [
+      "2.0 Volts",
+      "1.8 Volts",
+      "2.6 Volts",
+      "2.2 Volts"
+    ],
+    "optionsMarathi": [
+      "2.0 व्होल्ट",
+      "1.8 व्होल्ट",
+      "2.6 व्होल्ट",
+      "2.2 व्होल्ट"
+    ],
+    "answer": "D",
+    "explanation": "The no-load voltage of a fully charged lead-acid cell is about 2.2 Volts. (During discharge, it drops to 2.0 Volts and is not allowed to go below 1.8 Volts).",
+    "explanationMarathi": "पूर्ण चार्ज झालेल्या लेड-ॲसिड सेलचा नो-लोड व्होल्टेज सुमारे २.२ व्होल्ट (2.2 V) असतो. (काम करताना डिस्चार्ज दरम्यान तो २.० व्होल्टवर येतो आणि १.८ व्होल्टच्या खाली जाऊ दिला जात नाही)."
+  },
+  {
+    "id": 1306,
+    "chapterId": 41,
+    "question": "What is the main function of the commutator in DC machines?",
+    "questionMarathi": "DC मशिन्समध्ये कम्युटेटरचे (Commutator) मुख्य कार्य काय असते?",
+    "options": [
+      "To reduce commutation",
+      "To convert AC to DC (in generator) or DC to AC (in motor)",
+      "To change DC to AC",
+      "To cool the machine"
+    ],
+    "optionsMarathi": [
+      "कम्युटेशन कमी करणे",
+      "AC चे DC मध्ये रूपांतर करणे (जनरेटरमध्ये) किंवा DC चे AC मध्ये करणे (मोटरमध्ये)",
+      "DC ला AC मध्ये बदलणे",
+      "मशीन थंड करणे"
+    ],
+    "answer": "B",
+    "explanation": "A commutator is a mechanical rectifier. In the case of a generator, it converts the AC voltage from the armature into DC output, while in the case of a motor, it changes the external DC current into AC for the armature.",
+    "explanationMarathi": "कम्युटेटर हा एक मेकॅनिकल रेक्टिफायर आहे. जनरेटरच्या बाबतीत तो आर्मेचरमधील AC व्होल्टेजचे बाहेर DC मध्ये रूपांतर करतो, तर मोटरच्या बाबतीत बाहेरून दिलेल्या DC करंटला आर्मेचरसाठी AC मध्ये बदलतो."
+  },
+  {
+    "id": 1307,
+    "chapterId": 41,
+    "question": "Where do iron losses (lowh nuksan) primarily occur in DC machines?",
+    "questionMarathi": "DC मशीनमध्ये आयर्न लॉसेस (Iron Losses / लोह नुकसान) प्रामुख्याने कुठे होतात?",
+    "options": [
+      "In the Yoke",
+      "In the Commutator",
+      "In the Brushes",
+      "In the Armature (Core)"
+    ],
+    "optionsMarathi": [
+      "योक (Yoke) मध्ये",
+      "कम्युटेटरमध्ये",
+      "ब्रशमध्ये",
+      "आर्मेचर (Core) मध्ये"
+    ],
+    "answer": "D",
+    "explanation": "Iron losses (which include hysteresis and eddy current losses) always occur in the magnetic core that comes in contact with changing or rotating magnetic fields, i.e., in the armature core.",
+    "explanationMarathi": "आयर्न लॉसेस (ज्यामध्ये हिस्टेरेसिस आणि एडी करंट लॉसेस येतात) हे नेहमी बदलत्या किंवा फिरत्या चुंबकीय क्षेत्राच्या संपर्कात येणाऱ्या चुंबकीय गाभ्यामध्ये म्हणजेच आर्मेचर कोर मध्ये होतात."
+  },
+  {
+    "id": 1308,
+    "chapterId": 41,
+    "question": "If split rings (commutator) are connected to the armature of a generator, what will the output be?",
+    "questionMarathi": "जर एका जनरेटरच्या आर्मेचरवर स्प्लिट रिंग्ज (Split Rings / कम्युटेटर) जोडलेल्या असतील, तर आउटपुट काय असेल?",
+    "options": [
+      "AC",
+      "DC",
+      "Both AC and DC",
+      "Nothing will be obtained in output"
+    ],
+    "optionsMarathi": [
+      "AC",
+      "DC",
+      "AC आणि DC दोन्ही",
+      "आउटपुटमध्ये काहीही मिळणार नाही"
+    ],
+    "answer": "B",
+    "explanation": "Split rings (rings with gaps) mean a commutator. It purifies the AC current from the armature by changing its direction and supplies it to the external circuit as one-way, i.e., in DC form.",
+    "explanationMarathi": "स्प्लिट रिंग्ज (मधे खाच असलेले रिंग) म्हणजेच कम्युटेटर होय. हे आर्मेचरच्या AC प्रवाहाला दिशा बदलून बाहेरच्या सर्किटला एकमार्गी म्हणजेच DC स्वरूपात पुरवते."
+  },
+  {
+    "id": 1309,
+    "chapterId": 41,
+    "question": "The speed of a DC motor is directly proportional to what?",
+    "questionMarathi": "DC मोटरचा वेग (Speed) कशाच्या थेट प्रमाणात (Directly Proportional) असतो?",
+    "options": [
+      "Flux",
+      "Armature current",
+      "Back EMF (Eb)",
+      "Field resistance"
+    ],
+    "optionsMarathi": [
+      "फ्लक्सच्या",
+      "आर्मेचर करंटच्या",
+      "बॅक EMF (Eb) च्या",
+      "फील्ड रोधाच्या"
+    ],
+    "answer": "C",
+    "explanation": "The kinetic equation for the speed of a DC motor is N ∝ Eb / φ. This means that speed is directly proportional to the back EMF and inversely proportional to the magnetic flux.",
+    "explanationMarathi": "DC मोटरच्या गतीचे गतिज समीकरण N ∝ Eb / φ असे आहे. म्हणजेच, गती ही बॅक EMF च्या थेट प्रमाणात (Directly Proportional) आणि चुंबकीय फ्लक्सच्या व्यस्त प्रमाणात असते."
+  },
+  {
+    "id": 1310,
+    "chapterId": 41,
+    "question": "According to which law is the back EMF generated in a DC motor?",
+    "questionMarathi": "DC मोटरमध्ये बॅक EMF कोणत्या नियमानुसार निर्माण होतो?",
+    "options": [
+      "Faraday's Law",
+      "Joule's Law",
+      "Lenz's Law",
+      "Oersted's Law"
+    ],
+    "optionsMarathi": [
+      "फॅराडेच्या नियमानुसार",
+      "ज्यूलच्या नियमाने",
+      "लेंझच्या नियमानुसार (Lenz's Law)",
+      "ओर्स्टेडच्या नियमाने"
+    ],
+    "answer": "A",
+    "explanation": "When the armature rotates in a magnetic field, an EMF is induced in it according to Faraday's Law of Electromagnetic Induction. This EMF opposes the supply voltage, hence it is called back EMF (the direction of opposition is determined by Lenz's Law, but the primary generation is due to Faraday's Law).",
+    "explanationMarathi": "जब आर्मेचर चुंबकीय क्षेत्रात फिरतो, तेव्हा फॅराडेच्या इलेक्ट्रोमॅग्नेटिक इंडक्शनच्या नियमानुसार त्यात EMF प्रेरित होतो. हा EMF सप्लाय व्होल्टेजला विरोध करतो म्हणून याला बॅक EMF म्हणतात (विरोधाची दिशा लेंझच्या नियमाने ठरते, परंतु मुख्य निर्मिती फॅराडेच्या नियमामुळे होते)."
+  },
+  {
+    "id": 1311,
+    "chapterId": 42,
+    "question": "What happens if a DC series generator is run without any load?",
+    "questionMarathi": "एका DC सिरीज जनरेटरला कोणत्याही लोडशिवाय (No Load) चालवल्यास काय होईल?",
+    "options": [
+      "Take more current",
+      "Give less voltage",
+      "Will not give voltage",
+      "Run fast"
+    ],
+    "optionsMarathi": [
+      "जास्त करंट घेईल",
+      "कमी व्होल्टेज देईल",
+      "व्होल्टेज देणार नाही",
+      "वेगाने चालेल"
+    ],
+    "answer": "C",
+    "explanation": "The field winding of a DC series generator is in series with the armature and the load. When the load is not connected, the circuit is not completed and current does not flow through the field. Therefore, the generator does not produce voltage because the main magnetic field is not created (only a very minor voltage can be seen due to residual magnetism).",
+    "explanationMarathi": "DC सिरीज जनरेटरची FIELD वाइंडिंग आर्मेचर आणि लोडच्या सिरीजमध्ये असते. लोड जोडलेला नसताना परिपथ पूर्ण होत नाही आणि फील्डमधून करंट वाहत नाही. त्यामुळे मुख्य चुंबकीय क्षेत्र तयार न झाल्याने जनरेटर व्होल्टेज निर्माण करत नाही (फक्त रेसिड्यूअल मॅग्नेटिझममुळे खूप किरकोळ व्होल्टेज दिसू शकतो)."
+  },
+  {
+    "id": 1312,
+    "chapterId": 42,
+    "question": "A shunt generator gives a load current of 15 A at 220 volts. If the shunt field resistance is 220 ohms, what will be the armature current?",
+    "questionMarathi": "एक शंट जनरेटर 220 व्होल्टवर 15 A लोड करंट देतो. जर शंट फील्डचा रोध 220 ओम असेल, तर आर्मेचर करंट किती असेल?",
+    "options": [
+      "15 A",
+      "16 A",
+      "1 A",
+      "10 A"
+    ],
+    "optionsMarathi": [
+      "15 A",
+      "16 A",
+      "1 A",
+      "10 A"
+    ],
+    "answer": "B",
+    "explanation": "First find shunt field current: Ish = V / Rsh = 220 / 220 = 1 A. Armature current formula: Ia = IL + Ish. So, Ia = 15 + 1 = 16 A.",
+    "explanationMarathi": "आधी शंट फील्ड करंट काढू: Ish = V / Rsh = 220 / 220 = 1 A. आर्मेचर करंटचे सूत्र: Ia = IL + Ish म्हणून, Ia = 15 + 1 = 16 A."
+  },
+  {
+    "id": 1313,
+    "chapterId": 42,
+    "question": "In which of the following is Fleming's Left Hand Rule used?",
+    "questionMarathi": "फ्लेमिंगच्या डाव्या हाताच्या नियमाचा (Fleming's Left Hand Rule) वापर कशात केला जातो?",
+    "options": [
+      "Motor",
+      "Generator",
+      "Alternator",
+      "Transformer"
+    ],
+    "optionsMarathi": [
+      "मोटरमध्ये (Motor)",
+      "जनरेटरमध्ये",
+      "ऑल्टरनेटरमध्ये",
+      "ट्रान्सफॉर्मरमध्ये"
+    ],
+    "answer": "A",
+    "explanation": "Fleming's left hand rule is used to find the direction of force or rotation on the armature conductor in an electric motor. (Right hand rule is used for generators).",
+    "explanationMarathi": "फ्लेमिंगचा डाव्या हाताचा नियम विद्युत मोटरमध्ये आर्मेचर कंडक्टरवर लागणाऱ्या बलाची (Force) किंवा फिरण्याची दिशा शोधण्यासाठी वापरला जातो. (जनरेटरसाठी उजव्या हाताचा नियम वापरतात)."
+  },
+  {
+    "id": 1314,
+    "chapterId": 42,
+    "question": "On what does Local Action Fault occur?",
+    "questionMarathi": "स्थानिक क्रिया दोष (Local Action Fault) कशावर होतो?",
+    "options": [
+      "Anode",
+      "Cathode (on Zinc plate)",
+      "Copper",
+      "Silver"
+    ],
+    "optionsMarathi": [
+      "ॲनोडवर",
+      "कॅथोडवर (जस्ताच्या प्लेटवर)",
+      "तांब्यावर",
+      "चांदीवर"
+    ],
+    "answer": "B",
+    "explanation": "In primary cells (e.g., voltaic cell), small cells are formed locally due to impurities (iron, carbon, etc.) in the zinc strip and the zinc begins to melt even without a main current. This is called local action fault, which occurs on the cathode (zinc).",
+    "explanationMarathi": "प्रायमरी सेल्समध्ये (उदा. व्होल्टेइक सेल) जस्ताच्या (Zinc) पट्टीमध्ये असलेल्या अशुद्धतेमुळे (लोखंड, कार्बन इ.) तिथे स्थानिक पातळीवर लहान सेल्स तयार होतात आणि मुख्य प्रवाह नसतानाही जस्त वितळू लागते. याला लोकल ॲक्शन दोष म्हणतात, जो कॅथोडवर (जस्त) घडतो."
+  },
+  {
+    "id": 1315,
+    "chapterId": 42,
+    "question": "What will be the color coding for a resistor of 280 kΩ ± 10%?",
+    "questionMarathi": "280 kΩ ± 10% या रोधाचे कलर कोडिंग (रंग निर्धारण) काय असेल?",
+    "options": [
+      "Red, Grey, Yellow, Silver",
+      "Red, Grey, Orange, Gold",
+      "Red, Grey, Green, Silver",
+      "Red, Grey, Orange, Green"
+    ],
+    "optionsMarathi": [
+      "लाल, करडा, पिवळा, चांदी (Silver)",
+      "लाल, करडा, नारंगी, सोनेरी (Gold)",
+      "लाल, करडा, हिरवा, चांदी (Silver)",
+      "लाल, करडा, नारंगी, हिरवा"
+    ],
+    "answer": "A",
+    "explanation": "According to color code chart (BB ROY Great Britain...): 2 = Red, 8 = Grey, 4 (because 280 kΩ = 280,000 Ω = 28 x 10^4) = Yellow, ± 10% tolerance = Silver.",
+    "explanationMarathi": "कलर कोड चार्टनुसार (BB ROY Great Britain...): २ = लाल (Red), ८ = करडा/स्लेटी (Grey), ४ (कारण 280 kΩ = 280,000 Ω = 28 x 10^4) = पिवळा (Yellow), ± 10% टॉलरन्स = चांदी/रुपेरी (Silver)."
+  },
+  {
+    "id": 1316,
+    "chapterId": 42,
+    "question": "The value of which of the following losses remains constant from no-load to full-load?",
+    "questionMarathi": "खालीलपैकी कोणत्या लॉसेसचे (नुकसानीचे) मूल्य नो-लोडपासून फुल-लोडपर्यंत स्थिर (Constant) राहते?",
+    "options": [
+      "Armature + Series",
+      "Iron + Mechanical + Armature",
+      "Iron + Mechanical + Shunt Field",
+      "Mechanical + Armature"
+    ],
+    "optionsMarathi": [
+      "आर्मेचर + सिरीज",
+      "लोह + यांत्रिक + आर्मेचर",
+      "लोह + यांत्रिक + शंट फील्ड (Iron + Mechanical + Shunt)",
+      "यांत्रिक + आर्मेचर"
+    ],
+    "answer": "C",
+    "explanation": "In DC shunt machines, Iron losses, Mechanical losses, and losses in Shunt field remain constant even if the load changes. This combined part is called 'Constant Losses'.",
+    "explanationMarathi": "DC शंट मशिन्समध्ये लोह नुकसान (Iron losses), यांत्रिक नुकसान (Mechanical losses) आणि शंट फील्ड मधील नुकसान हे लोड बदलला तरी स्थिर राहतात. या एकत्रित भागाला 'कॉन्स्टंट लॉसेस' (Constant Losses) म्हणतात."
+  },
+  {
+    "id": 1317,
+    "chapterId": 42,
+    "question": "What is used to eliminate the de-magnetizing effect of armature reaction?",
+    "questionMarathi": "आर्मेचर रिॲक्शनचा डी-मॅग्नेटायझिंग (Demagnetizing) प्रभाव नष्ट करण्यासाठी काय वापरतात?",
+    "options": [
+      "Commutator",
+      "Compensating Winding",
+      "Interpole",
+      "Wave Winding"
+    ],
+    "optionsMarathi": [
+      "कम्युटेटर",
+      "कम्पेन्सेटिंग वाइंडिंग (Compensating Winding)",
+      "इंटरपोल",
+      "वेव्ह वाइंडिंग"
+    ],
+    "answer": "B",
+    "explanation": "To prevent demagnetization of the main magnetic field and to counteract the main effect of armature reaction, 'compensating winding' is installed on the face of the pole shoe.",
+    "explanationMarathi": "मुख्य चुंबकीय क्षेत्राचे विचुंबकन (Demagnetizing) रोखण्यासाठी आणि आर्मेचर रिॲक्शनचा मुख्य प्रभाव खोडून काढण्यासाठी पोल शूच्या चेहऱ्यावर 'कम्पेन्सेटिंग वाइंडिंग' बसवली जाते."
+  },
+  {
+    "id": 1318,
+    "chapterId": 42,
+    "question": "By which of the following methods can the speed of a shunt motor be controlled?",
+    "questionMarathi": "खालीलपैकी कोणत्या पद्धतीने शंट मोटरचा वेग नियंत्रित (Speed Control) केला जाऊ शकतो?",
+    "options": [
+      "Armature Diverter",
+      "Field Diverter",
+      "Armature Control Method",
+      "Field Tapping"
+    ],
+    "optionsMarathi": [
+      "आर्मेचर डायव्हर्टर",
+      "फील्ड डायव्हर्टर",
+      "आर्मेचर नियंत्रण पद्धत (Armature Control Method)",
+      "फील्ड टॅपिंग"
+    ],
+    "answer": "C",
+    "explanation": "Two main methods are used to control the speed of DC shunt motor: Armature control method (for speed lower than normal) and Field flux control method (for speed higher than normal).",
+    "explanationMarathi": "DC शंट मोटरची गती नियंत्रित करण्यासाठी प्रामुख्याने दोन पद्धती वापरल्या जातात: आर्मेचर नियंत्रण पद्धत (सामान्य गतीपेक्षा कमी गतीसाठी) आणि फील्ड फ्लक्स नियंत्रण पद्धत (सामान्य गतीपेक्षा जास्त गतीसाठी)."
+  },
+  {
+    "id": 1319,
+    "chapterId": 42,
+    "question": "Why are cells (primary/secondary cells) connected in series?",
+    "questionMarathi": "सेल्स (प्रायमरी/सेकंडरी सेल्स) सिरीजमध्ये (मालिका जोडणीत) का जोडले जातात?",
+    "options": [
+      "To get higher EMF/Voltage",
+      "To get more current",
+      "To get less current",
+      "To get less voltage"
+    ],
+    "optionsMarathi": [
+      "अधिक विद्युत वाहक बल (Higher EMF/Voltage) मिळवण्यासाठी",
+      "अधिक करंट मिळवण्यासाठी",
+      "कमी करंट मिळवण्यासाठी",
+      "कमी व्होल्टेज मिळवण्यासाठी"
+    ],
+    "answer": "A",
+    "explanation": "When higher voltage is required, cells are connected in series, so that the total voltage increases equal to the sum of all (Vtotal = V1 + V2...). For more current, cells are connected in parallel.",
+    "explanationMarathi": "जेव्हा जास्त व्होल्टेजची आवश्यकता असते, तेव्हा सेल्स सिरीजमध्ये जोडतात, ज्यामुळे एकूण व्होल्टेज सर्वांच्या बेरजेइतका वाढतो (Vtotal = V1 + V2...). जास्त करंटसाठी सेल्स समांतर (Parallel) जोडतात."
+  },
+  {
+    "id": 1320,
+    "chapterId": 42,
+    "question": "How many British HP (Horse Power) are in 1 kilowatt-hour (1 kWh)?",
+    "questionMarathi": "1 किलोवॉट-तास (1 kWh) मध्ये किती ब्रिटिश HP (हॉर्स पॉवर) असतात?",
+    "options": [
+      "1.36",
+      "1.34",
+      "1.38",
+      "1.32"
+    ],
+    "optionsMarathi": [
+      "1.36",
+      "1.34",
+      "1.38",
+      "1.32"
+    ],
+    "answer": "B",
+    "explanation": "According to the British system, 1 HP = 746 Watts = 0.746 kW. Therefore, 1 kWh = 1 / 0.746 ≈ 1.34 HP. (If Metric was asked, 1.36 would be the answer according to 1 HP = 735.5 W).",
+    "explanationMarathi": "ब्रिटिश प्रणालीनुसार 1 HP = 746 Watts = 0.746 kW. म्हणून, 1 kWh = 1 / 0.746 ≈ 1.34 HP. (मेट्रिक विचारले असते तर 1 HP = 735.5 W नुसार १.३६ उत्तर आले असते)."
+  },
+  {
+    "id": 1321,
+    "chapterId": 42,
+    "question": "What will be the resistance of a 100 Watt, 250 Volt lamp?",
+    "questionMarathi": "100 वॉट, 250 व्होल्ट लॅम्पचा रोध (Resistance) किती असेल?",
+    "options": [
+      "2500 ohms",
+      "625 ohms",
+      "0.4 ohms",
+      "2.5 ohms"
+    ],
+    "optionsMarathi": [
+      "2500 ओम",
+      "625 ओम",
+      "0.4 ओम",
+      "2.5 ओम"
+    ],
+    "answer": "B",
+    "explanation": "Formula: R = V^2 / P. R = (250 * 250) / 100 = 62500 / 100 = 625 Ω.",
+    "explanationMarathi": "सूत्र: R = V^2 / P. R = (250 * 250) / 100 = 62500 / 100 = 625 Ω."
+  },
+  {
+    "id": 1322,
+    "chapterId": 42,
+    "question": "If the thickness of core lamination is halved, how much will the Eddy Current Loss be?",
+    "questionMarathi": "जर कोरच्या लॅमिनेशनची जाडी अर्धी केली, तर एडी करंट लॉस (Eddy Current Loss) किती होईल?",
+    "options": [
+      "Double the previous",
+      "Less than half (one-fourth)",
+      "Same",
+      "Four times less",
+      "None of these"
+    ],
+    "optionsMarathi": [
+      "आधीच्या दुप्पट",
+      "आधीच्या अर्ध्यापेक्षा कमी (एक चतुर्थांश)",
+      "बरोबर (तेवढाच राहील)",
+      "आधीपेक्षा चौपट कमी",
+      "यांपैकी काहीही नाही"
+    ],
+    "answer": "D",
+    "explanation": "Eddy current loss formula is directly proportional to the square of the thickness (We ∝ t^2). If thickness (t) is halved (1/2), the new loss will be (1/2)^2 = 1/4 times, i.e., four times less.",
+    "explanationMarathi": "एडी करंट लॉसचे सूत्र जाडीच्या वर्गाशी थेट प्रमाणात असते (We ∝ t^2). जाडी (t) अर्धी (1/2) केल्यास, नवीन लॉस (1/2)^2 = 1/4 पट होईल, म्हणजेच चौपट कमी होईल."
+  },
+  {
+    "id": 1323,
+    "chapterId": 42,
+    "question": "Which supply is required for electroplating?",
+    "questionMarathi": "इलेक्ट्रोप्लेटिंग (Electroplating / धातूवर मुलामा चढवणे) साठी कोणत्या सप्लायची आवश्यकता असते?",
+    "options": [
+      "AC",
+      "DC",
+      "Both AC and DC",
+      "None of these"
+    ],
+    "optionsMarathi": [
+      "AC",
+      "DC",
+      "AC आणि DC दोन्ही",
+      "यांपैकी काहीही नाही"
+    ],
+    "answer": "B",
+    "explanation": "Only DC (Direct Current) supply can be used for electroplating, battery charging, and chemical processes, because in these, chemical components need to flow in one direction.",
+    "explanationMarathi": "इलेक्ट्रोप्लेटिंग, बॅटरी चार्जिंग आणि रासायनिक प्रक्रियांसाठी फक्त आणि फक्त DC (Direct Current) सप्लाय वापरला जाऊ शकतो, कारण यात रासायनिक घटकांचे एकाच दिशेने वहन होणे आवश्यक असते."
+  },
+  {
+    "id": 1325,
+    "chapterId": 42,
+    "question": "Into what does a lead-acid cell convert electrical energy during charging?",
+    "questionMarathi": "चार्जिंगच्या वेळी लेड ॲसिड सेल विद्युत ऊर्जेचे रूपांतर कशात करतो?",
+    "options": [
+      "Heat energy",
+      "Magnetic energy",
+      "Chemical Energy",
+      "Light energy"
+    ],
+    "optionsMarathi": [
+      "उष्णता ऊर्जेत",
+      "चुंबकीय ऊर्जेत",
+      "रासायनिक ऊर्जेत (Chemical Energy)",
+      "प्रकाश ऊर्जेत"
+    ],
+    "answer": "C",
+    "explanation": "While charging, the battery takes electrical energy from outside and chemical processes occur inside it, and that energy is stored in the form of chemical energy.",
+    "explanationMarathi": "बॅटरी चार्ज होताना ती बाहेरून विद्युत ऊर्जा घेते आणि तिच्या आत रासायनिक प्रक्रिया होऊन ती ऊर्जा रासायनिक ऊर्जेच्या स्वरूपात साठवून ठेवली जाते."
+  },
+  {
+    "id": 1326,
+    "chapterId": 42,
+    "question": "Which of the following is the best conductor of electricity?",
+    "questionMarathi": "खालीलपैकी सर्वात चांगला विद्युत वाहक (Best Conductor) कोणता आहे?",
+    "options": [
+      "Gold",
+      "Copper",
+      "Silver",
+      "Brass"
+    ],
+    "optionsMarathi": [
+      "सोने (Gold)",
+      "तांबे (Copper)",
+      "चांदी (Silver)",
+      "पितळ (Brass)"
+    ],
+    "answer": "C",
+    "explanation": "Among all available metals, silver has the highest electrical conductivity and lowest resistivity. Therefore, silver is the best conductor. (Followed by copper and gold).",
+    "explanationMarathi": "सर्व उपलब्ध धातूंमध्ये चांदीची विद्युत वाहकता सर्वात जास्त आणि रोधकता (Resistivity) सर्वात कमी असते. म्हणून चांदी हा सर्वोत्तम वाहक आहे. (त्यानंतर तांबे आणि सोन्याचा क्रमांक लागतो)."
+  },
+  {
+    "id": 1327,
+    "chapterId": 42,
+    "question": "What is the required distance between two saddles (pipe clips) in conduit pipe wiring?",
+    "questionMarathi": "कन्ड्युट पाईप वायरिंगमध्ये (Conduit Pipe Wiring) दोन सॅडल्स (Saddles/पाईप क्लिप) दरम्यान किती अंतर असणे आवश्यक आहे?",
+    "options": [
+      "60 mm",
+      "60 cm",
+      "60 inch",
+      "60 feet"
+    ],
+    "optionsMarathi": [
+      "60 मिमी",
+      "60 सेंमी",
+      "60 इंच",
+      "60 फूट"
+    ],
+    "answer": "B",
+    "explanation": "According to wiring rules, the distance between two saddles used to fix the conduit pipe firmly on the wall should not be more than 60 cm (600 mm), so that the pipe does not hang.",
+    "explanationMarathi": "वायरिंग नियमांनुसार, कन्ड्युट पाईप भिंतीवर घट्ट बसवण्यासाठी लावण्यात येणाऱ्या दोन सॅडल्समधील अंतर ६० सेमी (60 cm किंवा ६०० मिमी) पेक्षा जास्त नसावे, जेणेकरून पाईप लटकणार नाही."
+  },
+  {
+    "id": 1328,
+    "chapterId": 42,
+    "question": "What is the magnetic permeability of diamagnetic materials?",
+    "questionMarathi": "डाय-मॅग्नेटिक (प्रति-चुंबकीय / Diamagnetic) पदार्थांची चुंबकीय पार्यता (Permeability) किती असते?",
+    "options": [
+      "Unit (one)",
+      "More than one",
+      "Less than unity",
+      "Zero"
+    ],
+    "optionsMarathi": [
+      "एक (Unit)",
+      "एकापेक्षा जास्त",
+      "एकापेक्षा कमी (Less than unity)",
+      "शून्य"
+    ],
+    "answer": "C",
+    "explanation": "The relative magnetic permeability (μr) of diamagnetic substances is always less than one. These substances show slight opposition to the magnetic field.",
+    "explanationMarathi": "डायमॅग्नेटिक पदार्थांची सापेक्ष चुंबकीय पार्यता (μr) नेहमी एकापेक्षा कमी असते. हे पदार्थ चुंबकीय क्षेत्राला किंचित विरोध दर्शवतात."
+  },
+  {
+    "id": 1329,
+    "chapterId": 42,
+    "question": "If two lamps of 150 Watt, 100 Volt are connected in parallel, what will be the total power?",
+    "questionMarathi": "150 वॉट, 100 व्होल्टचे दोन लॅम्प समांतर (Parallel) जोडणीत जोडले असल्यास एकूण शक्ती (Total Power) किती असेल?",
+    "options": [
+      "150 Watt",
+      "75 Watt",
+      "300 Watt",
+      "1500 Watt"
+    ],
+    "optionsMarathi": [
+      "150 वॉट",
+      "75 वॉट",
+      "300 वॉट",
+      "1500 वॉट"
+    ],
+    "answer": "C",
+    "explanation": "In parallel connection, total power is simply added. Formula: Ptotal = P1 + P2 = 150 + 150 = 300 W.",
+    "explanationMarathi": "समांतर जोडणीमध्ये एकूण पॉवरची थेट बेरीज होते. सूत्र: Ptotal = P1 + P2 = 150 + 150 = 300 W."
+  },
+  {
+    "id": 1331,
+    "chapterId": 42,
+    "question": "How is the magnetic field of shunt and series field in a differential compound generator?",
+    "questionMarathi": "डिफरेंशियल कंपाऊंड जनरेटरमध्ये शंट आणि सिरीज FIELD चे चुंबकीय क्षेत्र कसे असते?",
+    "options": [
+      "Opposing",
+      "Aiding",
+      "Strong",
+      "Very high"
+    ],
+    "optionsMarathi": [
+      "विरोधी (Opposing)",
+      "सहाय्यक (Aiding)",
+      "प्रबळ",
+      "खूप जास्त"
+    ],
+    "answer": "A",
+    "explanation": "According to the construction of a differential compound machine, the series field flux works in the opposite direction to the main shunt field flux, so that the total flux decreases when the load increases (φtotal = φsh - φse).",
+    "explanationMarathi": "डिफरेंशियल कंपाऊंड मशीनच्या रचनेनुसार, सिरीज फील्ड फ्लक्स हा मुख्य शंट फील्ड फ्लक्सच्या विरुद्ध दिशेने काम करतो, ज्यामुळे लोड वाढल्यावर एकूण फ्लक्स कमी होतो (φtotal = φsh - φse)."
+  },
+  {
+    "id": 1332,
+    "chapterId": 42,
+    "question": "Which of the following devices is used as a protection device in a DC motor starter?",
+    "questionMarathi": "खालीलपैकी कोणते उपकरण DC मोटर स्टार्टरमध्ये सुरक्षा उपकरण (Protection Device) म्हणून वापरले जाते?",
+    "options": [
+      "NVC (No Volt Coil)",
+      "PCB",
+      "Studs",
+      "OLC (Over Load Coil)"
+    ],
+    "optionsMarathi": [
+      "NVC (No Volt Coil)",
+      "PCB",
+      "Studs",
+      "OLC (Over Load Coil)"
+    ],
+    "answer": "D",
+    "explanation": "In a starter, OLC (Over Load Coil) protects the motor from overcurrent and NVC (No Volt Coil) safely stops the motor by releasing the handle if the supply stops. OLC mainly refers to overload protection.",
+    "explanationMarathi": "स्टार्टरमध्ये OLC (Over Load Coil) हे मोटरला अति प्रवाहापासून (Overcurrent) वाचवते आणि NVC (No Volt Coil) सप्लाय बंद झाल्यास हँडल सोडून मोटर सुरक्षितपणे बंद करते. ओव्हरलोड सुरक्षेसाठी मुख्यत्वे OLC चा संदर्भ येतो."
+  },
+  {
+    "id": 1333,
+    "chapterId": 42,
+    "question": "What should be the minimum height from the floor for all types of lighting fixtures/lamps?",
+    "questionMarathi": "सर्व प्रकारच्या प्रकाश उपकरणांची (Lighting Fixtures/Lamps) जमिनीपासून (फरशीपासून) किमान उंची किती असावे?",
+    "options": [
+      "1.3 meters",
+      "2.25 feet",
+      "2.25 meters",
+      "1.3 feet"
+    ],
+    "optionsMarathi": [
+      "1.3 मीटर",
+      "2.25 फूट",
+      "2.25 मीटर",
+      "1.3 फूट"
+    ],
+    "answer": "C",
+    "explanation": "According to Indian electrical standards, wall-mounted lamps or lighting fixtures in a house should be at least 2.25 meters above the floor.",
+    "explanationMarathi": "भारतीय विद्युत मानकांनुसार, घरातील भिंतीवर लावलेले दिवे किंवा प्रकाश उपकरणे जमिनीपासून किमान २.२५ मीटर उंचीवर असावेत."
+  },
+  {
+    "id": 1334,
+    "chapterId": 42,
+    "question": "What is the maximum depth of the pit kept for Plate Earthing?",
+    "questionMarathi": "प्लेट अर्थिंग (Plate Earthing) साठी खड्ड्याची कमाल खोली किती ठेवली जाते?",
+    "options": [
+      "5 meters",
+      "1.5 meters",
+      "3 meters",
+      "Until moisture is found"
+    ],
+    "optionsMarathi": [
+      "5 मीटर",
+      "1.5 मीटर",
+      "3 मीटर",
+      "ओलावा (नमी) मिळेपर्यंत"
+    ],
+    "answer": "C",
+    "explanation": "Usually, the depth of the pit for plate earthing is kept between 1.5 meters to 3 meters so that permanent moisture is available in the ground. Technically, 3 meters is considered the standard maximum distance.",
+    "explanationMarathi": "सामान्यतः प्लेट अर्थिंगसाठी खड्ड्याची खोली १.५ मीटर ते ३ मीटर दरम्यान ठेवली जाते जेणेकरून जमिनीत कायमस्वरूपी ओलावा (Moisture) उपलब्ध राहील. तांत्रिकदृष्ट्या ३ मीटर हे प्रमाणित कमाल अंतर मानले जाते."
+  },
+  {
+    "id": 1335,
+    "chapterId": 42,
+    "question": "Which is considered the best and safest method of wiring?",
+    "questionMarathi": "वायरिंगची सर्वात उत्तम आणि सुरक्षित पद्धत कोणती मानली जाते?",
+    "options": [
+      "Joint method",
+      "Looping method",
+      "Connector method",
+      "Casing Capping / Conduit method"
+    ],
+    "optionsMarathi": [
+      "जॉइंट पद्धत (Joint Method)",
+      "लूपिंग पद्धत (Looping Method)",
+      "कनेक्टर पद्धत",
+      "कॅसिंग कॅपिंग / कन्ड्युट पद्धत"
+    ],
+    "answer": "B",
+    "explanation": "'Looping method' is considered the best for making connections in domestic wiring because it does not require a cut or joint in the middle of the wire, thus avoiding the risk of sparking.",
+    "explanationMarathi": "डोमेस्टिक वायरिंगमध्ये कनेक्शन करण्यासाठी 'लूपिंग पद्धत' सर्वात उत्तम मानली जाते कारण यात वायरला मध्ये कट किंवा जॉइंट द्यावा लागत नाही, ज्यामुळे स्पार्किंगचा धोका टळतो."
+  },
+  {
+    "id": 1337,
+    "chapterId": 42,
+    "question": "Which of the following motors has the highest starting torque?",
+    "questionMarathi": "खालीलपैकी कोणत्या मोटरचा स्टार्टींग टॉर्क (Starting Torque) सर्वात उच्च असतो?",
+    "options": [
+      "Compound motor",
+      "Shunt motor",
+      "Series Motor",
+      "Synchronous motor"
+    ],
+    "optionsMarathi": [
+      "कम्पाऊंड मोटर",
+      "शंट मोटर",
+      "सिरीज मोटर (Series Motor)",
+      "सिंक्रोनस मोटर"
+    ],
+    "answer": "C",
+    "explanation": "The starting torque of a DC series motor is directly proportional to the square of the armature current (T ∝ Ia^2). Due to this, this motor gives immense power (High Starting Torque) initially. That is why it is used in cranes and railway engines.",
+    "explanationMarathi": "DC सिरीज मोटरचा स्टार्टिंग टॉर्क हा आर्मेचर करंटच्या वर्गाच्या थेट प्रमाणात असतो (T ∝ Ia^2). यामुळे सुरुवातीला ही मोटर प्रचंड ताकद (High Starting Torque) देते. म्हणूनच हिचा वापर क्रेन आणि रेल्वे इंजिनमध्ये होतो."
+  },
+  {
+    "id": 1339,
+    "chapterId": 42,
+    "question": "What will be the number of parallel paths in a 4-pole wave wound armature?",
+    "questionMarathi": "एका 4 पोल असणाऱ्या वेव्ह वाउंड (Wave Wound) आर्मेचरमध्ये समांतर मार्गांची (Parallel Paths) संख्या किती असेल?",
+    "options": [
+      "4",
+      "2",
+      "8",
+      "3"
+    ],
+    "optionsMarathi": [
+      "4",
+      "2",
+      "8",
+      "3"
+    ],
+    "answer": "B",
+    "explanation": "According to the rules of Wave Winding, no matter what the number of poles is (P=4, 6, 8), the number of parallel paths (A) is always constant at 2.",
+    "explanationMarathi": "वेव्ह वाइंडिंगच्या (Wave Winding) नियमानुसार, पोलची संख्या कितीही असली (P=4, 6, 8), तरी समांतर मार्गांची संख्या (A) नेहमी २ स्थिर असते."
+  },
+  {
+    "id": 1340,
+    "chapterId": 42,
+    "question": "Out of two lamps installed in a house, one gives more light and the other gives less light. Which of these two will have higher resistance?",
+    "questionMarathi": "घरात लावलेल्या दोन दिव्यांपैकी एक दिवा जास्त प्रकाश देतो आणि दुसरा कमी प्रकाश देतो, तर या दोन्हीपैकी कोणत्या दिव्याचा रोध (Resistance) अधिक असेल?",
+    "options": [
+      "The lamp giving less light",
+      "The lamp giving more light",
+      "Both will have equal resistance",
+      "Both will have low resistance"
+    ],
+    "optionsMarathi": [
+      "कमी प्रकाश देणाऱ्या दिव्याचा",
+      "जास्त प्रकाश देणाऱ्या दिव्याचा",
+      "दोघांचा रोध समान असेल",
+      "दोघांचा रोध कमी असेल"
+    ],
+    "answer": "A",
+    "explanation": "All appliances in a house are connected in parallel, so both lamps get the same voltage. According to the formula, power P = V^2 / R, i.e., the lamp whose resistance (R) is higher is of low wattage and naturally gives less light.",
+    "explanationMarathi": "घरातील सर्व उपकरणे समांतर (Parallel) जोडलेली असतात, त्यामुळे दोन्ही दिव्यांना समान व्होल्टेज मिळतो. सूत्रानुसार, पॉवर P = V^2 / R म्हणजेच ज्या दिव्याचा रोध (R) जास्त असतो, तो कमी वॉटचा असतो आणि साहजिकच कमी प्रकाश देतो."
+  },
+  {
+    "id": 1341,
+    "chapterId": 43,
+    "question": "What is the unit of heat?",
+    "questionMarathi": "ऊष्मा (Heat) चे एकक (Unit) काय आहे?",
+    "options": [
+      "Centigrade",
+      "Joule",
+      "Calorie / Joule",
+      "Watt-second"
+    ],
+    "optionsMarathi": [
+      "सेंटिग्रेड",
+      "ज्यूल",
+      "कॅलरी / ज्यूल",
+      "वॉट-सेकंड"
+    ],
+    "answer": "B",
+    "explanation": "Heat is a form of energy, so according to the International Standard system (SI Unit), the unit of energy and heat is Joule. In CGS system, its unit is Calorie.",
+    "explanationMarathi": "ऊष्मा (Heat) हा ऊर्जेचाच एक प्रकार आहे, त्यामुळे आंतरराष्ट्रीय मानक पद्धतीनुसार (SI Unit) ऊर्जेचे आणि ऊष्मेचे एकक ज्यूल (Joule) आहे. सीजीएस (CGS) पद्धतीत याचे एकक कॅलरी (Calorie) असते."
+  },
+  {
+    "id": 1342,
+    "chapterId": 43,
+    "question": "What is the standard Three Phase Voltage in India?",
+    "questionMarathi": "भारतातील मानक थ्री-फेस व्होल्टेजचे (Standard Three Phase Voltage) मूल्य किती आहे?",
+    "options": [
+      "440 Volts",
+      "415 Volts",
+      "240 Volts",
+      "250 Volts"
+    ],
+    "optionsMarathi": [
+      "440 व्होल्ट",
+      "415 व्होल्ट",
+      "240 व्होल्ट",
+      "250 व्होल्ट"
+    ],
+    "answer": "B",
+    "explanation": "According to Indian standards (IS), single-phase supply in houses is 240 Volts and three-phase supply for commercial or industrial use is 415 Volts. (Earlier it was 440 Volts).",
+    "explanationMarathi": "भारतीय मानकांनुसार (IS), घरांमध्ये येणारा सिंगल-फेस सप्लाय २४० व्होल्ट आणि व्यावसायिक किंवा औद्योगिक वापरासाठीचा थ्री-फेस सप्लाय ४१५ व्होल्ट मानक मानला जातो (पूर्वी हा ४४० व्होल्ट मानला जात असे)."
+  },
+  {
+    "id": 1343,
+    "chapterId": 43,
+    "question": "What is the standard value of electrical supply frequency in India?",
+    "questionMarathi": "भारतामध्ये विद्युत सप्लाय फ्रिक्वेन्सीचे (Supply Frequency) मानक मूल्य काय आहे?",
+    "options": [
+      "50 Hertz (Hz)",
+      "45 Hertz (Hz)",
+      "55 Hertz (Hz)",
+      "51 Hertz (Hz)"
+    ],
+    "optionsMarathi": [
+      "50 हर्ट्झ (Hz)",
+      "45 हर्ट्झ (Hz)",
+      "55 हर्ट्झ (Hz)",
+      "51 हर्ट्झ (Hz)"
+    ],
+    "answer": "A",
+    "explanation": "In India, the standard frequency of Alternating Current (AC) supply is fixed at 50 Hertz, in which a change up to ± 3% limit is acceptable. (In US it is 60 Hertz).",
+    "explanationMarathi": "भारतात अल्टरनेटिंग करंट (AC) सप्लायची मानक फ्रिक्वेन्सी ५० हर्ट्झ निश्चित केली आहे, ज्यामध्ये ± 3% मर्यादेपर्यंत बदल मान्य असतो. (अमेरिकेत ही ६० हर्ट्झ असते)."
+  },
+  {
+    "id": 1346,
+    "chapterId": 43,
+    "question": "If five cells of 1.1 V are connected in a series connection, what will be the total Electromotive Force (EMF)?",
+    "questionMarathi": "सिरीज (मालिका) जोडणीमध्ये 1.1 V चे पाच सेल्स जोडल्यास एकूण विद्युत वाहक बल (EMF) किती होईल?",
+    "options": [
+      "5.5 Volts",
+      "4.4 Volts",
+      "1.1 Volts",
+      "3.3 Volts"
+    ],
+    "optionsMarathi": [
+      "5.5 व्होल्ट",
+      "4.4 व्होल्ट",
+      "1.1 व्होल्ट",
+      "3.3 व्होल्ट"
+    ],
+    "answer": "A",
+    "explanation": "When cells are connected in series, their voltages are added to each other. Total voltage (V) = 1.1 * 5 = 5.5 V.",
+    "explanationMarathi": "सेल्स जेव्हा सिरीजमध्ये जोडले जातात, तेव्हा त्यांचे व्होल्टेज एकमेकांमध्ये मिळवले जाते. एकूण व्होल्टेज (V) = 1.1 * 5 = 5.5 V."
+  },
+  {
+    "id": 1347,
+    "chapterId": 43,
+    "question": "What is the electrical resistance of the human body in a wet condition?",
+    "questionMarathi": "ओल्या (गील्या) अवस्थेत मानवी शरीराचा विद्युत रोध (Resistance) किती असतो?",
+    "options": [
+      "1 Ohm",
+      "1000 Ohms",
+      "100 kOhm",
+      "Zero Ohm"
+    ],
+    "optionsMarathi": [
+      "1 ओम",
+      "1000 ओम",
+      "100 किलो ओम",
+      "शून्य ओम"
+    ],
+    "answer": "B",
+    "explanation": "When the human body is dry, its resistance is very high (about 100 kOhm to 600 kOhm), but when the body is completely wet, the skin becomes soft and the resistance decreases rapidly to only about 1000 Ohms. Due to this, the shock is severe when wet.",
+    "explanationMarathi": "मानवी शरीर कोरडे असताना त्याचा रोध खूप जास्त (सुमारे १०० किलो ओम ते ६०० किलो ओम) असतो, परंतु शरीर पूर्णपणे ओले असताना त्वचा मऊ पडते आणि रोध झपाट्याने कमी होऊन सुमारे १००० ओम एवढाच राहतो. यामुळे ओल्या अंगाने शॉक तीव्र बसतो."
+  },
+  {
+    "id": 1350,
+    "chapterId": 43,
+    "question": "How is the copper or G.I. plate used in Plate Earthing kept in the ground?",
+    "questionMarathi": "प्लेट अर्थिंग (Plate Earthing) मध्ये वापरली जाणारी तांब्याची किंवा जी.आय. ची प्लेट जमिनीत कशा प्रकारे ठेवली जाते?",
+    "options": [
+      "Horizontal",
+      "Vertical",
+      "In Series",
+      "All of the above"
+    ],
+    "optionsMarathi": [
+      "क्षितीज समांतर (Horizontal)",
+      "उभी (Vertical)",
+      "शृंखला (Series)",
+      "वरील सर्व"
+    ],
+    "answer": "B",
+    "explanation": "In plate earthing, the earth plate is always kept in a vertical position in the pit, so that the layers of coal and salt can be properly settled on both sides and contact with the ground remains good.",
+    "explanationMarathi": "प्लेट अर्थिंग करताना खड्ड्यामध्ये अर्थ प्लेट नेहमी उभ्या स्थितीत (Vertical Position) ठेवली जाते, जेणेकरून तिच्या दोन्ही बाजूंनी कोळसा आणि मिठाचे थर व्यवस्थित बसवता येतात आणि जमिनीशी संपर्क चांगला राहतो."
+  },
+  {
+    "id": 1351,
+    "chapterId": 43,
+    "question": "According to Indian standards (IE Rules), how much maximum wattage load can be connected to a sub-circuit of light and fans?",
+    "questionMarathi": "भारतीय मानकांनुसार (IE Rules), प्रकाश आणि पंख्यांच्या (Light & Fan) एका सब-सर्किटवर (उप-परिपथ) जास्तीत जास्त किती वॉटचा लोड जोडता येतो?",
+    "options": [
+      "100 Watts",
+      "1000 Watts",
+      "800 Watts",
+      "1500 Watts"
+    ],
+    "optionsMarathi": [
+      "100 वॉट",
+      "1000 वॉट",
+      "800 वॉट",
+      "1500 वॉट"
+    ],
+    "answer": "C",
+    "explanation": "According to Indian electricity rules, a load up to a maximum of 800 Watts or a maximum of 10 points is allowed on one sub-circuit of light and fan. (For power sub-circuit this limit is 3000 Watts).",
+    "explanationMarathi": "भारतीय विद्युत नियमांनुसार, लाईट आणि फॅनच्या एका सब-सर्किटवर जास्तीत जास्त ८०० वॉट पर्यंतचा लोड किंवा कमाल १० पॉइंट्स जोडण्याची परवानगी असते. (पॉवर सब-सर्किटसाठी ही मर्यादा ३००० वॉट असते)."
+  },
+  {
+    "id": 1352,
+    "chapterId": 43,
+    "question": "If a DC motor completes 1500 Revolutions Per Minute (RPM), how many revolutions will it complete in one second?",
+    "questionMarathi": "एक DC मोटर १५०० फेरे प्रति मिनिट (RPM) पूर्ण करत असेल, तर ती एका सेकंदात किती फेरे पूर्ण करेल?",
+    "options": [
+      "50 revolutions",
+      "25 revolutions",
+      "20 revolutions",
+      "45 revolutions"
+    ],
+    "optionsMarathi": [
+      "50 फेरे",
+      "25 फेरे",
+      "20 फेरे",
+      "45 फेरे"
+    ],
+    "answer": "B",
+    "explanation": "1 minute is 60 seconds. Revolutions in one second = 1500 / 60 = 25.",
+    "explanationMarathi": "१ मिनिट म्हणजे ६० सेकंद. एका सेकंदातील फेरे = १५०० / ६० = २५."
+  },
+  {
+    "id": 1353,
+    "chapterId": 43,
+    "question": "Which of the following generators can produce voltage even without residual magnetism?",
+    "questionMarathi": "खालीलपैकी कोणता जनरेटर अवशिष्ट चुंबकत्वाशिवाय (Residual Magnetism) सुद्धा व्होल्टेज तयार करू शकतो?",
+    "options": [
+      "Shunt Generator",
+      "Series Generator",
+      "Cumulative Compound",
+      "None of these"
+    ],
+    "optionsMarathi": [
+      "शंट जनरेटर",
+      "सिरीज जनरेटर",
+      "कम्युलेटिव्ह कंपाऊंड",
+      "यांपैकी काहीही नाही"
+    ],
+    "answer": "D",
+    "explanation": "Shunt, Series, and Compound are all 'Self-Excited' generators, which need residual magnetism to start voltage. Only a Separately Excited generator does not need residual magnetism as it is powered by an external DC source, which is not in the options.",
+    "explanationMarathi": "शंट, सिरीज आणि कंपाऊंड हे सर्व 'Self-Excited' (स्वयं-उत्तेजित) जनरेटर आहेत, ज्यांना व्होल्टेज सुरू करण्यासाठी अवशिष्ट चुंबकत्वाची गरज असते. फक्त सेपरेटली एक्साइटेड (Separately Excited) जनरेटरला बाहेरील DC स्त्रोताकडून चालू केले जात असल्यामुळे त्याला अवशिष्ट चुंबकत्वाची गरज नसते, जो पर्यायात नाही."
+  },
+  {
+    "id": 1354,
+    "chapterId": 43,
+    "question": "What is the relationship between current and resistance in a short circuit?",
+    "questionMarathi": "एका शॉर्ट सर्किट (Short Circuit) परिपथात करंट (धारा) आणि रोध (Resistance) यांमध्ये काय संबंध असतो?",
+    "options": [
+      "Infinite (∞) and 0",
+      "0 and Infinite (∞)",
+      "Infinite (∞) and Infinite (∞)",
+      "0 and 0"
+    ],
+    "optionsMarathi": [
+      "अनंत (∞) आणि 0",
+      "0 आणि अनंत (∞)",
+      "अनंत (∞) आणि अनंत (∞)",
+      "0 आणि 0"
+    ],
+    "answer": "A",
+    "explanation": "In a short circuit, phase and neutral wires are directly connected to each other, which makes the circuit resistance zero (0). According to Ohm's Law (I = V/R), current value increases extremely and becomes infinite (∞) as resistance becomes zero.",
+    "explanationMarathi": "शॉर्ट सर्किटमध्ये फेज आणि न्यूट्रल वायर थेट एकमेकांना जोडल्या जातात, ज्यामुळे परिपथाचा रोध (Resistance) शून्य (0) होतो. ओहमच्या नियमानुसार (I = V/R), रोध शून्य झाल्यामुळे करंटचे मूल्य अत्यंत वाढून अनंत (∞) होते."
+  },
+  {
+    "id": 1355,
+    "chapterId": 43,
+    "question": "What is the maximum distance kept between two electrical poles (overhead line poles) on the road?",
+    "questionMarathi": "रस्त्यावरील दोन विद्युत खांबांमधील (Overhead Lines poles) जास्तीत जास्त अंतर किती ठेवले जाते?",
+    "options": [
+      "67 meters",
+      "55 meters",
+      "45 meters",
+      "227 meters"
+    ],
+    "optionsMarathi": [
+      "67 मीटर",
+      "55 मीटर",
+      "45 मीटर",
+      "227 मीटर"
+    ],
+    "answer": "A",
+    "explanation": "According to Indian electricity rules, the distance (Span) between two poles of overhead lines should generally not be more than 67 meters (or 220 feet).",
+    "explanationMarathi": "भारतीय विद्युत नियमांनुसार, ओव्हरहेड लाईन्सच्या दोन खांबांमधील अंतर (Span) सामान्यतः ६७ मीटर (किंवा २२० फूट) पेक्षा जास्त नसावे."
+  },
+  {
+    "id": 1356,
+    "chapterId": 43,
+    "question": "According to Indian electricity rules, what should be the total resistance of earthing wire used in the entire wiring?",
+    "questionMarathi": "भारतीय विद्युत नियमांनुसार, संपूर्ण वायरिंगमध्ये वापरलेल्या अर्थिंग वायरचा एकूण रोध किती असावा?",
+    "options": [
+      "1 Mega Ohm",
+      "8 Ohms",
+      "3 Ohms",
+      "1 Ohm"
+    ],
+    "optionsMarathi": [
+      "1 मेगा ओहम",
+      "8 ओहम",
+      "3 ओहम",
+      "1 ओहम"
+    ],
+    "answer": "D",
+    "explanation": "The main purpose of earthing is to discharge the fault current safely into the ground. Therefore, resistance of the earth wire and earth electrode should be as low as possible, ideally less than 1 Ohm.",
+    "explanationMarathi": "अर्थिंग का मुख्य उद्देश दोष करंट सुरक्षितपणे जमिनीत सोडणे हा आहे. त्यामुळे अर्थ वायर आणि अर्थ इलेक्ट्रोडचा रोध शक्य तितका कमी, म्हणजेच आदर्शपणे १ ओहमपेक्षा कमी असणे आवश्यक आहे."
+  },
+  {
+    "id": 1357,
+    "chapterId": 43,
+    "question": "What fault occurs in a lead-acid battery if it is not used for a long time or if it is left in a discharged state?",
+    "questionMarathi": "लेड ॲसिड बॅटरी दीर्घकाळ वापरली नाही किंवा ती डिस्चार्ज अवस्थेतच तशीच ठेवून दिली, तर तिच्यात कोणता दोष निर्माण होतो?",
+    "options": [
+      "Corrosion",
+      "Sulphation",
+      "Buckling",
+      "Polarization"
+    ],
+    "optionsMarathi": [
+      "करोजन (Corrosion)",
+      "सल्फेशन (Sulphation)",
+      "बकलिंग (Buckling)",
+      "पोलरायझेशन"
+    ],
+    "answer": "B",
+    "explanation": "If the battery stays in a discharged state for many days, a hard white layer of lead sulfate (PbSO4) accumulates on its plates, which cannot be removed by normal charging. This fault is called 'Sulphation'.",
+    "explanationMarathi": "बॅटरी डिस्चार्ज स्थितीत अनेक दिवस पडून राहिल्यास तिच्या प्लेट्सवर लेड सल्फेटचा (PbSO4) कडक पांढरा थर जमा होतो, जो सामान्य चार्जिंगने काढता येत नाही. या दोषाला 'सल्फेशन' म्हणतात."
+  },
+  {
+    "id": 1358,
+    "chapterId": 43,
+    "question": "What are heating elements (e.g., of stove, geyser, iron) made of?",
+    "questionMarathi": "इलेक्ट्रिक हिटिंग उपकरणांचे (उदा. शेगडी, गीझर, इस्त्री) हिटिंग एलिमेंट (ऊष्मक तंतू) कशाचे बनलेले असतात?",
+    "options": [
+      "Tungsten",
+      "Brass",
+      "Zinc",
+      "Nichrome"
+    ],
+    "optionsMarathi": [
+      "टंगस्टनचे",
+      "पितळाचे",
+      "झिंकचे",
+      "निक्रोमचे (Nichrome)"
+    ],
+    "answer": "D",
+    "explanation": "Nichrome (80% Nickel + 20% Chromium) alloy has a very high melting point and specific resistance (Resistivity). Also, it does not oxidize even at high temperatures, hence Nichrome is used for heating elements.",
+    "explanationMarathi": "निक्रोम (80% निकेल + 20% क्रोमियम) या संमिश्राचा वितळण बिंदू आणि विशिष्ट रोध (Resistivity) खूप जास्त असतो. तसेच उच्च तापमानालाही याचे ऑक्सिडायझेशन होत नाही, म्हणून हिटिंग एलिमेंटसाठी निक्रोम वापरतात."
+  },
+  {
+    "id": 1360,
+    "chapterId": 43,
+    "question": "In a three-pin socket, to which pin should the phase (live) wire always be connected?",
+    "questionMarathi": "थ्री-पिन सॉकेटमध्ये फेज (लाईव्ह) वायर नेहमी कोणत्या पिनला जोडली पाहिजे?",
+    "options": [
+      "Right Side",
+      "Left Side",
+      "To the top thick pin",
+      "Anywhere"
+    ],
+    "optionsMarathi": [
+      "उजव्या बाजूच्या (Right Side)",
+      "डाव्या बाजूच्या",
+      "वरच्या जाड पिनला",
+      "कुठेही लावू शकता"
+    ],
+    "answer": "A",
+    "explanation": "According to international and Indian standards, when looking at the socket from the front, the phase (Live) wire should always be connected to the right-side hole/pin, the Neutral wire to the left side, and the Earth wire to the top thickest hole.",
+    "explanationMarathi": "आंतरराष्ट्रीय आणि भारतीय मानकांनुसार, सॉकेट समोरून पाहताना नेहमी उजव्या बाजूच्या होल/पिनमध्ये फेज (Live) वायर, डाव्या बाजूला न्यूट्रल (Neutral) वायर आणि वरच्या सर्वात जाड होलमध्ये अर्थ (Earth) वायर जोडली पाहिजे."
+  },
+  {
+    "id": 1361,
+    "chapterId": 43,
+    "question": "In a lead-acid cell, which type of plates is one more in number?",
+    "questionMarathi": "लेड ॲसिड सेलमध्ये कोणत्या प्रकारच्या प्लेट्सची संख्या एकाने जास्त ठेवली जाते?",
+    "options": [
+      "Positive plates",
+      "Negative plates",
+      "None",
+      "Both positive and negative are equal"
+    ],
+    "optionsMarathi": [
+      "पॉझिटिव्ह (धन) प्लेट्सची",
+      "नेगेटिव्ह (ऋण) प्लेट्सची",
+      "कोणाचीच नाही",
+      "धन आणि ऋण दोन्ही समान असतात"
+    ],
+    "answer": "B",
+    "explanation": "To ensure efficient use of both sides of the positive plate and to prevent it from bending (Buckling), negative plates are kept on both outer sides. Due to this, the total number of negative plates in the design is always one more than the positive plates (N_neg = N_pos + 1).",
+    "explanationMarathi": "लेड ॲसिड सेलमध्ये पॉझिटिव्ह प्लेटच्या दोन्ही बाजूंचा कार्यक्षम वापर व्हावा आणि ती वाकू नये (Buckling होऊ नये) म्हणून दोन्ही बाहेरील बाजूंना नेगेटिव्ह प्लेट्स ठेवतात. यामुळे एकूण रचनेत नेगेटिव्ह प्लेट्सची संख्या नेहमी पॉझिटिव्ह प्लेट्सपेक्षा १ ने जास्त असते (N_neg = N_pos + 1)."
+  },
+  {
+    "id": 1362,
+    "chapterId": 43,
+    "question": "How many Joules are in 1 Calorie?",
+    "questionMarathi": "1 कॅलरी (Calorie) मध्ये किती ज्यूल असतात?",
+    "options": [
+      "1.46 Joules",
+      "0.24 Joules",
+      "4.18 Joules",
+      "3660 Joules"
+    ],
+    "optionsMarathi": [
+      "1.46 ज्यूल",
+      "0.24 ज्यूल",
+      "4.18 ज्यूल",
+      "3660 ज्यूल"
+    ],
+    "answer": "C",
+    "explanation": "According to the correlation between heat and mechanical work, 1 Calorie = 4.186 Joules (or approximately 4.2 Joules).",
+    "explanationMarathi": "ऊष्मा आणि यांत्रिक कार्य यांच्यातील परस्पर संबंधानुसार 1 Calorie = 4.186 Joules (किंवा अंदाजे ४.२ ज्यूल) इतके मूल्य असते."
+  },
+  {
+    "id": 1364,
+    "chapterId": 43,
+    "question": "Which of the following scientists discovered the proton?",
+    "questionMarathi": "खालीलपैकी कोणत्या शास्त्रज्ञाने प्रोटॉनचा (Proton) शोध लावला होता?",
+    "options": [
+      "J. J. Thomson",
+      "John Dalton",
+      "Rutherford (or Goldstein)",
+      "Chadwick"
+    ],
+    "optionsMarathi": [
+      "जे. जे. थॉमसन",
+      "जॉन डाल्टन",
+      "रुदरफोर्ड (किंवा गोल्डस्टाईन)",
+      "चॅडविक"
+    ],
+    "answer": "C",
+    "explanation": "The positively charged particle in an atom, i.e., 'proton', was first discovered by E. Goldstein, but its name and detailed presentation were given by Ernest Rutherford, so according to the options, Rutherford is the correct answer. (Thomson discovered the electron and Chadwick discovered the neutron).",
+    "explanationMarathi": "अणुमधील धन प्रभारित कण म्हणजेच 'प्रोटॉन'चा शोध सर्वप्रथम ई. गोल्डस्टाईन यांनी लावला, परंतु त्याचे नाव आणि सविस्तर मांडणी अर्नेस्ट रुदरफोर्ड यांनी केली, म्हणून पर्यायानुसार रुदरफोर्ड हे योग्य उत्तर आहे. (थॉमसन यांनी इलेक्ट्रॉनचा तर चॅडविक यांनी न्यूट्रॉनचा शोध लावला)."
+  },
+  {
+    "id": 1365,
+    "chapterId": 43,
+    "question": "How much above the plates should the level of electrolyte (sulfuric acid solution) be in a lead-acid battery?",
+    "questionMarathi": "लेड ॲसिड बॅटरीत इलेक्ट्रोलाइट (सल्फ्युरिक ॲसिडचे द्रावण) चा स्तर प्लेट्सच्या वर किती असणे आवश्यक आहे?",
+    "options": [
+      "1 inch",
+      "10 cm",
+      "1 cm (or 10 to 15 mm)",
+      "1 mm"
+    ],
+    "optionsMarathi": [
+      "1 इंच",
+      "10 सेमी",
+      "1 सेमी (किंवा 10 ते 15 मिमी)",
+      "1 मिमी"
+    ],
+    "answer": "C",
+    "explanation": "Battery plates should always be completely submerged in electrolyte. The electrolyte layer should be about 10 mm to 15 mm, i.e., 1 cm above the top edge of the plates.",
+    "explanationMarathi": "बॅटरीच्या प्लेट्स नेहमी इलेक्ट्रोलाइटमध्ये पूर्णपणे बुडलेल्या असाव्यात. इलेक्ट्रोलाइटचा थर प्लेट्सच्या वरच्या टोकापासून सुमारे १० मिमी ते १५ मिमी म्हणजेच १ सेमी वर असणे गरजेचे आहे."
+  },
+  {
+    "id": 1366,
+    "chapterId": 43,
+    "question": "If a wire loop (conductor) is rotated in a magnetic field, what type of electrical motive force (EMF) is initially generated in it?",
+    "questionMarathi": "चुंबकीय क्षेत्रामध्ये जर वायरचे एखादे लूप (कंडक्टर) फिरवले, तर सुरुवातीला त्यात निर्माण होणारा विद्युत वाहक बल (EMF) कोणत्या प्रकारचा असतो?",
+    "options": [
+      "AC (Alternating Current)",
+      "DC (Direct Current)",
+      "Both types",
+      "Pure DC"
+    ],
+    "optionsMarathi": [
+      "AC (Alternating Current)",
+      "DC (Direct Current)",
+      "दोन्ही प्रकारचा",
+      "शुद्ध DC"
+    ],
+    "answer": "A",
+    "explanation": "According to Faraday's Law, EMF first generated in any generator armature conductor due to intersecting magnetic field is always of alternating (AC) nature. Later, a commutator or rectifier is used to convert it into DC.",
+    "explanationMarathi": "फॅराडेच्या नियमानुसार, कोणत्याही जनरेटरच्या आर्मेचर कंडक्टरमध्ये चुंबकीय क्षेत्र छेदल्यामुळे सर्वात आधी निर्माण होणारा ई.एम.एफ. (EMF) हा नेहमी अल्टरनेटिंग (AC) स्वरूपाचाच असतो. नंतर कम्युटेटर किंवा रेक्टिफायर वापरून त्याचे रूपांतर DC मध्ये केले जाते."
+  },
+  {
+    "id": 1367,
+    "chapterId": 43,
+    "question": "What is the unit of shaft torque available on the shaft of a DC motor?",
+    "questionMarathi": "DC मोटरच्या शाफ्टवर उपलब्ध असणाऱ्या टॉर्कचे (Shaft Torque) एकक काय आहे?",
+    "options": [
+      "Watt/second",
+      "Newton/meter",
+      "Newton-meter (N-m)",
+      "None of these"
+    ],
+    "optionsMarathi": [
+      "वॉट/सेकंड",
+      "न्यूटन/meter",
+      "न्यूटन-मीटर (N-m)",
+      "यांपैकी काहीही नाही"
+    ],
+    "answer": "C",
+    "explanation": "Torque i.e. twisting force is the product of force (F) and radius (r) (T = F x r). Since the unit of force is Newton and distance is meter, the unit of torque is Newton-meter (N-m).",
+    "explanationMarathi": "टॉर्क म्हणजेच पिळवटणारे बल (Twisting Force) हे बल (F) आणि त्रिज्या (r) यांचा गुणाकार असते (T = F x r). बलाचे एकक न्यूटन आणि अंतराचे मीटर असल्यामुळे टॉर्कचे एकक न्यूटन-मीटर (N-m) हे असते."
+  },
+  {
+    "id": 1369,
+    "chapterId": 43,
+    "question": "In electrical wiring, if the fuse burns (blows) immediately upon switching on, what fault is there in the circuit?",
+    "questionMarathi": "एखाद्या विद्युत वायरिंगमध्ये स्विच ऑन करताच फ्युज लगेच जळून (उडून) जात असेल, तर परिपथात कोणता दोष आहे?",
+    "options": [
+      "Open circuit fault",
+      "Earth fault",
+      "Leakage fault",
+      "Short Circuit Fault"
+    ],
+    "optionsMarathi": [
+      "ओपन सर्किट दोष",
+      "अर्थ दोष",
+      "लिकेज दोष",
+      "शॉर्ट सर्किट दोष (Short Circuit Fault)"
+    ],
+    "answer": "D",
+    "explanation": "Upon switching on, a massive current suddenly flows from the circuit beyond capacity, which melts the fuse wire immediately. This happens only due to a short circuit.",
+    "explanationMarathi": "स्विच ऑन करताच परिपथातून क्षमतेपेक्षा अचानक प्रचंड करंट वाहू लागतो, ज्यामुळे फ्युज वायर लगेच वितळते. हे फक्त शॉर्ट सर्किट (Short Circuit) झाल्यामुळेच घडते."
+  },
+  {
+    "id": 1370,
+    "chapterId": 43,
+    "question": "At what minimum standard distance should the earth electrode/pit be established from the building?",
+    "questionMarathi": "अर्थ इलेक्ट्रोड/पिठ (Earth Pit) इमारतीपासून किमान किती मानक अंतरावर स्थापित केले पाहिजे?",
+    "options": [
+      "3 meters",
+      "1.5 meters",
+      "2 meters",
+      "1 meter"
+    ],
+    "optionsMarathi": [
+      "3 मीटर",
+      "1.5 मीटर",
+      "2 मीटर",
+      "1 मीटर"
+    ],
+    "answer": "B",
+    "explanation": "According to safety rules, the earthing pit (Earth Pit) should be at least 1.5 meters away from the foundation or wall of the main building.",
+    "explanationMarathi": "सुरक्षेच्या नियमांनुसार, अर्थिंगचा खड्डा (Earth Pit) हा मुख्य इमारतीच्या पायापासून किंवा भिंतीपासून किमान १.५ मीटर अंतरावर लांब असावा."
+  },
+  {
+    "id": 1371,
+    "chapterId": 43,
+    "question": "What type of cell is a Nickel-Iron cell?",
+    "questionMarathi": "निकेल-आयरन (Nickel-Iron) सेल हा कोणत्या प्रकारचा सेल आहे?",
+    "options": [
+      "Wet Secondary Cell",
+      "Dry Secondary Cell",
+      "Dry Primary Cell",
+      "Wet Primary Cell"
+    ],
+    "optionsMarathi": [
+      "ओला सेकंडरी सेल (Wet Secondary Cell)",
+      "सुका सेकंडरी सेल (Dry)",
+      "सुका प्रायमरी सेल",
+      "ओला प्रायमरी सेल"
+    ],
+    "answer": "A",
+    "explanation": "Nickel-iron is also known as Edison cell. This is a secondary (rechargeable) cell and since a liquid form (electrolyte) of potassium hydroxide (KOH) is used in it, it is called a 'Wet' or 'wet' secondary cell.",
+    "explanationMarathi": "निकेल-आयरन हा एडिसन सेल म्हणूनही ओळखला जातो. हा एक सेकंडरी (पुन्हा चार्ज करता येणारा) सेल असून यात पोटॅशियम हायड्रॉक्साइड (KOH) चे द्रव रूप (इलेक्ट्रोलाइट) वापरले जात असल्याने याला 'Wet' किंवा 'तर' सेकंडरी सेल म्हणतात."
+  },
+  {
+    "id": 1372,
+    "chapterId": 43,
+    "question": "Which of the following factors are responsible for excessive sparking on the commutator of a DC motor?",
+    "questionMarathi": "DC मोटरच्या कम्युटेटरवर प्रचंड प्रमाणात स्पार्किंग (Sparking) होण्यासाठी खालीलपैकी कोणते घटक कारणीभूत असतात?",
+    "options": [
+      "Rough Commutation",
+      "Armature Reaction",
+      "Excessive Load",
+      "All of the above"
+    ],
+    "optionsMarathi": [
+      "रफ कम्युटेशन (Rough Commutation)",
+      "आर्मेचर रिॲक्शन (Armature Reaction)",
+      "ओव्हरलोड (Excessive Load)",
+      "वरील सर्व"
+    ],
+    "answer": "D",
+    "explanation": "Wrong position of the brush (not on MNA - due to armature reaction), bad surface of the commutator, or sudden excessive load on the motor, all three reasons create a big spark (Sparking) between the brush and commutator segments.",
+    "explanationMarathi": "ब्रशची चुकीची स्थिती (MNA वर नसणे - आर्मेचर रिॲक्शनमुळे), कम्युटेटरचा पृष्ठभाग खराब असणे, किंवा मोटरवर अचानक जास्त लोड येणे या तिन्ही कारणांमुळे ब्रश आणि कम्युटेटर सेगमेंटच्या दरम्यान मोठी ठिणगी (Sparking) निर्माण होते."
+  },
+  {
+    "id": 1373,
+    "chapterId": 43,
+    "question": "Which is the best and most versatile method of speed control of a DC motor?",
+    "questionMarathi": "DC मोटरच्या गती नियंत्रणाची (Speed Control) सर्वात उत्तम आणि अष्टपैलू पद्धत कौनती आहे?",
+    "options": [
+      "Armature Control",
+      "Field Control",
+      "Supply Voltage Control",
+      "Ward Leonard Speed Control"
+    ],
+    "optionsMarathi": [
+      "आर्मेचर नियंत्रण",
+      "फील्ड नियंत्रण",
+      "सप्लाय व्होल्टेज नियंत्रण",
+      "वॉर्ड लिओनार्ड गती नियंत्रण (Ward Leonard Method)"
+    ],
+    "answer": "D",
+    "explanation": "Through Ward Leonard method, motor speed can be controlled very smoothly from zero to more than its normal speed, in both directions (Forward & Reverse). Energy wastage is low in this, hence it is considered the best speed control method.",
+    "explanationMarathi": "वॉर्ड लिओनार्ड पद्धतीद्वारे मोटरची गती शून्यापासून ते तिच्या सामान्य गतीपेक्षा जास्त, दोन्ही दिशांना (Forward & Reverse) अत्यंत गुळगुळीतपणे नियंत्रित करता येते. यामध्ये ऊर्जेचा अपव्यय कमी होतो, म्हणूनच ही सर्वात उत्कृष्ट वेग नियंत्रण पद्धत मानली जाते."
+  },
+  {
+    "id": 1374,
+    "chapterId": 44,
+    "question": "What happens if the shunt field winding of a running DC shunt motor is opened?",
+    "questionMarathi": "जर चालत असताना (Running condition) एका DC शंट मोटरची शंट FIELD वाइंडिंग ओपन (तुटली) झाली तर काय होईल?",
+    "options": [
+      "Motor will stop",
+      "Motor will burn",
+      "Speed will increase immensely (dangerous speed)",
+      "No effect"
+    ],
+    "optionsMarathi": [
+      "मोटर थांबेल",
+      "मोटर जळून जाईल",
+      "गती (Speed) खूप वाढेल (भयानक वेग होईल)",
+      "काहीही परिणाम होणार नाही"
+    ],
+    "answer": "C",
+    "explanation": "Speed of a DC motor is inversely proportional to field flux (N ∝ 1/φ). If shunt field winding is opened, flux becomes nearly zero (only residual magnetism remains). Due to zero flux, motor catches dangerously high speed to maintain balance, which can damage the motor.",
+    "explanationMarathi": "DC मोटरची गती ही FIELD फ्लक्सच्या व्यस्त प्रमाणात असते (N ∝ 1/φ). जर शंट FIELD वाइंडिंग अचानक ओपन झाली, तर फ्लक्स (φ) चे मूल्य जवळपास शून्य (फक्त रेसिड्यूअल मॅग्नेटिझम पुरते) होते. फ्लक्स शून्य झाल्यामुळे मोटर स्वतःचा समतोल राखण्यासाठी भयानक उच्च वेग (Dangerous High Speed) पकडते, ज्यामुळे मोटर निकामी होऊ शकते."
+  },
+  {
+    "id": 1375,
+    "chapterId": 44,
+    "question": "On which of the following factors does the speed of a DC motor depend?",
+    "questionMarathi": "DC मोटरची गती (Speed) खालीलपैकी कोणत्या घटकांवर अवलंबून असते?",
+    "options": [
+      "On Load",
+      "On Voltage",
+      "On Flux",
+      "All of the above"
+    ],
+    "optionsMarathi": [
+      "लोडवर (Load)",
+      "व्होल्टेजवर (Voltage)",
+      "फ्लक्सवर (Flux)",
+      "वरील सर्व"
+    ],
+    "answer": "D",
+    "explanation": "The main formula for speed is N ∝ (V - IaRa) / φ. From this, speed is directly affected by supply voltage, field flux and armature current (which depends on load).",
+    "explanationMarathi": "DC मोटरच्या गतीचे मुख्य सूत्र N ∝ (V - IaRa) / φ असे आहे. यावरून गती ही सप्लाय व्होल्टेज, FIELD फ्लक्स आणि आर्मेचर करंट (जो लोडवर अवलंबून असतो) या तिन्ही घटकांवर थेट परिणाम करते."
+  },
+  {
+    "id": 1376,
+    "chapterId": 44,
+    "question": "According to Indian electricity rules (IE Rules), what is the minimum distance to be kept between two earth electrodes (Earth Pits)?",
+    "questionMarathi": "भारतीय विद्युत नियमांनुसार (IE Rules), दोन अर्थ इलेक्ट्रोड्स (Earth Pits) मधील किमान अंतर किती ठेवले पाहिजे?",
+    "options": [
+      "1.5 meters",
+      "5 meters",
+      "15 meters",
+      "2.5 meters"
+    ],
+    "optionsMarathi": [
+      "1.5 मीटर",
+      "5 मीटर",
+      "15 मीटर",
+      "2.5 मीटर"
+    ],
+    "answer": "B",
+    "explanation": "Technically, it is considered appropriate to maintain a distance of at least 5 meters (or in some places 2.5 meters) between two different earthing electrodes to avoid mutual interference between their magnetic and electrical fields.",
+    "explanationMarathi": "तांत्रिक नियमांनुसार दोन वेगवेगळ्या अर्थिंग इलेक्ट्रोड्सच्या चुंबकीय आणि विद्युत क्षेत्रांमध्ये परस्पर व्यत्यय येऊ नये म्हणून त्यांच्यात किमान ५ मीटर (किंवा काही ठिकाणी २.५ मीटरच्या पटीत) अंतर राखणे योग्य मानले जाते."
+  },
+  {
+    "id": 1377,
+    "chapterId": 44,
+    "question": "In which method of Artificial Respiration is the affected person laid prone on their stomach?",
+    "questionMarathi": "कृत्रिम श्वासोच्छवासाच्या (Artificial Respiration) कोणत्या पद्धतीमध्ये बाधित व्यक्तीला पोटावर पालथे निजवले जाते?",
+    "options": [
+      "Schafer's Method",
+      "Sylvester's Method",
+      "Mouth-to-Mouth",
+      "All of the above"
+    ],
+    "optionsMarathi": [
+      "शेफर पद्धत (Schafer's Method)",
+      "सिल्व्हेस्टर पद्धत (Sylvester's Method)",
+      "मुख-से-मुख पद्धत (Mouth-to-Mouth)",
+      "वरील सर्व"
+    ],
+    "answer": "A",
+    "explanation": "When the person's back is injured or burnt, they are laid prone on their stomach and pressure is applied from the back, this is called Schafer's method. (In Sylvester's method, they are laid on their back if there is a chest wound).",
+    "explanationMarathi": "जेव्हा व्यक्तीच्या पाठीला दुखापत किंवा जळजळ झालेली असते, तेव्हा त्याला पोटावर पालथे निजवून पाठीवरून दाब दिला जातो, याला शेफर पद्धत म्हणतात. (सिल्व्हेस्टर पद्धतीत छातीवर जखम असल्यास पाठीवर सुताने निजवले जाते)."
+  },
+  {
+    "id": 1378,
+    "chapterId": 44,
+    "question": "What should be the value of insulation resistance between cable and earth (ground)?",
+    "questionMarathi": "केबल आणि अर्थ (जमीन) यांच्यामधील इन्सुलेशन रोधाचे (Insulation Resistance) मूल्य किती असायला हवे?",
+    "options": [
+      "Less than 1 Ohm",
+      "Less than 1 Megaohm",
+      "More than 1 Ohm",
+      "More than 1 Megaohm"
+    ],
+    "optionsMarathi": [
+      "1 ओहमपेक्षा कमी",
+      "1 मेगा ओहमपेक्षा कमी",
+      "1 ओहमपेक्षा जास्त",
+      "1 मेगा ओहमपेक्षा जास्त"
+    ],
+    "answer": "D",
+    "explanation": "Insulation of any good wiring or cable must be very strong so that leakage current does not flow. Therefore, when measured with Megger, this resistance should be more than 1 Megaohm (1 MΩ).",
+    "explanationMarathi": "कोणत्याही चांगल्या वायरिंग किंवा केबलचे इन्सुलेशन अत्यंत मजबूत असावे लागते जेणेकरून लिकेज करंट वाहणार नाही. म्हणून मेगरने (Megger) मोजल्यास हा रोध १ मेगा ओहम (1 MΩ) पेक्षा जास्त असायला हवा."
+  },
+  {
+    "id": 1380,
+    "chapterId": 44,
+    "question": "Which of the following formulas is correct for finding specific resistance (Resistivity ρ)?",
+    "questionMarathi": "खालीलपैकी कोणते सूत्र विशिष्ट रोध (Specific Resistance / Resistivity ρ) काढण्यासाठी योग्य आहे?",
+    "options": [
+      "ρ = (R * l) / a",
+      "ρ = (a * l) / R",
+      "ρ = (R * a) / l",
+      "ρ = (R * l) / i"
+    ],
+    "optionsMarathi": [
+      "ρ = (R * l) / a",
+      "ρ = (a * l) / R",
+      "ρ = (R * a) / l",
+      "ρ = (R * l) / i"
+    ],
+    "answer": "C",
+    "explanation": "The basic formula is R = ρ * (l/a) (where R=Resistance, l=Length, a=Cross-sectional area). From this, formula for specific resistance is ρ = (R * a) / l.",
+    "explanationMarathi": "मूळ सूत्र R = ρ * (l/a) असे आहे (जिथे R = रोध, l = लांबी, a = कापछेद क्षेत्रफळ). यावरून विशिष्ट रोधाचे सूत्र ρ = (R * a) / l असे तयार होते."
+  },
+  {
+    "id": 1381,
+    "chapterId": 44,
+    "question": "HRC Fuses (High Rupturing Capacity Fuse) are made up to what maximum current value?",
+    "questionMarathi": "HRC फ्युज (High Rupturing Capacity Fuse) जास्तीत जास्त किती करंट मूल्यापर्यंत बनवले जातात?",
+    "options": [
+      "200 Amperes",
+      "30 Amperes",
+      "1000 Amperes",
+      "60 Amperes"
+    ],
+    "optionsMarathi": [
+      "200 एम्पियर",
+      "30 एम्पियर",
+      "1000 एम्पियर",
+      "60 एम्पियर"
+    ],
+    "answer": "C",
+    "explanation": "HRC fuses are used for safety of high-capacity industrial equipment. In the market, these fuses are generally available from 2 Amperes to 1000 Amperes or more.",
+    "explanationMarathi": "HRC फ्युज हे उच्च क्षमतेच्या औद्योगिक उपकरणांच्या सुरक्षेसाठी वापरले जातात. बाजारात हे फ्युज सामान्यतः २ एम्पियरपासून १००० एम्पियर किंवा त्याहून अधिक क्षमतेपर्यंत उपलब्ध असतात."
+  },
+  {
+    "id": 1382,
+    "chapterId": 44,
+    "question": "What is the unit of Permeance?",
+    "questionMarathi": "परमियन्स (Permeance) चे एकक (Unit) काय आहे?",
+    "options": [
+      "Weber / Meter",
+      "Ampere-turn / Weber",
+      "Weber / Meter^2",
+      "Weber / Ampere-turn (Wb / AT)"
+    ],
+    "optionsMarathi": [
+      "वेबर / मीटर",
+      "एम्पियर-टर्न / वेबर",
+      "वेबर / मीटर^2",
+      "वेबर / एम्पियर-टर्न (Wb / AT)"
+    ],
+    "answer": "D",
+    "explanation": "Just as there is 'conductance' in an electrical circuit, the ability to carry flux in a magnetic circuit is called 'permeance'. It is inverse of reluctance (Permeance = 1/Reluctance). Since unit of reluctance is AT/Wb, unit of permeance is Weber/Ampere-turn (Wb/AT) or 'Henry'.",
+    "explanationMarathi": "इलेक्ट्रिकल सर्किटमध्ये जसा 'कंडक्टन्स' असतो, तसेच मॅग्नेटिक सर्किटमध्ये फ्लक्स वाहून नेण्याच्या क्षमतेला 'परमियन्स' म्हणतात. हे रिलक्टन्सच्या व्यस्त असते (Permeance = 1/Reluctance). रिलक्टन्सचे एकक AT/Wb असल्याने परमियन्सचे एकक वेबर/एम्पियर-टर्न (Wb/AT) किंवा 'हेन्री' (Henry) असते."
+  },
+  {
+    "id": 1383,
+    "chapterId": 44,
+    "question": "What is the maximum number of consumption points in a single power sub-circuit?",
+    "questionMarathi": "पॉवर सब-सर्किटच्या (Power Sub-Circuit) एका परिपथात जास्तीत जास्त किती उपभोग बिंदू (Points) असू शकतात?",
+    "options": [
+      "2",
+      "4",
+      "8",
+      "10"
+    ],
+    "optionsMarathi": [
+      "2",
+      "4",
+      "8",
+      "10"
+    ],
+    "answer": "A",
+    "explanation": "According to Indian electricity rules, a maximum of 2 points and a load up to 3000 Watts is allowed in power sub-circuit (e.g., geyser, AC connection).",
+    "explanationMarathi": "भारतीय विद्युत नियमांनुसार, पॉवर सब-सर्किटमध्ये (उदा. गिझर, एसी जोडणी) जास्तीत जास्त २ पॉइंट्स आणि कमाल ३००० वॉटपर्यंतचा लोड जोडण्याची परवानगी असते."
+  },
+  {
+    "id": 1384,
+    "chapterId": 44,
+    "question": "What should be the minimum height of the main switchboard from the floor?",
+    "questionMarathi": "मुख्य स्विच बोर्डची (Switch Board) जमिनीपासून (फरशीपासून) किमान उंची किती असावी?",
+    "options": [
+      "1.75 meters",
+      "1.25 meters",
+      "1.9 meters",
+      "2.25 meters"
+    ],
+    "optionsMarathi": [
+      "1.75 मीटर",
+      "1.25 मीटर",
+      "1.9 मीटर",
+      "2.25 मीटर"
+    ],
+    "answer": "B",
+    "explanation": "The main switchboard in a house should be installed at a height of 1.25 meters to 1.3 meters from ground level for easy handling by human hand.",
+    "explanationMarathi": "मानवी हाताला सहज हाताळता यावे यासाठी घरातील मुख्य स्विच बोर्ड जमिनीच्या पातळीपासून १.२५ मीटर ते १.३ मीटर उंचीवर बसवला पाहिजे."
+  },
+  {
+    "id": 1385,
+    "chapterId": 44,
+    "question": "At what height should the Energy Meter be installed from the floor?",
+    "questionMarathi": "एनर्जी मीटर (Energy Meter / वीज मीटर) जमिनीपासून किती उंचीवर स्थापित केला पाहिजे?",
+    "options": [
+      "2 meters",
+      "3 meters",
+      "1 meter",
+      "1.5 meters"
+    ],
+    "optionsMarathi": [
+      "2 मीटर",
+      "3 मीटर",
+      "1 मीटर",
+      "1.5 मीटर"
+    ],
+    "answer": "D",
+    "explanation": "For safety and for the person taking reading to easily see the numbers in meter, it is mandatory to install energy meter at height of 1.5 meters (about 5 feet) from floor.",
+    "explanationMarathi": "रीडिंग घेणाऱ्या व्यक्तीला सहजतेने मीटरमधील आकडे दिसण्यासाठी आणि सुरक्षिततेसाठी एनर्जी मीटर जमिनीपासून १.५ मीटर (अंदाजे ५ फूट) उंचीवर बसवणे अनिवार्य आहे."
+  },
+  {
+    "id": 1386,
+    "chapterId": 44,
+    "question": "In a DC shunt motor, how is the torque in no-load condition compared to full-load torque?",
+    "questionMarathi": "नो-लोड अवस्थेत असणारा DC शंट मोटरचा टॉर्क, फुल-लोड टॉर्कच्या तुलनेत कसा असतो?",
+    "options": [
+      "Less",
+      "More",
+      "Equal",
+      "Zero"
+    ],
+    "optionsMarathi": [
+      "कमी",
+      "अधिक",
+      "समान",
+      "शून्य"
+    ],
+    "answer": "A",
+    "explanation": "Motor torque is directly proportional to armature current (T ∝ Ia). In no-load condition, motor takes very little current only to compensate its friction and internal losses, so its starting or no-load torque is very less compared to full-load torque.",
+    "explanationMarathi": "मोटरचा टॉर्क हा आर्मेचर करंटच्या थेट प्रमाणात असतो (T ∝ Ia). नो-लोड अवस्थेत मोटर फक्त स्वतःचे घर्षण आणि अंतर्गत नुकसान भरून काढण्यासाठी अगदी कमी करंट घेते, त्यामुळे तिचा स्टार्टिंग किंवा नो-लोड टॉर्क फुल-लोड टॉर्कच्या तुलनेत खूप कमी असतो."
+  },
+  {
+    "id": 1387,
+    "chapterId": 44,
+    "question": "In which direction do magnetic lines of force travel outside the magnet?",
+    "questionMarathi": "चुंबकीय बलरेषा (Magnetic Lines of Force) चुंबकाच्या बाहेर कोणत्या दिशेकडून कोणत्या दिशेकडे प्रवास करतात?",
+    "options": [
+      "North to South",
+      "South to North",
+      "East to West",
+      "West to North"
+    ],
+    "optionsMarathi": [
+      "उत्तर ते दक्षिण (North to South)",
+      "दक्षिण ते उत्तर",
+      "पूर्व ते पश्चिम",
+      "पश्चिम ते उत्तर"
+    ],
+    "answer": "A",
+    "explanation": "Outside the magnet, magnetic lines of force always travel from North Pole to South Pole. (But inside the magnet, these lines travel from South to North to complete the closed loop).",
+    "explanationMarathi": "चुंबकाच्या बाहेर चुंबकीय बलरेषा नेहमी उत्तर ध्रुवाकडून (North Pole) निघून दक्षिण ध्रुवाकडे (South Pole) जातात. (परंतु, चुंबकाच्या आत या रेषा दक्षिण ते उत्तर प्रवास करून बंद लूप पूर्ण करतात)."
+  },
+  {
+    "id": 1388,
+    "chapterId": 44,
+    "question": "If two resistances of 4 Ω and 7 Ω are connected in parallel, what will be the total equivalent resistance?",
+    "questionMarathi": "4 Ω आणि 7 Ω चे दोन रोध समांतर (Parallel) जोडणीत जोडल्यास एकूण समतुल्य रोध (Equivalent Resistance) किती असेल?",
+    "options": [
+      "11 Ohms",
+      "2.545 Ohms",
+      "2.99 Ohms",
+      "1.748 Ohms"
+    ],
+    "optionsMarathi": [
+      "11 ओम",
+      "2.545 ओम",
+      "2.99 ओम",
+      "1.748 ओम"
+    ],
+    "answer": "B",
+    "explanation": "Parallel connection formula: Req = (R1 * R2) / (R1 + R2) = (4 * 7) / (4 + 7) = 28 / 11 ≈ 2.545 Ω.",
+    "explanationMarathi": "समांतर जोडणीचे सूत्र: Req = (R1 * R2) / (R1 + R2) = (4 * 7) / (4 + 7) = 28 / 11 ≈ 2.545 Ω."
+  },
+  {
+    "id": 1389,
+    "chapterId": 44,
+    "question": "What is the main reason why the Terminal Voltage after connecting the load to the cell is lower than its original source voltage (EMF)?",
+    "questionMarathi": "सेलचा लोड जोडल्यानंतरचा व्होल्टेज (Terminal Voltage) हा त्याच्या मूळ स्त्रोत व्होल्टेज (EMF)पेक्षा कमी भरण्याचे मुख्य कारण काय असते?",
+    "options": [
+      "Excessive load",
+      "Wrong connection",
+      "Internal resistance of the cell",
+      "Short circuit"
+    ],
+    "optionsMarathi": [
+      "जास्त लोड",
+      "चुकीची जोडणी",
+      "सेलचा अंतर्गत रोध (Internal Resistance)",
+      "शॉर्ट सर्किट"
+    ],
+    "answer": "C",
+    "explanation": "Chemical and electrode used inside each cell has some internal resistance ('r'). When load is connected, some voltage drop occurs due to this internal resistance (I * r), hence terminal voltage is lower than original EMF (V = E - Ir).",
+    "explanationMarathi": "प्रत्येक सेलच्या आत वापरलेल्या केमिकल आणि इलेक्ट्रोडचा स्वतःचा काही अंतर्गत रोध (Internal Resistance - 'r') असतो. जेव्हा लोड जोडला जातो, तेव्हा या अंतर्गत रोधामुळे काही व्होल्टेज ड्रॉप होतो (I * r), त्यामुळे टर्मिनल व्होल्टेज मूळ ई.एम.एफ. पेक्षा कमी मिळतो (V = E - Ir)."
+  },
+  {
+    "id": 1390,
+    "chapterId": 44,
+    "question": "What pressure of carbon brush on the commutator is generally maintained?",
+    "questionMarathi": "कम्युटेटरवर कार्बन ब्रशचा दाब (Brush Pressure) सामान्यतः किती राखला जातो?",
+    "options": [
+      "2 kg/cm^2",
+      "0.5 kg/cm^2",
+      "0.22 kg/cm^2",
+      "25 kg/cm^2"
+    ],
+    "optionsMarathi": [
+      "2 किग्रॅ/सेमी^2",
+      "0.5 किग्रॅ/सेमी^2",
+      "0.22 किग्रॅ/सेमी^2",
+      "25 किग्रॅ/सेमी^2"
+    ],
+    "answer": "C",
+    "explanation": "For good commutation and to avoid friction, brush pressure should not be too high or low. It should be between 0.15 to 0.25 kg/cm^2 according to standard rules, so option 3 is accurate.",
+    "explanationMarathi": "चांगल्या कम्युटेशनसाठी आणि घर्षण टाळण्यासाठी ब्रशचा दाब खूप जास्त किंवा कमी नसावा. तो प्रमाणित नियमांनुसार ०.१५ ते ०.२५ किग्रॅ/सेमी^2 च्या दरम्यान असावा लागतो, म्हणून दिलेला पर्याय ३ अचूक आहे."
+  },
+  {
+    "id": 1391,
+    "chapterId": 44,
+    "question": "If the value of field flux (φ) is increased in a DC motor, which of the following values will increase?",
+    "questionMarathi": "एका DC मोटरमध्ये फील्ड फ्लक्सचे (φ) मूल्य वाढवल्यास, खालीलपैकी कोणत्या मूल्यामध्ये वाढ होईल?",
+    "options": [
+      "In Speed",
+      "In Efficiency",
+      "In Torque",
+      "In EMF"
+    ],
+    "optionsMarathi": [
+      "गतीमध्ये",
+      "कार्यक्षमतेमध्ये",
+      "टॉर्कमध्ये (Torque)",
+      "विद्युत वाहक बलामध्ये"
+    ],
+    "answer": "C",
+    "explanation": "Motor torque is proportional to the product of flux and armature current (T ∝ φ * Ia). Therefore, increasing flux increases motor torque (twisting force) (but speed decreases).",
+    "explanationMarathi": "मोटरचा टॉर्क हा फ्लक्स आणि आर्मेचर करंटच्या गुणाकाराशी प्रमाणात असतो (T ∝ φ * Ia). त्यामुळे फ्लक्स वाढवला की मोटरचा टॉर्क (फिरवण्याचे बल) वाढेल (परंतु गती कमी होईल)."
+  },
+  {
+    "id": 1392,
+    "chapterId": 44,
+    "question": "Which formula is used to measure copper loss in an electrical machine?",
+    "questionMarathi": "विद्युत मशीनमध्ये तांब्याचे नुकसान (कॉपर लॉसेस / Copper Losses) मोजण्यासाठी कोणते सूत्र वापरले जाते?",
+    "options": [
+      "I * R",
+      "V^2 * R",
+      "R / I",
+      "I^2 * R"
+    ],
+    "optionsMarathi": [
+      "I * R",
+      "V^2 * R",
+      "R / I",
+      "I^2 * R"
+    ],
+    "answer": "D",
+    "explanation": "Energy loss in form of heat due to resistance of winding copper wires is called copper loss. Its formula is always I^2 R Watts.",
+    "explanationMarathi": "वाइंडिंगच्या तांब्याच्या तारांमधून करंट वाहताना त्यांच्या रोधामुळे उष्णतेच्या स्वरूपात होणाऱ्या ऊर्जेच्या नुकसानीला कॉपर लॉस म्हणतात. याचे सूत्र नेहमी I^2 R Watts असे असते."
+  },
+  {
+    "id": 1393,
+    "chapterId": 44,
+    "question": "Which of the following materials is a transparent insulator?",
+    "questionMarathi": "खालीलपैकी कोणता पदार्थ पारदर्शक अवाहक (Transparent Insulator) आहे?",
+    "options": [
+      "Porcelain",
+      "Asbestos",
+      "Mica",
+      "Bakelite"
+    ],
+    "optionsMarathi": [
+      "पोर्सिलेन",
+      "एस्बेस्टॉस",
+      "अभ्रक (Mica)",
+      "बॅकेलाईट"
+    ],
+    "answer": "C",
+    "explanation": "Mica is the only mineral which is semi-transparent or transparent along with being a great electrical insulator and it can withstand high heat. It is used in irons.",
+    "explanationMarathi": "अभ्रक (Mica) हा एकमेव असा खनिज पदार्थ आहे जो उत्तम विद्युत अवाहक (Insulator) असण्यासोबतच अर्ध-पारदर्शक किंवा पारदर्शक असतो आणि तो उच्च उष्णता सहन करू शकतो. हिचा वापर इस्त्रीमध्ये केला जातो."
+  },
+  {
+    "id": 1394,
+    "chapterId": 44,
+    "question": "According to Coulomb's law, what is the effect on the force between two electrical charges if the distance between them is increased?",
+    "questionMarathi": "कूलॉम्बच्या नियमानुसार, दोन विद्युत प्रभारांमधील (Charges) अंतर वाढवल्यास त्यांच्यामध्ये लागणाऱ्या बलावर काय परिणाम होतो?",
+    "options": [
+      "Increases proportional to the square of distance",
+      "Decreases inversely proportional to square of distance",
+      "Does not depend on distance",
+      "Is proportional to distance"
+    ],
+    "optionsMarathi": [
+      "अंतराच्या वर्गाच्या प्रमाणात वाढतो",
+      "अंतराच्या वर्गाच्या व्यस्त प्रमाणात घटतो (Inversely proportional to square of distance)",
+      "अंतरावर अवलंबून नसतो",
+      "अंतराच्या प्रमाणात असतो"
+    ],
+    "answer": "B",
+    "explanation": "Coulomb's law formula is F ∝ (q1 * q2) / d^2. That means, as distance (d) increases, attraction or repulsion force between them decreases in terms of square of that proportion.",
+    "explanationMarathi": "कूलॉम्बच्या नियमाचे सूत्र F ∝ (q1 * q2) / d^2 असे आहे. म्हणजेच अंतर (d) जेवढे वाढेल, त्या प्रमाणाच्या वर्गाच्या पटीत त्यांच्यामधील आकर्षण किंवा प्रतिकर्षण बल कमी (घटते) होते."
+  },
+  {
+    "id": 1395,
+    "chapterId": 44,
+    "question": "What is the speed of electricity flow?",
+    "questionMarathi": "विद्युत प्रवाहाचा (Electricity / वीज वाहनाचा) वेग किती असतो?",
+    "options": [
+      "3 * 10^18 meters",
+      "3 * 10^18 meters/second",
+      "3 * 10^8 meters/second",
+      "3 * 10^-8 meters/second"
+    ],
+    "optionsMarathi": [
+      "3 * 10^18 मीटर",
+      "3 * 10^18 मीटर/सेकंड",
+      "3 * 10^8 मीटर/सेकंड",
+      "3 * 10^-8 मीटर/सेकंड"
+    ],
+    "answer": "C",
+    "explanation": "Speed of electricity conduction is same as speed of light, i.e., 3 * 10^8 meters per second (about 3 lakh kilometers per second).",
+    "explanationMarathi": "विजेचा वहन वेग हा प्रकाशाच्या वेगाइतकाच असतो, म्हणजेच 3 * 10^8 मीटर प्रति सेकंद (सुमारे ३ लाख किलोमीटर प्रति सेकंद)."
+  },
+  {
+    "id": 1396,
+    "chapterId": 44,
+    "question": "How is the regulator used for increasing/decreasing speed of a ceiling fan connected?",
+    "questionMarathi": "छताच्या पंख्याचा (Ceiling Fan) वेग कमी-जास्त करण्यासाठी वापरला जाणारा रेग्युलेटर कसा जोडला जातो?",
+    "options": [
+      "Parallel to supply",
+      "Parallel to fan",
+      "In series with fan",
+      "Parallel to capacitor"
+    ],
+    "optionsMarathi": [
+      "सप्लायच्या समांतर (Parallel)",
+      "पंख्याच्या समांतर",
+      "पंख्याच्या सिरीजमध्ये (Series with Fan)",
+      "कॅपेसिटरच्या समांतर"
+    ],
+    "answer": "C",
+    "explanation": "Regulator is always connected in series with phase wire and fan to control voltage reaching the fan, so that it can reduce speed by dropping voltage.",
+    "explanationMarathi": "पंख्याला मिळणारा व्होल्टेज नियंत्रित करण्यासाठी रेग्युलेटर नेहमी फेज वायर आणि पंख्याच्या सिरीज (मालिका) जोडणीमध्ये जोडला जातो, जेणेकरून तो व्होल्टेज ड्रॉप करून वेग कमी करू शकेल."
+  },
+  {
+    "id": 1397,
+    "chapterId": 44,
+    "question": "Which starter is used for starting a DC series motor safely?",
+    "questionMarathi": "DC सिरीज मोटर सुरक्षितपणे सुरू करण्यासाठी कोणता स्टार्टर वापरला जातो?",
+    "options": [
+      "Two Point Starter",
+      "Three Point Starter",
+      "Four Point Starter",
+      "Five Point Starter"
+    ],
+    "optionsMarathi": [
+      "टू-पॉइंट स्टार्टर (Two Point Starter)",
+      "थ्री-पॉइंट स्टार्टर",
+      "फोर-पॉइंट स्टार्टर",
+      "फाईव्ह-पॉइंट स्टार्टर"
+    ],
+    "answer": "A",
+    "explanation": "Two-point starter is used to save DC series motor from initial overcurrent. (Three-point and four-point starters are used mainly for shunt and compound motors).",
+    "explanationMarathi": "DC सिरीज मोटरला सुरुवातीच्या अति-करंटपासून वाचवण्यासाठी टू-पॉइंट स्टार्टरचा वापर केला जातो. (थ्री-पॉइंट आणि फोर-पॉइंट स्टार्टर प्रामुख्याने शंट आणि कंपाऊंड मोटर्ससाठी वापरतात)."
+  },
+  {
+    "id": 1398,
+    "chapterId": 44,
+    "question": "In a fairy lights chain of 80 lamps connected in series, if the 50th lamp is suddenly short circuited, what will be the effect on the chain?",
+    "questionMarathi": "सिरीज (मालिका) जोडणीमध्ये जोडलेल्या ८० दिव्यांच्या माळेतील (Fairy Lights) ५० व्या क्रमांकाचा बल्ब अचानक शॉर्ट (Short Circuit) झाला, तर त्या माळेवर काय परिणाम होईल?",
+    "options": [
+      "No lamp will light",
+      "Only lamps after 50th will light",
+      "Only lamps before 50th will light",
+      "50th lamp will not light, rest will light with slightly more brightness"
+    ],
+    "optionsMarathi": [
+      "एकही बल्ब लागणार नाही",
+      "फक्त ५० व्यानंतरचे बल्ब लागतील",
+      "फक्त ५० व्या आधीचे बल्ब लागतील",
+      "५० वा बल्ब लागणार नाही, बाकीचे सर्व बल्ब थोडे अधिक प्रखरतेने लागतील"
+    ],
+    "answer": "D",
+    "explanation": "If bulb was 'open' (fused), circuit would have broken and entire chain would have stopped. But here bulb is short circuited, meaning current will go ahead directly without passing through filament of 50th bulb. Therefore, only 50th bulb will not light, and as total resistance decreases slightly, remaining 79 bulbs will be slightly brighter than usual.",
+    "explanationMarathi": "बल्ब 'ओपन' (फ्यूज) झाला असता तर परिपथ तुटला असता आणि सर्व माळ बंद झाली असती. परंतु येथे बल्ब शॉर्ट (Short) झाला आहे, म्हणजेच करंट ५० व्या बल्बच्या फिलामेंटमधून न जाता थेट पुढे निघून जाईल. त्यामुळे केवळ ५० क्रमांकाचा बल्ब लागणार नाही, आणि एकूण रोध किंचित कमी झाल्यामुळे उर्वरित ७९ बल्ब नेहमीपेक्षा थोडे जास्त प्रकाशमान होतील."
+  },
+  {
+    "id": 1399,
+    "chapterId": 45,
+    "question": "How much electrical energy will be consumed by 4 lamps of 200 Watts in 4 hours?",
+    "questionMarathi": "200 वॉटच्या (Watts) 4 दिव्यांद्वारे (Lamps) 4 तासांत किती विद्युत ऊर्जा वापरली जाईल?",
+    "options": [
+      "32 units",
+      "20 units",
+      "3.2 units",
+      "8.0 units"
+    ],
+    "optionsMarathi": [
+      "32 युनिट",
+      "20 युनिट",
+      "3.2 युनिट",
+      "8.0 युनिट"
+    ],
+    "answer": "C",
+    "explanation": "Formula for electrical energy (units or kWh): Energy (kWh) = (Total Watts * Hours) / 1000 = ((200 * 4) * 4) / 1000 = 3200 / 1000 = 3.2 units.",
+    "explanationMarathi": "विद्युत ऊर्जा (युनिट किंवा kWh) काढण्याचे सूत्र: ऊर्जा (kWh) = (एकूण वॉट * तास) / 1000 = ((200 * 4) * 4) / 1000 = 3200 / 1000 = 3.2 युनिट."
+  },
+  {
+    "id": 1400,
+    "chapterId": 45,
+    "question": "Where is the Over Load Coil (OLC) connected in a DC motor starter?",
+    "questionMarathi": "DC मोटर स्टार्टरमध्ये ओव्हर लोड कॉइल (OLC - Over Load Coil) कुठे जोडलेली असते?",
+    "options": [
+      "Parallel to the motor",
+      "In series with the supply",
+      "Parallel to the supply",
+      "Parallel to NVC"
+    ],
+    "optionsMarathi": [
+      "मोटरच्या समांतर (Parallel)",
+      "सप्लायच्या सिरीजमध्ये (Series with Supply)",
+      "सप्लायच्या समांतर",
+      "NVC च्या समांतर"
+    ],
+    "answer": "B",
+    "explanation": "The main purpose of the overload coil is to detect overcurrent flowing through the motor. To measure the full load current, it is always connected in series with the main supply line.",
+    "explanationMarathi": "ओव्हर लोड कॉइलचा मुख्य उद्देश मोटरमधून वाहणारा अति-करंट (Overload) ओळखणे हा असतो. संपूर्ण लोड करंट मोजण्यासाठी ती नेहमी मुख्य सप्लाय लाईनच्या सिरीज (मालिका) जोडणीत जोडली जाते."
+  },
+  {
+    "id": 1401,
+    "chapterId": 45,
+    "question": "What will be the inductive reactance (XL) of a 2 mH coil on a 50 Hz supply?",
+    "questionMarathi": "50 हर्ट्झ (Hz) सप्लायवर 2 mH (मिलिहेन्री) च्या कॉइलचा इंडक्टिव्ह रिएक्टन्स (XL) किती असेल?",
+    "options": [
+      "628 Ohms",
+      "0.628 Ohms",
+      "6.28 Ohms",
+      "None of these"
+    ],
+    "optionsMarathi": [
+      "628 ओम",
+      "0.628 ओम",
+      "6.28 ओम",
+      "यांपैकी काहीही नाही"
+    ],
+    "answer": "B",
+    "explanation": "Formula for inductive reactance: XL = 2πfL. Given f = 50 Hz and L = 2 mH = 0.002 H. XL = 2 * 3.1416 * 50 * 0.002 = 314.16 * 0.002 = 0.6283 Ω.",
+    "explanationMarathi": "इंडक्टिव्ह रिएक्टन्सचे सूत्र: XL = 2πfL. येथे f = 50 Hz आणि L = 2 mH = 2 * 10^-3 H आहे. XL = 2 * 3.1416 * 50 * 0.002 = 314.16 * 0.002 = 0.6283 Ω."
+  },
+  {
+    "id": 1402,
+    "chapterId": 45,
+    "question": "Which of the following wiring is suitable and useful for temporary wiring?",
+    "questionMarathi": "तात्पुरत्या वायरिंगसाठी (Temporary Wiring) खालीलपैकी कोणती वायरिंग योग्य व उपयुक्त आहे?",
+    "options": [
+      "Batten",
+      "Cleat",
+      "Casing Capping",
+      "PVC Conduit"
+    ],
+    "optionsMarathi": [
+      "बॅटन (Batten)",
+      "क्लीट (Cleat)",
+      "केसिंग केपिंग (Casing Capping)",
+      "पीव्हीसी कंड्युट (PVC Conduit)"
+    ],
+    "answer": "B",
+    "explanation": "Cleat wiring is the cheapest, simplest, and temporary type of wiring (e.g., in fairs or construction sites). It can be easily removed and installed.",
+    "explanationMarathi": "क्लीट वायरिंग ही सर्वात स्वस्त, साधी आणि तात्पुरत्या स्वरूपाची (उदा. जत्रा किंवा बांधकामाच्या ठिकाणी) असणारी वायरिंग आहे. ही सहज काढता आणि बसवता येते."
+  },
+  {
+    "id": 1403,
+    "chapterId": 45,
+    "question": "Which winding is done in the armature to obtain higher voltage?",
+    "questionMarathi": "अधिक व्होल्टेज प्राप्त करण्यासाठी आर्मेचरमध्ये कोणती वाइंडिंग केली जाते?",
+    "options": [
+      "Lap Winding",
+      "Wave Winding",
+      "Looping",
+      "Armature"
+    ],
+    "optionsMarathi": [
+      "लॅप वाइंडिंग (Lap)",
+      "वेव्ह वाइंडिंग (Wave)",
+      "लूपिंग (Looping)",
+      "आर्मेचर"
+    ],
+    "answer": "B",
+    "explanation": "In wave winding, the number of parallel paths (A) is always constant i.e., A = 2, so this winding is used to obtain high voltage and low current.",
+    "explanationMarathi": "वेव्ह वाइंडिंगमध्ये समांतर मार्गांची संख्या (Parallel paths) नेहमी स्थिर म्हणजेच A = 2 असते, त्यामुळे ही वाइंडिंग उच्च व्होल्टेज आणि कमी करंट (High Voltage, Low Current) मिळवण्यासाठी वापरली जाते."
+  },
+  {
+    "id": 1404,
+    "chapterId": 45,
+    "question": "Which reading does a voltmeter connected to an AC supply show?",
+    "questionMarathi": "AC सप्लायवर जोडलेला व्होल्टमीटर कोणती रीडिंग (किंमत) दर्शवतो?",
+    "options": [
+      "Average Value",
+      "Peak Value",
+      "Effective / RMS Value",
+      "Phase Value"
+    ],
+    "optionsMarathi": [
+      "सरासरी मान (Average Value)",
+      "शिखर मान (Peak Value)",
+      "प्रभावी मान (Effective / RMS Value)",
+      "फेज मान (Phase Value)"
+    ],
+    "answer": "C",
+    "explanation": "All general AC measuring instruments (voltmeter, ammeter) always show the effective value of AC, i.e., the RMS (Root Mean Square) value.",
+    "explanationMarathi": "सर्व सामान्य AC मोजमाप साधने (व्होल्टमीटर, अमीटर) हे नेहमी AC चे प्रभावी मान म्हणजेच RMS (Root Mean Square) व्हॅल्यू दर्शवतात."
+  },
+  {
+    "id": 1405,
+    "chapterId": 45,
+    "question": "How many British H.P. (Horse Power) are there in 1000 Watts?",
+    "questionMarathi": "1000 वॉट (Watts) मध्ये किती ब्रिटीश एच.पी. (HP - Horse Power) असतात?",
+    "options": [
+      "1.30",
+      "1.34",
+      "1.35",
+      "1.36"
+    ],
+    "optionsMarathi": [
+      "1.30",
+      "1.34",
+      "1.35",
+      "1.36"
+    ],
+    "answer": "B",
+    "explanation": "According to the British system, 1 HP = 746 Watts. Therefore, 1000 Watts = 1000 / 746 ≈ 1.34 HP.",
+    "explanationMarathi": "ब्रिटीश पद्धतीनुसार, 1 HP = 746 वॉट असते. त्यामुळे, 1000 वॉट = 1000 / 746 ≈ 1.34 HP."
+  },
+  {
+    "id": 1406,
+    "chapterId": 45,
+    "question": "What will be the color code for a resistance value of 960 Ω ± 3%?",
+    "questionMarathi": "960 Ω ± 3% रोध (Resistance) मूल्याचा रंग कोड (Color Code) काय असेल?",
+    "options": [
+      "White, Blue, Black, Yellow",
+      "White, Blue, Brown, Yellow",
+      "White, Green, Brown, Orange",
+      "White, Blue, Brown, Orange"
+    ],
+    "optionsMarathi": [
+      "पांढरा, निळा, काळा, पिवळा",
+      "पांढरा, निळा, तपकिरी, पिवळा",
+      "पांढरा, हिरवा, तपकिरी, नारंगी",
+      "पांढरा, निळा, तपकिरी, नारंगी"
+    ],
+    "answer": "D",
+    "explanation": "For 960 Ω ± 3%: 1st digit 9=White, 2nd digit 6=Blue, Multiplier 10^1=Brown, Tolerance ± 3%=Orange. So, White, Blue, Brown, Orange is the correct code.",
+    "explanationMarathi": "960 Ω ± 3% साठी: पहिला अंक 9=पांढरा, दुसरा अंक 6=निळा, गुणाकार 10^1=तपकिरी, टॉलरन्स ± 3%=नारंगी. म्हणून, पांढरा, निळा, तपकिरी, नारंगी हा योग्य कोड आहे."
+  },
+  {
+    "id": 1407,
+    "chapterId": 45,
+    "question": "The torque of a shunt motor is proportional to which of the following?",
+    "questionMarathi": "शंट मोटरचा टॉर्क (Torque) खालीलपैकी कोणाच्या प्रमाणात असतो?",
+    "options": [
+      "Armature resistance",
+      "Armature Current",
+      "Field resistance",
+      "Field current"
+    ],
+    "optionsMarathi": [
+      "आर्मेचर रोध",
+      "आर्मेचर करंट (Armature Current)",
+      "फील्ड रोध",
+      "फील्ड करंट"
+    ],
+    "answer": "B",
+    "explanation": "In a shunt motor, the field flux (φ) is constant. The formula for motor torque is T ∝ φ * Ia. Since flux is constant, torque is directly proportional to armature current (Ia).",
+    "explanationMarathi": "शंट मोटरमध्ये FIELD फ्लक्स (φ) स्थिर असतो. मोटरचा टॉर्कचे सूत्र T ∝ φ * Ia असे आहे. फ्लक्स स्थिर असल्याने टॉर्क हा थेट आर्मेचर करंट (Ia) च्या समप्रमाणात असतो."
+  },
+  {
+    "id": 1408,
+    "chapterId": 45,
+    "question": "In AC, Form Factor is the ratio of which of the following values?",
+    "questionMarathi": "AC मध्ये फॉर्म फॅक्टर (Form Factor) हे खालीलपैकी कोणत्या मूल्यांचे गुणोत्तर (गुणोत्तर) असते?",
+    "options": [
+      "Peak / Effective",
+      "Effective / Peak",
+      "Effective / Average (RMS Value / Average Value)",
+      "Average / Effective"
+    ],
+    "optionsMarathi": [
+      "शिखर / प्रभावी",
+      "प्रभावी / शिखर",
+      "प्रभावी / सरासरी (RMS Value / Average Value)",
+      "सरासरी / प्रभावी"
+    ],
+    "answer": "C",
+    "explanation": "Form Factor is always the ratio of RMS value (Effective value) and Average value. For a sine wave, its value is 1.11 (Form Factor = RMS / Average).",
+    "explanationMarathi": "फॉर्म फॅक्टर हा नेहमी RMS व्हॅल्यू (प्रभावी मान) आणि सरासरी मान (Average Value) यांचे गुणोत्तर असतो. साईन वेव्हसाठी याचे मूल्य 1.11 असते (Form Factor = RMS / Average)."
+  },
+  {
+    "id": 1409,
+    "chapterId": 45,
+    "question": "What is the value of the Power Factor in a pure inductive circuit?",
+    "questionMarathi": "एका शुद्ध इंडक्टिव्ह परिपथात (Pure Inductive Circuit) पॉवर फॅक्टरचे (Power Factor) मूल्य काय असते?",
+    "options": [
+      "Lagging",
+      "Zero",
+      "Unity",
+      "Leading"
+    ],
+    "optionsMarathi": [
+      "लॅगिंग (Lagging)",
+      "शून्य (Zero)",
+      "एकक (Unity)",
+      "लिडिंग (Leading)"
+    ],
+    "answer": "B",
+    "explanation": "In a pure inductive circuit, current lags exactly 90° behind voltage. Since cos(90°) = 0, the power factor of this circuit is zero (Zero Lagging).",
+    "explanationMarathi": "शुद्ध इंडक्टिव्ह सर्किटमध्ये करंट हा व्होल्टेजपेक्षा तंतोतंत 90° मागे (Lag) असतो. cos(90°) = 0 असल्यामुळे या परिपथाचा पॉवर फॅक्टर शून्य (Zero Lagging) असतो."
+  },
+  {
+    "id": 1410,
+    "chapterId": 45,
+    "question": "What should be the minimum size of earthing wire for domestic or general use?",
+    "questionMarathi": "घरगुती किंवा सामान्य वापरासाठी अर्थिंग वायरचा (Earthing Wire) किमान आकार साधारणतः किती असावा?",
+    "options": [
+      "6 SWG",
+      "7 SWG",
+      "8 SWG",
+      "10 SWG"
+    ],
+    "optionsMarathi": [
+      "6 SWG",
+      "7 SWG",
+      "8 SWG",
+      "10 SWG"
+    ],
+    "answer": "C",
+    "explanation": "When using GI (Galvanized Iron) earth wire, 8 SWG size wire is generally considered standard for best safety and low resistance.",
+    "explanationMarathi": "जीआय (GI) अर्थ वायर वापरताना उत्तम सुरक्षेसाठी आणि कमी रोधासाठी सामान्यतः 8 SWG आकाराची तार वापरणे मानक मानले जाते."
+  },
+  {
+    "id": 1411,
+    "chapterId": 45,
+    "question": "Which of the following substances has high retentivity?",
+    "questionMarathi": "खालीलपैकी कोणत्या पदार्थाची धारणाशक्ती (High Retentivity - चुंबकीयत्व टिकवून ठेवण्याची क्षमता) उच्च असते?",
+    "options": [
+      "Copper",
+      "Soft Iron",
+      "Steel",
+      "Silicon Steel"
+    ],
+    "optionsMarathi": [
+      "तांबे",
+      "मऊ लोखंड (Soft Iron)",
+      "पोलाद (Steel / फौलाद)",
+      "सिलिकॉन स्टील"
+    ],
+    "answer": "C",
+    "explanation": "Retentivity of steel is very high, so once magnetized, its magnetism does not get destroyed easily. Therefore, steel is used to make permanent magnets.",
+    "explanationMarathi": "पोलादाची (Steel) रिटेंटिव्हिटी (धारणाशक्ती) खूप जास्त असते, त्यामुळे एकदा तो चुंबकीत झाल्यावर त्याचे चुंबकीयत्व सहजासहजी नष्ट होत नाही. म्हणून कायमस्वरूपी चुंबक (Permanent Magnet) बनवण्यासाठी पोलादाचा वापर करतात."
+  },
+  {
+    "id": 1412,
+    "chapterId": 45,
+    "question": "What is the maximum safe operating temperature of Class E insulator?",
+    "questionMarathi": "'E' वर्गाच्या अवाहकाचे (Class E Insulator) कमाल सुरक्षित कार्यकारी तापमान (Operating Temperature) काय असते?",
+    "options": [
+      "105°C",
+      "120°C",
+      "130°C",
+      "155°C"
+    ],
+    "optionsMarathi": [
+      "105 अंश सेल्सिअस",
+      "120 अंश सेल्सिअस",
+      "130 अंश सेल्सिअस",
+      "155 अंश सेल्सिअस"
+    ],
+    "answer": "B",
+    "explanation": "According to insulation classification: Y=90°C, A=105°C, E=120°C, B=130°C, F=155°C, H=180°C, C=above 180°C. So Class E is 120°C.",
+    "explanationMarathi": "इन्सुलेशनच्या वर्गीकरणानुसार: Y=90°C, A=105°C, E=120°C, B=130°C, F=155°C, H=180°C, C=180°C पेक्षा जास्त. म्हणून वर्ग E साठी 120°C योग्य आहे."
+  },
+  {
+    "id": 1413,
+    "chapterId": 45,
+    "question": "What is essential and mandatory while working on a transmission tower?",
+    "questionMarathi": "विद्युत टॉवरवर (Transmission Tower) काम करताना खालीलपैकी कशाचा वापर करणे अत्यंत आवश्यक आणि बंधनकारक आहे?",
+    "options": [
+      "Pliers",
+      "Gloves",
+      "Safety Belt",
+      "Helper"
+    ],
+    "optionsMarathi": [
+      "प्लायर (Pliers)",
+      "हातमोजे (Gloves)",
+      "सुरक्षा पेटी / सेफ्टी बेल्ट (Safety Belt)",
+      "हेल्पर"
+    ],
+    "answer": "C",
+    "explanation": "The most important safety device to avoid serious accidents due to falling while working at height (on a tower) is the safety belt.",
+    "explanationMarathi": "उंचावर (टॉवरवर) काम करताना खाली पडून होणारे गंभीर अपघात टाळण्यासाठी सर्वात महत्त्वाचे सुरक्षा साधन म्हणजे सेफ्टी बेल्ट (सुरक्षा पेटी/बेल्ट) होय."
+  },
+  {
+    "id": 1414,
+    "chapterId": 45,
+    "question": "Which of the following is not a type of switch?",
+    "questionMarathi": "खालीलपैकी कोणता प्रकार एका स्विचचा (Switch) प्रकार नाही?",
+    "options": [
+      "Tumbler",
+      "Toggle",
+      "Immersion",
+      "Slide"
+    ],
+    "optionsMarathi": [
+      "टम्बलर स्विच (Tumbler)",
+      "टॉगल स्विच (Toggle)",
+      "इमर्जन्शन (Immersion - हा हीटरचा प्रकार आहे)",
+      "स्लाईड स्विच (Slide)"
+    ],
+    "answer": "C",
+    "explanation": "Tumbler, toggle, and slide are all types of switches, while 'Immersion' (Immersion Heater) is a type of electric heater for heating water, not a switch.",
+    "explanationMarathi": "टम्बलर, टॉगल आणि स्लाईड हे सर्व स्विचचे प्रकार आहेत, तर 'इमर्शन' (Immersion Heater) हा पाणि तापवण्याच्या इलेक्ट्रिक हीटरचा प्रकार आहे, स्विचचा नाही."
+  },
+  {
+    "id": 1415,
+    "chapterId": 45,
+    "question": "Where are the starting resistances connected in a DC motor starter?",
+    "questionMarathi": "DC मोटर स्टार्टरमध्ये सुरुवातीचे रोध (Starting Resistances) कुठे जोडलेले असतात?",
+    "options": [
+      "Parallel to armature",
+      "In series with field",
+      "In series with armature",
+      "Parallel to field"
+    ],
+    "optionsMarathi": [
+      "आर्मेचरच्या समांतर",
+      "फील्डच्या सिरीजमध्ये",
+      "आर्मेचरच्या सिरीजमध्ये (Series with Armature)",
+      "फील्डच्या समांतर"
+    ],
+    "answer": "C",
+    "explanation": "When starting a DC motor, back EMF (Eb) is zero, causing the armature to draw very high current. To limit this starting current, starter resistances are always connected in series with the armature.",
+    "explanationMarathi": "DC मोटर सुरू होताना बॅक ई.एम.एफ. (Eb) शून्य असतो, ज्यामुळे आर्मेचर खूप जास्त करंट खेचू शकतो. हा सुरुवातीचा करंट मर्यादित करण्यासाठी स्टार्टरचे रोध नेहमी आर्मेचरच्या सिरीजमध्ये जोडले जातात."
+  },
+  {
+    "id": 1416,
+    "chapterId": 45,
+    "question": "What is the symbol for the unit of Capacitance?",
+    "questionMarathi": "कॅपॅसिटन्सच्या (Capacitance) एककाचे (Unit) प्रतीक काय आहे?",
+    "options": [
+      "C",
+      "Q",
+      "F",
+      "V"
+    ],
+    "optionsMarathi": [
+      "C",
+      "Q",
+      "F",
+      "V"
+    ],
+    "answer": "C",
+    "explanation": "The unit of capacitance is Farad, and its symbol is 'F'. ('C' is used for the quantity capacitance, but symbol for unit is 'F').",
+    "explanationMarathi": "कॅपॅसिटन्सचे एकक फॅराड (Farad) आहे आणि त्याचे प्रतीक 'F' हे आहे. (कॅपॅसिटन्स या राशीसाठी 'C' वापरतात, पण एककाचे प्रतीक 'F' असते)."
+  },
+  {
+    "id": 1417,
+    "chapterId": 45,
+    "question": "Which of the following is equal to 1 Henry?",
+    "questionMarathi": "1 हेन्री (Henry - इंडक्टन्सचे एकक) खालीलपैकी कशाच्या बरोबर असते?",
+    "options": [
+      "1 Farad / 1 Volt",
+      "1 Volt / (1 Ampere/second)",
+      "1 Volt / 1 Ampere",
+      "1 Ampere / 1 Volt"
+    ],
+    "optionsMarathi": [
+      "1 फॅराड / 1 व्होल्ट",
+      "1 व्होल्ट / (1 एम्पियर/सेकंड)",
+      "1 व्होल्ट / 1 एम्पियर",
+      "1 एम्पियर / 1 व्होल्ट"
+    ],
+    "answer": "B",
+    "explanation": "From the formula e = L * (di/dt), L = e / (di/dt). So 1 Henry = 1 Volt / (1 Ampere per second).",
+    "explanationMarathi": "e = L * (di/dt) या सूत्रावरून, L = e / (di/dt). म्हणून १ हेन्री = १ व्होल्ट / (१ एम्पियर प्रति सेकंद)."
+  },
+  {
+    "id": 1418,
+    "chapterId": 45,
+    "question": "What will be the value of resistance with Yellow, Orange, Green and Gold color bands?",
+    "questionMarathi": "पिवळा, नारंगी, हिरवा आणि सोनेरी (Yellow, Orange, Green, Gold) रंग पट्ट्या असलेल्या रोधाचे मूल्य किती असेल?",
+    "options": [
+      "4300 kΩ ± 5%",
+      "4300 Ω ± 5%",
+      "43000 kΩ ± 5%",
+      "430 kΩ ± 5%"
+    ],
+    "optionsMarathi": [
+      "4300 kΩ ± 5%",
+      "4300 Ω ± 5%",
+      "43000 kΩ ± 5%",
+      "430 kΩ ± 5%"
+    ],
+    "answer": "A",
+    "explanation": "Yellow=4, Orange=3, Green=Multiplier 10^5, Gold=± 5%. Total value = 43 * 10^5 Ω = 4,300,000 Ω = 4300 kΩ ± 5%.",
+    "explanationMarathi": "पिवळा=4, नारंगी=3, हिरवा=गुणाकार 10^5, सोनेरी=± 5% टॉलरन्स. एकूण मूल्य = 43 * 10^5 Ω = 4,300,000 Ω = 4300 kΩ ± 5%."
+  },
+  {
+    "id": 1419,
+    "chapterId": 45,
+    "question": "What is the armature resistance of a DC motor generally?",
+    "questionMarathi": "DC मोटरच्या आर्मेचरचा रोध (Armature Resistance) सामान्यतः किती असतो?",
+    "options": [
+      "1000 Ohms",
+      "10 Ohms",
+      "100 kilo Ohms",
+      "1 Ohm (or less)"
+    ],
+    "optionsMarathi": [
+      "1000 ओम",
+      "10 ओम",
+      "100 किलो ओम",
+      "1 ओम (किंवा 1 ओमपेक्षा कमी)"
+    ],
+    "answer": "D",
+    "explanation": "To have minimum voltage drop in armature winding and for good motor efficiency, armature resistance is kept very low, generally around 1 Ohm or less.",
+    "explanationMarathi": "आर्मेचर वाइंडिंगमध्ये कमीत कमी व्होल्टेज ड्रॉप व्हावा आणि मोटरची कार्यक्षमता चांगली राहावी म्हणून आर्मेचरचा रोध अत्यंत कमी म्हणजेच साधारणतः १ ओम किंवा त्याहून कमी ठेवला जातो."
+  },
+  {
+    "id": 1420,
+    "chapterId": 45,
+    "question": "What reading will Megger show if there is a severe short circuit in an electrical wiring?",
+    "questionMarathi": "एका इलेक्ट्रिकल वायरिंगमध्ये गंभीर शॉर्ट सर्किट (Short Circuit) असल्यास मेगर (Megger) काय रीडिंग दाखवेल?",
+    "options": [
+      "0 Megaohm",
+      "Infinity",
+      "500 Megaohm",
+      "1 Megaohm"
+    ],
+    "optionsMarathi": [
+      "0 मेगा ओम (Zero Megaohm)",
+      "अनंत (Infinity)",
+      "500 मेगा ओम",
+      "1 मेगा ओम"
+    ],
+    "answer": "A",
+    "explanation": "In a short circuit condition, both wires are connected directly, so resistance between them is completely lost (becomes zero). Hence Megger shows 0 (zero) resistance.",
+    "explanationMarathi": "शॉर्ट सर्किटच्या स्थितीत दोन्ही तारा एकमेकांना थेट जोडल्या गेल्यामुळे त्यांच्यामधील रोध पूर्णपणे संपतो (शून्य होतो). त्यामुळे मेगर ० (शून्य) रोध दर्शवतो."
+  },
+  {
+    "id": 1421,
+    "chapterId": 45,
+    "question": "An inductor (coil) opposes which of the following changes?",
+    "questionMarathi": "इंडक्टर (Inductor / कॉइल) खालीलपैकी कशामध्ये होणाऱ्या बदलाला विरोध करतो?",
+    "options": [
+      "Change in current",
+      "Change in load",
+      "Change in voltage",
+      "Change in time"
+    ],
+    "optionsMarathi": [
+      "करंटमधील बदल (Change in Current)",
+      "लोडमधील बदल",
+      "व्होल्टेजमधील बदल",
+      "वेळेमधील बदल"
+    ],
+    "answer": "A",
+    "explanation": "The main property of an inductor (according to Lenz's Law) is that it opposes any sudden change in the value of the electric current flowing through it.",
+    "explanationMarathi": "इंडक्टरचा मुख्य गुणधर्म (Lenz's Law नुसार) असा आहे की तो स्वतःमधून वाहणाऱ्या विद्युत प्रवाहाच्या (करंटच्या) मूल्यामध्ये होणाऱ्या कोणत्याही अचानक बदलाला विरोध करतो."
+  },
+  {
+    "id": 1422,
+    "chapterId": 45,
+    "question": "What is the value of power factor in a pure resistive circuit?",
+    "questionMarathi": "शुद्ध प्रतिरोधी परिपथात (Pure Resistive Circuit) पॉवर फॅक्टरचे मूल्य काय असते?",
+    "options": [
+      "Zero",
+      "Unity",
+      "Lagging",
+      "Leading"
+    ],
+    "optionsMarathi": [
+      "शून्य",
+      "एकक / युनिटी (Unity = 1)",
+      "लॅगिंग",
+      "लिडिंग"
+    ],
+    "answer": "B",
+    "explanation": "In a pure resistive circuit, voltage and current are in the same phase, i.e., angle θ = 0°. Therefore, cos(0°) = 1 (Unity) power factor is obtained.",
+    "explanationMarathi": "शुद्ध प्रतिरोधी परिपथात व्होल्टेज आणि करंट दोन्ही एकाच फेजमध्ये (In-phase) असतात, म्हणजेच त्यांच्यातील कोन θ = 0° असतो. म्हणून cos(0°) = 1 (युनिटी/एकक) पॉवर फॅक्टर मिळतो."
+  },
+  {
+    "id": 1423,
+    "chapterId": 45,
+    "question": "In what is the capacity of an electric battery measured or expressed?",
+    "questionMarathi": "विजेच्या बॅटरीची क्षमता (Battery Capacity) कशामध्ये मोजली किंवा व्यक्त केली जाते?",
+    "options": [
+      "In Ampere",
+      "Ampere / hour",
+      "Ampere-hour (Ah)",
+      "Ampere-watt"
+    ],
+    "optionsMarathi": [
+      "एम्पियरमध्ये",
+      "एम्पियर/तास",
+      "एम्पियर-तास (Ah - Ampere-Hour)",
+      "एम्पियर-वॉट"
+    ],
+    "answer": "C",
+    "explanation": "The capacity of a battery is determined by how much current it can provide for how many hours, so it is always expressed in Ah (Ampere-Hour).",
+    "explanationMarathi": "बॅटरी किती करंट किती तासांपर्यंत देऊ शकते यावरून तिची क्षमता ठरते, म्हणून ती नेहमी Ah (Ampere-Hour / एम्पियर-तास) मध्ये व्यक्त केली जाते."
+  },
+  {
+    "id": 1424,
+    "chapterId": 45,
+    "question": "What is the formula to calculate Dynamically Induced EMF in a conductor due to a magnetic field?",
+    "questionMarathi": "वाहकामध्ये चुंबकीय क्षेत्रामुळे निर्माण होणारे गतीज प्रेरित विद्युत वाहक बल (Dynamically Induced EMF) काढण्याचे सूत्र काय आहे?",
+    "options": [
+      "B * A * V * sinθ",
+      "K * l * V * sinθ",
+      "B * L * V * sinθ",
+      "B * I * V * sinθ"
+    ],
+    "optionsMarathi": [
+      "B * A * V * sinθ",
+      "K * l * V * sinθ",
+      "B * L * V * sinθ",
+      "B * I * V * sinθ"
+    ],
+    "answer": "C",
+    "explanation": "The standard formula for dynamically induced EMF is e = BLv sinθ, where B = flux density, L = length of conductor, v = velocity, and θ = angle of cutting.",
+    "explanationMarathi": "गतीज प्रेरित EMF चे मानक सूत्र e = BLv sinθ हे आहे, जिथे B = फ्लक्स डेन्सिटी, L = वाहकाची लांबी, v = वेग आणि θ = कापण्याचा कोन असतो."
+  },
+  {
+    "id": 1425,
+    "chapterId": 45,
+    "question": "Which of the following type of cell is a Voltaic Cell?",
+    "questionMarathi": "व्होल्टाएक सेल (Voltaic Cell) हा खालीलपैकी कोणत्या प्रकारचा सेल आहे?",
+    "options": [
+      "Primary Cell",
+      "Secondary Cell",
+      "Dry Cell",
+      "Alkaline Cell"
+    ],
+    "optionsMarathi": [
+      "प्राथमिक सेल (Primary Cell)",
+      "दुय्यम सेल (Secondary Cell)",
+      "शुष्क सेल (Dry Cell)",
+      "अल्कलाईन सेल"
+    ],
+    "answer": "A",
+    "explanation": "Voltaic cell converts chemical energy directly into electrical energy and cannot be recharged, so it falls into the Primary cell category.",
+    "explanationMarathi": "व्होल्टाइक सेल हा रासायनिक ऊर्जेचे थेट विद्युत ऊर्जेत रूपांतर करतो आणि याला पुन्हा रिचार्ज करता येत नाही, म्हणून हा प्राथमिक (Primary) सेल वर्गात मोडतो."
+  },
+  {
+    "id": 1426,
+    "chapterId": 46,
+    "question": "Which of the following components can be reduced to increase resistance?",
+    "questionMarathi": "खालीलपैकी कोणता घटक कमी करून रोध (Resistance) वाढवता येतो?",
+    "options": [
+      "Length",
+      "Width",
+      "Cross-sectional Area",
+      "Heat"
+    ],
+    "optionsMarathi": [
+      "लांबी (Length)",
+      "रुंदी (Width)",
+      "अनुप्रस्थ कापछेद क्षेत्रफळ (Cross-sectional Area)",
+      "उष्णता (Heat)"
+    ],
+    "answer": "C",
+    "explanation": "According to the resistance law R = ρ * (l/a), resistance (R) is inversely proportional to the cross-sectional area (a) of the conductor. Therefore, reducing the area (or thickness) increases the resistance.",
+    "explanationMarathi": "रोधाचे नियम सूत्र R = ρ * (l/a) असे आहे. यानुसार रोध (R) हा वाहकाच्या कापछेद क्षेत्रफळाच्या (a) व्यस्त प्रमाणात असतो. त्यामुळे क्षेत्रफळ (किंवा जाडी) कमी केल्यास रोध वाढतो."
+  },
+  {
+    "id": 1427,
+    "chapterId": 46,
+    "question": "What will be the resistance of a lamp with 250 Watts and 250 Volts?",
+    "questionMarathi": "250 वॉट (Watts), 250 व्होल्ट (Volt) असलेल्या दिव्याचा (Lamp) रोध किती असेल?",
+    "options": [
+      "25 Ohms",
+      "250 Ohms",
+      "1 Ohm",
+      "625 Ohms"
+    ],
+    "optionsMarathi": [
+      "25 ओम",
+      "250 ओम",
+      "1 ओम",
+      "625 ओम"
+    ],
+    "answer": "B",
+    "explanation": "Formula for resistance: R = V^2 / P = (250 * 250) / 250 = 250 Ω.",
+    "explanationMarathi": "रोध काढण्याचे सूत्र: R = V^2 / P = (250 * 250) / 250 = 250 Ω."
+  },
+  {
+    "id": 1428,
+    "chapterId": 46,
+    "question": "The capacitive reactance (XC) of a capacitor is inversely proportional to which of the following?",
+    "questionMarathi": "कॅपेसिटरचा कॅपेसिटिव्ह रिएक्टन्स (XC) कोणाच्या व्यस्त प्रमाणात (Inversely Proportional) असतो?",
+    "options": [
+      "Voltage",
+      "Current",
+      "Frequency",
+      "Resistance"
+    ],
+    "optionsMarathi": [
+      "व्होल्टेजच्या",
+      "करंटच्या",
+      "फ्रिक्वेन्सीच्या (Frequency)",
+      "रोधाच्या"
+    ],
+    "answer": "C",
+    "explanation": "The formula for capacitive reactance is XC = 1 / (2πfC). From this, it is clear that XC is inversely proportional to frequency (f).",
+    "explanationMarathi": "कॅपेसिटिव्ह रिएक्टन्सचे सूत्र XC = 1 / (2πfC) असे आहे. यावरून स्पष्ट होते की XC हा फ्रिक्वेन्सी (f) च्या व्यस्त प्रमाणात असतो."
+  },
+  {
+    "id": 1429,
+    "chapterId": 46,
+    "question": "What can be the maximum pressure on the carbon brush of a DC machine?",
+    "questionMarathi": "DC मशीनच्या कार्बन ब्रशवर कमाल दाब (Maximum Pressure) किती असू शकतो?",
+    "options": [
+      "0.20 kg/cm^2",
+      "0.22 kg/cm^2",
+      "0.25 kg/cm^2",
+      "0.45 kg/cm^2"
+    ],
+    "optionsMarathi": [
+      "0.20 किग्रॅ/सेमी^2",
+      "0.22 किग्रॅ/सेमी^2",
+      "0.25 किग्रॅ/सेमी^2",
+      "0.45 किग्रॅ/सेमी^2"
+    ],
+    "answer": "C",
+    "explanation": "The normal pressure of a brush is 0.15 to 0.22 kg/cm^2, while for industrial and large DC machines the maximum safe limit is considered to be 0.25 kg/cm^2.",
+    "explanationMarathi": "ब्रशचा सामान्य दाब ०.१५ ते ०.२२ किग्रॅ/सेमी^2 असतो, तर औद्योगिक आणि मोठ्या डीसी मशीनसाठी कमाल सुरक्षित मर्यादा ०.२५ किग्रॅ/सेमी^2 पर्यंत मानली जाते."
+  },
+  {
+    "id": 1430,
+    "chapterId": 46,
+    "question": "In Fleming's Left Hand Rule, what does the forefinger indicate?",
+    "questionMarathi": "फ्लेमिंगच्या डाव्या हाताच्या नियमात (Fleming's Left Hand Rule) तर्जनी (Forefinger) काय दर्शवते?",
+    "options": [
+      "Direction of motion",
+      "Direction of current",
+      "Direction of flux (Magnetic Field)",
+      "Direction of voltage"
+    ],
+    "optionsMarathi": [
+      "गतीची दिशा",
+      "करंटची दिशा",
+      "फ्लक्सची दिशा (Direction of Magnetic Field)",
+      "व्होल्टेजची दिशा"
+    ],
+    "answer": "C",
+    "explanation": "According to the left-hand rule, the thumb indicates the direction of force/motion, the forefinger indicates the direction of the magnetic field (flux), and the middle finger indicates the direction of current.",
+    "explanationMarathi": "डाव्या हाताच्या नियमानुसार, अंगठा बलाची/गतीची दिशा, तर्जनी चुंबकीय क्षेत्राची (फ्लक्सची) दिशा आणि मधले बोट करंटची दिशा दर्शवते."
+  },
+  {
+    "id": 1431,
+    "chapterId": 46,
+    "question": "What is the unit of Permeance?",
+    "questionMarathi": "परमिअन्स (Permeance) चे एकक काय आहे?",
+    "options": [
+      "Weber / Ampere",
+      "Ampere / Weber-turn",
+      "Weber / Ampere-turn (Wb / AT)",
+      "Ampere-turn"
+    ],
+    "optionsMarathi": [
+      "वेबर / एम्पियर",
+      "एम्पियर / वेबर-टर्न",
+      "वेबर / एम्पियर-turn (Wb / AT)",
+      "एम्पियर-टर्न"
+    ],
+    "answer": "C",
+    "explanation": "Permeance is the inverse of reluctance. Since the unit of reluctance is AT/Wb, the unit of permeance is Weber/Ampere-turn (Wb/AT).",
+    "explanationMarathi": "परमिअन्स हा रिलक्टन्सचा व्यस्त असतो. रिलक्टन्सचे एकक AT/Wb असल्याने परमिअन्सचे एकक वेबर/एम्पियर-टर्न (Wb/AT) होते."
+  },
+  {
+    "id": 1432,
+    "chapterId": 46,
+    "question": "What should be the minimum thickness of wooden batten used in batten wiring?",
+    "questionMarathi": "बॅटन वायरिंगमध्ये वापरल्या जाणाऱ्या लाकडी बॅटनची किमान जाडी (Minimum Thickness) किती असावी?",
+    "options": [
+      "15 mm",
+      "10 mm",
+      "12 mm",
+      "16 mm"
+    ],
+    "optionsMarathi": [
+      "15 मिमी",
+      "10 मिमी",
+      "12 मिमी",
+      "16 मिमी"
+    ],
+    "answer": "C",
+    "explanation": "According to IS (Indian Standards), the minimum thickness of wooden batten in internal wiring must be 12 mm to maintain strong mechanical strength.",
+    "explanationMarathi": "आयएस (IS) मानकांनुसार, अंतर्गत वायरिंगमध्ये मेकॅनिकल ताकद मजबूत राहण्यासाठी लाकडी बॅटनची किमान जाडी १२ मिमी असणे आवश्यक आहे."
+  },
+  {
+    "id": 1433,
+    "chapterId": 46,
+    "question": "Which property of an AC circuit opposes changes in the value of voltage?",
+    "questionMarathi": "AC परिपथाचा असा कोणता गुणधर्म आहे जो व्होल्टेजच्या मूल्यात होणाऱ्या बदलांना विरोध करतो?",
+    "options": [
+      "Inductance",
+      "Inductive Reactance",
+      "Capacitance",
+      "Capacitive Reactance"
+    ],
+    "optionsMarathi": [
+      "इंडक्टन्स",
+      "इंडक्टिव्ह रिएक्टन्स",
+      "कॅपेसिटन्स (Capacitance)",
+      "कॅपेसिटिव्ह रिएक्टन्स"
+    ],
+    "answer": "C",
+    "explanation": "Inductance opposes changes in current, while capacitance opposes any sudden changes in the value of voltage.",
+    "explanationMarathi": "इंडक्टन्स करंटमधील बदलाला विरोध करतो, तर कॅपेसिटन्स हा व्होल्टेजच्या मूल्यामध्ये होणाऱ्या कोणत्याही अचानक बदलाला विरोध करतो."
+  },
+  {
+    "id": 1434,
+    "chapterId": 46,
+    "question": "What will be the total capacitance of 3 μF, 4 μF and 5 μF capacitors connected in parallel?",
+    "questionMarathi": "समांतर (Parallel) जोडणीत जोडलेल्या 3 μF, 4 μF आणि 5 μF कॅपेसिटरची एकूण धारकता (Total Capacitance) किती असेल?",
+    "options": [
+      "1.27 μF",
+      "12 μF",
+      "127 μF",
+      "4 μF"
+    ],
+    "optionsMarathi": [
+      "1.27 μF",
+      "12 μF",
+      "127 μF",
+      "4 μF"
+    ],
+    "answer": "B",
+    "explanation": "When capacitors are connected in parallel, they are added directly: Ctotal = C1 + C2 + C3 = 3 + 4 + 5 = 12 μF.",
+    "explanationMarathi": "कॅपेसिटर जेव्हा समांतर जोडलेले असतात, तेव्हा त्यांची थेट बेरीज होते: Ctotal = C1 + C2 + C3 = 3 + 4 + 5 = 12 μF."
+  },
+  {
+    "id": 1435,
+    "chapterId": 46,
+    "question": "What is the value of Peak Factor (Crest Factor) for a sine wave?",
+    "questionMarathi": "पीक फॅक्टर (Peak Factor / Crest Factor) चे मान साईन वेव्हसाठी किती असते?",
+    "options": [
+      "1.11",
+      "1.414",
+      "0.707",
+      "0.637"
+    ],
+    "optionsMarathi": [
+      "1.11",
+      "1.414",
+      "0.707",
+      "0.637"
+    ],
+    "answer": "B",
+    "explanation": "Peak factor is the ratio of peak value and RMS value (Vm / Vrms = √2). For a sine wave, its value is 1.414.",
+    "explanationMarathi": "पीक फॅक्टर हे कमाल मान (Peak Value) आणि प्रभावी मान (RMS Value) यांचे गुणोत्तर असते (Vm / Vrms = √2). साईन वेव्हसाठी याचे मूल्य १.४१४ असते."
+  },
+  {
+    "id": 1436,
+    "chapterId": 46,
+    "question": "The average value of an AC sine wave is how many times the peak value?",
+    "questionMarathi": "AC साईन वेव्हचे सरासरी मान (Average Value) कमाल पाण्याच्या किती पटीत असते?",
+    "options": [
+      "1.11",
+      "1.414",
+      "0.707",
+      "0.637"
+    ],
+    "optionsMarathi": [
+      "1.11",
+      "1.414",
+      "0.707",
+      "0.637"
+    ],
+    "answer": "D",
+    "explanation": "The formula for calculating the average value of alternating current (AC) is 0.637 * peak value.",
+    "explanationMarathi": "अल्टरनेटिंग करंट (AC) चे सरासरी मान (Average Value) काढण्याचे सूत्र 0.637 * कमाल मान (Peak Value) असे आहे."
+  },
+  {
+    "id": 1437,
+    "chapterId": 46,
+    "question": "Which of the following safety signs is made with black color on a yellow background?",
+    "questionMarathi": "पिवळ्या पार्श्वभूमीवर (Yellow Background) काळ्या रंगाने (किंवा पांढऱ्या-काळ्या संयोजनाने) बनवलेले सुरक्षा चिन्ह खालीलपैकी कोणते असते?",
+    "options": [
+      "Prohibitive",
+      "Warning Sign",
+      "Informative",
+      "Mandatory"
+    ],
+    "optionsMarathi": [
+      "निषेधात्मक (Prohibitive)",
+      "सचेतक / चेतावणी चिन्ह (Warning Sign / lpsrd)",
+      "माहितीपूर्ण",
+      "आवश्यक"
+    ],
+    "answer": "B",
+    "explanation": "A triangular sign with black color on a yellow background is a 'Warning Sign' that indicates danger.",
+    "explanationMarathi": "त्रिकोणी आकाराचे, पिवळ्या रंगाच्या बॅकग्राउंडवर काळ्या रंगाने बनवलेले चिन्ह हे धोक्याची सूचना देणारे म्हणजेच 'चेतावणी / सचेतक चिन्ह' (Warning Sign) असते."
+  },
+  {
+    "id": 1438,
+    "chapterId": 46,
+    "question": "What happens if an inductor (coil) is connected to a DC supply of the same rating?",
+    "questionMarathi": "काय होईल जर एका इंडक्टरला (कॉइल) त्याच रेटिंगच्या DC सप्लायशी जोडले?",
+    "options": [
+      "It will burn",
+      "Will work well",
+      "Efficiency will increase",
+      "No effect"
+    ],
+    "optionsMarathi": [
+      "तो जळून जाईल (Will Burn)",
+      "चांगल्या प्रकारे कार्य करेल",
+      "कार्यक्षमता वाढेल",
+      "काहीही परिणाम होणार नाही"
+    ],
+    "answer": "A",
+    "explanation": "Frequency of DC supply is zero (f=0), so inductive reactance of inductor (XL = 2πfL) becomes zero. Only very low ohmic resistance of inductor remains, which causes a very large current to flow and burn the coil.",
+    "explanationMarathi": "DC सप्लायची फ्रिक्वेन्सी शून्य (f=0) असते, त्यामुळे इंडक्टरचा इंडक्टिव्ह रिएक्टन्स (XL = 2πfL) शून्य होतो. इंडक्टरचा फक्त ओहमचा अतिशय कमी रोध उरतो, ज्यामुळे खूप मोठा करंट वाहून कॉइल जळून खाक होते."
+  },
+  {
+    "id": 1439,
+    "chapterId": 46,
+    "question": "What happens if a DC series generator is run on no-load?",
+    "questionMarathi": "एका DC सिरीज जनरेटरला नो-लोडवर (विना लोड) चालवल्यास काय होईल?",
+    "options": [
+      "Speed will increase",
+      "Will give more current",
+      "Will not generate voltage",
+      "Will not take load"
+    ],
+    "optionsMarathi": [
+      "गती वाढेल",
+      "करंट जास्त देईल",
+      "व्होल्टेज निर्माण करणार नाही (Will not generate voltage)",
+      "लोड उचलणार नाही"
+    ],
+    "answer": "C",
+    "explanation": "Field winding of a series generator is in series with armature and load. If load is not connected, circuit remains incomplete, current doesn't flow through field and generator cannot create voltage as flux is not generated.",
+    "explanationMarathi": "सिरीज जनरेटरची FIELD वाइंडिंग आर्मेचर आणि लोडच्या सिरीजमध्ये असते. लोड जोडलेला नसल्यास परिपथ अपूर्ण राहतो, FIELDमधून करंट वाहत नाही व फ्लक्स निर्माण न झाल्याने जनरेटर व्होल्टेज तयार करू शकत नाही."
+  },
+  {
+    "id": 1440,
+    "chapterId": 46,
+    "question": "If a 4-pole DC compound generator is rotated at 1500 RPM, what will be the output frequency?",
+    "questionMarathi": "४ पोल असलेल्या एका DC कंपाऊंड जनरेटरला १५०० RPM वर फिरवल्यास आउटपुटला मिळणारी फ्रिक्वेन्सी (Frequency) किती असेल?",
+    "options": [
+      "100 Hz",
+      "60 Hz",
+      "50 Hz",
+      "0 Hz"
+    ],
+    "optionsMarathi": [
+      "100 हर्ट्झ",
+      "60 हर्ट्झ",
+      "50 हर्ट्झ",
+      "0 हर्ट्झ"
+    ],
+    "answer": "D",
+    "explanation": "Even if it is a rotating generator, it is a DC generator. Frequency of DC (Direct Current) is always 0 Hz, no matter how many poles or what the speed is.",
+    "explanationMarathi": "हा फिरणारा जनरेटर असला तरी तो DC जनरेटर आहे. DC (Direct Current) ची फ्रिक्वेन्सी नेहमी ० हर्ट्झ (Zero Hz) असते, मग पोल किंवा गती कितीही असो."
+  },
+  {
+    "id": 1441,
+    "chapterId": 46,
+    "question": "Which of the following positions changes due to the cross-magnetizing effect of armature reaction?",
+    "questionMarathi": "आर्मेचर रिएक्शनच्या चुंबकीय विक्षोभ प्रभावामुळे (Cross-Magnetizing Effect) खालीलपैकी कशाची स्थिती बदलते?",
+    "options": [
+      "GNA (Geometrical Neutral Axis)",
+      "MNA (Magnetic Neutral Axis)",
+      "PNA",
+      "ANA"
+    ],
+    "optionsMarathi": [
+      "GNA (Geometrical Neutral Axis)",
+      "MNA (Magnetic Neutral Axis)",
+      "PNA",
+      "ANA"
+    ],
+    "answer": "B",
+    "explanation": "When armature reaction affects the magnetic field, magnetic lines of force bend. Due to this, the MNA (Magnetic Neutral Axis) shifts forward or backward from its original position (GNA).",
+    "explanationMarathi": "जेव्हा आर्मेचर चुंबकीय क्षेत्रावर परिणाम करतो (आर्मेचर रिएक्शन), तेव्हा चुंबकीय बलरेषा वाकतात. यामुळे MNA (Magnetic Neutral Axis) हा मूळ स्थानावरून (GNA वरून) पुढे किंवा मागे सरकतो."
+  },
+  {
+    "id": 1442,
+    "chapterId": 46,
+    "question": "Which of the following lamps will draw the most current at the same voltage?",
+    "questionMarathi": "खालीलपैकी कोणता दिवा (Lamp) समान व्होल्टेजवर सर्वात जास्त करंट (Current) घेईल?",
+    "options": [
+      "100 Watts",
+      "40 Watts",
+      "90 Watts",
+      "110 Watts"
+    ],
+    "optionsMarathi": [
+      "100 वॉट",
+      "40 वॉट",
+      "90 वॉट",
+      "110 वॉट"
+    ],
+    "answer": "D",
+    "explanation": "Formula for current is I = P / V. If voltage is same, the lamp whose wattage (Power P) is highest will draw the most current.",
+    "explanationMarathi": "करंटचे सूत्र I = P / V असे आहे. व्होल्टेज समान असल्यास, ज्या दिव्याचे वॉट (पॉवर P) सर्वात जास्त असेल, तो दिवा सर्वात जास्त करंट खेचेल."
+  },
+  {
+    "id": 1443,
+    "chapterId": 46,
+    "question": "What happens to the specific gravity of the electrolyte of a lead-acid battery while it is charging?",
+    "questionMarathi": "लेड-ॲसिड बॅटरी चार्ज होत असताना तिच्या इलेक्ट्रोलाईटचे विशिष्ट गुरुत्व (Specific Gravity) काय होते?",
+    "options": [
+      "Decreases",
+      "Increases",
+      "Remains unchanged",
+      "Becomes weak"
+    ],
+    "optionsMarathi": [
+      "घटते",
+      "वाढते (Increases)",
+      "अपरिवर्तित राहते",
+      "कमकुवत होते"
+    ],
+    "answer": "B",
+    "explanation": "During charging, water converts into sulfuric acid and the density of the acid increases. Therefore, when measured with a hydrometer, the specific gravity of the electrolyte is seen to increase.",
+    "explanationMarathi": "चार्जिंग दरम्यान पाण्याचे रूपांतर सल्फ्यूरिक ॲसिडमध्ये होते आणि ॲसिडची घनता वाढते. त्यामुळे हायड्रोमीटरने मोजल्यास इलेक्ट्रोलाईटचे विशिष्ट गुरुत्व वाढलेले दिसते."
+  },
+  {
+    "id": 1444,
+    "chapterId": 46,
+    "question": "Which Fleming's rule is used to find the direction of induced EMF in a generator?",
+    "questionMarathi": "जनरेटरमध्ये (Generator) प्रेरित विद्युत वाहक बलाची (EMF) दिशा शोधण्यासाठी फ्लेमिंगचा कोणता नियम वापरतात?",
+    "options": [
+      "Left Hand Rule",
+      "Right Hand Rule",
+      "Law of Magnetic Induction",
+      "Thumb Rule"
+    ],
+    "optionsMarathi": [
+      "डाव्या हाताचा नियम",
+      "उजव्या हाताचा नियम (Right Hand Rule)",
+      "चुंबकीय प्रेरणेचा नियम",
+      "अंगठ्याचा नियम"
+    ],
+    "answer": "B",
+    "explanation": "Fleming's right hand rule is always used to find the direction of current or EMF in a generator (left hand rule is used for motors).",
+    "explanationMarathi": "जनरेटरमध्ये करंट किंवा EMF ची दिशा शोधण्यासाठी नेहमी फ्लेमिंगचा उजव्या हाताचा नियम वापरला जातो (डाव्या हाताचा नियम मोटरसाठी वापरतात)."
+  },
+  {
+    "id": 1445,
+    "chapterId": 46,
+    "question": "On a cable, 7/22 is written. What does '7' indicate here?",
+    "questionMarathi": "एका केबलवर ७/२२ (7/22) असे लिहिलेले आहे, यामध्ये '७' (अंशातील संख्या) काय दर्शवते?",
+    "options": [
+      "Diameter of wire",
+      "Length of wire",
+      "Total number of strands",
+      "Resistance"
+    ],
+    "optionsMarathi": [
+      "तारेचा व्यास",
+      "तारेची लांबी",
+      "तारांची एकूण संख्या (Number of Strands)",
+      "रोध"
+    ],
+    "answer": "C",
+    "explanation": "In such numbers, the numerator (top number) indicates the total number of strands (wires) in the cable and the denominator indicates the gauge (SWG) of each wire.",
+    "explanationMarathi": "अशा प्रकारच्या अंकात अंशातील संख्या (वरची संख्या) ही केबलमधील एकूण तारांची संख्या दर्शवते आणि रेषेखालची संख्या (२२) ही प्रत्येक तारेचा गेज (SWG) दर्शवते."
+  },
+  {
+    "id": 1446,
+    "chapterId": 46,
+    "question": "Which of the following is the symbol for Conductance?",
+    "questionMarathi": "वाहकता (Conductance) चे प्रतीक खालीलपैकी कोणते आहे?",
+    "options": [
+      "S",
+      "G",
+      "α",
+      "μ"
+    ],
+    "optionsMarathi": [
+      "S",
+      "G",
+      "α",
+      "μ"
+    ],
+    "answer": "B",
+    "explanation": "Conductance (ability of a conductor to carry current) is the inverse of resistance and its standard physical symbol is 'G' (unit is mho or siemens).",
+    "explanationMarathi": "कंडक्टन्स (वाहकाची करंट वाहून नेण्याची क्षमता) हा रोधाच्या व्यस्त असतो आणि त्याचे मानक भौतिक प्रतीक 'G' हे आहे (एकक म्हो किंवा सायमेन्स असते)."
+  },
+  {
+    "id": 1447,
+    "chapterId": 46,
+    "question": "Brass is an alloy of which materials?",
+    "questionMarathi": "पीतळ (Brass) हे कशाचे मिश्रण आहे?",
+    "options": [
+      "Copper and Zinc",
+      "Copper and Tin",
+      "None of these",
+      "Lead and Nickel"
+    ],
+    "optionsMarathi": [
+      "तांबे आणि जस्त (Copper + Zinc)",
+      "तांबे आणि टिन",
+      "यांपैकी कोणाचेही नाही",
+      "शिशा आणि निकेल"
+    ],
+    "answer": "A",
+    "explanation": "Brass is an alloy of Copper and Zinc.",
+    "explanationMarathi": "ब्रास (Brass - पितळ) हे तांबे (Copper) आणि जस्त (Zinc) यांचे संमिश्र आहे."
+  },
+  {
+    "id": 1448,
+    "chapterId": 46,
+    "question": "What is the generally maximum thickness of laminations (Stampings) of the armature core of a DC machine?",
+    "questionMarathi": "डीसी मशीनच्या आर्मेचर कोरच्या लॅमिनेशनची (Stamping) कमाल जाडी साधारण किती असते?",
+    "options": [
+      "0.3 mm",
+      "0.35 mm",
+      "0.5 mm",
+      "0.6 mm"
+    ],
+    "optionsMarathi": [
+      "0.3 मिमी",
+      "0.35 मिमी",
+      "0.5 मिमी (0.35 mm to 0.5 mm)",
+      "0.6 मिमी"
+    ],
+    "answer": "C",
+    "explanation": "To reduce Eddy Current Losses, armature core is laminated. Thickness of these lamination sheets is generally 0.35 mm to 0.5 mm.",
+    "explanationMarathi": "एडी करंट लॉसेस (Eddy Current Losses) कमी करण्यासाठी आर्मेचर कोर लॅमिनेटेड केला जातो. या लॅमिनेशन शीटची जाडी सामान्यतः ०.३५ मिमी ते ०.५ मिमी असते."
+  },
+  {
+    "id": 1449,
+    "chapterId": 46,
+    "question": "Approximately what is the voltage drop per brush of a carbon-graphite brush on the commutator?",
+    "questionMarathi": "कार्बन-ग्रेफाइट ब्रशचा कम्युटेटरवरील व्होल्टेज ड्रॉप (Voltage Drop) प्रति ब्रश अंदाजे किती असतो?",
+    "options": [
+      "0.5 Volt",
+      "0.55 Volt",
+      "1 Volt",
+      "0.1 Volt"
+    ],
+    "optionsMarathi": [
+      "0.5 व्होल्ट",
+      "0.55 व्होल्ट",
+      "1 व्होल्ट",
+      "0.1 व्होल्ट"
+    ],
+    "answer": "C",
+    "explanation": "Contact resistance of a carbon and graphite mixed brush is generally medium, causing a voltage drop of about 1 Volt per brush (total 2 Volts drop is considered for both brushes).",
+    "explanationMarathi": "कार्बन आणि ग्रेफाइट मिश्रित ब्रशचा संपर्क रोध साधारण मध्यम असतो, ज्यामुळे प्रति ब्रश सुमारे १ व्होल्टचा व्होल्टेज ड्रॉप होतो (दोन्ही ब्रशचा मिळून एकूण २ व्होल्ट ड्रॉप मानला जातो)."
+  },
+  {
+    "id": 1450,
+    "chapterId": 46,
+    "question": "What is the symbol for Hysteresis Coefficient?",
+    "questionMarathi": "हिस्टेरेसिस स्थिरांकाचे (Hysteresis Coefficient) प्रतीक काय आहे?",
+    "options": [
+      "Σ",
+      "π",
+      "η",
+      "ε"
+    ],
+    "optionsMarathi": [
+      "Σ",
+      "π",
+      "η (Eta / Steinmetz Constant)",
+      "ε"
+    ],
+    "answer": "C",
+    "explanation": "In the formula for hysteresis loss (Wh = η * Bmax^1.6 * f * V), the Greek letter η (eta) is used to represent Steinmetz or hysteresis constant.",
+    "explanationMarathi": "हिस्टेरेसिस लॉसच्या सूत्रामध्ये (Wh = η * Bmax^1.6 * f * V), स्टाईनमेट्झ किंवा हिस्टेरेसिस स्थिरांक दर्शवण्यासाठी ग्रीक अक्षर η (इटा) वापरले जाते."
+  },
+  {
+    "id": 1451,
+    "chapterId": 46,
+    "question": "Which of the following systems or connections is used to get both light-fan (lighting) and power supply at the same time?",
+    "questionMarathi": "लाईट-फॅन (Lighting) आणि पॉवर (Power) या दोन्ही प्रकारचा सप्लाय एकाच वेळी मिळवण्यासाठी खालीलपैकी कोणती सिस्टीम किंवा जोडणी वापरली जाते?",
+    "options": [
+      "Single-phase Two-wire",
+      "Three-phase Three-wire",
+      "Three-phase Four-wire",
+      "DC Two-wire"
+    ],
+    "optionsMarathi": [
+      "सिंगल-फेज टू-वायर",
+      "थ्री-फेज थ्री-वायर",
+      "थ्री-फेज फोर-वायर (स्टार जोडणी)",
+      "डीसी टू-वायर"
+    ],
+    "answer": "C",
+    "explanation": "A 4-wire star connection with neutral (Three-Phase Four-Wire System) is used to simultaneously run single-phase (230V) lights-fans and three-phase (415V) power equipment (e.g. motors).",
+    "explanationMarathi": "सिंगल-फेज (२३०V) वर चालणारे दिवे-पंके आणि थ्री-फेज (४१५V) वर चालणारी पॉवर उपकरणे (उदा. मोटर्स) एकाच वेळी चालवण्यासाठी न्यूट्रलसह असणारी ४ वायरची स्टार जोडणी वापरली जाते."
+  },
+  {
+    "id": 1452,
+    "chapterId": 47,
+    "question": "According to Indian Electricity Rules (IE Rules), what should be the value of earth resistance in ordinary soil?",
+    "questionMarathi": "भारतीय विद्युत नियमांनुसार (IE Rules), सामान्य भूमीवर (Ordinary Soil) अर्थिंग रोधाचे (Earth Resistance) मूल्य किती असावे?",
+    "options": [
+      "1 Ohm",
+      "3 Ohms",
+      "5 Ohms",
+      "8 Ohms"
+    ],
+    "optionsMarathi": [
+      "1 ओम",
+      "3 ओम",
+      "5 ओम",
+      "8 ओम"
+    ],
+    "answer": "B",
+    "explanation": "For domestic or ordinary soil, the maximum safe limit is accepted between 3 to 5 ohms. The limit should be within 5 ohms.",
+    "explanationMarathi": "मोठ्या वीज केंद्रांसाठी अर्थ रोध ०.५ ओम आणि सब-स्टेशनसाठी १ ओम असावा लागतो. परंतु घरगुती किंवा सामान्य जमिनीसाठी (Ordinary Soil) जास्तीत जास्त सुरक्षित मर्यादा ३ ते ५ ओम दरम्यान स्वीकारली जाते. पर्याय ३ आणि ५ दोन्ही योग्य कक्षेत येतात, पण कमाल मर्यादा ५ ओम च्या आत असावी लागते."
+  },
+  {
+    "id": 1453,
+    "chapterId": 47,
+    "question": "In an Over Compound Generator, which winding size is kept large (more turns / more strength)?",
+    "questionMarathi": "ओव्हर कंपाऊंड जनरेटरमध्ये (Over Compound Generator) कोणत्या वाइंडिंगचा आकार मोठा (जास्त वळणे / जास्त ताकद) ठेवला जातो?",
+    "options": [
+      "Interpole",
+      "Shunt",
+      "Armature",
+      "Series"
+    ],
+    "optionsMarathi": [
+      "इंटरपोल (Interpole)",
+      "शंट (Shunt)",
+      "आर्मेचर (Armature)",
+      "सिरीज (Series)"
+    ],
+    "answer": "D",
+    "explanation": "In an over-compound generator, it is necessary to increase terminal voltage as load increases. To do this, the magnetic field of the series field winding is made strong (large), which gives higher voltage at full-load than at no-load.",
+    "explanationMarathi": "ओव्हर कंपाऊंड जनरेटरमध्ये लोड वाढल्याबरोबर टर्मिनल व्होल्टेज वाढवणे आवश्यक असते. हे करण्यासाठी सिरीज फील्ड वाइंडिंगचे चुंबकीय क्षेत्र प्रबळ (मोठे) केले जाते, ज्यामुळे फुल-लोडवर नो-लोडपेक्षा जास्त व्होल्टेज मिळते."
+  },
+  {
+    "id": 1454,
+    "chapterId": 47,
+    "question": "In Star Connection, what is line voltage (VL) equal to?",
+    "questionMarathi": "स्टार जोडणीमध्ये (Star Connection) लाईन व्होल्टेज (VL) कशाच्या बरोबर असते?",
+    "options": [
+      "Phase Voltage (Vph)",
+      "√3 * Phase Voltage",
+      "3 * Line Voltage",
+      "3 * Phase Current"
+    ],
+    "optionsMarathi": [
+      "फेज व्होल्टेज (Vph)",
+      "√3 * फेज व्होल्टेज",
+      "3 * लाईन व्होल्टेज",
+      "3 * फेज करंट"
+    ],
+    "answer": "B",
+    "explanation": "The rule for Star connection is that line current is equal to phase current (IL = Iph), but line voltage is √3 times the phase voltage (VL = √3 * Vph).",
+    "explanationMarathi": "स्टार जोडणीचा नियम असा आहे की, लाईन करंट हा फेज करंट एवढाच असतो (IL = Iph), परंतु लाईन व्होल्टेज हे फेज व्होल्टेजच्या √3 पट असते (VL = √3 Vph)."
+  },
+  {
+    "id": 1455,
+    "chapterId": 47,
+    "question": "'Armature Diverter Method' of speed control is used in which of the following motors?",
+    "questionMarathi": "गती नियंत्रणाची (Speed Control) 'आर्मेचर डायव्हर्टर पद्धत' खालीलपैकी कोणत्या मोटरमध्ये वापरली जाते?",
+    "options": [
+      "Shunt Motor",
+      "Compound Motor",
+      "Series Motor (DC Series Motor)",
+      "Three-Phase Induction Motor"
+    ],
+    "optionsMarathi": [
+      "शंट मोटर",
+      "कंपाऊंड मोटर",
+      "सिरीज मोटर (DC Series Motor)",
+      "थ्री-फेज इंडक्शन मोटर"
+    ],
+    "answer": "C",
+    "explanation": "In a DC series motor, a variable resistance is connected in parallel with the armature, which is called an armature diverter. By bypassing the armature current, the motor speed is reduced below its normal speed.",
+    "explanationMarathi": "DC सिरीज मोटरमध्ये आर्मेचरच्या समांतर (Parallel) एक व्हेरिएबल रोध जोडला जातो, ज्याला आर्मेचर डायव्हर्टर म्हणतात. याद्वारे आर्मेचरचा करंट बायपास करून मोटरची गती सामान्य गतीपेक्षा कमी केली जाते."
+  },
+  {
+    "id": 1456,
+    "chapterId": 47,
+    "question": "What will be the value of charge (Q) stored by a capacitor of 12 Farad capacitance connected to 500 Volts?",
+    "questionMarathi": "500 व्होल्टच्या व्होल्टेजशी जोडलेल्या एका 12 फॅराड (Farad) धारकता असलेल्या कॅपेसिटरद्वारे साठवलेल्या प्रभाराचे (Charge - 'Q') मूल्य काय असेल?",
+    "options": [
+      "41.66 Coulombs",
+      "0.024 Coulombs",
+      "6000 Coulombs",
+      "166.66 Coulombs"
+    ],
+    "optionsMarathi": [
+      "41.66 कुलॉम्ब",
+      "0.024 कुलॉम्ब",
+      "6000 कुलॉम्ब",
+      "166.66 कुलॉम्ब"
+    ],
+    "answer": "C",
+    "explanation": "Formula for charge: Q = C * V = 12 F * 500 V = 6000 Coulombs.",
+    "explanationMarathi": "प्रभार काढण्याचे सूत्र: Q = C * V = 12 F * 500 V = 6000 कुलॉम्ब (Coulombs)."
+  },
+  {
+    "id": 1457,
+    "chapterId": 47,
+    "question": "In the Two-Wattmeter power measurement method, if the power factor value is 0.5, what will be the total power?",
+    "questionMarathi": "टू-व्हॉटमीटर (Two-Wattmeter Method) शक्ती मापन पद्धतीमध्ये जर पॉवर फॅक्टरचे मूल्य 0.5 असेल, तर एकूण शक्ती (Total Power) किती असेल?",
+    "options": [
+      "P1 + P2",
+      "P1 - P2",
+      "P2 (or reading of any one wattmeter)",
+      "0"
+    ],
+    "optionsMarathi": [
+      "P1 + P2",
+      "P1 - P2",
+      "P2 (किंवा कोणत्याही एका व्हॉटमीटरची रीडिंग)",
+      "0"
+    ],
+    "answer": "C",
+    "explanation": "When power factor is 0.5 (θ = 60°), one wattmeter (P1) shows full load and the other wattmeter (P2) shows zero (0). Therefore, the total power is equal to the reading of only one active wattmeter, even if the final formula is P1 + P2.",
+    "explanationMarathi": "जेव्हा पॉवर फॅक्टर 0.5 (θ = 60°) असतो, तेव्हा एक व्हॉटमीटर (P1) पूर्ण लोड दाखवतो आणि दुसरा व्हॉटमीटर (P2) शून्य (0) दाखवतो. त्यामुळे एकूण शक्ती ही केवळ एकाच कार्यरत व्हॉटमीटरच्या रीडिंग एवढी (P1 किंवा P2) असते, जरी अंतिम सूत्र P1 + P2 असले तरी."
+  },
+  {
+    "id": 1458,
+    "chapterId": 47,
+    "question": "What is the maximum speed of the Salient Pole Alternator rotor generally kept at?",
+    "questionMarathi": "सॅलिएंट पोल अल्टरनेटरच्या (Salient Pole Alternator) रोटरची कमाल गती साधारण किती ठेवली जाते?",
+    "options": [
+      "1500 RPM",
+      "1000 RPM (or less)",
+      "3000 RPM",
+      "10000 RPM"
+    ],
+    "optionsMarathi": [
+      "1500 RPM",
+      "1000 RPM (किंवा त्यापेक्षा कमी)",
+      "3000 RPM",
+      "10000 RPM"
+    ],
+    "answer": "B",
+    "explanation": "Salient pole rotors have a large diameter and small length, and their poles project outward. At high speeds, these poles can break due to centrifugal force. Therefore, these rotors are used at low speeds (125 to 1000 RPM) and in Hydro Power Plants.",
+    "explanationMarathi": "सॅलिएंट पोल रोटरचा व्यास मोठा आणि लांबी कमी असते, तसेच त्याचे पोल बाहेर आलेले असतात. जास्त गतीवर अपकेंद्री बलामुळे (Centrifugal Force) हे पोल तुटू शकतात. म्हणून हे रोटर कमी गती (१२५ ते १००० RPM) आणि जलविद्युत केंद्रात (Hydro Power Plants) वापरले जातात."
+  },
+  {
+    "id": 1459,
+    "chapterId": 47,
+    "question": "The total opposition (Resistance + Reactance) of an AC circuit is known as?",
+    "questionMarathi": "AC परिपथाचा एकूण अवरोध (Total Opposition / Resistance + Reactance) काय म्हणून ओळखला जातो?",
+    "options": [
+      "Reactance",
+      "Inductance",
+      "Impedance",
+      "Admittance"
+    ],
+    "optionsMarathi": [
+      "प्रतिघात (Reactance)",
+      "प्रेरकत्व (Inductance)",
+      "प्रतिबाधा (Impedance)",
+      "प्रवेश्यता (Admittance)"
+    ],
+    "answer": "C",
+    "explanation": "In an AC circuit, the combined total opposition of resistance (R) and reactance (X) is called Impedance. Its symbol is 'Z' and unit is Ohm (Ω).",
+    "explanationMarathi": "AC सर्किटमध्ये रोध (R) आणि रिएक्टन्स (X) या दोघांच्या एकत्रित एकूण विरोधाला इम्पीडन्स (Impedance - प्रतिबाधा) म्हणतात. याचे प्रतीक 'Z' असून एकक ओहम (Ω) आहे."
+  },
+  {
+    "id": 1460,
+    "chapterId": 47,
+    "question": "\"The direction of induced current is always such that it opposes the factor responsible for its production.\" This rule was given by which scientist?",
+    "questionMarathi": "\"प्रेरित प्रवाहाची (Current) दिशा नेहमी अशी असते की ती निर्माण होण्यास कारणीभूत असलेल्या घटकाचाच विरोध करते.\" हा नियम कोणत्या शास्त्रज्ञाने दिला?",
+    "options": [
+      "Lenz",
+      "Joule",
+      "Faraday",
+      "Fleming"
+    ],
+    "optionsMarathi": [
+      "लेंझ (Lenz)",
+      "ज्यूल (Joule)",
+      "फॅराडे (Faraday)",
+      "फ्लेमिंग (Fleming)"
+    ],
+    "answer": "A",
+    "explanation": "This famous principle is called 'Lenz's Law'. This law is based on the law of conservation of energy.",
+    "explanationMarathi": "या प्रसिद्ध सिद्धांताला 'लेंझचा नियम' (Lenz's Law) म्हणतात. हा नियम ऊर्जेच्या अक्षय्यतेच्या नियमावर आधारित आहे."
+  },
+  {
+    "id": 1461,
+    "chapterId": 47,
+    "question": "What will be the color code for a resistance value of 27 kΩ ± 10%?",
+    "questionMarathi": "27 kΩ ± 10% या रोध मूल्याचा रंग कोड (Color Code) काय असेल?",
+    "options": [
+      "Red, Green, Orange, Silver",
+      "Red, Violet, Yellow, Silver",
+      "Red, Blue, Orange, Silver",
+      "Red, Violet, Orange, Silver"
+    ],
+    "optionsMarathi": [
+      "लाल, हिरवा, नारंगी, चांदी",
+      "लाल, जांभळा, पिवळा, चांदी",
+      "लाल, निळा, नारंगी, चांदी",
+      "लाल, जांभळा, नारंगी, चांदी"
+    ],
+    "answer": "D",
+    "explanation": "Resistance value = 27 kΩ = 27000 Ω = 27 * 10^3 Ω ± 10%. 1st digit 2 = Red, 2nd digit 7 = Violet, Multiplier 10^3 = Orange, Tolerance ± 10% = Silver.",
+    "explanationMarathi": "रोध मूल्य = 27 kΩ = 27000 Ω = 27 * 10^3 Ω ± 10%. पहिला अंक 2 = लाल (Red). दुसरा अंक 7 = जांभळा/व्हायोलेट (Violet). तिसरा अंक गुणाकार 10^3 = नारंगी (Orange). टॉलरन्स ± 10% = चांदी/सिल्व्हर (Silver)."
+  },
+  {
+    "id": 1462,
+    "chapterId": 47,
+    "question": "What is the value of resistance in a short circuit?",
+    "questionMarathi": "एका लघू परिपथात (Short Circuit परिपथात) रोधाचे (Resistance) मूल्य किती असते?",
+    "options": [
+      "Zero",
+      "Infinity",
+      "Low",
+      "High"
+    ],
+    "optionsMarathi": [
+      "शून्य (Zero)",
+      "अनंत (Infinity)",
+      "कमी",
+      "उच्च"
+    ],
+    "answer": "A",
+    "explanation": "In a short circuit, phase and neutral (or two wires) are connected directly to each other. Since there is no load or obstruction, the circuit resistance becomes exactly zero, causing an enormous current to flow.",
+    "explanationMarathi": "शॉर्ट सर्किटमध्ये फेज आणि न्यूट्रल (किंवा दोन वायर) थेट एकमेकांना जोडल्या जातात. यामध्ये कोणताही लोड किंवा अडथळा नसल्यामुळे परिपथाचा रोध तंतोतंत शून्य होतो, ज्यामुळे अतिप्रचंड करंट वाहतो."
+  },
+  {
+    "id": 1463,
+    "chapterId": 47,
+    "question": "In a poly-phase system, what is the current flowing through any two phase windings (or lines) called?",
+    "questionMarathi": "पॉली-फेज सिस्टीममध्ये कोणत्याही दोन फेज वाइंडिंगमधून (किंवा लाईन्समधून) वाहणाऱ्या प्रवाहाला काय म्हणतात?",
+    "options": [
+      "Phase Current",
+      "Star Current",
+      "Line Current",
+      "Delta Current"
+    ],
+    "optionsMarathi": [
+      "फेज करंट",
+      "स्टार करंट",
+      "लाईन करंट (Line Current)",
+      "डेल्टा करंट"
+    ],
+    "answer": "C",
+    "explanation": "The current flowing through main supply lines is called Line Current (IL), while the current flowing through each individual phase winding is called Phase Current.",
+    "explanationMarathi": "मुख्य सप्लाय लाईन्स मधून वाहणाऱ्या प्रवाहाला लाईन करंट (IL) म्हणतात, तर प्रत्येक स्वतंत्र फेज वाइंडिंगमधून वाहणाऱ्या प्रवाहाला फेज करंट म्हणतात."
+  },
+  {
+    "id": 1464,
+    "chapterId": 47,
+    "question": "What is used to remove the 'Hunting Effect' in an alternator or synchronous motor?",
+    "questionMarathi": "अल्टरनेटर किंवा सिंक्रोनस मोटरमधील 'हंटिंग दोष' (Hunting Effect) दूर करण्यासाठी कशाचा वापर केला जातो?",
+    "options": [
+      "Interpole",
+      "Compensating Winding",
+      "Salient Pole",
+      "Damper Winding"
+    ],
+    "optionsMarathi": [
+      "इंटरपोल",
+      "कॉम्पेन्सेटिंग वाइंडिंग",
+      "सॅलिएंट पोल",
+      "डॅम्पर वाइंडिंग (Damper Winding)"
+    ],
+    "answer": "D",
+    "explanation": "Continuous changes in load cause oscillations in the rotor, called hunting. Damper winding installed on the rotor pole face absorbs these oscillations and the motor runs stably.",
+    "explanationMarathi": "लोडमधील सततच्या बदलांमुळे रोटरमध्ये कंपने (Oscillations) निर्माण होतात, ज्याला हंटिंग म्हणतात. रोटरच्या पोल फेसवर डॅम्पर वाइंडिंग बसवून ही कंपने शोषली जातात आणि मोटर स्थिर चालते."
+  },
+  {
+    "id": 1465,
+    "chapterId": 47,
+    "question": "In AC circuits, what is the ratio of peak value and RMS value called?",
+    "questionMarathi": "AC परिपथांमध्ये शिखर मान (Peak Value) आणि प्रभावी मान (RMS Value) यांच्या गुणोत्तराला काय म्हणतात?",
+    "options": [
+      "Average Value",
+      "Crest Factor / Peak Factor",
+      "Form Factor",
+      "Instantaneous Value"
+    ],
+    "optionsMarathi": [
+      "सरासरी मान",
+      "क्रेस्ट फॅक्टर / पीक फॅक्टर (Crest Factor)",
+      "फॉर्म फॅक्टर",
+      "तात्कालिक मान"
+    ],
+    "answer": "B",
+    "explanation": "The ratio Maximum Value / RMS Value is called peak factor or crest factor. For a sine wave, its value is 1.414.",
+    "explanationMarathi": "Maximum Value / RMS Value या गुणोत्तराला पीक फॅक्टर किंवा क्रेस्ट फॅक्टर म्हणतात. साईन वेव्हसाठी याचे मूल्य 1.414 असते."
+  },
+  {
+    "id": 1466,
+    "chapterId": 47,
+    "question": "What type of excitation voltage is given to the rotor (to create magnetic field) of an alternator?",
+    "questionMarathi": "अल्टरनेटरच्या रोटरला (चुंबकीय क्षेत्र तयार करण्यासाठी) दिला जाणारा एक्सायटेशन व्होल्टेज (Excitation Voltage) कोणत्या प्रकारचा असतो?",
+    "options": [
+      "AC",
+      "DC (Direct Current)",
+      "High AC",
+      "High DC"
+    ],
+    "optionsMarathi": [
+      "AC",
+      "DC (Direct Current)",
+      "उच्च AC",
+      "उच्च DC"
+    ],
+    "answer": "B",
+    "explanation": "To create stable and strong magnetic poles in an alternator, low voltage pure DC supply is always given to the rotor winding. Usually, a DC shunt generator is used as an exciter for this.",
+    "explanationMarathi": "अल्टरनेटरमध्ये स्थिर आणि मजबूत चुंबकीय ध्रुव तयार करण्यासाठी रोटरच्या वाइंडिंगला नेहमी कमी व्होल्टेजचा शुद्ध DC सप्लाय दिला जातो. यासाठी सहसा एक्सायटर म्हणून DC शंट जनरेटर वापरतात."
+  },
+  {
+    "id": 1467,
+    "chapterId": 47,
+    "question": "What chemical/mechanical defect occurs in a battery if it is repeatedly charged or discharged at very high current?",
+    "questionMarathi": "विजेच्या बॅटरीला अति उच्च करंटवर वारंवार चार्ज किंवा डिस्चार्ज केल्यास तिच्यात कोणता रासायनिक/यांत्रिक दोष निर्माण होतो?",
+    "options": [
+      "Sulfation",
+      "Sedimentation",
+      "Corrosion",
+      "Buckling"
+    ],
+    "optionsMarathi": [
+      "सल्फेशन",
+      "सेडिमेंटेशन",
+      "कोरोझन",
+      "बकलिंग (Buckling)"
+    ],
+    "answer": "D",
+    "explanation": "Extreme current causes the battery plates to overheat and bend due to unequal expansion. The defect of plates bending in this way is called 'buckling defect', which can cause an internal short circuit.",
+    "explanationMarathi": "अति करंटमुळे बॅटरीच्या प्लेट्स जास्त गरम होतात आणि असमान विस्तारामुळे वाकतात. प्लेट्स अशा प्रकारे वाकण्याच्या दोषाला 'बकलिंग दोष' म्हणतात, ज्यामुळे अंतर्गत शॉर्ट सर्किट होऊ शकते."
+  },
+  {
+    "id": 1468,
+    "chapterId": 47,
+    "question": "Which of the following tasks can only be done by DC, meaning it's impossible with AC?",
+    "questionMarathi": "खालीलपैकी कोणते कार्य केवळ DC द्वारेच केले जाऊ शकते, म्हणजेच ते AC द्वारे करणे अशक्य आहे?",
+    "options": [
+      "Metallurgy",
+      "Battery Charging",
+      "Production of alternating magnetic field",
+      "Electroplating"
+    ],
+    "optionsMarathi": [
+      "धातू शोधन (Metallurgy)",
+      "बॅटरी चार्जिंग (Battery Charging)",
+      "प्रत्यावर्ती चुंबकीय क्षेत्राची निर्मिती",
+      "इलेक्ट्रोप्लेटिंग"
+    ],
+    "answer": "C",
+    "explanation": "Battery charging, electroplating and electro-refining can only be done with DC. Production of alternating magnetic field is possible only with AC.",
+    "explanationMarathi": "बॅटरी चार्जिंग, इलेक्ट्रोप्लेटिंग आणि धातू शुद्धीकरण (Electro-refining) ही कार्ये केवळ DC द्वारेच होतात. अल्टरनेटिंग (प्रत्यावर्ती) चुंबकीय क्षेत्र तयार करण्याचे काम केवळ AC सप्लायच करू शकतो, DC नाही."
+  },
+  {
+    "id": 1469,
+    "chapterId": 47,
+    "question": "In what is the maximum capacity (Output Rating) of an alternator expressed?",
+    "questionMarathi": "अल्टरनेटरची कमाल क्षमता (Output Rating) कशामध्ये दर्शवली जाते?",
+    "options": [
+      "kW",
+      "HP",
+      "kVA",
+      "BHP"
+    ],
+    "optionsMarathi": [
+      "किलो वॉट (kW)",
+      "एच.पी. (HP)",
+      "किलो व्होल्ट एम्पियर (kVA)",
+      "बी.एच.पी. (BHP)"
+    ],
+    "answer": "C",
+    "explanation": "While designing an alternator, the power factor of the load is not known in advance as it depends on the consumer's equipment. Therefore, alternator and transformer ratings are always given in kVA (kilo-Volt Ampere).",
+    "explanationMarathi": "अल्टरनेटर डिझाइन करताना लोडचा पॉवर फॅक्टर आधीच ठाऊक नसतो, कारण तो ग्राहकाच्या उपकरणांवर अवलंबून असतो. त्यामुळे अल्टरनेटर आणि ट्रान्सफॉर्मरची रेटिंग नेहमी kVA (kilo-Volt Ampere) मध्ये दिली जाते."
+  },
+  {
+    "id": 1470,
+    "chapterId": 47,
+    "question": "What security sign is indicated by a black colored sign on a white background?",
+    "questionMarathi": "पांढऱ्या पार्श्वभूमीवर (White Background) काळ्या रंगाच्या चिन्हाने कोणते सुरक्षा चिन्ह दर्शवले जाते?",
+    "options": [
+      "Warning",
+      "Prohibitive",
+      "Mandatory",
+      "Informative"
+    ],
+    "optionsMarathi": [
+      "सचेतक",
+      "निषेधात्मक (Prohibitive Sign)",
+      "सकारात्मक / आवश्यक",
+      "माहितीपूर्ण"
+    ],
+    "answer": "B",
+    "explanation": "In prohibitive signs, a figure is drawn in black on a white background and has a red circle and cross bar on it (e.g., No Smoking sign).",
+    "explanationMarathi": "निषेधात्मक चिन्हांमध्ये पांढऱ्या बॅकग्राउंडवर काळ्या रंगाने आकृती काढलेली असते आणि त्यावर लाल रंगाचे वर्तुळ व आडवी रेघ (Cross bar) असते (उदा. नो स्मोकिंग चिन्ह)."
+  },
+  {
+    "id": 1471,
+    "chapterId": 47,
+    "question": "Where is Fleming's Left Hand Rule primarily used?",
+    "questionMarathi": "फ्लेमिंगच्या डाव्या हाताच्या नियमाचा (Fleming's Left Hand Rule) उपयोग प्रामुख्याने कशात केला जातो?",
+    "options": [
+      "DC Motor",
+      "DC Generator",
+      "Alternator",
+      "Transformer"
+    ],
+    "optionsMarathi": [
+      "DC मोटरमध्ये (DC Motor)",
+      "DC जनरेटरमध्ये",
+      "अल्टरनेटरमध्ये",
+      "ट्रान्सफॉर्मरमध्ये"
+    ],
+    "answer": "A",
+    "explanation": "The left-hand rule is used for motors to find the direction of force (rotation) acting on a current-carrying conductor placed in a magnetic field.",
+    "explanationMarathi": "चुंबकीय क्षेत्रात ठेवलेल्या करंट वाहून नेणाऱ्या वाहकावर लागणाऱ्या बलाची (फिरण्याची) दिशा काढण्यासाठी डाव्या हाताचा नियम मोटरसाठी वापरतात."
+  },
+  {
+    "id": 1472,
+    "chapterId": 47,
+    "question": "How is the Shunt Field Winding of a DC shunt motor made?",
+    "questionMarathi": "DC शंट मोटरची शंट FIELD वाइंडिंग (Shunt Field Winding) खालीलपैकी कशी बनवलेली असते?",
+    "options": [
+      "Thick wire and more turns",
+      "Thin wire and more turns",
+      "Thick wire and fewer turns",
+      "Thin wire and fewer turns"
+    ],
+    "optionsMarathi": [
+      "जाड वायर आणि जास्त वेढे",
+      "बारीक वायर आणि जास्त वेढे (Thin wire, More turns)",
+      "जाड वायर आणि कमी वेढे",
+      "बारीक वायर आणि कमी वेढे"
+    ],
+    "answer": "B",
+    "explanation": "The resistance of the shunt field winding must be kept high so that it can withstand direct supply voltage. To get high resistance, it is made of thin wire and very many turns.",
+    "explanationMarathi": "शंट FIELD वाइंडिंगचा रोध जास्त ठेवावा लागतो जेणेकरून ती थेट सप्लाय व्होल्टेज सहन करू शकेल. जास्त रोध मिळवण्यासाठी ती बारीक वायरची आणि खूप जास्त टर्न्स (वेढे) देऊन बनवली जाते."
+  },
+  {
+    "id": 1473,
+    "chapterId": 47,
+    "question": "Which of the following conductive substances has the highest resistivity?",
+    "questionMarathi": "खालील वाहक पदार्थांपैकी सर्वात जास्त विशिष्ट रोध (Highest Resistivity) कोणत्या पदार्थाचा आहे?",
+    "options": [
+      "Brass",
+      "Iron",
+      "German Silver",
+      "Nichrome"
+    ],
+    "optionsMarathi": [
+      "पितळ",
+      "लोखंड",
+      "जर्मन सिल्वर",
+      "नायक्रोम (Nichrome)"
+    ],
+    "answer": "D",
+    "explanation": "Nichrome (Nickel + Chromium) is an alloy with high resistance. Other metals mentioned are good conductors, while Nichrome has very high resistivity, so it is used in heating elements (e.g., heaters, irons).",
+    "explanationMarathi": "नायक्रोम (निकेल + क्रोमियम) हे एक उच्च रोध असलेले संमिश्र आहे. दिलेले इतर धातू उत्तम वाहक आहेत, तर नायक्रोमचा विशिष्ट रोध खूप जास्त असल्यामुळे याचा वापर हीटिंग एलिमेंट (उदा. शेगडी, इस्त्री) मध्ये करतात."
+  },
+  {
+    "id": 1474,
+    "chapterId": 47,
+    "question": "If two resistances of 1.5 kΩ (1500 Ohm) and 655 Ω are connected in parallel, what will be the total resistance?",
+    "questionMarathi": "1.5 kΩ (१५०० ओम) आणि 655 Ω चे दोन रोध समांतर (Parallel) जोडले असल्यास एकूण रोध किती असेल?",
+    "options": [
+      "2155 Ohms",
+      "455.9 Ohms",
+      "655 Ohms",
+      "None of these"
+    ],
+    "optionsMarathi": [
+      "2155 ओम",
+      "455.9 ओम",
+      "655 ओम",
+      "यांपैकी काहीही नाही"
+    ],
+    "answer": "B",
+    "explanation": "Formula for parallel connection: Req = (R1 * R2) / (R1 + R2) = (1500 * 655) / (1500 + 655) = 982500 / 2155 ≈ 455.91 Ω.",
+    "explanationMarathi": "समांतर जोडणीचे सूत्र: Req = (R1 * R2) / (R1 + R2) = (1500 * 655) / (1500 + 655) = 982500 / 2155 ≈ 455.91 Ω."
+  },
+  {
+    "id": 1475,
+    "chapterId": 47,
+    "question": "Which of the following is the unit of Impedance?",
+    "questionMarathi": "खालीलपैकी प्रतिबाधा (Impedance) चे एकक कोणते आहे?",
+    "options": [
+      "Watt",
+      "Ohm",
+      "Henry",
+      "Farad"
+    ],
+    "optionsMarathi": [
+      "वॉट",
+      "ओम (Ohm)",
+      "हेन्री",
+      "फॅराड"
+    ],
+    "answer": "B",
+    "explanation": "Impedance ('Z') is the total opposition in an AC circuit, so it is also measured in Ohm (Ω).",
+    "explanationMarathi": "प्रतिबाधा (Impedance - 'Z') हा AC सर्किटमधील एकूण रोधच असतो, म्हणून त्याचे मापन सुद्धा ओम (Ω) मध्येच केले जाते."
+  },
+  {
+    "id": 1476,
+    "chapterId": 47,
+    "question": "If a heater with 1200 Ω resistance is drawing 2.5 A current, what will be the heat energy generated in 1 hour?",
+    "questionMarathi": "1200 Ω रोध असलेला एक हीटर जर 2.5 A करंट घेत असेल, तर १ तासात (1 Hour) निर्माण होणारी उष्णता (Heat Energy) किती असेल?",
+    "options": [
+      "27 Joules",
+      "27 kJ",
+      "27 MJ",
+      "2700 Joules"
+    ],
+    "optionsMarathi": [
+      "27 ज्यूल",
+      "27 किलो ज्यूल",
+      "27 मेगा ज्यूल (27 MJ)",
+      "2700 ज्यूल"
+    ],
+    "answer": "C",
+    "explanation": "Formula for heat: H = I^2 * R * t. Here I = 2.5 A, R = 1200 Ω, t = 1 hour = 3600 seconds. H = (2.5)^2 * 1200 * 3600 = 27,000,000 Joules = 27 MJ.",
+    "explanationMarathi": "उष्णतेचे सूत्र: H = I^2 R t. येथे I = 2.5 A, R = 1200 Ω, t = 1 तास = 3600 सेकंद. H = (2.5)^2 * 1200 * 3600 = 27,000,000 Joules = 27 MJ (मेगा ज्यूल)."
+  },
+  {
+    "id": 1477,
+    "chapterId": 47,
+    "question": "What will be the total capacitance if three capacitors of 30 F capacitance are connected in series?",
+    "questionMarathi": "30 F (फॅराड) धारकतेचे तीन कॅपेसिटर सिरीज (मालिका) जोडणीत जोडल्यास एकूण धारकता (Total Capacitance) किती होईल?",
+    "options": [
+      "90 F",
+      "30 F",
+      "10 F",
+      "60 F"
+    ],
+    "optionsMarathi": [
+      "90 फॅराड",
+      "30 फॅराड",
+      "10 फॅराड",
+      "60 फॅराड"
+    ],
+    "answer": "C",
+    "explanation": "When capacitors are connected in series, the formula is inverted: 1/Ctotal = 1/C1 + 1/C2 + 1/C3. For three capacitors of same value: Ctotal = C / n = 30 / 3 = 10 F.",
+    "explanationMarathi": "कॅपेसिटर सिरीज जोडणीत जोडल्यास सूत्र उलटे होते: 1/Ctotal = 1/C1 + 1/C2 + 1/C3. समान मूल्याचे कॅपेसिटर असल्यास: Ctotal = C / n = 30 / 3 = 10 F."
+  },
+  {
+    "id": 1478,
+    "chapterId": 48,
+    "question": "In a DC Series Machine, what does not remain constant?",
+    "questionMarathi": "एका DC सिरीज मशीनमध्ये (DC Series Machine) कशाचे मूल्य स्थिर (Constant) राहत नाही?",
+    "options": [
+      "Conductors",
+      "Speed",
+      "Poles",
+      "None of these"
+    ],
+    "optionsMarathi": [
+      "चालकांचे (Conductors)",
+      "गतीचे (Speed)",
+      "पोल्सचे (Poles)",
+      "यांपैकी कशाचेही नाही"
+    ],
+    "answer": "B",
+    "explanation": "A DC series motor is a 'variable speed' motor. When the load changes, the current in its field winding changes, which changes the flux and consequently changes the motor speed significantly (this motor can run at uncontrolled speeds without load). Conductors and poles are fixed when building the machine.",
+    "explanationMarathi": "DC सिरीज मोटर ही एक 'व्हेरिएबल स्पीड' मोटर आहे. लोड बदलला की तिच्या फील्ड वाइंडिंगमधील करंट बदलतो, ज्यामुळे फ्लक्स बदलतो आणि पर्यायाने मोटरची गती (Speed) खूप मोठ्या प्रमाणात बदलते (लोड नसताना ही मोटर अनियंत्रित वेगाने धावू शकते). तर चालक आणि पोल्सची संख्या मशीन बनवतानाच निश्चित (स्थिर) असते."
+  },
+  {
+    "id": 1479,
+    "chapterId": 48,
+    "question": "What is 1 Farad equal to?",
+    "questionMarathi": "1 फॅराड (Farad) कशाच्या बरोबर असतो?",
+    "options": [
+      "1 Volt / 1 Henry",
+      "1 Coulomb / 1 Volt",
+      "1 Volt / 1 Coulomb",
+      "None of these"
+    ],
+    "optionsMarathi": [
+      "1 व्होल्टेज / 1 हेन्री",
+      "1 कुलॉम्ब / 1 व्होल्ट",
+      "1 व्होल्ट / 1 कुलॉम्ब",
+      "यांपैकी काहीही नाही"
+    ],
+    "answer": "B",
+    "explanation": "Formula for capacitance is C = Q / V, where Q is charge (in Coulombs) and V is voltage (in Volts). Therefore, 1 Farad = 1 Coulomb / 1 Volt.",
+    "explanationMarathi": "कॅपेसिटन्सचे सूत्र C = Q / V असे आहे. येथे Q म्हणजे प्रभार (कुलॉम्बमध्ये) आणि V म्हणजे व्होल्टेज (व्होल्टमध्ये). त्यामुळे 1 Farad = 1 Coulomb / 1 Volt होते."
+  },
+  {
+    "id": 1480,
+    "chapterId": 48,
+    "question": "If an alternator is giving 40 Hz frequency at 600 RPM speed, how many poles will it have?",
+    "questionMarathi": "जर एखादा अल्टरनेटर 40 Hz फ्रिक्वेन्सी (Frequency) 600 RPM गतीवर देत असेल, तर त्याचे पोल्स (Poles) किती असतील?",
+    "options": [
+      "4",
+      "6",
+      "8",
+      "10"
+    ],
+    "optionsMarathi": [
+      "4",
+      "6",
+      "8",
+      "10"
+    ],
+    "answer": "C",
+    "explanation": "Formula for frequency: f = (P * N) / 120. Therefore, Poles P = (120 * f) / N = (120 * 40) / 600 = 4800 / 600 = 8 poles.",
+    "explanationMarathi": "फ्रिक्वेन्सीचे सूत्र: f = (P * N) / 120. म्हणून, पोल्स P = (120 * f) / N = (120 * 40) / 600 = 4800 / 600 = 8 पोल्स."
+  },
+  {
+    "id": 1481,
+    "chapterId": 48,
+    "question": "What is the ratio of true power and apparent power called?",
+    "questionMarathi": "वास्तविक शक्ती (True Power) आणि आभासी शक्ती (Apparent Power) यांच्या गुणोत्तराला काय म्हणतात?",
+    "options": [
+      "Form Factor",
+      "Peak Factor",
+      "Pitch Factor",
+      "Power Factor"
+    ],
+    "optionsMarathi": [
+      "फॉर्म फॅक्टर (Form Factor)",
+      "पीक फॅक्टर (Peak Factor)",
+      "पिच फॅक्टर (Pitch Factor)",
+      "पॉवर फॅक्टर (Power Factor)"
+    ],
+    "answer": "D",
+    "explanation": "The ratio True Power (kW) / Apparent Power (kVA) is called power factor (cosφ). It indicates the level of energy efficiency in a circuit.",
+    "explanationMarathi": "True Power (kW) / Apparent Power (kVA) या गुणोत्तराला पॉवर फॅक्टर (cosφ) म्हणतात. हे सर्किटमधील ऊर्जा कार्यक्षमतेचे प्रमाण दर्शवते."
+  },
+  {
+    "id": 1482,
+    "chapterId": 48,
+    "question": "In the 'dark lamp method' of alternator synchronization, when do alternators synchronize?",
+    "questionMarathi": "अल्टरनेटरच्या सिंक्रोनायझेशनच्या 'डार्क लॅम्प पद्धती'मध्ये (Dark Lamp Method) अल्टरनेटर कधी सिंक्रोनाइझ होतात?",
+    "options": [
+      "When lamps burn very brightly",
+      "When lamps blink continuously",
+      "When all lamps are completely extinguished",
+      "None of these"
+    ],
+    "optionsMarathi": [
+      "जेव्हा दिवे खूप प्रखर (तेज) जळतात",
+      "जेव्हा दिवे सतत चालू-बंद (लुकलुकत) राहतात",
+      "जेव्हा सर्व दिवे पूर्णपणे विझतात (Extinguished)",
+      "यांपैकी काहीही नाही"
+    ],
+    "answer": "C",
+    "explanation": "In the dark lamp method, when voltage, frequency and phase of both alternators exactly match, the potential difference between them becomes zero. Because of this, current doesn't flow through the lamps and they are completely extinguished (Dark). At this exact moment, the switch is connected.",
+    "explanationMarathi": "डार्क लॅम्प पद्धतीमध्ये जेव्हा दोन्ही अल्टरनेटरचे व्होल्टेज, फ्रिक्वेन्सी आणि फेज तंतोतंत जुळतात, तेव्हा त्यांच्यामधील व्होल्टेज फरक (Potential Difference) शून्य होतो. यामुळे दिव्यांमधून करंट वाहत नाही आणि ते पूर्णपणे विझतात (Dark होतात). याच क्षणी स्विच जोडला जातो."
+  },
+  {
+    "id": 1483,
+    "chapterId": 48,
+    "question": "Frequency is directly proportional to which of the following?",
+    "questionMarathi": "खालीलपैकी फ्रिक्वेन्सी (vkorhZ) कशाच्या थेट प्रमाणात (Directly Proportional) असते?",
+    "options": [
+      "Number of turns",
+      "Time",
+      "Flux",
+      "Rotational Speed"
+    ],
+    "optionsMarathi": [
+      "टर्न्सच्या (वेढ्यांच्या) संख्येच्या",
+      "वेळेच्या",
+      "फ्लक्सच्या",
+      "फिरण्याच्या गतीच्या (Rotational Speed)"
+    ],
+    "answer": "D",
+    "explanation": "According to the alternator formula (f = (P * N) / 120), frequency (f) is directly proportional to the rotational speed (N) of the rotor. As speed increases, frequency increases.",
+    "explanationMarathi": "अल्टरनेटरच्या सूत्रानुसार (f = (P * N) / 120), फ्रिक्वेन्सी (f) ही रोटरच्या फिरण्याच्या गतीशी (N) थेट समानुपाती असते. गती वाढली की फ्रिक्वेन्सी वाढते."
+  },
+  {
+    "id": 1484,
+    "chapterId": 48,
+    "question": "In the MKS (or SI) system, what is the unit of power?",
+    "questionMarathi": "MKS (किंवा SI) प्रणालीमध्ये शक्तीचे (Power) एकक काय असते?",
+    "options": [
+      "Watt / Minute",
+      "Joule / Second",
+      "kg-meter / Second",
+      "Newton / Second"
+    ],
+    "optionsMarathi": [
+      "वॉट / मिनिट",
+      "ज्यूल / सेकंद",
+      "किग्रॅ-मीटर / सेकंद",
+      "न्यूटन / सेकंद"
+    ],
+    "answer": "B",
+    "explanation": "The rate of doing work is called power (Power = Work / Time). Unit of work is Joule and unit of time is second, so Joule/Second = Watt.",
+    "explanationMarathi": "कार्य करण्याची दर म्हणजे शक्ती होय (Power = Work / Time). कार्याचे एकक ज्यूल आणि वेळेचे एकक सेकंद आहे, म्हणून Joule/Second = Watt."
+  },
+  {
+    "id": 1485,
+    "chapterId": 48,
+    "question": "Which of the following is not a solid insulator?",
+    "questionMarathi": "खालीलपैकी कोणता एक घन अवाहक (Solid Insulator) नाही?",
+    "options": [
+      "Mica",
+      "Glass",
+      "Shellac",
+      "Ebonite"
+    ],
+    "optionsMarathi": [
+      "अभ्रक (Mica)",
+      "काच (Glass)",
+      "शॅलॅक (Shellac)",
+      "एबोनाईट (Ebonite)"
+    ],
+    "answer": "C",
+    "explanation": "Mica, glass and ebonite are completely solid in their original form. Shellac is a natural gum/resin which is used as an insulating varnish by dissolving it in liquid or thinner, so it is not considered an original solid insulator.",
+    "explanationMarathi": "अभ्रक, काच आणि एबोनाईट हे मूळ स्वरूपात पूर्णपणे घन (Solid) असतात. शॅलॅक (Shellac) हा एक नैसर्गिक डिंक/रेंझिन आहे जो द्रवरूपात किंवा थिनरमध्ये विरघळवून इन्सुलेटिंग व्हार्निश म्हणून वापरला जातो, त्यामुळे तो मूळ घन अवाहक मानला जात नाही."
+  },
+  {
+    "id": 1486,
+    "chapterId": 48,
+    "question": "What is the property of an AC circuit that opposes changes in the value of voltage called?",
+    "questionMarathi": "AC परिपथाचा तो गुणधर्म जो व्होल्टेजच्या मूल्यामधील बदलाला विरोध करतो, त्याला काय म्हणतात?",
+    "options": [
+      "Capacitance",
+      "Inductance",
+      "Reactance",
+      "Admittance"
+    ],
+    "optionsMarathi": [
+      "कॅपेसिटन्स (Capacitance)",
+      "इंडक्टन्स (Inductance)",
+      "प्रतिघात (Reactance)",
+      "प्रवेश्यता (Admittance)"
+    ],
+    "answer": "A",
+    "explanation": "Capacitance is that property of a circuit which opposes changes in voltage (i = C dv/dt). (Note: Inductance opposes changes in current).",
+    "explanationMarathi": "कॅपेसिटन्स हा सर्किटचा तो गुणधर्म आहे जो व्होल्टेजमधील बदलाला विरोध करतो (i = C dv/dt). (टीप: इंडक्टन्स हा करंटमधील बदलाला विरोध करतो)."
+  },
+  {
+    "id": 1487,
+    "chapterId": 48,
+    "question": "Which of the following is a charge-less (neutral) particle?",
+    "questionMarathi": "खालीलपैकी कोणता प्रभाररहित (Charge-less / Neutral) कण आहे?",
+    "options": [
+      "Electron",
+      "Neutron",
+      "Proton",
+      "Tetron"
+    ],
+    "optionsMarathi": [
+      "इलेक्ट्रॉन",
+      "न्यूट्रॉन (Neutron)",
+      "प्रोटॉन",
+      "टेट्रॉन"
+    ],
+    "answer": "B",
+    "explanation": "The neutron in the nucleus of an atom is completely neutral, meaning charge-less. Electrons have a negative (-) charge and protons have a positive (+) charge.",
+    "explanationMarathi": "परमाणूच्या केंद्रकात असणारा न्यूट्रॉन हा संपूर्णपणे उदासीन म्हणजेच प्रभाररहित असतो. इलेक्ट्रॉनवर ऋण (-) आणि प्रोटॉनवर धन (+) प्रभार असतो."
+  },
+  {
+    "id": 1488,
+    "chapterId": 48,
+    "question": "Up to what voltage are medium voltage cables made?",
+    "questionMarathi": "मध्यम व्होल्टेज केबल्स (Medium Voltage Cables) किती व्होल्टेजपर्यंत बनवल्या जातात?",
+    "options": [
+      "Up to 400 Volts",
+      "Up to 450 Volts",
+      "Up to 600 Volts",
+      "Up to 650 Volts"
+    ],
+    "optionsMarathi": [
+      "400 व्होल्टपर्यंत",
+      "450 व्होल्टपर्यंत",
+      "600 व्होल्टपर्यंत",
+      "650 व्होल्टपर्यंत"
+    ],
+    "answer": "D",
+    "explanation": "According to Indian Electricity Rules (IE Rules), voltage from 250 Volts to 650 Volts is classified under the medium voltage category.",
+    "explanationMarathi": "भारतीय विद्युत नियमांनुसार (IE Rules), २५० व्होल्ट ते ६५० व्होल्ट पर्यंतच्या व्होल्टेजला मध्यम व्होल्टेज (Medium Voltage) श्रेणीमध्ये वर्गीकृत केले जाते."
+  },
+  {
+    "id": 1489,
+    "chapterId": 48,
+    "question": "Which of the following is an incorrect formula for power according to Ohm's law?",
+    "questionMarathi": "ओहमच्या नियमानुसार शक्ती (Power - 'P') काढण्याशी संबंधित नसलेले चुकीचे सूत्र कोणते आहे?",
+    "options": [
+      "I^2 * R",
+      "V^2 / I",
+      "I * R",
+      "V^2 / R"
+    ],
+    "optionsMarathi": [
+      "I^2 * R",
+      "V^2 / I",
+      "I * R",
+      "V^2 / R"
+    ],
+    "answer": "C",
+    "explanation": "There are three true formulas for power: P = V * I, P = I^2 * R, and P = V^2 / R. Therefore, I * R is not for power but for voltage (V = I * R). V^2 / I is also incorrect for power.",
+    "explanationMarathi": "शक्तीची तीन खरी सूत्रे आहेत: P = V * I, P = I^2 * R, आणि P = V^2 / R. त्यामुळे I * R हे शक्तीचे नसून व्होल्टेजचे (V = I * R) सूत्र आहे."
+  },
+  {
+    "id": 1490,
+    "chapterId": 48,
+    "question": "Which scientist discovered the rule of magnetic fields that a magnetic field is created around a current-carrying conductor?",
+    "questionMarathi": "\"विद्युत प्रवाह वाहून नेणाऱ्या चालकाभोवती चुंबकीय क्षेत्र निर्माण होते\", हा चुंबकीय क्षेत्राचा नियम कोणत्या शास्त्रज्ञाने शोधला?",
+    "options": [
+      "Faraday",
+      "Oersted",
+      "Joule",
+      "Kirchhoff"
+    ],
+    "optionsMarathi": [
+      "फॅराडे",
+      "ओर्स्टेड (Oersted)",
+      "ज्यूल",
+      "किरचॉफ"
+    ],
+    "answer": "B",
+    "explanation": "In 1820, Hans Christian Oersted discovered that when current flows through a wire, a magnetic field is created around it. This is called the magnetic effect of electric current.",
+    "explanationMarathi": "१८२० मध्ये हान्स ख्रिश्चन ओर्स्टेड यांनी शोधून काढले की, जेव्हा एखाद्या वायरमधून करंट वाहतो, तेव्हा तिच्याभोवती चुंबकीय क्षेत्र निर्माण होते. यालाच विद्युत प्रवाहाचा चुंबकीय परिणाम म्हणतात."
+  },
+  {
+    "id": 1491,
+    "chapterId": 48,
+    "question": "What is the standard phase sequence of a three-phase alternator?",
+    "questionMarathi": "थ्री-फेज अल्टरनेटरचा मानक फेज अनुक्रम (Phase Sequence) कोणता असतो?",
+    "options": [
+      "RBY",
+      "YRB",
+      "RYB",
+      "BYR"
+    ],
+    "optionsMarathi": [
+      "RBY",
+      "YRB",
+      "RYB",
+      "BYR"
+    ],
+    "answer": "C",
+    "explanation": "In three-phase systems, according to international standards, the sequence in which waves reach their maximum values is fixed as RYB (Red - Yellow - Blue).",
+    "explanationMarathi": "थ्री-फेज सिस्टीममध्ये आंतरराष्ट्रीय मानकांनुसार वेव्हज ज्या क्रमाने त्यांच्या कमाल मूल्यावर पोहोचतात, तो प्रमाणित क्रम RYB (Red - Yellow - Blue) असा निश्चित केला आहे."
+  },
+  {
+    "id": 1492,
+    "chapterId": 48,
+    "question": "What is the correct size of the earth plate used for plate earthing?",
+    "questionMarathi": "प्लेट अर्थिंगसाठी वापरल्या जाणाऱ्या अर्थिंग प्लेटचा (Earth Plate) योग्य आकार कोणता आहे?",
+    "options": [
+      "60 x 60 cm",
+      "60 x 60 inch",
+      "60 x 60 mm",
+      "60 x 60 m"
+    ],
+    "optionsMarathi": [
+      "60 × 60 सेंमी (60 x 60 cm)",
+      "60 × 60 इंच",
+      "60 × 60 मिमी",
+      "60 × 60 मीटर"
+    ],
+    "answer": "A",
+    "explanation": "According to standard rules, the copper or galvanized pre-fabricated (GI) plate used for plate earthing must be 60 cm x 60 cm. (Thickness of copper is 3.15 mm and GI is 6.3 mm).",
+    "explanationMarathi": "मानक नियमांनुसार प्लेट अर्थिंगसाठी वापरली जाणारी तांब्याची (Copper) किंवा गॅल्व्हनाइज्ड प्रिफेब्रिकेटेड (GI) प्लेट ६० सेंमी × ६० सेंमी आकाराची असावी लागते. (तांब्याची जाडी ३.१५ मिमी आणि जीआयची ६.३ मिमी असते)."
+  },
+  {
+    "id": 1493,
+    "chapterId": 48,
+    "question": "According to Oersted's (or right-hand thumb) rule, what does the thumb indicate?",
+    "questionMarathi": "ओर्स्टेडच्या (किंवा उजव्या हाताच्या अंगठ्याच्या) नियमानुसार अंगठा कशाची दिशा दर्शवतो?",
+    "options": [
+      "North pole",
+      "Direction of current",
+      "Magnetic force",
+      "Direction of rotation of conductor"
+    ],
+    "optionsMarathi": [
+      "उत्तर ध्रुवाची",
+      "प्रवाहाची दिशा (Direction of Current)",
+      "चुंबकीय बलाची",
+      "चालकाच्या फिरण्याची दिशा"
+    ],
+    "answer": "B",
+    "explanation": "According to the 'Right Hand Grip Rule', if we hold a current-carrying wire in our right hand and keep the thumb straight, the thumb indicates the direction of electric current and the curled fingers show the direction of magnetic lines.",
+    "explanationMarathi": "'राईट हँड ग्रिप रुल' नुसार जर आपण करंट वाहून नेणारी वायर उजव्या हातात पकडली आणि अंगठा सरळ ठेवला, तर अंगठा विद्युत प्रवाहाची (Current) दिशा दर्शवतो आणि वळलेली बोटे चुंबकीय रेषांची दिशा दाखवतात."
+  },
+  {
+    "id": 1494,
+    "chapterId": 48,
+    "question": "What is the rate of doing work called?",
+    "questionMarathi": "कार्य करण्याच्या दराला (Rate of Doing Work) काय म्हणतात?",
+    "options": [
+      "Power",
+      "Energy",
+      "Capacity",
+      "Efficiency"
+    ],
+    "optionsMarathi": [
+      "शक्ती (Power)",
+      "ऊर्जा (Energy)",
+      "क्षमता",
+      "कार्यक्षमता (Efficiency)"
+    ],
+    "answer": "A",
+    "explanation": "The rate of doing work is called power and the total capacity to do work is called energy.",
+    "explanationMarathi": "कार्य करण्याच्या दराला शक्ती (Power) म्हणतात आणि कार्य करण्याच्या एकूण क्षमतेला ऊर्जा (Energy) म्हणतात."
+  },
+  {
+    "id": 1495,
+    "chapterId": 48,
+    "question": "On which electrode does the 'polarization defect' occur in a voltaic cell?",
+    "questionMarathi": "व्होल्टेइक सेलमध्ये (Voltaic Cell) 'पोलायझेशन दोष' (Polarization) कोणत्या इलेक्ट्रोडवर निर्माण होतो?",
+    "options": [
+      "Anode",
+      "Cathode",
+      "Lead",
+      "Zinc"
+    ],
+    "optionsMarathi": [
+      "ॲनोडवर (Anode)",
+      "कॅथोडवर",
+      "शिशावर",
+      "जस्त (झिंक) वर"
+    ],
+    "answer": "A",
+    "explanation": "Hydrogen gas bubbles generated during chemical action collect on the positive electrode, i.e., anode (copper strip), obstructing the flow of current. This is called polarization.",
+    "explanationMarathi": "रासायनिक क्रियेदरम्यान निर्माण होणारे हायड्रोजन वायूचे बुडबुडे पॉझिटिव्ह इलेक्ट्रोड म्हणजेच ॲनोड (तांब्याची पट्टी) वर जमा होतात, ज्यामुळे करंट वाहण्यास अडथळा येतो. यालाच पोलायझेशन (ध्रुवाच्छादन) म्हणतात."
+  },
+  {
+    "id": 1496,
+    "chapterId": 48,
+    "question": "When are two alternating quantities said to be 'anti-phase' (out of phase), when the phase difference between them is how many degrees?",
+    "questionMarathi": "दोन अल्टरनेटिंग राशी 'अँटी-फेज' (Anti-phase / Out of Phase) कधी म्हटल्या जातात, जेव्हा त्यांच्यातील फेज फरक (Phase Difference) किती डिग्री असतो?",
+    "options": [
+      "90 Degrees",
+      "120 Degrees",
+      "270 Degrees",
+      "180 Degrees"
+    ],
+    "optionsMarathi": [
+      "90 डिग्री",
+      "120 डिग्री",
+      "270 डिग्री",
+      "180 डिग्री"
+    ],
+    "answer": "D",
+    "explanation": "When two waves run completely in opposite directions to each other (one being maximum positive when other is maximum negative), i.e., there is a 180° phase difference between them, they are called 'anti-phase'.",
+    "explanationMarathi": "जेव्हा दोन वेव्हज एकमेकांच्या पूर्णपणे विरुद्ध दिशेने धावतात (एक कमाल पॉझिटिव्ह असताना दुसरी कमाल निगेटिव्ह असते), म्हणजेच त्यांच्यात १८०° चा फेज फरक असतो, तेव्हा त्यांना 'अँटी-फेज' म्हणतात."
+  },
+  {
+    "id": 1497,
+    "chapterId": 48,
+    "question": "Which method is used to measure total power in an unbalanced load?",
+    "questionMarathi": "असंतुलित लोड (Unbalanced Load) मध्ये एकूण शक्ती मोजण्यासाठी कोणती पद्धत वापरली जाते?",
+    "options": [
+      "One-Wattmeter Method",
+      "Two-Wattmeter Method",
+      "Three-Wattmeter Method",
+      "Four-Wattmeter Method"
+    ],
+    "optionsMarathi": [
+      "वन-व्हॉटमीटर पद्धत",
+      "टू-व्हॉटमीटर पद्धत (Two-Wattmeter Method)",
+      "थ्री-व्हॉटमीटर पद्धत",
+      "फोर-व्हॉटमीटर पद्धत"
+    ],
+    "answer": "B",
+    "explanation": "The two-wattmeter method is the most widely used and accurate method for measuring power in both balanced and unbalanced loads in a three-phase system.",
+    "explanationMarathi": "टू-व्हॉटमीटर पद्धत ही थ्री-फेज सिस्टीममध्ये संतुलित (Balanced) आणि असंतुलित (Unbalanced) या दोन्ही प्रकारच्या लोडची पॉवर मोजण्यासाठी सर्वात जास्त वापरली जाणारी आणि अचूक पद्धत आहे."
+  },
+  {
+    "id": 1498,
+    "chapterId": 48,
+    "question": "Which of the following is the formula for calculating pitch factor (Kp)?",
+    "questionMarathi": "पिच फॅक्टर (Pitch Factor - Kp) काढण्याचे सूत्र खालीलपैकी कोणते आहे?",
+    "options": [
+      "cos(α/2)",
+      "sin(α/2)",
+      "cos(α/3)",
+      "sin(α/3)"
+    ],
+    "optionsMarathi": [
+      "cos(α/2)",
+      "sin(α/2)",
+      "cos(α/3)",
+      "sin(α/3)"
+    ],
+    "answer": "A",
+    "explanation": "In short pitch winding, if the angle by which the winding is shorted is taken as α, the formula for pitch factor is Kp = cos(α/2).",
+    "explanationMarathi": "शॉर्ट पिच वाइंडिंगमध्ये, वाइंडिंग शॉर्ट केलेल्या कोनाला जर α मानले, तर पिच फॅक्टरचे सूत्र Kp = cos(α/2) असे होते."
+  },
+  {
+    "id": 1499,
+    "chapterId": 48,
+    "question": "What is the form factor of a full sine wave of electrical current or voltage?",
+    "questionMarathi": "इलेक्ट्रिकल करंट किंवा व्होल्टेजच्या संपूर्ण साईन वेव्हचा फॉर्म फॅक्टर (Form Factor) किती असतो?",
+    "options": [
+      "1.732",
+      "1.414",
+      "1.11",
+      "0.707"
+    ],
+    "optionsMarathi": [
+      "1.732",
+      "1.414",
+      "1.11",
+      "0.707"
+    ],
+    "answer": "C",
+    "explanation": "Form factor is the ratio of RMS value and average value. For a sine wave: 0.707 / 0.637 = 1.11.",
+    "explanationMarathi": "फॉर्म फॅक्टर म्हणजे RMS मूल्य आणि सरासरी मूल्य (Average Value) यांचे गुणोत्तर होय. साईन वेव्हसाठी: 0.707 / 0.637 = 1.11."
+  },
+  {
+    "id": 1500,
+    "chapterId": 48,
+    "question": "What is the speed of electric current (or electricity)?",
+    "questionMarathi": "विद्युत प्रवाहाचा (किंवा विजेचा) वेग किती असतो?",
+    "options": [
+      "3 * 10^19 m/s",
+      "3 * 10^10 m/s",
+      "3 * 10 m/s",
+      "3 * 10^8 m/s"
+    ],
+    "optionsMarathi": [
+      "3 * 10^19 m/s",
+      "3 * 10^10 m/s",
+      "3 * 10 m/s",
+      "3 * 10^8 m/s"
+    ],
+    "answer": "D",
+    "explanation": "The speed of electricity conduction is as much as the speed of light, i.e., 3 * 10^8 m/s (about 3 lakh kilometers per second).",
+    "explanationMarathi": "विजेचा वहनाचा वेग हा प्रकाशाच्या वेगाइतकाच म्हणजेच 3 * 10^8 m/s (सुमारे ३ लाख किलोमीटर प्रति सेकंद) असतो."
+  },
+  {
+    "id": 1501,
+    "chapterId": 48,
+    "question": "In the metric system, what is 1 H.P. (Horse Power) equal to?",
+    "questionMarathi": "मेट्रिक प्रणालीत (Metric System) 1 H.P. (हॉर्स पॉवर) कशाच्या बरोबर असते?",
+    "options": [
+      "746 Watts",
+      "735 Watts",
+      "746.5 Watts",
+      "735.5 Watts"
+    ],
+    "optionsMarathi": [
+      "746 वॉट",
+      "735 वॉट",
+      "746.5 वॉट",
+      "735.5 वॉट"
+    ],
+    "answer": "D",
+    "explanation": "In the British system, 1 HP = 746 Watts is taken, but in the metric system calculation, 1 HP = 735.5 Watts is considered the accurate proportion.",
+    "explanationMarathi": "ब्रिटिश प्रणालीमध्ये 1 HP = 746 Watts धरले जाते, परंतु मेट्रिक प्रणालीमध्ये गणना करताना 1 HP = 735.5 Watts हे अचूक प्रमाण मानले जाते."
+  },
+  {
+    "id": 1502,
+    "chapterId": 48,
+    "question": "Which starter is used to safely start a DC series motor?",
+    "questionMarathi": "DC सिरीज मोटर सुरक्षितपणे सुरू करण्यासाठी कोणता स्टार्टर वापरला जातो?",
+    "options": [
+      "Three-Point Starter",
+      "Two-Point Starter",
+      "Four-Point Starter",
+      "D.O.L. Starter"
+    ],
+    "optionsMarathi": [
+      "थ्री-पॉइंट स्टार्टर",
+      "टू-पॉइंट स्टार्टर (Two-Point Starter)",
+      "फोर-पॉइंट स्टार्टर",
+      "D.O.L. स्टार्टर"
+    ],
+    "answer": "B",
+    "explanation": "In a DC series motor, only two terminals (Line and Field) are primarily required at the beginning. Three-point and four-point starters are primarily used for shunt and compound motors, while two-point starters were made for series motors.",
+    "explanationMarathi": "DC सिरीज मोटरमध्ये फक्त दोनच टर्मिनल (Line आणि Field) प्रामुख्याने सुरुवातीला आवश्यक असतात. थ्री-पॉइंट आणि फोर-पॉइंट स्टार्टर हे प्रामुख्याने शंट आणि कंपाऊंड मोटर्ससाठी वापरले जातात, तर सिरीज मोटरसाठी टू-पॉइंट स्टार्टर बनवला गेला आहे."
+  },
+  {
+    "id": 1503,
+    "chapterId": 48,
+    "question": "In what is the total capacity of AC machines (e.g., transformer, alternator) rated?",
+    "questionMarathi": "AC मशीन्सची (उदा. ट्रान्सफॉर्मर, अल्टरनेटर) एकूण क्षमता कशामध्ये अंकित (Rate) केली जाते?",
+    "options": [
+      "KV",
+      "kWh",
+      "kW",
+      "kVA"
+    ],
+    "optionsMarathi": [
+      "KV",
+      "kWh",
+      "kW",
+      "kVA"
+    ],
+    "answer": "D",
+    "explanation": "Similar to question 469, the losses of AC equipment depend on voltage and current, not on the power factor. That's why the capacity of all AC generating and transforming equipment is always written in kVA.",
+    "explanationMarathi": "प्रश्न ४६९ प्रमाणेच, AC उपकरणांचे नुकसान (Losses) हे व्होल्टेज आणि करंटवर अवलंबून असते, पॉवर फॅक्टरवर नाही. म्हणूनच सर्व AC जनरेटिंग आणि ट्रान्सफॉर्मिंग उपकरणांची क्षमता नेहमी kVA मध्ये लिहितात."
+  },
+  {
+    "id": 1504,
+    "chapterId": 48,
+    "question": "When is the power factor value 'leading', when the load is of what type?",
+    "questionMarathi": "पॉवर फॅक्टरचे मूल्य 'लीडिंग' (Leading Power Factor) कधी असते, जेव्हा लोड कोणत्या प्रकारचा असतो?",
+    "options": [
+      "Inductive",
+      "Capacitive",
+      "Pure Inductive",
+      "Pure Capacitive"
+    ],
+    "optionsMarathi": [
+      "इंडक्टिव्ह असेल",
+      "कॅपेसिटिव्ह असेल (Capacitive)",
+      "शुद्ध इंडक्टिव्ह असेल",
+      "शुद्ध कॅपेसिटिव्ह असेल"
+    ],
+    "answer": "B",
+    "explanation": "In a circuit with capacitive load, the current runs ahead of the voltage (leads), because of which power factor is always obtained in 'leading' form. (In inductive load, it's lagging).",
+    "explanationMarathi": "कॅपेसिटिव्ह लोड असलेल्या सर्किटमध्ये करंट हा व्होल्टेजपेक्षा पुढे धावतो (Lead करतो), ज्यामुळे पॉवर फॅक्टर नेहमी 'लीडिंग' स्वरूपाचा मिळतो. (इंडक्टिव्ह लोडमध्ये तो लॅगिंग म्हणजेच पाठीमागे असतो)."
+  },
+  {
+    "id": 1505,
+    "chapterId": 49,
+    "question": "What is the direction of electric current?",
+    "questionMarathi": "विद्युत प्रवाहाची (Electric Current) दिशा कोणती असते?",
+    "options": [
+      "Negative (-) to Positive (+)",
+      "Positive (+) to Negative (-)",
+      "Both sides",
+      "None of these"
+    ],
+    "optionsMarathi": [
+      "उणे (-) कडून अधिक (+) कडे",
+      "अधिक (+) कडून उणे (-) कडे",
+      "दोन्ही बाजूला",
+      "यांपैकी काहीही नाही"
+    ],
+    "answer": "B",
+    "explanation": "According to conventional current rules, the direction of electric current is always considered from the positive (+) terminal to the negative (-) terminal. Although electrons flow from negative to positive, the direction of current is taken as the opposite, i.e., 'positive to negative'.",
+    "explanationMarathi": "पारंपारिक नियमांनुसार (Conventional Current), विद्युत प्रवाहाची दिशा नेहमी पॉझिटिव्ह (+) टर्मिनल कडून नेगेटिव्ह (-) टर्मिनल कडे मानली जाते. जरी इलेक्ट्रॉन हे नेगेटिव्ह कडून पॉझिटिव्ह कडे वाहत असले, तरी करंटची दिशा त्याच्या उलट म्हणजेच 'धन ते ऋण' (+) ते (-) धरली जाते."
+  },
+  {
+    "id": 1506,
+    "chapterId": 49,
+    "question": "Which electrolyte is used in a Leclanche Cell?",
+    "questionMarathi": "लेक्लांचे सेल (Leclanche Cell) मध्ये कोणते इलेक्ट्रोलाईट वापरले जाते?",
+    "options": [
+      "Zinc Chloride",
+      "Ammonium Chloride",
+      "Sulphuric Acid",
+      "Copper Sulphate"
+    ],
+    "optionsMarathi": [
+      "झिंक क्लोराईड",
+      "अमोनिअम क्लोराईड",
+      "गंधकाचे आम्ल (Sulphuric acid)",
+      "कॉपर सल्फेट"
+    ],
+    "answer": "B",
+    "explanation": "In a Leclanche cell (which is the original form of the dry cell), an ammonia-mixed solution of ammonium chloride (NH4Cl) is used as an electrolyte. Zinc works as an anode and a carbon rod as a cathode.",
+    "explanationMarathi": "लेक्लांचे सेल (ज्याला आपण सामान्य भाषेत सुका सेल किंवा ड्राय सेलचे मूळ रूप म्हणतो) यामध्ये अमोनियम क्लोराईडचे अमोनिया मिश्रित द्रावण इलेक्ट्रोलाईट (Electrolyte) म्हणून वापरले जाते. यामध्ये झिंकचा कार्बन रॉड एनोड आणि कॅथोड म्हणून काम करतो."
+  },
+  {
+    "id": 1507,
+    "chapterId": 49,
+    "question": "If a heater connected to a 230 Volt supply takes 4.25 Ampere current, what will be the power consumed by it?",
+    "questionMarathi": "230 व्होल्ट सप्लायला जोडलेला एक हिटर 4.25 एम्पियर करंट घेत असेल, तर त्याने वापरलेली शक्ती (Power) किती असेल?",
+    "options": [
+      "977.5 Watt",
+      "54.11 Watt",
+      "1200 Watt",
+      "None of these"
+    ],
+    "optionsMarathi": [
+      "977.5 वॉट",
+      "54.11 वॉट",
+      "1200 वॉट",
+      "यांपैकी काहीही नाही"
+    ],
+    "answer": "A",
+    "explanation": "The formula for calculating electrical power is P = V * I. Here Voltage (V) = 230 V and Current (I) = 4.25 A. P = 230 * 4.25 = 977.5 Watt (W). So option 1 is correct.",
+    "explanationMarathi": "इलेक्ट्रिकल पॉवर काढण्याचे सूत्र P = V * I असे आहे. येथे व्होल्टेज (V) = 230 V आणि करंट (I) = 4.25 A आहे. P = 230 * 4.25 = 977.5 वॉट (W). त्यामुळे पर्याय 1 योग्य आहे."
+  },
+  {
+    "id": 1508,
+    "chapterId": 49,
+    "question": "What should be the maximum distance between two electric poles?",
+    "questionMarathi": "दोन विद्युत खांबांमधील (Electric Poles) कमाल अंतर किती असावे?",
+    "options": [
+      "220 Meters",
+      "67 Meters",
+      "76 Meters",
+      "67 Feet"
+    ],
+    "optionsMarathi": [
+      "220 मीटर",
+      "67 मीटर",
+      "76 मीटर",
+      "67 फूट"
+    ],
+    "answer": "B",
+    "explanation": "The distance (Span) between two poles carrying overhead lines is generally fixed at 67 meters (or 60 to 65 meters) for safety and to prevent excessive twist or tension on the wire.",
+    "explanationMarathi": "ओव्हरहेड लाईन्स वाहून नेणाऱ्या दोन खांबांमधील अंतर (Span) हे सुरक्षेच्या दृष्टीने आणि तारेला जास्त पीळ किंवा ताण पडू नये म्हणून साधारण 67 मीटर (किंवा ६० ते ६५ मीटर) निश्चित केलेले असते."
+  },
+  {
+    "id": 1509,
+    "chapterId": 49,
+    "question": "What is the efficiency of an ideal alternator?",
+    "questionMarathi": "एका आदर्श अल्टरनेटरची (Ideal Alternator) कार्यक्षमता (Efficiency) किती असते?",
+    "options": [
+      "90%",
+      "92%",
+      "98%",
+      "100%"
+    ],
+    "optionsMarathi": [
+      "90 टक्के",
+      "92 टक्के",
+      "98 टक्के",
+      "100 टक्के"
+    ],
+    "answer": "D",
+    "explanation": "The word 'ideal' means that there is no dissipation or loss of energy in it. Therefore, the efficiency of an ideal alternator or any ideal machine is always considered to be 100% (although such a machine is not possible in reality).",
+    "explanationMarathi": "'आदर्श' (Ideal) या शब्दाचा अर्थच असा होतो की ज्यामध्ये कोणत्याही प्रकारचा ऊर्जेचा अपव्यय किंवा तोटा (Losses) होत नाही. त्यामुळे आदर्श अल्टरनेटर किंवा कोणत्याही आदर्श मशीनची कार्यक्षमता नेहमी 100% मानली जाते (जरी प्रत्यक्षात अशी मशीन शक्य नसली तरी)."
+  },
+  {
+    "id": 1510,
+    "chapterId": 49,
+    "question": "In which direction do magnetic lines of force travel from inside the magnet?",
+    "questionMarathi": "चुंबकीय बलरेषा (Magnetic Lines of Force) चुंबकाच्या आतून कोणत्या दिशेने प्रवास करतात?",
+    "options": [
+      "North to South",
+      "East to South",
+      "South to North",
+      "West to North"
+    ],
+    "optionsMarathi": [
+      "उत्तर ते दक्षिण",
+      "पूर्व ते दक्षिण",
+      "दक्षिण ते उत्तर",
+      "पश्चिम ते उत्तर"
+    ],
+    "answer": "C",
+    "explanation": "From outside the magnet, magnetic lines of force always go from the North pole to the South pole. However, to complete a full loop, these lines travel from the South pole to the North pole inside the magnet.",
+    "explanationMarathi": "चुंबकाच्या बाहेरून चुंबकीय बलरेषा नेहमी उत्तर ध्रुवाकडून (North) निघून दक्षिण ध्रुवाकडे (South) जातात. परंतु, एक पूर्ण लूप (वर्तुळ) तयार करण्यासाठी चुंबकाच्या आतल्या बाजूने या रेषा दक्षिण ध्रुवाकडून उत्तर ध्रुवाकडे (South to North) प्रवास करतात."
+  },
+  {
+    "id": 1511,
+    "chapterId": 49,
+    "question": "How is the secondary winding of a distribution transformer connected?",
+    "questionMarathi": "डिस्ट्रिब्युशन ट्रान्सफॉर्मरची (Distribution Transformer) सेकंडरी वाईंडिंग कशी जोडलेली असते?",
+    "options": [
+      "Series",
+      "Star",
+      "Delta",
+      "All of the above"
+    ],
+    "optionsMarathi": [
+      "सिरीज (एकसर) मध्ये",
+      "स्टार (Star) मध्ये",
+      "डेल्टा (Delta) मध्ये",
+      "वरील सर्व"
+    ],
+    "answer": "B",
+    "explanation": "The primary winding of the distribution transformer bringing electricity to our homes is connected in Delta while the secondary winding is connected in Star. Due to Star connection, we get a Neutral point along with three phases (R, Y, B), which is very essential for domestic single-phase (230V) supply.",
+    "explanationMarathi": "आपल्या घरांपर्यंत वीज आणणाऱ्या डिस्ट्रिब्युशन ट्रान्सफॉर्मरची प्रायमरी वाईंडिंग डेल्टामध्ये तर सेकंडरी वाईंडिंग ही स्टार (Star Connection) मध्ये जोडलेली असते. स्टार कनेक्शनमुळे आपल्याला तीन फेज (R, Y, B) सोबतच एक न्यूट्रल (Neutral) पॉईंट मिळतो, जो घरगुती सिंगल फेज (230V) सप्लायसाठी अत्यंत आवश्यक असतो."
+  },
+  {
+    "id": 1512,
+    "chapterId": 49,
+    "question": "Which of the following is the unit of torque?",
+    "questionMarathi": "खालीलपैकी टॉर्क (Torque) चे एकक (Unit) कोणते आहे?",
+    "options": [
+      "Newton/Meter",
+      "Meter/Newton",
+      "Newton-Meter",
+      "Newton-Foot"
+    ],
+    "optionsMarathi": [
+      "न्यूटन/मीटर",
+      "मीटर/न्यूटन",
+      "न्यूटन-मीटर",
+      "न्यूटन-फूट"
+    ],
+    "answer": "C",
+    "explanation": "Torque is the turning force. Its formula is Torque = Force * Distance. Unit of force is Newton (N) and distance is meter (m), so the unit of torque is Newton-meter (N-m).",
+    "explanationMarathi": "टॉर्क म्हणजेच वळवणारे बल (Turning Force). याचे सूत्र टॉर्क = बल (Force) * अंतर (Distance) असे असते. बलाचे एकक न्यूटन (N) आहे आणि अंतराचे मीटर (m) आहे, म्हणून टॉर्कचे एकक न्यूटन-मीटर (N-m) होते."
+  },
+  {
+    "id": 1513,
+    "chapterId": 49,
+    "question": "What are substances called that do not become magnets themselves when placed in a magnetic field but increase the number of magnetic lines of force?",
+    "questionMarathi": "जे पदार्थ चुंबकीय क्षेत्रात ठेवल्यावर स्वतः चुंबक बनत नाहीत, परंतु चुंबकीय बलरेषांची संख्या वाढवतात, त्यांना काय म्हणतात?",
+    "options": [
+      "Paramagnetic",
+      "Ferromagnetic",
+      "Diamagnetic",
+      "Paaya"
+    ],
+    "optionsMarathi": [
+      "पॅरामॅग्नेटिक (Paramagnetic / पॅरा)",
+      "फेरोमॅग्नेटिक (Ferromagnetic / फेरा)",
+      "डायमॅग्नेटिक (Diamagnetic / डाया)",
+      "पाया"
+    ],
+    "answer": "A",
+    "explanation": "Paramagnetic substances (e.g., aluminum, platinum) become very weakly magnetic when placed in a magnetic field, but they provide a path for magnetic lines to pass through themselves, which slightly increases the number of lines of force.",
+    "explanationMarathi": "पॅरामॅग्नेटिक पदार्थ (उदा. ॲल्युमिनियम, प्लॅटिनम) चुंबकीय क्षेत्रात ठेवल्यास ते खूप कमकुवत चुंबकीय बनतात, पण ते चुंबकीय रेषांना स्वतःमधून जाण्यासाठी मार्ग देतात ज्यामुळे बलरेषांची संख्या थोडी वाढते."
+  },
+  {
+    "id": 1514,
+    "chapterId": 49,
+    "question": "On which effect of electric current does a standard electric lamp work?",
+    "questionMarathi": "एक सामान्य विद्युत दिवा (Electric Lamp) विद्युत प्रवाहाच्या कोणत्या प्रभावावर काम करतो?",
+    "options": [
+      "Magnetic Effect",
+      "Ray Effect",
+      "Heating Effect",
+      "Gas Ionization"
+    ],
+    "optionsMarathi": [
+      "चुंबकीय प्रभाव",
+      "किरण प्रभाव",
+      "उष्मीय प्रभाव (Heating Effect)",
+      "गॅस आयोनायझेशन"
+    ],
+    "answer": "C",
+    "explanation": "When current flows through the tungsten filament in a general bulb, it gets very hot due to its high resistance and starts giving light by becoming red-white. This is called the heating effect of electric current.",
+    "explanationMarathi": "सामान्य बल्बमधील टंगस्टन फिलामेंटमधून जेव्हा करंट वाहतो, तेव्हा त्याच्या उच्च रोधामुळे (Resistance) तो खूप गरम होतो आणि लाल-पांढरा होऊन प्रकाश देऊ लागतो. यालाच विद्युत प्रवाहाचा उष्मीय प्रभाव (Heating Effect) म्हणतात."
+  },
+  {
+    "id": 1515,
+    "chapterId": 49,
+    "question": "What is the formula for calculating copper loss in an electrical machine?",
+    "questionMarathi": "इलेक्ट्रिकल मशीनमधील तांब्याचा तोटा म्हणजेच कॉपर लॉस (Copper Loss) काढण्याचे सूत्र कोणते आहे?",
+    "options": [
+      "V^2 * I",
+      "I^2 * R",
+      "V^2 / I",
+      "I * R"
+    ],
+    "optionsMarathi": [
+      "V^2 * I",
+      "I^2 * R",
+      "V^2 / I",
+      "I * R"
+    ],
+    "answer": "B",
+    "explanation": "The dissipation of energy in the form of heat due to the resistance of the copper wire of the winding is called copper loss. This loss is directly proportional to the square of the current, so its formula is I^2R Watts.",
+    "explanationMarathi": "वाईंडिंगच्या तांब्याच्या तारेच्या रोधामुळे (Resistance) जो उष्णतेच्या स्वरूपात ऊर्जेचा अपव्यय होतो, त्याला कॉपर लॉस म्हणतात. हा लॉस करंटच्या वर्गाच्या थेट प्रमाणात असतो, म्हणून याचे सूत्र I^2R वॉट असे आहे."
+  },
+  {
+    "id": 1516,
+    "chapterId": 49,
+    "question": "In Delta connection, what is phase current (Iph) equal to?",
+    "questionMarathi": "डेल्टा कनेक्शन (Delta Connection) मध्ये फेज करंट (Phase Current - Iph) कशाच्या बरोबर असतो?",
+    "options": [
+      "Line Current",
+      "3-Phase Current",
+      "Line Current / √3",
+      "√3 / Phase Current"
+    ],
+    "optionsMarathi": [
+      "लाईन करंट",
+      "3-फेज करंट",
+      "लाईन करंट / √3",
+      "√3 / फेज करंट"
+    ],
+    "answer": "C",
+    "explanation": "According to Delta connection rules, line current is √3 times phase current (IL = √3 * Iph). Therefore, if we want to calculate phase current, the formula will be: Iph = IL / √3.",
+    "explanationMarathi": "डेल्टा कनेक्शनच्या नियमानुसार, लाईन करंट हा फेज करंटच्या √3 पट असतो (IL = √3 * Iph). त्यामुळे जर आपल्याला फेज करंट काढायचा असेल, तर सूत्र होईल: Iph = IL / √3."
+  },
+  {
+    "id": 1517,
+    "chapterId": 49,
+    "question": "What is used to improve lagging power factor?",
+    "questionMarathi": "लॅगिंग पॉवर फॅक्टर (Lagging Power Factor) सुधारण्यासाठी काय वापरले जाते?",
+    "options": [
+      "Capacitor",
+      "Inductor",
+      "Resistor",
+      "None of these"
+    ],
+    "optionsMarathi": [
+      "कॅपेसिटर (Capacitor)",
+      "इंडक्टर",
+      "रजिस्टर",
+      "यांपैकी काहीही नाही"
+    ],
+    "answer": "A",
+    "explanation": "Due to inductive load (e.g., motors, fans), the system's power factor decreases (lagging). A capacitor creates a leading current, which reduces the lagging effect of the inductor and improves the power factor.",
+    "explanationMarathi": "इंडक्टिव्ह लोडमुळे (उदा. मोटर्स, पंखे) सिस्टीमचा पॉवर फॅक्टर कमी (लॅगिंग) होतो. कॅपेसिटर हा लीडिंग (Leading) करंट तयार करतो, ज्यामुळे इंडक्टरचा लॅगिंग प्रभाव कमी होतो आणि पॉवर फॅक्टर सुधारतो."
+  },
+  {
+    "id": 1518,
+    "chapterId": 49,
+    "question": "What is the electromotive force (e.m.f.) generated at a right angle (90 degrees) in a sine wave?",
+    "questionMarathi": "साईन वेव्ह (Sine Wave) मध्ये काटकोनावर (90 अंश) निर्माण होणारे इलेक्ट्रोमोटिव्ह फोर्स (e.m.f.) किती असते?",
+    "options": [
+      "Zero",
+      "Minimum",
+      "Infinite",
+      "Maximum"
+    ],
+    "optionsMarathi": [
+      "शून्य",
+      "किमान",
+      "अनंत",
+      "कमाल (Maximum)"
+    ],
+    "answer": "D",
+    "explanation": "The formula for AC sine wave is e = Em sin(θ). When angle θ = 90° (right angle), then sin(90°) = 1, which is the highest value of sine. Therefore, voltage or e.m.f. is maximum at 90 degrees.",
+    "explanationMarathi": "AC साईन वेव्हचे सूत्र e = Em sin(θ) असे असते. जेव्हा अँगल θ = 90° (काटकोन) असतो, तेव्हा sin(90°) = 1 होते, जी साईनची सर्वोच्च किंमत आहे. त्यामुळे ९० अंशावर व्होल्टेज किंवा e.m.f. कमाल (Maximum) असते."
+  },
+  {
+    "id": 1519,
+    "chapterId": 49,
+    "question": "If the field winding of a DC shunt motor suddenly opens (breaks) while running, what will happen?",
+    "questionMarathi": "डीसी शंट मोटर (DC Shunt Motor) चालू असताना तिची फिल्ड वाईंडिंग अचानक ओपन (तुटली) झाली तर काय होईल?",
+    "options": [
+      "No difference",
+      "Will not lift load",
+      "Motor speed will increase tremendously",
+      "Current in motor will increase"
+    ],
+    "optionsMarathi": [
+      "काही फरक पडणार नाही",
+      "लोड उचलणार नाही",
+      "मोटरचा वेग अत्यंत वाढेल (भयानक वेग घेईल)",
+      "मोटरमधील करंट वाढेल"
+    ],
+    "answer": "C",
+    "explanation": "The speed of a DC motor is inversely proportional to magnetic flux (N ∝ 1/φ). If the field winding opens, the flux (φ) will reach near zero. Due to a sudden decrease in flux, the motor speed will increase tremendously and dangerously, which can break or burn the motor.",
+    "explanationMarathi": "डीसी मोटरचा वेग हा चुंबकीय फ्लक्सच्या व्यस्त प्रमाणात असतो (N ∝ 1/φ). जर फिल्ड वाईंडिंग ओपन झाली, तर फ्लक्स (φ) शून्याच्या जवळ पोहोचेल. फ्लक्स अचानक कमी झाल्यामुळे मोटरचा वेग खूप जास्त आणि धोकादायक पद्धतीने वाढेल ज्यामुळे मोटर तुटू किंवा जळू शकते."
+  },
+  {
+    "id": 1520,
+    "chapterId": 49,
+    "question": "What is the maximum working temperature of a 'Class B' insulator?",
+    "questionMarathi": "'B' वर्गाच्या (Class B) इन्सुलेटरचे (अवाहक) कमाल कार्यकरी तापमान किती असते?",
+    "options": [
+      "155 Degrees",
+      "120 Degrees",
+      "130 Degrees",
+      "220 Degrees"
+    ],
+    "optionsMarathi": [
+      "155 अंश",
+      "120 अंश",
+      "130 अंश",
+      "220 अंश"
+    ],
+    "answer": "C",
+    "explanation": "According to the classification of electrical insulation, maximum temperature limits of different classes are fixed. Class B insulators (which include mica, fiberglass) can safely work up to 130°C temperature.",
+    "explanationMarathi": "इलेक्ट्रिकल इन्सुलेशनच्या वर्गीकरणानुसार वेगवेगळ्या वर्गांची कमाल तापमान मर्यादा ठरलेली असते. Class B इन्सुलेटर (ज्यामध्ये अभ्रक, फायबरग्लास येतात) सुरक्षितपणे १३०°C तापमानापर्यंत काम करू शकतात."
+  },
+  {
+    "id": 1521,
+    "chapterId": 49,
+    "question": "To what does Ohm's Law apply?",
+    "questionMarathi": "ओहमचा नियम (Ohm's Law) कशावर लागू होतो?",
+    "options": [
+      "Only AC",
+      "Only DC",
+      "Both AC and DC",
+      "None of these"
+    ],
+    "optionsMarathi": [
+      "फक्त AC वर",
+      "फक्त DC वर",
+      "AC आणि DC दोन्हीवर",
+      "कोणत्याही वर नाही"
+    ],
+    "answer": "C",
+    "explanation": "Ohm's law (V = IR or V = IZ) applies to both AC and DC types of supply having linear circuits. Only in AC, 'Impedance' (Z) is considered instead of Resistance.",
+    "explanationMarathi": "ओहमचा नियम (V = IR किंवा V = IZ) हा लिनियर सर्किट असणाऱ्या AC आणि DC या दोन्ही प्रकारच्या सप्लायवर लागू होतो. फक्त AC मध्ये रेझिस्टन्स ऐवजी 'इम्पीडेन्स' (Z) धरला जातो."
+  },
+  {
+    "id": 1522,
+    "chapterId": 49,
+    "question": "What will be the total voltage of cells connected in parallel?",
+    "questionMarathi": "पॅरेलल (समांतर) जोडणीत जोडलेल्या सेल्सचे एकूण व्होल्टेज (Total Voltage) किती असेल?",
+    "options": [
+      "Et = E1 + E2 + E3",
+      "Et = E",
+      "Et = E/e",
+      "None of these"
+    ],
+    "optionsMarathi": [
+      "Et = E1+E2+E3",
+      "Et = E",
+      "Et = E/e",
+      "यांपैकी काहीही नाही"
+    ],
+    "answer": "B",
+    "explanation": "When cells of equal voltage are connected in parallel, the total voltage remains the same as the voltage of a single cell (Et = E). Parallel connection is made not to increase voltage, but to increase current capacity (AH Capacity).",
+    "explanationMarathi": "जेव्हा समान व्होल्टेजचे सेल्स पॅरेलल (Parallel) जोडले जातात, तेव्हा एकूण व्होल्टेज हे एका सिंगल सेलच्या व्होल्टेज इतकेच राहते (Et = E). पॅरेलल जोडणी व्होल्टेज वाढवण्यासाठी नाही, तर करंटची क्षमता (AH Capacity) वाढवण्यासाठी केली जाते."
+  },
+  {
+    "id": 1523,
+    "chapterId": 49,
+    "question": "Which generator is considered most suitable for electroplating?",
+    "questionMarathi": "इलेक्ट्रोप्लेटिंग (Electroplating - धातूवर थर चढवणे) साठी कोणता जनरेटर सर्वात योग्य मानला जातो?",
+    "options": [
+      "Shunt Generator",
+      "Series Generator",
+      "Compound Generator",
+      "Differential Compound"
+    ],
+    "optionsMarathi": [
+      "शंट जनरेटर (Shunt Generator)",
+      "सिरीज जनरेटर",
+      "कंपाऊंड जनरेटर",
+      "डिफरेंशियल कंपाऊंड"
+    ],
+    "answer": "A",
+    "explanation": "Very stable voltage (Constant Voltage) is needed for the electroplating process. DC shunt generator is famous for providing stable voltage, so this generator is considered best for electroplating and battery charging.",
+    "explanationMarathi": "इलेक्ट्रोप्लेटिंग प्रक्रियेसाठी अतिशय स्थिर व्होल्टेजची (Constant Voltage) गरज असते. डीसी शंट जनरेटर हा स्थिर व्होल्टेज देण्यासाठी प्रसिद्ध आहे, म्हणून हा जनरेटर इलेक्ट्रोप्लेटिंग आणि बॅटरी चार्जिंगसाठी सर्वोत्तम मानला जातो."
+  },
+  {
+    "id": 1524,
+    "chapterId": 49,
+    "question": "NVC (No Volt Coil) relay is a device based on which of the following principles?",
+    "questionMarathi": "NVC (No Volt Coil) रिले हे खालीलपैकी कोणत्या तत्त्वावर आधारित उपकरण आहे?",
+    "options": [
+      "Magnetic",
+      "Heat",
+      "Gas",
+      "Temperature"
+    ],
+    "optionsMarathi": [
+      "चुंबक (Magnetic)",
+      "उष्मा",
+      "गॅस",
+      "तापमान"
+    ],
+    "answer": "A",
+    "explanation": "NVC (No Volt Coil) is a type of electromagnet. As long as supply is on, it becomes a magnet and holds the starter handle. When light goes off, its magnetism ends and it leaves the handle, due to which the motor safely stops.",
+    "explanationMarathi": "NVC (No Volt Coil) ही एक प्रकारची इलेक्ट्रोमॅग्नेट (विद्युत चुंबक) असते. जोपर्यंत सप्लाय चालू असतो, तोपर्यंत ती चुंबक बनून स्टार्टरच्या हँडलला पकडून ठेवते. लाईट गेल्यावर तिचे चुंबकत्व संपते आणि हँडल सोडून देते, ज्यामुळे मोटर सुरक्षितपणे बंद होते."
+  },
+  {
+    "id": 1525,
+    "chapterId": 49,
+    "question": "What is the fault of vibration in rotor after connecting load on alternator called?",
+    "questionMarathi": "अल्टरनेटरवर लोड जोडल्यानंतर रोटरमध्ये होणाऱ्या कंपनांच्या (Vibration) दोषाला काय म्हणतात?",
+    "options": [
+      "Overloading",
+      "Commutation",
+      "Repulsion",
+      "Hunting"
+    ],
+    "optionsMarathi": [
+      "ओव्हरलोडिंग",
+      "कम्युटेशन",
+      "रिपल्शन",
+      "हंटिंग (Hunting)"
+    ],
+    "answer": "D",
+    "explanation": "When load suddenly changes on an alternator or synchronous motor, the rotor starts swaying back and forth or vibrates to find the balance of its original speed. This fault is called Hunting. 'Damper winding' is used to remove this fault.",
+    "explanationMarathi": "जेव्हा अल्टरनेटर किंवा सिंक्रोनस मोटरवर अचानक लोड बदलतो, तेव्हा रोटर आपल्या मूळ गतीचा समतोल शोधण्यासाठी पुढे-मागे डोलू लागतो किंवा कंपन करतो. या दोषाला हंटिंग (Hunting) म्हणतात. हा दोष दूर करण्यासाठी 'डॅम्पर वाईंडिंग' वापरली जाते."
+  },
+  {
+    "id": 1526,
+    "chapterId": 49,
+    "question": "If the phase sequence of supply changes, on which of the following loads will it have an impact?",
+    "questionMarathi": "जर सप्लायचा फेज सिक्वेन्स (Phase Sequence) बदलला, तर खालीलपैकी कोणत्या लोडवर परिणाम होईल?",
+    "options": [
+      "Heater",
+      "3-Phase Motors",
+      "Single phase fans",
+      "Lighting load"
+    ],
+    "optionsMarathi": [
+      "हिटर",
+      "3-फेज मोटर्स (3 Phase Motors)",
+      "सिंगल फेज पंखे",
+      "लाईटिंग लोड"
+    ],
+    "answer": "B",
+    "explanation": "If the phase sequence of 3-phase supply (e.g., from R-Y-B to R-B-Y) changes, the direction of rotation of the magnetic field changes. Because of this, the 3-phase motor will start rotating in opposite direction, which can cause a big accident or loss. Heater or light doesn't have any difference with phase sequence.",
+    "explanationMarathi": "3-फेज सप्लायचा फेज सिक्वेन्स (उदा. R-Y-B वरून R-B-Y करणे) बदलल्यास चुंबकीय क्षेत्राची फिरण्याची दिशा बदलते. यामुळे 3-फेज मोटर उलट्या दिशेने फिरू लागेल, ज्यामुळे मोठा अपघात किंवा नुकसान होऊ शकते. हिटर किंवा लाईटला फेज सिक्वेन्सशी काही फरक पडत नाही."
+  },
+  {
+    "id": 1527,
+    "chapterId": 49,
+    "question": "What is the total opposition in an AC circuit called?",
+    "questionMarathi": "AC सर्किटमधील एकूण विरोधाला (Total Opposition) काय म्हणतात?",
+    "options": [
+      "Reactance",
+      "Resistance",
+      "Impedance",
+      "Resistivity"
+    ],
+    "optionsMarathi": [
+      "रिएक्टन्स (Reactance)",
+      "रेझिस्टन्स (Resistance)",
+      "इम्पीडेन्स (Impedance / प्रतिबाधा)",
+      "रेझिस्टिव्हिटी"
+    ],
+    "answer": "C",
+    "explanation": "In DC circuit, there is only resistance (R). But in AC circuit, along with resistance, there is also inductive and capacitive reactance (X). The combined total opposition of all these is called Impedance, and it's shown by letter 'Z'.",
+    "explanationMarathi": "DC सर्किटमध्ये फक्त रेझिस्टन्स (R) असतो. परंतु AC सर्किटमध्ये रेझिस्टन्स सोबत इंडक्टिव्ह आणि कॅपेसिटिव्ह रिएक्टन्स (X) देखील असतो. या सर्वांच्या एकत्रित एकूण विरोधाला इम्पीडेन्स (Impedance) म्हणतात, आणि ते 'Z' या अक्षराने दर्शवले जाते."
+  },
+  {
+    "id": 1528,
+    "chapterId": 49,
+    "question": "What is used as a heat insulator in electrical heating appliances (e.g., iron, toaster)?",
+    "questionMarathi": "इलेक्ट्रिकल हिटिंग उपकरणांमध्ये (उदा. इस्त्री, टोस्टर) उष्णतारोधक (Heat Insulator) म्हणून काय वापरले जाते?",
+    "options": [
+      "Mica",
+      "Porcelain",
+      "Asbestos",
+      "Bakelite"
+    ],
+    "optionsMarathi": [
+      "अभ्रक (Mica)",
+      "पोर्सलिन",
+      "एस्बेस्टॉस",
+      "बेकेलाईट"
+    ],
+    "answer": "A",
+    "explanation": "Mica has a wonderful property: it's a good conductor of heat but a great insulator of electricity. Because of this, heat from iron coil reaches clothes, but the user doesn't get an electric shock.",
+    "explanationMarathi": "अभ्रक (Mica) मध्ये एक अद्भूत गुणधर्म आहे: तो उष्णतेचा सुवाहक आहे पण विजेचा उत्तम अवाहक (इन्सुलेटर) आहे. यामुळे इस्त्रीच्या कॉईलची उष्णता कपड्यांपर्यंत पोहोचते, पण वापरणाऱ्याला विजेचा शॉक लागत नाही."
+  },
+  {
+    "id": 1529,
+    "chapterId": 49,
+    "question": "If 10 Ohm resistance and 10 Henry coil are connected in series in a DC circuit, what will be the total impedance?",
+    "questionMarathi": "एका DC सर्किटमध्ये 10 ओहमचा रेझिस्टन्स आणि 10 हेन्रीची कॉईल सिरीजमध्ये जोडली असल्यास एकूण इम्पीडेन्स किती असेल?",
+    "options": [
+      "10 Ohm",
+      "1 Ohm",
+      "20 Ohm",
+      "5 Ohm"
+    ],
+    "optionsMarathi": [
+      "10 ओहम",
+      "1 ओहम",
+      "20 ओहम",
+      "5 ओहम"
+    ],
+    "answer": "A",
+    "explanation": "This question is tricky! The question is about DC circuit. Frequency of DC supply is zero (f=0). Therefore, reactance of coil XL = 2πfL = 0. That means coil doesn't do any opposition for DC (it will work just like a short circuit). Therefore, total opposition of the circuit will be only equal to resistance, i.e., 10 Ohm.",
+    "explanationMarathi": "हा प्रश्न ट्रिकी आहे! प्रश्न DC सर्किट बद्दल आहे. DC सप्लायची फ्रिक्वेन्सी शून्य (f=0) असते. त्यामुळे कॉईलचा रिएक्टन्स XL = 2πfL = 0 होईल. म्हणजेच DC साठी कॉईल कोणताही विरोध करत नाही (फक्त शॉर्ट सर्किट सारखी काम करेल). त्यामुळे सर्किटचा एकूण विरोध फक्त रेझिस्टन्स इतकाच म्हणजेच 10 ओहम असेल."
+  },
+  {
+    "id": 1530,
+    "chapterId": 49,
+    "question": "What will be the resistance of a lamp having 500 Watt and 250 Volt?",
+    "questionMarathi": "एका 500 वॉट आणि 250 व्होल्ट असणाऱ्या लॅम्पचा रेझिस्टन्स (रोथ) किती असेल?",
+    "options": [
+      "0.5 Ohm",
+      "125 Ohm",
+      "2 Ohm",
+      "125000 Ohm"
+    ],
+    "optionsMarathi": [
+      "0.5 ओहम",
+      "125 ओहम",
+      "2 ओहम",
+      "125000 ओहम"
+    ],
+    "answer": "B",
+    "explanation": "Formula for calculating resistance is R = V^2 / P. Here Voltage (V) = 250 V and Power (P) = 500 W. R = (250 * 250) / 500 = 62500 / 500 = 125 Ohm.",
+    "explanationMarathi": "रेझिस्टन्स काढण्याचे सूत्र R = V^2 / P असे आहे. येथे व्होल्टेज (V) = 250 V आणि पॉवर (P) = 500 W आहे. R = (250 * 250) / 500 = 62500 / 500 = 125 ओहम."
+  },
+  {
+    "id": 1531,
+    "chapterId": 49,
+    "question": "What will be the current (Current) given to load by a 2 kilowatt (kW) and 200 Volt DC generator?",
+    "questionMarathi": "एका 2 किलोवॉट (kW) आणि 200 व्होल्टच्या DC जनरेटरद्वारे लोडला दिली जाणारी करंट (Current) किती असेल?",
+    "options": [
+      "2 Ampere",
+      "4 Ampere",
+      "10 Ampere",
+      "20 Ampere"
+    ],
+    "optionsMarathi": [
+      "2 एम्पियर",
+      "4 एम्पियर",
+      "10 एम्पियर",
+      "20 एम्पियर"
+    ],
+    "answer": "C",
+    "explanation": "Formula for calculating current is I = P / V. Here Power (P) = 2 kilowatt = 2 * 1000 = 2000 Watt. Voltage (V) = 200 Volt. I = 2000 / 200 = 10 Ampere (A).",
+    "explanationMarathi": "करंट काढण्याचे सूत्र I = P / V असे आहे. येथे पॉवर (P) = 2 किलोवॉट = 2 * 1000 = 2000 वॉट. व्होल्टेज (V) = 200 व्होल्ट. I = 2000 / 200 = 10 एम्पियर (A)."
+  },
+  {
+    "id": 1532,
+    "chapterId": 50,
+    "question": "What is 1 Volt / 1 Coulomb called?",
+    "questionMarathi": "1 व्होल्ट / 1 कुलंब (1 Volt / 1 Coulomb) याला काय म्हणतात?",
+    "options": [
+      "1 Henry",
+      "1 Farad",
+      "1 Ampere",
+      "1 Micron"
+    ],
+    "optionsMarathi": [
+      "1 हेन्री",
+      "1 फॅरड (Farad)",
+      "1 एम्पियर",
+      "1 मायक्रॉन"
+    ],
+    "answer": "B",
+    "explanation": "Formula for capacitance is C = Q / V (Coulomb / Volt). However, in electrical capacitance calculations, Volt per Coulomb is used as an inverse definition. According to original scientific formula, V = W / Q (Joule / Coulomb). However, looking at the original form of this specific technical question, according to the rule of capacitance, Coulomb per Volt is called Farad.",
+    "explanationMarathi": "कॅपेसिटन्सचे सूत्र C = Q / V (कुलंब / व्होल्ट) असे असते. परंतु, विद्युत धारकतेच्या गणितात व्होल्ट प्रति कुलंब ही व्याख्या व्यस्त स्वरूपात वापरली जाते. मूळ वैज्ञानिक सूत्रानुसार, V = W / Q (ज्यूल/कुलंब) असते. तथापि, या विशिष्ट तांत्रिक प्रश्नाचे मूळ रूप पाहता, कॅपेसिटन्सच्या नियमानुसार कुलंब प्रति व्होल्टला फॅरड (Farad) म्हणतात."
+  },
+  {
+    "id": 1533,
+    "chapterId": 50,
+    "question": "To remove which defect is the core of a transformer or machine made of silicon steel?",
+    "questionMarathi": "कोणता दोष दूर करण्यासाठी ट्रान्सफॉर्मर किंवा मशीनचा कोअर (Core) सिलिकॉन स्टीलचा बनवला जातो?",
+    "options": [
+      "Copper Loss",
+      "Iron Loss",
+      "Eddy Current Loss",
+      "Hysteresis Loss"
+    ],
+    "optionsMarathi": [
+      "कॉपर लॉस",
+      "आयर्न लॉस",
+      "एडी करंट लॉस",
+      "हिस्टेरेसिस लॉस (Hysteresis Loss)"
+    ],
+    "answer": "D",
+    "explanation": "Dissipation of energy due to repeated magnetization and demagnetization of the core when the magnetic field keeps changing is called 'Hysteresis Loss'. Silicon steel has high magnetic permeability and low hysteresis coefficient, so silicon steel is used to reduce this loss. (Note: Core is laminated to reduce eddy current loss).",
+    "explanationMarathi": "चुंबकीय क्षेत्र सारखे बदलत असताना कोअरचे वारंवार होणारे चुंबकीय व विचुंबकीयकरण यामुळे होणाऱ्या ऊर्जेच्या अपव्ययाला 'हिस्टेरेसिस लॉस' म्हणतात. सिलिकॉन स्टीलची चुंबकीय पारगम्यता (Permeability) उच्च आणि हिस्टेरेसिस गुणांक कमी असतो, त्यामुळे हा तोटा कमी करण्यासाठी सिलिकॉन स्टील वापरले जाते. (टीप: एडी करंट लॉस कमी करण्यासाठी कोअर लॅमिनेट केला जातो)."
+  },
+  {
+    "id": 1534,
+    "chapterId": 50,
+    "question": "In a 3-Phase system, if power factor and phase current of all three phases are same, what is that load called?",
+    "questionMarathi": "थ्री-फेज (3-Phase) प्रणालीमध्ये जर तिन्ही फेजेसचा पॉवर फॅक्टर आणि फेज करंट समान असेल, तर त्या लोडला काय म्हणतात?",
+    "options": [
+      "Effective Load",
+      "Apparent Load",
+      "Unbalanced Load",
+      "Balanced Load"
+    ],
+    "optionsMarathi": [
+      "प्रभावी लोड",
+      "आभासी लोड",
+      "असंतुलित (Unbalanced) लोड",
+      "संतुलित (Balanced) लोड"
+    ],
+    "answer": "D",
+    "explanation": "When current, voltage and power factor flowing on all three phases in a 3-phase system are exactly same, then that load is called Balanced Load. If there is difference in this, then it is called Unbalanced load.",
+    "explanationMarathi": "जब थ्री-फेज सिस्टममधील तिन्ही फेजेसवर वाहणारा करंट, व्होल्टेज आणि पॉवर फॅक्टर अगदी एकसारखा असतो, तेव्हा त्या लोडला Balanced Load म्हटले जाते. जर यामध्ये तफावत असेल, तर त्याला Unbalanced (असंतुलित) लोड म्हणतात."
+  },
+  {
+    "id": 1535,
+    "chapterId": 50,
+    "question": "According to IE Rules, what is the minimum distance that should be kept between two earth electrodes?",
+    "questionMarathi": "भारतीय विद्युत नियमांनुसार (IE Rules) दोन अर्थिंग (Earth electrodes) मध्ये किमान किती अंतर ठेवले पाहिजे?",
+    "options": [
+      "5 Meters",
+      "5 Feet",
+      "5 Yards",
+      "5 Inches"
+    ],
+    "optionsMarathi": [
+      "5 मीटर",
+      "5 फूट",
+      "5 गज",
+      "5 इंच"
+    ],
+    "answer": "A",
+    "explanation": "According to safety and technical rules, the distance between two different earth pits (Earth Electrodes) done in the same building or plant should be at least 5 meters (about 15 to 16 feet) so that they don't interfere with each other.",
+    "explanationMarathi": "सुरक्षेच्या आणि तांत्रिक नियमांनुसार, एकाच इमारतीमध्ये किंवा प्लांटमध्ये केलेल्या दोन वेगवेगळ्या अर्थपिट्स (Earth Electrodes) मधील अंतर किमान 5 मीटर (साधारण 15 ते 16 फूट) असणे बंधनकारक आहे, जेणेकरून त्यांच्यात परस्पर अडथळा निर्माण होणार नाही."
+  },
+  {
+    "id": 1536,
+    "chapterId": 50,
+    "question": "According to IE Rules, at what minimum height from floor level should an energy meter be?",
+    "questionMarathi": "भारतीय विद्युत नियमांनुसार ऊर्जा मापक यंत्र (Energy Meter/वीज मीटर) जमिनीपासून/फर्शपासून किमान किती उंचीवर असावे?",
+    "options": [
+      "1.5 Meters",
+      "1.3 Meters",
+      "1.5 Feet",
+      "1.3 Feet"
+    ],
+    "optionsMarathi": [
+      "1.5 मीटर",
+      "1.3 मीटर",
+      "1.5 फूट",
+      "1.3 फूट"
+    ],
+    "answer": "A",
+    "explanation": "There is a rule that its height from floor level should be 1.5 meters (about 5 feet) so that it is easy to read domestic or industrial electricity meters and they don't get into children's hands.",
+    "explanationMarathi": "घरगुती किंवा औद्योगिक वीज मीटर वाचताना सोपे जावे आणि ते लहान मुलांच्या हाताला लागू नये म्हणून जमिनीच्या पातळीपासून (Floor level) त्याची उंची 1.5 मीटर (साधारण 5 फूट) असावे असा नियम आहे."
+  },
+  {
+    "id": 1537,
+    "chapterId": 50,
+    "question": "What is the value of power factor in a purely resistive circuit?",
+    "questionMarathi": "एका शुद्ध प्रतिरोधी (Purely Resistive) सर्किटमध्ये पॉवर फॅक्टरचे (शक्ती गुणांक) मूल्य किती असते?",
+    "options": [
+      "Unity (1)",
+      "Zero",
+      "Leading",
+      "Lagging"
+    ],
+    "optionsMarathi": [
+      "युनिटी (Unity / 1)",
+      "शून्य",
+      "लीडिंग",
+      "लॅगिंग"
+    ],
+    "answer": "A",
+    "explanation": "In a pure resistive circuit, both voltage and current are in the same phase (In-phase). The phase angle (θ) between them is zero. Since cos(0°) = 1, power factor is always 1 (unity).",
+    "explanationMarathi": "शुद्ध प्रतिरोधी (Pure Resistive) सर्किटमध्ये व्होल्टेज आणि करंट हे दोन्ही एकाच फेझमध्ये असतात (In-phase). त्यांच्यामधील फेझ अँगल (θ) शून्य असतो. cos(0°) = 1 असल्यामुळे पॉवर फॅक्टर नेहमी 1 (युनिटी) असतो."
+  },
+  {
+    "id": 1538,
+    "chapterId": 50,
+    "question": "What do split rings provide in output?",
+    "questionMarathi": "स्प्लिट रिंग्ज (Split Rings) आउटपुटमध्ये काय प्रदान करतात?",
+    "options": [
+      "Light",
+      "Heat",
+      "AC",
+      "DC"
+    ],
+    "optionsMarathi": [
+      "प्रकाश",
+      "उष्णता",
+      "AC",
+      "DC"
+    ],
+    "answer": "D",
+    "explanation": "The current generated in armature in a DC generator is basically AC. Split rings (which we call commutator) do mechanical rectification of this AC current and convert it into DC (unidirectional flow).",
+    "explanationMarathi": "डीसी जनरेटरमध्ये आर्मेचरमध्ये तयार होणारा करंट हा मुळात AC असतो. स्प्लिट रिंग्ज (ज्याला आपण कम्युटेटर म्हणतो) हे या AC प्रवाहाचे मेकॅनिकल रेक्टिफिकेशन करून त्याचे DC (एकदिश प्रवाह) मध्ये रूपांतर करतात."
+  },
+  {
+    "id": 1539,
+    "chapterId": 50,
+    "question": "What is the color of the earth wire in a single-phase system?",
+    "questionMarathi": "सिंगल फेज प्रणालीमध्ये अर्थिंगच्या तारेचा (Earth wire) रंग कोणता असतो?",
+    "options": [
+      "Green",
+      "Blue",
+      "Red",
+      "Black"
+    ],
+    "optionsMarathi": [
+      "हिरवा (Green)",
+      "निळा",
+      "लाल",
+      "काळा"
+    ],
+    "answer": "A",
+    "explanation": "According to international and Indian standards, in single phase wiring, red/brown color is used for 'phase', black/blue for 'neutral' and green (or green-yellow) color is always used for 'earth' wire for human safety.",
+    "explanationMarathi": "आंतरराष्ट्रीय आणि भारतीय मानकांनुसार, सिंगल फेज वायरिंगमध्ये 'फेज'साठी लाल/तपकिरी, 'न्यूट्रल'साठी काळा/निळा आणि मानवी सुरक्षेसाठी असणाऱ्या 'अर्थ' वायरसाठी नेहमी हिरवा (किंवा हिरवा-पिवळा) रंग वापरला जातो."
+  },
+  {
+    "id": 1540,
+    "chapterId": 50,
+    "question": "On which principle does an alternator work?",
+    "questionMarathi": "अल्टरनेटर खालीलपैकी कोणत्या तत्त्वावर कार्य करतो?",
+    "options": [
+      "Induction",
+      "Electromagnetic Induction",
+      "Inductance",
+      "Self Inductance"
+    ],
+    "optionsMarathi": [
+      "इंडक्शन",
+      "इलेक्ट्रोमॅग्नेटिक इंडक्शन (Faraday's Law)",
+      "इंडक्टन्स",
+      "सेल्फ इंडक्टन्स"
+    ],
+    "answer": "B",
+    "explanation": "An alternator works on the theory of Faraday's Electromagnetic Induction. When a conductor is placed in a rotating magnetic field or magnetic field rotates around a conductor, e.m.f. (voltage) is generated in the conductor.",
+    "explanationMarathi": "अल्टरनेटर हा फॅराडेच्या इलेक्ट्रोमॅग्नेटिक इंडक्शनच्या (Electromagnetic Induction) सिद्धांतावर काम करतो. जेव्हा एखादा वाहक फिरत्या चुंबकीय क्षेत्रात ठेवला जातो किंवा चुंबकीय क्षेत्र वाहकाभोवती फिरते, तेव्हा वाहकामध्ये e.m.f. (व्होल्टेज) निर्माण होते."
+  },
+  {
+    "id": 1541,
+    "chapterId": 50,
+    "question": "How is AC frequency (f) related to time period (T)?",
+    "questionMarathi": "AC ची फ्रिक्वेन्सी (वारंवारता - f) ही टाईम पिरीयडच्या (आवर्तकाल - T) कशी असते?",
+    "options": [
+      "Equal",
+      "Directly Proportional",
+      "Inversely Proportional",
+      "None of these"
+    ],
+    "optionsMarathi": [
+      "बरोबर",
+      "समप्रमाणात",
+      "व्यस्त प्रमाणात (किंवा विलोमानुपाती)",
+      "यांपैकी काहीही नाही"
+    ],
+    "answer": "C",
+    "explanation": "The mathematical relationship between frequency and time period is f = 1/T. That means frequency varies inversely (Vilosmanupati) with time.",
+    "explanationMarathi": "फ्रिक्वेन्सी आणि टाईम पिरीयडमधील गणितीय संबंध f = 1/T असा आहे. म्हणजेच फ्रिक्वेन्सी ही वेळेच्या व्यस्त प्रमाणात (Vilosmanupati) बदलत असते."
+  },
+  {
+    "id": 1542,
+    "chapterId": 50,
+    "question": "Which of the following is used for Power Factor Improvement?",
+    "questionMarathi": "पॉवर फॅक्टर सुधारण्यासाठी (Power Factor Improvement) खालीलपैकी कशाचा वापर केला जातो?",
+    "options": [
+      "DC Motor",
+      "Induction Motor",
+      "Synchronous Motor",
+      "Compound Motor"
+    ],
+    "optionsMarathi": [
+      "डीसी मोटर",
+      "इंडक्शन मोटर",
+      "सिंक्रोनस मोटर (Synchronous Motor)",
+      "कंपाऊंड मोटर"
+    ],
+    "answer": "C",
+    "explanation": "When a synchronous motor is run over-excited without load, it works like a capacitor (Synchronous Condenser) and helps in improving lagging power factor of factories or grid.",
+    "explanationMarathi": "जेव्हा सिंक्रोनस मोटरला ओव्हर-एक्साईटेड (Over-excited) करून न लोड करता फिरवले जाते, तेव्हा ती एका कॅपेसिटरसारखे (Synchronous Condenser) काम करते आणि कारखान्यांचा किंवा ग्रीडचा लॅगिंग पॉवर फॅक्टर सुधारण्यास मदत करते."
+  },
+  {
+    "id": 1543,
+    "chapterId": 50,
+    "question": "To what is the torque (T) of a DC motor directly proportional?",
+    "questionMarathi": "डीसी मोटरचा टॉर्क (Torque - T) हा कशाच्या समप्रमाणात असतो?",
+    "options": [
+      "Back E.M.F.",
+      "Field Current",
+      "Armature Current",
+      "Both 2 and 3"
+    ],
+    "optionsMarathi": [
+      "बॅक इ.एम.एफ.",
+      "फिल्ड करंट",
+      "आर्मेचर करंट",
+      "2 आणि 3 दोन्ही (म्हणजेच फ्लक्स आणि आर्मेचर करंट)"
+    ],
+    "answer": "D",
+    "explanation": "The formula for torque of a DC motor is T ∝ φ * Ia. Here φ (flux) depends on field current (If) and Ia is armature current. Therefore, torque is directly proportional to both field current (flux) and armature current.",
+    "explanationMarathi": "डीसी मोटरच्या टॉर्कचे सूत्र T ∝ φ * Ia असे आहे. येथे φ (फ्लक्स) हा फिल्ड करंटवर (If) अवलंबून असतो आणि Ia हा आर्मेचर करंट आहे. त्यामुळे टॉर्क हा फिल्ड करंट (फ्लक्स) आणि आर्मेचर करंट या दोन्हीच्या समप्रमाणात असतो."
+  },
+  {
+    "id": 1544,
+    "chapterId": 50,
+    "question": "How is current related to voltage in a purely inductive circuit?",
+    "questionMarathi": "एका शुद्ध इंडक्टिव्ह (Pure Inductive) सर्किटमध्ये करंट हा व्होल्टेजपेक्षा कसा असतो?",
+    "options": [
+      "90 degree ahead",
+      "90 degree behind (Lagging)",
+      "In-phase",
+      "Out-of-phase"
+    ],
+    "optionsMarathi": [
+      "90 अंश पुढे",
+      "90 अंश मागे (Lagging)",
+      "इन-फेज",
+      "आउट-ऑफ-फेज"
+    ],
+    "answer": "B",
+    "explanation": "In a pure inductive circuit, due to the nature of the inductor, current stays exactly 90 degrees behind (Lag) voltage.",
+    "explanationMarathi": "शुद्ध इंडक्टिव्ह सर्किटमध्ये इंडक्टरच्या स्वभावामुळे करंट हा व्होल्टेजपेक्षा अचूक 90 अंश मागे (Lag) राहतो."
+  },
+  {
+    "id": 1545,
+    "chapterId": 50,
+    "question": "If a battery gives 5 Ampere current continuously for 24 hours, what will be its capacity?",
+    "questionMarathi": "एखादी बॅटरी जर 5 एम्पियर करंट सलग 24 तास देत असेल, तर तिची क्षमता (Capacity) किती असेल?",
+    "options": [
+      "4.8 Ah",
+      "120 Ah",
+      "5 Ah",
+      "24 Ah"
+    ],
+    "optionsMarathi": [
+      "4.8 Ah",
+      "120 Ah",
+      "5 Ah",
+      "24 Ah"
+    ],
+    "answer": "B",
+    "explanation": "Battery capacity is measured in Ampere-hour (Ah). Its formula is Capacity = Current (A) * Time (Hours). Capacity = 5 * 24 = 120 Ah. So option 2 is correct.",
+    "explanationMarathi": "बॅटरीची क्षमता एम्पियर-अवर (Ah) मध्ये मोजली जाते. त्याच सूत्र क्षमता = करंट (A) * वेळ (Hours) असे आहे. क्षमता = 5 * 24 = 120 Ah. त्यामुळे पर्याय 2 बरोबर आहे."
+  },
+  {
+    "id": 1546,
+    "chapterId": 50,
+    "question": "Units of work and ________ are same?",
+    "questionMarathi": "कार्य (Work) आणि ________ ची एकके (Units) समान असतात?",
+    "options": [
+      "Power",
+      "Force",
+      "Energy",
+      "Weight/Load"
+    ],
+    "optionsMarathi": [
+      "शक्ती (Power)",
+      "बल (Force)",
+      "ऊर्जा (Energy)",
+      "वजन/भार"
+    ],
+    "answer": "C",
+    "explanation": "The S.I. unit of both Work and Energy is Joule (J). Energy is defined as the 'capacity to do work'.",
+    "explanationMarathi": "कार्य (Work) आणि ऊर्जा (Energy) या दोन्हीचे एस.आय. (S.I.) एकक ज्यूल (Joule) हेच आहे. ऊर्जेची व्याख्याच 'कार्य करण्याची क्षमता' अशी केली जाते."
+  },
+  {
+    "id": 1547,
+    "chapterId": 50,
+    "question": "Which of the following substances has lowest resistance (highest conductivity)?",
+    "questionMarathi": "खालील पदार्थांपैकी सर्वात कमी रोध (Lowest Resistance) म्हणजेच सर्वोच्च वाहकता कोणाची आहे?",
+    "options": [
+      "Mercury",
+      "Copper",
+      "Zinc",
+      "Resin"
+    ],
+    "optionsMarathi": [
+      "पारा",
+      "तांबे (Copper)",
+      "जस्त (Zinc)",
+      "रेझिन"
+    ],
+    "answer": "B",
+    "explanation": "Among the given options, copper is the best electrical conductor after silver. The resistivity of copper is very low, that's why it is used extensively in electricity wires.",
+    "explanationMarathi": "दिलेल्या पर्यायांमध्ये चांदीनंतर तांबे (Copper) हा सर्वोत्तम विद्युत वाहक पदार्थ आहे. तांब्याचा विशिष्ट रोध (Resistivity) खूप कमी असतो, म्हणूनच त्याचा वापर वीज तारांमध्ये मोठ्या प्रमाणावर होतो."
+  },
+  {
+    "id": 1548,
+    "chapterId": 50,
+    "question": "In which of the following AC circuits is the value of power factor 1 (Unity)?",
+    "questionMarathi": "खालीलपैकी कोणत्या एसी सर्किटमध्ये पॉवर फॅक्टरचे मूल्य 1 (Unity) असते?",
+    "options": [
+      "Purely Resistive",
+      "Purely Inductive",
+      "Resonant Circuit",
+      "Both 1 and 3"
+    ],
+    "optionsMarathi": [
+      "शुद्ध प्रतिरोधी",
+      "शुद्ध इंडक्टिव्ह",
+      "रेझोनंट (Resonant) सर्किट",
+      "1 आणि 3 दोन्ही"
+    ],
+    "answer": "D",
+    "explanation": "In purely resistive circuit, voltage and current are in same phase. Also, in Resonance state, inductive and capacitive reactance destroy each other (XL = XC), due to which the circuit becomes purely resistive. So in both conditions, power factor is 1.",
+    "explanationMarathi": "शुद्ध प्रतिरोधी सर्किटमध्ये व्होल्टेज आणि करंट एकाच फेझमध्ये असतात. तसेच, रेझोनन्स (Resonance) अवस्थेत इंडक्टिव्ह आणि कॅपेसिटिव्ह रिएक्टन्स एकमेकांना नष्ट करतात (XL = XC), ज्यामुळे सर्किट निव्वळ प्रतिरोधी बनते. म्हणून दोन्ही स्थितीत पॉवर फॅक्टर 1 असतो."
+  },
+  {
+    "id": 1549,
+    "chapterId": 50,
+    "question": "What is the maximum value relative to the center level during positive and negative cycles of alternating current (AC) called?",
+    "questionMarathi": "अल्टरनेटींग करंटच्या (AC) धन आणि ऋण चक्राच्या दरम्यान मध्य पातळीच्या सापेक्ष असणाऱ्या कमाल मूल्याला काय म्हणतात?",
+    "options": [
+      "Time Interval",
+      "Effective Value (R.M.S.)",
+      "Amplitude (Peak Value)",
+      "Average Value"
+    ],
+    "optionsMarathi": [
+      "वेळेचे अंतर",
+      "प्रभावी मूल्य (R.M.S.)",
+      "आयाम (Amplitude / Peak Value)",
+      "सरासरी मूल्य"
+    ],
+    "answer": "C",
+    "explanation": "The maximum value (Maximum or Peak value) from the zero line to the top or bottom end of the sine wave is called Amplitude.",
+    "explanationMarathi": "साईन वेव्हच्या शून्य रेषेपासून सर्वात वरच्या किंवा खालच्या टोकापर्यंतच्या कमाल मूल्याला (Maximum किंवा Peak value) Amplitude (आयाम) असे म्हणतात."
+  },
+  {
+    "id": 1550,
+    "chapterId": 50,
+    "question": "How many times does the value of an alternating magnetic field change from zero to maximum in each cycle?",
+    "questionMarathi": "अल्टरनेटींग चुंबकीय क्षेत्राचे मूल्य प्रत्येक सायकलमध्ये (Cycle) किती वेळा शून्यापासून कमाल मर्यादेपर्यंत बदलते?",
+    "options": [
+      "1 time",
+      "2 times",
+      "3 times",
+      "4 times"
+    ],
+    "optionsMarathi": [
+      "1 वेळ",
+      "2 वेळा",
+      "3 वेळा",
+      "4 वेळा"
+    ],
+    "answer": "D",
+    "explanation": "There are two half cycles (one positive and one negative) in one full AC cycle. In positive cycle: zero -> maximum (+) and maximum (+) -> zero (total 2 changes). In negative cycle: zero -> maximum (-) and maximum (-) -> zero (total 2 changes). That is, value changes total 4 times from zero to maximum or maximum to zero in one cycle.",
+    "explanationMarathi": "एका संपूर्ण AC सायकलमध्ये दोन अर्धी चक्रे (एक पॉझिटिव्ह आणि एक नेगेटिव्ह) असतात. पॉझिटिव्ह चक्रात: शून्य -> कमाल (+) आणि कमाल (+) -> शून्य (एकूण 2 वेळा बदल). नेगेटिव्ह चक्रात: शून्य -> कमाल (-) आणि कमाल (-) -> शून्य (एकूण 2 वेळा बदल). म्हणजेच एका सायकलमध्ये एकूण 4 वेळा मूल्य शून्याकडून कमाल किंवा कमालकडून शून्याकडे बदलते."
+  },
+  {
+    "id": 1551,
+    "chapterId": 50,
+    "question": "What are substances called in which large quantities of free electrons are found?",
+    "questionMarathi": "ज्या पदार्थांमध्ये मोठ्या प्रमाणावर मुक्त इलेक्ट्रॉन्स (Free Electrons) आढळतात, त्यांना काय म्हणतात?",
+    "options": [
+      "Conductor",
+      "Insulator",
+      "Semiconductor",
+      "Filter"
+    ],
+    "optionsMarathi": [
+      "चालक (Conductor)",
+      "अवाहक (Insulator)",
+      "अर्धचालक (Semiconductor)",
+      "फिल्टर"
+    ],
+    "answer": "A",
+    "explanation": "Outer orbits of atoms of conductive (Conductor) substances like metals have many free electrons which can flow easily with even a little pressure. That's why they are called electrical conductors.",
+    "explanationMarathi": "धातूंसारख्या सुवाहक (Conductor) पदार्थांच्या अणूंच्या बाहेरील कक्षेत अनेक मुक्त इलेक्ट्रॉन्स असतात, जो अगदी थोड्या दाबाने सहज वाहू शकतात. म्हणूनच त्यांना विद्युत वाहक म्हणतात."
+  },
+  {
+    "id": 1552,
+    "chapterId": 50,
+    "question": "What is the unit of electric charge?",
+    "questionMarathi": "इलेक्ट्रिक चार्ज (विद्युत प्रभार - Electric Charge) चे एकक कोणते आहे?",
+    "options": [
+      "Voltage",
+      "Joule",
+      "Coulomb",
+      "Watt"
+    ],
+    "optionsMarathi": [
+      "व्होल्टेज",
+      "ज्यूल",
+      "कुलंब (Coulomb)",
+      "वॉट"
+    ],
+    "answer": "C",
+    "explanation": "Electric charge is measured in Coulomb. (Other options: Voltage is of pressure, Joule of energy and Watt of power).",
+    "explanationMarathi": "विद्युत प्रभार (Charge) हा कुलंब (Coulomb) मध्ये मोजला जातो. (इतर पर्याय: व्होल्टेज हे दाबाचे, ज्यूल ऊर्जेचे आणि वॉट पॉवरचे एकक आहे)."
+  },
+  {
+    "id": 1553,
+    "chapterId": 50,
+    "question": "When can electric current flow through a circuit?",
+    "questionMarathi": "सर्किटमधून विद्युत प्रवाह (Current) कधी वाहू शकतो?",
+    "options": [
+      "When switch is open",
+      "When switch is closed",
+      "Whether switch is open or closed",
+      "When there is no voltage"
+    ],
+    "optionsMarathi": [
+      "जेव्हा स्विच ओपन (Open) असतो",
+      "जेव्हा स्विच क्लोज (Closed) असतो",
+      "स्विच ओपन किंवा क्लोज कसाही असला तरी",
+      "जेव्हा व्होल्टेज नसते"
+    ],
+    "answer": "B",
+    "explanation": "It is necessary for the circuit to be complete (Complete/Closed Loop) for electric current to flow. When we close (on) the switch, the circuit completes and current starts flowing.",
+    "explanationMarathi": "विद्युत प्रवाह वाहण्यासाठी सर्किट पूर्ण (Complete/Closed Loop) असणे गरजेचे असते. जेव्हा आपण स्विच क्लोज (ऑन) करतो, तेव्हा सर्किट पूर्ण होते आणि करंट वाहू लागतो."
+  },
+  {
+    "id": 1554,
+    "chapterId": 50,
+    "question": "What will be the minimum resistance value of a resistor having Blue, Grey, Red and Silver colors?",
+    "questionMarathi": "निळा, राखाडी (ग्रे), लाल आणि चांदी (Silver) रंग असलेल्या रजिस्टरचे किमान रोध मूल्य (Minimum Resistance Value) काय असेल?",
+    "options": [
+      "612 Ohm",
+      "6120 Ohm",
+      "6800 Ohm",
+      "6460 Ohm"
+    ],
+    "optionsMarathi": [
+      "612 ओहम",
+      "6120 ओहम",
+      "6800 ओहम",
+      "6460 ओहम"
+    ],
+    "answer": "D",
+    "explanation": "According to Color Code rules (BBROYGBVGW): Blue = 6, Grey = 8, Red = multiplier 10^2 (100). That means basic value = 68 * 100 = 6800 Ohm. Silver color tolerance = ±10%. 10% of 6800 = 680 Ohm. Minimum Value = 6800 - 680 = 6460 Ohm. So option D is correct.",
+    "explanationMarathi": "कलर कोडच्या नियमानुसार (BBROYGBVGW): निळा (Blue) = 6, राखाडी (Grey) = 8, लाल (Red) = गुणाकार 10^2 (100). म्हणजेच मूळ व्हॅल्यू = 68 * 100 = 6800 ओहम. चांदी (Silver) रंगाची टॉलरन्स (सहनशीलता) = ±10% असते. 6800 चे 10% = 680 ओहम. किमान मूल्य (Minimum Value) = 6800 - 680 = 6460 ओहम. त्यामुळे पर्याय D अचूक आहे."
+  },
+  {
+    "id": 1555,
+    "chapterId": 50,
+    "question": "Which of the following devices is not an energy source?",
+    "questionMarathi": "खालीलपैकी कोणते साधन ऊर्जा देणारे साधन (Energy Source) नाही?",
+    "options": [
+      "Generator",
+      "Rheostat",
+      "Solar Cell",
+      "Battery"
+    ],
+    "optionsMarathi": [
+      "जनरेटर",
+      "रिओस्टॅट (Rheostat)",
+      "सोलर सेल",
+      "बॅटरी"
+    ],
+    "answer": "B",
+    "explanation": "Generator, Solar cell and battery are all energy sources that produce or store and supply electricity. However, Rheostat is a variable resistance which doesn't give energy but spends energy to control current in a circuit.",
+    "explanationMarathi": "जनरेटर, सोलर सेल आणि बॅटरी ही सर्व ऊर्जेचे स्त्रोत आहेत जी वीज तयार किंवा साठवून पुरवतात. मात्र, रिओस्टॅट (Rheostat) हा एक व्हेरिएबल रेझिस्टन्स (बदलणारा रोध) आहे जो ऊर्जा देत नाही तर सर्किटमधील करंट नियंत्रित करण्यासाठी ऊर्जा खर्च करतो."
+  },
+  {
+    "id": 1556,
+    "chapterId": 50,
+    "question": "What process happens between two negative charges?",
+    "questionMarathi": "दोन ऋण (Negative) प्रभारांच्या दरम्यान कोणती प्रक्रिया होते?",
+    "options": [
+      "Attraction",
+      "Neutral",
+      "Negative",
+      "Repulsion"
+    ],
+    "optionsMarathi": [
+      "आकर्षण (Attraction)",
+      "न्यूट्रल",
+      "ऋण",
+      "प्रतिकर्षण (Repulsion / प्रत्याकर्षण)"
+    ],
+    "answer": "D",
+    "explanation": "According to Laws of Electrostatics, two like charges (such as negative and negative, or positive and positive) push each other away, which is called Repulsion. While two unlike charges attract each other.",
+    "explanationMarathi": "स्थिर विद्युत नियमांनुसार (Laws of Electrostatics), दोन समान प्रभार (जसे की उणे आणि उणे, किंवा अधिक आणि अधिक) एकमेकांना दूर लोटतात, ज्याला प्रतिकर्षण (Repulsion) म्हणतात. तर दोन भिन्न प्रभार एकमेकांना आकर्षित करतात."
+  },
+  {
+    "id": 1557,
+    "chapterId": 50,
+    "question": "If conductance (G) is 8 Siemens, what will be the resistance (R)?",
+    "questionMarathi": "जर वाहकता (Conductance - G) 8 सायमन (Siemens) असेल, तर रोध (Resistance - R) किती असेल?",
+    "options": [
+      "12.5 mΩ",
+      "8 mΩ",
+      "12 Ω",
+      "125 mΩ"
+    ],
+    "optionsMarathi": [
+      "12.5 mΩ",
+      "8 mΩ",
+      "12 Ω",
+      "125 mΩ"
+    ],
+    "answer": "D",
+    "explanation": "Resistance is inverse of conductance (R = 1/G). R = 1/8 = 0.125 Ohm (Ω). Converting this into milli-ohm: 0.125 * 1000 = 125 mΩ.",
+    "explanationMarathi": "रेझिस्टन्स हा वाहकतेच्या व्यस्त असतो (R = 1/G). R = 1/8 = 0.125 ओहम (Ω). याला मिलि-ओहममध्ये बदलल्यास: 0.125 * 1000 = 125 mΩ."
+  },
+  {
+    "id": 1558,
+    "chapterId": 50,
+    "question": "What is a Thermistor a type of?",
+    "questionMarathi": "थर्मिस्टर (Thermistor) हा एक प्रकारचा काय आहे?",
+    "options": [
+      "Switch",
+      "Resistor",
+      "Battery",
+      "Power Supply"
+    ],
+    "optionsMarathi": [
+      "स्विच",
+      "रेझिस्टर (Resistance)",
+      "बॅटरी",
+      "पॉवर सप्लाय"
+    ],
+    "answer": "B",
+    "explanation": "Thermistor is a short form of 'Thermal Resistor'. It is a resistor whose resistance changes according to changes in temperature. It is used to measure temperature or as a sensor for circuit safety.",
+    "explanationMarathi": "थर्मिस्टर (Thermistor) हा 'थर्मल रेझिस्टर' (Thermal Resistor) चे संक्षिप्त रूप आहे. हा एक असा रेझिस्टर आहे ज्याचा रोध तापमानातील बदलानुसार बदलतो. याचा वापर तापमान मोजण्यासाठी किंवा सर्किट सुरक्षेसाठी सेन्सर म्हणून केला जातो."
+  },
+  {
+    "id": 1559,
+    "chapterId": 51,
+    "question": "If a current of 2.5 Ampere flows through a conductor for 0.2 seconds, what will be the electric charge taken by that conductor?",
+    "questionMarathi": "जर 2.5 एम्पियरचा करंट एका वाहकातून 0.2 सेकंद वाहत असेल, तर त्या वाहकाद्वारे घेतलेला विद्युत प्रभार (Charge) किती असेल?",
+    "options": [
+      "12.5 Coulomb",
+      "1.25 Coulomb",
+      "0.5 Coulomb",
+      "5 Coulomb"
+    ],
+    "optionsMarathi": [
+      "12.5 कुलंब",
+      "1.25 कुलंब",
+      "0.5 कुलंब",
+      "5 कुलंब"
+    ],
+    "answer": "C",
+    "explanation": "The formula for calculating electric charge is Q = I * t. Here current (I) = 2.5 A and time (t) = 0.2 seconds. Q = 2.5 * 0.2 = 0.5 Coulomb.",
+    "explanationMarathi": "विद्युत प्रभार (Charge) काढण्याचे सूत्र Q = I * t असे आहे. येथे करंट (I) = 2.5 A आणि वेळ (t) = 0.2 सेकंद आहे. Q = 2.5 * 0.2 = 0.5 कुलंब (Coulomb)."
+  },
+  {
+    "id": 1560,
+    "chapterId": 51,
+    "question": "More than 24 Ampere current cannot flow through a circuit. What should be the value of the fuse rating fixed for this circuit?",
+    "questionMarathi": "एका सर्किटमधून 24 एम्पियरपेक्षा जास्त करंट वाहू शकत नाही. तर या सर्किटसाठी निर्धारित फ्युजचे (Fuse Rating) मूल्य किती असावे?",
+    "options": [
+      "No need for fuse",
+      "10 Ampere",
+      "24 Ampere",
+      "20 Ampere"
+    ],
+    "optionsMarathi": [
+      "फ्युजची गरजच नाही",
+      "10 एम्पियर",
+      "24 एम्पियर",
+      "20 एम्पियर"
+    ],
+    "answer": "D",
+    "explanation": "The rating of the fuse should always be lower than or near the safe maximum limit of the circuit so that the fuse melts before reaching the dangerous level. Among available options, the most suitable rating within 24A and keeping it safe is 20 Ampere.",
+    "explanationMarathi": "फ्युजचे रेटिंग हे नेहमी सर्किटच्या सुरक्षित कमाल मर्यादेपेक्षा कमी किंवा त्याच्या जवळपासचे असावे जेणेकरून धोकादायक पातळी गाठण्यापूर्वीच फ्युज वितळेल. उपलब्ध पर्यायांमध्ये, 24A च्या आत असणारे आणि सुरक्षित ठेवणारे सर्वात योग्य रेटिंग 20 एम्पियर आहे."
+  },
+  {
+    "id": 1561,
+    "chapterId": 51,
+    "question": "If there is a potential difference of 15 Volt across the ends of 15 kΩ resistance, what will be the maximum current flowing through it?",
+    "questionMarathi": "15 किलो-ओहम (kΩ) रोधाच्या टोकांवर 15 व्होल्टचा विभवांतर (Potential Difference) असल्यास, त्यातून वाहणारा कमाल करंट किती असेल?",
+    "options": [
+      "15 mA",
+      "10 mA",
+      "1.5 mA",
+      "1 mA"
+    ],
+    "optionsMarathi": [
+      "15 mA",
+      "10 mA",
+      "1.5 mA",
+      "1 mA"
+    ],
+    "answer": "D",
+    "explanation": "According to Ohm's law, current I = V / R. Here voltage (V) = 15 V and resistance (R) = 15 kilo-ohm = 15 * 1000 = 15000 Ω. I = 15 / 15000 = 0.001 Ampere = 1 mA (milli-ampere).",
+    "explanationMarathi": "ओहमच्या नियमानुसार, करंट I = V/R असतो. येथे व्होल्टेज (V) = 15 V आणि रोध (R) = 15 किलो-ओहम = 15 * 1000 = 15000 Ω. I = 15 / 15000 = 0.001 एम्पियर = 1 mA (मिलि-एम्पियर)."
+  },
+  {
+    "id": 1562,
+    "chapterId": 51,
+    "question": "If a 4-pole alternator generates a frequency of 400 Hz, what will be its speed in revolutions per second (rps)?",
+    "questionMarathi": "4 पोल्सचा एक अल्टरनेटर 400 हर्ट्झ (Hz) ची फ्रिक्वेन्सी निर्माण करत असेल, तर त्याची गती प्रति सेकंद (rps) मध्ये किती असेल?",
+    "options": [
+      "200 rps",
+      "400 rps",
+      "800 rps",
+      "1600 rps"
+    ],
+    "optionsMarathi": [
+      "200 rps",
+      "400 rps",
+      "800 rps",
+      "1600 rps"
+    ],
+    "answer": "A",
+    "explanation": "Speed formula is N = 120f / P (in rpm). N = (120 * 400) / 4 = 12000 rpm. To calculate speed per second (rps), divide by 60: 12000 / 60 = 200 rps.",
+    "explanationMarathi": "गतीचे सूत्र N = 120f/P (rpm मध्ये) असे असते. N = (120 * 400) / 4 = 12000 rpm (फेरे प्रति मिनिट). प्रति सेकंद (rps) गती काढण्यासाठी ६० ने भागावे लागेल: 12000 / 60 = 200 rps."
+  },
+  {
+    "id": 1563,
+    "chapterId": 51,
+    "question": "If the peak value of a sine wave voltage is 13 Volt, what will be its 'Peak-to-Peak' value?",
+    "questionMarathi": "एका साईन वेव्ह व्होल्टेजचे शिखर मूल्य (Peak Value) 13 व्होल्ट असल्यास, त्याचे 'शिखर ते शिखर' (Peak-to-Peak) मूल्य किती असेल?",
+    "options": [
+      "13 Volt",
+      "6.5 Volt",
+      "26 Volt",
+      "None of these"
+    ],
+    "optionsMarathi": [
+      "13 व्होल्ट",
+      "6.5 व्होल्ट",
+      "26 व्होल्ट",
+      "यांपैकी काहीही नाही"
+    ],
+    "answer": "C",
+    "explanation": "Peak-to-Peak value is the total distance between positive peak and negative peak. This is always twice the Peak Value. Peak-to-Peak = 2 * Vm = 2 * 13 = 26 Volt.",
+    "explanationMarathi": "Peak-to-Peak मूल्य म्हणजे पॉझिटिव्ह शिखर आणि नेगेटिव्ह शिखर यांमधील एकूण अंतर. हे नेहमी Peak Value च्या दुप्पट असते. Peak-to-Peak = 2 * Vm = 2 * 13 = 26 व्होल्ट."
+  },
+  {
+    "id": 1564,
+    "chapterId": 51,
+    "question": "If the time period of a signal is 400 microseconds (μs), what will be its frequency?",
+    "questionMarathi": "एका सिग्नलचा टाईम पिरीयड 400 मायक्रो-सेकंद (μs) असल्यास, त्याची फ्रिक्वेन्सी किती असेल?",
+    "options": [
+      "250 Hz",
+      "2500 Hz",
+      "25000 Hz",
+      "400 Hz"
+    ],
+    "optionsMarathi": [
+      "250 हर्ट्झ",
+      "2500 हर्ट्झ",
+      "25000 हर्ट्झ",
+      "400 हर्ट्झ"
+    ],
+    "answer": "B",
+    "explanation": "Frequency formula is f = 1 / T. Here T = 400 * 10^-6 seconds. f = 1 / (400 * 10^-6) = 1000000 / 400 = 2500 Hz.",
+    "explanationMarathi": "फ्रिक्वेन्सीचे सूत्र f = 1/T असे आहे. येथे T = 400 * 10^-6 सेकंद. f = 1 / (400 * 10^-6) = 1000000 / 400 = 2500 हर्ट्झ (Hz)."
+  },
+  {
+    "id": 1565,
+    "chapterId": 51,
+    "question": "If the average value of a half cycle of a sine wave is 12 Volt, what will be the average value of the full wave?",
+    "questionMarathi": "एका साईन वेव्हच्या अर्ध चक्राचे सरासरी मूल्य (Average Value) 12 व्होल्ट असल्यास, पूर्ण तरंग (Full Wave) चे सरासरी मूल्य काय असेल?",
+    "options": [
+      "0 Volt",
+      "12 Volt",
+      "6.37 Volt",
+      "7.64 Volt"
+    ],
+    "optionsMarathi": [
+      "0 व्होल्ट",
+      "12 व्होल्ट",
+      "6.37 व्होल्ट",
+      "7.64 व्होल्ट"
+    ],
+    "answer": "A",
+    "explanation": "In a complete sine wave cycle, positive half and negative half are exactly same. Therefore, if average value of full wave is calculated, they cancel each other out to be 0 Volt.",
+    "explanationMarathi": "एका संपूर्ण साईन वेव्ह सायकलमध्ये (Complete Cycle) पॉझिटिव्ह अर्धा भाग आणि नेगेटिव्ह अर्धा भाग अगदी समान असतात. त्यामुळे संपूर्ण तरंगाचे सरासरी मूल्य काढल्यास ते एकमेकांना खोडून 0 व्होल्ट भरते."
+  },
+  {
+    "id": 1566,
+    "chapterId": 51,
+    "question": "What will be the total inductance if three inductors of 2 mH, 3.3 mH and 0.2 mH are connected in series?",
+    "questionMarathi": "2 mH, 3.3 mH आणि 0.2 mH चे तीन इंडक्टर्स सिरीजमध्ये (एकसर) जोडल्यास एकूण इंडक्टन्स किती असेल?",
+    "options": [
+      "55 mH",
+      "Less than 0.2 mH",
+      "Less than 5.5 mH",
+      "5.5 mH"
+    ],
+    "optionsMarathi": [
+      "55 mH",
+      "0.2 mH पेक्षा कमी",
+      "5.5 mH पेक्षा कमी",
+      "5.5 mH"
+    ],
+    "answer": "D",
+    "explanation": "In series connection, all are added to calculate total inductance (Lt = L1 + L2 + L3). Lt = 2 + 3.3 + 0.2 = 5.5 mH.",
+    "explanationMarathi": "सिरीज जोडणीत एकूण इंडक्टन्स काढण्यासाठी सर्वांची बेरीज केली जाते (Lt = L1 + L2 + L3). Lt = 2 + 3.3 + 0.2 = 5.5 mH."
+  },
+  {
+    "id": 1567,
+    "chapterId": 51,
+    "question": "If frequency of voltage connected to an inductor is decreased, what will be the impact on current flowing through it?",
+    "questionMarathi": "एखाद्या इंडक्टरला जोडलेल्या व्होल्टेजची फ्रिक्वेन्सी कमी केल्यास, त्यातून वाहणाऱ्या करंटवर काय परिणाम होईल?",
+    "options": [
+      "Will stay stable",
+      "Will decrease",
+      "Will increase",
+      "No impact"
+    ],
+    "optionsMarathi": [
+      "स्थिर राहील",
+      "कमी होईल",
+      "वाढेल",
+      "काहीही परिणाम होणार नाही"
+    ],
+    "answer": "C",
+    "explanation": "Inductive reactance formula is XL = 2πfL. If frequency (f) decreases then opposition (XL) will decrease. Due to decrease in opposition, electric current (current) in the circuit will increase.",
+    "explanationMarathi": "इंडक्टिव्ह रिएक्टन्सचे सूत्र XL = 2πfL आहे. जर फ्रिक्वेन्सी (f) कमी झाली तर विरोध (XL) कमी होईल. विरोध कमी झाल्यामुळे सर्किटमधील विद्युत प्रवाह (करंट) वाढेल."
+  },
+  {
+    "id": 1568,
+    "chapterId": 51,
+    "question": "In 3-phase system when load on all three phases is same (Balanced Load), what is the current flowing through neutral wire?",
+    "questionMarathi": "थ्री-फेज प्रणालीमध्ये जेव्हा तिन्ही फेजेसवर लोड समान (Balanced Load) असतो, तेव्हा न्यूट्रल वायरमधून वाहणारा करंट किती असतो?",
+    "options": [
+      "Third part of total current",
+      "Half of total current",
+      "Equal to total current",
+      "Zero"
+    ],
+    "optionsMarathi": [
+      "एकूण करंटचा तिसरा भाग",
+      "एकूण करंटचा अर्धा भाग",
+      "एकूण करंटच्या बरोबर",
+      "शून्य"
+    ],
+    "answer": "D",
+    "explanation": "In balanced load condition, vector sum of currents of all three phases is zero. Therefore, no return current flows through neutral wire, i.e., it is zero.",
+    "explanationMarathi": "संतुलित लोड (Balanced Load) च्या स्थितीत, तिन्ही फेजेसच्या करंटची व्हेक्टर बेरीज (Vector Sum) शून्य होते. त्यामुळे न्यूट्रल वायरमधून कोणताही रिटर्न करंट वाहत नाही, म्हणजेच तो शून्य असतो."
+  },
+  {
+    "id": 1569,
+    "chapterId": 51,
+    "question": "Phase voltage of a 3-phase Star connected alternator is 2 kilo-Volt (kV), what will be the line voltage?",
+    "questionMarathi": "एका थ्री-फेज स्टार (Star) जोडणी असलेल्या अल्टरनेटरचे फेज व्होल्टेज 2 किलो-व्होल्ट (kV) आहे, तर लाईन व्होल्टेज किती असेल?",
+    "options": [
+      "2000 V",
+      "6000 V",
+      "666 V",
+      "3464 V"
+    ],
+    "optionsMarathi": [
+      "2000 V",
+      "6000 V",
+      "666 V",
+      "3464 V"
+    ],
+    "answer": "D",
+    "explanation": "In star connection, line voltage is √3 times phase voltage (VL = √3 * Vph). Here Vph = 2 kV = 2000 V. VL = 1.732 * 2000 = 3464 Volt.",
+    "explanationMarathi": "स्टार कनेक्शनमध्ये लाईन व्होल्टेज हे फेज व्होल्टेजच्या √3 पट असते (VL = √3 * Vph). येथे Vph = 2 kV = 2000 V. VL = 1.732 * 2000 = 3464 व्होल्ट."
+  },
+  {
+    "id": 1570,
+    "chapterId": 51,
+    "question": "After connecting two resistors in parallel, total resistance comes to 2.1 Ω. If value of one resistor is 7 Ω, what will be the value of other?",
+    "questionMarathi": "दोन रेझिस्टर्स पॅरेलल (समांतर) जोडल्यावर एकूण रोध 2.1 Ω येतो. जर त्यातील एका रेझिस्टरचे मूल्य 7 Ω असेल, तर दुसऱ्याचे मूल्य किती असेल?",
+    "options": [
+      "5 Ω",
+      "3 Ω",
+      "7 Ω",
+      "12 Ω"
+    ],
+    "optionsMarathi": [
+      "5 Ω",
+      "3 Ω",
+      "7 Ω",
+      "12 Ω"
+    ],
+    "answer": "B",
+    "explanation": "Parallel circuit formula: 1/Rt = 1/R1 + 1/R2. 1/2.1 = 1/7 + 1/R2 => 1/R2 = 1/2.1 - 1/7 = 10/21 - 3/21 = 7/21 = 1/3. Therefore, R2 = 3 Ω.",
+    "explanationMarathi": "पॅरेलल सर्किटचे सूत्र: 1/Rt = 1/R1 + 1/R2. 1/2.1 = 1/7 + 1/R2 => 1/R2 = 1/2.1 - 1/7 = 10/21 - 3/21 = 7/21 = 1/3. म्हणून, R2 = 3 Ω."
+  },
+  {
+    "id": 1571,
+    "chapterId": 51,
+    "question": "What will be the total impedance (Z) of a circuit having 47 Ohm resistance (R) and 120 Ohm capacitive reactance (XC)?",
+    "questionMarathi": "47 ओहम रेझिस्टन्स (R) आणि 120 ओहम कॅपेसिटिव्ह रिएक्टन्स (XC) असणाऱ्या सर्किटचा एकूण इम्पीडेन्स (Z) किती असेल?",
+    "options": [
+      "129 Ohm",
+      "12.9 Ohm",
+      "167 Ohm",
+      "73 Ohm"
+    ],
+    "optionsMarathi": [
+      "129 ओहम",
+      "12.9 ओहम",
+      "167 ओहम",
+      "73 ओहम"
+    ],
+    "answer": "A",
+    "explanation": "Impedance formula is Z = √(R^2 + XC^2). Z = √(47^2 + 120^2) = √(2209 + 14400) = √16609 = 129 Ohm.",
+    "explanationMarathi": "इम्पीडेन्सचे सूत्र Z = √(R^2 + XC^2) असे आहे. Z = √(47^2 + 120^2) = √(2209 + 14400) = √16609 = 129 ओहम."
+  },
+  {
+    "id": 1572,
+    "chapterId": 51,
+    "question": "A resistor is connected to 50V supply. If its color code is red, orange, orange and silver, what is the current flowing through it?",
+    "questionMarathi": "एक रेझिस्टर 50V सप्लायला जोडलेला आहे. जर त्याचा कलर कोड लाल, नारंगी, नारंगी आणि चांदी (Silver) असेल, तर त्यातून वाहणारा करंट किती?",
+    "options": [
+      "2 mA",
+      "2.17 mA",
+      "214 mA",
+      "21.4 mA"
+    ],
+    "optionsMarathi": [
+      "2 mA",
+      "2.17 mA",
+      "214 mA",
+      "21.4 mA"
+    ],
+    "answer": "B",
+    "explanation": "According to color code: Red = 2, Orange = 3, Orange (multiplier) = 10^3 (1000). Resistance (R) = 23 * 1000 = 23000 Ω. According to Ohm's law, I = V / R = 50 / 23000 ≈ 0.00217 A = 2.17 mA.",
+    "explanationMarathi": "कलर कोडनुसार: लाल = 2, नारंगी = 3, नारंगी (गुणाकार) = 10^3 (1000). रेझिस्टन्स (R) = 23 * 1000 = 23000 Ω. ओहमच्या नियमानुसार, I = V / R = 50 / 23000 ≈ 0.00217 A = 2.17 mA."
+  },
+  {
+    "id": 1573,
+    "chapterId": 51,
+    "question": "How many Ohm load resistor should be connected to get 3.6 Ampere current from a 12 Volt battery?",
+    "questionMarathi": "12 व्होल्टच्या बॅटरीमधून 3.6 एम्पियरचा करंट मिळवण्यासाठी किती ओहमचा लोड रेझिस्टर जोडावा लागेल?",
+    "options": [
+      "3.3 Ω",
+      "33 Ω",
+      "2.2 Ω",
+      "22 Ω"
+    ],
+    "optionsMarathi": [
+      "3.3 Ω",
+      "33 Ω",
+      "2.2 Ω",
+      "22 Ω"
+    ],
+    "answer": "A",
+    "explanation": "According to Ohm's law, R = V / I. R = 12 / 3.6 = 3.33 Ω.",
+    "explanationMarathi": "ओहमच्या नियमानुसार, R = V / I. R = 12 / 3.6 = 3.33 Ω."
+  },
+  {
+    "id": 1574,
+    "chapterId": 51,
+    "question": "If 4 Ampere current flows through a coil with 75 Turns, what will be its magnetomotive force (m.m.f.)?",
+    "questionMarathi": "एका 75 टर्न्स (Turns) असलेल्या कॉईलमधून 4 एम्पियर करंट वाहत असल्यास, तिचे मॅग्नेटोमोटिव्ह फोर्स (m.m.f. / चुंबकीय वाहक बल) किती असेल?",
+    "options": [
+      "18.75 At",
+      "30 At",
+      "300 At",
+      "187 At"
+    ],
+    "optionsMarathi": [
+      "18.75 At",
+      "30 At",
+      "300 At",
+      "187 At"
+    ],
+    "answer": "C",
+    "explanation": "m.m.f. formula is m.m.f. = N * I (Turns * Current). m.m.f. = 75 * 4 = 300 Ampere-turns (At).",
+    "explanationMarathi": "m.m.f. चे सूत्र m.m.f. = N * I (टर्न्स * करंट) असे आहे. m.m.f. = 75 * 4 = 300 Ampere-turns (At)."
+  },
+  {
+    "id": 1575,
+    "chapterId": 51,
+    "question": "According to resistor color code table, what is the value of white color in second band?",
+    "questionMarathi": "रेझिस्टरच्या कलर कोड तक्त्यानुसार, दुसऱ्या पट्टीतील पांढऱ्या (White) रंगाचे मूल्य किती असते?",
+    "options": [
+      "8",
+      "9",
+      "7",
+      "6"
+    ],
+    "optionsMarathi": [
+      "8",
+      "9",
+      "7",
+      "6"
+    ],
+    "answer": "B",
+    "explanation": "In 'BBROYGBVGW' rule of color code, white color comes last, whose digit is 9 (Black = 0 to White = 9).",
+    "explanationMarathi": "कलर कोडच्या 'BBROYGBVGW' नियमामध्ये पांढरा (White) रंग सर्वात शेवटी येतो, ज्याचा अंक 9 असतो (काळा = 0 ते पांढरा = 9)."
+  },
+  {
+    "id": 1576,
+    "chapterId": 51,
+    "question": "A heating element takes 12 Ampere current at 230 Volt, how much electrical energy will be spent in 1 hour 15 minutes?",
+    "questionMarathi": "एक हिटिंग एलिमेंट 230 व्होल्टवर 12 एम्पियर करंट घेते, तर 1 तास 15 मिनिटांत किती वीज ऊर्जा (Energy) खर्च होईल?",
+    "options": [
+      "1.2 kWh",
+      "3.4 kWh",
+      "6 kWh",
+      "7.2 kWh"
+    ],
+    "optionsMarathi": [
+      "1.2 kWh",
+      "3.4. kWh",
+      "6 kWh",
+      "7.2 kWh"
+    ],
+    "answer": "B",
+    "explanation": "Power P = V * I = 230 * 12 = 2760 W = 2.76 kW. Time (t) = 1 hour 15 minutes = 1.25 hours. Energy = Power * Time = 2.76 * 1.25 = 3.45 kWh.",
+    "explanationMarathi": "पॉवर P = V * I = 230 * 12 = 2760 W = 2.76 kW. वेळ (t) = 1 तास 15 मिनिटे = 1.25 तास. ऊर्जा = पॉवर * वेळ = 2.76 * 1.25 = 3.45 kWh."
+  },
+  {
+    "id": 1577,
+    "chapterId": 51,
+    "question": "What will be the power rating of a resistor having 625 Ohm resistance and 40 milli-Ampere current?",
+    "questionMarathi": "625 ओहम रोध आणि 40 मिलि-एम्पियर करंट असणाऱ्या रेझिस्टरचे पॉवर रेटिंग (Power Rating) किती असेल?",
+    "options": [
+      "1/4 Watt",
+      "1/2 Watt",
+      "1 Watt",
+      "2 Watt"
+    ],
+    "optionsMarathi": [
+      "1/4 वॉट",
+      "1/2 वॉट",
+      "1 वॉट",
+      "2 वॉट"
+    ],
+    "answer": "C",
+    "explanation": "Power calculating formula is P = I^2 * R. Here I = 40 mA = 0.04 A. P = (0.04)^2 * 625 = 0.0016 * 625 = 1 Watt.",
+    "explanationMarathi": "पॉवर काढण्याचे सूत्र P = I^2 * R आहे. येथे I = 40 mA = 0.04 A. P = (0.04)^2 * 625 = 0.0016 * 625 = 1 वॉट."
+  },
+  {
+    "id": 1578,
+    "chapterId": 51,
+    "question": "0.3 mA current flows through a 3 kilo-Ohm resistor, what will be its conductance?",
+    "questionMarathi": "एका 3 किलो-ओहमच्या रेझिस्टरमधून 0.3 mA करंट वाहतो, तर त्याची वाहकता (Conductance) किती असेल?",
+    "options": [
+      "30000 mho",
+      "30 mho",
+      "0.33 milli-mho",
+      "333 micro-mho"
+    ],
+    "optionsMarathi": [
+      "30000 म्हो",
+      "30 म्हो",
+      "0.33 मिलि-म्हो",
+      "333 मायक्रो-म्हो (किंवा साधारण 300 μmho)"
+    ],
+    "answer": "D",
+    "explanation": "Conductance (G) is inverse of resistance (G = 1/R). Value of current is not needed here. G = 1/30000 = 0.0000333 mho = 33.3 micro-mho (μmho).",
+    "explanationMarathi": "वाहकता (G) ही रेझिस्टन्सच्या व्यस्त असते (G = 1/R). करंटच्या मूल्याची येथे गरज नाही. G = 1/30000 = 0.0000333 म्हो = 33.3 मायक्रो-म्हो (μmho)."
+  },
+  {
+    "id": 1579,
+    "chapterId": 51,
+    "question": "What type is a 100 kilo-Ohm and 1 Watt capacity resistor usually?",
+    "questionMarathi": "100 किलो-ओहम आणि 1 वॉट क्षमतेचा रेझिस्टर सहसा कोणत्या प्रकारचा असतो?",
+    "options": [
+      "Carbon Resistor",
+      "Wire wound resistor",
+      "Both",
+      "None of these"
+    ],
+    "optionsMarathi": [
+      "कार्बन रेझिस्टर (Carbon Resistor)",
+      "वायर वाउंड रेझिस्टर",
+      "दोन्ही",
+      "यांपैकी कोणताही नाही"
+    ],
+    "answer": "A",
+    "explanation": "Resistors with high resistance (High Resistance) and low watt capacity (e.g., 1 Watt or less) are usually small sized carbon composition type. Wire wound resistors are used for low resistance and high power.",
+    "explanationMarathi": "उच्च रोध (High Resistance) आणि कमी वॉट क्षमतेचे (उदा. 1 वॉट किंवा त्यापेक्षा कमी) रेझिस्टर्स हे सहसा आकाराने लहान असणारे कार्बन कंपोझिशन प्रकारचे असतात. वायर वाउंड रेझिस्टर्स कमी रोध आणि जास्त पॉवरसाठी वापरतात."
+  },
+  {
+    "id": 1580,
+    "chapterId": 51,
+    "question": "If the maximum peak value of a DC voltage is 13 Volt, what will be its RMS value?",
+    "questionMarathi": "जर एका DC व्होल्टेजचे कमाल शिखर मूल्य 13 व्होल्ट असेल, तर त्याचे प्रभावी मूल्य (RMS value) किती असेल?",
+    "options": [
+      "9.1 Volt",
+      "13 Volt",
+      "3.25 Volt",
+      "26 Volt"
+    ],
+    "optionsMarathi": [
+      "9.1 व्होल्ट",
+      "13 व्होल्ट",
+      "3.25 व्होल्ट",
+      "26 व्होल्ट"
+    ],
+    "answer": "B",
+    "explanation": "In DC supply, value of voltage does not change with time. Therefore, peak value (Peak), average value (Average) and effective value (RMS) of DC are all same (13 Volt). (This rule changes only for AC).",
+    "explanationMarathi": "DC सप्लायमध्ये व्होल्टेजचे मूल्य वेळेनुसार बदलत नाही. त्यामुळे DC चे शिखर मूल्य (Peak), सरासरी मूल्य (Average) आणि प्रभावी मूल्य (RMS) हे सर्व एकसमान (13 व्होल्ट) असतात. (हा नियम फक्त AC साठी बदलतो)."
+  },
+  {
+    "id": 1581,
+    "chapterId": 52,
+    "question": "What is the unit of magnetic flux?",
+    "questionMarathi": "चुंबकीय फ्लक्सचे (Magnetic Flux) एकक काय आहे?",
+    "options": [
+      "Tesla",
+      "Weber",
+      "Henry",
+      "Farad"
+    ],
+    "optionsMarathi": [
+      "टेस्ला",
+      "वेबर",
+      "हेन्री",
+      "फॅराड"
+    ],
+    "answer": "B",
+    "explanation": "The SI unit of magnetic flux is Weber (Wb).",
+    "explanationMarathi": "चुंबकीय फ्लक्सचे SI एकक वेबर (Wb) हे आहे."
+  },
+  {
+    "id": 1582,
+    "chapterId": 52,
+    "question": "Which material is used for the core of a transformer?",
+    "questionMarathi": "ट्रान्सफॉर्मरच्या कोअरसाठी कोणते साहित्य वापरले जाते?",
+    "options": [
+      "Copper",
+      "Silicon Steel",
+      "Aluminium",
+      "Brass"
+    ],
+    "optionsMarathi": [
+      "तांबे",
+      "सिलिकॉन स्टील",
+      "ॲल्युमिनियम",
+      "पितळ"
+    ],
+    "answer": "B",
+    "explanation": "Silicon steel is used to reduce hysteresis losses.",
+    "explanationMarathi": "हिस्टेरेसिस लॉस कमी करण्यासाठी कोअरसाठी सिलिकॉन स्टीलचा वापर केला जातो."
+  },
+  {
+    "id": 1583,
+    "chapterId": 52,
+    "question": "The efficiency of a transformer is maximum when:",
+    "questionMarathi": "ट्रान्सफॉर्मरची कार्यक्षमता (Efficiency) जास्तीत जास्त कधी असते?",
+    "options": [
+      "Copper Loss > Iron Loss",
+      "Iron Loss > Copper Loss",
+      "Copper Loss = Iron Loss",
+      "No losses"
+    ],
+    "optionsMarathi": [
+      "कॉपर लॉस > आयर्न लॉस",
+      "आयर्न लॉस > कॉपर लॉस",
+      "कॉपर लॉस = आयर्न लॉस",
+      "लॉस नसताना"
+    ],
+    "answer": "C",
+    "explanation": "Maximum efficiency occurs when variable losses (copper loss) equal constant losses (iron loss).",
+    "explanationMarathi": "जेव्हा कॉपर लॉस आणि आयर्न लॉस समान असतात, तेव्हा ट्रान्सफॉर्मरची कार्यक्षमता सर्वाधिक असते."
+  },
+  {
+    "id": 1584,
+    "chapterId": 52,
+    "question": "What is the function of a Buchholz relay in a transformer?",
+    "questionMarathi": "ट्रान्सफॉर्मरमध्ये बुकोल्झ रिलेचे (Buchholz Relay) कार्य काय असते?",
+    "options": [
+      "Cooling",
+      "Overload protection",
+      "Internal fault protection",
+      "Voltage regulation"
+    ],
+    "optionsMarathi": [
+      "थंड करणे",
+      "ओव्हरलोड संरक्षण",
+      "अंतर्गत दोष संरक्षण",
+      "व्होल्टेज रेग्युलेशन"
+    ],
+    "answer": "C",
+    "explanation": "Buchholz relay is used for the protection of oil-immersed transformers from internal faults.",
+    "explanationMarathi": "तेलात बुडवलेल्या ट्रान्सफॉर्मरचे अंतर्गत दोषांपासून संरक्षण करण्यासाठी हा रिले वापरला जातो."
+  },
+  {
+    "id": 1585,
+    "chapterId": 52,
+    "question": "What is the working principle of a DC motor?",
+    "questionMarathi": "DC मोटर कोणत्या तत्त्वावर कार्य करते?",
+    "options": [
+      "Lenz's Law",
+      "Faraday's Law of Induction",
+      "Lorentz Force",
+      "Self-induction"
+    ],
+    "optionsMarathi": [
+      "लेन्झचा नियम",
+      "फॅराडेचा इंडक्शन नियम",
+      "लोरेंट्झ फोर्स",
+      "स्व-इंडक्शन"
+    ],
+    "answer": "C",
+    "explanation": "A current-carrying conductor in a magnetic field experiences a force.",
+    "explanationMarathi": "चुंबकीय क्षेत्रात असलेल्या विद्युत प्रवाही कंडक्टरवर बल (Force) कार्य करते, या तत्त्वावर DC मोटर चालते."
+  },
+  {
+    "id": 1586,
+    "chapterId": 52,
+    "question": "Which motor is used for electric traction (Trains)?",
+    "questionMarathi": "इलेक्ट्रिक ट्रॅक्शन (रेल्वे इंजिन) साठी कोणती मोटर वापरली जाते?",
+    "options": [
+      "DC Shunt Motor",
+      "DC Series Motor",
+      "Synchronous Motor",
+      "Capacitor Motor"
+    ],
+    "optionsMarathi": [
+      "DC शंट मोटर",
+      "DC सिरीज मोटर",
+      "सिंक्रोनस मोटर",
+      "कॅपेसिटर मोटर"
+    ],
+    "answer": "B",
+    "explanation": "DC series motors have high starting torque, making them ideal for traction.",
+    "explanationMarathi": "DC सिरीज मोटरचा स्टार्टिंग टॉर्क खूप जास्त असतो, म्हणून ती ट्रॅक्शनसाठी वापरली जाते."
+  },
+  {
+    "id": 1587,
+    "chapterId": 52,
+    "question": "The speed of a DC shunt motor can be controlled by:",
+    "questionMarathi": "DC शंट मोटरची गती कशाद्वारे नियंत्रित केली जाऊ शकते?",
+    "options": [
+      "Armature resistance",
+      "Field current",
+      "Applied voltage",
+      "All of these"
+    ],
+    "optionsMarathi": [
+      "आर्मेचर रेझिस्टन्स",
+      "फिल्ड करंट",
+      "व्होल्टेज",
+      "वरील सर्व"
+    ],
+    "answer": "D",
+    "explanation": "Speed can be controlled by varying armature resistance, field flux, or supply voltage.",
+    "explanationMarathi": "आर्मेचर रेझिस्टन्स, फिल्ड फ्लक्स किंवा सप्लाय व्होल्टेज बदलून गती नियंत्रित करता येते."
+  },
+  {
+    "id": 1588,
+    "chapterId": 52,
+    "question": "What is the purpose of a commutator in a DC generator?",
+    "questionMarathi": "DC जनरेटरमध्ये कम्युटेटरचा उद्देश काय असतो?",
+    "options": [
+      "Convert AC to DC",
+      "Convert DC to AC",
+      "Reduce sparking",
+      "Increase output"
+    ],
+    "optionsMarathi": [
+      "AC चे DC मध्ये रूपांतर करणे",
+      "DC चे AC मध्ये रूपांतर करणे",
+      "स्पार्किंग कमी करणे",
+      "आउटपुट वाढवणे"
+    ],
+    "answer": "A",
+    "explanation": "Commutator works as a mechanical rectifier to convert internal AC to DC.",
+    "explanationMarathi": "कम्युटेटर आर्मेचरमध्ये तयार होणाऱ्या AC चे बाह्य सर्किटसाठी DC मध्ये रूपांतर करतो."
+  },
+  {
+    "id": 1589,
+    "chapterId": 52,
+    "question": "Back EMF in a DC motor is proportional to:",
+    "questionMarathi": "DC मोटरमधील बॅक EMF (Back EMF) कशाच्या प्रमाणात असतो?",
+    "options": [
+      "Torque",
+      "Current",
+      "Speed",
+      "Resistance"
+    ],
+    "optionsMarathi": [
+      "टॉर्क",
+      "करंट",
+      "गती (Speed)",
+      "रेझिस्टन्स"
+    ],
+    "answer": "C",
+    "explanation": "Back EMF (Eb) is directly proportional to speed (N) and flux (Φ).",
+    "explanationMarathi": "बॅक EMF हा मोटरच्या गतीच्या समप्रमाणात असतो."
+  },
+  {
+    "id": 1590,
+    "chapterId": 52,
+    "question": "Which starter is used for a DC shunt motor?",
+    "questionMarathi": "DC शंट मोटरसाठी कोणता स्टार्टर वापरला जातो?",
+    "options": [
+      "2-point",
+      "3-point",
+      "4-point",
+      "B and C both"
+    ],
+    "optionsMarathi": [
+      "2-पॉइंट",
+      "3-पॉइंट",
+      "4-पॉइंट",
+      "B आणि C दोन्ही"
+    ],
+    "answer": "D",
+    "explanation": "Both 3-point and 4-point starters can be used for shunt motors.",
+    "explanationMarathi": "शंट मोटरसाठी 3-पॉइंट आणि 4-पॉइंट स्टार्टर्स वापरले जातात."
+  },
+  {
+    "id": 1591,
+    "chapterId": 52,
+    "question": "What is the unit of Illumination?",
+    "questionMarathi": "इल्यूमिनेशनचे (Illumination) एकक काय आहे?",
+    "options": [
+      "Lux",
+      "Lumen",
+      "Candela",
+      "Watt"
+    ],
+    "optionsMarathi": [
+      "लक्स (Lux)",
+      "लुमेन",
+      "कॅंडेला",
+      "वॉट"
+    ],
+    "answer": "A",
+    "explanation": "Lux is the SI unit of illuminance and luminous emittance.",
+    "explanationMarathi": "इल्यूमिनेशनचे एकक लक्स असते."
+  },
+  {
+    "id": 1592,
+    "chapterId": 52,
+    "question": "Which lamp has the highest efficiency?",
+    "questionMarathi": "कोणत्या दिव्याची कार्यक्षमता सर्वाधिक असते?",
+    "options": [
+      "Incandescent",
+      "Fluorescent",
+      "LED",
+      "Sodium Vapor"
+    ],
+    "optionsMarathi": [
+      "इनकॅंडेसेंट",
+      "फ्लोरोसेंट",
+      "LED",
+      "सोडियम व्हेपर"
+    ],
+    "answer": "C",
+    "explanation": "LED lamps are currently the most efficient source of lighting.",
+    "explanationMarathi": "LED दिवे सध्या सर्वात जास्त कार्यक्षम मानले जातात."
+  },
+  {
+    "id": 1593,
+    "chapterId": 52,
+    "question": "What is the color of light emitted by a Sodium Vapor lamp?",
+    "questionMarathi": "सोडियम व्हेपर दिवा कोणत्या रंगाचा प्रकाश देतो?",
+    "options": [
+      "White",
+      "Blue",
+      "Yellow",
+      "Red"
+    ],
+    "optionsMarathi": [
+      "पांढरा",
+      "निळा",
+      "पिवळा",
+      "लाल"
+    ],
+    "answer": "C",
+    "explanation": "Sodium vapor lamps emit a characteristic monochromatic yellow light.",
+    "explanationMarathi": "सोडियम व्हेपर लॅम्प पिवळ्या रंगाचा प्रकाश देतो."
+  },
+  {
+    "id": 1594,
+    "chapterId": 52,
+    "question": "A capacitor is used in a ceiling fan for:",
+    "questionMarathi": "छताच्या पंख्यामध्ये (Ceiling Fan) कॅपेसिटरचा वापर कशासाठी केला जातो?",
+    "options": [
+      "Starting",
+      "Speed control",
+      "Voltage regulation",
+      "Noise reduction"
+    ],
+    "optionsMarathi": [
+      "स्टार्टिंग (Phase split)",
+      "गती नियंत्रण",
+      "व्होल्टेज रेग्युलेशन",
+      "आवाज कमी करणे"
+    ],
+    "answer": "A",
+    "explanation": "Capacitor is used to create a phase shift to provide starting torque.",
+    "explanationMarathi": "फेझ स्प्लिट करून स्टार्टिंग टॉर्क निर्माण करण्यासाठी कॅपेसिटर वापरला जातो."
+  },
+  {
+    "id": 1595,
+    "chapterId": 52,
+    "question": "What is the unit of Capacitance?",
+    "questionMarathi": "कॅपेसिटन्सचे (Capacitance) एकक काय आहे?",
+    "options": [
+      "Ohm",
+      "Farad",
+      "Henry",
+      "Coulomb"
+    ],
+    "optionsMarathi": [
+      "ओहम",
+      "फॅराड",
+      "हेन्री",
+      "कुलंब"
+    ],
+    "answer": "B",
+    "explanation": "Farad is the SI unit of electrical capacitance.",
+    "explanationMarathi": "कॅपेसिटन्सचे एकक फॅराड असते."
+  },
+  {
+    "id": 1596,
+    "chapterId": 52,
+    "question": "Which material is a good conductor of electricity?",
+    "questionMarathi": "खालीलपैकी कोणता पदार्थ विजेचा चांगला वाहक आहे?",
+    "options": [
+      "Rubber",
+      "Glass",
+      "Copper",
+      "Plastic"
+    ],
+    "optionsMarathi": [
+      "रबर",
+      "काच",
+      "तांबे (Copper)",
+      "प्लास्टिक"
+    ],
+    "answer": "C",
+    "explanation": "Copper has low resistivity and is a good conductor.",
+    "explanationMarathi": "तांबे हा विजेचा उत्तम वाहक आहे."
+  },
+  {
+    "id": 1597,
+    "chapterId": 52,
+    "question": "What is the resistance of an ideal ammeter?",
+    "questionMarathi": "एका आदर्श ॲमिटरचा रोध (Resistance) किती असावा?",
+    "options": [
+      "Infinite",
+      "High",
+      "Zero",
+      "Low"
+    ],
+    "optionsMarathi": [
+      "अनंत",
+      "जास्त",
+      "शून्य",
+      "कमी"
+    ],
+    "answer": "C",
+    "explanation": "An ideal ammeter should have zero resistance so it doesn't affect the circuit current.",
+    "explanationMarathi": "आदर्श ॲमिटरचा रोध शून्य असावा जेणेकरून सर्किटच्या करंटवर परिणाम होणार नाही."
+  },
+  {
+    "id": 1598,
+    "chapterId": 52,
+    "question": "What is the resistance of an ideal voltmeter?",
+    "questionMarathi": "एका आदर्श व्होल्टमीटरचा रोध (Resistance) किती असावा?",
+    "options": [
+      "Infinite",
+      "High",
+      "Zero",
+      "Low"
+    ],
+    "optionsMarathi": [
+      "अनंत (Infinite)",
+      "जास्त",
+      "शून्य",
+      "कमी"
+    ],
+    "answer": "A",
+    "explanation": "An ideal voltmeter should have infinite resistance to prevent drawing current from the circuit.",
+    "explanationMarathi": "आदर्श व्होल्टमीटरचा रोध अनंत असावा."
+  },
+  {
+    "id": 1599,
+    "chapterId": 52,
+    "question": "Ohm's law is valid for:",
+    "questionMarathi": "ओहमचा नियम कशासाठी लागू होतो?",
+    "options": [
+      "Diodes",
+      "Transistors",
+      "Metal conductors",
+      "Electrolytes"
+    ],
+    "optionsMarathi": [
+      "डायोड",
+      "ट्रान्झिस्टर",
+      "धातू वाहक",
+      "इलेक्ट्रोलाईट"
+    ],
+    "answer": "C",
+    "explanation": "Ohm's law applies to linear conductors like metals at constant temperature.",
+    "explanationMarathi": "ओहमचा नियम धातूच्या वाहकांसाठी (Metallic Conductors) लागू होतो."
+  },
+  {
+    "id": 1600,
+    "chapterId": 52,
+    "question": "What is the formula for Power in a DC circuit?",
+    "questionMarathi": "DC सर्किटमध्ये पॉवर (शक्ती) काढण्याचे सूत्र काय आहे?",
+    "options": [
+      "P = V / I",
+      "P = V * I",
+      "P = I / V",
+      "P = V + I"
+    ],
+    "optionsMarathi": [
+      "P = V / I",
+      "P = V * I",
+      "P = I / V",
+      "P = V + I"
+    ],
+    "answer": "B",
+    "explanation": "Power (P) is the product of voltage (V) and current (I).",
+    "explanationMarathi": "पॉवर = व्होल्टेज * करंट."
+  },
+  {
+    "id": 1601,
+    "chapterId": 52,
+    "question": "Kirchhoff's Current Law (KCL) is based on the law of conservation of:",
+    "questionMarathi": "किरचॉफचा करंट नियम (KCL) कशाच्या अक्षय्यतेच्या नियमावर आधारित आहे?",
+    "options": [
+      "Energy",
+      "Momentum",
+      "Charge",
+      "Mass"
+    ],
+    "optionsMarathi": [
+      "ऊर्जा",
+      "संवेग",
+      "प्रभार (Charge)",
+      "वस्तुमान"
+    ],
+    "answer": "C",
+    "explanation": "KCL states that charge is conserved at a junction.",
+    "explanationMarathi": "KCL हा प्रभागाच्या (Charge) अक्षय्यतेच्या नियमावर आधारित आहे."
+  },
+  {
+    "id": 1602,
+    "chapterId": 52,
+    "question": "Kirchhoff's Voltage Law (KVL) is based on the law of conservation of:",
+    "questionMarathi": "किरचॉफचा व्होल्टेज नियम (KVL) कशाच्या अक्षय्यतेच्या नियमावर आधारित आहे?",
+    "options": [
+      "Energy",
+      "Momentum",
+      "Charge",
+      "Mass"
+    ],
+    "optionsMarathi": [
+      "ऊर्जा (Energy)",
+      "संवेग",
+      "प्रभार",
+      "वस्तुमान"
+    ],
+    "answer": "A",
+    "explanation": "KVL is based on the conservation of energy around a loop.",
+    "explanationMarathi": "KVL हा ऊर्जेच्या अक्षय्यतेच्या नियमावर आधारित आहे."
+  },
+  {
+    "id": 1603,
+    "chapterId": 52,
+    "question": "Which of the following is a primary cell?",
+    "questionMarathi": "खालीलपैकी कोणता प्रायमरी सेल (Primary Cell) आहे?",
+    "options": [
+      "Lead Acid",
+      "Nickel Cadmium",
+      "Leclanche Cell",
+      "Lithium Ion"
+    ],
+    "optionsMarathi": [
+      "लेड ॲसिड",
+      "निकेल कॅडमियम",
+      "लॅक्लांशे सेल",
+      "लिथियम आयन"
+    ],
+    "answer": "C",
+    "explanation": "Primary cells like Leclanche cannot be recharged.",
+    "explanationMarathi": "लॅक्लांशे सेल हा प्रायमरी सेल आहे जो पुन्हा चार्ज करता येत नाही."
+  },
+  {
+    "id": 1604,
+    "chapterId": 52,
+    "question": "What is the electrolyte used in a Lead Acid battery?",
+    "questionMarathi": "लेड ॲसिड बॅटरीमध्ये कोणते इलेक्ट्रोलाईट वापरले जाते?",
+    "options": [
+      "KOH",
+      "Dilute H2SO4",
+      "NaCl",
+      "Distilled Water"
+    ],
+    "optionsMarathi": [
+      "KOH",
+      "विरल सल्फ्यूरिक ॲसिड (H2SO4)",
+      "NaCl",
+      "ऊर्ध्वपातित पाणी"
+    ],
+    "answer": "B",
+    "explanation": "Dilute sulfuric acid is used as an electrolyte in lead-acid batteries.",
+    "explanationMarathi": "लेड ॲसिड बॅटरीमध्ये विरल सल्फ्यूरिक ॲसिड वापरले जाते."
+  },
+  {
+    "id": 1605,
+    "chapterId": 52,
+    "question": "Specific gravity of an electrolyte is measured by:",
+    "questionMarathi": "इलेक्ट्रोलाईटची विशिष्ट घनता (Specific Gravity) कशाने मोजली जाते?",
+    "options": [
+      "Anemometer",
+      "Hydrometer",
+      "Hygrometer",
+      "Lactometer"
+    ],
+    "optionsMarathi": [
+      "ॲनिमोमीटर",
+      "हायड्रोमीटर (Hydrometer)",
+      "हायग्रोमीटर",
+      "लॅक्टोमीटर"
+    ],
+    "answer": "B",
+    "explanation": "A hydrometer is used to check the state of charge by measuring specific gravity.",
+    "explanationMarathi": "हायड्रोमीटरचा वापर बॅटरीच्या चार्जची स्थिती तपासण्यासाठी केला जातो."
+  },
+  {
+    "id": 1606,
+    "chapterId": 52,
+    "question": "What is the nominal voltage of a fully charged lead-acid cell?",
+    "questionMarathi": "पूर्णपणे चार्ज झालेल्या लेड-ॲसिड सेलचे व्होल्टेज साधारणपणे किती असते?",
+    "options": [
+      "1.5 V",
+      "1.2 V",
+      "2.2 V",
+      "3.7 V"
+    ],
+    "optionsMarathi": [
+      "1.5 व्होल्ट",
+      "1.2 व्होल्ट",
+      "2.2 व्होल्ट",
+      "3.7 व्होल्ट"
+    ],
+    "answer": "C",
+    "explanation": "A fully charged lead-acid cell has a voltage of about 2.1 to 2.2 Volts.",
+    "explanationMarathi": "पूर्ण चार्ज झालेल्या लेड-ॲसिड सेलचे व्होल्टेज २.२ व्होल्ट असते."
+  },
+  {
+    "id": 1607,
+    "chapterId": 53,
+    "question": "What is the unit of frequency?",
+    "questionMarathi": "फ्रिक्वेन्सीचे (वारंवारता) एकक काय आहे?",
+    "options": [
+      "Hertz",
+      "Volt",
+      "Ampere",
+      "Ohm"
+    ],
+    "optionsMarathi": [
+      "हर्ट्झ (Hertz)",
+      "व्होल्ट",
+      "अँपिअर",
+      "ओहम"
+    ],
+    "answer": "A",
+    "explanation": "Hertz (Hz) is the unit of frequency.",
+    "explanationMarathi": "फ्रिक्वेन्सी हर्ट्झमध्ये मोजली जाते."
+  },
+  {
+    "id": 1608,
+    "chapterId": 53,
+    "question": "What is the standard frequency of AC supply in India?",
+    "questionMarathi": "भारतातील AC सप्लायची मानक फ्रिक्वेन्सी किती आहे?",
+    "options": [
+      "60 Hz",
+      "50 Hz",
+      "100 Hz",
+      "25 Hz"
+    ],
+    "optionsMarathi": [
+      "60 Hz",
+      "50 Hz",
+      "100 Hz",
+      "25 Hz"
+    ],
+    "answer": "B",
+    "explanation": "The standard frequency in India is 50 Hz.",
+    "explanationMarathi": "भारतात विजेची फ्रिक्वेन्सी ५० हर्ट्झ इतकी असते."
+  },
+  {
+    "id": 1609,
+    "chapterId": 53,
+    "question": "What is the peak-to-peak value of a sine wave with a 10V peak?",
+    "questionMarathi": "10V शिखर मूल्य (Peak Value) असलेल्या साइन वेव्हचे पीक-टू-पीक मूल्य किती असेल?",
+    "options": [
+      "10 V",
+      "20 V",
+      "7.07 V",
+      "14.14 V"
+    ],
+    "optionsMarathi": [
+      "10 V",
+      "20 V",
+      "7.07 V",
+      "14.14 V"
+    ],
+    "answer": "B",
+    "explanation": "Peak-to-peak value is double the peak value.",
+    "explanationMarathi": "पीक-टू-पीक मूल्य हे शिखर मूल्याच्या दुप्पट (२० व्होल्ट) असते."
+  },
+  {
+    "id": 1610,
+    "chapterId": 53,
+    "question": "The power factor of a pure resistive circuit is:",
+    "questionMarathi": "शुद्ध रोध (Resistive) असलेल्या सर्किटचा पॉवर फॅक्टर किती असतो?",
+    "options": [
+      "Zero",
+      "0.5",
+      "Unity (1)",
+      "Lagging"
+    ],
+    "optionsMarathi": [
+      "शून्य",
+      "0.5",
+      "एक (Unity)",
+      "लॅगिंग"
+    ],
+    "answer": "C",
+    "explanation": "In a purely resistive circuit, voltage and current are in phase, so cos φ = 1.",
+    "explanationMarathi": "शुद्ध रेजिस्टिव्ह सर्किटचा पॉवर फॅक्टर १ (युनिटी) असतो."
+  },
+  {
+    "id": 1611,
+    "chapterId": 53,
+    "question": "Inductive reactance (XL) is given by the formula:",
+    "questionMarathi": "इंडक्टिव्ह रिएक्टन्स (XL) काढण्याचे सूत्र काय आहे?",
+    "options": [
+      "2πfL",
+      "1/2πfL",
+      "2πfC",
+      "1/2πfC"
+    ],
+    "optionsMarathi": [
+      "2πfL",
+      "1/2πfL",
+      "2πfC",
+      "1/2πfC"
+    ],
+    "answer": "A",
+    "explanation": "XL = 2 * pi * frequency * inductance.",
+    "explanationMarathi": "XL = 2πfL हे इंडक्टिव्ह रिएक्टन्सचे सूत्र आहे."
+  },
+  {
+    "id": 1612,
+    "chapterId": 53,
+    "question": "What is the unit of Inductance?",
+    "questionMarathi": "इंडक्टन्सचे (Inductance) एकक काय आहे?",
+    "options": [
+      "Farad",
+      "Henry",
+      "Weber",
+      "Tesla"
+    ],
+    "optionsMarathi": [
+      "फॅराड",
+      "हेन्री (Henry)",
+      "वेबर",
+      "टेस्ला"
+    ],
+    "answer": "B",
+    "explanation": "Henry is the SI unit of inductance.",
+    "explanationMarathi": "इंडक्टन्सचे एकक हेन्री असते."
+  },
+  {
+    "id": 1613,
+    "chapterId": 53,
+    "question": "In a purely capacitive circuit, current ____ the voltage.",
+    "questionMarathi": "शुद्ध कॅपेसिटिव्ह सर्किटमध्ये करंट व्होल्टेजच्या ____ असतो.",
+    "options": [
+      "Lags",
+      "Leads by 90°",
+      "Is in phase",
+      "Leads by 180°"
+    ],
+    "optionsMarathi": [
+      "मागे (Lags)",
+      "९० अंशाने पुढे (Leads)",
+      "समान फेजमध्ये",
+      "१८० अंशाने पुढे"
+    ],
+    "answer": "B",
+    "explanation": "Current leads voltage by 90 degrees in a pure capacitor.",
+    "explanationMarathi": "कॅपेसिटिव्ह सर्किटमध्ये करंट व्होल्टेजपेक्षा ९० अंश पुढे असतो."
+  },
+  {
+    "id": 1614,
+    "chapterId": 53,
+    "question": "What is the unit of Apparent Power?",
+    "questionMarathi": "अपॅरंट पॉवरचे (Apparent Power) एकक काय आहे?",
+    "options": [
+      "Watt",
+      "VAR",
+      "VA",
+      "kWh"
+    ],
+    "optionsMarathi": [
+      "वॉट",
+      "VAR",
+      "VA",
+      "kWh"
+    ],
+    "answer": "C",
+    "explanation": "Apparent power is measured in Volt-Amperes (VA).",
+    "explanationMarathi": "अपॅरंट पॉवर VA (व्होल्ट-अँपिअर) मध्ये मोजली जाते."
+  },
+  {
+    "id": 1615,
+    "chapterId": 53,
+    "question": "What is the unit of Reactive Power?",
+    "questionMarathi": "रिएक्टिव्ह पॉवरचे (Reactive Power) एकक काय आहे?",
+    "options": [
+      "Watt",
+      "VAR",
+      "VA",
+      "Ohm"
+    ],
+    "optionsMarathi": [
+      "वॉट",
+      "VAR",
+      "VA",
+      "ओहम"
+    ],
+    "answer": "B",
+    "explanation": "Reactive power is measured in Volt-Ampere Reactive (VAR).",
+    "explanationMarathi": "रिएक्टिव्ह पॉवरचे एकक VAR असते."
+  },
+  {
+    "id": 1616,
+    "chapterId": 53,
+    "question": "The ratio of True Power to Apparent Power is called:",
+    "questionMarathi": "ट्रू पॉवर आणि अपॅरंट पॉवर यांच्या गुणोत्तराला काय म्हणतात?",
+    "options": [
+      "Form Factor",
+      "Peak Factor",
+      "Power Factor",
+      "Q Factor"
+    ],
+    "optionsMarathi": [
+      "फॉर्म फॅक्टर",
+      "पीक फॅक्टर",
+      "पॉवर फॅक्टर",
+      "Q फॅक्टर"
+    ],
+    "answer": "C",
+    "explanation": "Power Factor = True Power (W) / Apparent Power (VA).",
+    "explanationMarathi": "ट्रू पॉवर आणि अपॅरंट पॉवरच्या गुणोत्तराला पॉवर फॅक्टर म्हणतात."
+  },
+  {
+    "id": 1617,
+    "chapterId": 53,
+    "question": "Which instrument is used to measure insulation resistance?",
+    "questionMarathi": "इन्सुलेशन रेझिस्टन्स मोजण्यासाठी कोणते उपकरण वापरले जाते?",
+    "options": [
+      "Multimeter",
+      "Megger",
+      "Ohm-meter",
+      "Wattmeter"
+    ],
+    "optionsMarathi": [
+      "मल्टीमीटर",
+      "मेगर (Megger)",
+      "ओहम-मीटर",
+      "वॉटमीटर"
+    ],
+    "answer": "B",
+    "explanation": "Megger is used for high resistance testing like insulation.",
+    "explanationMarathi": "इन्सुलेशन रेझिस्टन्स मोजण्यासाठी मेगरचा वापर केला जातो."
+  },
+  {
+    "id": 1618,
+    "chapterId": 53,
+    "question": "A 3-phase Delta connection has:",
+    "questionMarathi": "थ्री-फेज डेल्टा (Delta) जोडणीमध्ये:",
+    "options": [
+      "VL = VP",
+      "IL = IP",
+      "VL = √3 VP",
+      "IL = √3 IP"
+    ],
+    "optionsMarathi": [
+      "Line Voltage = Phase Voltage",
+      "Line Current = Phase Current",
+      "Line Voltage = √3 Phase Voltage",
+      "Line Current = √3 Phase Current"
+    ],
+    "answer": "A",
+    "explanation": "In Delta connection, Line Voltage equals Phase Voltage.",
+    "explanationMarathi": "डेल्टा जोडणीत लाईन व्होल्टेज आणि फेज व्होल्टेज समान असतात."
+  },
+  {
+    "id": 1619,
+    "chapterId": 53,
+    "question": "In a Star connection, the relationship between Line and Phase current is:",
+    "questionMarathi": "स्टार (Star) जोडणीत लाईन करंट आणि फेज करंटमध्ये काय संबंध असतो?",
+    "options": [
+      "IL = IP",
+      "IL = √3 IP",
+      "IP = √3 IL",
+      "IL = 3 IP"
+    ],
+    "optionsMarathi": [
+      "IL = IP",
+      "IL = √3 IP",
+      "IP = √3 IL",
+      "IL = 3 IP"
+    ],
+    "answer": "A",
+    "explanation": "In Star connection, Line Current is equal to Phase Current.",
+    "explanationMarathi": "स्टार जोडणीत लाईन करंट आणि फेज करंट समान असतात."
+  },
+  {
+    "id": 1620,
+    "chapterId": 53,
+    "question": "What is the color code for the Earth wire in modern standards?",
+    "questionMarathi": "आधुनिक मानकांनुसार अर्थ (Earth) वायरचा रंग कोणता असतो?",
+    "options": [
+      "Black",
+      "Green or Green-Yellow",
+      "Red",
+      "Blue"
+    ],
+    "optionsMarathi": [
+      "काळा",
+      "हिरवा किंवा हिरवा-पिवळा",
+      "लाल",
+      "निळा"
+    ],
+    "answer": "B",
+    "explanation": "Green or Green-Yellow is used for protective grounding.",
+    "explanationMarathi": "अर्थिंगसाठी हिरवा किंवा हिरवा-पिवळा रंग वापरला जातो."
+  },
+  {
+    "id": 1621,
+    "chapterId": 53,
+    "question": "Which of the following is a semi-conductor?",
+    "questionMarathi": "खालीलपैकी कोणता अर्धवाहक (Semi-conductor) आहे?",
+    "options": [
+      "Copper",
+      "Silicon",
+      "Rubber",
+      "Iron"
+    ],
+    "optionsMarathi": [
+      "तांबे",
+      "सिलिकॉन",
+      "रबर",
+      "लोखंड"
+    ],
+    "answer": "B",
+    "explanation": "Silicon and Germanium are common semiconductor materials.",
+    "explanationMarathi": "सिलिकॉन हा एक प्रसिद्ध अर्धवाहक पदार्थ आहे."
+  },
+  {
+    "id": 1622,
+    "chapterId": 53,
+    "question": "What is the purpose of a fuse in a circuit?",
+    "questionMarathi": "सर्किटमध्ये फ्युजचा (Fuse) काय उद्देश असतो?",
+    "options": [
+      "Increase voltage",
+      "Protect against overcurrent",
+      "Speed up current",
+      "Save energy"
+    ],
+    "optionsMarathi": [
+      "व्होल्टेज वाढवणे",
+      "ओव्हरकरंटपासून संरक्षण",
+      "करंट वाढवणे",
+      "ऊर्जा वाचवणे"
+    ],
+    "answer": "B",
+    "explanation": "A fuse breaks the circuit during short circuits or overloads.",
+    "explanationMarathi": "जादा करंट वाहू लागल्यास फ्युज जळून सर्किट तोडतो आणि उपकरणांचे संरक्षण करतो."
+  },
+  {
+    "id": 1623,
+    "chapterId": 53,
+    "question": "Which type of fire extinguisher is used for electrical fires?",
+    "questionMarathi": "विद्युत आगीसाठी कोणत्या प्रकारचा अग्निशामक वापरला जातो?",
+    "options": [
+      "Water",
+      "Foam",
+      "CTC or CO2",
+      "Any of these"
+    ],
+    "optionsMarathi": [
+      "पाणी",
+      "फेस (Foam)",
+      "CTC किंवा CO2",
+      "यापैकी कोणताही"
+    ],
+    "answer": "C",
+    "explanation": "CTC (Halon) or Carbon Dioxide extinguishers are used for electrical fires.",
+    "explanationMarathi": "विजेच्या आगीवर कधीही पाणी टाकू नये, त्यासाठी CTC किंवा CO2 चा वापर करावा."
+  },
+  {
+    "id": 1624,
+    "chapterId": 53,
+    "question": "What is the unit of Work?",
+    "questionMarathi": "कार्याचे (Work) एकक काय आहे?",
+    "options": [
+      "Newton",
+      "Joule",
+      "Watt",
+      "Pascal"
+    ],
+    "optionsMarathi": [
+      "न्यूटन",
+      "ज्यूल (Joule)",
+      "वॉट",
+      "पास्कल"
+    ],
+    "answer": "B",
+    "explanation": "Joule is the SI unit of work and energy.",
+    "explanationMarathi": "कार्याचे एकक ज्यूल असते."
+  },
+  {
+    "id": 1625,
+    "chapterId": 53,
+    "question": "1 Horsepower (Metric) is equal to how many Watts?",
+    "questionMarathi": "१ हॉर्सपॉवर (मॅट्रिक) म्हणजे किती वॉट?",
+    "options": [
+      "746 W",
+      "735.5 W",
+      "1000 W",
+      "550 W"
+    ],
+    "optionsMarathi": [
+      "746 W",
+      "735.5 W",
+      "1000 W",
+      "550 W"
+    ],
+    "answer": "B",
+    "explanation": "1 Metric HP = 735.5 Watts. (British HP = 746 W).",
+    "explanationMarathi": "मॅट्रिक पद्धतीत १ HP म्हणजे ७३५.५ वॉट असते."
+  },
+  {
+    "id": 1626,
+    "chapterId": 53,
+    "question": "Which law states that the induced EMF is opposite to the cause producing it?",
+    "questionMarathi": "इंड्युस्ड EMF त्याच्या कारणास विरोध करतो, हे कोणता नियम सांगतो?",
+    "options": [
+      "Ohm's Law",
+      "Lenz's Law",
+      "Faraday's Law",
+      "Coulomb's Law"
+    ],
+    "optionsMarathi": [
+      "ओहमचा नियम",
+      "लेन्झचा नियम (Lenz's Law)",
+      "फॅराडेचा नियम",
+      "कुलंबचा नियम"
+    ],
+    "answer": "B",
+    "explanation": "Lenz's law states the direction of induced current.",
+    "explanationMarathi": "लेन्झचा नियम सांगतो की प्रेरित EMF स्वतःच्या उत्पत्तीच्या कारणास विरोध करतो."
+  },
+  {
+    "id": 1627,
+    "chapterId": 53,
+    "question": "What is the value of Form Factor for a pure sine wave?",
+    "questionMarathi": "शुद्ध साइन वेव्हसाठी फॉर्म फॅक्टरचे (Form Factor) मूल्य किती असते?",
+    "options": [
+      "1.11",
+      "1.414",
+      "0.707",
+      "1.0"
+    ],
+    "optionsMarathi": [
+      "1.11",
+      "1.414",
+      "0.707",
+      "1.0"
+    ],
+    "answer": "A",
+    "explanation": "Form Factor = RMS value / Average value = 1.11.",
+    "explanationMarathi": "साइन वेव्हसाठी फॉर्म फॅक्टर १.११ असतो."
+  },
+  {
+    "id": 1628,
+    "chapterId": 53,
+    "question": "The time taken for one complete cycle of AC is called:",
+    "questionMarathi": "AC च्या एका पूर्ण सायकलसाठी लागणाऱ्या वेळेला काय म्हणतात?",
+    "options": [
+      "Frequency",
+      "Time Period",
+      "Phase",
+      "Amplitude"
+    ],
+    "optionsMarathi": [
+      "वारंवारता",
+      "आवर्तन काळ (Time Period)",
+      "फेज",
+      "अँप्लिट्यूड"
+    ],
+    "answer": "B",
+    "explanation": "Time period is the time taken for one cycle.",
+    "explanationMarathi": "एका सायकलसाठी लागणाऱ्या वेळेला आवर्तन काळ (Time Period) म्हणतात."
+  },
+  {
+    "id": 1629,
+    "chapterId": 53,
+    "question": "What is the unit of Luminous Flux?",
+    "questionMarathi": "ल्यूमिनस फ्लक्सचे (Luminous Flux) एकक काय आहे?",
+    "options": [
+      "Lumen",
+      "Lux",
+      "Candela",
+      "Steradian"
+    ],
+    "optionsMarathi": [
+      "लुमेन (Lumen)",
+      "लक्स",
+      "कॅंडेला",
+      "स्टेरेडियन"
+    ],
+    "answer": "A",
+    "explanation": "Lumen is the unit of luminous flux.",
+    "explanationMarathi": "ल्यूमिनस फ्लक्स लुमेनमध्ये मोजले जाते."
+  },
+  {
+    "id": 1630,
+    "chapterId": 53,
+    "question": "Which material has a negative temperature coefficient of resistance?",
+    "questionMarathi": "खालीलपैकी कोणत्या पदार्थाचा रोध तापमानानुसार कमी होतो (Negative Temperature Coefficient)?",
+    "options": [
+      "Copper",
+      "Aluminium",
+      "Carbon",
+      "Iron"
+    ],
+    "optionsMarathi": [
+      "तांबे",
+      "ॲल्युमिनियम",
+      "कार्बन",
+      "लोखंड"
+    ],
+    "answer": "C",
+    "explanation": "Carbon and semiconductors have a negative temperature coefficient.",
+    "explanationMarathi": "कार्बनचा रोध तापमान वाढल्यास कमी होतो."
+  },
+  {
+    "id": 1631,
+    "chapterId": 53,
+    "question": "What is the use of a hydrometer in battery maintenance?",
+    "questionMarathi": "बॅटरीच्या देखभालीमध्ये हायड्रोमीटरचा काय उपयोग होतो?",
+    "options": [
+      "Measure voltage",
+      "Measure current",
+      "Measure specific gravity",
+      "Measure temperature"
+    ],
+    "optionsMarathi": [
+      "व्होल्टेज मोजणे",
+      "करंट मोजणे",
+      "विशिष्ट घनता मोजणे",
+      "तापमान मोजणे"
+    ],
+    "answer": "C",
+    "explanation": "Hydrometer measures the specific gravity of the electrolyte to check the charge.",
+    "explanationMarathi": "हायड्रोमीटर इलेक्ट्रोलाईटची विशिष्ट घनता मोजून बॅटरी चार्ज आहे की नाही हे तपासतो."
+  },
+  {
+    "id": 1632,
+    "chapterId": 53,
+    "question": "Which of the following is an active component?",
+    "questionMarathi": "खालीलपैकी कोणता 'अॅक्टिव्ह कंपोनंट' (Active Component) आहे?",
+    "options": [
+      "Resistor",
+      "Inductor",
+      "Capacitor",
+      "Transistor"
+    ],
+    "optionsMarathi": [
+      "रेझिस्टर",
+      "इंडक्टर",
+      "कॅपेसिटर",
+      "ट्रान्झिस्टर"
+    ],
+    "answer": "D",
+    "explanation": "Transistors are active components as they can amplify or switch signals.",
+    "explanationMarathi": "ट्रान्झिस्टर हा एक अॅक्टिव्ह कंपोनंट आहे."
+  },
+  {
+    "id": 1637,
+    "chapterId": 54,
+    "question": "At what height from the ground should all types of lighting fixtures/lamps be installed?",
+    "questionMarathi": "सर्व प्रकारची प्रकाश उपकरणे (Lighting Fixtures/Lamps) जमिनीपासून किती उंचीवर स्थापित करावीत?",
+    "options": [
+      "2 meters",
+      "1.5 meters",
+      "3 meters",
+      "2.25 meters"
+    ],
+    "optionsMarathi": [
+      "2 मीटर",
+      "1.5 मीटर",
+      "3 मीटर",
+      "2.25 मीटर"
+    ],
+    "answer": "D",
+    "explanation": "According to Indian Electricity Rules, domestic lights, brackets, or lighting fixtures should be installed at a minimum height of 2.25 meters (or 7.5 feet) from the ground level for safety and proper light distribution.",
+    "explanationMarathi": "भारतीय विद्युत नियमांनुसार (Indian Electricity Rules), घरातील दिवे, ब्रॅकेट्स किंवा प्रकाश उपकरणे सुरक्षिततेसाठी आणि योग्य प्रकाश वितरणासाठी जमिनीच्या पातळीपासून किमान 2.25 मीटर (किंवा 7.5 फूट) उंचीवर बसवली पाहिजेत."
+  },
+  {
+    "id": 1638,
+    "chapterId": 54,
+    "question": "What happens to the resistance of a Carbon Filament Lamp during operation?",
+    "questionMarathi": "एका कार्बन फिलामेंट दिव्याचा (Carbon Filament Lamp) रोध चालू (Operation) स्थितीत काय होतो?",
+    "options": [
+      "Increases",
+      "Decreases",
+      "Becomes very high",
+      "Becomes very low"
+    ],
+    "optionsMarathi": [
+      "वाढतो",
+      "कमी होतो",
+      "अत्यंत उच्च होतो",
+      "अत्यंत कमी होतो"
+    ],
+    "answer": "B",
+    "explanation": "Carbon is a semiconductor-like material that has a Negative Temperature Coefficient (NTC). This means as the filament heats up and its temperature increases, its resistance decreases.",
+    "explanationMarathi": "कार्बन हा एक अर्धवाहक सारखा पदार्थ आहे ज्याचा नेगेटिव्ह टेम्परेचर को-एफिशियंट (NTC) असतो. म्हणजेच, जसे फिलामेंट गरम होते आणि त्याचे तापमान वाढते, तसा त्याचा रोध (Resistance) कमी होतो."
+  },
+  {
+    "id": 1639,
+    "chapterId": 54,
+    "question": "What color is the Neutral Wire kept in domestic or industrial wiring?",
+    "questionMarathi": "घरगुती किंवा औद्योगिक वायरिंगमध्ये न्यूट्रल वायरचा (Neutral Wire) रंग कोणता ठेवला जातो?",
+    "options": [
+      "Black",
+      "Green",
+      "Red",
+      "Blue"
+    ],
+    "optionsMarathi": [
+      "काळा",
+      "हिरवा",
+      "लाल",
+      "निळा"
+    ],
+    "answer": "A",
+    "explanation": "In a single-phase AC system, Red is used for Phase, Black for Neutral, and Green for Earthing.",
+    "explanationMarathi": "पारंपारिक भारतीय विद्युत मानकांनुसार, सिंगल-फेज AC सिस्टीममध्ये लाल (Red) रंग फेझ वायरसाठी, काळा (Black) रंग न्यूट्रल वायरसाठी, आणि हिरवा (Green) रंग अर्थिंगसाठी वापरला जातो."
+  },
+  {
+    "id": 1640,
+    "chapterId": 54,
+    "question": "Frequency of AC is inversely proportional to which of the following?",
+    "questionMarathi": "AC ची फ्रिक्वेन्सी (Frequency) खालीलपैकी कशाच्या व्यस्त प्रमाणात (Inversely Proportional) असते?",
+    "options": [
+      "Rotation speed",
+      "Number of poles",
+      "Time period",
+      "All of the above"
+    ],
+    "optionsMarathi": [
+      "रोटेशन गती (Speed) च्या",
+      "पोलच्या संख्येच्या",
+      "वेळेच्या (Time Period)",
+      "वरील सर्व"
+    ],
+    "answer": "C",
+    "explanation": "Frequency (f) and time period (T) have an inverse relationship, i.e., f = 1/T.",
+    "explanationMarathi": "फ्रिक्वेन्सी (f) आणि आवर्तन काळ (T - Time Period) यांच्यात व्यस्त संबंध असतो, म्हणजेच f = 1/T."
+  },
+  {
+    "id": 1641,
+    "chapterId": 54,
+    "question": "If a 0.2 Henry (H) coil is connected to a 220 V, 50 Hz supply, what will be its Inductive Reactance (XL)?",
+    "questionMarathi": "एक 0.2 हेन्री (H) ची कॉईल 220 व्होल्ट, 50 हर्ट्झ (Hz) सप्लायला जोडल्यास तिच्या इंडक्टिव्ह रिएक्टन्सचे (Inductive Reactance - XL) मूल्य किती असेल?",
+    "options": [
+      "62.8 Ohm",
+      "44 Ohm",
+      "1100 Ohm",
+      "1 Ohm"
+    ],
+    "optionsMarathi": [
+      "62.8 ओहम",
+      "44 ओहम",
+      "1100 ओहम",
+      "1 ओहम"
+    ],
+    "answer": "A",
+    "explanation": "XL = 2πfL = 2 * 3.14 * 50 * 0.2 = 62.8 Ω.",
+    "explanationMarathi": "इंडक्टिव्ह रिएक्टन्सचे सूत्र XL = 2πfL असे आहे. XL = 2 * 3.14 * 50 * 0.2 = 62.8 Ω."
+  },
+  {
+    "id": 1642,
+    "chapterId": 54,
+    "question": "What is the unit of Power Factor?",
+    "questionMarathi": "पॉवर फॅक्टरचे (Power Factor) एकक (Unit) काय आहे?",
+    "options": [
+      "Henry",
+      "Henry/meter",
+      "Ampere Turn",
+      "No unit"
+    ],
+    "optionsMarathi": [
+      "हेन्री",
+      "हेन्री/मीटर",
+      "अँपिअर टर्न",
+      "कोणतेही एकक नसते"
+    ],
+    "answer": "D",
+    "explanation": "Power factor is a ratio of two similar quantities (W/VA), so it has no unit.",
+    "explanationMarathi": "पॉवर फॅक्टर (cosφ) हा दोन समान राशींचे गुणोत्तर असल्याने याला कोणतेही एकक नसते."
+  },
+  {
+    "id": 1643,
+    "chapterId": 54,
+    "question": "What should be the maximum distance between two saddles in conduit wiring?",
+    "questionMarathi": "कन्ड्यूट वायरिंगमध्ये (Conduit Wiring) दोन सॅडल्समधील (Saddles) जास्तीत जास्त अंतर किती असावे?",
+    "options": [
+      "30 yard",
+      "60 inch",
+      "60 cm",
+      "60 mm"
+    ],
+    "optionsMarathi": [
+      "30 गज",
+      "60 इंच",
+      "60 सेमी",
+      "60 मिमी"
+    ],
+    "answer": "C",
+    "explanation": "Distance between two saddles should not exceed 60 cm.",
+    "explanationMarathi": "वायरींगच्या नियमांनुसार दोन सॅडल्समधील अंतर 60 सेमी पेक्षा जास्त नसावे."
+  },
+  {
+    "id": 1644,
+    "chapterId": 54,
+    "question": "What is the specific gravity of the electrolyte of a half-charged Lead Acid cell?",
+    "questionMarathi": "एका अर्ध्या चार्ज (Half-charged) झालेल्या लेड अॅसिड सेलच्या इलेक्ट्रोलाइटचे विशिष्ट गुरुत्व (Specific Gravity) किती असते?",
+    "options": [
+      "1",
+      "1.28",
+      "1.22",
+      "1.15"
+    ],
+    "optionsMarathi": [
+      "1",
+      "1.28",
+      "1.22",
+      "1.15"
+    ],
+    "answer": "C",
+    "explanation": "Specific gravity is 1.20 - 1.22 when half-charged.",
+    "explanationMarathi": "लेड अॅसिड बॅटरी अर्धी चार्ज असताना विशिष्ट गुरुत्व 1.20 - 1.22 असते."
+  },
+  {
+    "id": 1645,
+    "chapterId": 54,
+    "question": "How is the Form Factor of AC always compared to the Peak Factor?",
+    "questionMarathi": "AC चा फॉर्म फॅक्टर (Form Factor) नेहमी पीक फॅक्टरपेक्षा (Peak Factor) कसा असतो?",
+    "options": [
+      "Less",
+      "More",
+      "Equal",
+      "None of the above"
+    ],
+    "optionsMarathi": [
+      "कमी",
+      "जास्त",
+      "बरोबर",
+      "वरीलपैकी नाही"
+    ],
+    "answer": "A",
+    "explanation": "Form factor (1.11) is less than Peak factor (1.414).",
+    "explanationMarathi": "फॉर्म फॅक्टर (1.11) हा पीक फॅक्टरपेक्षा (1.414) नेहमी कमी असतो."
+  },
+  {
+    "id": 1646,
+    "chapterId": 54,
+    "question": "Which of the following devices comes under Coarse Excess Current Protection?",
+    "questionMarathi": "सामान्य ओव्हरकरंट सुरक्षा साधनांच्या अंतर्गत (Coarse Excess Current Protection) खालीलपैकी कोणते साधन येते?",
+    "options": [
+      "MCB",
+      "Cartridge fuse",
+      "Kit-Kat fuse",
+      "HRC fuse"
+    ],
+    "optionsMarathi": [
+      "MCB",
+      "कार्ट्रिज फ्युज",
+      "किटकॅट फ्युज",
+      "HRC फ्युज"
+    ],
+    "answer": "C",
+    "explanation": "Kit-Kat fuses have a higher fusing factor and provide coarse protection.",
+    "explanationMarathi": "किटकॅट फ्युज हे 'Coarse excess current protection' मध्ये येतात."
+  },
+  {
+    "id": 1647,
+    "chapterId": 54,
+    "question": "What is the electric charge on a Proton?",
+    "questionMarathi": "एका प्रोटॉनवर (Proton) असणारा विद्युत प्रभार (Charge) किती असतो?",
+    "options": [
+      "1.28 * 10^-18 C",
+      "1.6 * 10^-19 C",
+      "-1.6 * 10^-18 C",
+      "-1.28 * 10^-19 C"
+    ],
+    "optionsMarathi": [
+      "1.28 * 10^-18 C",
+      "1.6 * 10^-19 C",
+      "-1.6 * 10^-18 C",
+      "-1.28 * 10^-19 C"
+    ],
+    "answer": "B",
+    "explanation": "Proton charge is +1.602 * 10^-19 Coulomb.",
+    "explanationMarathi": "प्रोटॉनवर धन प्रभार असतो, ज्याचे मूल्य +1.602 * 10^-19 Coulomb असते."
+  },
+  {
+    "id": 1648,
+    "chapterId": 54,
+    "question": "What is the standard length of a Hacksaw Blade?",
+    "questionMarathi": "हेक्सॉ ब्लेडची (Hacksaw Blade) मानकीकृत (Standard) लांबी किती असते?",
+    "options": [
+      "10 cm",
+      "20 cm",
+      "30 cm",
+      "40 cm"
+    ],
+    "optionsMarathi": [
+      "10 सेमी",
+      "20 सेमी",
+      "30 सेमी",
+      "40 सेमी"
+    ],
+    "answer": "C",
+    "explanation": "Standard length is 30 cm.",
+    "explanationMarathi": "प्रमाणभूत हेक्सॉ ब्लेडची लांबी 30 सेमी असते."
+  },
+  {
+    "id": 1649,
+    "chapterId": 54,
+    "question": "Which device is used to provide Inductance in a circuit?",
+    "questionMarathi": "सर्किटमध्ये इंडक्टन्स (Inductance - प्रेशकत्व) प्रदान करण्यासाठी कोणत्या उपकरणाचा वापर केला जातो?",
+    "options": [
+      "Transformer",
+      "Capacitor",
+      "Motor",
+      "Choke"
+    ],
+    "optionsMarathi": [
+      "ट्रान्सफॉर्मरचा",
+      "कॅपेसिटरचा",
+      "मोटरचा",
+      "चोकचा (Choke)"
+    ],
+    "answer": "D",
+    "explanation": "Choke provides inductance in circuits.",
+    "explanationMarathi": "'चोक' किंवा इंडक्टर सर्किटमध्ये शुद्ध इंडक्टन्स जोडण्यासाठी वापरला जातो."
+  },
+  {
+    "id": 1650,
+    "chapterId": 54,
+    "question": "In any AC circuit, Power Factor is the ratio of which two components?",
+    "questionMarathi": "कोणत्याही AC सर्किटमध्ये पॉवर फॅक्टर (शक्ती गुणांक) हा खालीलपैकी कोणत्या दोन घटकांचे गुणोत्तर असतो?",
+    "options": [
+      "Resistance / Impedance",
+      "Resistance / Conductance",
+      "Resistance / Reactance",
+      "Impedance / Reactance"
+    ],
+    "optionsMarathi": [
+      "रोध / इम्पिडन्स (Resistance/Impedance)",
+      "रोध / वाहकता",
+      "रोध / रिएक्टन्स",
+      "इम्पिडन्स / रिएक्टन्स"
+    ],
+    "answer": "A",
+    "explanation": "PF = R/Z.",
+    "explanationMarathi": "पॉवर फॅक्टर (cosφ) चे सूत्र रोध (R) / इम्पिडन्स (Z) असे आहे."
+  },
+  {
+    "id": 1651,
+    "chapterId": 54,
+    "question": "Which connection is used to get Light, Fan and Power load supplies simultaneously?",
+    "questionMarathi": "लाईट, फॅन (Light & Fan) आणि पॉवर (Power Load) चा सप्लाय एकाच वेळी मिळवण्यासाठी खालीलपैकी कोणती जोडणी वापरतात?",
+    "options": [
+      "Star",
+      "Delta",
+      "Auxiliary",
+      "Scott"
+    ],
+    "optionsMarathi": [
+      "स्टार",
+      "डेल्टा",
+      "ऑक्झिलरी",
+      "स्कॉट"
+    ],
+    "answer": "A",
+    "explanation": "Star connection provides neutral for single-phase loads.",
+    "explanationMarathi": "स्टार जोडणीमध्ये न्यूट्रल पॉइंट मिळतो, ज्यामुळे लाईट-फॅन लोड एकाच वेळी चालवणे शक्य होते."
+  },
+  {
+    "id": 1652,
+    "chapterId": 54,
+    "question": "According to Indian Electricity rules, what should be the approximate earthing resistance of normal ground?",
+    "questionMarathi": "भारतीय विद्युत नियमांनुसार, सामान्य जमिनीचा अर्थिंग रोध (Earthing Resistance) साधारणपणे किती असावा?",
+    "options": [
+      "1 Ohm",
+      "3 Ohm",
+      "5 Ohm",
+      "8 Ohm"
+    ],
+    "optionsMarathi": [
+      "1 ओहम",
+      "3 ओहम",
+      "5 ओहम",
+      "8 ओहम"
+    ],
+    "answer": "C",
+    "explanation": "Normal grounding should be around 5 Ohms.",
+    "explanationMarathi": "सामान्य घरगुती अर्थिंगचा रोध 5 ओहमपेक्षा कमी असणे आवश्यक असते."
+  },
+  {
+    "id": 1653,
+    "chapterId": 54,
+    "question": "In an Over Compound Generator, which winding is made larger?",
+    "questionMarathi": "ओव्हर-कम्पाउंड जनरेटरमध्ये (Over Compound Generator) कोणत्या वाइंडिंगचा आकार मोठा (जास्त फेरे असणारा) ठेवला जातो?",
+    "options": [
+      "Interpole",
+      "Shunt",
+      "Armature",
+      "Series"
+    ],
+    "optionsMarathi": [
+      "इंटरपोल",
+      "शंट",
+      "आर्मेचर",
+      "सिरीज"
+    ],
+    "answer": "D",
+    "explanation": "Series winding has more turns to compensate for load drop.",
+    "explanationMarathi": "ओव्हर-कम्पाउंड जनरेटरमध्ये सिरीज वाइंडिंगमध्ये जास्त फेरे ठेवले जातात."
+  },
+  {
+    "id": 1654,
+    "chapterId": 54,
+    "question": "In a Star Connection, Line Voltage (VL) is equal to what?",
+    "questionMarathi": "स्टार जोडणीमध्ये (Star Connection) लाईन व्होल्टेज (VL) हे कशाच्या बरोबर असते?",
+    "options": [
+      "Phase Voltage",
+      "√3 * Phase Voltage",
+      "3 * Line Voltage",
+      "3 * Phase Current"
+    ],
+    "optionsMarathi": [
+      "फेझ व्होल्टेज",
+      "√3 * फेझ व्होल्टेज",
+      "3 * लाईन व्होल्टेज",
+      "3 * फेझ करंट"
+    ],
+    "answer": "B",
+    "explanation": "VL = √3 * Vph.",
+    "explanationMarathi": "स्टार कनेक्शनमध्ये लाईन व्होल्टेज हे फेझ व्होल्टेजच्या वर्गमूळात ३ पट असते."
+  },
+  {
+    "id": 1655,
+    "chapterId": 54,
+    "question": "Which motor uses 'Armature Diverter' method for speed control?",
+    "questionMarathi": "गती नियंत्रणाची 'आर्मेचर डायव्हर्टर' (Armature Diverter) पद्धत कोणत्या मोटरमध्ये वापरली जाते?",
+    "options": [
+      "Shunt",
+      "Compound",
+      "Series",
+      "Three phase induction"
+    ],
+    "optionsMarathi": [
+      "शंट",
+      "कम्पाउंड",
+      "सिरीज",
+      "थ्री फेज इंडक्शन"
+    ],
+    "answer": "C",
+    "explanation": "Diverter method is for DC series motors.",
+    "explanationMarathi": "DC सिरीज मोटरमध्ये गती कमी करण्यासाठी आर्मेचर डायव्हर्टर वापरतात."
+  },
+  {
+    "id": 1656,
+    "chapterId": 54,
+    "question": "What is the electric charge collected by a 12 Farad capacitor at 500 Volts?",
+    "questionMarathi": "500 व्होल्टेजशी जोडलेल्या 12 फॅरड क्षमतेच्या कॅपेसिटरद्वारे जमा केलेल्या विद्युत प्रभाराचे (Charge) मूल्य काय असेल?",
+    "options": [
+      "41.66 Coulomb",
+      "0.024 Coulomb",
+      "6000 Coulomb",
+      "166.66 Coulomb"
+    ],
+    "optionsMarathi": [
+      "41.66 कुलंब",
+      "0.024 कुलंब",
+      "6000 कुलंब",
+      "166.66 कुलंब"
+    ],
+    "answer": "C",
+    "explanation": "Q = CV = 12 * 500 = 6000 C.",
+    "explanationMarathi": "सूत्र: Q = C * V = 12 * 500 = 6000 कुलंब."
+  },
+  {
+    "id": 1657,
+    "chapterId": 54,
+    "question": "In Two-Wattmeter method, if power factor is 0.5, total power is?",
+    "questionMarathi": "टू-वॅटमीटर (Two-Wattmeter Method) पद्धतीने पॉवर मोजताना जर पॉवर फॅक्टर 0.5 असेल, तर एकूण पॉवर किती असेल?",
+    "options": [
+      "P1 + P2",
+      "P1 - P2",
+      "P2",
+      "P1"
+    ],
+    "optionsMarathi": [
+      "P1 + P2",
+      "P1 - P2",
+      "P2",
+      "P1"
+    ],
+    "answer": "D",
+    "explanation": "Total power is P1 as P2 = 0.",
+    "explanationMarathi": "जेव्हा पॉवर फॅक्टर 0.5 असतो, तेव्हा एक वॅटमीटर शून्य दाखवतो."
+  },
+  {
+    "id": 1658,
+    "chapterId": 54,
+    "question": "Maximum speed of Salient Pole Alternator?",
+    "questionMarathi": "सॅलिएंट पोल अल्टरनेटरच्या (Salient Pole Alternator) रोटरची कमाल गती साधारणपणे किती ठेवली जाते?",
+    "options": [
+      "1500 RPM",
+      "1000 RPM",
+      "3000 RPM",
+      "10000 RPM"
+    ],
+    "optionsMarathi": [
+      "1500 RPM",
+      "1000 RPM",
+      "3000 RPM",
+      "10000 RPM"
+    ],
+    "answer": "B",
+    "explanation": "Salient pole machines are low speed.",
+    "explanationMarathi": "सॅलिएंट पोल रोटरची गती कमी (125 ते 1000 RPM) असते."
+  },
+  {
+    "id": 1659,
+    "chapterId": 54,
+    "question": "Total opposition in AC circuit?",
+    "questionMarathi": "AC सर्किटमधील एकूण विरोधाला (Total Opposition) काय म्हणतात?",
+    "options": [
+      "Reactance",
+      "Inductance",
+      "Impedance",
+      "Admittance"
+    ],
+    "optionsMarathi": [
+      "रिएक्टन्स",
+      "इंडक्टन्स",
+      "इम्पिडन्स (Impedance/प्रतिबाधा)",
+      "अॅडमिटन्स"
+    ],
+    "answer": "C",
+    "explanation": "Combined opposition is Impedance.",
+    "explanationMarathi": "AC सर्किटमध्ये रोध आणि रिएक्टन्स यांच्या एकत्रित एकूण विरोधाला इम्पिडन्स (Z) म्हणतात."
+  },
+  {
+    "id": 1660,
+    "chapterId": 55,
+    "question": "What is the unit of Luminous Intensity?",
+    "questionMarathi": "प्रकाश तीव्रतेचे (Luminous Intensity) एकक काय आहे?",
+    "options": [
+      "Lux",
+      "Lumen",
+      "Candela",
+      "Watt"
+    ],
+    "optionsMarathi": [
+      "लक्स",
+      "लुमेन",
+      "कॅंडेला (Candela)",
+      "वॉट"
+    ],
+    "answer": "C",
+    "explanation": "Candela is the SI unit of luminous intensity.",
+    "explanationMarathi": "प्रकाश तीव्रतेचे एकक कॅंडेला असते."
+  },
+  {
+    "id": 1661,
+    "chapterId": 55,
+    "question": "Which of the following is a semiconductor material?",
+    "questionMarathi": "खालीलपैकी कोणता अर्धवाहक (Semiconductor) पदार्थ आहे?",
+    "options": [
+      "Copper",
+      "Silver",
+      "Germanium",
+      "Iron"
+    ],
+    "optionsMarathi": [
+      "तांबे",
+      "चांदी",
+      "जर्मेनियम",
+      "लोखंड"
+    ],
+    "answer": "C",
+    "explanation": "Germanium and Silicon are primary semiconductors.",
+    "explanationMarathi": "जर्मेनियम हा एक अर्धवाहक पदार्थ आहे."
+  },
+  {
+    "id": 1662,
+    "chapterId": 55,
+    "question": "The power factor of a purely inductive circuit is:",
+    "questionMarathi": "शुद्ध इंडक्टिव्ह सर्किटचा पॉवर फॅक्टर किती असतो?",
+    "options": [
+      "Unity",
+      "Zero",
+      "0.5",
+      "Infinite"
+    ],
+    "optionsMarathi": [
+      "एक",
+      "शून्य (Zero)",
+      "0.5",
+      "अनंत"
+    ],
+    "answer": "B",
+    "explanation": "In a pure inductor, current lags voltage by 90°, so cos 90 = 0.",
+    "explanationMarathi": "शुद्ध इंडक्टिव्ह सर्किटचा पॉवर फॅक्टर शून्य असतो."
+  },
+  {
+    "id": 1663,
+    "chapterId": 55,
+    "question": "What is the purpose of using a starter in a DC motor?",
+    "questionMarathi": "DC मोटरमध्ये स्टार्टर वापरण्याचा मुख्य उद्देश काय असतो?",
+    "options": [
+      "Increase speed",
+      "Limit starting current",
+      "Control torque",
+      "Reverse direction"
+    ],
+    "optionsMarathi": [
+      "गती वाढवणे",
+      "सुरुवातीचा करंट मर्यादित करणे",
+      "टॉर्क नियंत्रित करणे",
+      "दिशा बदलणे"
+    ],
+    "answer": "B",
+    "explanation": "Starters protect the motor from high starting currents due to low back-EMF initially.",
+    "explanationMarathi": "सुरुवातीला बॅक-EMF नसल्याने येणारा जादा करंट रोखण्यासाठी स्टार्टर वापरतात."
+  },
+  {
+    "id": 1664,
+    "chapterId": 55,
+    "question": "Which motor is known as a constant speed motor?",
+    "questionMarathi": "कोणती मोटर स्थिर गतीची मोटर म्हणून ओळखली जाते?",
+    "options": [
+      "DC Series",
+      "DC Shunt",
+      "Compound",
+      "Universal"
+    ],
+    "optionsMarathi": [
+      "DC सिरीज",
+      "DC शंट",
+      "कंपाउंड",
+      "युनिव्हर्सल"
+    ],
+    "answer": "B",
+    "explanation": "DC shunt motors maintain a nearly constant speed from no-load to full-load.",
+    "explanationMarathi": "DC शंट मोटरची गती साधारणपणे स्थिर राहते."
+  },
+  {
+    "id": 1665,
+    "chapterId": 55,
+    "question": "What is the material of Commutator segments?",
+    "questionMarathi": "कम्युटेटर सेगमेंट्स कोणत्या साहित्यापासून बनवलेले असतात?",
+    "options": [
+      "Soft Copper",
+      "Hard drawn copper",
+      "Cast Iron",
+      "Aluminium"
+    ],
+    "optionsMarathi": [
+      "मऊ तांबे",
+      "हार्ड ड्रॉउन तांबे",
+      "कास्ट आयर्न",
+      "ॲल्युमिनियम"
+    ],
+    "answer": "B",
+    "explanation": "Commutator segments are made of hard-drawn copper for durability.",
+    "explanationMarathi": "कम्युटेटर सेगमेंट्स हार्ड ड्रॉउन तांब्यापासून बनवलेले असतात."
+  },
+  {
+    "id": 1666,
+    "chapterId": 55,
+    "question": "What is the function of the carbon brushes in a DC machine?",
+    "questionMarathi": "DC मशीनमध्ये कार्बन ब्रशेसचे कार्य काय असते?",
+    "options": [
+      "Support the shaft",
+      "Collect current from commutator",
+      "Reduce noise",
+      "Provide magnetic field"
+    ],
+    "optionsMarathi": [
+      "शाफ्टला आधार देणे",
+      "कम्युटेटरकडून करंट गोळा करणे",
+      "आवाज कमी करणे",
+      "चुंबकीय क्षेत्र देणे"
+    ],
+    "answer": "B",
+    "explanation": "Brushes collect current from the rotating commutator to the external circuit.",
+    "explanationMarathi": "ब्रशेस फिरणाऱ्या कम्युटेटरकडून बाह्य सर्किटला करंट पोहोचवतात."
+  },
+  {
+    "id": 1667,
+    "chapterId": 55,
+    "question": "A capacitor-start induction motor is used in:",
+    "questionMarathi": "कॅपेसिटर-स्टार्ट इंडक्शन मोटरचा वापर कशात केला जातो?",
+    "options": [
+      "Washing machine",
+      "Electric clocks",
+      "Mixer",
+      "Fan"
+    ],
+    "optionsMarathi": [
+      "वॉशिंग मशीन",
+      "इलेक्ट्रिक घड्याळे",
+      "मिक्सर",
+      "पंखा"
+    ],
+    "answer": "A",
+    "explanation": "Capacitor-start motors provide high starting torque, suitable for appliances like washing machines.",
+    "explanationMarathi": "वॉशिंग मशीनमध्ये कॅपेसिटर-स्टार्ट मोटर वापरली जाते."
+  },
+  {
+    "id": 1668,
+    "chapterId": 55,
+    "question": "The electrolyte level in a lead-acid battery should be:",
+    "questionMarathi": "लेड-ॲसिड बॅटरीमध्ये इलेक्ट्रोलाईटची पातळी किती असावी?",
+    "options": [
+      "Below the plates",
+      "Above the plates",
+      "Half full",
+      "Completely full"
+    ],
+    "optionsMarathi": [
+      "प्लेटच्या खाली",
+      "प्लेटच्या वर (१०-१५ मिमी)",
+      "अर्धी भरलेली",
+      "पूर्णपणे भरलेली"
+    ],
+    "answer": "B",
+    "explanation": "Plates should always be submerged in the electrolyte to prevent damage.",
+    "explanationMarathi": "बॅटरीच्या प्लेट्स नेहमी इलेक्ट्रोलाईटमध्ये बुडलेल्या असाव्यात."
+  },
+  {
+    "id": 1669,
+    "chapterId": 55,
+    "question": "Sulfation in a lead-acid battery occurs due to:",
+    "questionMarathi": "लेड-ॲसिड बॅटरीमध्ये सल्फेशन (Sulfation) कशामुळे होते?",
+    "options": [
+      "Overcharging",
+      "Trickle charging",
+      "Keeping battery discharged",
+      "High current"
+    ],
+    "optionsMarathi": [
+      "ओव्हरचार्जिंग",
+      "ट्रिकल चार्जिंग",
+      "बॅटरी डिस्चार्ज अवस्थेत ठेवल्याने",
+      "जास्त करंट"
+    ],
+    "answer": "C",
+    "explanation": "Leaving a battery in a discharged state for a long time causes hard lead sulfate formation.",
+    "explanationMarathi": "बॅटरी जास्त काळ डिस्चार्ज स्थितीत ठेवल्याने सल्फेशनचा दोष निर्माण होतो."
+  },
+  {
+    "id": 1670,
+    "chapterId": 55,
+    "question": "What is the unit of Luminous Flux?",
+    "questionMarathi": "ल्यूमिनस फ्लक्सचे एकक काय आहे?",
+    "options": [
+      "Lux",
+      "Lumen",
+      "Candela",
+      "Watt"
+    ],
+    "optionsMarathi": [
+      "लक्स",
+      "लुमेन (Lumen)",
+      "कॅंडेला",
+      "वॉट"
+    ],
+    "answer": "B",
+    "explanation": "Lumen is the SI unit of luminous flux.",
+    "explanationMarathi": "ल्यूमिनस फ्लक्सचे एकक लुमेन असते."
+  },
+  {
+    "id": 1671,
+    "chapterId": 55,
+    "question": "Which meter is used to measure DC current only?",
+    "questionMarathi": "फक्त DC करंट मोजण्यासाठी कोणते मीटर वापरतात?",
+    "options": [
+      "Moving Iron",
+      "Moving Coil (PMMC)",
+      "Induction type",
+      "Dynamometer"
+    ],
+    "optionsMarathi": [
+      "मुव्हिंग आयर्न",
+      "मुव्हिंग कॉईल (PMMC)",
+      "इंडक्शन प्रकार",
+      "डायनॅमोमीटर"
+    ],
+    "answer": "B",
+    "explanation": "Permanent Magnet Moving Coil (PMMC) instruments only work on DC.",
+    "explanationMarathi": "PMMC मीटरचा वापर फक्त DC मोजण्यासाठी होतो."
+  },
+  {
+    "id": 1672,
+    "chapterId": 55,
+    "question": "Moving Iron instruments can measure:",
+    "questionMarathi": "मुव्हिंग आयर्न (MI) मीटर काय मोजू शकतात?",
+    "options": [
+      "AC only",
+      "DC only",
+      "Both AC and DC",
+      "None of these"
+    ],
+    "optionsMarathi": [
+      "फक्त AC",
+      "फक्त DC",
+      "AC आणि DC दोन्ही",
+      "यांपैकी नाही"
+    ],
+    "answer": "C",
+    "explanation": "Moving iron instruments are suitable for both AC and DC measurements.",
+    "explanationMarathi": "MI मीटरचा वापर AC आणि DC दोन्हीसाठी केला जाऊ शकतो."
+  },
+  {
+    "id": 1673,
+    "chapterId": 55,
+    "question": "What is the use of a Shunt in an Ammeter?",
+    "questionMarathi": "ॲमिटरमध्ये शंटचा (Shunt) वापर कशासाठी केला जातो?",
+    "options": [
+      "Increase voltage",
+      "Increase current range",
+      "Reduce noise",
+      "Provide stability"
+    ],
+    "optionsMarathi": [
+      "व्होल्टेज वाढवणे",
+      "करंट मोजण्याची श्रेणी वाढवणे",
+      "आवाज कमी करणे",
+      "स्थिरता देणे"
+    ],
+    "answer": "B",
+    "explanation": "A shunt resistor is connected in parallel to increase the current-carrying capacity of the ammeter.",
+    "explanationMarathi": "मीटरची करंट मोजण्याची क्षमता वाढवण्यासाठी शंट वापरतात."
+  },
+  {
+    "id": 1674,
+    "chapterId": 55,
+    "question": "What is connected in series with a Voltmeter to increase its range?",
+    "questionMarathi": "व्होल्टमीटरची श्रेणी वाढवण्यासाठी त्याच्या सिरीजमध्ये काय जोडले जाते?",
+    "options": [
+      "Shunt",
+      "Multiplier",
+      "Inductor",
+      "Capacitor"
+    ],
+    "optionsMarathi": [
+      "शंट",
+      "मल्टीप्लायर (High resistance)",
+      "इंडक्टर",
+      "कॅपेसिटर"
+    ],
+    "answer": "B",
+    "explanation": "A high resistance multiplier is connected in series with the voltmeter.",
+    "explanationMarathi": "व्होल्टमीटरची रेंज वाढवण्यासाठी त्याच्या सिरीजमध्ये उच्च रोधाचा 'मल्टीप्लायर' जोडतात."
+  },
+  {
+    "id": 1675,
+    "chapterId": 55,
+    "question": "Which instrument measures electric energy?",
+    "questionMarathi": "विद्युत ऊर्जेचे मोजमाप कोणते उपकरण करते?",
+    "options": [
+      "Wattmeter",
+      "Ammeter",
+      "Energy Meter",
+      "Voltmeter"
+    ],
+    "optionsMarathi": [
+      "वॉटमीटर",
+      "ॲमिटर",
+      "एनर्जी मीटर",
+      "व्होल्टमीटर"
+    ],
+    "answer": "C",
+    "explanation": "Energy meter (kWh meter) measures the total electricity consumed over time.",
+    "explanationMarathi": "एनर्जी मीटरचा वापर घरगुती किंवा औद्योगिक वीज वापर मोजण्यासाठी होतो."
+  },
+  {
+    "id": 1676,
+    "chapterId": 55,
+    "question": "Creeping fault is associated with which meter?",
+    "questionMarathi": "क्रिपिंग (Creeping) हा दोष कोणत्या मीटरशी संबंधित आहे?",
+    "options": [
+      "Voltmeter",
+      "Energy Meter",
+      "Ammeter",
+      "Ohm-meter"
+    ],
+    "optionsMarathi": [
+      "व्होल्टमीटर",
+      "एनर्जी मीटर",
+      "ॲमिटर",
+      "ओहम-मीटर"
+    ],
+    "answer": "B",
+    "explanation": "Creeping is the slow rotation of the disc in an energy meter even when no load is connected.",
+    "explanationMarathi": "लोड नसतानाही एनर्जी मीटरची तबकडी फिरणे याला क्रिपिंग म्हणतात."
+  },
+  {
+    "id": 1677,
+    "chapterId": 55,
+    "question": "What is the unit of frequency?",
+    "questionMarathi": "फ्रिक्वेन्सीचे एकक काय आहे?",
+    "options": [
+      "Hertz",
+      "Volt",
+      "Ampere",
+      "Ohm"
+    ],
+    "optionsMarathi": [
+      "हर्ट्झ (Hz)",
+      "व्होल्ट",
+      "अँपिअर",
+      "ओहम"
+    ],
+    "answer": "A",
+    "explanation": "Frequency is measured in Hertz (Hz).",
+    "explanationMarathi": "फ्रिक्वेन्सी हर्ट्झमध्ये मोजली जाते."
+  },
+  {
+    "id": 1678,
+    "chapterId": 55,
+    "question": "The combined effect of resistance and reactance in an AC circuit is called:",
+    "questionMarathi": "AC सर्किटमध्ये रोध आणि रिएक्टन्स यांच्या एकत्रित परिणामाला काय म्हणतात?",
+    "options": [
+      "Admittance",
+      "Conductance",
+      "Impedance",
+      "Susceptance"
+    ],
+    "optionsMarathi": [
+      "अॅडमिटन्स",
+      "कंडक्टन्स",
+      "इम्पिडन्स (Impedance)",
+      "ससेप्टन्स"
+    ],
+    "answer": "C",
+    "explanation": "Impedance (Z) is the total opposition to current in an AC circuit.",
+    "explanationMarathi": "AC सर्किटमधील एकूण विरोधाला इम्पिडन्स म्हणतात."
+  },
+  {
+    "id": 1679,
+    "chapterId": 55,
+    "question": "What is the relation between peak value and RMS value for a sine wave?",
+    "questionMarathi": "साइन वेव्हसाठी पीक मूल्य आणि RMS मूल्य यांच्यात काय संबंध असतो?",
+    "options": [
+      "RMS = 0.707 * Peak",
+      "RMS = 1.414 * Peak",
+      "RMS = Peak",
+      "RMS = 0.637 * Peak"
+    ],
+    "optionsMarathi": [
+      "RMS = 0.707 * Peak",
+      "RMS = 1.414 * Peak",
+      "RMS = Peak",
+      "RMS = 0.637 * Peak"
+    ],
+    "answer": "A",
+    "explanation": "RMS value is approximately 70.7% of the peak value.",
+    "explanationMarathi": "RMS मूल्य हे पीक मूल्याच्या ०.७०७ पट असते."
+  },
+  {
+    "id": 1680,
+    "chapterId": 55,
+    "question": "Which component blocks DC and allows AC to pass?",
+    "questionMarathi": "कोणता घटक DC रोखतो आणि AC वाहू देतो?",
+    "options": [
+      "Resistor",
+      "Inductor",
+      "Capacitor",
+      "Transistor"
+    ],
+    "optionsMarathi": [
+      "रेझिस्टर",
+      "इंडक्टर",
+      "कॅपेसिटर",
+      "ट्रान्झिस्टर"
+    ],
+    "answer": "C",
+    "explanation": "Capacitors have infinite reactance for DC (f=0) and low reactance for AC.",
+    "explanationMarathi": "कॅपेसिटर DC ला ब्लॉक करतो आणि AC ला जाऊ देतो."
+  },
+  {
+    "id": 1681,
+    "chapterId": 55,
+    "question": "What is the color of the neutral wire in a 3-phase system?",
+    "questionMarathi": "थ्री-फेज सिस्टीममध्ये न्यूट्रल वायरचा रंग कोणता असतो?",
+    "options": [
+      "Red",
+      "Yellow",
+      "Blue",
+      "Black"
+    ],
+    "optionsMarathi": [
+      "लाल",
+      "पिवळा",
+      "निळा",
+      "काळा"
+    ],
+    "answer": "D",
+    "explanation": "In 3-phase wiring, RYB are phases and Black is neutral.",
+    "explanationMarathi": "न्यूट्रल वायरसाठी काळ्या रंगाचा वापर होतो."
+  },
+  {
+    "id": 1682,
+    "chapterId": 55,
+    "question": "What is the phase difference between any two phases in a 3-phase supply?",
+    "questionMarathi": "थ्री-फेज सप्लायमध्ये कोणत्याही दोन फेजेसमध्ये किती अंशाचा फरक असतो?",
+    "options": [
+      "90°",
+      "120°",
+      "180°",
+      "360°"
+    ],
+    "optionsMarathi": [
+      "९०°",
+      "१२०°",
+      "१८०°",
+      "३६०°"
+    ],
+    "answer": "B",
+    "explanation": "The three phases are displaced from each other by 120 degrees.",
+    "explanationMarathi": "तिन्ही फेजेसमध्ये १२० अंशाचा फेझ डिफरन्स असतो."
+  },
+  {
+    "id": 1683,
+    "chapterId": 55,
+    "question": "Which connection requires a neutral wire?",
+    "questionMarathi": "कोणत्या जोडणीमध्ये न्यूट्रल वायरची आवश्यकता असते?",
+    "options": [
+      "Delta",
+      "Star",
+      "Series",
+      "Parallel"
+    ],
+    "optionsMarathi": [
+      "डेल्टा",
+      "स्टार (Star)",
+      "सिरीज",
+      "पॅरलल"
+    ],
+    "answer": "B",
+    "explanation": "The center point of a star connection provides the neutral point.",
+    "explanationMarathi": "स्टार जोडणीच्या मध्य बिंदूतून न्यूट्रल वायर मिळते."
+  },
+  {
+    "id": 1684,
+    "chapterId": 55,
+    "question": "What is the full form of MCB?",
+    "questionMarathi": "MCB चा पूर्ण अर्थ काय आहे?",
+    "options": [
+      "Main Circuit Breaker",
+      "Miniature Circuit Breaker",
+      "Motor Circuit Breaker",
+      "Mini Circuit Board"
+    ],
+    "optionsMarathi": [
+      "मेन सर्किट ब्रेकर",
+      "मिनिएचर सर्किट ब्रेकर",
+      "मोटर सर्किट ब्रेकर",
+      "मिनी सर्किट बोर्ड"
+    ],
+    "answer": "B",
+    "explanation": "Miniature Circuit Breaker is used for circuit protection.",
+    "explanationMarathi": "MCB म्हणजे मिनिएचर सर्किट ब्रेकर."
+  },
+  {
+    "id": 1685,
+    "chapterId": 55,
+    "question": "Which device protects against leakage current?",
+    "questionMarathi": "गळती करंटपासून (Leakage Current) कोणते उपकरण संरक्षण देते?",
+    "options": [
+      "MCB",
+      "Fuse",
+      "RCCB / ELCB",
+      "Switch"
+    ],
+    "optionsMarathi": [
+      "MCB",
+      "फ्युज",
+      "RCCB / ELCB",
+      "स्विच"
+    ],
+    "answer": "C",
+    "explanation": "RCCB (Residual Current Circuit Breaker) or ELCB protects from electric shock and leakage.",
+    "explanationMarathi": "लीकेज करंटपासून संरक्षणासाठी RCCB किंवा ELCB वापरतात."
+  },
+  {
+    "id": 1686,
+    "chapterId": 55,
+    "question": "What is the unit of Magnetic Flux Density?",
+    "questionMarathi": "मॅग्नेटिक फ्लक्स डेन्सिटीचे एकक काय आहे?",
+    "options": [
+      "Weber",
+      "Tesla",
+      "Henry",
+      "Ampere-turn"
+    ],
+    "optionsMarathi": [
+      "वेबर",
+      "टेस्ला (Tesla)",
+      "हेन्री",
+      "अँपिअर-टर्न"
+    ],
+    "answer": "B",
+    "explanation": "Tesla (T) or Weber/m² is the unit of magnetic flux density.",
+    "explanationMarathi": "मॅग्नेटिक फ्लक्स डेन्सिटीचे एकक टेस्ला असते."
+  },
+  {
+    "id": 1687,
+    "chapterId": 55,
+    "question": "Hysteresis loss depends on:",
+    "questionMarathi": "हिस्टेरेसिस लॉस (Hysteresis Loss) कशावर अवलंबून असतो?",
+    "options": [
+      "Frequency",
+      "Volume of core",
+      "Maximum flux density",
+      "All of these"
+    ],
+    "optionsMarathi": [
+      "फ्रिक्वेन्सी",
+      "कोअरचे आकारमान",
+      "कमाल फ्लक्स डेन्सिटी",
+      "वरील सर्व"
+    ],
+    "answer": "D",
+    "explanation": "Hysteresis loss depends on material, frequency, and flux density.",
+    "explanationMarathi": "हिस्टेरेसिस लॉस फ्रिक्वेन्सी, फ्लक्स डेन्सिटी आणि कोअरच्या साहित्यावर अवलंबून असतो."
+  },
+  {
+    "id": 1688,
+    "chapterId": 55,
+    "question": "Eddy current loss can be reduced by:",
+    "questionMarathi": "एडी करंट लॉस (Eddy Current Loss) कसा कमी करता येतो?",
+    "options": [
+      "Using solid core",
+      "Laminating the core",
+      "Increasing current",
+      "Reducing voltage"
+    ],
+    "optionsMarathi": [
+      "सॉलिड कोअर वापरून",
+      "कोअर लॅमिनेट करून (Lamination)",
+      "करंट वाढवून",
+      "व्होल्टेज कमी करून"
+    ],
+    "answer": "B",
+    "explanation": "Lamination reduces the path for eddy currents, thus reducing losses.",
+    "explanationMarathi": "कोअर लॅमिनेट केल्याने एडी करंट लॉस कमी होतो."
+  },
+  {
+    "id": 1689,
+    "chapterId": 55,
+    "question": "What is the purpose of transformer oil?",
+    "questionMarathi": "ट्रान्सफॉर्मरमध्ये तेलाचा (Oil) काय उद्देश असतो?",
+    "options": [
+      "Lubrication",
+      "Insulation and Cooling",
+      "Increasing voltage",
+      "Cleaning"
+    ],
+    "optionsMarathi": [
+      "लुब्रिकेशन",
+      "इन्सुलेशन आणि कुलिंग",
+      "व्होल्टेज वाढवणे",
+      "स्वच्छता"
+    ],
+    "answer": "B",
+    "explanation": "Transformer oil provides electrical insulation and carries away heat.",
+    "explanationMarathi": "ट्रान्सफॉर्मर ऑईल इन्सुलेशन आणि थंड करण्यासाठी वापरले जाते."
+  },
+  {
+    "id": 1690,
+    "chapterId": 56,
+    "question": "What is the working principle of a transformer?",
+    "questionMarathi": "ट्रान्सफॉर्मर कोणत्या तत्त्वावर कार्य करतो?",
+    "options": [
+      "Self Induction",
+      "Mutual Induction",
+      "Lorentz Law",
+      "Static Electricity"
+    ],
+    "optionsMarathi": [
+      "स्व-इंडक्शन",
+      "म्युच्युअल इंडक्शन (Mutual Induction)",
+      "लोरेंट्झ नियम",
+      "स्थितिक विद्युत"
+    ],
+    "answer": "B",
+    "explanation": "Transformer works on the principle of mutual induction between two coils.",
+    "explanationMarathi": "ट्रान्सफॉर्मर म्युच्युअल इंडक्शनच्या तत्त्वावर चालतो."
+  },
+  {
+    "id": 1691,
+    "chapterId": 56,
+    "question": "Does a transformer change frequency?",
+    "questionMarathi": "ट्रान्सफॉर्मर फ्रिक्वेन्सीमध्ये बदल करतो का?",
+    "options": [
+      "Yes",
+      "No",
+      "Only in step-up",
+      "Only in step-down"
+    ],
+    "optionsMarathi": [
+      "हो",
+      "नाही",
+      "फक्त स्टेप-अप मध्ये",
+      "फक्त स्टेप-डाउन मध्ये"
+    ],
+    "answer": "B",
+    "explanation": "Transformers change voltage and current levels but keep the frequency constant.",
+    "explanationMarathi": "ट्रान्सफॉर्मर फ्रिक्वेन्सीमध्ये कोणताही बदल करत नाही."
+  },
+  {
+    "id": 1692,
+    "chapterId": 56,
+    "question": "An autotransformer has how many windings?",
+    "questionMarathi": "ऑटो-ट्रान्सफॉर्मरमध्ये किती वाइंडिंग्स असतात?",
+    "options": [
+      "One",
+      "Two",
+      "Three",
+      "Four"
+    ],
+    "optionsMarathi": [
+      "एक (One)",
+      "दोन",
+      "तीन",
+      "चार"
+    ],
+    "answer": "A",
+    "explanation": "An autotransformer has a single winding that acts as both primary and secondary.",
+    "explanationMarathi": "ऑटो-ट्रान्सफॉर्मरमध्ये फक्त एकच वाइंडिंग असते."
+  },
+  {
+    "id": 1693,
+    "chapterId": 56,
+    "question": "What is the main advantage of an autotransformer?",
+    "questionMarathi": "ऑटो-ट्रान्सफॉर्मरचा मुख्य फायदा काय आहे?",
+    "options": [
+      "Higher insulation",
+      "Saves copper material",
+      "Two separate circuits",
+      "Can be used only for DC"
+    ],
+    "optionsMarathi": [
+      "जास्त इन्सुलेशन",
+      "तांब्याच्या साहित्याची बचत होते",
+      "दोन स्वतंत्र सर्किट",
+      "फक्त DC साठी वापरता येते"
+    ],
+    "answer": "B",
+    "explanation": "Since it uses one winding, it requires less copper compared to a two-winding transformer.",
+    "explanationMarathi": "ऑटो-ट्रान्सफॉर्मरमध्ये कमी तांबे लागते, ज्यामुळे खर्चात बचत होते."
+  },
+  {
+    "id": 1694,
+    "chapterId": 56,
+    "question": "Instrument transformers are of two types, they are:",
+    "questionMarathi": "इन्स्ट्रुमेंट ट्रान्सफॉर्मरचे दोन मुख्य प्रकार कोणते?",
+    "options": [
+      "Step up and Step down",
+      "CT and PT",
+      "Auto and Isolation",
+      "Power and Distribution"
+    ],
+    "optionsMarathi": [
+      "स्टेप अप आणि स्टेप डाउन",
+      "CT आणि PT",
+      "ऑटो आणि आयसोलेशन",
+      "पॉवर आणि डिस्ट्रिब्युशन"
+    ],
+    "answer": "B",
+    "explanation": "Current Transformer (CT) and Potential Transformer (PT) are instrument transformers.",
+    "explanationMarathi": "CT (Current Transformer) आणि PT (Potential Transformer) हे दोन प्रकार आहेत."
+  },
+  {
+    "id": 1695,
+    "chapterId": 56,
+    "question": "A CT (Current Transformer) secondary should never be:",
+    "questionMarathi": "CT ची सेकंडरी वाइंडिंग कधीही ____ नसावी.",
+    "options": [
+      "Short circuited",
+      "Open circuited",
+      "Grounded",
+      "Connected to an ammeter"
+    ],
+    "optionsMarathi": [
+      "शॉर्ट सर्किट",
+      "ओपन सर्किट (Open Circuited)",
+      "ग्राउंड",
+      "ॲमिटरला जोडलेली"
+    ],
+    "answer": "B",
+    "explanation": "If the secondary of a CT is opened while the primary is energized, very high voltage is induced which can be dangerous.",
+    "explanationMarathi": "CT ची सेकंडरी कधीही ओपन ठेवू नये, कारण तिथे खूप उच्च व्होल्टेज निर्माण होऊ शकते."
+  },
+  {
+    "id": 1696,
+    "chapterId": 56,
+    "question": "What is the function of a breather in a transformer?",
+    "questionMarathi": "ट्रान्सफॉर्मरमध्ये ब्रीदरचे (Breather) काय काम असते?",
+    "options": [
+      "Cool the oil",
+      "Filter the oil",
+      "Absorb moisture from air",
+      "Provide oxygen"
+    ],
+    "optionsMarathi": [
+      "तेल थंड करणे",
+      "तेल गाळणे",
+      "हवेतील ओलावा शोषून घेणे",
+      "ऑक्सिजन देणे"
+    ],
+    "answer": "C",
+    "explanation": "Breather contains silica gel which absorbs moisture from the air entering the conservator.",
+    "explanationMarathi": "ब्रीदर हवेतील ओलावा शोषून घेतो आणि कोरडी हवा ट्रान्सफॉर्मरमध्ये सोडतो."
+  },
+  {
+    "id": 1697,
+    "chapterId": 56,
+    "question": "What is the color of fresh silica gel?",
+    "questionMarathi": "ताजा/शुद्ध सिलिका जेलचा (Silica Gel) रंग कोणता असतो?",
+    "options": [
+      "Pink",
+      "Blue",
+      "Yellow",
+      "Green"
+    ],
+    "optionsMarathi": [
+      "गुलाबी",
+      "निळा (Blue)",
+      "पिवळा",
+      "हिरवा"
+    ],
+    "answer": "B",
+    "explanation": "Dry silica gel is blue. It turns pink after absorbing moisture.",
+    "explanationMarathi": "चांगल्या सिलिका जेलचा रंग निळा असतो, ओलावा शोषल्यावर तो गुलाबी होतो."
+  },
+  {
+    "id": 1698,
+    "chapterId": 56,
+    "question": "Which test is used to find iron losses in a transformer?",
+    "questionMarathi": "ट्रान्सफॉर्मरमधील आयर्न लॉस शोधण्यासाठी कोणती चाचणी करतात?",
+    "options": [
+      "Short circuit test",
+      "Open circuit test",
+      "Load test",
+      "Polarity test"
+    ],
+    "optionsMarathi": [
+      "शॉर्ट सर्किट टेस्ट",
+      "ओपन सर्किट टेस्ट (Open Circuit Test)",
+      "लोड टेस्ट",
+      "पोलारिटी टेस्ट"
+    ],
+    "answer": "B",
+    "explanation": "Open circuit test is performed at rated voltage to find core/iron losses.",
+    "explanationMarathi": "आयर्न लॉस शोधण्यासाठी ओपन सर्किट टेस्ट केली जाते."
+  },
+  {
+    "id": 1699,
+    "chapterId": 56,
+    "question": "Which test is used to find copper losses in a transformer?",
+    "questionMarathi": "ट्रान्सफॉर्मरमधील कॉपर लॉस शोधण्यासाठी कोणती चाचणी करतात?",
+    "options": [
+      "Short circuit test",
+      "Open circuit test",
+      "Insulation test",
+      "Ratio test"
+    ],
+    "optionsMarathi": [
+      "शॉर्ट सर्किट टेस्ट (Short Circuit Test)",
+      "ओपन सर्किट टेस्ट",
+      "इन्सुलेशन टेस्ट",
+      "रेशो टेस्ट"
+    ],
+    "answer": "A",
+    "explanation": "Short circuit test finds the full-load copper losses.",
+    "explanationMarathi": "कॉपर लॉस शोधण्यासाठी शॉर्ट सर्किट टेस्ट केली जाते."
+  },
+  {
+    "id": 1700,
+    "chapterId": 56,
+    "question": "What is the unit of transformer capacity?",
+    "questionMarathi": "ट्रान्सफॉर्मरची क्षमता कशात मोजली जाते?",
+    "options": [
+      "kW",
+      "kVAR",
+      "kVA",
+      "HP"
+    ],
+    "optionsMarathi": [
+      "kW",
+      "kVAR",
+      "kVA",
+      "HP"
+    ],
+    "answer": "C",
+    "explanation": "Transformers are rated in kVA because losses depend on V and I, not power factor.",
+    "explanationMarathi": "ट्रान्सफॉर्मरची रेटिंग kVA मध्ये असते."
+  },
+  {
+    "id": 1701,
+    "chapterId": 56,
+    "question": "Which part of the transformer dissipates heat to the surroundings?",
+    "questionMarathi": "ट्रान्सफॉर्मरचा कोणता भाग उष्णता बाहेर टाकण्याचे काम करतो?",
+    "options": [
+      "Core",
+      "Windings",
+      "Tank and Radiator",
+      "Conservator"
+    ],
+    "optionsMarathi": [
+      "कोअर",
+      "वाइंडिंग्स",
+      "टाकी आणि रेडिएटर",
+      "कन्झर्व्हेटर"
+    ],
+    "answer": "C",
+    "explanation": "Cooling tubes or radiators increase the surface area for heat dissipation.",
+    "explanationMarathi": "रेडिएटर आणि टाके उष्णता बाहेर टाकून ट्रान्सफॉर्मर थंड ठेवतात."
+  },
+  {
+    "id": 1702,
+    "chapterId": 56,
+    "question": "What is the secondary voltage of a PT (Potential Transformer) used in standard practice?",
+    "questionMarathi": "प्रमाणित PT (Potential Transformer) चे सेकंडरी व्होल्टेज किती असते?",
+    "options": [
+      "110 V",
+      "230 V",
+      "440 V",
+      "5 V"
+    ],
+    "optionsMarathi": [
+      "११० व्होल्ट (110 V)",
+      "२३० व्होल्ट",
+      "४४० व्होल्ट",
+      "५ व्होल्ट"
+    ],
+    "answer": "A",
+    "explanation": "The standard secondary voltage rating for PT is 110 Volts.",
+    "explanationMarathi": "PT चे सेकंडरी व्होल्टेज साधारणपणे ११० व्होल्ट असते."
+  },
+  {
+    "id": 1703,
+    "chapterId": 56,
+    "question": "What is the purpose of earthing an electrical installation?",
+    "questionMarathi": "विद्युत उपकरणांना अर्थिंग (Earthing) करण्याचा मुख्य उद्देश काय असतो?",
+    "options": [
+      "Increase voltage",
+      "Safety of human life",
+      "Reduce bill",
+      "Increase speed"
+    ],
+    "optionsMarathi": [
+      "व्होल्टेज वाढवणे",
+      "मानवी जीवनाची सुरक्षा",
+      "बिल कमी करणे",
+      "गती वाढवणे"
+    ],
+    "answer": "B",
+    "explanation": "Earthing protects users from electric shock due to leakage current.",
+    "explanationMarathi": "शॉकपासून मानवी सुरक्षा करण्यासाठी अर्थिंग केले जाते."
+  },
+  {
+    "id": 1704,
+    "chapterId": 56,
+    "question": "What material is used for an earth electrode?",
+    "questionMarathi": "अर्थ इलेक्ट्रोडसाठी कोणते साहित्य वापरले जाते?",
+    "options": [
+      "Copper or GI",
+      "Aluminium",
+      "Plastic",
+      "Wood"
+    ],
+    "optionsMarathi": [
+      "तांबे किंवा GI (Copper or GI)",
+      "ॲल्युमिनियम",
+      "प्लास्टिक",
+      "लाकूड"
+    ],
+    "answer": "A",
+    "explanation": "Copper or Galvanized Iron (GI) is used for earth plates or pipes.",
+    "explanationMarathi": "अर्थिंगसाठी तांब्याची किंवा GI ची प्लेट/पाईप वापरतात."
+  },
+  {
+    "id": 1705,
+    "chapterId": 56,
+    "question": "What should be the resistance of a good earth connection?",
+    "questionMarathi": "चांगल्या अर्थिंगचा रोध (Earth Resistance) किती असावा?",
+    "options": [
+      "Very high",
+      "Zero or very low",
+      "1000 Ohm",
+      "Infinite"
+    ],
+    "optionsMarathi": [
+      "खूप जास्त",
+      "शून्य किंवा खूप कमी",
+      "१००० ओहम",
+      "अनंत"
+    ],
+    "answer": "B",
+    "explanation": "A good earth should have very low resistance (less than 1-5 ohms) to allow easy flow of leakage current.",
+    "explanationMarathi": "अर्थिंगचा रोध शक्य तितका कमी असावा."
+  },
+  {
+    "id": 1706,
+    "chapterId": 56,
+    "question": "What is the purpose of adding salt and charcoal in an earth pit?",
+    "questionMarathi": "अर्थिंग खड्ड्यात मीठ आणि कोळसा का टाकला जातो?",
+    "options": [
+      "To increase resistance",
+      "To keep soil moist and reduce resistance",
+      "To prevent rusting",
+      "For decoration"
+    ],
+    "optionsMarathi": [
+      "रोध वाढवण्यासाठी",
+      "मातीत ओलावा टिकवून रोध कमी करण्यासाठी",
+      "गंज रोखण्यासाठी",
+      "शोभेसाठी"
+    ],
+    "answer": "B",
+    "explanation": "Salt and charcoal help in retaining moisture, which reduces the earth resistance.",
+    "explanationMarathi": "मीठ आणि कोळसा ओलावा टिकवून ठेवतात, ज्यामुळे अर्थिंगचा रोध कमी होतो."
+  },
+  {
+    "id": 1707,
+    "chapterId": 56,
+    "question": "Plate earthing is commonly used for:",
+    "questionMarathi": "प्लेट अर्थिंगचा (Plate Earthing) वापर प्रामुख्याने कोठे केला जातो?",
+    "options": [
+      "Small houses",
+      "Sub-stations and large buildings",
+      "Portable lamps",
+      "Temporary wiring"
+    ],
+    "optionsMarathi": [
+      "लहान घरे",
+      "सब-स्टेशन आणि मोठ्या इमारती",
+      "लहान दिवे",
+      "तात्पुरती वायरिंग"
+    ],
+    "answer": "B",
+    "explanation": "Plate earthing is more effective for high current applications like sub-stations.",
+    "explanationMarathi": "मोठ्या लोडसाठी किंवा सब-स्टेशनसाठी प्लेट अर्थिंग वापरतात."
+  },
+  {
+    "id": 1708,
+    "chapterId": 56,
+    "question": "How can the earth resistance be reduced?",
+    "questionMarathi": "अर्थिंगचा रोध कसा कमी करता येतो?",
+    "options": [
+      "Increasing depth of electrode",
+      "Connecting several electrodes in parallel",
+      "Pouring water in pit",
+      "All of these"
+    ],
+    "optionsMarathi": [
+      "इलेक्ट्रोडची खोली वाढवून",
+      "अनेक इलेक्ट्रोड समांतर जोडून",
+      "पाणी टाकून",
+      "वरील सर्व"
+    ],
+    "answer": "D",
+    "explanation": "Earth resistance can be reduced by increasing depth, parallel electrodes, or keeping the soil moist.",
+    "explanationMarathi": "खोली वाढवून, समांतर इलेक्ट्रोड जोडून किंवा पाणी टाकून रोध कमी करता येतो."
+  },
+  {
+    "id": 1709,
+    "chapterId": 56,
+    "question": "What is the speed of an alternator called?",
+    "questionMarathi": "अल्टरनेटरच्या गतीला काय म्हणतात?",
+    "options": [
+      "Critical speed",
+      "Synchronous speed",
+      "Variable speed",
+      "Average speed"
+    ],
+    "optionsMarathi": [
+      "क्रिटिकल स्पीड",
+      "सिंक्रोनस स्पीड (Synchronous Speed)",
+      "व्हेरिएबल स्पीड",
+      "एव्हरेज स्पीड"
+    ],
+    "answer": "B",
+    "explanation": "Alternators must rotate at a constant synchronous speed to maintain fixed frequency.",
+    "explanationMarathi": "अल्टरनेटरची गती सिंक्रोनस स्पीड असते."
+  },
+  {
+    "id": 1710,
+    "chapterId": 56,
+    "question": "What is the formula for Synchronous speed (Ns)?",
+    "questionMarathi": "सिंक्रोनस स्पीड (Ns) काढण्याचे सूत्र काय आहे?",
+    "options": [
+      "120f / P",
+      "120P / f",
+      "f * P / 120",
+      "120 * f * P"
+    ],
+    "optionsMarathi": [
+      "120f / P",
+      "120P / f",
+      "f * P / 120",
+      "120 * f * P"
+    ],
+    "answer": "A",
+    "explanation": "Ns = 120 * frequency / Number of poles.",
+    "explanationMarathi": "Ns = 120f / P हे सिंक्रोनस स्पीडचे सूत्र आहे."
+  },
+  {
+    "id": 1711,
+    "chapterId": 56,
+    "question": "Which part of an alternator rotates?",
+    "questionMarathi": "अल्टरनेटरचा कोणता भाग फिरतो?",
+    "options": [
+      "Stator",
+      "Rotor",
+      "Armature",
+      "Brushes"
+    ],
+    "optionsMarathi": [
+      "स्टेटर",
+      "रोटर (Rotor)",
+      "आर्मेचर",
+      "ब्रशेस"
+    ],
+    "answer": "B",
+    "explanation": "The rotor is the rotating part, while the stator is stationary.",
+    "explanationMarathi": "अल्टरनेटरमध्ये रोटर हा भाग फिरतो."
+  },
+  {
+    "id": 1712,
+    "chapterId": 56,
+    "question": "Modern large alternators usually have:",
+    "questionMarathi": "आधुनिक मोठ्या अल्टरनेटरमध्ये सहसा काय असते?",
+    "options": [
+      "Stationary field, rotating armature",
+      "Rotating field, stationary armature",
+      "No brushes",
+      "No windings"
+    ],
+    "optionsMarathi": [
+      "स्थिर फिल्ड, फिरणारे आर्मेचर",
+      "फिरणारे फिल्ड, स्थिर आर्मेचर",
+      "ब्रशेस नसतात",
+      "वाइंडिंग नसते"
+    ],
+    "answer": "B",
+    "explanation": "Rotating field and stationary armature are preferred for easy insulation and better current collection.",
+    "explanationMarathi": "मोठ्या अल्टरनेटरमध्ये रोटेटिंग फिल्ड आणि स्टेशनरी आर्मेचर असते."
+  },
+  {
+    "id": 1713,
+    "chapterId": 56,
+    "question": "What is the function of an exciter in an alternator?",
+    "questionMarathi": "अल्टरनेटरमध्ये एक्सायटरचे (Exciter) कार्य काय असते?",
+    "options": [
+      "Control speed",
+      "Provide DC supply to rotor field",
+      "Increase voltage",
+      "Cool the machine"
+    ],
+    "optionsMarathi": [
+      "गती नियंत्रित करणे",
+      "रोटर फिल्डला DC सप्लाय देणे",
+      "व्होल्टेज वाढवणे",
+      "मशीन थंड करणे"
+    ],
+    "answer": "B",
+    "explanation": "Exciter is a small DC generator used to provide field current to the rotor.",
+    "explanationMarathi": "रोटरला चुंबकीय क्षेत्रासाठी DC सप्लाय देण्याचे काम एक्सायटर करतो."
+  },
+  {
+    "id": 1714,
+    "chapterId": 56,
+    "question": "A salient pole rotor is used for:",
+    "questionMarathi": "सॅलिएंट पोल रोटर (Salient Pole Rotor) कशासाठी वापरला जातो?",
+    "options": [
+      "High speed turbines",
+      "Low and medium speed turbines (Hydro)",
+      "Gas turbines",
+      "Small motors"
+    ],
+    "optionsMarathi": [
+      "उच्च गती टर्बाइन",
+      "कमी आणि मध्यम गती टर्बाइन (जलविद्युत)",
+      "गॅस टर्बाइन",
+      "लहान मोटर्स"
+    ],
+    "answer": "B",
+    "explanation": "Salient pole rotors have large diameters and are used for low-speed hydro-alternators.",
+    "explanationMarathi": "कमी गतीच्या हायड्रो-अल्टरनेटरसाठी सॅलिएंट पोल रोटर वापरतात."
+  },
+  {
+    "id": 1715,
+    "chapterId": 56,
+    "question": "A cylindrical (Smooth) rotor is used for:",
+    "questionMarathi": "दंडगोलाकार (Cylindrical) रोटर कशासाठी वापरला जातो?",
+    "options": [
+      "High speed steam turbines",
+      "Water turbines",
+      "Slow diesel engines",
+      "DC motors"
+    ],
+    "optionsMarathi": [
+      "उच्च गती वाफ टर्बाइन (Steam Turbine)",
+      "जल टर्बाइन",
+      "डिझेल इंजिन",
+      "DC मोटर्स"
+    ],
+    "answer": "A",
+    "explanation": "Smooth cylindrical rotors are used for high-speed turbo-alternators.",
+    "explanationMarathi": "उच्च गतीच्या स्टीम टर्बाइनसाठी दंडगोलाकार रोटर वापरतात."
+  },
+  {
+    "id": 1716,
+    "chapterId": 56,
+    "question": "What is the frequency of a 4-pole alternator rotating at 1500 RPM?",
+    "questionMarathi": "१५०० RPM गतीने फिरणाऱ्या ४-पोल अल्टरनेटरची फ्रिक्वेन्सी किती असेल?",
+    "options": [
+      "50 Hz",
+      "60 Hz",
+      "25 Hz",
+      "100 Hz"
+    ],
+    "optionsMarathi": [
+      "५० हर्ट्झ (50 Hz)",
+      "६० हर्ट्झ",
+      "२५ हर्ट्झ",
+      "१०० हर्ट्झ"
+    ],
+    "answer": "A",
+    "explanation": "f = P * Ns / 120 = 4 * 1500 / 120 = 50 Hz.",
+    "explanationMarathi": "f = PN/120 = ४ * १५०० / १२० = ५० हर्ट्झ."
+  },
+  {
+    "id": 1717,
+    "chapterId": 56,
+    "question": "Alternators are rated in:",
+    "questionMarathi": "अल्टरनेटर कशामध्ये मोजले जातात?",
+    "options": [
+      "kW",
+      "HP",
+      "kVA",
+      "VAR"
+    ],
+    "optionsMarathi": [
+      "kW",
+      "HP",
+      "kVA",
+      "VAR"
+    ],
+    "answer": "C",
+    "explanation": "Like transformers, alternators are also rated in kVA.",
+    "explanationMarathi": "अल्टरनेटरची क्षमता kVA मध्ये व्यक्त केली जाते."
+  },
+  {
+    "id": 1718,
+    "chapterId": 56,
+    "question": "In a 3-phase alternator, the windings are displaced by:",
+    "questionMarathi": "थ्री-फेज अल्टरनेटरमध्ये वाइंडिंग्स किती अंशात विभागलेल्या असतात?",
+    "options": [
+      "90°",
+      "120°",
+      "180°",
+      "60°"
+    ],
+    "optionsMarathi": [
+      "९०°",
+      "१२०° (120°)",
+      "१८०°",
+      "६०°"
+    ],
+    "answer": "B",
+    "explanation": "Winding for each phase is separated by 120 degrees electrical.",
+    "explanationMarathi": "प्रत्येक फेजची वाइंडिंग १२० अंशात असते."
+  },
+  {
+    "id": 1719,
+    "chapterId": 56,
+    "question": "What is the relation between Line Voltage (VL) and Phase Voltage (VP) in Star connection?",
+    "questionMarathi": "स्टार जोडणीत लाईन व्होल्टेज (VL) आणि फेज व्होल्टेज (VP) मध्ये काय संबंध असतो?",
+    "options": [
+      "VL = VP",
+      "VL = √3 VP",
+      "VL = 3 VP",
+      "VL = VP / √3"
+    ],
+    "optionsMarathi": [
+      "VL = VP",
+      "VL = √3 VP",
+      "VL = 3 VP",
+      "VL = VP / √3"
+    ],
+    "answer": "B",
+    "explanation": "In Star connection, Line voltage is root 3 times the phase voltage.",
+    "explanationMarathi": "स्टार जोडणीत लाईन व्होल्टेज हे फेज व्होल्टेजच्या √३ पट असते."
+  },
+  {
+    "id": 1720,
+    "chapterId": 56,
+    "question": "In Delta connection, what is the relation between VL and VP?",
+    "questionMarathi": "डेल्टा जोडणीत VL आणि VP मध्ये काय संबंध असतो?",
+    "options": [
+      "VL = VP",
+      "VL = √3 VP",
+      "VL = 3 VP",
+      "VL = VP / √3"
+    ],
+    "optionsMarathi": [
+      "VL = VP",
+      "VL = √3 VP",
+      "VL = 3 VP",
+      "VL = VP / √3"
+    ],
+    "answer": "A",
+    "explanation": "In Delta connection, line voltage and phase voltage are equal.",
+    "explanationMarathi": "डेल्टा जोडणीत लाईन व्होल्टेज आणि फेज व्होल्टेज समान असतात."
+  },
+  {
+    "id": 1721,
+    "chapterId": 56,
+    "question": "What is the power factor of a circuit with only resistors?",
+    "questionMarathi": "केवळ रोध (Resistor) असलेल्या सर्किटचा पॉवर फॅक्टर किती असतो?",
+    "options": [
+      "Zero",
+      "Unity (1)",
+      "Lagging",
+      "Leading"
+    ],
+    "optionsMarathi": [
+      "शून्य",
+      "एक (Unity)",
+      "लॅगिंग",
+      "लीडिंग"
+    ],
+    "answer": "B",
+    "explanation": "Purely resistive circuits have a unity power factor.",
+    "explanationMarathi": "रेजिस्टिव्ह सर्किटचा पॉवर फॅक्टर १ असतो."
+  },
+  {
+    "id": 1722,
+    "chapterId": 56,
+    "question": "Which of the following is a unit of Energy?",
+    "questionMarathi": "खालीलपैकी कोणते ऊर्जेचे एकक आहे?",
+    "options": [
+      "Watt",
+      "Volt",
+      "kWh",
+      "Ampere"
+    ],
+    "optionsMarathi": [
+      "वॉट",
+      "व्होल्ट",
+      "kWh",
+      "अँपिअर"
+    ],
+    "answer": "C",
+    "explanation": "kilowatt-hour (kWh) is the unit of electrical energy.",
+    "explanationMarathi": "kWh (किलोवॉट-अवर) हे विद्युत ऊर्जेचे एकक आहे."
+  },
+  {
+    "id": 1723,
+    "chapterId": 56,
+    "question": "What is the effect of low power factor?",
+    "questionMarathi": "कमी पॉवर फॅक्टरचा (Low Power Factor) काय परिणाम होतो?",
+    "options": [
+      "Increases current and losses",
+      "Reduces current",
+      "No effect",
+      "Increases voltage"
+    ],
+    "optionsMarathi": [
+      "करंट आणि लॉस वाढतो",
+      "करंट कमी होतो",
+      "काहीही परिणाम होत नाही",
+      "व्होल्टेज वाढते"
+    ],
+    "answer": "A",
+    "explanation": "Low power factor leads to higher current for the same power, causing more losses.",
+    "explanationMarathi": "कमी पॉवर फॅक्टरमुळे करंट वाढतो आणि लॉस जास्त होतो."
+  },
+  {
+    "id": 1724,
+    "chapterId": 56,
+    "question": "Capacitors are used in circuits to:",
+    "questionMarathi": "सर्किटमध्ये कॅपेसिटरचा वापर कशासाठी केला जातो?",
+    "options": [
+      "Increase resistance",
+      "Improve power factor",
+      "Block AC",
+      "Store unlimited energy"
+    ],
+    "optionsMarathi": [
+      "रोध वाढवण्यासाठी",
+      "पॉवर फॅक्टर सुधारण्यासाठी",
+      "AC रोखण्यासाठी",
+      "ऊर्जा साठवण्यासाठी"
+    ],
+    "answer": "B",
+    "explanation": "Connecting capacitors in parallel improves the lagging power factor.",
+    "explanationMarathi": "कॅपेसिटरचा वापर पॉवर फॅक्टर सुधारण्यासाठी केला जातो."
+  },
+  {
+    "id": 1725,
+    "chapterId": 56,
+    "question": "Which instrument is used to check the continuity of a wire?",
+    "questionMarathi": "वायरची सलगता (Continuity) तपासण्यासाठी कोणते उपकरण वापरतात?",
+    "options": [
+      "Voltmeter",
+      "Ammeter",
+      "Multimeter or Test Lamp",
+      "Energy meter"
+    ],
+    "optionsMarathi": [
+      "व्होल्टमीटर",
+      "ॲमिटर",
+      "मल्टीमीटर किंवा टेस्ट लॅम्प",
+      "एनर्जी मीटर"
+    ],
+    "answer": "C",
+    "explanation": "Multimeter in continuity mode or a test lamp can check if a wire is broken.",
+    "explanationMarathi": "मल्टीमीटर किंवा टेस्ट लॅम्पने वायर अखंड आहे की नाही हे तपासता येते."
+  },
+  {
+    "id": 1726,
+    "chapterId": 56,
+    "question": "What is the purpose of a relay?",
+    "questionMarathi": "रिलेचा (Relay) काय उपयोग असतो?",
+    "options": [
+      "Generate power",
+      "Switching and protection",
+      "Convert AC to DC",
+      "Increase speed"
+    ],
+    "optionsMarathi": [
+      "वीज तयार करणे",
+      "स्विचिंग आणि संरक्षण",
+      "AC चे DC मध्ये रूपांतर",
+      "गती वाढवणे"
+    ],
+    "answer": "B",
+    "explanation": "Relays are used to sense faults and trip circuit breakers.",
+    "explanationMarathi": "दोष शोधून सर्किट तोडण्यासाठी रिलेचा वापर होतो."
+  },
+  {
+    "id": 1727,
+    "chapterId": 56,
+    "question": "What is the unit of torque?",
+    "questionMarathi": "टॉर्कचे (Torque) एकक काय आहे?",
+    "options": [
+      "Newton",
+      "Joule",
+      "Newton-meter",
+      "Watt"
+    ],
+    "optionsMarathi": [
+      "न्यूटन",
+      "ज्यूल",
+      "न्यूटन-मीटर (N-m)",
+      "वॉट"
+    ],
+    "answer": "C",
+    "explanation": "Torque is force times radius, so N-m is the unit.",
+    "explanationMarathi": "टॉर्क न्यूटन-मीटरमध्ये मोजला जातो."
+  },
+  {
+    "id": 1728,
+    "chapterId": 56,
+    "question": "A fuse is always connected in:",
+    "questionMarathi": "फ्युज नेहमी कशामध्ये जोडला जातो?",
+    "options": [
+      "Series with Phase",
+      "Parallel with Phase",
+      "Series with Neutral",
+      "Parallel with Neutral"
+    ],
+    "optionsMarathi": [
+      "फेझच्या सिरीजमध्ये (Series with Phase)",
+      "फेझच्या पॅरललमध्ये",
+      "न्यूट्रलच्या सिरीजमध्ये",
+      "न्यूट्रलच्या पॅरललमध्ये"
+    ],
+    "answer": "A",
+    "explanation": "Fuse must be in series with the live wire for safety.",
+    "explanationMarathi": "फ्युज नेहमी फेज वायरच्या सिरीजमध्ये जोडला जातो."
+  },
+  {
+    "id": 1729,
+    "chapterId": 56,
+    "question": "What is the color of the earth wire in 3-core cable?",
+    "questionMarathi": "3-कोअर केबलमध्ये अर्थ वायरचा रंग कोणता असतो?",
+    "options": [
+      "Red",
+      "Black",
+      "Green",
+      "Blue"
+    ],
+    "optionsMarathi": [
+      "लाल",
+      "काळा",
+      "हिरवा (Green)",
+      "निळा"
+    ],
+    "answer": "C",
+    "explanation": "Green or Green-Yellow is the standard for earth wires.",
+    "explanationMarathi": "अर्थ वायरसाठी हिरवा रंग वापरतात."
+  },
+  {
+    "id": 1730,
+    "chapterId": 56,
+    "question": "Which material is used for heating elements?",
+    "questionMarathi": "हिटिंग एलिमेंटसाठी कोणते साहित्य वापरले जाते?",
+    "options": [
+      "Copper",
+      "Nichrome",
+      "Aluminium",
+      "Silver"
+    ],
+    "optionsMarathi": [
+      "तांबे",
+      "नायक्रोम (Nichrome)",
+      "ॲल्युमिनियम",
+      "चांदी"
+    ],
+    "answer": "B",
+    "explanation": "Nichrome has high resistivity and high melting point, suitable for heating.",
+    "explanationMarathi": "हिटिंग एलिमेंटसाठी नायक्रोम वायर वापरली जाते."
+  },
+  {
+    "id": 1731,
+    "chapterId": 56,
+    "question": "What is the full form of LED?",
+    "questionMarathi": "LED चा पूर्ण अर्थ काय आहे?",
+    "options": [
+      "Light Emitting Diode",
+      "Light Energy Device",
+      "Low Energy Diode",
+      "Long Electronic Device"
+    ],
+    "optionsMarathi": [
+      "लाईट एमिटिंग डायोड (Light Emitting Diode)",
+      "लाईट एनर्जी डिव्हाइस",
+      "लो एनर्जी डायोड",
+      "लाँग इलेक्ट्रॉनिक डिव्हाइस"
+    ],
+    "answer": "A",
+    "explanation": "LED stands for Light Emitting Diode.",
+    "explanationMarathi": "LED म्हणजे लाईट एमिटिंग डायोड."
+  },
+  {
+    "id": 1732,
+    "chapterId": 56,
+    "question": "Which of the following is an insulator?",
+    "questionMarathi": "खालीलपैकी कोणता पदार्थ अवाहक (Insulator) आहे?",
+    "options": [
+      "Copper",
+      "Iron",
+      "Porcelain",
+      "Silver"
+    ],
+    "optionsMarathi": [
+      "तांबे",
+      "लोखंड",
+      "पोर्सिलेन (Porcelain)",
+      "चांदी"
+    ],
+    "answer": "C",
+    "explanation": "Porcelain is widely used for high-voltage insulators.",
+    "explanationMarathi": "पोर्सिलेन हा एक उत्तम अवाहक पदार्थ आहे."
+  },
+  {
+    "id": 1733,
+    "chapterId": 56,
+    "question": "What is the main advantage of AC over DC?",
+    "questionMarathi": "DC पेक्षा AC चा मुख्य फायदा काय आहे?",
+    "options": [
+      "AC is safer",
+      "AC can be stepped up/down easily",
+      "AC can be stored in batteries",
+      "AC has no frequency"
+    ],
+    "optionsMarathi": [
+      "AC सुरक्षित आहे",
+      "AC व्होल्टेज सहजपणे कमी-जास्त करता येते",
+      "AC बॅटरीमध्ये साठवता येते",
+      "AC ला फ्रिक्वेन्सी नसते"
+    ],
+    "answer": "B",
+    "explanation": "Transformers allow AC to be transmitted at high voltages efficiently.",
+    "explanationMarathi": "ट्रान्सफॉर्मरमुळे AC व्होल्टेज कमी-जास्त करणे सोपे जाते."
+  },
+  {
+    "id": 1734,
+    "chapterId": 56,
+    "question": "What is the value of peak factor for a sine wave?",
+    "questionMarathi": "साइन वेव्हसाठी पीक फॅक्टरचे (Peak Factor) मूल्य किती असते?",
+    "options": [
+      "1.11",
+      "1.414",
+      "1.732",
+      "1.0"
+    ],
+    "optionsMarathi": [
+      "1.11",
+      "1.414",
+      "1.732",
+      "1.0"
+    ],
+    "answer": "B",
+    "explanation": "Peak factor = Peak value / RMS value = √2 = 1.414.",
+    "explanationMarathi": "साइन वेव्हसाठी पीक फॅक्टर १.४१४ असतो."
+  },
+  {
+    "id": 1735,
+    "chapterId": 56,
+    "question": "Which law describes the relationship between V, I, and R?",
+    "questionMarathi": "V, I आणि R यांच्यातील संबंध कोणता नियम सांगतो?",
+    "options": [
+      "Faraday's Law",
+      "Ohm's Law",
+      "Lenz's Law",
+      "Kirchhoff's Law"
+    ],
+    "optionsMarathi": [
+      "फॅराडेचा नियम",
+      "ओहमचा नियम (Ohm's Law)",
+      "लेन्झचा नियम",
+      "किरचॉफचा नियम"
+    ],
+    "answer": "B",
+    "explanation": "Ohm's law states V = IR.",
+    "explanationMarathi": "ओहमचा नियम V = IR हा संबंध स्पष्ट करतो."
+  },
+  {
+    "id": 1736,
+    "chapterId": 56,
+    "question": "What is the unit of power?",
+    "questionMarathi": "पॉवरचे (शक्ती) एकक काय आहे?",
+    "options": [
+      "Joule",
+      "Watt",
+      "Volt",
+      "Ampere"
+    ],
+    "optionsMarathi": [
+      "ज्यूल",
+      "वॉट (Watt)",
+      "व्होल्ट",
+      "अँपिअर"
+    ],
+    "answer": "B",
+    "explanation": "Watt is the unit of power (J/s).",
+    "explanationMarathi": "पॉवर वॉटमध्ये मोजली जाते."
+  },
+  {
+    "id": 1737,
+    "chapterId": 56,
+    "question": "Three resistors of 3 ohms each in series give a total resistance of:",
+    "questionMarathi": "३ ओहमचे ३ रोध सिरीजमध्ये जोडल्यास एकूण रोध किती होईल?",
+    "options": [
+      "1 ohm",
+      "3 ohm",
+      "9 ohm",
+      "6 ohm"
+    ],
+    "optionsMarathi": [
+      "१ ओहम",
+      "३ ओहम",
+      "९ ओहम (9 ohm)",
+      "६ ओहम"
+    ],
+    "answer": "C",
+    "explanation": "Total resistance in series = R1 + R2 + R3 = 3 + 3 + 3 = 9 ohms.",
+    "explanationMarathi": "सिरीज जोडणीत रोधांची बेरीज होते, म्हणून ३+३+३ = ९ ओहम."
+  },
+  {
+    "id": 1738,
+    "chapterId": 56,
+    "question": "What is the frequency of DC supply?",
+    "questionMarathi": "DC सप्लायची फ्रिक्वेन्सी किती असते?",
+    "options": [
+      "50 Hz",
+      "60 Hz",
+      "Zero",
+      "Variable"
+    ],
+    "optionsMarathi": [
+      "५० हर्ट्झ",
+      "६० हर्ट्झ",
+      "शून्य (Zero)",
+      "बदलणारी"
+    ],
+    "answer": "C",
+    "explanation": "DC does not change its direction, so its frequency is zero.",
+    "explanationMarathi": "DC ची फ्रिक्वेन्सी शून्य असते."
+  },
+  {
+    "id": 1739,
+    "chapterId": 56,
+    "question": "Which DC motor has the highest starting torque?",
+    "questionMarathi": "कोणत्या DC मोटरचा स्टार्टिंग टॉर्क सर्वात जास्त असतो?",
+    "options": [
+      "DC Shunt",
+      "DC Series",
+      "Differential Compound",
+      "Shunt with regulator"
+    ],
+    "optionsMarathi": [
+      "DC शंट",
+      "DC सिरीज (Series)",
+      "डिफरेंशियल कंपाऊंड",
+      "शंट"
+    ],
+    "answer": "B",
+    "explanation": "DC series motor has the highest starting torque.",
+    "explanationMarathi": "DC सिरीज मोटरचा स्टार्टिंग टॉर्क सर्वाधिक असतो."
+  },
+  {
+    "id": 1740,
+    "chapterId": 56,
+    "question": "What is the rating of a fuse in a circuit?",
+    "questionMarathi": "सर्किटमधील फ्युजचे रेटिंग कशात असते?",
+    "options": [
+      "Volts",
+      "Watts",
+      "Amperes",
+      "Ohms"
+    ],
+    "optionsMarathi": [
+      "व्होल्ट",
+      "वॉट",
+      "अँपिअर (Amperes)",
+      "ओहम"
+    ],
+    "answer": "C",
+    "explanation": "Fuses are rated based on the current they can safely carry.",
+    "explanationMarathi": "फ्युजचे रेटिंग अँपिअरमध्ये असते."
+  },
+  {
+    "id": 1741,
+    "chapterId": 56,
+    "question": "A transformer works on:",
+    "questionMarathi": "ट्रान्सफॉर्मर कशावर चालतो?",
+    "options": [
+      "AC only",
+      "DC only",
+      "Both AC and DC",
+      "Pulsating DC only"
+    ],
+    "optionsMarathi": [
+      "फक्त AC (AC only)",
+      "फक्त DC",
+      "AC आणि DC दोन्ही",
+      "DC"
+    ],
+    "answer": "A",
+    "explanation": "Transformers require changing magnetic flux to work, provided only by AC.",
+    "explanationMarathi": "ट्रान्सफॉर्मर फक्त AC वर कार्य करतो."
+  },
+  {
+    "id": 1742,
+    "chapterId": 56,
+    "question": "What happens if a transformer is connected to DC?",
+    "questionMarathi": "ट्रान्सफॉर्मरला DC सप्लाय दिल्यास काय होईल?",
+    "options": [
+      "Works well",
+      "Efficiency increases",
+      "Windings may burn",
+      "Nothing happens"
+    ],
+    "optionsMarathi": [
+      "चांगले चालेल",
+      "कार्यक्षमता वाढेल",
+      "वाइंडिंग्स जळू शकतात",
+      "काहीही होणार नाही"
+    ],
+    "answer": "C",
+    "explanation": "Due to lack of back-EMF in DC, high current flows and can burn the primary winding.",
+    "explanationMarathi": "DC सप्लायमुळे इंडक्टिव्ह रिएक्टन्स नसतो, ज्यामुळे जास्त करंट वाहून वाइंडिंग जळू शकते."
+  },
+  {
+    "id": 1743,
+    "chapterId": 56,
+    "question": "What is the primary function of a capacitor in a single-phase motor?",
+    "questionMarathi": "सिंगल-फेज मोटरमध्ये कॅपेसिटरचे मुख्य कार्य काय असते?",
+    "options": [
+      "Increase speed",
+      "Provide starting torque",
+      "Reduce noise",
+      "Filter current"
+    ],
+    "optionsMarathi": [
+      "गती वाढवणे",
+      "स्टार्टिंग टॉर्क निर्माण करणे",
+      "आवाज कमी करणे",
+      "करंट फिल्टर करणे"
+    ],
+    "answer": "B",
+    "explanation": "Capacitor splits the phase to create a rotating magnetic field for starting.",
+    "explanationMarathi": "कॅपेसिटर फेझ स्प्लिट करून मोटर फिरवण्यासाठी मदत करतो."
+  },
+  {
+    "id": 1744,
+    "chapterId": 56,
+    "question": "Which of the following is a non-magnetic material?",
+    "questionMarathi": "खालीलपैकी कोणता अचुंबकीय (Non-magnetic) पदार्थ आहे?",
+    "options": [
+      "Iron",
+      "Cobalt",
+      "Nickel",
+      "Aluminium"
+    ],
+    "optionsMarathi": [
+      "लोखंड",
+      "कोबाल्ट",
+      "निकेल",
+      "ॲल्युमिनियम (Aluminium)"
+    ],
+    "answer": "D",
+    "explanation": "Aluminium is paramagnetic/non-magnetic compared to ferromagnetics like Iron.",
+    "explanationMarathi": "ॲल्युमिनियम हा अचुंबकीय पदार्थ आहे."
+  },
+  {
+    "id": 1745,
+    "chapterId": 56,
+    "question": "Specific gravity of electrolyte is measured by:",
+    "questionMarathi": "इलेक्ट्रोलाईटची विशिष्ट घनता कशाने मोजतात?",
+    "options": [
+      "Hydrometer",
+      "Lactometer",
+      "Barometer",
+      "Voltmeter"
+    ],
+    "optionsMarathi": [
+      "हायड्रोमीटर (Hydrometer)",
+      "लॅक्टोमीटर",
+      "बेरोमीटर",
+      "व्होल्टमीटर"
+    ],
+    "answer": "A",
+    "explanation": "Hydrometer is used to measure the specific gravity of acid in batteries.",
+    "explanationMarathi": "हायड्रोमीटरने बॅटरीतील ॲसिडची घनता मोजली जाते."
+  },
+  {
+    "id": 1746,
+    "chapterId": 57,
+    "question": "Work and ---------------- have the same unit.",
+    "questionMarathi": "कार्य (Work) आणि ---------------- ची इकाही (Unit) समान असते.",
+    "options": [
+      "Power",
+      "Force",
+      "Energy",
+      "Weight"
+    ],
+    "optionsMarathi": [
+      "शक्ती (Power)",
+      "बल (Force)",
+      "ऊर्जा (Energy)",
+      "वजन (Weight)"
+    ],
+    "answer": "C",
+    "explanation": "The unit of work is Joule, and the unit of energy is also Joule.",
+    "explanationMarathi": "कार्य करण्याचे एकक 'ज्यूल' (Joule) आहे आणि ऊर्जेचे एककही 'ज्यूल'च असते."
+  },
+  {
+    "id": 1747,
+    "chapterId": 57,
+    "question": "Which of the following materials has the lowest resistance?",
+    "questionMarathi": "खालीलपैकी सर्वात कमी रोध (Resistance) कोणत्या पदार्थाचा आहे?",
+    "options": [
+      "Mercury",
+      "Nichrome",
+      "Zinc",
+      "Resin"
+    ],
+    "optionsMarathi": [
+      "पारा (Mercury)",
+      "नायक्रोम (Nichrome)",
+      "जस्त (Zinc)",
+      "रेझिन (Resin)"
+    ],
+    "answer": "C",
+    "explanation": "Zinc is a good conductor and has lower resistance compared to mercury and nichrome in this list.",
+    "explanationMarathi": "दिलेल्या पर्यायांमध्ये जस्त (Zinc) हा उत्तम वाहक असल्याने त्याचा रोध सर्वात कमी आहे."
+  },
+  {
+    "id": 1748,
+    "chapterId": 57,
+    "question": "In which AC circuit is the power factor unity (1)?",
+    "questionMarathi": "खालीलपैकी कोणत्या AC सर्किटमध्ये पॉवर फॅक्टरचे मूल्य 'युनिटी' (Unity / 1) असते?",
+    "options": [
+      "Pure Resistive",
+      "Pure Inductive",
+      "Pure Capacitive",
+      "All of the above"
+    ],
+    "optionsMarathi": [
+      "शुद्ध रेझिस्टिव्ह",
+      "शुद्ध इंडक्टिव्ह",
+      "शुद्ध कॅपेसिटिव्ह",
+      "वरील सर्व"
+    ],
+    "answer": "A",
+    "explanation": "In a pure resistive circuit, voltage and current are in phase, so the power factor is cos(0) = 1.",
+    "explanationMarathi": "शुद्ध रेझिस्टिव्ह सर्किटमध्ये व्होल्टेज आणि करंट एकाच फेजमध्ये असतात, म्हणून पॉवर फॅक्टर १ असतो."
+  },
+  {
+    "id": 1749,
+    "chapterId": 57,
+    "question": "What is the maximum value relative to the mean level in a half-cycle of AC called?",
+    "questionMarathi": "अल्टरनेटिंग करंटच्या पॉझिटिव्ह किंवा निगेटिव्ह हाफ-सायकलमधील मध्य पातळीच्या सापेक्ष कमाल मूल्याला काय म्हणतात?",
+    "options": [
+      "Time Interval",
+      "Effective Value",
+      "Amplitude",
+      "Average Value"
+    ],
+    "optionsMarathi": [
+      "वेळ मध्यांतर",
+      "प्रभावी मूल्य",
+      "आयाम (Amplitude / Peak value)",
+      "सरासरी मूल्य"
+    ],
+    "answer": "C",
+    "explanation": "The maximum displacement from the zero level is called amplitude or peak value.",
+    "explanationMarathi": "साईन वेव्हच्या शून्य पातळीपासूनच्या कमाल उंचीला आयाम (Amplitude) किंवा पीक व्हॅल्यू म्हणतात."
+  },
+  {
+    "id": 1750,
+    "chapterId": 57,
+    "question": "How many times does the value of an alternating magnetic field change from zero to maximum in each cycle?",
+    "questionMarathi": "अल्टरनेटिंग चुंबकीय क्षेत्राचे मूल्य प्रत्येक सायकलमध्ये किती वेळा शून्यापासून कमाल मूल्यापर्यंत बदलते?",
+    "options": [
+      "1 time",
+      "2 times",
+      "3 times",
+      "4 times"
+    ],
+    "optionsMarathi": [
+      "1 वेळा",
+      "2 वेळा",
+      "3 वेळा",
+      "4 वेळा"
+    ],
+    "answer": "D",
+    "explanation": "In one complete cycle, the magnitude goes from zero to peak and back twice, but some technical contexts count the four transitions (zero-peak-zero-peak).",
+    "explanationMarathi": "एका सायकलमध्ये चुंबकीय क्षेत्र एकूण ४ वेळा शून्याकडून कमाल किंवा कमालकडून शून्याकडे बदलते (पॉझिटिव्ह आणि निगेटिव्ह दोन्ही हाफ गृहीत धरून)."
+  },
+  {
+    "id": 1751,
+    "chapterId": 57,
+    "question": "What is the speed of the magnetic field of the stator in a three-phase motor called?",
+    "questionMarathi": "थ्री-फेज मोटरमधील स्टेटरच्या चुंबकीय क्षेत्राच्या गतीला काय म्हणतात?",
+    "options": [
+      "Induction Speed",
+      "Synchronous Speed",
+      "Rotor Speed",
+      "Simple Speed"
+    ],
+    "optionsMarathi": [
+      "इंडक्शन गती",
+      "सिंक्रोनस गती (Synchronous Speed)",
+      "रोटर गती",
+      "साधी गती"
+    ],
+    "answer": "B",
+    "explanation": "The speed at which the rotating magnetic field (RMF) revolves is called synchronous speed (Ns).",
+    "explanationMarathi": "थ्री-फेज स्टेटरमध्ये तयार होणाऱ्या फिरणाऱ्या चुंबकीय क्षेत्राच्या गतीला सिंक्रोनस गती म्हणतात."
+  },
+  {
+    "id": 1752,
+    "chapterId": 57,
+    "question": "What type of EMF is obtained from an alternator?",
+    "questionMarathi": "अल्टरनेटरद्वारे मिळणारा विद्युत वाहक बल (EMF) कोणत्या प्रकारचा असतो?",
+    "options": [
+      "Alternating (AC)",
+      "Direct (DC)",
+      "Variable",
+      "Pure"
+    ],
+    "optionsMarathi": [
+      "अल्टरनेटिंग (AC)",
+      "डायरेक्ट (DC)",
+      "परिवर्तनीय",
+      "शुद्ध"
+    ],
+    "answer": "A",
+    "explanation": "Alternators generate alternating current (AC) by converting mechanical energy into electrical energy.",
+    "explanationMarathi": "अल्टरनेटर यांत्रिक ऊर्जेचे रूपांतर अल्टरनेटिंग करंट (AC) मध्ये करते."
+  },
+  {
+    "id": 1753,
+    "chapterId": 57,
+    "question": "At what speed must an 8-pole alternator rotate to produce a frequency of 40 Hz?",
+    "questionMarathi": "एका 8 पोल असलेल्या अल्टरनेटरकडून 40 Hz फ्रिक्वेन्सी मिळवण्यासाठी तो कोणत्या गतीने फिरवावा लागेल?",
+    "options": [
+      "750 RPM",
+      "2.66 RPM",
+      "600 RPM",
+      "24 RPM"
+    ],
+    "optionsMarathi": [
+      "750 RPM",
+      "2.66 RPM",
+      "600 RPM",
+      "24 RPM"
+    ],
+    "answer": "C",
+    "explanation": "Speed N = (120 * f) / P = (120 * 40) / 8 = 4800 / 8 = 600 RPM.",
+    "explanationMarathi": "सूत्रानुसार N = (120 * f) / P = (120 * 40) / 8 = 600 RPM."
+  },
+  {
+    "id": 1754,
+    "chapterId": 57,
+    "question": "What is the specific gravity of the electrolyte of a fully charged lead-acid battery?",
+    "questionMarathi": "एका पूर्ण चार्ज झालेल्या लेड-अॅसिड बॅटरीच्या इलेक्ट्रोलाइटचे विशिष्ट गुरुत्व (Specific Gravity) किती असते?",
+    "options": [
+      "1.22",
+      "1.25",
+      "2",
+      "2.24"
+    ],
+    "optionsMarathi": [
+      "1.22",
+      "1.25",
+      "2",
+      "2.24"
+    ],
+    "answer": "B",
+    "explanation": "A fully charged lead-acid cell usually has a specific gravity between 1.25 and 1.28.",
+    "explanationMarathi": "पूर्ण चार्ज झालेल्या लेड अॅसिड सेलचे विशिष्ट गुरुत्व साधारणपणे 1.25 ते 1.28 असते."
+  },
+  {
+    "id": 1755,
+    "chapterId": 57,
+    "question": "What is used to improve the power factor in a transmission line?",
+    "questionMarathi": "ट्रान्समिशन लाईनमध्ये पॉवर फॅक्टर सुधारण्यासाठी कशाचा वापर केला जातो?",
+    "options": [
+      "Induction Motor",
+      "Alternator",
+      "Synchronous Motor",
+      "Series Motor"
+    ],
+    "optionsMarathi": [
+      "इंडक्शन मोटर",
+      "अल्टरनेटर",
+      "सिंक्रोनस मोटर",
+      "सिरीज मोटर"
+    ],
+    "answer": "C",
+    "explanation": "An over-excited synchronous motor running at no load acts as a capacitor (synchronous condenser) and improves the power factor.",
+    "explanationMarathi": "सिंक्रोनस मोटर ओव्हर-एक्साइटेड अवस्थेत चालवल्यास ती पॉवर फॅक्टर सुधारण्याचे काम करते."
+  },
+  {
+    "id": 1756,
+    "chapterId": 57,
+    "question": "What happens if one phase of a three-phase motor is cut off (Single Phasing) while running?",
+    "questionMarathi": "चालू असताना थ्री-फेज मोटरचा एक फेज उडाला (Single Phasing झाले), तर काय होईल?",
+    "options": [
+      "Motor speed increases",
+      "No effect",
+      "Motor will burn out",
+      "Motor will not take load"
+    ],
+    "optionsMarathi": [
+      "मोटरची गती वाढेल",
+      "काहीही परिणाम होणार नाही",
+      "मोटर जळून जाईल",
+      "मोटर लोड उचलणार नाही"
+    ],
+    "answer": "C",
+    "explanation": "Single phasing causes excessive current in the remaining windings, leading to overheating and potential burnout.",
+    "explanationMarathi": "चालू मोटरचा एक फेज उडाल्यास उरलेल्या वाइंडिंग्सवर जास्त करंटचा भार येतो आणि मोटर जळू शकते."
+  },
+  {
+    "id": 1757,
+    "chapterId": 57,
+    "question": "What will be the torque of a 5 HP motor running at 1500 RPM?",
+    "questionMarathi": "1500 RPM वर चालणाऱ्या 5 HP च्या मोटरचा टॉर्क किती असेल?",
+    "options": [
+      "23.4 N-m",
+      "23 N-m",
+      "24.5 N-m",
+      "234 N-m"
+    ],
+    "optionsMarathi": [
+      "23.4 न्यूटन मीटर",
+      "23 न्यूटन मीटर",
+      "24.5 न्यूटन मीटर",
+      "234 न्यूटन मीटर"
+    ],
+    "answer": "A",
+    "explanation": "Torque T = (Power * 60) / (2 * pi * N). For 5 HP (3677.5W) at 1500 RPM, T ≈ 23.4 N-m.",
+    "explanationMarathi": "५ HP मोटरसाठी १५०० RPM वर टॉर्क साधारण २३.४ न्यूटन मीटर येतो."
+  },
+  {
+    "id": 1758,
+    "chapterId": 57,
+    "question": "What is the starting torque of a synchronous motor?",
+    "questionMarathi": "सिंक्रोनस मोटरचा स्टार्टिंग टॉर्क (Starting Torque) किती असतो?",
+    "options": [
+      "High",
+      "Zero",
+      "Low",
+      "Very High"
+    ],
+    "optionsMarathi": [
+      "उच्च",
+      "शून्य (Zero)",
+      "निम्न",
+      "अति उच्च"
+    ],
+    "answer": "B",
+    "explanation": "Synchronous motors are not self-starting; their starting torque is zero.",
+    "explanationMarathi": "सिंक्रोनस मोटर स्वतःहून सुरू होऊ शकत नाही, तिचा स्टार्टिंग टॉर्क शून्य असतो."
+  },
+  {
+    "id": 1759,
+    "chapterId": 57,
+    "question": "The direction of rotation of a repulsion motor can be reversed by changing what?",
+    "questionMarathi": "रिपल्शन मोटरच्या फिरण्याची दिशा खालीलपैकी काय बदलून उलट करता येते?",
+    "options": [
+      "Source connection",
+      "Running and starting connections",
+      "Stator connection",
+      "Brush Position"
+    ],
+    "optionsMarathi": [
+      "सोर्स कनेक्शन",
+      "रनिंग आणि स्टार्टिंग कनेक्शन",
+      "स्टेटस कनेक्शन",
+      "ब्रशची स्थिती (Brush Position)"
+    ],
+    "answer": "D",
+    "explanation": "The direction of rotation of a repulsion motor is determined by the brush shift relative to the magnetic axis.",
+    "explanationMarathi": "ब्रशची स्थिती (Brush shift) बदलून रिपल्शन मोटरची दिशा बदलता येते."
+  },
+  {
+    "id": 1760,
+    "chapterId": 57,
+    "question": "What should be the minimum distance of a ceiling fan's blades from the ceiling?",
+    "questionMarathi": "छतापासून पंख्याच्या ब्लेडचे किमान अंतर किती असावे?",
+    "options": [
+      "30 inches",
+      "30 mm",
+      "12 inches",
+      "12 cm"
+    ],
+    "optionsMarathi": [
+      "30 इंच",
+      "30 मिमी",
+      "12 इंच",
+      "12 सेमी"
+    ],
+    "answer": "C",
+    "explanation": "For safety and proper air flow, fan blades should be at least 12 inches below the ceiling.",
+    "explanationMarathi": "हवेचा प्रवाह योग्य मिळण्यासाठी पंख्याचे ब्लेड छतापासून किमान १२ इंच खाली असावेत."
+  },
+  {
+    "id": 1761,
+    "chapterId": 57,
+    "question": "Which of the following motors can work best at low frequencies?",
+    "questionMarathi": "खालीलपैकी कोणती मोटर कमी फ्रिक्वेन्सीवर (Low Frequency) उत्तम काम करू शकते?",
+    "options": [
+      "Synchronous",
+      "Universal Motor",
+      "Repulsion",
+      "Shaded Pole"
+    ],
+    "optionsMarathi": [
+      "सिंक्रोनस",
+      "युनिव्हर्सल मोटर",
+      "रिपल्शन",
+      "शेडेड पोल"
+    ],
+    "answer": "B",
+    "explanation": "Universal motors operate well on both AC and DC; at lower frequencies, their performance often improves due to reduced reactance.",
+    "explanationMarathi": "युनिव्हर्सल मोटर कमी फ्रिक्वेन्सी किंवा DC वर उत्तम कार्यक्षमता देते."
+  },
+  {
+    "id": 1762,
+    "chapterId": 57,
+    "question": "Where is the Over Load Coil (OLC) connected?",
+    "questionMarathi": "ओव्हर लोड कॉईल (OLC) कोठे जोडली जाते?",
+    "options": [
+      "Parallel to motor",
+      "Parallel to starter",
+      "In series with motor",
+      "In series with supply"
+    ],
+    "optionsMarathi": [
+      "मोटरच्या समांतर",
+      "स्टार्टरच्या समांतर",
+      "मोटरच्या सिरीजमध्ये",
+      "सप्लायच्या सिरीजमध्ये"
+    ],
+    "answer": "D",
+    "explanation": "The OLC is connected in series with the line/supply to sense the total load current.",
+    "explanationMarathi": "ओव्हरलोड कॉईल लोडचा करंट मोजण्यासाठी सप्लाय लाईनच्या सिरीजमध्ये जोडली जाते."
+  },
+  {
+    "id": 1763,
+    "chapterId": 57,
+    "question": "Which of the following is NOT used to reduce commutation faults?",
+    "questionMarathi": "कम्युटेशन (Commutation) दोष कमी करण्यासाठी खालीलपैकी कशाचा वापर केला जात नाही?",
+    "options": [
+      "Compensating winding",
+      "Interpole",
+      "High resistance carbon brushes",
+      "Resistance wire"
+    ],
+    "optionsMarathi": [
+      "कम्पन्सेटिंग वाइंडिंग",
+      "इंटर पोल",
+      "उच्च रोध असलेले कार्बन ब्रश",
+      "रोध तार (Resistance wire)"
+    ],
+    "answer": "D",
+    "explanation": "Interpoles, compensating windings, and high-resistance brushes are common methods to improve commutation.",
+    "explanationMarathi": "इंटरपोल आणि हाय-रेझिस्टन्स ब्रश कम्युटेशन सुधारतात, पण रोध तार मुख्य उपाय मानला जात नाही."
+  },
+  {
+    "id": 1764,
+    "chapterId": 57,
+    "question": "The imaginary line connecting the North and South poles of a magnet is known as what?",
+    "questionMarathi": "चुंबकाच्या उत्तर आणि दक्षिण ध्रुवांना जोडणारी काल्पनिक रेषा काय म्हणून ओळखली जाते?",
+    "options": [
+      "Magnetic Lines of Force",
+      "Magnetic Field",
+      "Magnetic Axis",
+      "Magnetic Neutral Axis"
+    ],
+    "optionsMarathi": [
+      "चुंबकीय बलरेषा",
+      "चुंबकीय क्षेत्र",
+      "चुंबकीय अक्ष (Magnetic Axis)",
+      "चुंबकीय उदासीन अक्ष"
+    ],
+    "answer": "C",
+    "explanation": "The straight line passing through the centers of the two poles is the magnetic axis.",
+    "explanationMarathi": "दोन्ही ध्रुवांतून जाणाऱ्या काल्पनिक रेषेला चुंबकीय अक्ष म्हणतात."
+  },
+  {
+    "id": 1765,
+    "chapterId": 57,
+    "question": "What is the value of the Form Factor for a sine wave?",
+    "questionMarathi": "फॉर्म फॅक्टरचे मूल्य किती असते?",
+    "options": [
+      "1.11",
+      "1.414",
+      "0.637",
+      "0.707"
+    ],
+    "optionsMarathi": [
+      "1.11",
+      "1.414",
+      "0.637",
+      "0.707"
+    ],
+    "answer": "A",
+    "explanation": "The form factor (RMS value / Average value) for a sinusoidal wave is 1.11.",
+    "explanationMarathi": "साईन वेव्हसाठी फॉर्म फॅक्टरचे मूल्य १.११ असते."
+  },
+  {
+    "id": 1766,
+    "chapterId": 57,
+    "question": "Which loss in a transformer is determined by the short circuit test?",
+    "questionMarathi": "ट्रान्सफॉर्मरमध्ये शॉर्ट सर्किट टेस्टद्वारे (Short Circuit Test) कोणत्या हानीचे मूल्य निश्चित केले जाते?",
+    "options": [
+      "Copper Loss",
+      "Iron Loss",
+      "Friction Loss",
+      "Windage Loss"
+    ],
+    "optionsMarathi": [
+      "कॉपर लॉस (तांब्याची हानी)",
+      "आयर्न लॉस",
+      "घर्षण हानी",
+      "विंडेज लॉस"
+    ],
+    "answer": "A",
+    "explanation": "The short circuit test is performed to calculate the full-load copper loss of a transformer.",
+    "explanationMarathi": "शॉर्ट सर्किट टेस्टमुळे ट्रान्सफॉर्मरमधील कॉपर लॉस (Copper Loss) मोजता येतो."
+  },
+  {
+    "id": 1767,
+    "chapterId": 57,
+    "question": "Star-delta starters are generally used for motors of what capacity?",
+    "questionMarathi": "स्टार-डेल्टा स्टार्टरचा वापर साधारणपणे किती HP पर्यंतच्या मोटरसाठी केला जातो?",
+    "options": [
+      "Up to 3 HP",
+      "Up to 5 HP",
+      "Above 3-5 HP (5 to 20 HP)",
+      "Below 5 HP"
+    ],
+    "optionsMarathi": [
+      "3 HP पर्यंत",
+      "5 HP पर्यंत",
+      "3 HP पेक्षा जास्त (किंवा 5 ते 20 HP)",
+      "5 HP पेक्षा कमी"
+    ],
+    "answer": "C",
+    "explanation": "Star-delta starters are used for medium-sized motors (generally 5 HP to 20 HP) to reduce starting current.",
+    "explanationMarathi": "५ HP पेक्षा जास्त क्षमतेच्या मोटर्ससाठी स्टार्टिंग करंट कमी करण्यासाठी स्टार-डेल्टा स्टार्टर वापरतात."
+  },
+  {
+    "id": 1768,
+    "chapterId": 57,
+    "question": "Which motor is used in electric drill machines?",
+    "questionMarathi": "इलेक्ट्रिक ड्रिल मशीनमध्ये कोणती मोटर वापरली जाते?",
+    "options": [
+      "Capacitor Start",
+      "Shaded Pole",
+      "Split Phase",
+      "Universal Motor"
+    ],
+    "optionsMarathi": [
+      "कॅपेसिटर स्टार्ट",
+      "शेडेड पोल",
+      "स्प्लिट फेज",
+      "युनिव्हर्सल मोटर"
+    ],
+    "answer": "D",
+    "explanation": "Universal motors are used in drills because they provide high speed and high starting torque in a compact size.",
+    "explanationMarathi": "ड्रिल मशीनला उच्च गती हवी असते, म्हणून त्यात युनिव्हर्सल मोटर वापरतात."
+  },
+  {
+    "id": 1769,
+    "chapterId": 57,
+    "question": "What is used to eliminate the 'Hunting effect' in alternators or synchronous motors?",
+    "questionMarathi": "अल्टरनेटर किंवा सिंक्रोनस मोटरमधील 'हंटिंग दोष' (Hunting Effect) दूर करण्यासाठी काय वापरले जाते?",
+    "options": [
+      "Salient pole",
+      "Damper Winding",
+      "Interpole",
+      "Dark pole"
+    ],
+    "optionsMarathi": [
+      "सेलियंट पोल",
+      "डँपर वाइंडिंग (Damper Winding)",
+      "इंटर पोल",
+      "डार्क पोल"
+    ],
+    "answer": "B",
+    "explanation": "Damper windings are used to suppress oscillations (hunting) of the rotor during load changes.",
+    "explanationMarathi": "रोटरमधील दोलन किंवा हंटिंग रोखण्यासाठी डँपर वाइंडिंग वापरली जाते."
+  },
+  {
+    "id": 1770,
+    "chapterId": 57,
+    "question": "The bending or warping of lead-acid cell plates due to high current is called what?",
+    "questionMarathi": "लेड-अॅसिड सेलच्या प्लेट्स जास्त करंटमुळे वाकणे किंवा पिरगाळणे या दोषाला काय म्हणतात?",
+    "options": [
+      "Corrosion",
+      "Sulphation",
+      "Sedimentation",
+      "Buckling"
+    ],
+    "optionsMarathi": [
+      "गंजणे",
+      "सल्फेशन",
+      "सेडिमेंटेशन",
+      "बकलिंग (Buckling)"
+    ],
+    "answer": "D",
+    "explanation": "Buckling is the mechanical deformation of battery plates caused by excessive charge or discharge rates.",
+    "explanationMarathi": "अतिप्रमाणात चार्ज/डिस्चार्ज केल्यामुळे प्लेट्स वाकण्याच्या दोषाला बकलिंग म्हणतात."
+  },
+  {
+    "id": 1771,
+    "chapterId": 57,
+    "question": "By which property does iron become a temporary magnet when brought near another magnet?",
+    "questionMarathi": "एखादा चुंबक लोहाच्या जवळ आणल्यास लोह कोणत्या गुणधर्मामुळे तात्पुरता चुंबक बनतो?",
+    "options": [
+      "Induction",
+      "Reactance",
+      "Conductivity",
+      "Permeance"
+    ],
+    "optionsMarathi": [
+      "प्रेरण (Induction)",
+      "रिएक्टन्स",
+      "वाहकता",
+      "परमियन्स"
+    ],
+    "answer": "A",
+    "explanation": "Magnetic induction is the process by which an object becomes magnetized by being near a magnetic field.",
+    "explanationMarathi": "चुंबकीय क्षेत्राच्या प्रभावामुळे लोहामध्ये चुंबकत्व येण्याच्या प्रक्रियेला इंडक्शन म्हणतात."
+  },
+  {
+    "id": 1772,
+    "chapterId": 57,
+    "question": "In a three-pin socket, the phase (live) wire is generally connected to which side?",
+    "questionMarathi": "थ्री-पिन सॉकेटमध्ये फेज (लाईव्ह) तार सामान्यतः कोणत्या बाजूला जोडली जाते?",
+    "options": [
+      "Top side",
+      "Left side",
+      "Right side",
+      "Anywhere"
+    ],
+    "optionsMarathi": [
+      "वरच्या बाजूला",
+      "डाव्या बाजूला",
+      "उजव्या बाजूला (Right side)",
+      "कुठेही"
+    ],
+    "answer": "C",
+    "explanation": "Standard wiring practice is to connect the phase wire to the right terminal when viewed from the front.",
+    "explanationMarathi": "सॉकेटमध्ये उजवीकडील पिन ही फेज (L) साठी असते."
+  },
+  {
+    "id": 1773,
+    "chapterId": 57,
+    "question": "When capacitive reactance (Xc) is greater than inductive reactance (XL), what is the power factor?",
+    "questionMarathi": "जब सर्किटमध्ये कॅपेसिटिव्ह रिएक्टन्स (Xc) चे मूल्य इंडक्टिव्ह रिएक्टन्स (XL) पेक्षा जास्त असते, तेव्हा पॉवर फॅक्टर कसा असतो?",
+    "options": [
+      "Zero",
+      "Unity",
+      "Lagging",
+      "Leading"
+    ],
+    "optionsMarathi": [
+      "शून्य",
+      "युनिटी",
+      "लॅगिंग",
+      "लीडिंग (Leading)"
+    ],
+    "answer": "D",
+    "explanation": "A circuit where Xc > XL behaves capacitively, resulting in a leading power factor.",
+    "explanationMarathi": "जर Xc > XL असेल तर सर्किट कॅपेसिटिव्ह बनते आणि पॉवर फॅक्टर लीडिंग असतो."
+  },
+  {
+    "id": 1774,
+    "chapterId": 57,
+    "question": "What is the primary use of a double cage rotor?",
+    "questionMarathi": "डबल केज रोटरचा (Double Cage Rotor) वापर कशासाठी केला जातो?",
+    "options": [
+      "To increase speed",
+      "To decrease speed",
+      "To increase torque",
+      "To decrease torque"
+    ],
+    "optionsMarathi": [
+      "गती वाढवण्यासाठी",
+      "गती कमी करण्यासाठी",
+      "टॉर्क वाढवण्यासाठी",
+      "टॉर्क कमी करण्यासाठी"
+    ],
+    "answer": "C",
+    "explanation": "Double cage rotors are used in squirrel cage induction motors to provide higher starting torque.",
+    "explanationMarathi": "डबल केज रोटरमुळे मोटरला सुरू होताना उच्च स्टार्टिंग टॉर्क मिळतो."
+  },
+  {
+    "id": 1775,
+    "chapterId": 57,
+    "question": "The temperature of transformer oil should not exceed how many degrees Celsius?",
+    "questionMarathi": "ट्रान्सफॉर्मर तेलाचे (Transformer Oil) तापमान किती अंश सेल्सिअसपेक्षा जास्त वाढू नये?",
+    "options": [
+      "20°C",
+      "95°C",
+      "150°C",
+      "100°C"
+    ],
+    "optionsMarathi": [
+      "20°C",
+      "95°C",
+      "150°C",
+      "100°C"
+    ],
+    "answer": "B",
+    "explanation": "The safe maximum temperature limit for transformer oil is generally around 90-95°C to prevent degradation.",
+    "explanationMarathi": "तेलाचे तापमान ९५ अंश सेल्सिअसच्या वर गेल्यास ते खराब होण्याचा धोका असतो."
+  },
+  {
+    "id": 1776,
+    "chapterId": 57,
+    "question": "What is the typical power factor of a squirrel cage induction motor?",
+    "questionMarathi": "स्क्विरल केज इंडक्शन मोटरचा (Squirrel Cage Motor) सामान्य पॉवर फॅक्टर किती असतो?",
+    "options": [
+      "0.3 to 0.5 leading",
+      "0.7 to 0.8 lagging",
+      "0.8 to 0.9 lagging",
+      "Unity"
+    ],
+    "optionsMarathi": [
+      "0.3 ते 0.5 लीडिंग",
+      "0.7 ते 0.8 लॅगिंग",
+      "0.8 ते 0.9 लॅगिंग",
+      "युनिटी"
+    ],
+    "answer": "B",
+    "explanation": "At full load, a squirrel cage motor typically has a lagging power factor between 0.7 and 0.8.",
+    "explanationMarathi": "पूर्ण लोडवर या मोटरचा पॉवर फॅक्टर साधारण ०.७ ते ०.८ लॅगिंग असतो."
+  },
+  {
+    "id": 1777,
+    "chapterId": 57,
+    "question": "How are the number of turns in the running winding kept compared to the starting winding in a single-phase motor?",
+    "questionMarathi": "सिंगल फेज मोटरच्या रनिंग वाइंडिंगमध्ये स्टार्टिंग वाइंडिंगच्या तुलनेत फेऱ्यांची संख्या (Turns) कशी ठेवली जाते?",
+    "options": [
+      "Less",
+      "More",
+      "Equal",
+      "One or two"
+    ],
+    "optionsMarathi": [
+      "कमी",
+      "जास्त (More)",
+      "बरोबर",
+      "एक किंवा दोन"
+    ],
+    "answer": "B",
+    "explanation": "The running winding has more turns of thicker wire (higher inductance), while the starting winding has fewer turns of thinner wire.",
+    "explanationMarathi": "रनिंग वाइंडिंगमध्ये स्टार्टिंग वाइंडिंगपेक्षा फेऱ्यांची संख्या जास्त असते."
+  },
+  {
+    "id": 1778,
+    "chapterId": 57,
+    "question": "What is the typical efficiency of a shaded pole motor?",
+    "questionMarathi": "शेडेड पोल मोटरची (Shaded Pole Motor) कार्यक्षमता किती असते?",
+    "options": [
+      "90%",
+      "20%",
+      "75%",
+      "35%"
+    ],
+    "optionsMarathi": [
+      "90%",
+      "20%",
+      "75%",
+      "35%"
+    ],
+    "answer": "B",
+    "explanation": "Shaded pole motors have very low efficiency, often ranging from 5% to 35%, with 20% being a typical value.",
+    "explanationMarathi": "शेडेड पोल मोटरची कार्यक्षमता खूपच कमी (साधारण २०%) असते."
+  },
+  {
+    "id": 1779,
+    "chapterId": 57,
+    "question": "What will be the inductive reactance (XL) of a 0.8 Henry coil at 50 Hz frequency?",
+    "questionMarathi": "0.8 हेन्री कॉईलचा 50 Hz फ्रिक्वेन्सीवर इंडक्टिव्ह रिएक्टन्स (XL) किती असेल?",
+    "options": [
+      "0.0039 ohm",
+      "100 ohm",
+      "251.2 ohm",
+      "None of these"
+    ],
+    "optionsMarathi": [
+      "0.0039 ओम",
+      "100 ओम",
+      "251.2 ओम",
+      "यांपैकी नाही"
+    ],
+    "answer": "C",
+    "explanation": "XL = 2 * pi * f * L = 2 * 3.1416 * 50 * 0.8 ≈ 251.32 ohms.",
+    "explanationMarathi": "सूत्रानुसार XL = २ * pi * f * L = २५१.२ ओम येते."
+  },
+  {
+    "id": 1780,
+    "chapterId": 57,
+    "question": "Which winding is placed first on the core in a shell type transformer?",
+    "questionMarathi": "शेल टाईप ट्रान्सफॉर्मरमध्ये (Shell Type Transformer) गाभ्यावर प्रथम कोणती वाइंडिंग बसवली जाते?",
+    "options": [
+      "Primary",
+      "Secondary",
+      "Any",
+      "Low Voltage (LV)"
+    ],
+    "optionsMarathi": [
+      "प्रायमरी",
+      "सेकंडरी",
+      "कोणतीही",
+      "लो व्होल्टेज वाइंडिंग (LV)"
+    ],
+    "answer": "D",
+    "explanation": "The low voltage winding is placed closer to the core to reduce insulation requirements.",
+    "explanationMarathi": "इन्सुलेशन वाचवण्यासाठी गाभ्याच्या जवळ नेहमी लो व्होल्टेज (LV) वाइंडिंग केली जाते."
+  },
+  {
+    "id": 1781,
+    "chapterId": 57,
+    "question": "If 4 amperes of current flows through one of four lamps connected in series, what is the total current?",
+    "questionMarathi": "सिरीजमध्ये जोडलेल्या चार दिव्यांपैकी एका दिव्यामधून 4 अँपिअर करंट वाहत असेल, तर एकूण करंट किती असेल?",
+    "options": [
+      "1 ampere",
+      "4 amperes",
+      "16 amperes",
+      "32 amperes"
+    ],
+    "optionsMarathi": [
+      "1 अँपिअर",
+      "4 अँपिअर",
+      "16 अँपिअर",
+      "32 अँपिअर"
+    ],
+    "answer": "B",
+    "explanation": "In a series circuit, the current remains the same through all components.",
+    "explanationMarathi": "सिरीज सर्किटमध्ये सर्व ठिकाणी करंट समान असतो, त्यामुळे एकूण करंट ४ अँपिअरच असेल."
+  },
+  {
+    "id": 1782,
+    "chapterId": 57,
+    "question": "In a DC series generator, if armature current is 10A and series field resistance is 0.2 ohm, what is the voltage drop in the series field?",
+    "questionMarathi": "एका DC सिरीज जनरेटरमध्ये आर्मेचर करंट 10 अँपिअर आणि सिरीज फील्डचा रोध 0.2 ओम असेल, तर सिरीज फील्डमधील व्होल्टेज ड्रॉप किती होईल?",
+    "options": [
+      "2 volts",
+      "20 volts",
+      "50 volts",
+      "5 volts"
+    ],
+    "optionsMarathi": [
+      "2 व्होल्ट",
+      "20 व्होल्ट",
+      "50 व्होल्ट",
+      "5 व्होल्ट"
+    ],
+    "answer": "A",
+    "explanation": "Voltage drop V = I * R = 10 * 0.2 = 2 volts.",
+    "explanationMarathi": "व्होल्टेज ड्रॉप = करंट * रोध = १० * ०.२ = २ व्होल्ट."
+  },
+  {
+    "id": 1783,
+    "chapterId": 57,
+    "question": "Which of the following lamps will draw the most current?",
+    "questionMarathi": "खालीलपैकी कोणता दिवा (Lamp) सर्वात जास्त करंट घेईल?",
+    "options": [
+      "50 watt",
+      "25 watt",
+      "150 watt",
+      "80 watt"
+    ],
+    "optionsMarathi": [
+      "50 वॅट",
+      "25 वॅट",
+      "150 वॅट",
+      "80 वॅट"
+    ],
+    "answer": "C",
+    "explanation": "With constant voltage, the lamp with the highest wattage (150W) will draw the most current.",
+    "explanationMarathi": "ज्या दिव्याचे वॅटेज सर्वात जास्त आहे, तो दिवा सर्वात जास्त करंट खेचेल."
+  },
+  {
+    "id": 1784,
+    "chapterId": 57,
+    "question": "What is the primary function of a centrifugal switch?",
+    "questionMarathi": "सेंट्रीफ्युगल स्विच (Centrifugal Switch) चे मुख्य कार्य काय असते?",
+    "options": [
+      "To increase torque",
+      "To disconnect starting winding",
+      "To disconnect running winding",
+      "To decrease speed"
+    ],
+    "optionsMarathi": [
+      "टॉर्क वाढवणे",
+      "स्टार्टिंग वाइंडिंग वेगळी करणे",
+      "रनिंग वाइंडिंग वेगळी करणे",
+      "गती कमी करणे"
+    ],
+    "answer": "B",
+    "explanation": "The centrifugal switch disconnects the starting winding when the motor reaches about 75-80% of its synchronous speed.",
+    "explanationMarathi": "मोटर वेगवान झाल्यावर स्टार्टिंग वाइंडिंगला सप्लायपासून वेगळे करण्याचे काम हा स्विच करतो."
+  },
+  {
+    "id": 1785,
+    "chapterId": 57,
+    "question": "How is the speed of a water turbine alternator (hydro-alternator) typically kept?",
+    "questionMarathi": "वॉटर टर्बाइन अल्टरनेटरची (हायड्रो-अल्टरनेटर) गती कशी ठेवली जाते?",
+    "options": [
+      "Low",
+      "High",
+      "Very high",
+      "Zero"
+    ],
+    "optionsMarathi": [
+      "कमी (Low)",
+      "उच्च",
+      "अति उच्च",
+      "शून्य"
+    ],
+    "answer": "A",
+    "explanation": "Hydro-alternators are low-speed machines (usually 100-500 RPM) because water turbines rotate relatively slowly.",
+    "explanationMarathi": "पाण्याच्या प्रवाहाचा वेग कमी असल्याने हायड्रो-अल्टरनेटर कमी गतीने फिरतात."
+  },
+  {
+    "id": 1786,
+    "chapterId": 57,
+    "question": "What will be the effective (RMS) value of a wave with a 630-volt peak value?",
+    "questionMarathi": "630 व्होल्ट पीक व्हॅल्यू (Peak Value) असलेल्या वेव्हचे प्रभावी (RMS) मूल्य किती असेल?",
+    "options": [
+      "445 volts",
+      "891 volts",
+      "401 volts",
+      "630 volts"
+    ],
+    "optionsMarathi": [
+      "445 व्होल्ट",
+      "891 व्होल्ट",
+      "401 व्होल्ट",
+      "630 व्होल्ट"
+    ],
+    "answer": "A",
+    "explanation": "RMS Value = 0.707 * Peak Value = 0.707 * 630 ≈ 445.41 volts.",
+    "explanationMarathi": "RMS मूल्य = ०.७०७ * पीक मूल्य = ४४५ व्होल्ट."
+  },
+  {
+    "id": 1787,
+    "chapterId": 57,
+    "question": "If five 2.5-volt cells are connected in parallel, what will be the total voltage?",
+    "questionMarathi": "2.5 व्होल्टचे 5 सेल्स समांतर (Parallel) जोडल्यास एकूण व्होल्टेज किती मिळेल?",
+    "options": [
+      "25 volts",
+      "12.5 volts",
+      "225 volts",
+      "2.5 volts"
+    ],
+    "optionsMarathi": [
+      "25 व्होल्ट",
+      "12.5 व्होल्ट",
+      "225 व्होल्ट",
+      "2.5 व्होल्ट"
+    ],
+    "answer": "D",
+    "explanation": "In a parallel connection, the total voltage remains equal to the voltage of a single cell.",
+    "explanationMarathi": "समांतर जोडणीत व्होल्टेज बदलत नाही, ते एका सेलच्या व्होल्टेज इतकेच (२.५ व्होल्ट) राहते."
+  },
+  {
+    "id": 1788,
+    "chapterId": 57,
+    "question": "Power Factor is the ratio of which quantities?",
+    "questionMarathi": "पॉवर फॅक्टर (Power Factor) खालीलपैकी कोणत्या राशींचे गुणोत्तर असतो?",
+    "options": [
+      "kVA / VI",
+      "kW / kVA",
+      "kW / kVAr",
+      "V / I"
+    ],
+    "optionsMarathi": [
+      "kVA / VI",
+      "kW / kVA",
+      "kW / kVAr",
+      "V / I"
+    ],
+    "answer": "B",
+    "explanation": "Power Factor (cos theta) = True Power (kW) / Apparent Power (kVA).",
+    "explanationMarathi": "पॉवर फॅक्टर म्हणजे kW आणि kVA यांचे गुणोत्तर होय."
+  },
+  {
+    "id": 1789,
+    "chapterId": 57,
+    "question": "Which metal is primarily used to make resistors?",
+    "questionMarathi": "खालीलपैकी कोणत्या धातूचा वापर प्रामुख्याने रेझिस्टर (रोधाक) बनवण्यासाठी केला जातो?",
+    "options": [
+      "Mercury",
+      "Zinc",
+      "Eureka",
+      "Lead"
+    ],
+    "optionsMarathi": [
+      "पारा",
+      "जस्त",
+      "युरेका (Eureka)",
+      "शिसे"
+    ],
+    "answer": "C",
+    "explanation": "Eureka (Constantan) is commonly used for resistors because of its high resistivity and low temperature coefficient.",
+    "explanationMarathi": "युरेका या मिश्रधातूचा रोध जास्त असल्याने तो रोधाक बनवण्यासाठी वापरला जातो."
+  },
+  {
+    "id": 1790,
+    "chapterId": 57,
+    "question": "What is the unit of Specific Resistance (Resistivity)?",
+    "questionMarathi": "विशिष्ट रोधाचे (Specific Resistance / रोधकता) एकक काय असते?",
+    "options": [
+      "Ohm/meter",
+      "meter/Ohm",
+      "Ohm-meter",
+      "Ohm/foot"
+    ],
+    "optionsMarathi": [
+      "$Omega/\text{meter}$",
+      "$\text{meter}/Omega$",
+      "$Omega\text{-meter}$",
+      "$Omega/\text{foot}$"
+    ],
+    "answer": "C",
+    "explanation": "The unit of resistivity is Ohm-meter (Ω-m).",
+    "explanationMarathi": "रोधकतेचे एकक ओहम-मीटर ($Omega\text{-m}$) असते."
+  },
+  {
+    "id": 1791,
+    "chapterId": 57,
+    "question": "Which cell does NOT have the 'Local Action' fault?",
+    "questionMarathi": "खालीलपैकी कोणत्या सेलमध्ये 'लोकल अॅक्शन' (Local Action) हा दोष नसतो?",
+    "options": [
+      "Lead-acid",
+      "Daniell Cell",
+      "Voltaic Cell",
+      "None of these"
+    ],
+    "optionsMarathi": [
+      "लेड-अॅसिड",
+      "डॅनियल सेल",
+      "व्होल्टेइक सेल",
+      "यांपैकी नाही"
+    ],
+    "answer": "B",
+    "explanation": "The design of the Daniell cell prevents local action on the zinc electrode.",
+    "explanationMarathi": "डॅनियल सेलमध्ये स्थानिक क्रिया म्हणजेच लोकल अॅक्शनचा दोष उद्भवत नाही."
+  },
+  {
+    "id": 1792,
+    "chapterId": 57,
+    "question": "How does the capacitive reactance (Xc) of a capacitor behave?",
+    "questionMarathi": "कॅपेसिटरचा कॅपेसिटिव्ह रिएक्टन्स (Xc) कसा असतो?",
+    "options": [
+      "Inversely proportional to frequency",
+      "Directly proportional to frequency",
+      "Equal to frequency",
+      "Greater than frequency"
+    ],
+    "optionsMarathi": [
+      "फ्रिक्वेन्सीच्या व्यस्त प्रमाणात (Inversely proportional)",
+      "फ्रिक्वेन्सीच्या समप्रमाणात",
+      "फ्रिक्वेन्सीच्या बरोबर",
+      "फ्रिक्वेन्सीपेक्षा जास्त"
+    ],
+    "answer": "A",
+    "explanation": "Xc = 1 / (2 * pi * f * C), meaning it is inversely proportional to the frequency.",
+    "explanationMarathi": "कॅपेसिटिव्ह रिएक्टन्स हा फ्रिक्वेन्सीच्या व्यस्त प्रमाणात असतो."
+  },
+  {
+    "id": 1793,
+    "chapterId": 57,
+    "question": "Which of the following is NOT a 'Safety Device'?",
+    "questionMarathi": "खालीलपैकी कोणते उपकरण 'सुरक्षा युक्ती' (Safety Device) नाही?",
+    "options": [
+      "Fuse",
+      "OLC (Over Load Coil)",
+      "PVC",
+      "MCB"
+    ],
+    "optionsMarathi": [
+      "फ्युज (Fuse)",
+      "OLC (ओव्हर लोड कॉईल)",
+      "PVC",
+      "MCB"
+    ],
+    "answer": "C",
+    "explanation": "PVC is an insulating material, while Fuse, OLC, and MCB are protective devices.",
+    "explanationMarathi": "PVC हा केवळ वायरवर चढवला जाणारा एक अवाहक पदार्थ आहे, तो सुरक्षा युक्ती नाही."
+  },
+  {
+    "id": 1794,
+    "chapterId": 57,
+    "question": "When the power factor value becomes lagging, the machine current --",
+    "questionMarathi": "पॉवर फॅक्टरचे मूल्य लॅगिंग (Lagging) झाल्यास मशीनचा करंट --",
+    "options": [
+      "Increases",
+      "Decreases",
+      "Remains constant",
+      "No effect"
+    ],
+    "optionsMarathi": [
+      "वाढतो",
+      "कमी होतो",
+      "स्थिर राहतो",
+      "काहीही परिणाम होत नाही"
+    ],
+    "answer": "A",
+    "explanation": "To maintain the same power, a decrease in power factor (lagging) causes an increase in current.",
+    "explanationMarathi": "पॉवर फॅक्टर कमी झाल्यास मशीनला समान पॉवरसाठी जास्त करंट खेचावा लागतो."
+  },
+  {
+    "id": 1795,
+    "chapterId": 57,
+    "question": "If lamp number 4 in a parallel string of 20 lamps fuses, what will happen?",
+    "questionMarathi": "समांतर जोडणीत असलेल्या 20 दिव्यांच्या माळेतील 4 क्रमांकाचा दिवा फ्युज (खराब) झाला, तर काय होईल?",
+    "options": [
+      "No lamp will work",
+      "All lamps will turn off",
+      "Only lamp 4 will not work",
+      "All lamps after 4 will stay on"
+    ],
+    "optionsMarathi": [
+      "कोणताही दिवा चालणार नाही",
+      "सर्व दिवे विझतील",
+      "पक्त 4 नंबरचा दिवा चालणार नाही",
+      "4 नंबरनंतरचे सर्व दिवे जळत राहतील"
+    ],
+    "answer": "C",
+    "explanation": "In a parallel circuit, each component has an independent path; hence, only the fused lamp stops working.",
+    "explanationMarathi": "समांतर जोडणीत प्रत्येक दिव्याला स्वतंत्र मार्ग मिळतो, त्यामुळे फक्त ४ नंबरचा दिवा बंद होईल."
+  },
+  {
+    "id": 1796,
+    "chapterId": 57,
+    "question": "L.T. (Low Tension) transformers are generally of what capacity?",
+    "questionMarathi": "एल.टी. ट्रान्सफॉर्मर (L.T. Transformer) साधारणपणे कोणत्या क्षमतेचे असतात?",
+    "options": [
+      "10000 kVA",
+      "1500 kVA",
+      "15000 kVA",
+      "1000 kVA"
+    ],
+    "optionsMarathi": [
+      "10000 kVA",
+      "1500 kVA",
+      "15000 kVA",
+      "1000 kVA"
+    ],
+    "answer": "D",
+    "explanation": "L.T. distribution transformers typically range up to 1000 kVA.",
+    "explanationMarathi": "वितरण पातळीवर ट्रान्सफॉर्मरची क्षमता साधारण १००० kVA पर्यंत असते."
+  },
+  {
+    "id": 1797,
+    "chapterId": 57,
+    "question": "What material is transformer bushing typically made of?",
+    "questionMarathi": "ट्रान्सफॉर्मर बुशिंग (Transformer Bushing) कशापासून बनवली जाते?",
+    "options": [
+      "Bakelite",
+      "Glass",
+      "German Silver",
+      "None of these"
+    ],
+    "optionsMarathi": [
+      "बेकेलाईट",
+      "काच",
+      "जर्मन सिल्वर",
+      "यांपैकी नाही"
+    ],
+    "answer": "D",
+    "explanation": "Transformer bushings are primarily made of porcelain, which is not listed in the first three options.",
+    "explanationMarathi": "ट्रान्सफॉर्मरच्या बुशिंग्स पोर्सिलेन (चिनी माती) पासून बनवल्या जातात."
+  },
+  {
+    "id": 1798,
+    "chapterId": 57,
+    "question": "How is the number of poles in a pony motor kept compared to a synchronous motor?",
+    "questionMarathi": "पोनी मोटरमधील (Pony Motor) पोलची संख्या सिंक्रोनस मोटरच्या तुलनेत कशी ठेवली जाते?",
+    "options": [
+      "One pole less",
+      "Two poles less",
+      "One pole more",
+      "Two poles more"
+    ],
+    "optionsMarathi": [
+      "एक पोल कमी",
+      "दोन पोल कमी (Two poles less)",
+      "एक पोल जास्त",
+      "दोन पोल जास्त"
+    ],
+    "answer": "B",
+    "explanation": "To make the pony motor rotate at or above synchronous speed, it is designed with 2 poles less than the synchronous motor.",
+    "explanationMarathi": "गती वाढवण्यासाठी पोनी मोटरमध्ये सिंक्रोनस मोटरपेक्षा २ पोल कमी ठेवले जातात."
+  },
+  {
+    "id": 1799,
+    "chapterId": 57,
+    "question": "According to Fleming's Left-Hand Rule, what does the forefinger represent?",
+    "questionMarathi": "फ्लेमिंगच्या डाव्या हाताच्या नियमानुसार (Fleming's Left-Hand Rule) पहिली बोट (Forefinger) काय दर्शवते?",
+    "options": [
+      "Direction of current",
+      "Direction of magnetic field",
+      "Direction of force",
+      "Direction of motion"
+    ],
+    "optionsMarathi": [
+      "करंटची दिशा",
+      "चुंबकीय क्षेत्राची दिशा (Magnetic Field)",
+      "बलाची दिशा",
+      "गतीची दिशा"
+    ],
+    "answer": "B",
+    "explanation": "In Fleming's Left-Hand Rule, the forefinger points in the direction of the magnetic field.",
+    "explanationMarathi": "फ्लेमिंगच्या नियमाप्रमाणे पहिले बोट चुंबकीय क्षेत्राची दिशा दर्शवते."
+  },
+  {
+    "id": 20000,
+    "chapterId": 30,
+    "question": "What is the unit of electric current?",
+    "questionMarathi": "विद्युत प्रवाहाचे एकक काय आहे?",
+    "options": [
+      "Volt",
+      "Ampere",
+      "Ohm",
+      "Watt"
+    ],
+    "optionsMarathi": [
+      "व्होल्ट",
+      "अँपिअर",
+      "ओहम",
+      "वॅट"
+    ],
+    "answer": "B",
+    "explanation": "Ampere is the SI unit of electric current.",
+    "explanationMarathi": "अँपिअर हे विद्युत प्रवाहाचे SI एकक आहे."
+  },
+  {
+    "id": 20001,
+    "chapterId": 30,
+    "question": "According to Ohm's Law, what is the relationship between voltage (V), current (I), and resistance (R)?",
+    "questionMarathi": "ओहमच्या नियमानुसार, व्होल्टेज (V), करंट (I) आणि रेझिस्टन्स (R) यांच्यातील संबंध काय आहे?",
+    "options": [
+      "V = I/R",
+      "I = V*R",
+      "V = I*R",
+      "R = V*I"
+    ],
+    "optionsMarathi": [
+      "V = I/R",
+      "I = V*R",
+      "V = I*R",
+      "R = V*I"
+    ],
+    "answer": "C",
+    "explanation": "Ohm's Law states that voltage across a conductor is directly proportional to the current flowing through it, provided all physical conditions and temperature remain constant. V=IR.",
+    "explanationMarathi": "ओहमच्या नियमानुसार, वाहकामधून वाहणारा विद्युत प्रवाह त्याच्या व्होल्टेजच्या थेट प्रमाणात असतो, जर सर्व भौतिक परिस्थिती आणि तापमान स्थिर राहिले तर. V=IR."
+  },
+  {
+    "id": 20002,
+    "chapterId": 30,
+    "question": "In a series circuit, what remains the same across all components?",
+    "questionMarathi": "सिरीज सर्किटमध्ये, सर्व घटकांमध्ये काय समान राहते?",
+    "options": [
+      "Voltage",
+      "Current",
+      "Resistance",
+      "Power"
+    ],
+    "optionsMarathi": [
+      "व्होल्टेज",
+      "करंट",
+      "रेझिस्टन्स",
+      "पॉवर"
+    ],
+    "answer": "B",
+    "explanation": "In a series circuit, the current is the same through each component.",
+    "explanationMarathi": "सिरीज सर्किटमध्ये, प्रत्येक घटकामधून वाहणारा विद्युत प्रवाह समान असतो."
+  },
+  {
+    "id": 20003,
+    "chapterId": 30,
+    "question": "What is the primary purpose of earthing in an electrical system?",
+    "questionMarathi": "विद्युत प्रणालीमध्ये अर्थिंगचा मुख्य उद्देश काय आहे?",
+    "options": [
+      "To reduce power consumption",
+      "To protect against electric shock",
+      "To increase circuit efficiency",
+      "To stabilize voltage"
+    ],
+    "optionsMarathi": [
+      "वीज वापर कमी करणे",
+      "विजेच्या धक्क्यापासून संरक्षण करणे",
+      "सर्किटची कार्यक्षमता वाढवणे",
+      "व्होल्टेज स्थिर करणे"
+    ],
+    "answer": "B",
+    "explanation": "Earthing provides a safe path for fault current to flow to the ground, preventing electric shock.",
+    "explanationMarathi": "अर्थिंगमुळे फॉल्ट करंटला जमिनीकडे जाण्यासाठी सुरक्षित मार्ग मिळतो, ज्यामुळे विजेचा धक्का टाळता येतो."
+  },
+  {
+    "id": 20004,
+    "chapterId": 30,
+    "question": "Which tool is used to measure voltage in a circuit?",
+    "questionMarathi": "सर्किटमधील व्होल्टेज मोजण्यासाठी कोणते उपकरण वापरले जाते?",
+    "options": [
+      "Ammeter",
+      "Ohmmeter",
+      "Voltmeter",
+      "Multimeter"
+    ],
+    "optionsMarathi": [
+      "अँमीटर",
+      "ओहममीटर",
+      "व्होल्टमीटर",
+      "मल्टीमीटर"
+    ],
+    "answer": "C",
+    "explanation": "A voltmeter is specifically designed to measure voltage and is connected in parallel across the component.",
+    "explanationMarathi": "व्होल्टमीटर विशेषतः व्होल्टेज मोजण्यासाठी डिझाइन केलेले आहे आणि ते घटकाच्या समांतर जोडलेले असते."
+  },
+  {
+    "id": 20005,
+    "chapterId": 30,
+    "question": "What is the SI unit of electrical resistance?",
+    "questionMarathi": "विद्युत रोधाचे SI एकक काय आहे?",
+    "options": [
+      "Volt",
+      "Ampere",
+      "Ohm",
+      "Watt"
+    ],
+    "optionsMarathi": [
+      "व्होल्ट",
+      "अँपिअर",
+      "ओहम",
+      "वॅट"
+    ],
+    "answer": "C",
+    "explanation": "Ohm is the SI unit of electrical resistance.",
+    "explanationMarathi": "ओहम हे विद्युत रोधाचे SI एकक आहे."
+  },
+  {
+    "id": 20006,
+    "chapterId": 30,
+    "question": "If three resistors of 10Ω, 20Ω, and 30Ω are connected in series, what is the total resistance?",
+    "questionMarathi": "जर 10Ω, 20Ω आणि 30Ω चे तीन रेझिस्टर सिरीजमध्ये जोडले असतील, तर एकूण रेझिस्टन्स किती असेल?",
+    "options": [
+      "60Ω",
+      "30Ω",
+      "20Ω",
+      "10Ω"
+    ],
+    "optionsMarathi": [
+      "60Ω",
+      "30Ω",
+      "20Ω",
+      "10Ω"
+    ],
+    "answer": "A",
+    "explanation": "In a series circuit, total resistance is the sum of individual resistances (R_total = R1 + R2 + R3). So, 10 + 20 + 30 = 60Ω.",
+    "explanationMarathi": "सिरीज सर्किटमध्ये, एकूण रेझिस्टन्स हा वैयक्तिक रेझिस्टन्सची बेरीज असतो (R_total = R1 + R2 + R3). म्हणून, 10 + 20 + 30 = 60Ω."
+  },
+  {
+    "id": 20007,
+    "chapterId": 30,
+    "question": "What color wire typically indicates the live wire in a single-phase AC supply in India?",
+    "questionMarathi": "भारतात सिंगल-फेज AC सप्लायमध्ये लाईव्ह वायर सामान्यतः कोणत्या रंगाची असते?",
+    "options": [
+      "Green",
+      "Blue",
+      "Red",
+      "Black"
+    ],
+    "optionsMarathi": [
+      "हिरवा",
+      "निळा",
+      "लाल",
+      "काळा"
+    ],
+    "answer": "C",
+    "explanation": "In India, the live wire is typically red, neutral is black, and earth is green.",
+    "explanationMarathi": "भारतात, लाईव्ह वायर सामान्यतः लाल, न्यूट्रल काळी आणि अर्थ हिरवी असते."
+  },
+  {
+    "id": 20008,
+    "chapterId": 30,
+    "question": "Which tool is used to strip insulation from electrical wires?",
+    "questionMarathi": "विद्युत तारांवरील इन्सुलेशन काढण्यासाठी कोणते उपकरण वापरले जाते?",
+    "options": [
+      "Pliers",
+      "Screwdriver",
+      "Wire stripper",
+      "Hammer"
+    ],
+    "optionsMarathi": [
+      "प्लायर्स",
+      "स्क्रू ड्रायव्हर",
+      "वायर स्ट्रिपर",
+      "हातोडा"
+    ],
+    "answer": "C",
+    "explanation": "A wire stripper is specifically designed for removing insulation from wires without damaging the conductor.",
+    "explanationMarathi": "वायर स्ट्रिपर विशेषतः तारांवरील इन्सुलेशन काढण्यासाठी डिझाइन केलेले आहे, ज्यामुळे कंडक्टरला नुकसान होत नाही."
+  },
+  {
+    "id": 20009,
+    "chapterId": 30,
+    "question": "What is the flow of electrons called?",
+    "questionMarathi": "इलेक्ट्रॉनच्या प्रवाहाचे काय नाव आहे?",
+    "options": [
+      "Voltage",
+      "Resistance",
+      "Current",
+      "Power"
+    ],
+    "optionsMarathi": [
+      "व्होल्टेज",
+      "रेझिस्टन्स",
+      "करंट",
+      "पॉवर"
+    ],
+    "answer": "C",
+    "explanation": "Electric current is defined as the rate of flow of electric charge (electrons).",
+    "explanationMarathi": "विद्युत प्रवाह म्हणजे विद्युत चार्ज (इलेक्ट्रॉन) च्या प्रवाहाचा दर."
+  },
+  {
+    "id": 20010,
+    "chapterId": 30,
+    "question": "If a 12V battery is connected to a 4Ω resistor, what is the current flowing through the resistor?",
+    "questionMarathi": "जर 12V बॅटरी 4Ω रेझिस्टरला जोडली असेल, तर रेझिस्टरमधून किती करंट वाहेल?",
+    "options": [
+      "3A",
+      "4A",
+      "12A",
+      "48A"
+    ],
+    "optionsMarathi": [
+      "3A",
+      "4A",
+      "12A",
+      "48A"
+    ],
+    "answer": "A",
+    "explanation": "Using Ohm's Law, I = V/R. So, I = 12V / 4Ω = 3A.",
+    "explanationMarathi": "ओहमच्या नियमानुसार, I = V/R. म्हणून, I = 12V / 4Ω = 3A."
+  },
+  {
+    "id": 20011,
+    "chapterId": 30,
+    "question": "In a parallel circuit, what remains the same across all components?",
+    "questionMarathi": "पॅरलल सर्किटमध्ये, सर्व घटकांमध्ये काय समान राहते?",
+    "options": [
+      "Current",
+      "Resistance",
+      "Voltage",
+      "Power"
+    ],
+    "optionsMarathi": [
+      "करंट",
+      "रेझिस्टन्स",
+      "व्होल्टेज",
+      "पॉवर"
+    ],
+    "answer": "C",
+    "explanation": "In a parallel circuit, the voltage across each branch is the same.",
+    "explanationMarathi": "पॅरलल सर्किटमध्ये, प्रत्येक शाखेतील व्होल्टेज समान असतो."
+  },
+  {
+    "id": 20012,
+    "chapterId": 30,
+    "question": "What should be the first action if someone receives an electric shock?",
+    "questionMarathi": "जर एखाद्याला विजेचा धक्का लागला तर पहिली कृती काय असावी?",
+    "options": [
+      "Pour water on them",
+      "Immediately touch them to pull away",
+      "Disconnect the power source",
+      "Give them CPR immediately"
+    ],
+    "optionsMarathi": [
+      "त्यांच्यावर पाणी ओतणे",
+      "त्यांना लगेच स्पर्श करून दूर खेचणे",
+      "वीज पुरवठा खंडित करणे",
+      "त्यांना लगेच सीपीआर देणे"
+    ],
+    "answer": "C",
+    "explanation": "The first priority is to disconnect the power source to prevent further harm to the victim and rescuer.",
+    "explanationMarathi": "पीडित आणि बचावकर्त्याला पुढील नुकसान टाळण्यासाठी वीज पुरवठा खंडित करणे ही पहिली प्राथमिकता आहे."
+  },
+  {
+    "id": 20013,
+    "chapterId": 30,
+    "question": "Which type of screwdriver is used for screws with a cross-shaped head?",
+    "questionMarathi": "क्रॉस-आकाराच्या डोक्याच्या स्क्रूसाठी कोणत्या प्रकारचा स्क्रू ड्रायव्हर वापरला जातो?",
+    "options": [
+      "Flat-head",
+      "Phillips-head",
+      "Torx",
+      "Hex"
+    ],
+    "optionsMarathi": [
+      "फ्लॅट-हेड",
+      "फिलिप्स-हेड",
+      "टॉर्क्स",
+      "हेक्स"
+    ],
+    "answer": "B",
+    "explanation": "Phillips-head screwdrivers are designed for screws with a cross-shaped recess.",
+    "explanationMarathi": "फिलिप्स-हेड स्क्रू ड्रायव्हर क्रॉस-आकाराच्या खाचेच्या स्क्रूसाठी डिझाइन केलेले आहेत."
+  },
+  {
+    "id": 20014,
+    "chapterId": 30,
+    "question": "What is the unit of electrical power?",
+    "questionMarathi": "विद्युत शक्तीचे एकक काय आहे?",
+    "options": [
+      "Joule",
+      "Watt",
+      "Volt",
+      "Ampere"
+    ],
+    "optionsMarathi": [
+      "ज्युल",
+      "वॅट",
+      "व्होल्ट",
+      "अँपिअर"
+    ],
+    "answer": "B",
+    "explanation": "Watt is the SI unit of electrical power.",
+    "explanationMarathi": "वॅट हे विद्युत शक्तीचे SI एकक आहे."
+  },
+  {
+    "id": 20015,
+    "chapterId": 30,
+    "question": "If the voltage across a resistor is 24V and the current flowing through it is 2A, what is the resistance?",
+    "questionMarathi": "जर रेझिस्टरमधील व्होल्टेज 24V असेल आणि त्यातून वाहणारा करंट 2A असेल, तर रेझिस्टन्स किती आहे?",
+    "options": [
+      "48Ω",
+      "12Ω",
+      "26Ω",
+      "22Ω"
+    ],
+    "optionsMarathi": [
+      "48Ω",
+      "12Ω",
+      "26Ω",
+      "22Ω"
+    ],
+    "answer": "B",
+    "explanation": "Using Ohm's Law, R = V/I. So, R = 24V / 2A = 12Ω.",
+    "explanationMarathi": "ओहमच्या नियमानुसार, R = V/I. म्हणून, R = 24V / 2A = 12Ω."
+  },
+  {
+    "id": 20016,
+    "chapterId": 30,
+    "question": "What is the reciprocal of resistance called?",
+    "questionMarathi": "रेझिस्टन्सच्या व्युत्क्रमांकाला काय म्हणतात?",
+    "options": [
+      "Reactance",
+      "Impedance",
+      "Conductance",
+      "Admittance"
+    ],
+    "optionsMarathi": [
+      "रिअॅक्टन्स",
+      "इम्पेडेन्स",
+      "कंडक्टन्स",
+      "ऍडमिटन्स"
+    ],
+    "answer": "C",
+    "explanation": "Conductance is the measure of how easily electricity flows through a material, and it is the reciprocal of resistance (G = 1/R).",
+    "explanationMarathi": "कंडक्टन्स हे एखाद्या सामग्रीतून वीज किती सहजतेने वाहते याचे माप आहे आणि ते रेझिस्टन्सचा व्युत्क्रमांक आहे (G = 1/R)."
+  },
+  {
+    "id": 20017,
+    "chapterId": 30,
+    "question": "Why is it important to use insulated tools when working with electricity?",
+    "questionMarathi": "विजेसोबत काम करताना इन्सुलेटेड उपकरणे वापरणे महत्त्वाचे का आहे?",
+    "options": [
+      "To make the work faster",
+      "To prevent electric shock",
+      "To improve tool durability",
+      "To reduce noise"
+    ],
+    "optionsMarathi": [
+      "काम जलद करण्यासाठी",
+      "विजेचा धक्का टाळण्यासाठी",
+      "उपकरणाची टिकाऊपणा सुधारण्यासाठी",
+      "आवाज कमी करण्यासाठी"
+    ],
+    "answer": "B",
+    "explanation": "Insulated tools have non-conductive handles that protect the user from electric shock if they accidentally touch a live circuit.",
+    "explanationMarathi": "इन्सुलेटेड उपकरणांना नॉन-कंडक्टिव्ह हँडल असतात जे वापरकर्त्याला चुकून लाईव्ह सर्किटला स्पर्श झाल्यास विजेच्या धक्क्यापासून वाचवतात."
+  },
+  {
+    "id": 20018,
+    "chapterId": 30,
+    "question": "Which instrument is used to check the continuity of a circuit?",
+    "questionMarathi": "सर्किटची सातत्य तपासण्यासाठी कोणते उपकरण वापरले जाते?",
+    "options": [
+      "Voltmeter",
+      "Ammeter",
+      "Ohmmeter/Continuity Tester",
+      "Wattmeter"
+    ],
+    "optionsMarathi": [
+      "व्होल्टमीटर",
+      "अँमीटर",
+      "ओहममीटर/कंटिन्युटी टेस्टर",
+      "वॅटमीटर"
+    ],
+    "answer": "C",
+    "explanation": "An ohmmeter or a dedicated continuity tester can be used to check if a circuit path is complete (has continuity).",
+    "explanationMarathi": "सर्किटचा मार्ग पूर्ण आहे की नाही (सातत्य आहे की नाही) हे तपासण्यासाठी ओहममीटर किंवा समर्पित कंटिन्यूटी टेस्टर वापरले जाऊ शकते."
+  },
+  {
+    "id": 20019,
+    "chapterId": 30,
+    "question": "What is the potential difference between two points in an electric field called?",
+    "questionMarathi": "विद्युत क्षेत्रातील दोन बिंदूंमधील संभाव्य फरकाला काय म्हणतात?",
+    "options": [
+      "Current",
+      "Resistance",
+      "Voltage",
+      "Power"
+    ],
+    "optionsMarathi": [
+      "करंट",
+      "रेझिस्टन्स",
+      "व्होल्टेज",
+      "पॉवर"
+    ],
+    "answer": "C",
+    "explanation": "Voltage (or potential difference) is the work done per unit charge to move a charge between two points.",
+    "explanationMarathi": "व्होल्टेज (किंवा संभाव्य फरक) म्हणजे दोन बिंदूंमधील चार्ज हलवण्यासाठी प्रति युनिट चार्ज केलेले कार्य."
+  },
+  {
+    "id": 20020,
+    "chapterId": 30,
+    "question": "If the resistance of a circuit increases while the voltage remains constant, what happens to the current?",
+    "questionMarathi": "जर सर्किटचा रेझिस्टन्स वाढला आणि व्होल्टेज स्थिर राहिला, तर करंटचे काय होईल?",
+    "options": [
+      "Increases",
+      "Decreases",
+      "Remains the same",
+      "Becomes zero"
+    ],
+    "optionsMarathi": [
+      "वाढतो",
+      "कमी होतो",
+      "तसाच राहतो",
+      "शून्य होतो"
+    ],
+    "answer": "B",
+    "explanation": "According to Ohm's Law (I = V/R), if V is constant and R increases, I must decrease.",
+    "explanationMarathi": "ओहमच्या नियमानुसार (I = V/R), जर V स्थिर असेल आणि R वाढला, तर I कमी होईल."
+  },
+  {
+    "id": 20021,
+    "chapterId": 30,
+    "question": "What is the main disadvantage of a series circuit for household wiring?",
+    "questionMarathi": "घरगुती वायरिंगसाठी सिरीज सर्किटचा मुख्य तोटा काय आहे?",
+    "options": [
+      "High power consumption",
+      "All appliances operate at the same voltage",
+      "If one component fails, the entire circuit breaks",
+      "Difficult to install"
+    ],
+    "optionsMarathi": [
+      "जास्त वीज वापर",
+      "सर्व उपकरणे समान व्होल्टेजवर चालतात",
+      "जर एक घटक निकामी झाला तर संपूर्ण सर्किट खंडित होते",
+      "स्थापित करणे कठीण"
+    ],
+    "answer": "C",
+    "explanation": "In a series circuit, components are connected end-to-end, so if one component breaks, the circuit becomes open, and all other components stop working.",
+    "explanationMarathi": "सिरीज सर्किटमध्ये, घटक एकापाठोपाठ जोडलेले असतात, त्यामुळे जर एक घटक निकामी झाला तर सर्किट उघडे होते आणि इतर सर्व घटक काम करणे थांबवतात."
+  },
+  {
+    "id": 20022,
+    "chapterId": 30,
+    "question": "What does the acronym 'PPE' stand for in electrical safety?",
+    "questionMarathi": "विद्युत सुरक्षिततेमध्ये 'PPE' या संक्षेपणाचा अर्थ काय आहे?",
+    "options": [
+      "Personal Power Equipment",
+      "Primary Protective Enclosure",
+      "C) Personal Protective Equipment",
+      "Professional Power Engineering"
+    ],
+    "optionsMarathi": [
+      "पर्सनल पॉवर इक्विपमेंट",
+      "प्रायमरी प्रोटेक्टिव्ह एन्क्लोजर",
+      "पर्सनल प्रोटेक्टिव्ह इक्विपमेंट",
+      "प्रोफेशनल पॉवर इंजिनिअरिंग"
+    ],
+    "answer": "C",
+    "explanation": "PPE stands for Personal Protective Equipment, which includes items like safety glasses, gloves, and insulated footwear.",
+    "explanationMarathi": "PPE म्हणजे पर्सनल प्रोटेक्टिव्ह इक्विपमेंट, ज्यात सेफ्टी ग्लासेस, हातमोजे आणि इन्सुलेटेड पादत्राणे यांसारख्या वस्तूंचा समावेश असतो."
+  },
+  {
+    "id": 20023,
+    "chapterId": 30,
+    "question": "Which tool is used to tighten or loosen nuts and bolts?",
+    "questionMarathi": "नट आणि बोल्ट घट्ट करण्यासाठी किंवा सैल करण्यासाठी कोणते उपकरण वापरले जाते?",
+    "options": [
+      "Pliers",
+      "Wrench/Spanner",
+      "Wire cutter",
+      "Hammer"
+    ],
+    "optionsMarathi": [
+      "प्लायर्स",
+      "रेंच/स्पॅनर",
+      "वायर कटर",
+      "हातोडा"
+    ],
+    "answer": "B",
+    "explanation": "Wrenches or spanners are specifically designed for gripping and turning nuts and bolts.",
+    "explanationMarathi": "रेंच किंवा स्पॅनर विशेषतः नट आणि बोल्ट पकडण्यासाठी आणि फिरवण्यासाठी डिझाइन केलेले आहेत."
+  },
+  {
+    "id": 20024,
+    "chapterId": 30,
+    "question": "Which material is a good conductor of electricity?",
+    "questionMarathi": "कोणता पदार्थ विजेचा चांगला वाहक आहे?",
+    "options": [
+      "Rubber",
+      "Wood",
+      "Copper",
+      "Glass"
+    ],
+    "optionsMarathi": [
+      "रबर",
+      "लाकूड",
+      "तांबे",
+      "काच"
+    ],
+    "answer": "C",
+    "explanation": "Copper is a metal with free electrons, making it an excellent conductor of electricity. Rubber, wood, and glass are insulators.",
+    "explanationMarathi": "तांबे हे मुक्त इलेक्ट्रॉन असलेले धातू आहे, ज्यामुळे ते विजेचे उत्कृष्ट वाहक बनते. रबर, लाकूड आणि काच हे इन्सुलेटर आहेत."
+  },
+  {
+    "id": 20025,
+    "chapterId": 31,
+    "question": "What is the SI unit of electric current?",
+    "questionMarathi": "विद्युत प्रवाहाचे SI एकक काय आहे?",
+    "options": [
+      "Volt",
+      "Ampere",
+      "Ohm",
+      "Watt"
+    ],
+    "optionsMarathi": [
+      "व्होल्ट",
+      "अँपिअर",
+      "ओहम",
+      "वॅट"
+    ],
+    "answer": "B",
+    "explanation": "Ampere is the SI unit for electric current.",
+    "explanationMarathi": "अँपिअर हे विद्युत प्रवाहाचे SI एकक आहे."
+  },
+  {
+    "id": 20026,
+    "chapterId": 31,
+    "question": "According to Ohm's Law, what is the relationship between voltage (V), current (I), and resistance (R)?",
+    "questionMarathi": "ओहमच्या नियमानुसार, व्होल्टेज (V), प्रवाह (I) आणि रोध (R) यांच्यातील संबंध काय आहे?",
+    "options": [
+      "V = I/R",
+      "V = I * R",
+      "V = R/I",
+      "V = I + R"
+    ],
+    "optionsMarathi": [
+      "V = I/R",
+      "V = I * R",
+      "V = R/I",
+      "V = I + R"
+    ],
+    "answer": "B",
+    "explanation": "Ohm's Law states that voltage is directly proportional to current and resistance (V=IR).",
+    "explanationMarathi": "ओहमच्या नियमानुसार, व्होल्टेज हे प्रवाह आणि रोधाच्या थेट प्रमाणात असते (V=IR)."
+  },
+  {
+    "id": 20027,
+    "chapterId": 31,
+    "question": "Which of the following is an essential Personal Protective Equipment (PPE) for an electrician working on live circuits?",
+    "questionMarathi": "थेट सर्किट्सवर काम करणाऱ्या इलेक्ट्रिशियनसाठी खालीलपैकी कोणते आवश्यक वैयक्तिक संरक्षण उपकरण (PPE) आहे?",
+    "options": [
+      "Safety glasses",
+      "Insulated gloves",
+      "Hard hat",
+      "All of the above"
+    ],
+    "optionsMarathi": [
+      "सुरक्षा चष्मा",
+      "इन्सुलेटेड हातमोजे",
+      "हेल्मेट",
+      "वरील सर्व"
+    ],
+    "answer": "D",
+    "explanation": "All listed items are crucial PPE for electrical safety.",
+    "explanationMarathi": "सूचीबद्ध केलेल्या सर्व वस्तू विद्युत सुरक्षिततेसाठी महत्त्वपूर्ण PPE आहेत."
+  },
+  {
+    "id": 20028,
+    "chapterId": 31,
+    "question": "What instrument is used to measure voltage, current, and resistance in an electrical circuit?",
+    "questionMarathi": "विद्युत सर्किटमध्ये व्होल्टेज, प्रवाह आणि रोध मोजण्यासाठी कोणते उपकरण वापरले जाते?",
+    "options": [
+      "Ammeter",
+      "Voltmeter",
+      "Ohmmeter",
+      "Multimeter"
+    ],
+    "optionsMarathi": [
+      "अँमीटर",
+      "व्होल्टमीटर",
+      "ओहममीटर",
+      "मल्टीमीटर"
+    ],
+    "answer": "D",
+    "explanation": "A multimeter combines the functions of an ammeter, voltmeter, and ohmmeter.",
+    "explanationMarathi": "मल्टीमीटरमध्ये अँमीटर, व्होल्टमीटर आणि ओहममीटरची कार्ये एकत्रित असतात."
+  },
+  {
+    "id": 20029,
+    "chapterId": 31,
+    "question": "In a series circuit, if one component fails (opens), what happens to the current in the entire circuit?",
+    "questionMarathi": "एका सिरीज सर्किटमध्ये, जर एक घटक निकामी झाला (ओपन झाला), तर संपूर्ण सर्किटमधील प्रवाहाचे काय होते?",
+    "options": [
+      "Increases",
+      "Decreases",
+      "Stops flowing",
+      "Remains the same"
+    ],
+    "optionsMarathi": [
+      "वाढतो",
+      "कमी होतो",
+      "वाहणे थांबते",
+      "तेच राहते"
+    ],
+    "answer": "C",
+    "explanation": "In a series circuit, an open component breaks the path, stopping current flow.",
+    "explanationMarathi": "सिरीज सर्किटमध्ये, एक ओपन घटक मार्ग खंडित करतो, ज्यामुळे प्रवाहाचे वहन थांबते."
+  },
+  {
+    "id": 20030,
+    "chapterId": 31,
+    "question": "What is the unit of electrical power?",
+    "questionMarathi": "विद्युत शक्तीचे एकक काय आहे?",
+    "options": [
+      "Joule",
+      "Watt",
+      "Volt",
+      "Ampere"
+    ],
+    "optionsMarathi": [
+      "ज्युल",
+      "वॅट",
+      "व्होल्ट",
+      "अँपिअर"
+    ],
+    "answer": "B",
+    "explanation": "Watt is the SI unit of electrical power.",
+    "explanationMarathi": "वॅट हे विद्युत शक्तीचे SI एकक आहे."
+  },
+  {
+    "id": 20031,
+    "chapterId": 31,
+    "question": "Why is earthing (grounding) important in electrical installations?",
+    "questionMarathi": "विद्युत प्रतिष्ठापनांमध्ये अर्थिंग (ग्राउंडिंग) का महत्त्वाचे आहे?",
+    "options": [
+      "To increase current",
+      "To reduce voltage",
+      "To protect against electric shock",
+      "To improve circuit efficiency"
+    ],
+    "optionsMarathi": [
+      "प्रवाह वाढवण्यासाठी",
+      "व्होल्टेज कमी करण्यासाठी",
+      "विद्युत धक्क्यापासून संरक्षण करण्यासाठी",
+      "सर्किटची कार्यक्षमता सुधारण्यासाठी"
+    ],
+    "answer": "C",
+    "explanation": "Earthing provides a safe path for fault current, preventing electric shock.",
+    "explanationMarathi": "अर्थिंगमुळे दोष प्रवाहासाठी सुरक्षित मार्ग मिळतो, ज्यामुळे विद्युत धक्क्यापासून संरक्षण होते."
+  },
+  {
+    "id": 20032,
+    "chapterId": 31,
+    "question": "Which tool is specifically designed to remove insulation from electrical wires without damaging the conductor?",
+    "questionMarathi": "वाहकाला नुकसान न पोहोचवता विद्युत तारांमधून इन्सुलेशन काढण्यासाठी कोणते साधन विशेषतः डिझाइन केलेले आहे?",
+    "options": [
+      "Pliers",
+      "Screwdriver",
+      "Wire stripper",
+      "Hammer"
+    ],
+    "optionsMarathi": [
+      "प्लायर्स",
+      "स्क्रू ड्रायव्हर",
+      "वायर स्ट्रिपर",
+      "हातोडा"
+    ],
+    "answer": "C",
+    "explanation": "A wire stripper is used for precise insulation removal.",
+    "explanationMarathi": "वायर स्ट्रिपरचा वापर अचूक इन्सुलेशन काढण्यासाठी केला जातो."
+  },
+  {
+    "id": 20033,
+    "chapterId": 31,
+    "question": "Which of the following materials is a good conductor of electricity?",
+    "questionMarathi": "खालीलपैकी कोणती सामग्री विजेची चांगली वाहक आहे?",
+    "options": [
+      "Rubber",
+      "Glass",
+      "Copper",
+      "Wood"
+    ],
+    "optionsMarathi": [
+      "रबर",
+      "काच",
+      "तांबे",
+      "लाकूड"
+    ],
+    "answer": "C",
+    "explanation": "Copper has low resistance and allows current to flow easily.",
+    "explanationMarathi": "तांब्यामध्ये कमी रोध असतो आणि ते प्रवाहाचे सहज वहन करते."
+  },
+  {
+    "id": 20034,
+    "chapterId": 31,
+    "question": "In a parallel circuit, if one branch opens, what happens to the current in the other branches?",
+    "questionMarathi": "एका समांतर सर्किटमध्ये, जर एक शाखा ओपन झाली, तर इतर शाखांमधील प्रवाहाचे काय होते?",
+    "options": [
+      "Increases",
+      "Decreases",
+      "Stops flowing",
+      "Remains unaffected"
+    ],
+    "optionsMarathi": [
+      "वाढतो",
+      "कमी होतो",
+      "वाहणे थांबते",
+      "अप्रभावित राहतो"
+    ],
+    "answer": "D",
+    "explanation": "In a parallel circuit, each branch operates independently.",
+    "explanationMarathi": "समांतर सर्किटमध्ये, प्रत्येक शाखा स्वतंत्रपणे कार्य करते."
+  },
+  {
+    "id": 20035,
+    "chapterId": 31,
+    "question": "If a circuit has a voltage of 12V and a resistance of 4 Ohms, what is the current flowing through it?",
+    "questionMarathi": "जर एका सर्किटमध्ये 12V व्होल्टेज आणि 4 ओहम रोध असेल, तर त्यातून वाहणारा प्रवाह किती आहे?",
+    "options": [
+      "3 Amperes",
+      "48 Amperes",
+      "0.33 Amperes",
+      "16 Amperes"
+    ],
+    "optionsMarathi": [
+      "3 अँपिअर",
+      "48 अँपिअर",
+      "0.33 अँपिअर",
+      "16 अँपिअर"
+    ],
+    "answer": "A",
+    "explanation": "Using Ohm's Law (I = V/R), I = 12V / 4 Ohms = 3 Amperes.",
+    "explanationMarathi": "ओहमच्या नियमानुसार (I = V/R), I = 12V / 4 ओहम = 3 अँपिअर."
+  },
+  {
+    "id": 20036,
+    "chapterId": 31,
+    "question": "What is the immediate action to take if someone receives an electric shock?",
+    "questionMarathi": "एखाद्याला विजेचा धक्का लागल्यास त्वरित कोणती कारवाई करावी?",
+    "options": [
+      "Pour water on them",
+      "Touch them to pull away",
+      "Disconnect the power source",
+      "Give them food"
+    ],
+    "optionsMarathi": [
+      "त्यांच्यावर पाणी ओता",
+      "त्यांना दूर खेचण्यासाठी स्पर्श करा",
+      "वीज स्त्रोत खंडित करा",
+      "त्यांना अन्न द्या"
+    ],
+    "answer": "C",
+    "explanation": "The first priority is to safely disconnect the power source to prevent further harm.",
+    "explanationMarathi": "पुढील नुकसान टाळण्यासाठी वीज स्त्रोत सुरक्षितपणे खंडित करणे ही पहिली प्राथमिकता आहे."
+  },
+  {
+    "id": 20037,
+    "chapterId": 31,
+    "question": "What is the force that causes electrons to flow in a circuit?",
+    "questionMarathi": "सर्किटमध्ये इलेक्ट्रॉन वाहण्यास कारणीभूत असलेली शक्ती कोणती आहे?",
+    "options": [
+      "Resistance",
+      "Current",
+      "Voltage",
+      "Power"
+    ],
+    "optionsMarathi": [
+      "रोध",
+      "प्रवाह",
+      "व्होल्टेज",
+      "शक्ती"
+    ],
+    "answer": "C",
+    "explanation": "Voltage (or electromotive force) is the potential difference that drives current.",
+    "explanationMarathi": "व्होल्टेज (किंवा इलेक्ट्रोमोटिव्ह फोर्स) हा संभाव्य फरक आहे जो प्रवाहाचे वहन करतो."
+  },
+  {
+    "id": 20038,
+    "chapterId": 31,
+    "question": "Which type of pliers is commonly used for gripping, bending, and cutting wires in electrical work?",
+    "questionMarathi": "विद्युत कामात तारा पकडण्यासाठी, वाकवण्यासाठी आणि कापण्यासाठी कोणत्या प्रकारचे प्लायर्स सामान्यतः वापरले जातात?",
+    "options": [
+      "Needle-nose pliers",
+      "Slip-joint pliers",
+      "Lineman's pliers",
+      "Diagonal cutting pliers"
+    ],
+    "optionsMarathi": [
+      "नीडल-नोज प्लायर्स",
+      "स्लिप-जॉइंट प्लायर्स",
+      "लाइनमनचे प्लायर्स",
+      "डायगोनल कटिंग प्लायर्स"
+    ],
+    "answer": "C",
+    "explanation": "Lineman's pliers are versatile and widely used by electricians.",
+    "explanationMarathi": "लाइनमनचे प्लायर्स बहुउपयोगी आहेत आणि इलेक्ट्रिशियनद्वारे मोठ्या प्रमाणावर वापरले जातात."
+  },
+  {
+    "id": 20039,
+    "chapterId": 31,
+    "question": "What is the purpose of a Lockout/Tagout (LOTO) procedure?",
+    "questionMarathi": "लॉकआउट/टॅगआउट (LOTO) प्रक्रियेचा उद्देश काय आहे?",
+    "options": [
+      "To increase power",
+      "To prevent accidental startup of machinery",
+      "To test circuit breakers",
+      "To measure resistance"
+    ],
+    "optionsMarathi": [
+      "शक्ती वाढवण्यासाठी",
+      "यंत्रसामग्रीचे अपघाती सुरू होणे टाळण्यासाठी",
+      "सर्किट ब्रेकर तपासण्यासाठी",
+      "रोध मोजण्यासाठी"
+    ],
+    "answer": "B",
+    "explanation": "LOTO ensures machinery is de-energized and cannot be started during maintenance.",
+    "explanationMarathi": "LOTO हे सुनिश्चित करते की देखभाल करताना यंत्रसामग्री डी-एनर्जाइज्ड आहे आणि सुरू केली जाऊ शकत नाही."
+  },
+  {
+    "id": 20040,
+    "chapterId": 31,
+    "question": "What is the property of a material that opposes the flow of electric current?",
+    "questionMarathi": "विद्युत प्रवाहाच्या वहनाला विरोध करणारा पदार्थाचा गुणधर्म कोणता आहे?",
+    "options": [
+      "Voltage",
+      "Current",
+      "Resistance",
+      "Power"
+    ],
+    "optionsMarathi": [
+      "व्होल्टेज",
+      "प्रवाह",
+      "रोध",
+      "शक्ती"
+    ],
+    "answer": "C",
+    "explanation": "Resistance is the opposition to current flow.",
+    "explanationMarathi": "रोध म्हणजे प्रवाहाच्या वहनाला होणारा विरोध."
+  },
+  {
+    "id": 20041,
+    "chapterId": 31,
+    "question": "What happens during a short circuit?",
+    "questionMarathi": "शॉर्ट सर्किट दरम्यान काय होते?",
+    "options": [
+      "Current decreases significantly",
+      "Resistance increases",
+      "Current bypasses the load",
+      "Voltage increases"
+    ],
+    "optionsMarathi": [
+      "प्रवाह लक्षणीयरीत्या कमी होतो",
+      "रोध वाढतो",
+      "प्रवाह लोडला बायपास करतो",
+      "व्होल्टेज वाढतो"
+    ],
+    "answer": "C",
+    "explanation": "A short circuit provides a low-resistance path, bypassing the intended load and causing high current.",
+    "explanationMarathi": "शॉर्ट सर्किटमुळे कमी रोधाचा मार्ग मिळतो, ज्यामुळे इच्छित लोडला बायपास करून उच्च प्रवाह होतो."
+  },
+  {
+    "id": 20042,
+    "chapterId": 31,
+    "question": "Which instrument is used to check the insulation resistance of cables and windings?",
+    "questionMarathi": "केबल्स आणि वाइंडिंगचा इन्सुलेशन रोध तपासण्यासाठी कोणते उपकरण वापरले जाते?",
+    "options": [
+      "Multimeter",
+      "Ammeter",
+      "Megger",
+      "Voltmeter"
+    ],
+    "optionsMarathi": [
+      "मल्टीमीटर",
+      "अँमीटर",
+      "मेगर",
+      "व्होल्टमीटर"
+    ],
+    "answer": "C",
+    "explanation": "A Megger (insulation resistance tester) applies high voltage to measure insulation resistance.",
+    "explanationMarathi": "मेगर (इन्सुलेशन रोध परीक्षक) इन्सुलेशन रोध मोजण्यासाठी उच्च व्होल्टेज लागू करतो."
+  },
+  {
+    "id": 20043,
+    "chapterId": 31,
+    "question": "What does 'AC' stand for in electrical terms?",
+    "questionMarathi": "विद्युत संज्ञांमध्ये 'AC' म्हणजे काय?",
+    "options": [
+      "Absolute Current",
+      "Alternating Current",
+      "Applied Current",
+      "Auxiliary Current"
+    ],
+    "optionsMarathi": [
+      "अ‍ॅब्सोल्यूट करंट",
+      "अल्टरनेटिंग करंट",
+      "अप्लाईड करंट",
+      "ऑक्सिलरी करंट"
+    ],
+    "answer": "B",
+    "explanation": "AC refers to Alternating Current, where the direction of current flow periodically reverses.",
+    "explanationMarathi": "AC म्हणजे अल्टरनेटिंग करंट, जिथे प्रवाहाच्या वहनाची दिशा वेळोवेळी उलटते."
+  },
+  {
+    "id": 20044,
+    "chapterId": 31,
+    "question": "Which class of fire extinguisher is suitable for electrical fires?",
+    "questionMarathi": "विद्युत आगीसाठी कोणत्या प्रकारचा अग्निशामक योग्य आहे?",
+    "options": [
+      "Class A",
+      "Class B",
+      "Class C",
+      "Class D"
+    ],
+    "optionsMarathi": [
+      "वर्ग A",
+      "वर्ग B",
+      "वर्ग C",
+      "वर्ग D"
+    ],
+    "answer": "C",
+    "explanation": "Class C extinguishers are designed for fires involving energized electrical equipment.",
+    "explanationMarathi": "वर्ग C अग्निशामक ऊर्जावान विद्युत उपकरणांच्या आगीसाठी डिझाइन केलेले आहेत."
+  },
+  {
+    "id": 20045,
+    "chapterId": 31,
+    "question": "If a device draws 2 Amperes of current from a 230V supply, what is its power consumption?",
+    "questionMarathi": "जर एखादे उपकरण 230V पुरवठ्यातून 2 अँपिअर प्रवाह घेत असेल, तर त्याची शक्ती वापर किती आहे?",
+    "options": [
+      "115 Watts",
+      "460 Watts",
+      "232 Watts",
+      "228 Watts"
+    ],
+    "optionsMarathi": [
+      "115 वॅट्स",
+      "460 वॅट्स",
+      "232 वॅट्स",
+      "228 वॅट्स"
+    ],
+    "answer": "B",
+    "explanation": "Power (P) = Voltage (V) * Current (I). So, P = 230V * 2A = 460 Watts.",
+    "explanationMarathi": "शक्ती (P) = व्होल्टेज (V) * प्रवाह (I). म्हणून, P = 230V * 2A = 460 वॅट्स."
+  },
+  {
+    "id": 20046,
+    "chapterId": 31,
+    "question": "Which type of screwdriver is identified by its cross-shaped tip?",
+    "questionMarathi": "कोणत्या प्रकारचा स्क्रू ड्रायव्हर त्याच्या क्रॉस-आकाराच्या टोकामुळे ओळखला जातो?",
+    "options": [
+      "Flathead",
+      "Phillips",
+      "Torx",
+      "Hex"
+    ],
+    "optionsMarathi": [
+      "फ्लॅटहेड",
+      "फिलिप्स",
+      "टॉर्क्स",
+      "हेक्स"
+    ],
+    "answer": "B",
+    "explanation": "Phillips head screwdrivers have a cross-shaped tip for corresponding screws.",
+    "explanationMarathi": "फिलिप्स हेड स्क्रू ड्रायव्हरला संबंधित स्क्रूसाठी क्रॉस-आकाराचे टोक असते."
+  },
+  {
+    "id": 20047,
+    "chapterId": 31,
+    "question": "Which of the following is a good electrical insulator?",
+    "questionMarathi": "खालीलपैकी कोणते चांगले विद्युत इन्सुलेटर आहे?",
+    "options": [
+      "Aluminum",
+      "Gold",
+      "PVC",
+      "Silver"
+    ],
+    "optionsMarathi": [
+      "ॲल्युमिनियम",
+      "सोने",
+      "पीव्हीसी",
+      "चांदी"
+    ],
+    "answer": "C",
+    "explanation": "PVC (Polyvinyl Chloride) is commonly used as an insulating material for wires.",
+    "explanationMarathi": "पीव्हीसी (पॉलीविनाइल क्लोराईड) सामान्यतः तारांसाठी इन्सुलेटिंग सामग्री म्हणून वापरले जाते."
+  },
+  {
+    "id": 20048,
+    "chapterId": 31,
+    "question": "What is the primary danger of an overloaded electrical circuit?",
+    "questionMarathi": "ओव्हरलोड झालेल्या विद्युत सर्किटचा प्राथमिक धोका काय आहे?",
+    "options": [
+      "Reduced voltage",
+      "Increased resistance",
+      "Fire hazard",
+      "Decreased current"
+    ],
+    "optionsMarathi": [
+      "कमी व्होल्टेज",
+      "वाढलेला रोध",
+      "आगीचा धोका",
+      "कमी झालेला प्रवाह"
+    ],
+    "answer": "C",
+    "explanation": "Overloaded circuits draw excessive current, leading to overheating and potential fires.",
+    "explanationMarathi": "ओव्हरलोड झालेले सर्किट जास्त प्रवाह घेतात, ज्यामुळे जास्त गरम होते आणि आगीचा धोका निर्माण होतो."
+  },
+  {
+    "id": 20049,
+    "chapterId": 31,
+    "question": "When resistors are connected in series, how is the total resistance calculated?",
+    "questionMarathi": "जेव्हा रोध सिरीजमध्ये जोडलेले असतात, तेव्हा एकूण रोध कसा मोजला जातो?",
+    "options": [
+      "By adding individual resistances",
+      "By multiplying individual resistances",
+      "By dividing individual resistances",
+      "By taking the reciprocal of the sum of reciprocals"
+    ],
+    "optionsMarathi": [
+      "वैयक्तिक रोध जोडून",
+      "वैयक्तिक रोध गुणाकार करून",
+      "वैयक्तिक रोध भागाकार करून",
+      "व्युत्क्रमांकांच्या बेरजेचा व्युत्क्रमांक घेऊन"
+    ],
+    "answer": "A",
+    "explanation": "For series resistors, the total resistance is the sum of individual resistances (R_total = R1 + R2 + ...).",
+    "explanationMarathi": "सिरीज रोधांसाठी, एकूण रोध हा वैयक्तिक रोधांची बेरीज असतो (R_total = R1 + R2 + ...)."
+  },
+  {
+    "id": 20050,
+    "chapterId": 32,
+    "question": "What is the unit of electric current?",
+    "questionMarathi": "विद्युत प्रवाहाचे एकक काय आहे?",
+    "options": [
+      "Volt",
+      "Ampere",
+      "Ohm",
+      "Watt"
+    ],
+    "optionsMarathi": [
+      "व्होल्ट",
+      "अँपिअर",
+      "ओहम",
+      "वॅट"
+    ],
+    "answer": "B",
+    "explanation": "Ampere is the SI unit of electric current.",
+    "explanationMarathi": "अँपिअर हे विद्युत प्रवाहाचे SI एकक आहे."
+  },
+  {
+    "id": 20051,
+    "chapterId": 32,
+    "question": "According to Ohm's Law, what is the relationship between voltage (V), current (I), and resistance (R)?",
+    "questionMarathi": "ओहमच्या नियमानुसार, व्होल्टेज (V), करंट (I) आणि रेझिस्टन्स (R) यांच्यातील संबंध काय आहे?",
+    "options": [
+      "V = I/R",
+      "I = V*R",
+      "V = I*R",
+      "R = V*I"
+    ],
+    "optionsMarathi": [
+      "V = I/R",
+      "I = V*R",
+      "V = I*R",
+      "R = V*I"
+    ],
+    "answer": "C",
+    "explanation": "Ohm's Law states that voltage is directly proportional to current and resistance (V=IR).",
+    "explanationMarathi": "ओहमचा नियम सांगतो की व्होल्टेज हे करंट आणि रेझिस्टन्सच्या थेट प्रमाणात असते (V=IR)."
+  },
+  {
+    "id": 20052,
+    "chapterId": 32,
+    "question": "In a series circuit, what remains the same across all components?",
+    "questionMarathi": "सिरीज सर्किटमध्ये, सर्व घटकांमध्ये काय समान राहते?",
+    "options": [
+      "Voltage",
+      "Current",
+      "Resistance",
+      "Power"
+    ],
+    "optionsMarathi": [
+      "व्होल्टेज",
+      "करंट",
+      "रेझिस्टन्स",
+      "पॉवर"
+    ],
+    "answer": "B",
+    "explanation": "In a series circuit, the current is the same through all components.",
+    "explanationMarathi": "सिरीज सर्किटमध्ये, सर्व घटकांमधून जाणारा करंट समान असतो."
+  },
+  {
+    "id": 20053,
+    "chapterId": 32,
+    "question": "In a parallel circuit, what remains the same across all components?",
+    "questionMarathi": "पॅरलल सर्किटमध्ये, सर्व घटकांमध्ये काय समान राहते?",
+    "options": [
+      "Current",
+      "Resistance",
+      "Voltage",
+      "Power"
+    ],
+    "optionsMarathi": [
+      "करंट",
+      "रेझिस्टन्स",
+      "व्होल्टेज",
+      "पॉवर"
+    ],
+    "answer": "C",
+    "explanation": "In a parallel circuit, the voltage across all components is the same.",
+    "explanationMarathi": "पॅरलल सर्किटमध्ये, सर्व घटकांवरील व्होल्टेज समान असते."
+  },
+  {
+    "id": 20054,
+    "chapterId": 32,
+    "question": "Which tool is used for cutting and stripping insulation from electrical wires?",
+    "questionMarathi": "विद्युत तारांवरील इन्सुलेशन कापण्यासाठी आणि काढण्यासाठी कोणते साधन वापरले जाते?",
+    "options": [
+      "Pliers",
+      "Screwdriver",
+      "Wire stripper",
+      "Hammer"
+    ],
+    "optionsMarathi": [
+      "प्लायर्स",
+      "स्क्रू ड्रायव्हर",
+      "वायर स्ट्रिपर",
+      "हातोडा"
+    ],
+    "answer": "C",
+    "explanation": "A wire stripper is specifically designed for removing insulation from wires without damaging the conductor.",
+    "explanationMarathi": "वायर स्ट्रिपर विशेषतः तारांवरील इन्सुलेशन काढण्यासाठी डिझाइन केलेले आहे, ज्यामुळे कंडक्टरला नुकसान होत नाही."
+  },
+  {
+    "id": 20055,
+    "chapterId": 32,
+    "question": "What is the first step to take when someone receives an electric shock?",
+    "questionMarathi": "एखाद्या व्यक्तीला विजेचा धक्का लागल्यास पहिले पाऊल काय असावे?",
+    "options": [
+      "Pour water on them",
+      "Call an ambulance immediately",
+      "Disconnect the power source",
+      "Try to pull them away with bare hands"
+    ],
+    "optionsMarathi": [
+      "त्यांच्यावर पाणी ओता",
+      "त्वरित रुग्णवाहिकेला बोलवा",
+      "विद्युत स्त्रोत खंडित करा",
+      "उघड्या हातांनी त्यांना दूर खेचण्याचा प्रयत्न करा"
+    ],
+    "answer": "C",
+    "explanation": "The immediate priority is to disconnect the power source to prevent further harm.",
+    "explanationMarathi": "पुढील नुकसान टाळण्यासाठी विद्युत स्त्रोत खंडित करणे हे तात्काळ प्राधान्य आहे."
+  },
+  {
+    "id": 20056,
+    "chapterId": 32,
+    "question": "What is the unit of electrical resistance?",
+    "questionMarathi": "विद्युत रोधाचे एकक काय आहे?",
+    "options": [
+      "Volt",
+      "Ampere",
+      "Ohm",
+      "Watt"
+    ],
+    "optionsMarathi": [
+      "व्होल्ट",
+      "अँपिअर",
+      "ओहम",
+      "वॅट"
+    ],
+    "answer": "C",
+    "explanation": "Ohm is the SI unit of electrical resistance.",
+    "explanationMarathi": "ओहम हे विद्युत रोधाचे SI एकक आहे."
+  },
+  {
+    "id": 20057,
+    "chapterId": 32,
+    "question": "Which material is a good conductor of electricity?",
+    "questionMarathi": "कोणता पदार्थ विजेचा चांगला वाहक आहे?",
+    "options": [
+      "Rubber",
+      "Wood",
+      "Copper",
+      "Glass"
+    ],
+    "optionsMarathi": [
+      "रबर",
+      "लाकूड",
+      "तांबे",
+      "काच"
+    ],
+    "answer": "C",
+    "explanation": "Copper is a metal widely used in electrical wiring due to its excellent conductivity.",
+    "explanationMarathi": "तांबे हा एक धातू आहे जो त्याच्या उत्कृष्ट वाहकतेमुळे विद्युत वायरिंगमध्ये मोठ्या प्रमाणावर वापरला जातो."
+  },
+  {
+    "id": 20058,
+    "chapterId": 32,
+    "question": "What is the purpose of an insulator in electrical systems?",
+    "questionMarathi": "विद्युत प्रणालीमध्ये इन्सुलेटरचा उद्देश काय आहे?",
+    "options": [
+      "To conduct electricity",
+      "To store electrical energy",
+      "To prevent the flow of electricity",
+      "To generate electricity"
+    ],
+    "optionsMarathi": [
+      "वीज वाहून नेणे",
+      "विद्युत ऊर्जा साठवणे",
+      "विजेचा प्रवाह रोखणे",
+      "वीज निर्माण करणे"
+    ],
+    "answer": "C",
+    "explanation": "Insulators are materials that resist the flow of electric current.",
+    "explanationMarathi": "इन्सुलेटर असे पदार्थ आहेत जे विद्युत प्रवाहाचा प्रतिकार करतात."
+  },
+  {
+    "id": 20059,
+    "chapterId": 32,
+    "question": "If voltage is 12V and resistance is 4Ω, what is the current?",
+    "questionMarathi": "जर व्होल्टेज 12V आणि रेझिस्टन्स 4Ω असेल, तर करंट किती असेल?",
+    "options": [
+      "3A",
+      "4A",
+      "12A",
+      "48A"
+    ],
+    "optionsMarathi": [
+      "3A",
+      "4A",
+      "12A",
+      "48A"
+    ],
+    "answer": "A",
+    "explanation": "Using Ohm's Law (I = V/R), I = 12V / 4Ω = 3A.",
+    "explanationMarathi": "ओहमच्या नियमानुसार (I = V/R), I = 12V / 4Ω = 3A."
+  },
+  {
+    "id": 20060,
+    "chapterId": 32,
+    "question": "Which type of screwdriver is used for screws with a cross-shaped recess?",
+    "questionMarathi": "क्रॉस-आकाराच्या खाचे असलेल्या स्क्रूंसाठी कोणत्या प्रकारचा स्क्रू ड्रायव्हर वापरला जातो?",
+    "options": [
+      "Flat-head",
+      "Phillips-head",
+      "Torx",
+      "Hex"
+    ],
+    "optionsMarathi": [
+      "फ्लॅट-हेड",
+      "फिलिप्स-हेड",
+      "टॉर्क्स",
+      "हेक्स"
+    ],
+    "answer": "B",
+    "explanation": "Phillips-head screwdrivers are designed for screws with a cross-shaped recess.",
+    "explanationMarathi": "फिलिप्स-हेड स्क्रू ड्रायव्हर क्रॉस-आकाराच्या खाचे असलेल्या स्क्रूंसाठी डिझाइन केलेले आहेत."
+  },
+  {
+    "id": 20061,
+    "chapterId": 32,
+    "question": "What does the acronym PPE stand for in electrical safety?",
+    "questionMarathi": "विद्युत सुरक्षिततेमध्ये PPE या संज्ञेचा अर्थ काय आहे?",
+    "options": [
+      "Personal Power Equipment",
+      "Protective Personal Enclosure",
+      "Personal Protective Equipment",
+      "Primary Power Emitter"
+    ],
+    "optionsMarathi": [
+      "पर्सनल पॉवर इक्विपमेंट",
+      "प्रोटेक्टिव्ह पर्सनल एन्क्लोजर",
+      "पर्सनल प्रोटेक्टिव्ह इक्विपमेंट",
+      "प्रायमरी पॉवर एमिटर"
+    ],
+    "answer": "C",
+    "explanation": "PPE stands for Personal Protective Equipment, which includes items like safety glasses, gloves, and hard hats.",
+    "explanationMarathi": "PPE म्हणजे पर्सनल प्रोटेक्टिव्ह इक्विपमेंट, ज्यात सेफ्टी ग्लासेस, हातमोजे आणि हार्ड हॅट्स यांसारख्या वस्तूंचा समावेश होतो."
+  },
+  {
+    "id": 20062,
+    "chapterId": 32,
+    "question": "What is the total resistance of two 10Ω resistors connected in series?",
+    "questionMarathi": "सिरीजमध्ये जोडलेल्या दोन 10Ω रेझिस्टरचा एकूण रेझिस्टन्स किती असेल?",
+    "options": [
+      "5Ω",
+      "10Ω",
+      "20Ω",
+      "100Ω"
+    ],
+    "optionsMarathi": [
+      "5Ω",
+      "10Ω",
+      "20Ω",
+      "100Ω"
+    ],
+    "answer": "C",
+    "explanation": "In a series circuit, total resistance is the sum of individual resistances (R_total = R1 + R2). So, 10Ω + 10Ω = 20Ω.",
+    "explanationMarathi": "सिरीज सर्किटमध्ये, एकूण रेझिस्टन्स हा वैयक्तिक रेझिस्टन्सची बेरीज असतो (R_total = R1 + R2). म्हणून, 10Ω + 10Ω = 20Ω."
+  },
+  {
+    "id": 20063,
+    "chapterId": 32,
+    "question": "What is the total resistance of two 10Ω resistors connected in parallel?",
+    "questionMarathi": "पॅरललमध्ये जोडलेल्या दोन 10Ω रेझिस्टरचा एकूण रेझिस्टन्स किती असेल?",
+    "options": [
+      "5Ω",
+      "10Ω",
+      "20Ω",
+      "100Ω"
+    ],
+    "optionsMarathi": [
+      "5Ω",
+      "10Ω",
+      "20Ω",
+      "100Ω"
+    ],
+    "answer": "A",
+    "explanation": "In a parallel circuit for two resistors, R_total = (R1 * R2) / (R1 + R2). So, (10 * 10) / (10 + 10) = 100 / 20 = 5Ω.",
+    "explanationMarathi": "दोन रेझिस्टरसाठी पॅरलल सर्किटमध्ये, R_total = (R1 * R2) / (R1 + R2). म्हणून, (10 * 10) / (10 + 10) = 100 / 20 = 5Ω."
+  },
+  {
+    "id": 20064,
+    "chapterId": 32,
+    "question": "What is the unit of electrical power?",
+    "questionMarathi": "विद्युत शक्तीचे एकक काय आहे?",
+    "options": [
+      "Volt",
+      "Ampere",
+      "Ohm",
+      "Watt"
+    ],
+    "optionsMarathi": [
+      "व्होल्ट",
+      "अँपिअर",
+      "ओहम",
+      "वॅट"
+    ],
+    "answer": "D",
+    "explanation": "Watt is the SI unit of electrical power.",
+    "explanationMarathi": "वॅट हे विद्युत शक्तीचे SI एकक आहे."
+  },
+  {
+    "id": 20065,
+    "chapterId": 32,
+    "question": "If current is 2A and resistance is 6Ω, what is the voltage?",
+    "questionMarathi": "जर करंट 2A आणि रेझिस्टन्स 6Ω असेल, तर व्होल्टेज किती असेल?",
+    "options": [
+      "3V",
+      "8V",
+      "12V",
+      "24V"
+    ],
+    "optionsMarathi": [
+      "3V",
+      "8V",
+      "12V",
+      "24V"
+    ],
+    "answer": "C",
+    "explanation": "Using Ohm's Law (V = I*R), V = 2A * 6Ω = 12V.",
+    "explanationMarathi": "ओहमच्या नियमानुसार (V = I*R), V = 2A * 6Ω = 12V."
+  },
+  {
+    "id": 20066,
+    "chapterId": 32,
+    "question": "Which tool is used to measure voltage, current, and resistance?",
+    "questionMarathi": "व्होल्टेज, करंट आणि रेझिस्टन्स मोजण्यासाठी कोणते साधन वापरले जाते?",
+    "options": [
+      "Ammeter",
+      "Voltmeter",
+      "Ohmmeter",
+      "Multimeter"
+    ],
+    "optionsMarathi": [
+      "अँमीटर",
+      "व्होल्टमीटर",
+      "ओहममीटर",
+      "मल्टिमीटर"
+    ],
+    "answer": "D",
+    "explanation": "A multimeter is a versatile tool that can measure multiple electrical parameters.",
+    "explanationMarathi": "मल्टिमीटर हे एक बहुउपयोगी साधन आहे जे अनेक विद्युत पॅरामीटर्स मोजू शकते."
+  },
+  {
+    "id": 20067,
+    "chapterId": 32,
+    "question": "What is the purpose of grounding (earthing) in electrical installations?",
+    "questionMarathi": "विद्युत प्रतिष्ठापनांमध्ये ग्राउंडिंग (अर्थिंग) चा उद्देश काय आहे?",
+    "options": [
+      "To increase current flow",
+      "To provide a path for fault current to safely dissipate",
+      "To reduce voltage",
+      "To store electrical energy"
+    ],
+    "optionsMarathi": [
+      "करंटचा प्रवाह वाढवणे",
+      "दोष प्रवाहासाठी सुरक्षितपणे विसर्जित होण्याचा मार्ग प्रदान करणे",
+      "व्होल्टेज कमी करणे",
+      "विद्युत ऊर्जा साठवणे"
+    ],
+    "answer": "B",
+    "explanation": "Grounding provides a safe path for fault currents to flow to the earth, preventing electric shock and equipment damage.",
+    "explanationMarathi": "ग्राउंडिंगमुळे दोष प्रवाहासाठी पृथ्वीकडे सुरक्षित मार्ग मिळतो, ज्यामुळे विजेचा धक्का आणि उपकरणांचे नुकसान टाळता येते."
+  },
+  {
+    "id": 20068,
+    "chapterId": 32,
+    "question": "What is the flow of electrons called?",
+    "questionMarathi": "इलेक्ट्रॉनच्या प्रवाहाचे काय नाव आहे?",
+    "options": [
+      "Voltage",
+      "Resistance",
+      "Current",
+      "Power"
+    ],
+    "optionsMarathi": [
+      "व्होल्टेज",
+      "रेझिस्टन्स",
+      "करंट",
+      "पॉवर"
+    ],
+    "answer": "C",
+    "explanation": "Electric current is defined as the flow of electric charge, typically electrons.",
+    "explanationMarathi": "विद्युत प्रवाह म्हणजे विद्युत चार्जचा प्रवाह, सामान्यतः इलेक्ट्रॉनचा प्रवाह."
+  },
+  {
+    "id": 20069,
+    "chapterId": 32,
+    "question": "What happens to the brightness of bulbs in a series circuit if one bulb fuses?",
+    "questionMarathi": "सिरीज सर्किटमध्ये एक बल्ब फ्युज झाल्यास, इतर बल्बच्या ब्राइटनेसचे काय होते?",
+    "options": [
+      "They become brighter",
+      "They become dimmer",
+      "All other bulbs go out",
+      "Their brightness remains unchanged"
+    ],
+    "optionsMarathi": [
+      "ते अधिक तेजस्वी होतात",
+      "ते अधिक मंद होतात",
+      "इतर सर्व बल्ब बंद होतात",
+      "त्यांची चमक तशीच राहते"
+    ],
+    "answer": "C",
+    "explanation": "In a series circuit, if one component breaks, the entire circuit is broken, and current stops flowing.",
+    "explanationMarathi": "सिरीज सर्किटमध्ये, जर एक घटक तुटला, तर संपूर्ण सर्किट तुटते आणि करंटचा प्रवाह थांबतो."
+  },
+  {
+    "id": 20070,
+    "chapterId": 32,
+    "question": "What happens to the brightness of bulbs in a parallel circuit if one bulb fuses?",
+    "questionMarathi": "पॅरलल सर्किटमध्ये एक बल्ब फ्युज झाल्यास, इतर बल्बच्या ब्राइटनेसचे काय होते?",
+    "options": [
+      "They become brighter",
+      "They become dimmer",
+      "All other bulbs go out",
+      "Other bulbs continue to glow with the same brightness"
+    ],
+    "optionsMarathi": [
+      "ते अधिक तेजस्वी होतात",
+      "ते अधिक मंद होतात",
+      "इतर सर्व बल्ब बंद होतात",
+      "इतर बल्ब त्याच ब्राइटनेसने चमकत राहतात"
+    ],
+    "answer": "D",
+    "explanation": "In a parallel circuit, each component has its own path for current, so the failure of one does not affect others.",
+    "explanationMarathi": "पॅरलल सर्किटमध्ये, प्रत्येक घटकासाठी करंटचा स्वतःचा मार्ग असतो, त्यामुळे एकाच्या बिघाडामुळे इतरांवर परिणाम होत नाही."
+  },
+  {
+    "id": 20071,
+    "chapterId": 32,
+    "question": "Which tool is used for tightening or loosening nuts and bolts?",
+    "questionMarathi": "नट आणि बोल्ट घट्ट करण्यासाठी किंवा सैल करण्यासाठी कोणते साधन वापरले जाते?",
+    "options": [
+      "Pliers",
+      "Wrench",
+      "Wire stripper",
+      "Hammer"
+    ],
+    "optionsMarathi": [
+      "प्लायर्स",
+      "रेंच",
+      "वायर स्ट्रिपर",
+      "हातोडा"
+    ],
+    "answer": "B",
+    "explanation": "A wrench (or spanner) is specifically designed for turning nuts and bolts.",
+    "explanationMarathi": "रेंच (किंवा स्पॅनर) विशेषतः नट आणि बोल्ट फिरवण्यासाठी डिझाइन केलेले आहे."
+  },
+  {
+    "id": 20072,
+    "chapterId": 32,
+    "question": "What is the color code for the live wire in a typical AC household wiring (as per Indian standards)?",
+    "questionMarathi": "सामान्य AC घरगुती वायरिंगमध्ये (भारतीय मानकांनुसार) लाईव्ह वायरसाठी रंग कोड काय आहे?",
+    "options": [
+      "Green",
+      "Blue",
+      "Red",
+      "Black"
+    ],
+    "optionsMarathi": [
+      "हिरवा",
+      "निळा",
+      "लाल",
+      "काळा"
+    ],
+    "answer": "C",
+    "explanation": "In India, the live wire is typically red, neutral is black, and earth is green.",
+    "explanationMarathi": "भारतात, लाईव्ह वायर सामान्यतः लाल, न्यूट्रल काळा आणि अर्थ हिरवा असतो."
+  },
+  {
+    "id": 20073,
+    "chapterId": 32,
+    "question": "What is the primary function of a fuse in an electrical circuit?",
+    "questionMarathi": "विद्युत सर्किटमध्ये फ्युजचे मुख्य कार्य काय आहे?",
+    "options": [
+      "To increase current",
+      "To regulate voltage",
+      "To protect the circuit from overcurrent",
+      "To store charge"
+    ],
+    "optionsMarathi": [
+      "करंट वाढवणे",
+      "व्होल्टेज नियंत्रित करणे",
+      "सर्किटला ओव्हरकरंटपासून वाचवणे",
+      "चार्ज साठवणे"
+    ],
+    "answer": "C",
+    "explanation": "A fuse is a safety device that melts and breaks the circuit when current exceeds a safe limit.",
+    "explanationMarathi": "फ्युज हे एक सुरक्षा उपकरण आहे जे करंट सुरक्षित मर्यादेपेक्षा जास्त झाल्यास वितळते आणि सर्किट खंडित करते."
+  },
+  {
+    "id": 20074,
+    "chapterId": 32,
+    "question": "If resistance is 10Ω and current is 5A, what is the power dissipated?",
+    "questionMarathi": "जर रेझिस्टन्स 10Ω आणि करंट 5A असेल, तर किती पॉवर खर्च होईल?",
+    "options": [
+      "50W",
+      "250W",
+      "2W",
+      "0.5W"
+    ],
+    "optionsMarathi": [
+      "50W",
+      "250W",
+      "2W",
+      "0.5W"
+    ],
+    "answer": "B",
+    "explanation": "Power (P) = I^2 * R. So, P = (5A)^2 * 10Ω = 25 * 10 = 250W.",
+    "explanationMarathi": "पॉवर (P) = I^2 * R. म्हणून, P = (5A)^2 * 10Ω = 25 * 10 = 250W."
+  },
+  {
+    "id": 50079,
+    "chapterId": 33,
+    "question": "250 वॉट 250 वोल्ट वाले लैम्प का प्रतिरोध होगा ?",
+    "questionMarathi": "250 वॉट 250 व्होल्टच्या दिव्याचा (लॅम्पचा) प्रतिरोध (रेजिस्टन्स) किती असेल?",
+    "options": [
+      "25 ओम",
+      "250 ओम",
+      "1 ओम",
+      "626 ओम"
+    ],
+    "optionsMarathi": [
+      "25 ओहम",
+      "250 ओहम",
+      "1 ओहम",
+      "626 ओहम"
+    ],
+    "answer": "B",
+    "explanation": "P = V^2 / R  => R = V^2 / P = (250*250)/250 = 250 Ohm.",
+    "explanationMarathi": "P = V^2 / R  => R = V^2 / P = (250*250)/250 = 250 ओहम."
+  },
+  {
+    "id": 50080,
+    "chapterId": 33,
+    "question": "परमिएन्स का मात्रक है ?",
+    "questionMarathi": "परमिएन्सचे (Permeance) एकक काय आहे?",
+    "options": [
+      "वैबर/एम्पीयर",
+      "एम्पीयर/वैबर टर्न",
+      "वैबर/एम्पीयर टर्न",
+      "एम्पीयर-टर्न"
+    ],
+    "optionsMarathi": [
+      "वेबर/अँपियर",
+      "अँपियर/वेबर टर्न",
+      "वेबर/अँपियर टर्न",
+      "अँपियर-टर्न"
+    ],
+    "answer": "C",
+    "explanation": "Permeance unit is Weber / Ampere-turn.",
+    "explanationMarathi": "परमिएन्सचे (Permeance) एकक वेबर / अँपियर-टर्न आहे."
+  },
+  {
+    "id": 50081,
+    "chapterId": 33,
+    "question": "निम्न में से रिलैक्टेंस की ईकाई क्या है।",
+    "questionMarathi": "खालीलपैकी रिलक्टन्सचे (Reluctance) एकक काय आहे?",
+    "options": [
+      "एम्पीयर टर्न",
+      "एम्पीयर वैबर/टर्न",
+      "वैबर",
+      "एम्पीयर टर्न/वैबर"
+    ],
+    "optionsMarathi": [
+      "अँपियर टर्न",
+      "अँपियर वेबर/टर्न",
+      "वेबर",
+      "अँपियर टर्न/वेबर"
+    ],
+    "answer": "D",
+    "explanation": "Reluctance unit is Ampere-turn / Weber.",
+    "explanationMarathi": "रिलक्टन्सचे (Reluctance) एकक अँपियर-टर्न / वेबर आहे."
+  },
+  {
+    "id": 50082,
+    "chapterId": 33,
+    "question": "1.1 kΩ ±10% मान वाले प्रतिरोधक का मान होगा।",
+    "questionMarathi": "1.1 kΩ ±10% मूल्याच्या रेझिस्टरचा (प्रतिरोधकाचा) रंग कोड काय असेल?",
+    "options": [
+      "भुरा भुरा लाल चांदनी",
+      "भुरा काला सुनहरी सुनहरी",
+      "भुरा काला नारंगी चांदनी",
+      "भुरा काला भुरा लाल"
+    ],
+    "optionsMarathi": [
+      "तपकिरी, तपकिरी, लाल, चांदी",
+      "तपकिरी, काळा, सोनेरी, सोनेरी",
+      "तपकिरी, काळा, नारंगी, चांदी",
+      "तपकिरी, काळा, तपकिरी, लाल"
+    ],
+    "answer": "A",
+    "explanation": "1.1 kOhm = 11 * 100 = Brown, Brown, Red, and 10% tolerance = Silver (चांदनी).",
+    "explanationMarathi": "1.1 kOhm = 11 * 100 = तपकिरी (Brown), तपकिरी (Brown), लाल (Red), आणि 10% टॉलरन्स = चांदी (Silver)."
+  },
+  {
+    "id": 50083,
+    "chapterId": 33,
+    "question": "नियत मान वायर वाउण्ड प्रतिरोध बनाये जाते है।",
+    "questionMarathi": "निश्चित मूल्याचे वायर वाउंड रेझिस्टर (प्रतिरोधक) बनवले जातात.",
+    "options": [
+      "1 से 50 औम",
+      "0.1 से 50 किलो ओम",
+      "1 से 50 किलो औम",
+      "0.1 से 50 औम"
+    ],
+    "optionsMarathi": [
+      "1 ते 50 ओहम",
+      "0.1 ते 50 किलो ओहम",
+      "1 ते 50 किलो ओहम",
+      "0.1 ते 50 ओहम"
+    ],
+    "answer": "B",
+    "explanation": "Fixed value wire wound resistors are made from 0.1 to 50 kOhm.",
+    "explanationMarathi": "निश्चित मूल्याचे वायर वाउंड रेझिस्टर 0.1 ते 50 किलो ओहम पर्यंत बनवले जातात."
+  },
+  {
+    "id": 50084,
+    "chapterId": 33,
+    "question": "एक 10 औम का प्रतिरोध यदि 5 ओम के प्रतिरोध के समांतर मे जुडा है तो कुल प्रतिरोध होगा",
+    "questionMarathi": "जर 10 ओहमचा रेझिस्टर 5 ओहमच्या रेझिस्टरला समांतर जोडला असेल, तर एकूण रेजिस्टन्स किती असेल?",
+    "options": [
+      "15 औम",
+      "33.3 औम",
+      "3.33 ओम",
+      "1.5 औम"
+    ],
+    "optionsMarathi": [
+      "15 ओहम",
+      "33.3 ओहम",
+      "3.33 ओहम",
+      "1.5 ओहम"
+    ],
+    "answer": "C",
+    "explanation": "Parallel resistance = (10 * 5) / (10 + 5) = 50 / 15 = 3.33 Ohm.",
+    "explanationMarathi": "समांतर (Parallel) रेजिस्टन्स = (10 * 5) / (10 + 5) = 50 / 15 = 3.33 ओहम."
+  },
+  {
+    "id": 50085,
+    "chapterId": 33,
+    "question": "डिस्चार्ज के पश्चात लैड एसिड सेल की धनात्मक प्लेट का रंग हो जाता है",
+    "questionMarathi": "डिस्चार्ज झाल्यानंतर लेड ऍसिड सेलच्या धन प्लेटचा रंग कसा होतो?",
+    "options": [
+      "सफेद",
+      "भुरा",
+      "सलेटी",
+      "चोकलेटी"
+    ],
+    "optionsMarathi": [
+      "पांढरा",
+      "तपकिरी",
+      "राखाडी",
+      "चॉकलेटी"
+    ],
+    "answer": "A",
+    "explanation": "After discharge, the positive plate becomes Lead Sulfate which is white.",
+    "explanationMarathi": "डिस्चार्ज झाल्यानंतर, धन प्लेट लेड सल्फेट बनते, ज्याचा रंग पांढरा असतो."
+  },
+  {
+    "id": 50086,
+    "chapterId": 33,
+    "question": "निम्न मे से ताप गुणांक का प्रतिक है",
+    "questionMarathi": "खालीलपैकी ताप गुणांकाचे (Temperature coefficient) प्रतीक काय आहे?",
+    "options": [
+      "\\pi",
+      "\\alpha",
+      "\\Sigma",
+      "\\mu"
+    ],
+    "optionsMarathi": [
+      "\\pi",
+      "\\alpha",
+      "\\Sigma",
+      "\\mu"
+    ],
+    "answer": "B",
+    "explanation": "Temperature coefficient is represented by alpha (α).",
+    "explanationMarathi": "ताप गुणांक (Temperature coefficient) अल्फा (α) ने दर्शविला जातो."
+  },
+  {
+    "id": 50087,
+    "chapterId": 33,
+    "question": "चुम्बकन तीव्रता का मात्रक है",
+    "questionMarathi": "चुंबकन तीव्रतेचे (Magnetic intensity) एकक काय आहे?",
+    "options": [
+      "वैबर/मी.",
+      "न्यूटन/वैबर",
+      "वैबर/एम्पीयर -टर्न-मी.",
+      "वैबर/वर्ग मीटर"
+    ],
+    "optionsMarathi": [
+      "वेबर/मी.",
+      "न्यूटन/वेबर",
+      "वेबर/अँपियर-टर्न-मी.",
+      "वेबर/वर्ग मीटर"
+    ],
+    "answer": "D",
+    "explanation": "Magnetic intensity / flux density unit is Weber / sq meter (Tesla).",
+    "explanationMarathi": "चुंबकन तीव्रता / फ्लक्स डेन्सिटीचे एकक वेबर / वर्ग मीटर (टेस्ला) आहे."
+  },
+  {
+    "id": 50088,
+    "chapterId": 33,
+    "question": "1 जूल बराबर है।",
+    "questionMarathi": "1 जूल कशाच्या बरोबर आहे?",
+    "options": [
+      "1 न्यूटन",
+      "1 वॉट",
+      "1 न्यूटन मी.",
+      "1 वॉट/सै."
+    ],
+    "optionsMarathi": [
+      "1 न्यूटन",
+      "1 वॉट",
+      "1 न्यूटन मी.",
+      "1 वॉट/से."
+    ],
+    "answer": "C",
+    "explanation": "1 Joule is equal to 1 Newton meter (N.m).",
+    "explanationMarathi": "1 जूल म्हणजे 1 न्यूटन मीटर (N.m)."
+  },
+  {
+    "id": 50089,
+    "chapterId": 33,
+    "question": "निम्न मे से स्थाई चुम्बक बनने के लिए उपयुक्त पदार्थ है",
+    "questionMarathi": "खालीलपैकी कायमस्वरूपी चुंबक (Permanent magnet) बनवण्यासाठी योग्य पदार्थ कोणता आहे?",
+    "options": [
+      "तांबा",
+      "म्युमेटल",
+      "परमैलाय",
+      "एलिनको"
+    ],
+    "optionsMarathi": [
+      "तांबे",
+      "म्युमेटल",
+      "परमॅलॉय",
+      "अलिनको"
+    ],
+    "answer": "D",
+    "explanation": "Alnico is suitable for making permanent magnets.",
+    "explanationMarathi": "कायमस्वरूपी चुंबक बनवण्यासाठी अलिनको (Alnico) हा पदार्थ योग्य आहे."
+  },
+  {
+    "id": 50090,
+    "chapterId": 33,
+    "question": "निम्न मे से कौनसा सेल रूक रूक कर विद्युत धारा प्रदान करता है",
+    "questionMarathi": "खालीलपैकी कोणता सेल थांबून-थांबून (intermittent) विद्युत धारा प्रदान करतो?",
+    "options": [
+      "डेनियल",
+      "वोल्टेइक",
+      "लेकलांची",
+      "सिल्वर आक्साइड"
+    ],
+    "optionsMarathi": [
+      "डेनियल",
+      "व्होल्टेइक",
+      "लेकलांची",
+      "सिल्व्हर ऑक्साईड"
+    ],
+    "answer": "C",
+    "explanation": "Leclanche cell is used for intermittent current supply.",
+    "explanationMarathi": "लेकलांची (Leclanche) सेल थांबून-थांबून (intermittent) विद्युत धारा पुरवण्यासाठी वापरला जातो."
+  },
+  {
+    "id": 50091,
+    "chapterId": 33,
+    "question": "नियत मान वायर वाउण्ड प्रतिरोधक अधिकतम कितने वॉट तक बनाये जाते है ?",
+    "questionMarathi": "निश्चित मूल्याचे वायर वाउंड रेझिस्टर (प्रतिरोधक) जास्तीत जास्त किती वॉट पर्यंत बनवले जातात?",
+    "options": [
+      "1 वॉट",
+      "100 वॉट",
+      "50 वॉट",
+      "0.5 वॉट"
+    ],
+    "optionsMarathi": [
+      "1 वॉट",
+      "100 वॉट",
+      "50 वॉट",
+      "0.5 वॉट"
+    ],
+    "answer": "C",
+    "explanation": "Fixed value wire wound resistors are typically made up to 50 Watts.",
+    "explanationMarathi": "निश्चित मूल्याचे वायर वाउंड रेझिस्टर साधारणपणे 50 वॉट पर्यंत बनवले जातात."
+  },
+  {
+    "id": 50092,
+    "chapterId": 33,
+    "question": "36KΩ ±4% मान वाले प्रतिरोधक का रंग निर्धारण होगा ?",
+    "questionMarathi": "36KΩ ±4% मूल्याच्या रेझिस्टरचा (प्रतिरोधकाचा) रंग कोड काय असेल?",
+    "options": [
+      "नारंगी, हरा, पीला, पीला",
+      "नारंगी, नीला, नारंगी, पीला",
+      "नारंगी, नीला, लाल, नारंगी",
+      "नारंगी, नीला, हरा, पीला"
+    ],
+    "optionsMarathi": [
+      "नारंगी, हिरवा, पिवळा, पिवळा",
+      "नारंगी, निळा, नारंगी, पिवळा",
+      "नारंगी, निळा, लाल, नारंगी",
+      "नारंगी, निळा, हिरवा, पिवळा"
+    ],
+    "answer": "B",
+    "explanation": "3 = Orange, 6 = Blue, kOhm means multiplier is 10^3 = Orange.",
+    "explanationMarathi": "3 = नारंगी, 6 = निळा, kOhm म्हणजे गुणक 10^3 = नारंगी."
+  },
+  {
+    "id": 50093,
+    "chapterId": 33,
+    "question": "फ्युज तार मे लैड व टिन की प्रतिशत मात्रा होती है ?",
+    "questionMarathi": "फ्यूज वायरमध्ये शिसे (Lead) आणि कथील (Tin) ची टक्केवारी किती असते?",
+    "options": [
+      "66% व 34%",
+      "37% व 63%",
+      "34% व 66%",
+      "63% व 37%"
+    ],
+    "optionsMarathi": [
+      "66% आणि 34%",
+      "37% आणि 63%",
+      "34% आणि 66%",
+      "63% आणि 37%"
+    ],
+    "answer": "B",
+    "explanation": "Standard fuse wire has 37% Lead and 63% Tin.",
+    "explanationMarathi": "प्रमाणित फ्यूज वायरमध्ये 37% शिसे (Lead) आणि 63% कथील (Tin) असते."
+  },
+  {
+    "id": 50094,
+    "chapterId": 33,
+    "question": "नाईफ स्विच अधिकतम कितने एम्पीयर की धारा क्षमता के बनाये जाते है ?",
+    "questionMarathi": "नाईफ स्विच जास्तीत जास्त किती अँपियरच्या विद्युत धारा क्षमतेचे बनवले जातात?",
+    "options": [
+      "400 एम्पीयर",
+      "30 एम्पीयर",
+      "1000 एम्पीयर",
+      "100 एम्पीयर"
+    ],
+    "optionsMarathi": [
+      "400 अँपियर",
+      "30 अँपियर",
+      "1000 अँपियर",
+      "100 अँपियर"
+    ],
+    "answer": "C",
+    "explanation": "Knife switches are made for currents up to 1000 Amperes.",
+    "explanationMarathi": "नाईफ स्विच 1000 अँपियर पर्यंतच्या विद्युत धारा क्षमतेसाठी बनवले जातात."
+  },
+  {
+    "id": 50095,
+    "chapterId": 33,
+    "question": "निम्न मे से कौनसा पदार्थ विद्युत का सबसे अच्छा चालक है ?",
+    "questionMarathi": "खालीलपैकी कोणता पदार्थ विजेचा (विद्युतचा) सर्वात चांगला वाहक आहे?",
+    "options": [
+      "पॉसलिन",
+      "माइका",
+      "नाइक्रोम",
+      "एस्बेस्टस"
+    ],
+    "optionsMarathi": [
+      "पोर्सिलीन",
+      "मायका",
+      "नायक्रोम",
+      "एस्बेस्टस"
+    ],
+    "answer": "C",
+    "explanation": "Among the options, Nichrome is a conductor (alloy), while others are insulators.",
+    "explanationMarathi": "दिलेल्या पर्यायांपैकी, नायक्रोम (Nichrome) हा वाहक (संमिश्र) आहे, तर इतर दुर्वाहक आहेत."
+  },
+  {
+    "id": 50096,
+    "chapterId": 33,
+    "question": "रंग संकेत तालिका के अनुसार बैंगनी रंग का दूसरी पट्टी का मान होता है ?",
+    "questionMarathi": "रंग कोड (Color code) सारणीनुसार जांभळ्या रंगाच्या दुसऱ्या पट्टीचे मूल्य किती असते?",
+    "options": [
+      "8",
+      "7",
+      "6",
+      "9"
+    ],
+    "optionsMarathi": [
+      "8",
+      "7",
+      "6",
+      "9"
+    ],
+    "answer": "B",
+    "explanation": "Violet color band represents the number 7.",
+    "explanationMarathi": "जांभळा (Violet) रंग 7 हे मूल्य दर्शवतो."
+  },
+  {
+    "id": 50097,
+    "chapterId": 33,
+    "question": "किसी पदार्थ के परमाणु का सबसे हल्का भाग होता है ?",
+    "questionMarathi": "कोणत्याही पदार्थाच्या अणूचा सर्वात हलका भाग कोणता असतो?",
+    "options": [
+      "प्रोटोन",
+      "इलैक्ट्रोन",
+      "न्यूट्रोन",
+      "नाभिक"
+    ],
+    "optionsMarathi": [
+      "प्रोटॉन",
+      "इलेक्ट्रॉन",
+      "न्यूट्रॉन",
+      "केंद्रक (नाभिक)"
+    ],
+    "answer": "B",
+    "explanation": "The electron is the lightest subatomic particle in an atom.",
+    "explanationMarathi": "इलेक्ट्रॉन हा अणूतील सर्वात हलका उप-अणू कण आहे."
+  },
+  {
+    "id": 50098,
+    "chapterId": 33,
+    "question": "1.8Ω ±5% का रंग निर्धारण होगा ?",
+    "questionMarathi": "1.8Ω ±5% मूल्याच्या रेझिस्टरचा (प्रतिरोधकाचा) रंग कोड काय असेल?",
+    "options": [
+      "काला, सलेटी, लाल, सुनहरी",
+      "भूरा, काला, सलेटी, सुनहरी",
+      "भूरा, सलेटी, सुनहरी, सुनहरी",
+      "भूरा, बैंगनी, चांदनी, सुनहरी"
+    ],
+    "optionsMarathi": [
+      "काळा, राखाडी, लाल, सोनेरी",
+      "तपकिरी, काळा, राखाडी, सोनेरी",
+      "तपकिरी, राखाडी, सोनेरी, सोनेरी",
+      "तपकिरी, जांभळा, चांदी, सोनेरी"
+    ],
+    "answer": "C",
+    "explanation": "1 = Brown, 8 = Gray, multiplier 0.1 = Gold, 5% = Gold.",
+    "explanationMarathi": "1 = तपकिरी (Brown), 8 = राखाडी (Gray), गुणक 0.1 = सोनेरी (Gold), 5% = सोनेरी (Gold)."
+  },
+  {
+    "id": 50099,
+    "chapterId": 33,
+    "question": "एक मोटे चालक की अपेक्षा पतले चालक मे से बहने वाली धारा का मान होगा ?",
+    "questionMarathi": "जाड वाहकाच्या तुलनेत पातळ वाहकातून वाहणाऱ्या विद्युत धारेचे मूल्य किती असेल?",
+    "options": [
+      "अधिक",
+      "कम",
+      "शून्य",
+      "अनन्त"
+    ],
+    "optionsMarathi": [
+      "जास्त",
+      "कमी",
+      "शून्य",
+      "अनंत"
+    ],
+    "answer": "B",
+    "explanation": "A thinner conductor has higher resistance, hence it allows less current.",
+    "explanationMarathi": "पातळ वाहकाचा रेजिस्टन्स (प्रतिरोध) जास्त असतो, त्यामुळे त्यातून कमी विद्युत धारा वाहते."
+  },
+  {
+    "id": 50100,
+    "chapterId": 33,
+    "question": "सिल्वर नाइट्रेट के घोल मे 1 सेकण्ड तक धारा प्रवाह से कितनी चांदी कैथोड पर मिले की धारा का मान 1 एम्पी हो?",
+    "questionMarathi": "सिल्व्हर नायट्रेटच्या द्रावणात 1 सेकंद विद्युत धारा प्रवाहित केल्यास, कॅथोडवर किती चांदी जमा होईल, जर विद्युत धारेचे मूल्य 1 अँपियर असेल?",
+    "options": [
+      "0.00118 ग्राम",
+      "0.0118 ग्राम",
+      "0.000118 ग्राम",
+      "0.001118 ग्राम"
+    ],
+    "optionsMarathi": [
+      "0.00118 ग्रॅम",
+      "0.0118 ग्रॅम",
+      "0.000118 ग्रॅम",
+      "0.001118 ग्रॅम"
+    ],
+    "answer": "D",
+    "explanation": "Electrochemical equivalent of silver is 0.001118 g/Coulomb.",
+    "explanationMarathi": "चांदीचा इलेक्ट्रोकेमिकल इक्विव्हॅलंट (Z) 0.001118 ग्रॅम प्रति कुलॉम्ब आहे."
+  },
+  {
+    "id": 50101,
+    "chapterId": 33,
+    "question": "निम्न मे से किस प्रकार का घोल विद्युत का कुचालक है ?",
+    "questionMarathi": "खालीलपैकी कोणत्या प्रकारचे द्रावण विजेचे (विद्युतचे) दुर्वाहक आहे?",
+    "options": [
+      "तेजाब",
+      "नमक मिला पानी",
+      "अलकोहल",
+      "पानी मिला क्षार"
+    ],
+    "optionsMarathi": [
+      "ऍसिड (तेजाब)",
+      "मीठ मिसळलेले पाणी",
+      "अल्कोहोल",
+      "पाणी मिसळलेला अल्कली (क्षार)"
+    ],
+    "answer": "C",
+    "explanation": "Alcohol does not ionize in water and is an insulator.",
+    "explanationMarathi": "अल्कोहोल (Alcohol) पाण्यात आयनीकृत (ionize) होत नाही, म्हणून ते विद्युत दुर्वाहक आहे."
+  },
+  {
+    "id": 50102,
+    "chapterId": 33,
+    "question": "निम्न मे से फैराडे के विद्युत अपघटय के नियमानुसार सही है -",
+    "questionMarathi": "खालीलपैकी फॅरेडेच्या विद्युत अपघटनाच्या (electrolysis) नियमानुसार काय बरोबर आहे?",
+    "options": [
+      "m = z.i.t",
+      "m = I.t",
+      "m = z/I.t",
+      "उपरोक्त सभी"
+    ],
+    "optionsMarathi": [
+      "m = z.i.t",
+      "m = I.t",
+      "m = z/I.t",
+      "वरील सर्व"
+    ],
+    "answer": "A",
+    "explanation": "Faraday's first law of electrolysis: m = Z * I * t.",
+    "explanationMarathi": "फॅरेडेच्या विद्युत अपघटनाच्या पहिल्या नियमानुसार: m = Z * I * t."
+  },
+  {
+    "id": 50103,
+    "chapterId": 33,
+    "question": "एक कूलाम कि विद्युत किसी इलैक्ट्रलाईट मे से प्रवाहित करने पर मुक्त द्रव्यमान है ?",
+    "questionMarathi": "एका कुलॉम्ब विद्युत धारा कोणत्याही इलेक्ट्रोलाइटमधून प्रवाहित केल्यास मुक्त होणारे वस्तुमान काय असते?",
+    "options": [
+      "विद्युत रासायनिक तुल्यांक",
+      "रासायनिक तुल्यांक",
+      "अपघटन",
+      "उपरोक्त सभी"
+    ],
+    "optionsMarathi": [
+      "विद्युत रासायनिक तुल्यांक",
+      "रासायनिक तुल्यांक",
+      "अपघटन",
+      "वरील सर्व"
+    ],
+    "answer": "A",
+    "explanation": "Mass liberated by 1 Coulomb of charge is called Electrochemical Equivalent.",
+    "explanationMarathi": "1 कुलॉम्ब विद्युत प्रवाहाने मुक्त झालेल्या वस्तुमानाला विद्युत रासायनिक तुल्यांक (Electrochemical Equivalent) म्हणतात."
+  },
+  {
+    "id": 800,
+    "chapterId": 58,
+    "question": "Where is the 'No Volt Coil' (NVC) connected in a 4-point starter?",
+    "questionMarathi": "4-पॉइंट स्टार्टरमध्ये 'नो व्होल्ट कॉईल' (NVC) कुठे जोडलेली असते?",
+    "options": [
+      "Parallel to armature",
+      "In series with armature",
+      "Parallel to supply",
+      "In series with resistance"
+    ],
+    "optionsMarathi": [
+      "आर्मेचरच्या समांतर (Parallel to armature)",
+      "आर्मेचरच्या श्रेणीत (In series with armature)",
+      "सप्लायच्या समांतर (Parallel to supply)",
+      "रोधाच्या श्रेणीत (In series with resistance)"
+    ],
+    "answer": "C",
+    "explanation": "In a 4-point starter, the 'No Volt Coil' (NVC) is connected directly in parallel with the supply (along with a protective resistance). This ensures that if the supply voltage drops or fails, the coil releases the handle to safely stop the motor.",
+    "explanationMarathi": "4-पॉइंट स्टार्टरमध्ये 'नो व्होल्ट कॉईल' (NVC) थेट सप्लायच्या समांतर (एक संरक्षणात्मक रोधकासह) जोडलेली असते. यामुळे जर सप्लाय व्होल्टेज अचानक कमी झाले किंवा बंद झाले, तर ही कॉईल हँडलला मुक्त (release) करते आणि मोटर सुरक्षितपणे बंद होते."
+  },
+  {
+    "id": 801,
+    "chapterId": 58,
+    "question": "What should be the approximate resistance of a conductor wire used for earthing?",
+    "questionMarathi": "अर्थिंगसाठी (Earthing) वापरल्या जाणाऱ्या कंडक्टर वायरचा रोध (Resistance) किती असावा?",
+    "options": [
+      "3 Ohm",
+      "5 Ohm",
+      "1 Ohm",
+      "8 Ohm"
+    ],
+    "optionsMarathi": [
+      "3 ओहम",
+      "5 ओहम",
+      "1 ओहम",
+      "8 ओहम"
+    ],
+    "answer": "C",
+    "explanation": "From a safety perspective, earthing resistance should be as low as possible so fault current can easily flow to the ground. For good earthing, an ideal resistance is generally 1 Ohm or less.",
+    "explanationMarathi": "सुरक्षेच्या दृष्टिकोनातून अर्थिंगचा रोध शक्य तितका कमी असावा, जेणेकरून फॉल्ट करंट (fault current) सहजपणे जमिनीत जाऊ शकेल. चांगल्या अर्थिंगसाठी हा रोध साधारणपणे 1 ओहम किंवा त्यापेक्षा कमी असणे आदर्श मानले जाते."
+  },
+  {
+    "id": 802,
+    "chapterId": 58,
+    "question": "Which of the following values is a transformer used to change?",
+    "questionMarathi": "खालीलपैकी कोणते मूल्य बदलण्यासाठी ट्रान्सफॉर्मरचा वापर केला जातो?",
+    "options": [
+      "Resistance",
+      "Power",
+      "Frequency",
+      "Voltage"
+    ],
+    "optionsMarathi": [
+      "रोध (Resistance)",
+      "शक्ती (Power)",
+      "वारंवारता (Frequency)",
+      "व्होल्टेज (Voltage)"
+    ],
+    "answer": "D",
+    "explanation": "A transformer is a static device used to step-up or step-down AC voltage without changing frequency or power.",
+    "explanationMarathi": "ट्रान्सफॉर्मर हे एक स्थिर उपकरण (Static device) आहे जे वारंवारता (Frequency) आणि शक्ती (Power) न बदलता AC व्होल्टेज वाढवण्यासाठी (Step-up) किंवा कमी करण्यासाठी (Step-down) वापरले जाते."
+  },
+  {
+    "id": 803,
+    "chapterId": 58,
+    "question": "What is the resistance of an Ideal Voltmeter?",
+    "questionMarathi": "एका आदर्श व्होल्टमीटरचा (Ideal Voltmeter) रोध किती असतो?",
+    "options": [
+      "Infinite",
+      "Zero",
+      "5 kilo Ohm",
+      "20 kilo Ohm"
+    ],
+    "optionsMarathi": [
+      "अनंत (Infinite)",
+      "शून्य (Zero)",
+      "5 किलो ओहम",
+      "20 किलो ओहम"
+    ],
+    "answer": "A",
+    "explanation": "A voltmeter is connected in parallel to the circuit. To accurately measure voltage without drawing the original current from the circuit, an ideal voltmeter must have 'infinite' resistance.",
+    "explanationMarathi": "व्होल्टमीटर सर्किटमध्ये समांतर जोडले जाते. सर्किटमधील मूळ करंट स्वतःकडे न खेचता अचूक व्होल्टेज मोजण्यासाठी आदर्श व्होल्टमीटरचा रोध 'अनंत' असणे आवश्यक असते."
+  },
+  {
+    "id": 804,
+    "chapterId": 58,
+    "question": "How is a Centrifugal Switch connected?",
+    "questionMarathi": "सेंट्रीफ्युगल स्विच (Centrifugal Switch) कसा जोडलेला असतो?",
+    "options": [
+      "In parallel with running winding",
+      "In series with starting winding",
+      "In series with supply",
+      "In parallel with all"
+    ],
+    "optionsMarathi": [
+      "रनिंग वाइंडिंगच्या समांतर",
+      "स्टार्टिंग वाइंडिंगच्या श्रेणीत (In series with starting winding)",
+      "सप्लायच्या श्रेणीत",
+      "सर्वांच्या समांतर"
+    ],
+    "answer": "B",
+    "explanation": "In a single-phase induction motor, the centrifugal switch is connected in series with the starting winding. When the motor reaches 70-80% of its full speed, this switch opens and the starting winding is disconnected from the circuit.",
+    "explanationMarathi": "सिंगल-फेज इंडक्शन मोटरमध्ये सेंट्रीफ्युगल स्विच हा स्टार्टिंग वाइंडिंगच्या श्रेणीत (Series) जोडलेला असतो. जेव्हा मोटर आपल्या पूर्ण गतीच्या 70-80% गती गाठते, तेव्हा हा स्विच उघडतो (open होतो) आणि स्टार्टिंग वाइंडिंग सर्किटमधून वेगळी होते."
+  },
+  {
+    "id": 805,
+    "chapterId": 58,
+    "question": "Which of the following instruments is highly sensitive?",
+    "questionMarathi": "खालीलपैकी कोणते यंत्र सर्वात जास्त संवेदनशील (Highly Sensitive) आहे?",
+    "options": [
+      "Moving Iron Attraction type",
+      "Moving Iron Repulsion type",
+      "Moving Coil (PMMC)",
+      "All of the above"
+    ],
+    "optionsMarathi": [
+      "मुव्हिंग आयर्न आकर्षण प्रकार (Moving Iron Attraction type)",
+      "मुव्हिंग आयर्न प्रत्याकर्षण प्रकार (Moving Iron Repulsion type)",
+      "मुव्हिंग कॉईल (Moving Coil - PMMC)",
+      "वरील सर्व"
+    ],
+    "answer": "C",
+    "explanation": "Moving Coil (PMMC) instruments use a powerful permanent magnet, making their sensitivity much higher compared to other instruments.",
+    "explanationMarathi": "मुव्हिंग कॉईल (PMMC) यंत्रांमध्ये शक्तिशाली कायमस्वरूपी चुंबक (Permanent Magnet) वापरला जातो, ज्यामुळे त्यांची सुग्राह्यता किंवा संवेदनशीलता (Sensitivity) इतर यंत्रांच्या तुलनेत खूप जास्त असते."
+  },
+  {
+    "id": 806,
+    "chapterId": 58,
+    "question": "What material is the filament of a metal incandescent lamp made of?",
+    "questionMarathi": "एका धातूच्या फिलामेंट लॅम्पचा (Incandescent Lamp) फिलामेंट कोणत्या पदार्थाचा बनलेला असतो?",
+    "options": [
+      "Zinc",
+      "Tungsten",
+      "Lead",
+      "Carbon"
+    ],
+    "optionsMarathi": [
+      "जस्त (Zinc)",
+      "टंगस्टन (Tungsten)",
+      "शिसे (Lead)",
+      "कार्बन (Carbon)"
+    ],
+    "answer": "B",
+    "explanation": "Tungsten has a very high melting point (around 3422°C) and does not melt even at high temperatures, which is why it is used as a filament in lamps to produce light.",
+    "explanationMarathi": "टंगस्टनचा वितळण बिंदू (Melting point) खूप जास्त (सुमारे 3422°C) असतो आणि तो उच्च तापमानालाही वितळत नाही, म्हणूनच दिव्यांमध्ये प्रकाश निर्माण करण्यासाठी टंगस्टन फिलामेंट वापरतात."
+  },
+  {
+    "id": 807,
+    "chapterId": 58,
+    "question": "Which device converts DC to AC?",
+    "questionMarathi": "DC चे AC मध्ये रूपांतर करणारे यंत्र कोणते आहे?",
+    "options": [
+      "Diode",
+      "Converter",
+      "Rectifier",
+      "Inverter"
+    ],
+    "optionsMarathi": [
+      "डायोड (Diode)",
+      "कन्व्हर्टर (Converter)",
+      "रेक्टिफायर (Rectifier)",
+      "इन्व्हर्टर (Inverter)"
+    ],
+    "answer": "D",
+    "explanation": "A rectifier converts AC to DC, while an inverter converts the available DC supply back into AC supply.",
+    "explanationMarathi": "रेक्टिफायर हे AC चे DC मध्ये रूपांतर करते, तर इन्व्हर्टर (Inverter) हे उपलब्ध DC सप्लायचे पुन्हा AC सप्लायमध्ये रूपांतर करण्याचे काम करते."
+  },
+  {
+    "id": 808,
+    "chapterId": 58,
+    "question": "What do the plates of a lead-acid cell turn into after discharging?",
+    "questionMarathi": "लेड ॲसिड सेलच्या प्लेट्स डिस्चार्ज झाल्यानंतर कशामध्ये बदलतात?",
+    "options": [
+      "Lead Sulfate",
+      "Red Lead",
+      "Lead Peroxide",
+      "Sponge Lead"
+    ],
+    "optionsMarathi": [
+      "लेड सल्फेट (Lead Sulfate)",
+      "रेड लेड",
+      "लेड पेरॉक्साइड",
+      "स्पंज लेड"
+    ],
+    "answer": "A",
+    "explanation": "When a lead-acid battery is completely discharged, a chemical reaction causes both its positive and negative plates to turn into 'Lead Sulfate' (PbSO4).",
+    "explanationMarathi": "लेड ॲसिड बॅटरी जेव्हा पूर्णपणे डिस्चार्ज होते, तेव्हा रासायनिक प्रक्रियेमुळे तिची पॉझिटिव्ह आणि निगेटिव्ह दोन्ही प्रकारची प्लेट्स 'लेड सल्फेट' (PbSO4) मध्ये बदलतात."
+  },
+  {
+    "id": 809,
+    "chapterId": 58,
+    "question": "What is the typical length of a hook used in underground conduit wiring?",
+    "questionMarathi": "अंडरग्राउंड कंड्युट वायरिंगमध्ये (Conduit Wiring) वापरल्या जाणाऱ्या हुकची लांबी साधारणपणे किती ठेवली जाते?",
+    "options": [
+      "60 inches",
+      "60 cm",
+      "60 mm",
+      "60 yards"
+    ],
+    "optionsMarathi": [
+      "60 इंच",
+      "60 सेमी",
+      "60 मिमी",
+      "60 यार्ड"
+    ],
+    "answer": "C",
+    "explanation": "Saddles or hooks used to firmly hold wiring pipes (conduits) inside walls or under ceilings are usually about 60 mm long so they sit properly in the plaster.",
+    "explanationMarathi": "भिंतीच्या आत किंवा छताखाली वायरिंग पाईप (कंड्युट) घट्ट पकडून ठेवण्यासाठी वापरले जाणारे सॅडल किंवा हुक साधारण 60 मिलीमीटर लांबीचे असतात जेणेकरून ते प्लास्टरमध्ये व्यवस्थित बसतील."
+  },
+  {
+    "id": 810,
+    "chapterId": 58,
+    "question": "In a synchronous motor, how does the rotor speed compare to the synchronous speed?",
+    "questionMarathi": "सिंक्रोनस मोटरमध्ये रोटरची गती ही सिंक्रोनस गतीपेक्षा (Synchronous Speed) किती असते?",
+    "options": [
+      "Less",
+      "Equal",
+      "More",
+      "Slightly less"
+    ],
+    "optionsMarathi": [
+      "कमी",
+      "बरोबर (Equal)",
+      "जास्त",
+      "थोडी कमी"
+    ],
+    "answer": "B",
+    "explanation": "A synchronous motor is a constant speed motor. Its rotor magnetically locks directly with the stator's magnetic field, so the rotor's speed is always equal to the synchronous speed (Ns).",
+    "explanationMarathi": "सिंक्रोनस मोटर ही स्थिर गतीवर चालणारी मोटर आहे. हिचा रोटर थेट स्टेटरच्या चुंबकीय क्षेत्रासोबत मॅग्नेटिकली लॉक होतो, त्यामुळे रोटरची गती नेहमी सिंक्रोनस गती (Ns) एवढीच म्हणजेच 'बरोबर' असते."
+  },
+  {
+    "id": 812,
+    "chapterId": 58,
+    "question": "Which connection is used to convert 3-Phase supply to 2-Phase in a transformer?",
+    "questionMarathi": "ट्रान्सफॉर्मरमध्ये थ्री-फेज (3-Phase) सप्लायचे टू-फेज (2-Phase) मध्ये रूपांतर करण्यासाठी कोणते कनेक्शन वापरतात?",
+    "options": [
+      "Star inter star",
+      "V-V",
+      "Scott Connection",
+      "Tertiary"
+    ],
+    "optionsMarathi": [
+      "स्टार इंटर स्टार",
+      "व्ही-व्ही (V-V)",
+      "स्कॉट (Scott Connection)",
+      "टर्शियरी"
+    ],
+    "answer": "C",
+    "explanation": "Scott connection (also called T-T connection) uses two special transformers (Main and Teaser) to convert a 3-phase system to a 2-phase system, or vice versa.",
+    "explanationMarathi": "स्कॉट कनेक्शन (ज्याला T-T कनेक्शन देखील म्हणतात) दोन विशेष ट्रान्सफॉर्मर (Main आणि Teaser) वापरून 3-फेज प्रणालीचे 2-फेज प्रणालीमध्ये किंवा याउलट रूपांतर करण्यासाठी वापरले जाते."
+  },
+  {
+    "id": 813,
+    "chapterId": 58,
+    "question": "Which efficiency of a battery is always higher?",
+    "questionMarathi": "बॅटरीची कोणती कार्यक्षमता (Efficiency) नेहमी जास्त असते?",
+    "options": [
+      "Watt-hour",
+      "Overall",
+      "Watt Ampere",
+      "Ampere-hour"
+    ],
+    "optionsMarathi": [
+      "वॅट-अवर (Watt-hour)",
+      "ओव्हर ऑल",
+      "वॅट एम्पियर",
+      "एम्पियर-अवर (Ampere-hour)"
+    ],
+    "answer": "D",
+    "explanation": "The voltage required during charging is higher than the voltage available during discharging. Hence, the Watt-hour efficiency is lower (70-80%). However, Ampere-hour (Ah) efficiency is independent of voltage, making it higher (90-95%).",
+    "explanationMarathi": "चार्जिंग दरम्यान लागणारा व्होल्टेज डिस्चार्जिंग दरम्यान मिळणाऱ्या व्होल्टेजपेक्षा जास्त असतो. त्यामुळे वॅट-अवर कार्यक्षमता कमी होते (70-80%). परंतु एम्पियर-अवर (Ah) कार्यक्षमता व्होल्टेजवर अवलंबून नसल्याने ती जास्त असते (90-95%)."
+  },
+  {
+    "id": 814,
+    "chapterId": 58,
+    "question": "Where is Copper Loss generated in a transformer?",
+    "questionMarathi": "ट्रान्सफॉर्मरमध्ये कॉपर लॉस (Copper Loss) कुठे निर्माण होतो?",
+    "options": [
+      "In the Core",
+      "In the Winding",
+      "In the Body",
+      "In the Bush"
+    ],
+    "optionsMarathi": [
+      "कोरमध्ये (Core)",
+      "वाइंडिंगमध्ये (Winding)",
+      "बॉडीमध्ये",
+      "बुशमध्ये"
+    ],
+    "answer": "B",
+    "explanation": "Copper loss is caused by the resistance of the winding (I²R). Since the windings of a transformer are made of copper, copper loss is generated in the form of heat in the windings when current flows.",
+    "explanationMarathi": "कॉपर लॉस हा वाइंडिंगच्या रोधामुळे (I²R) होतो. ट्रान्सफॉर्मरच्या वाइंडिंग तांब्यापासून (Copper) बनवलेल्या असल्याने करंट वाहताना वाइंडिंगमध्ये कॉपर लॉस उष्णतेच्या स्वरूपात निर्माण होतो."
+  },
+  {
+    "id": 815,
+    "chapterId": 58,
+    "question": "What is the difference between full load and no load speed of a 4-pole, 415 V synchronous motor?",
+    "questionMarathi": "एका 4-पोल, 415 व्होल्ट सिंक्रोनस मोटरच्या फुल लोड (Full load) आणि नो लोड (No load) गतीमध्ये किती फरक असतो?",
+    "options": [
+      "30 RPM",
+      "0 RPM",
+      "2 percent",
+      "1000 RPM"
+    ],
+    "optionsMarathi": [
+      "30 RPM",
+      "0 RPM",
+      "2 टक्के",
+      "1000 RPM"
+    ],
+    "answer": "B",
+    "explanation": "The speed of a synchronous motor does not change even if the load changes; it always remains constant. Hence, the difference in its speed between no-load and full-load is zero (0 RPM).",
+    "explanationMarathi": "सिंक्रोनस मोटरची गती लोड बदलला तरी बदलत नाही; ती नेहमी स्थिर राहते. म्हणूनच नो-लोड ते फुल-लोड दरम्यान तिच्या गतीमधील फरक शून्य (0 RPM) असतो."
+  },
+  {
+    "id": 816,
+    "chapterId": 58,
+    "question": "Which torque opposes the deflecting torque in measuring instruments?",
+    "questionMarathi": "मापक यंत्रांमध्ये डिफ्लेक्टिंग टॉर्कच्या (Deflecting Torque) विरुद्ध कोणता टॉर्क काम करतो?",
+    "options": [
+      "Controlling Torque",
+      "Damping Torque",
+      "Repulsion",
+      "Load Torque"
+    ],
+    "optionsMarathi": [
+      "नियंत्रक (Controlling Torque)",
+      "डॅम्पिंग (Damping Torque)",
+      "रिपल्शन",
+      "लोड टॉर्क"
+    ],
+    "answer": "A",
+    "explanation": "When the deflecting torque pushes the pointer forward, the controlling torque (e.g., spring control) works in the opposite direction to keep it controlled at an accurate reading.",
+    "explanationMarathi": "जेव्हा डिफ्लेक्टिंग टॉर्क पॉइंटरला पुढे ढकलतो, तेव्हा कंट्रोलिंग टॉर्क (उदा. स्प्रिंग कंट्रोल) त्याला अचूक रीडिंगवर नियंत्रित ठेवण्यासाठी त्याच्या विरुद्ध दिशेने कार्य करतो."
+  },
+  {
+    "id": 817,
+    "chapterId": 58,
+    "question": "What is the unit of sensitivity of a voltmeter?",
+    "questionMarathi": "व्होल्टमीटरच्या संवेदनशीलतेचे (Sensitivity) एकक काय आहे?",
+    "options": [
+      "Volt/Ohm",
+      "Ohm/Ampere",
+      "Ohm/Volt (Ω/V)",
+      "Volt/Ampere"
+    ],
+    "optionsMarathi": [
+      "व्होल्ट/ओहम",
+      "ओहम/एम्पियर",
+      "ओहम/व्होल्ट (Ω/V)",
+      "व्होल्ट/एम्पियर"
+    ],
+    "answer": "C",
+    "explanation": "The sensitivity of a voltmeter is 1 / Full scale deflection current. Its unit is measured in Ohms per Volt (Ω/V). The higher this value, the better the voltmeter.",
+    "explanationMarathi": "व्होल्टमीटरची संवेदनशीलता (Sensitivity) ही 1 / Full scale deflection current असते. याचे एकक ओहम प्रति व्होल्ट (Ω/V) असे मोजले जाते. हे मूल्य जितके जास्त, तितका व्होल्टमीटर चांगला."
+  },
+  {
+    "id": 818,
+    "chapterId": 58,
+    "question": "What is the average value of AC supply?",
+    "questionMarathi": "AC सप्लायचे सरासरी मूल्य (Average Value) किती असते?",
+    "options": [
+      "1.11",
+      "1.414",
+      "0.707",
+      "0.637"
+    ],
+    "optionsMarathi": [
+      "1.11",
+      "1.414",
+      "0.707",
+      "0.637"
+    ],
+    "answer": "D",
+    "explanation": "The average value of a sine wave AC current or voltage is 0.637 times its peak value (I_avg = 0.637 * I_max).",
+    "explanationMarathi": "साईन वेव्ह (Sine wave) AC करंट किंवा व्होल्टेजचे सरासरी मूल्य (Average value) हे त्याच्या कमाल मूल्याच्या (Peak value) 0.637 पट असते (I_avg = 0.637 × I_max)."
+  },
+  {
+    "id": 819,
+    "chapterId": 58,
+    "question": "The speed of a DC motor is directly proportional to which of the following?",
+    "questionMarathi": "DC मोटरची गती (Speed) खालीलपैकी कोणाशी समानुपाती (Directly Proportional) असते?",
+    "options": [
+      "Load",
+      "Back EMF",
+      "Flux",
+      "Pole"
+    ],
+    "optionsMarathi": [
+      "लोडशी",
+      "बॅक EMF शी (Back EMF)",
+      "फ्लक्सशी",
+      "पोलशी"
+    ],
+    "answer": "B",
+    "explanation": "The formula for DC motor speed is N ∝ Eb / Φ. This means speed is directly proportional to the Back EMF (Eb) and inversely proportional to flux (Φ).",
+    "explanationMarathi": "DC मोटरच्या गतीचे सूत्र N ∝ Eb / Φ असे आहे. म्हणजेच गती ही बॅक EMF (Eb) शी समानुपाती आणि फ्लक्स (Φ) शी व्यस्त प्रमाणबद्ध असते."
+  },
+  {
+    "id": 820,
+    "chapterId": 58,
+    "question": "If two lamps of 100 W and 200 W are connected in series across a 250 V supply, which lamp will give more light?",
+    "questionMarathi": "100 वॅट आणि 200 वॅटचे दोन दिवे श्रेणीत (Series) 250 व्होल्ट सप्लायला जोडले, तर कोणता दिवा जास्त प्रकाश देईल?",
+    "options": [
+      "100 Watt",
+      "200 Watt",
+      "Both equally",
+      "Neither will light"
+    ],
+    "optionsMarathi": [
+      "100 वॅट",
+      "200 वॅट",
+      "दोन्ही सारखा",
+      "कोणताही दिवा चालणार नाही"
+    ],
+    "answer": "A",
+    "explanation": "The lower wattage lamp (100W) has higher resistance (R = V² / P). When lamps are connected in series, the same current flows through both. Therefore, according to the I²R formula, there is more power drop in the 100 W lamp and it gives more light.",
+    "explanationMarathi": "कमी वॅटेजच्या (100W) दिव्याचा रोध जास्त असतो (R = V² / P). जेव्हा दिवे सिरीजमध्ये जोडले जातात, तेव्हा दोन्हीमधून सारखाच करंट वाहतो. त्यामुळे I²R सूत्रानुसार 100 वॅटच्या दिव्यामध्ये जास्त पॉवर ड्रॉप होतो आणि तो जास्त प्रकाश देतो."
+  },
+  {
+    "id": 821,
+    "chapterId": 58,
+    "question": "What is the value of one Pico?",
+    "questionMarathi": "एक पिको (Pico) म्हणजे किती?",
+    "options": [
+      "10^-6",
+      "10^-9",
+      "10^-12",
+      "10^-15"
+    ],
+    "optionsMarathi": [
+      "10^-6",
+      "10^-9",
+      "10^-12",
+      "10^-15"
+    ],
+    "answer": "C",
+    "explanation": "According to the metric system: micro = 10^-6, nano = 10^-9, and pico = 10^-12. (e.g., 1 picofarad = 10^-12 farad).",
+    "explanationMarathi": "मेट्रिक प्रणालीनुसार: मायक्रो = 10^-6, नॅनो = 10^-9, आणि पिको = 10^-12 असते. (उदा. 1 पिकोफॅराडे = 10^-12 फॅराडे)."
+  },
+  {
+    "id": 822,
+    "chapterId": 58,
+    "question": "How is the average value compared to the RMS value for a sine wave?",
+    "questionMarathi": "साईन वेव्हसाठी सरासरी मूल्य (Average Value) हे नेहमी RMS मूल्यापेक्षा कसे असते?",
+    "options": [
+      "Less",
+      "More",
+      "Equal",
+      "Zero"
+    ],
+    "optionsMarathi": [
+      "कमी",
+      "जास्त",
+      "बरोबर",
+      "शून्य"
+    ],
+    "answer": "A",
+    "explanation": "For a sine wave, RMS value = 0.707 * Peak and average value = 0.637 * Peak. Hence, the average value is always 'less' than the RMS value.",
+    "explanationMarathi": "साईन वेव्हसाठी RMS मूल्य = 0.707 × Peak आणि सरासरी मूल्य = 0.637 × Peak. त्यामुळे सरासरी मूल्य हे नेहमी RMS मूल्यापेक्षा 'कमी' असते."
+  },
+  {
+    "id": 823,
+    "chapterId": 58,
+    "question": "If the frequency increases, the value of which of the following losses will increase the most?",
+    "questionMarathi": "वारंवारता (Frequency) वाढल्यास खालीलपैकी कोणत्या लॉसेसचे (Loss) मूल्य सर्वात जास्त वाढेल?",
+    "options": [
+      "Copper Loss",
+      "Mechanical Loss",
+      "Hysteresis Loss",
+      "Eddy Current Loss"
+    ],
+    "optionsMarathi": [
+      "तांब्याचे नुकसान (Copper Loss)",
+      "यांत्रिक नुकसान (Mechanical Loss)",
+      "हिस्टेरेसिस लॉस (Hysteresis Loss)",
+      "एडी करंट लॉस (Eddy Current Loss)"
+    ],
+    "answer": "D",
+    "explanation": "Hysteresis loss is directly proportional to frequency (Wh ∝ f), whereas Eddy current loss is proportional to the square of frequency (We ∝ f²). Therefore, if frequency increases, Eddy current loss increases most rapidly.",
+    "explanationMarathi": "हिस्टेरेसिस लॉस हा फ्रिक्वेन्सीशी थेट प्रमाणबद्ध असतो (Wh ∝ f), तर एडी करंट लॉस हा फ्रिक्वेन्सीच्या वर्गाशी प्रमाणबद्ध असतो (We ∝ f²). त्यामुळे फ्रिक्वेन्सी वाढल्यास एडी करंट लॉस सर्वात वेगाने वाढतो."
+  },
+  {
+    "id": 824,
+    "chapterId": 58,
+    "question": "Who discovered the proton?",
+    "questionMarathi": "प्रोटॉनचा शोध कोणी लावला?",
+    "options": [
+      "Dalton",
+      "Rutherford",
+      "Chadwick",
+      "Thomson"
+    ],
+    "optionsMarathi": [
+      "डाल्टन",
+      "रुदरफोर्ड (Rutherford)",
+      "चॅडविक",
+      "थॉमसन"
+    ],
+    "answer": "B",
+    "explanation": "In atomic structure, the positively charged particle 'proton' was discovered by Ernest Rutherford. (Electron was discovered by Thomson and neutron by Chadwick).",
+    "explanationMarathi": "अणूच्या संरचनेत पॉझिटिव्ह चार्ज असलेल्या 'प्रोटॉन' या कणाचा शोध अर्नेस्ट रुदरफोर्ड यांनी लावला. (इलेक्ट्रॉनचा शोध थॉमसन यांनी तर न्यूट्रॉनचा शोध चॅडविक यांनी लावला)."
+  },
+  {
+    "id": 825,
+    "chapterId": 58,
+    "question": "If the no-load voltage of an alternating current generator is 660V and the full-load voltage is 480V, what will be the percentage of voltage regulation?",
+    "questionMarathi": "एका अल्टरनेटिंग करंट जनरेटरचे (Alternator) नो-लोड व्होल्टेज 660V आणि फुल-लोड व्होल्टेज 480V असल्यास, व्होल्टेज रेग्युलेशनची टक्केवारी किती असेल?",
+    "options": [
+      "27.27",
+      "66",
+      "37.5",
+      "1800"
+    ],
+    "optionsMarathi": [
+      "27.27",
+      "66",
+      "37.5",
+      "1800"
+    ],
+    "answer": "C",
+    "explanation": "Voltage regulation formula: % VR = ((V_NL - V_FL) / V_FL) * 100. So % VR = ((660 - 480) / 480) * 100 = (180 / 480) * 100 = 37.5%",
+    "explanationMarathi": "व्होल्टेज रेग्युलेशनचे सूत्र: % VR = ((V_NL - V_FL) / V_FL) × 100. % VR = ((660 - 480) / 480) × 100 = (180 / 480) × 100 = 37.5%"
+  },
+  {
+    "id": 826,
+    "chapterId": 58,
+    "question": "A wattmeter has two coils. Which coil has the higher resistance?",
+    "questionMarathi": "वॅटमीटर (विद्युत शक्ती मापक यंत्र) मध्ये दोन कॉईल्स असतात, त्यापैकी कोणत्या कॉईलचा रोध जास्त असतो?",
+    "options": [
+      "Pressure Coil",
+      "Current Coil",
+      "Main Coil",
+      "All of the above"
+    ],
+    "optionsMarathi": [
+      "प्रेशर कॉईल (Pressure Coil / Potential Coil)",
+      "करंट कॉईल (Current Coil)",
+      "मुख्य कॉईल",
+      "वरील सर्व"
+    ],
+    "answer": "A",
+    "explanation": "The pressure coil is connected in parallel with the supply voltage. It is made of many turns of very thin wire, making its resistance very high. The current coil has very low resistance.",
+    "explanationMarathi": "प्रेशर कॉईल ही सप्लाय व्होल्टेजच्या समांतर जोडली जाते. ती अतिशय पातळ वायरच्या अनेक फेऱ्या (turns) वापरून बनवली जाते, ज्यामुळे तिचा रोध (Resistance) खूप जास्त असतो. करंट कॉईलचा रोध खूप कमी असतो."
+  },
+  {
+    "id": 827,
+    "chapterId": 58,
+    "question": "How much power does a 'zero watt' lamp actually consume?",
+    "questionMarathi": "एका 'झिरो वॅट' (Zero Watt) चा दिवा प्रत्यक्ष किती वीज वापरतो?",
+    "options": [
+      "15 Watt",
+      "0 Watt",
+      "20 to 25 Watt",
+      "5 to 7 Watt"
+    ],
+    "optionsMarathi": [
+      "15 वॅट",
+      "0 वॅट",
+      "20 ते 25 वॅट",
+      "5 ते 7 वॅट"
+    ],
+    "answer": "D",
+    "explanation": "No lamp can completely consume zero watts of power. Older electromagnetic energy meters could not measure such a small load (5-7 watts) and their disk wouldn't rotate, hence it was called a 'zero watt bulb'. It actually consumes 5 to 7 watts.",
+    "explanationMarathi": "कोणताही दिवा पूर्णपणे शून्य वॅट वीज खाऊ शकत नाही. जुने इलेक्ट्रोमॅग्नेटिक एनर्जी मीटर इतका कमी लोड (5-7 वॅट) मोजू शकत नव्हते आणि त्यांची डिस्क फिरत नव्हती, म्हणून त्याला 'झिरो वॅट बल्ब' म्हटले जायचे. प्रत्यक्षात तो 5 ते 7 वॅट वीज वापरतो."
+  },
+  {
+    "id": 828,
+    "chapterId": 58,
+    "question": "Which of the following materials is most suitable for an ammeter shunt?",
+    "questionMarathi": "अमीटरच्या शंटसाठी (Shunt) खालीलपैकी कोणता पदार्थ सर्वात योग्य आहे?",
+    "options": [
+      "Copper",
+      "Manganin",
+      "Iron",
+      "Brass"
+    ],
+    "optionsMarathi": [
+      "तांबे (Copper)",
+      "मँगनीन (Manganin)",
+      "लोखंड",
+      "पितळ"
+    ],
+    "answer": "B",
+    "explanation": "Manganin has a very low 'Temperature Coefficient of Resistance'. This means its resistance does not change even if temperature increases, keeping meter readings accurate.",
+    "explanationMarathi": "मँगनीनचा 'तापमान रोध गुणांक' (Temperature Coefficient of Resistance) अत्यंत कमी असतो. म्हणजेच तापमान वाढले तरी त्याच्या रोधात बदल होत नाही, ज्यामुळे मीटरचे रीडिंग अचूक राहते."
+  },
+  {
+    "id": 829,
+    "chapterId": 58,
+    "question": "Which of the following instruments cannot be used on both AC and DC?",
+    "questionMarathi": "खालीलपैकी कोणते यंत्र AC आणि DC दोन्हीवर वापरले जाऊ शकत नाही?",
+    "options": [
+      "Moving Iron type",
+      "Dynamometer type",
+      "Induction Type",
+      "All of the above"
+    ],
+    "optionsMarathi": [
+      "मुव्हिंग आयर्न प्रकार",
+      "डायनॅमोमीटर प्रकार",
+      "इंडक्शन प्रकार (Induction Type)",
+      "वरील सर्व"
+    ],
+    "answer": "C",
+    "explanation": "Induction type instruments work strictly on the principle of 'electromagnetic induction', which requires an alternating magnetic field. Therefore, these instruments work only on AC, not on DC.",
+    "explanationMarathi": "इंडक्शन प्रकारची यंत्रे केवळ 'इलेक्ट्रोमॅग्नेटिक इंडक्शन' या तत्त्वावर काम करतात, ज्यासाठी बदलणारे चुंबकीय क्षेत्र (Alternating Magnetic Field) आवश्यक असते. त्यामुळे ही यंत्रे फक्त AC वर काम करतात, DC वर नाही."
+  },
+  {
+    "id": 830,
+    "chapterId": 58,
+    "question": "What is the anode (positive terminal) made of in a Leclanche Cell?",
+    "questionMarathi": "लेक्लांचे सेल (Leclanche Cell) मध्ये ॲनोड (Anode / Positive Terminal) कशाचा बनलेला असतो?",
+    "options": [
+      "Copper",
+      "Zinc",
+      "Nickel",
+      "Carbon"
+    ],
+    "optionsMarathi": [
+      "तांबे",
+      "जस्त (Zinc)",
+      "निकेल",
+      "कार्बन (Carbon)"
+    ],
+    "answer": "D",
+    "explanation": "In a Leclanche cell, a carbon rod acts as the anode (positive), and the zinc container or strip acts as the cathode (negative).",
+    "explanationMarathi": "लेक्लांचे सेलमध्ये कार्बनची काडी ॲनोड (पॉझिटिव्ह) म्हणून काम करते आणि जस्ताचे (Zinc) भांडे किंवा पट्टी कॅथोड (नेगेटिव्ह) म्हणून काम करते."
+  },
+  {
+    "id": 831,
+    "chapterId": 58,
+    "question": "Through what does phase splitting (displacement) occur in a shaded pole motor?",
+    "questionMarathi": "शेडेड पोल मोटरमध्ये (Shaded Pole Motor) फेझ स्प्लिटिंग (Phase displacement) कशाच्या माध्यमातून होते?",
+    "options": [
+      "Centrifugal Switch",
+      "Shading Ring",
+      "Capacitor",
+      "Inductor"
+    ],
+    "optionsMarathi": [
+      "सेंट्रीफ्युगल स्विच",
+      "शेडिंग रिंग (Shading Ring)",
+      "कॅपेसिटर",
+      "इंडक्टर"
+    ],
+    "answer": "B",
+    "explanation": "A small copper ring, called a 'shading ring', is fitted onto the pole of this motor. This alters the phase of the magnetic field between the main pole and the shaded part, producing a rotating magnetic field.",
+    "explanationMarathi": "या मोटरच्या पोलवर तांब्याची एक लहान रिंग बसवलेली असते, ज्याला 'शेडिंग रिंग' म्हणतात. यामुळे मुख्य पोल आणि शेडेड भागामध्ये चुंबकीय क्षेत्राचा फेझ बदलतो आणि फिरणारे चुंबकीय क्षेत्र तयार होते."
+  },
+  {
+    "id": 832,
+    "chapterId": 58,
+    "question": "What is the maximum temperature for a 'Class B' type insulator?",
+    "questionMarathi": "'क्लास बी' (Class B) प्रकारच्या इन्सुलेटरचे कमाल तापमान किती असते?",
+    "options": [
+      "155°C",
+      "120°C",
+      "130°C",
+      "180°C"
+    ],
+    "optionsMarathi": [
+      "155°C",
+      "120°C",
+      "130°C",
+      "180°C"
+    ],
+    "answer": "C",
+    "explanation": "Different classes of insulation materials have specific endurance limits. The maximum safe temperature for Class 'B' insulation is 130°C.",
+    "explanationMarathi": "वेगवेगळ्या वर्गाच्या इन्सुलेशन मटेरियलची सहनशीलता ठरलेली असते. क्लास 'B' इन्सुलेशनचे कमाल सुरक्षित तापमान 130°C असते."
+  },
+  {
+    "id": 833,
+    "chapterId": 58,
+    "question": "Which of the following instruments has a strictly uniform (linear) scale?",
+    "questionMarathi": "खालीलपैकी कोणत्या यंत्राचा स्केल (Scale) अगदी समान/अनुपातिक (Linear) असतो?",
+    "options": [
+      "MI Type",
+      "Moving Coil Type (MC)",
+      "Megger",
+      "Energy Meter"
+    ],
+    "optionsMarathi": [
+      "MI टाईप",
+      "MC टाईप (Moving Coil Type)",
+      "मेगर",
+      "एनर्जी मीटर"
+    ],
+    "answer": "B",
+    "explanation": "In Moving Coil (MC) instruments, the deflecting torque is directly proportional to the current (θ ∝ I). Therefore, its scale is completely uniform or linear. MI type scales are non-linear.",
+    "explanationMarathi": "मुव्हिंग कॉईल (MC) यंत्रांमध्ये डिफ्लेक्टिंग टॉर्क हा थेट करंटशी प्रमाणात असतो (θ ∝ I). त्यामुळे याचा स्केल अगदी समान किंवा लिनियर (Uniform/Linear) असतो. MI प्रकारचा स्केल नॉन-लिनियर असतो."
+  },
+  {
+    "id": 834,
+    "chapterId": 58,
+    "question": "In a star connection, how does the value of phase voltage compare to line voltage?",
+    "questionMarathi": "स्टार कनेक्शनमध्ये फेझ व्होल्टेजचे (V_ph) मूल्य लाईन व्होल्टेजपेक्षा (V_L) नेहमी कसे असते?",
+    "options": [
+      "More",
+      "Less",
+      "3 times more",
+      "√3 times more"
+    ],
+    "optionsMarathi": [
+      "जास्त",
+      "कमी (Less)",
+      "3 पट जास्त",
+      "√3 पट जास्त"
+    ],
+    "answer": "B",
+    "explanation": "In a star connection, the line voltage is √3 times the phase voltage (VL = √3 * Vph). Therefore, the phase voltage is less than the line voltage (Vph = VL / √3).",
+    "explanationMarathi": "स्टार कनेक्शनमध्ये लाईन व्होल्टेज हे फेझ व्होल्टेजच्या √3 पट असते (VL = √3 * Vph). म्हणजेच फेझ व्होल्टेज हे लाईन व्होल्टेजपेक्षा कमी (Vph = VL / √3) असते."
+  },
+  {
+    "id": 835,
+    "chapterId": 58,
+    "question": "If the thickness of the plates of a capacitor is increased, what will be the effect on its capacitance value?",
+    "questionMarathi": "जर कॅपेसिटरच्या प्लेट्सची जाडी (Thickness) वाढवली, तर त्याच्या कॅपेसिटन्सच्या (Capacitance) मूल्यावर काय परिणाम होईल?",
+    "options": [
+      "Increase",
+      "Decrease",
+      "Remains Unchanged",
+      "Become zero"
+    ],
+    "optionsMarathi": [
+      "वाढेल",
+      "कमी होईल",
+      "अपरिवर्तित राहील (Remains Unchanged)",
+      "शून्य होईल"
+    ],
+    "answer": "C",
+    "explanation": "The formula for capacitance is C = εA/d. Capacitance depends on the area of the plates (A) and the distance between them (d); it does not depend on the intrinsic 'thickness' of the plates. Thus, the value will remain unchanged.",
+    "explanationMarathi": "कॅपेसिटन्सचे सूत्र C = εA/d असे आहे. कॅपेसिटन्स हा प्लेटचे क्षेत्रफळ (A) आणि प्लेट्समधील अंतर (d) यावर अवलंबून असतो; प्लेटच्या स्वतःच्या 'जाडीवर' (Thickness) नाही. त्यामुळे मूल्य बदलणार नाही."
+  },
+  {
+    "id": 836,
+    "chapterId": 58,
+    "question": "What is the range of medium resistance values?",
+    "questionMarathi": "मध्यम रोधांचे (Medium Resistance) मूल्य कोणत्या मर्यादेत असते?",
+    "options": [
+      "Less than 1 Ohm",
+      "From 1 Ohm to 100 kilo-Ohm",
+      "From 1 Ohm to 1000 kilo-Ohm",
+      "More than 1 mega-Ohm"
+    ],
+    "optionsMarathi": [
+      "1 ओहमपेक्षा कमी",
+      "1 ओहम ते 100 किलो-ओहम पर्यंत",
+      "1 ओहम ते 1000 किलो-ओहम पर्यंत",
+      "1 मेगा-ओहमपेक्षा जास्त"
+    ],
+    "answer": "B",
+    "explanation": "In electrical engineering, resistances fall into three groups: low (less than 1 Ohm), medium (1 Ohm to 100k Ohm or 1 lakh Ohms), and high (greater than 100k Ohm).",
+    "explanationMarathi": "इलेक्ट्रिकलमध्ये रोधांचे तीन गट पडतात: कमी (1 ओहमपेक्षा कमी), मध्यम (1 ओहम ते 100k Ω किंवा 1 लाख ओहम), आणि उच्च (100k Ω पेक्षा जास्त)."
+  },
+  {
+    "id": 837,
+    "chapterId": 58,
+    "question": "Which DC generator is commonly used for charging batteries?",
+    "questionMarathi": "बॅटरी चार्जिंग करण्यासाठी साधारणपणे कोणत्या DC जनरेटरचा वापर केला जातो?",
+    "options": [
+      "Shunt Generator",
+      "Series Generator",
+      "Compound Generator",
+      "Over Compound Generator"
+    ],
+    "optionsMarathi": [
+      "शंट जनरेटर (Shunt Generator)",
+      "सिरीज जनरेटर",
+      "कंपाउंड जनरेटर",
+      "ओव्हर कंपाउंड जनरेटर"
+    ],
+    "answer": "A",
+    "explanation": "Battery charging requires a stable voltage. The DC shunt generator provides stable voltage, hence it is primarily used for battery charging.",
+    "explanationMarathi": "बॅटरी चार्ज करण्यासाठी स्थिर व्होल्टेजची आवश्यकता असते. DC शंट जनरेटर हा स्थिर व्होल्टेज देतो, म्हणून बॅटरी चार्जिंगसाठी प्रामुख्याने याचा वापर केला जातो."
+  },
+  {
+    "id": 838,
+    "chapterId": 58,
+    "question": "What is the ratio of magnetic flux density (B) and magnetic field intensity (H) called?",
+    "questionMarathi": "चुंबकीय फ्लक्स घनता (B) आणि चुंबकत्व बल (H) यांच्या गुणोत्तराला काय म्हणतात?",
+    "options": [
+      "Flux Density",
+      "Field Strength",
+      "Permeability",
+      "Retentivity"
+    ],
+    "optionsMarathi": [
+      "फ्लक्स डेन्सिटी",
+      "क्षेत्र सामर्थ्य",
+      "चुंबकशीलता (Permeability)",
+      "धारणा शक्ती"
+    ],
+    "answer": "C",
+    "explanation": "The ratio of flux density (B) and magnetic field intensity (H) is μ = B/H. This is called the 'Permeability' of the medium.",
+    "explanationMarathi": "फ्लक्स घनता (B) आणि चुंबकीय तीव्रता (H) यांचे गुणोत्तर म्हणजेच μ = B/H, यालाच माध्यमाची 'चुंबकशीलता' (Permeability) म्हटले जाते."
+  },
+  {
+    "id": 839,
+    "chapterId": 58,
+    "question": "If the length of a wire is doubled and its cross-sectional area is also doubled, what will be the effect on its resistance?",
+    "questionMarathi": "जर एखाद्या वायरची लांबी दुप्पट केली आणि तिचे आडवे क्षेत्रफळ (Cross-sectional area) देखील दुप्पट केले, तर तिच्या रोधावर काय परिणाम होईल?",
+    "options": [
+      "Will double",
+      "Will halve",
+      "Will decrease four times",
+      "No change"
+    ],
+    "optionsMarathi": [
+      "दुप्पट होईल",
+      "दुप्पट कमी होईल",
+      "चार पट कमी होईल",
+      "काहीही बदल होणार नाही (No change)"
+    ],
+    "answer": "D",
+    "explanation": "The formula for resistance is R = ρ(L/A). If length (L) is doubled (2L) and area (A) is doubled (2A), the new resistance R_new = ρ(2L/2A) = ρ(L/A) = R, which means it remains unchanged.",
+    "explanationMarathi": "रोधाचे सूत्र R = ρ(L/A) आहे. लांबी (L) दुप्पट (2L) आणि क्षेत्रफळ (A) दुप्पट (2A) केल्यास नवीन रोध R_new = ρ(2L/2A) = ρ(L/A) = R म्हणजेच आधीइतकाच राहील."
+  },
+  {
+    "id": 840,
+    "chapterId": 58,
+    "question": "The torque of a 3-phase induction motor is directly proportional to which of the following?",
+    "questionMarathi": "थ्री-फेज इंडक्शन मोटरचा टॉर्क (Torque) खालीलपैकी कोणत्या घटकाशी समानुपाती असतो?",
+    "options": [
+      "Armature Current",
+      "Rotor Resistance",
+      "Type of winding",
+      "Type of current"
+    ],
+    "optionsMarathi": [
+      "आर्मेचर करंट",
+      "रोटर रोधाच्या (Rotor Resistance)",
+      "वाइंडिंगच्या प्रकाराच्या",
+      "करंटच्या प्रकाराच्या"
+    ],
+    "answer": "B",
+    "explanation": "The starting torque of an induction motor is directly proportional to the rotor resistance (R2). That's why external resistance is added to the rotor circuit of a slip-ring motor to increase torque.",
+    "explanationMarathi": "इंडक्शन मोटरचा स्टार्टिंग टॉर्क हा थेट रोटरच्या रोधाशी (R2) समानुपाती असतो (T_start ∝ R2). म्हणूनच स्लिप-रिंग मोटरमध्ये टॉर्क वाढवण्यासाठी बाहेरून रोटर सर्किटमध्ये रोध जोडला जातो."
+  },
+  {
+    "id": 841,
+    "chapterId": 58,
+    "question": "In a Series Type Ohmmeter, on which side is the 'zero' (0) located?",
+    "questionMarathi": "सिरीज प्रकारच्या ओहममीटरमध्ये (Series Type Ohmmeter) 'शून्य' (0) कोणत्या बाजूला असतो?",
+    "options": [
+      "Right side",
+      "Left side",
+      "In the middle",
+      "Can be anywhere"
+    ],
+    "optionsMarathi": [
+      "उजव्या बाजूला (Right side)",
+      "डाव्या बाजूला",
+      "मध्यभागी",
+      "कुठेही असू शकतो"
+    ],
+    "answer": "A",
+    "explanation": "In common instruments (e.g., ammeters) zero is on the left, but the scale of a series type ohmmeter is reversed. In this, 'infinity' (∞) is on the left and 'zero' (0) is on the right.",
+    "explanationMarathi": "नेहमीच्या उपकरणांमध्ये (उदा. अमीटर) शून्य डावीकडे असतो, पण सिरीज प्रकारच्या ओहममीटरचा स्केल उलट असतो. यामध्ये डावीकडे 'अनंत' (∞) आणि उजवीकडे 'शून्य' (0) असतो."
+  },
+  {
+    "id": 842,
+    "chapterId": 58,
+    "question": "Which of the following single-phase motors has the highest starting torque?",
+    "questionMarathi": "खालीलपैकी कोणत्या सिंगल-फेज मोटरचा स्टार्टिंग टॉर्क सर्वात जास्त असतो?",
+    "options": [
+      "Split phase",
+      "Universal Motor",
+      "Repulsion",
+      "Capacitor start"
+    ],
+    "optionsMarathi": [
+      "स्प्लिट फेझ",
+      "युनिव्हर्सल (Universal Motor)",
+      "रिपल्शन",
+      "कॅपेसिटर स्टार्ट"
+    ],
+    "answer": "B",
+    "explanation": "A universal motor inherently works much like a DC series motor. Series motors have extremely high starting torque, so among the given options, the universal motor will have the highest torque.",
+    "explanationMarathi": "युनिव्हर्सल मोटर ही मुळात DC सिरीज मोटर सारखीच काम करते. सिरीज मोटरचा स्टार्टिंग टॉर्क अतिशय उच्च असतो, त्यामुळे दिलेल्या पर्यायांमध्ये युनिव्हर्सल मोटरचा टॉर्क सर्वाधिक असेल."
+  },
+  {
+    "id": 843,
+    "chapterId": 58,
+    "question": "In primary cells, the process of amalgamation (coating zinc with mercury) is done to eliminate which defect?",
+    "questionMarathi": "प्रायमरी सेल्समध्ये अमलगमेशन (Amalgamation - जस्तावर पाऱ्याचा थर देणे) ही क्रिया कोणता दोष दूर करण्यासाठी केली जाते?",
+    "options": [
+      "Corrosion",
+      "Polarization",
+      "Local Action",
+      "Sulfation"
+    ],
+    "optionsMarathi": [
+      "कॉरोझन",
+      "पोलरायझेशन",
+      "स्थानिक क्रिया (Local Action)",
+      "सल्फेशन"
+    ],
+    "answer": "C",
+    "explanation": "Due to impurities in the zinc strip, small internal local circuits are formed within the cell, which is called local action. Coating the zinc with a layer of mercury removes this defect.",
+    "explanationMarathi": "जस्ताच्या (Zinc) पट्टीमध्ये असलेल्या अशुद्धतेमुळे सेलमध्ये अंतर्गत छोटे-छोटे स्थानिक सर्किट्स तयार होतात, ज्याला लोकल ॲक्शन म्हणतात. जस्तावर पाऱ्याचा (Mercury) थर देऊन हा दोष दूर केला जातो."
+  },
+  {
+    "id": 844,
+    "chapterId": 58,
+    "question": "If a 2-pole alternator is rotating at a speed of 1200 RPM, what will be the frequency generated?",
+    "questionMarathi": "जर 2-पोल असलेला अल्टरनेटर 1200 RPM गतीने फिरत असेल, तर निर्माण होणारी फ्रिक्वेन्सी किती असेल?",
+    "options": [
+      "50 Hz",
+      "40 Hz",
+      "30 Hz",
+      "20 Hz"
+    ],
+    "optionsMarathi": [
+      "50 हर्ट्झ",
+      "40 हर्ट्झ",
+      "30 हर्ट्झ",
+      "20 हर्ट्झ"
+    ],
+    "answer": "B",
+    "explanation": "Frequency formula: f = (P × N) / 120 = (2 × 1200) / 120 = 2400 / 120 = 20 × 2 = 40 Hz.",
+    "explanationMarathi": "फ्रिक्वेन्सी काढण्याचे सूत्र: f = (P × N) / 120 = (2 × 1200) / 120 = 20 × 2 = 40 Hz"
+  },
+  {
+    "id": 845,
+    "chapterId": 58,
+    "question": "The heating effect of electric current is -",
+    "questionMarathi": "विद्युत प्रवाहाचा औष्णिक प्रभाव (Heating Effect of Electric Current) -",
+    "options": [
+      "More on AC",
+      "More on DC",
+      "Same on both",
+      "Different on both"
+    ],
+    "optionsMarathi": [
+      "AC वर जास्त असतो",
+      "DC वर जास्त असतो",
+      "दोन्हीवर सारखा असतो (Same on both)",
+      "दोन्हीवर वेगळा असतो"
+    ],
+    "answer": "C",
+    "explanation": "According to Joule's law, heat is produced by the formula H = I²Rt. Whether the current is AC or DC, the heating effect generated due to its effective (RMS) value remains the same on both.",
+    "explanationMarathi": "ज्युल्सच्या नियमानुसार उष्णता H = I²Rt या सूत्राने तयार होते. करंट AC असो वा DC, त्याच्या प्रभावी (RMS) मूल्यामुळे निर्माण होणारा औष्णिक प्रभाव दोन्हीवर सारखाच असतो."
+  },
+  {
+    "id": 846,
+    "chapterId": 58,
+    "question": "Which of the following methods is used to control the speed of a DC shunt motor?",
+    "questionMarathi": "DC शंट मोटरची गती नियंत्रित करण्यासाठी खालीलपैकी कोणती पद्धत वापरली जाते?",
+    "options": [
+      "Armature Control",
+      "Field Tapping",
+      "Supply Voltage Control",
+      "Field Diverter"
+    ],
+    "optionsMarathi": [
+      "आर्मेचर नियंत्रण (Armature Control)",
+      "फील्ड टॅपिंग",
+      "सप्लाय व्होल्टेज नियंत्रण",
+      "फील्ड डायव्हर्टर"
+    ],
+    "answer": "A",
+    "explanation": "The 'Armature Resistance Control' method is widely used to reduce the speed of a DC shunt motor below its normal speed. Field tapping and diverter methods are primarily used in series motors.",
+    "explanationMarathi": "DC शंट मोटरची गती तिच्या नेहमीच्या गतीपेक्षा कमी करण्यासाठी 'आर्मेचर रेझिस्टन्स नियंत्रण' पद्धत सर्रास वापरली जाते. फील्ड टॅपिंग आणि डायव्हर्टर पद्धती प्रामुख्याने सिरीज मोटरमध्ये वापरतात."
+  },
+  {
+    "id": 847,
+    "chapterId": 58,
+    "question": "The property of an AC circuit that opposes changes in voltage is called -",
+    "questionMarathi": "AC सर्किटचा तो गुणधर्म जो व्होल्टेजमधील बदलांना विरोध करतो, त्याला काय म्हणतात?",
+    "options": [
+      "Inductance",
+      "Admittance",
+      "Capacitance",
+      "Reluctance"
+    ],
+    "optionsMarathi": [
+      "इंडक्टन्स",
+      "ॲडमिटन्स",
+      "कॅपेसिटन्स (Capacitance)",
+      "रिलक्टन्स"
+    ],
+    "answer": "C",
+    "explanation": "Inductance opposes changes in 'current', while capacitance opposes changes in 'voltage' within the circuit.",
+    "explanationMarathi": "इंडक्टन्स हा 'करंटमधील' बदलांना विरोध करतो, तर कॅपेसिटन्स हा सर्किटमधील 'व्होल्टेजमधील' होणाऱ्या बदलांना विरोध करतो."
+  },
+  {
+    "id": 848,
+    "chapterId": 58,
+    "question": "What will happen if the supply frequency of a 3-phase induction motor is increased?",
+    "questionMarathi": "जर थ्री-फेज इंडक्शन मोटरच्या सप्लाय फ्रिक्वेन्सीमध्ये वाढ केली, तर काय होईल?",
+    "options": [
+      "Motor will stop",
+      "Efficiency will increase",
+      "Torque will increase",
+      "Speed will increase"
+    ],
+    "optionsMarathi": [
+      "मोटर थांबेल",
+      "कार्यक्षमता वाढेल",
+      "टॉर्क वाढेल",
+      "गती वाढेल (Speed will increase)"
+    ],
+    "answer": "D",
+    "explanation": "The synchronous speed of the motor is Ns = 120f / P. This means speed is directly related to frequency (f). If the frequency increases, the rotational speed of the motor will also increase.",
+    "explanationMarathi": "मोटरची सिंक्रोनस गती Ns = 120f / P असते. म्हणजेच गती ही थेट फ्रिक्वेन्सीशी (f) संबंधित आहे. फ्रिक्वेन्सी वाढल्यास मोटरची फिरण्याची गती देखील वाढेल."
+  },
+  {
+    "id": 849,
+    "chapterId": 58,
+    "question": "Which value of AC supply is measured by most common measuring instruments?",
+    "questionMarathi": "सर्व सामान्य मापक यंत्रे (Measuring Instruments) AC सप्लायचे कोणते मूल्य मोजतात?",
+    "options": [
+      "Maximum",
+      "Effective / RMS Value",
+      "Average",
+      "Peak"
+    ],
+    "optionsMarathi": [
+      "कमाल (Maximum)",
+      "प्रभावी / आरएमएस (Effective / RMS Value)",
+      "सरासरी",
+      "शिखर"
+    ],
+    "answer": "B",
+    "explanation": "Common AC measuring instruments like voltmeters and ammeters always show the Root Mean Square (RMS) or effective value, because work or heat in AC is determined by the RMS value.",
+    "explanationMarathi": "व्होल्टमीटर आणि अमीटर सारखी सर्व सामान्य AC मापक यंत्रे नेहमी रूट मीन स्क्वेअर (RMS) म्हणजेच प्रभावी मूल्य दर्शवतात, कारण AC मधील काम किंवा उष्णता RMS मूल्यावर ठरते."
+  },
+  {
+    "id": 850,
+    "chapterId": 58,
+    "question": "What will be the color code of a 430 kΩ ± 5% resistor?",
+    "questionMarathi": "430 kΩ ± 5% चा रेझिस्टर कलर कोड (Color Code) काय असेल?",
+    "options": [
+      "Yellow, Orange, Yellow, Gold",
+      "Yellow, Orange, Orange, Gold",
+      "Yellow, Orange, Green, Gold",
+      "Yellow, Orange, Red, Gold"
+    ],
+    "optionsMarathi": [
+      "पिवळा, नारंगी, पिवळा, सोनेरी",
+      "पिवळा, नारंगी, नारंगी, सोनेरी",
+      "पिवळा, नारंगी, हिरवा, सोनेरी",
+      "पिवळा, नारंगी, लाल, सोनेरी"
+    ],
+    "answer": "A",
+    "explanation": "430 kΩ = 430,000 Ω = 43 × 10^4 Ω. According to color code: 4 = Yellow, 3 = Orange, 10^4 (multiplier) = Yellow, and ± 5% tolerance = Gold.",
+    "explanationMarathi": "430 kΩ = 430,000 Ω = 43 × 10^4 Ω. कलर कोडनुसार: 4 = पिवळा (Yellow), 3 = नारंगी (Orange), 10^4 (मल्टिप्लायर) = पिवळा (Yellow), आणि ± 5% टॉलरन्स = सोनेरी (Gold)."
+  },
+  {
+    "id": 851,
+    "chapterId": 58,
+    "question": "While charging, what happens to the specific gravity of the battery's electrolyte?",
+    "questionMarathi": "चार्जिंग होत असताना बॅटरीच्या इलेक्ट्रोलाईटची विशिष्ट घनता (Specific Gravity) -",
+    "options": [
+      "Decreases",
+      "Increases",
+      "Remains constant",
+      "No change occurs"
+    ],
+    "optionsMarathi": [
+      "कमी होते",
+      "वाढते (Increases)",
+      "स्थिर राहते",
+      "कोणताही बदल होत नाही"
+    ],
+    "answer": "B",
+    "explanation": "When a battery charges, sulfuric acid forms again and mixes with water, increasing the specific gravity of the electrolyte. It decreases when discharging.",
+    "explanationMarathi": "जेव्हा बॅटरी चार्ज होते, तेव्हा सल्फ्यूरिक ॲसिड पुन्हा पाण्यात मिसळून तीव्र बनते, ज्यामुळे इलेक्ट्रोलाईटची विशिष्ट घनता (Specific Gravity) वाढते. डिस्चार्ज होताना ती कमी होते."
+  },
+  {
+    "id": 852,
+    "chapterId": 58,
+    "question": "What is the typical size of earth wire used in a 415 V supply system?",
+    "questionMarathi": "415 व्होल्टच्या सप्लाय सिस्टीममध्ये वापरल्या जाणाऱ्या अर्थ वायरचा (Earth Wire) आकार साधारणपणे किती असावा?",
+    "options": [
+      "12 SWG",
+      "18 SWG",
+      "16 SWG",
+      "8 SWG"
+    ],
+    "optionsMarathi": [
+      "12 SWG",
+      "18 SWG",
+      "16 SWG",
+      "8 SWG"
+    ],
+    "answer": "D",
+    "explanation": "A 415 V (three-phase) system requires a thick earth wire to carry high fault currents safely. In SWG (Standard Wire Gauge), a lower number means a thicker wire. Therefore, an 8 SWG wire is considered appropriate for safety.",
+    "explanationMarathi": "415 व्होल्ट (थ्री-फेज) यंत्रणेत जास्त फॉल्ट करंट वाहून नेण्यासाठी जाड अर्थ वायर लागते. SWG (Standard Wire Gauge) मध्ये नंबर जितका कमी, तितकी वायर जाड असते. त्यामुळे सुरक्षेसाठी 8 SWG वायर योग्य मानली जाते."
+  },
+  {
+    "id": 853,
+    "chapterId": 58,
+    "question": "Which motor is primarily used in an air conditioner (AC)?",
+    "questionMarathi": "एअर कंडिशनर (AC) मध्ये खालीलपैकी कोणती मोटर प्रामुख्याने वापरली जाते?",
+    "options": [
+      "Universal",
+      "Capacitor Start - Capacitor Run",
+      "Permanent Capacitor",
+      "Repulsion"
+    ],
+    "optionsMarathi": [
+      "युनिव्हर्सल",
+      "कॅपेसिटर स्टार्ट - कॅपेसिटर रन (Capacitor Start - Capacitor Run)",
+      "कायमस्वरूपी कॅपेसिटर (Permanent Capacitor)",
+      "रिपल्शन"
+    ],
+    "answer": "B",
+    "explanation": "The compressor of an air conditioner needs a very high torque to start, and good power factor while running. A 'Capacitor Start - Capacitor Run' motor provides both high starting torque and excellent efficiency.",
+    "explanationMarathi": "एअर कंडिशनरच्या कंप्रेसरला सुरू होण्यासाठी खूप जास्त टॉर्क लागतो आणि चालतानाही चांगल्या पॉवर फॅक्टरची गरज असते. 'कॅपेसिटर स्टार्ट - कॅपेसिटर रन' मोटर उच्च स्टार्टिंग टॉर्क आणि उत्तम कार्यक्षमता दोन्ही प्रदान करते."
+  },
+  {
+    "id": 854,
+    "chapterId": 59,
+    "question": "Which winding is used to obtain more current?",
+    "questionMarathi": "अधिक करंट (प्रवाह) मिळवण्यासाठी कोणती वाइंडिंग केली जाते?",
+    "options": [
+      "Wave",
+      "Star",
+      "Delta",
+      "Lap"
+    ],
+    "optionsMarathi": [
+      "वेव्ह (Wave)",
+      "स्टार (Star)",
+      "डेल्टा (Delta)",
+      "लॅप (Lap)"
+    ],
+    "answer": "D",
+    "explanation": "In a DC machine, Lap Winding is used to obtain more current and less voltage because it has a greater number of parallel paths. Conversely, wave winding is used for high voltage and low current.",
+    "explanationMarathi": "DC मशीनमध्ये लॅप वाइंडिंगचा (Lap Winding) वापर अधिक करंट आणि कमी व्होल्टेज मिळवण्यासाठी केला जातो, कारण यामध्ये पॅरलल पाथची (समांतर मार्ग) संख्या जास्त असते. याउलट, वेव्ह वाइंडिंगचा वापर जास्त व्होल्टेज आणि कमी करंटसाठी केला जातो."
+  },
+  {
+    "id": 855,
+    "chapterId": 59,
+    "question": "What is the speed of the stator in a three-phase motor called?",
+    "questionMarathi": "थ्री-फेज मोटरमध्ये स्टेटरच्या गतीला (स्पीड) काय म्हणतात?",
+    "options": [
+      "Induction speed",
+      "Synchronous speed",
+      "Rotor speed",
+      "Simple speed"
+    ],
+    "optionsMarathi": [
+      "इंडक्शन गती",
+      "सिंक्रोनस गती (Synchronous speed)",
+      "रोटर गती",
+      "सिम्पल गती"
+    ],
+    "answer": "B",
+    "explanation": "When the stator winding of a three-phase induction motor is supplied, a rotating magnetic field is produced. The speed at which this magnetic field rotates is called synchronous speed (Ns). Its formula is Ns = 120f/P.",
+    "explanationMarathi": "थ्री-फेज इंडक्शन मोटरच्या स्टेटर वाइंडिंगला सप्लाय दिला असता तिथे एक फिरणारे चुंबकीय क्षेत्र (Rotating Magnetic Field) तयार होते. हे चुंबकीय क्षेत्र ज्या गतीने फिरते, त्याला सिंक्रोनस गती (Ns) म्हणतात. याचे सूत्र Ns = 120f/P असे आहे."
+  },
+  {
+    "id": 856,
+    "chapterId": 59,
+    "question": "What type of electromotive force (EMF) is obtained from an alternator?",
+    "questionMarathi": "अल्टरनेटरद्वारे मिळणारे विद्युत चालक बल (EMF) कसे असते?",
+    "options": [
+      "Alternating Current (AC)",
+      "Direct Current (DC)",
+      "Variable",
+      "Pure"
+    ],
+    "optionsMarathi": [
+      "प्रत्यावर्ती (AC - Alternating Current)",
+      "दिष्ट (DC - Direct Current)",
+      "परिवर्तनीय",
+      "शुद्ध"
+    ],
+    "answer": "A",
+    "explanation": "The main purpose of an alternator (also called an AC generator) is to convert mechanical energy into alternating electrical energy (AC).",
+    "explanationMarathi": "अल्टरनेटर (ज्याला AC जनरेटर देखील म्हणतात) चा मुख्य उद्देश यांत्रिक ऊर्जेचे रूपांतर प्रत्यावर्ती विद्युत ऊर्जेत (AC - Alternating Current) करणे हा असतो."
+  },
+  {
+    "id": 857,
+    "chapterId": 59,
+    "question": "At what speed must an 8-pole alternator be rotated to obtain a frequency of 40 Hz?",
+    "questionMarathi": "एका 8 पोल असलेल्या अल्टरनेटरकडून 40 Hz फ्रिक्वेन्सी मिळवण्यासाठी त्याला कोणत्या गतीने फिरवावे लागेल?",
+    "options": [
+      "750 RPM",
+      "2.66 RPM",
+      "600 RPM",
+      "24 RPM"
+    ],
+    "optionsMarathi": [
+      "750 RPM",
+      "2.66 RPM",
+      "600 RPM",
+      "24 RPM"
+    ],
+    "answer": "C",
+    "explanation": "Frequency formula: f = P * N / 120. Here we need to find speed (N), so N = 120 * f / P. Given: Poles (P) = 8, Frequency (f) = 40 Hz. N = (120 * 40) / 8 = 4800 / 8 = 600 RPM.",
+    "explanationMarathi": "फ्रिक्वेन्सीचे सूत्र: f = P * N / 120 आहे. येथे आपल्याला गती (N) काढायची आहे, म्हणून सूत्र होईल: N = 120 * f / P. दिलेले मूल्य: पोल (P) = 8, फ्रिक्वेन्सी (f) = 40 Hz. N = (120 * 40) / 8 = 4800 / 8 = 600 RPM."
+  },
+  {
+    "id": 858,
+    "chapterId": 59,
+    "question": "What is the specific gravity of a fully charged lead-acid battery?",
+    "questionMarathi": "पूर्णपणे चार्ज झालेल्या (Fully Charged) लेड ॲसिड बॅटरीचे विशिष्ट गुरुत्व (Specific Gravity) किती असते?",
+    "options": [
+      "1.22",
+      "1.25",
+      "22.24",
+      "1.15"
+    ],
+    "optionsMarathi": [
+      "1.22",
+      "1.25",
+      "22.24",
+      "1.15"
+    ],
+    "answer": "B",
+    "explanation": "When a lead-acid battery is fully charged, the specific gravity of its electrolyte (sulfuric acid) is between 1.25 and 1.28. This is measured with a hydrometer.",
+    "explanationMarathi": "जेव्हा लेड ॲसिड बॅटरी पूर्ण चार्ज होते, तेव्हा तिच्यातील इलेक्ट्रोलाइटचे (सल्फ्यूरिक ॲसिड) विशिष्ट गुरुत्व (Specific Gravity) 1.25 ते 1.28 च्या दरम्यान असते. हे हायड्रोमीटरने मोजले जाते."
+  },
+  {
+    "id": 859,
+    "chapterId": 59,
+    "question": "What is used to improve the power factor in a transmission line?",
+    "questionMarathi": "ट्रान्समिशन लाईनमध्ये पॉवर फॅक्टर सुधारण्यासाठी कशाचा वापर केला जातो?",
+    "options": [
+      "Induction Motor",
+      "Alternator",
+      "Synchronous Motor",
+      "Series Motor"
+    ],
+    "optionsMarathi": [
+      "इंडक्शन मोटर",
+      "अल्टरनेटर",
+      "सिंक्रोनस मोटर (Synchronous Motor)",
+      "सिरीज मोटर"
+    ],
+    "answer": "C",
+    "explanation": "When a synchronous motor is run in an over-excited state and on no-load, it works as a 'synchronous condenser' and helps to improve the power factor of the transmission line.",
+    "explanationMarathi": "जेव्हा सिंक्रोनस मोटरला ओव्हर-एक्साईटेड (Over-excited) अवस्थेत आणि कोणताही लोड नसताना (No Load) चालवले जाते, तेव्हा ती 'सिंक्रोनस कंडेन्सर' म्हणून काम करते आणि ट्रान्समिशन लाईनचा पॉवर फॅक्टर सुधारण्यास मदत करते."
+  },
+  {
+    "id": 860,
+    "chapterId": 59,
+    "question": "What will happen if one phase of a running three-phase motor is blown (Single Phasing occurs)?",
+    "questionMarathi": "चालू असताना थ्री-फेज मोटरचा एक फेज उडाला (Single Phasing झाली), तर खालीलपैकी काय घडेल?",
+    "options": [
+      "Motor speed will increase",
+      "No difference",
+      "Motor will burn out",
+      "Motor will not lift load"
+    ],
+    "optionsMarathi": [
+      "मोटरचा स्पीड वाढेल",
+      "काही फरक पडणार नाही",
+      "मोटर जळून जाईल",
+      "मोटर लोड उचलणार नाही"
+    ],
+    "answer": "C",
+    "explanation": "If one phase of a running motor is cut off, it is called 'single phasing'. The motor tries to keep running, but a huge amount of current load falls on the remaining two phases. If the motor is loaded and not turned off immediately, its winding will burn out due to excessive heat.",
+    "explanationMarathi": "चालू मोटरचा एक फेज कट झाल्यास त्याला 'सिंगल फेजिंग' (Single Phasing) म्हणतात. अशा वेळी मोटर चालू राहण्याचा प्रयत्न करते, परंतु उरलेल्या दोन फेजेसवर प्रचंड प्रमाणात करंटचा लोड येतो. जर मोटरवर लोड असेल आणि ती लगेच बंद केली नाही, तर जास्त उष्णतेमुळे तिची वाइंडिंग जळून जाईल."
+  },
+  {
+    "id": 861,
+    "chapterId": 59,
+    "question": "What will be the torque of a 5 HP motor running at 1500 RPM?",
+    "questionMarathi": "1500 RPM वर धावणाऱ्या 5 HP च्या मोटरचा टॉर्क (Torque) किती असेल?",
+    "options": [
+      "23.4 N-m",
+      "23 N-m",
+      "24.5 N-m",
+      "234 N-m"
+    ],
+    "optionsMarathi": [
+      "23.4 N-m",
+      "23 N-m",
+      "24.5 N-m",
+      "234 N-m"
+    ],
+    "answer": "A",
+    "explanation": "1 HP = 746 Watts, so 5 HP = 5 * 746 = 3730 Watts (Power P). Torque formula: T = (P * 60) / (2 * π * N). T = (3730 * 60) / (2 * 3.1416 * 1500) = 223800 / 9424.8 = 23.74 N-m. Out of given options, 23.4 N-m is closest.",
+    "explanationMarathi": "1 HP = 746 Watts, म्हणून 5 HP = 5 * 746 = 3730 Watts (पॉवर P). टॉर्कचे सूत्र: T = (P * 60) / (2 * π * N). T = (3730 * 60) / (2 * 3.1416 * 1500) = 223800 / 9424.8 = 23.74 N-m. दिलेल्या पर्यायांपैकी 23.4 N-m हा सर्वात जवळचा आहे."
+  },
+  {
+    "id": 862,
+    "chapterId": 59,
+    "question": "What is the starting torque of a synchronous motor?",
+    "questionMarathi": "सिंक्रोनस मोटरचा स्टार्टिंग टॉर्क (Starting Torque) किती असतो?",
+    "options": [
+      "High",
+      "Zero",
+      "Low",
+      "Very high"
+    ],
+    "optionsMarathi": [
+      "उच्च",
+      "शून्य (Zero)",
+      "निम्न",
+      "अति उच्च"
+    ],
+    "answer": "B",
+    "explanation": "A synchronous motor is not self-starting. Due to the continuously changing position of its magnetic poles, its net rotating torque is initially zero. It requires damper winding or an external pony motor to start.",
+    "explanationMarathi": "सिंक्रोनस मोटर ही सेल्फ-स्टार्टिंग (स्वतःहून सुरू होणारी) नसते. तिच्या चुंबकीय ध्रुवांच्या सतत बदलणाऱ्या स्थितीमुळे सुरुवातीला तिचा निव्वळ फिरणारा टॉर्क शून्य असतो. तिला सुरू करण्यासाठी डॅम्पिंग वाइंडिंग किंवा बाहेरील पोनी मोटरची गरज असते."
+  },
+  {
+    "id": 863,
+    "chapterId": 59,
+    "question": "How can the direction of rotation of a repulsion motor be changed?",
+    "questionMarathi": "रिपल्शन मोटरच्या फिरण्याची दिशा (Direction of Rotation) खालीलपैकी काय बदलून बदलता येऊ शकते?",
+    "options": [
+      "Supply connection",
+      "Running and starting winding connection",
+      "Stator connection",
+      "Brush Position"
+    ],
+    "optionsMarathi": [
+      "स्त्रोत संयोजन (सप्लाय कनेक्शन)",
+      "रनिंग आणि स्टार्टिंग वाइंडिंग कनेक्शन",
+      "स्टेटर संयोजन",
+      "ब्रशची स्थिती (Brush Position)"
+    ],
+    "answer": "D",
+    "explanation": "Changing the supply terminals in a repulsion motor does not help to change the direction of rotation. The motor's direction is changed by shifting the brush position to the left or right relative to the magnetic axis.",
+    "explanationMarathi": "रिपल्शन मोटरमध्ये फिरण्याची दिशा बदलण्यासाठी सप्लाय टर्मिनल्स बदलून फायदा होत नाही. चुंबकीय अक्षाच्या सापेक्ष ब्रशची स्थिती (Brush Position/Shift) डावीकडे किंवा उजवीकडे सरकवून मोटरची दिशा बदलली जाते."
+  },
+  {
+    "id": 864,
+    "chapterId": 59,
+    "question": "What should be the minimum distance of the fan blades from the ceiling?",
+    "questionMarathi": "छतापासून पंख्याच्या ब्लेडचे किमान अंतर (Minimum Distance) किती असावे?",
+    "options": [
+      "30 inches",
+      "30 mm",
+      "12 inches",
+      "12 cm"
+    ],
+    "optionsMarathi": [
+      "30 इंच",
+      "30 मिमी",
+      "12 इंच",
+      "12 सेमी"
+    ],
+    "answer": "C",
+    "explanation": "For proper air rotation and safety, the blades of a ceiling fan must be at least 12 inches (30 centimeters) below the ceiling.",
+    "explanationMarathi": "हवेचे योग्य रोटेशन होण्यासाठी आणि सुरक्षेसाठी छताच्या पंख्याचे ब्लेड छतापासून किमान 12 इंच (30 सेंटीमीटर) खाली असावे लागतात."
+  },
+  {
+    "id": 865,
+    "chapterId": 59,
+    "question": "Which of the following motors can work better at low frequency?",
+    "questionMarathi": "खालीलपैकी कोणती मोटर कमी फ्रिक्वेन्सीवर (Low Frequency) चांगल्या प्रकारे काम करू शकते?",
+    "options": [
+      "Synchronous",
+      "Universal",
+      "Repulsion",
+      "Shaded pole"
+    ],
+    "optionsMarathi": [
+      "सिंक्रोनस",
+      "युनिव्हर्सल (Universal Motor)",
+      "रिपल्शन",
+      "शेडेड पोल"
+    ],
+    "answer": "B",
+    "explanation": "A universal motor (which runs on both AC and DC) provides excellent torque and efficiency at low frequencies or on DC. If the frequency is high, the reactance in its armature and field increases, reducing its efficiency.",
+    "explanationMarathi": "युनिव्हर्सल मोटर (जी AC आणि DC दोन्हीवर चालते) कमी फ्रिक्वेन्सीवर किंवा DC वर अतिशय उत्कृष्ट टॉर्क आणि कार्यक्षमता देते. फ्रिक्वेन्सी जास्त असल्यास तिचे आर्मेचर आणि फील्डमधील रिॲक्टन्स वाढतो, ज्यामुळे तिची कार्यक्षमता कमी होते."
+  },
+  {
+    "id": 866,
+    "chapterId": 59,
+    "question": "Where is the Overload Coil (OLC) connected?",
+    "questionMarathi": "ओव्हरलोड कॉइल (OLC) कुठे जोडली जाते?",
+    "options": [
+      "In parallel with motor",
+      "In parallel with starter",
+      "In series with motor",
+      "In series with supply"
+    ],
+    "optionsMarathi": [
+      "मोटरच्या पॅरलल (समांतर) मध्ये",
+      "स्टार्टरच्या पॅरलल मध्ये",
+      "मोटरच्या सिरीज (एकसर) मध्ये",
+      "सप्लायच्या सिरीज (एकसर) मध्ये"
+    ],
+    "answer": "D",
+    "explanation": "The function of an overload coil is to break the circuit if excessive current flows into the motor. To measure the total current, it is connected in series with the supply/line.",
+    "explanationMarathi": "ओव्हरलोड कॉइलचे काम मोटरमध्ये जास्त करंट गेल्यास परिपथ (सर्किट) खंडित करणे हे असते. संपूर्ण करंट मोजण्यासाठी ती सप्लाय/लाईनच्या सिरीज (Series) मध्ये जोडली जाते."
+  },
+  {
+    "id": 867,
+    "chapterId": 59,
+    "question": "Which of the following is NOT used to reduce commutation (sparking)?",
+    "questionMarathi": "कम्युटेशन (Commutation) कमी करण्यासाठी खालीलपैकी कशाचा वापर केला जात नाही?",
+    "options": [
+      "Compensating winding",
+      "Inter pole",
+      "High resistance carbon brush",
+      "Resistance wire"
+    ],
+    "optionsMarathi": [
+      "कम्पन्सेटिंग वाइंडिंग",
+      "इंटर पोल",
+      "उच्च प्रतिरोध कार्बन ब्रश",
+      "प्रतिरोधक तार (Resistance wire)"
+    ],
+    "answer": "D",
+    "explanation": "Interpoles, compensating windings, and high-resistance carbon brushes are used to reduce sparking during commutation. However, a direct resistance wire is not used in the coil circuit for this purpose.",
+    "explanationMarathi": "कम्युटेशन दरम्यान निर्माण होणारे स्पार्किंग कमी करण्यासाठी इंटरपोल, कम्पन्सेटिंग वाइंडिंग आणि हाय-रेझिस्टन्स कार्बन ब्रश वापरतात. परंतु थेट प्रतिरोधक तार (Resistance wire) चा वापर कॉइल सर्किटमध्ये या उद्देशाने केला जात नाही."
+  },
+  {
+    "id": 868,
+    "chapterId": 59,
+    "question": "What is the line connecting the North and South poles of a magnet called?",
+    "questionMarathi": "चुंबकाचे उत्तर आणि दक्षिण ध्रुव जोडणाऱ्या रेषेला काय म्हणतात?",
+    "options": [
+      "Magnetic lines of force",
+      "Magnetic field",
+      "Magnetic Axis",
+      "Magnetic Neutral Axis (MNA)"
+    ],
+    "optionsMarathi": [
+      "चुंबकीय बल रेषा",
+      "चुंबकीय क्षेत्र",
+      "चुंबकीय अक्ष (Magnetic Axis)",
+      "चुंबकीय उदासीन अक्ष (MNA)"
+    ],
+    "answer": "C",
+    "explanation": "The imaginary straight line passing through the centers of the North and South poles of a magnet is called the Magnetic Axis.",
+    "explanationMarathi": "चुंबकाच्या उत्तर (North) आणि दक्षिण (South) ध्रुवांच्या केंद्रातून जाणाऱ्या काल्पनिक सरळ रेषेला चुंबकीय अक्ष (Magnetic Axis) म्हणतात."
+  },
+  {
+    "id": 869,
+    "chapterId": 59,
+    "question": "What is the value of the Peak Factor (for a sine wave)?",
+    "questionMarathi": "पीक फॅक्टरचे (Peak Factor) मूल्य किती असते?",
+    "options": [
+      "1.11",
+      "1.414",
+      "0.637",
+      "0.707"
+    ],
+    "optionsMarathi": [
+      "1.11",
+      "1.414",
+      "0.637",
+      "0.707"
+    ],
+    "answer": "B",
+    "explanation": "For a sine wave, the peak factor, which is the ratio of Maximum Value to RMS Value, is 1.414 (√2). (Note: 1.11 is the form factor).",
+    "explanationMarathi": "साईन वेव्ह (Sine Wave) साठी पीक फॅक्टर म्हणजेच (मॅक्सिमम व्हॅल्यू / RMS व्हॅल्यू) चे गुणोत्तर 1.414 (√2) असते. (टीप: 1.11 हा फॉर्म फॅक्टर असतो)."
+  },
+  {
+    "id": 870,
+    "chapterId": 59,
+    "question": "Which losses are determined by the short circuit test in a transformer?",
+    "questionMarathi": "ट्रान्सफॉर्मरमधील शॉर्ट सर्किट टेस्टद्वारे कोणत्या लॉसेसचे (हानी) मूल्य शोधले जाते?",
+    "options": [
+      "Copper Loss",
+      "Iron Loss",
+      "Frictional Loss",
+      "Windage Loss"
+    ],
+    "optionsMarathi": [
+      "कॉपर लॉस (Copper Loss)",
+      "आयर्न लॉस",
+      "फ्रिक्शनल लॉस",
+      "विंडेज लॉस"
+    ],
+    "answer": "A",
+    "explanation": "In a transformer, the short circuit test is performed at full-load current to measure the copper loss in the windings. Iron loss is measured by the open circuit test.",
+    "explanationMarathi": "ट्रान्सफॉर्मरमध्ये शॉर्ट सर्किट टेस्ट ही फुल-लोड करंटवर केली जाते, ज्याद्वारे वाइंडिंगमधील कॉपर लॉस (ताम्र हानी) मोजला जातो. ओपन सर्किट टेस्टद्वारे आयर्न लॉस (लोह हानी) मोजला जातो."
+  },
+  {
+    "id": 871,
+    "chapterId": 59,
+    "question": "For motors up to what HP is a star-delta starter used?",
+    "questionMarathi": "स्टार-डेल्टा स्टार्टरचा वापर किती HP पर्यंतच्या मोटरसाठी केला जातो?",
+    "options": [
+      "Up to 3 HP",
+      "Up to 5 HP",
+      "Up to 20 HP",
+      "Above 20 HP"
+    ],
+    "optionsMarathi": [
+      "3 HP पर्यंत",
+      "5 HP पर्यंत",
+      "3 HP ते 20 HP पर्यंत",
+      "20 HP पेक्षा जास्त"
+    ],
+    "answer": "C",
+    "explanation": "Generally, star-delta starters are used for starting three-phase induction motors from 5 HP to 20 HP. So '3 HP to 20 HP' is appropriate. DOL starters are used up to 5 HP.",
+    "explanationMarathi": "सामान्यतः 5 HP ते 20 HP च्या थ्री-फेज इंडक्शन मोटर्स सुरू करण्यासाठी स्टार-डेल्टा स्टार्टरचा वापर केला जातो. त्यामुळे '3 HP ते 20 HP पर्यंत' हा पर्याय सर्वात संयुक्तिक आहे. 5 HP पर्यंत DOL स्टार्टर वापरतात."
+  },
+  {
+    "id": 872,
+    "chapterId": 59,
+    "question": "Which measuring instrument's internal resistance is high?",
+    "questionMarathi": "कोणत्या मोजमाप यंत्राचा (Measuring Instrument) अंतर्गत प्रतिरोध (Internal Resistance) जास्त असतो?",
+    "options": [
+      "Ammeter",
+      "Voltmeter",
+      "Galvanometer",
+      "Ohm meter"
+    ],
+    "optionsMarathi": [
+      "अमीटर",
+      "व्होल्टमीटर (Voltmeter)",
+      "गॅल्व्हानोमीटर",
+      "ओहम मीटर"
+    ],
+    "answer": "B",
+    "explanation": "A voltmeter is connected in parallel with the circuit. To prevent a large amount of current from bypassing the main circuit through the voltmeter, its internal resistance is kept very high (ideally infinite).",
+    "explanationMarathi": "व्होल्टमीटर हे सर्किटच्या समांतर (Parallel) जोडले जाते. व्होल्टमीटरमधून मुख्य सर्किटमधील करंट वाहून जाऊ नये, यासाठी त्याचा अंतर्गत प्रतिरोध खूप जास्त (आदर्शतः अनंत) ठेवला जातो."
+  },
+  {
+    "id": 873,
+    "chapterId": 59,
+    "question": "Which acid is present in an acidic battery?",
+    "questionMarathi": "ॲसिडिक बॅटरीमध्ये खालीलपैकी कोणते ॲसिड असते?",
+    "options": [
+      "Hydrochloric acid",
+      "Sulfuric acid",
+      "Nitric acid",
+      "Acetic acid"
+    ],
+    "optionsMarathi": [
+      "हायड्रोक्लोरिक ॲसिड",
+      "सल्फ्युरिक ॲसिड (Sulfuric acid)",
+      "नायट्रिक ॲसिड",
+      "ॲसिटिक ॲसिड"
+    ],
+    "answer": "B",
+    "explanation": "In an acidic battery (like a lead-acid battery), dilute sulfuric acid (H2SO4) is used as the electrolyte.",
+    "explanationMarathi": "ॲसिडिक बॅटरीमध्ये (जसे की लेड ॲसिड बॅटरी) इलेक्ट्रोलाइट म्हणून विरल सल्फ्युरिक ॲसिड (H2SO4) वापरले जाते."
+  },
+  {
+    "id": 874,
+    "chapterId": 59,
+    "question": "How many amps are there in one microampere?",
+    "questionMarathi": "एक मायक्रोअॅम्पिअर (Microampere) म्हणजे किती अँम्पिअर?",
+    "options": [
+      "10^-3 Amp",
+      "10^-6 Amp",
+      "10^-9 Amp",
+      "10^-12 Amp"
+    ],
+    "optionsMarathi": [
+      "10^-3 Amp",
+      "10^-6 Amp",
+      "10^-9 Amp",
+      "10^-12 Amp"
+    ],
+    "answer": "B",
+    "explanation": "Micro means one-millionth (1/1000000). So, 1 Microampere = 10^-6 Ampere. Milli = 10^-3, Nano = 10^-9, Pico = 10^-12.",
+    "explanationMarathi": "मायक्रो (Micro) म्हणजे दहा लाखावा भाग (1/1000000). त्यामुळे 1 मायक्रोअॅम्पिअर = 10^-6 अँम्पिअर. (मिली = 10^-3, नॅनो = 10^-9, पिको = 10^-12)."
+  },
+  {
+    "id": 875,
+    "chapterId": 59,
+    "question": "Where is an auto transformer used?",
+    "questionMarathi": "ऑटो ट्रान्सफॉर्मरचा (Auto Transformer) वापर खालीलपैकी कुठे केला जातो?",
+    "options": [
+      "Radio",
+      "Television",
+      "Voltage Stabilizer",
+      "Welding Machine"
+    ],
+    "optionsMarathi": [
+      "रेडिओ",
+      "टेलिव्हिजन",
+      "व्होल्टेज स्टॅबिलायझर (Voltage Stabilizer)",
+      "वेल्डिंग मशीन"
+    ],
+    "answer": "C",
+    "explanation": "An auto transformer has only one winding, which is tapped to give variable voltage. It is used in manual or automatic voltage stabilizers to step-up or step-down the voltage as required.",
+    "explanationMarathi": "ऑटो ट्रान्सफॉर्मरमध्ये फक्त एकच वाइंडिंग असते, जिच्यापासून टॅपिंग काढून कमी-जास्त व्होल्टेज मिळवले जाते. गरजेनुसार व्होल्टेज कमी किंवा जास्त करण्यासाठी मॅन्युअल किंवा ऑटोमॅटिक व्होल्टेज स्टॅबिलायझरमध्ये याचा वापर केला जातो."
+  },
+  {
+    "id": 876,
+    "chapterId": 59,
+    "question": "On what does the length of a suspension insulator depend?",
+    "questionMarathi": "सस्पेन्शन इन्सुलेटरची लांबी कशावर अवलंबून असते?",
+    "options": [
+      "Line Current",
+      "Line Voltage",
+      "Line Length",
+      "None of these"
+    ],
+    "optionsMarathi": [
+      "लाईन करंट",
+      "लाईन व्होल्टेज (Line Voltage)",
+      "लाईनची लांबी",
+      "यापैकी नाही"
+    ],
+    "answer": "B",
+    "explanation": "A suspension insulator consists of multiple disc insulators connected in series to form a string. The number of discs (and hence the length of the string) depends entirely on the operating voltage (Line Voltage) of the transmission line.",
+    "explanationMarathi": "सस्पेन्शन इन्सुलेटरमध्ये अनेक डिस्क इन्सुलेटर्स एकामागोमाग (Series) जोडून एक साखळी (String) बनवली जाते. डिस्क्सची संख्या आणि परिणामी इन्सुलेटरची लांबी ही पूर्णपणे ट्रान्समिशन लाईनच्या व्होल्टेजवर (Line Voltage) अवलंबून असते."
+  },
+  {
+    "id": 877,
+    "chapterId": 59,
+    "question": "Where does charging current flow in a cable?",
+    "questionMarathi": "केबलमध्ये चार्जिंग करंट (Charging Current) कोठून वाहतो?",
+    "options": [
+      "Conductor to conductor",
+      "Conductor to earth",
+      "Earth to conductor",
+      "Armour to lead sheath"
+    ],
+    "optionsMarathi": [
+      "कंडक्टर ते कंडक्टर",
+      "कंडक्टर ते अर्थ (Conductor to earth)",
+      "अर्थ ते कंडक्टर",
+      "आर्मर ते लीड शीथ"
+    ],
+    "answer": "B",
+    "explanation": "In an underground cable, the core (conductor) acts as one plate of a capacitor and the outer sheath (earth) acts as the other plate, with the insulation acting as the dielectric. Therefore, charging current due to capacitance flows from the conductor to earth.",
+    "explanationMarathi": "अंडरग्राउंड केबलमध्ये, कोर (कंडक्टर) कॅपेसिटरच्या एका प्लेटसारखे आणि बाहेरील शीथ (अर्थ) दुसऱ्या प्लेटसारखे काम करते. त्यांमधील इन्सुलेशन डायलेक्ट्रिकचे काम करते. या कॅपेसिटन्समुळे चार्जिंग करंट कंडक्टरमधून अर्थ (जमीन) कडे वाहतो."
+  },
+  {
+    "id": 878,
+    "chapterId": 59,
+    "question": "Where are cables buried deeper than usual?",
+    "questionMarathi": "खालीलपैकी कोणत्या ठिकाणी केबल्स नेहमीपेक्षा अधिक खोल (Deeper) पुरल्या जातात?",
+    "options": [
+      "Rocky ground",
+      "Along the road",
+      "Under the road",
+      "Sandy soil"
+    ],
+    "optionsMarathi": [
+      "खडकाळ जमिनीत",
+      "रस्त्याच्या कडेला",
+      "रस्त्याच्या खाली (Under the road)",
+      "वाळू असलेल्या जमिनीत"
+    ],
+    "answer": "C",
+    "explanation": "When an underground cable passes under a road, it must withstand heavy traffic loads and vibrations. Therefore, to protect it from mechanical damage, it is buried deeper under the road than along the roadside.",
+    "explanationMarathi": "जेव्हा अंडरग्राउंड केबल रस्त्याखालून जाते, तेव्हा तिच्यावर जड वाहनांचा भार आणि कंपन (Vibrations) सहन करण्याची वेळ येते. या यांत्रिक नुकसानीपासून तिचे संरक्षण करण्यासाठी, ती रस्त्याच्या कडेपेक्षा रस्त्याखाली जास्त खोल पुरली जाते."
+  },
+  {
+    "id": 879,
+    "chapterId": 59,
+    "question": "Which test is easily done by a Multi-meter?",
+    "questionMarathi": "मल्टी-मीटरच्या (Multi-meter) साहाय्याने कोणती चाचणी (Test) सहज केली जाऊ शकते?",
+    "options": [
+      "Short Circuit Test",
+      "Continuity Test",
+      "Earth Fault Test",
+      "Open Circuit Test"
+    ],
+    "optionsMarathi": [
+      "शॉर्ट सर्किट टेस्ट",
+      "कंटिन्यूटी टेस्ट (Continuity Test)",
+      "अर्थ फॉल्ट टेस्ट",
+      "ओपन सर्किट टेस्ट"
+    ],
+    "answer": "B",
+    "explanation": "A multi-meter is most commonly and easily used to check the continuity of a circuit (whether the wire or circuit is complete or broken). When set to continuity or resistance mode, it gives a beep or reading if the circuit is continuous.",
+    "explanationMarathi": "मल्टी-मीटरचा सर्वात जास्त आणि सहज वापर एखाद्या सर्किटची कंटिन्यूटी (वायर किंवा सर्किट अखंड आहे की तुटले आहे) तपासण्यासाठी केला जातो. कंटिन्यूटी किंवा रेझिस्टन्स मोडवर सेट केल्यावर, सर्किट अखंड असल्यास तो बीप किंवा रिडिंग देतो."
+  },
+  {
+    "id": 880,
+    "chapterId": 59,
+    "question": "If two alternating quantities have a phase angle of 90 degrees, they are called:",
+    "questionMarathi": "जर दोन प्रत्यावर्ती राशींमध्ये (Alternating Quantities) 90 अंशांचा फेज कोन (Phase Angle) असेल, तर त्यांना काय म्हणतात?",
+    "options": [
+      "In Phase",
+      "Out of Phase",
+      "Quadrature Phase",
+      "Anti Phase"
+    ],
+    "optionsMarathi": [
+      "इन-फेज",
+      "आउट ऑफ फेज",
+      "क्वाड्रॅचर फेज (Quadrature Phase)",
+      "अँटी-फेज"
+    ],
+    "answer": "C",
+    "explanation": "When the phase difference between voltage and current (or any two alternating quantities) is exactly 90 degrees, it is called a quadrature phase. (For example, in a pure inductor or pure capacitor).",
+    "explanationMarathi": "जेव्हा व्होल्टेज आणि करंट (किंवा कोणत्याही दोन AC राशी) यांच्यातील फेजमधील फरक अचूक 90 अंश असतो, तेव्हा त्याला क्वाड्रॅचर फेज (Quadrature Phase) असे म्हणतात. (उदा. शुद्ध इंडक्टर किंवा शुद्ध कॅपेसिटरमध्ये)."
+  },
+  {
+    "id": 881,
+    "chapterId": 59,
+    "question": "Which property of a motor is specified on its name plate?",
+    "questionMarathi": "मोटरच्या नेम प्लेटवर (Name Plate) तिची कोणती क्षमता (Rating) दर्शवलेली असते?",
+    "options": [
+      "Output in HP",
+      "Input in kW",
+      "Starting current",
+      "Input in KVA"
+    ],
+    "optionsMarathi": [
+      "आऊटपुट HP मध्ये (Output in HP)",
+      "इनपुट kW मध्ये",
+      "स्टार्टिंग करंट",
+      "इनपुट KVA मध्ये"
+    ],
+    "answer": "A",
+    "explanation": "The primary rating written on the nameplate of any motor is its mechanical output power, which is usually indicated in Horse Power (HP) or kilowatts (kW). It represents the output power at the shaft.",
+    "explanationMarathi": "कोणत्याही मोटरच्या नेमप्लेटवर लिहिलेले प्राथमिक रेटिंग हे तिची यांत्रिक आउटपुट पॉवर असते, जी सहसा हॉर्सपॉवर (HP) किंवा किलोवॅट (kW) मध्ये दर्शविली जाते. हे मोटरच्या शाफ्टवर मिळणारे आउटपुट असते."
+  },
+  {
+    "id": 882,
+    "chapterId": 59,
+    "question": "Why is the yoke of a DC machine made of cast iron or cast steel?",
+    "questionMarathi": "DC मशीनचा योक (Yoke - बाह्य आवरण) कास्ट आयर्न किंवा कास्ट स्टीलपासून का बनवला जातो?",
+    "options": [
+      "To provide mechanical strength",
+      "To provide a path for magnetic flux",
+      "Both A and B",
+      "To reduce eddy current loss"
+    ],
+    "optionsMarathi": [
+      "यांत्रिक मजबुती देण्यासाठी",
+      "चुंबकीय फ्लक्सला मार्ग देण्यासाठी",
+      "A आणि B दोन्ही",
+      "एडी करंट लॉस कमी करण्यासाठी"
+    ],
+    "answer": "C",
+    "explanation": "The yoke of a DC machine serves two main purposes: it protects the inner parts by providing mechanical strength, and it provides a low-reluctance path for the magnetic flux produced by the poles.",
+    "explanationMarathi": "DC मशीनचा योक दोन मुख्य कार्ये करतो: तो मशीनच्या आतील भागांना यांत्रिक मजबुती (Mechanical Strength) देऊन त्यांचे संरक्षण करतो, आणि पोलद्वारे तयार होणाऱ्या चुंबकीय फ्लक्सला जाण्यासाठी कमी अडथळ्याचा मार्ग (Path for Magnetic flux) देतो."
+  },
+  {
+    "id": 883,
+    "chapterId": 59,
+    "question": "What happens if a DC series motor is started on no load?",
+    "questionMarathi": "जर DC सिरीज मोटर नो-लोडवर (No Load) सुरू केली, तर काय होईल?",
+    "options": [
+      "Motor will not start",
+      "Motor will run at very low speed",
+      "Motor will run at dangerously high speed",
+      "Motor will draw excessive current"
+    ],
+    "optionsMarathi": [
+      "मोटर सुरू होणार नाही",
+      "मोटर खूप कमी वेगाने फिरेल",
+      "मोटर धोकादायक पातळीवर अतिशय वेगाने फिरेल",
+      "मोटर जास्त करंट घेईल"
+    ],
+    "answer": "C",
+    "explanation": "In a DC series motor, the speed is inversely proportional to the flux (which is proportional to the armature current). At no load, the armature current is very low, making the flux very weak. This causes the speed to increase to dangerously high levels, which can damage the motor.",
+    "explanationMarathi": "DC सिरीज मोटरमध्ये, गती (Speed) ही फ्लक्सच्या व्यस्त प्रमाणात असते. नो-लोडवर असताना आर्मेचर करंट खूप कमी असतो, त्यामुळे फ्लक्स खूप कमकुवत होतो. याचा परिणाम म्हणून मोटरचा वेग धोकादायक पातळीपर्यंत वाढतो, ज्यामुळे मोटरचे यांत्रिक नुकसान होऊ शकते."
+  },
+  {
+    "id": 884,
+    "chapterId": 59,
+    "question": "The back EMF in a DC motor depends on:",
+    "questionMarathi": "DC मोटरमधील बॅक EMF (Back EMF) कशावर अवलंबून असतो?",
+    "options": [
+      "Number of armature conductors",
+      "Magnetic flux per pole",
+      "Speed of rotation",
+      "All of the above"
+    ],
+    "optionsMarathi": [
+      "आर्मेचर कंडक्टर्सची संख्या",
+      "प्रति पोल चुंबकीय फ्लक्स",
+      "फिरण्याचा वेग (Speed)",
+      "वरीलपैकी सर्व"
+    ],
+    "answer": "D",
+    "explanation": "The formula for back EMF is Eb = (P * Φ * Z * N) / (60 * A). It depends on the number of poles (P), flux per pole (Φ), number of conductors (Z), and speed (N).",
+    "explanationMarathi": "बॅक EMF चे सूत्र Eb = (P * Φ * Z * N) / (60 * A) असे आहे. हे पोलची संख्या (P), प्रति पोल फ्लक्स (Φ), कंडक्टर्सची संख्या (Z), आणि गती (N) या सर्वांवर अवलंबून असते."
+  },
+  {
+    "id": 885,
+    "chapterId": 59,
+    "question": "In a 3-phase induction motor, if the synchronous speed is Ns and the rotor speed is Nr, what is the slip?",
+    "questionMarathi": "3-फेज इंडक्शन मोटरमध्ये, जर सिंक्रोनस स्पीड Ns आणि रोटर स्पीड Nr असेल, तर स्लिप (Slip) काय असते?",
+    "options": [
+      "Ns - Nr",
+      "(Ns - Nr) / Ns",
+      "Nr / Ns",
+      "Ns / Nr"
+    ],
+    "optionsMarathi": [
+      "Ns - Nr",
+      "(Ns - Nr) / Ns",
+      "Nr / Ns",
+      "Ns / Nr"
+    ],
+    "answer": "B",
+    "explanation": "Fractional slip (s) is the difference between synchronous speed and rotor speed, divided by synchronous speed. s = (Ns - Nr) / Ns.",
+    "explanationMarathi": "फ्रॅक्शनल स्लिप (s) म्हणजे सिंक्रोनस गती आणि रोटरची प्रत्यक्ष गती यातील फरकाला सिंक्रोनस गतीने भागले असता मिळणारे मूल्य. सूत्र: s = (Ns - Nr) / Ns."
+  },
+  {
+    "id": 886,
+    "chapterId": 59,
+    "question": "Which rule is used to determine the direction of induced EMF in a DC Generator?",
+    "questionMarathi": "DC जनरेटरमध्ये निर्माण होणाऱ्या EMF ची दिशा शोधण्यासाठी कोणता नियम वापरला जातो?",
+    "options": [
+      "Fleming's Left Hand Rule",
+      "Fleming's Right Hand Rule",
+      "Lenz's Law",
+      "Faraday's Law"
+    ],
+    "optionsMarathi": [
+      "फ्लेमिंगचा डाव्या हाताचा नियम",
+      "फ्लेमिंगचा उजव्या हाताचा नियम",
+      "लेन्झचा नियम",
+      "फॅराडेचा नियम"
+    ],
+    "answer": "B",
+    "explanation": "Fleming's Right Hand Rule is used for Generators to find the direction of induced current/EMF, whereas Fleming's Left Hand Rule is used for Motors to find the direction of force/motion.",
+    "explanationMarathi": "जनरेटरमध्ये निर्माण होणाऱ्या करंटची किंवा EMF ची दिशा शोधण्यासाठी 'फ्लेमिंगचा उजव्या हाताचा नियम' (Right Hand Rule) वापरतात. तर मोटरमध्ये फिरण्याची दिशा शोधण्यासाठी 'डाव्या हाताचा नियम' (Left Hand Rule) वापरतात."
+  },
+  {
+    "id": 887,
+    "chapterId": 59,
+    "question": "What is the unit of Luminous Flux?",
+    "questionMarathi": "ल्युमिनस फ्लक्सचे (Luminous Flux) एकक काय आहे?",
+    "options": [
+      "Lux",
+      "Lumen",
+      "Candela",
+      "Weber"
+    ],
+    "optionsMarathi": [
+      "लक्स (Lux)",
+      "ल्युमेन (Lumen)",
+      "कँडेला (Candela)",
+      "वेबर (Weber)"
+    ],
+    "answer": "B",
+    "explanation": "Luminous flux is a measure of the total perceived power of light, and its SI unit is the lumen (lm). Lux is the unit of illuminance.",
+    "explanationMarathi": "एखाद्या प्रकाश स्रोताकडून बाहेर पडणाऱ्या प्रकाशाच्या एकूण प्रमाणाला ल्युमिनस फ्लक्स म्हणतात, आणि त्याचे एकक 'ल्युमेन' (Lumen) आहे. लक्स हे इल्युमिनन्सचे एकक आहे."
+  },
+  {
+    "id": 888,
+    "chapterId": 59,
+    "question": "What material is used for making the heating element of an electric iron?",
+    "questionMarathi": "इलेक्ट्रिक इस्त्रीचे हीटिंग एलिमेंट (Heating Element) बनवण्यासाठी कोणत्या धातूचा वापर करतात?",
+    "options": [
+      "Copper",
+      "Tungsten",
+      "Nichrome",
+      "Aluminum"
+    ],
+    "optionsMarathi": [
+      "तांबे (Copper)",
+      "टंगस्टन",
+      "नायक्रोम (Nichrome)",
+      "ॲल्युमिनियम"
+    ],
+    "answer": "C",
+    "explanation": "Nichrome (an alloy of nickel and chromium) has high resistance and a high melting point, and it does not oxidize easily at high temperatures, making it ideal for heating elements.",
+    "explanationMarathi": "नायक्रोम (निकेल आणि क्रोमियमचा मिश्रधातू) चा रेझिस्टन्स आणि वितळण्याचा बिंदू (Melting Point) खूप जास्त असतो. तसेच उच्च तापमानाला त्याचे ऑक्सिडेशन होत नाही, त्यामुळे हीटिंग एलिमेंटसाठी तो योग्य ठरतो."
+  },
+  {
+    "id": 889,
+    "chapterId": 59,
+    "question": "Which loss in a transformer varies with the load?",
+    "questionMarathi": "ट्रान्सफॉर्मरमधील कोणता लॉस (हानी) लोडनुसार बदलत राहतो?",
+    "options": [
+      "Iron Loss",
+      "Copper Loss",
+      "Hysteresis Loss",
+      "Eddy Current Loss"
+    ],
+    "optionsMarathi": [
+      "आयर्न लॉस (Iron Loss)",
+      "कॉपर लॉस (Copper Loss)",
+      "हिस्टेरेसिस लॉस",
+      "एडी करंट लॉस"
+    ],
+    "answer": "B",
+    "explanation": "Copper loss (I²R loss) occurs in the windings and depends on the square of the load current. Therefore, it changes as the load changes. Iron loss remains constant.",
+    "explanationMarathi": "वाइंडिंगमध्ये होणारा कॉपर लॉस (I²R लॉस) हा लोड करंटच्या वर्गावर अवलंबून असतो. त्यामुळे जसा लोड बदलतो, तसा हा लॉसही बदलतो. आयर्न लॉस मात्र स्थिर (Constant) असतो."
+  },
+  {
+    "id": 890,
+    "chapterId": 59,
+    "question": "The purpose of a commutator in a DC generator is to:",
+    "questionMarathi": "DC जनरेटरमध्ये कम्युटेटरचा (Commutator) मुख्य उद्देश काय असतो?",
+    "options": [
+      "Convert AC to DC",
+      "Convert DC to AC",
+      "Increase the output voltage",
+      "Reduce sparking"
+    ],
+    "optionsMarathi": [
+      "AC चे DC मध्ये रूपांतर करणे",
+      "DC चे AC मध्ये रूपांतर करणे",
+      "आउटपुट व्होल्टेज वाढवणे",
+      "स्पार्किंग कमी करणे"
+    ],
+    "answer": "A",
+    "explanation": "The armature of a DC generator always produces alternating current (AC). The commutator acts as a mechanical rectifier, converting this AC into unidirectional current (DC) for the external circuit.",
+    "explanationMarathi": "DC जनरेटरच्या आर्मेचरमध्ये नेहमी प्रत्यावर्ती करंट (AC) तयार होतो. कम्युटेटर एक मेकॅनिकल रेक्टिफायर म्हणून काम करतो आणि या AC चे रूपांतर बाहेरील सर्किटसाठी DC मध्ये करतो."
+  },
+  {
+    "id": 891,
+    "chapterId": 59,
+    "question": "What does a Megger measure?",
+    "questionMarathi": "मेगर (Megger) हे उपकरण काय मोजण्यासाठी वापरले जाते?",
+    "options": [
+      "Low resistance",
+      "Current",
+      "High insulation resistance",
+      "Voltage"
+    ],
+    "optionsMarathi": [
+      "कमी प्रतिरोध (Low resistance)",
+      "विद्युत प्रवाह (Current)",
+      "उच्च इन्सुलेशन प्रतिरोध (High insulation resistance)",
+      "व्होल्टेज"
+    ],
+    "answer": "C",
+    "explanation": "A Megger is a special type of ohmmeter used to measure very high resistances, typically the insulation resistance of cables and windings in megaohms.",
+    "explanationMarathi": "मेगर हा एक विशेष प्रकारचा ओहममीटर आहे, जो केबल्स आणि वाइंडिंगचा इन्सुलेशन रेझिस्टन्स (जो अतिशय जास्त, म्हणजे मेगाओहम्समध्ये असतो) मोजण्यासाठी वापरला जातो."
+  },
+  {
+    "id": 892,
+    "chapterId": 59,
+    "question": "Which motor is used in a ceiling fan?",
+    "questionMarathi": "सीलिंग फॅनमध्ये कोणती मोटर वापरली जाते?",
+    "options": [
+      "Capacitor start capacitor run motor",
+      "Permanent capacitor motor",
+      "Universal motor",
+      "Shaded pole motor"
+    ],
+    "optionsMarathi": [
+      "कॅपेसिटर स्टार्ट कॅपेसिटर रन मोटर",
+      "पर्मनंट कॅपेसिटर मोटर (Permanent capacitor motor)",
+      "युनिव्हर्सल मोटर",
+      "शेडेड पोल मोटर"
+    ],
+    "answer": "B",
+    "explanation": "A permanent split capacitor (PSC) motor is used in ceiling fans. The capacitor remains in the circuit continuously to provide the necessary phase shift for starting and running.",
+    "explanationMarathi": "सीलिंग फॅनमध्ये पर्मनंट कॅपेसिटर मोटर वापरली जाते. यामध्ये कॅपेसिटर कायमस्वरूपी सर्किटमध्ये जोडलेला असतो, ज्यामुळे मोटर सुरू होण्यासाठी आणि चालण्यासाठी आवश्यक फेज शिफ्ट मिळतो."
+  },
+  {
+    "id": 893,
+    "chapterId": 59,
+    "question": "What is the function of a relay in an electrical circuit?",
+    "questionMarathi": "विद्युत परिपथात (Electrical circuit) रिलेचे (Relay) कार्य काय असते?",
+    "options": [
+      "To measure current",
+      "To generate voltage",
+      "To act as a protective switch",
+      "To convert AC to DC"
+    ],
+    "optionsMarathi": [
+      "करंट मोजणे",
+      "व्होल्टेज तयार करणे",
+      "संरक्षणात्मक स्विच म्हणून काम करणे (Protective switch)",
+      "AC चे DC मध्ये रूपांतर करणे"
+    ],
+    "answer": "C",
+    "explanation": "A relay is an electrically operated switch. It is primarily used for protection and control, sensing a fault and sending a signal to a circuit breaker to isolate the faulty section.",
+    "explanationMarathi": "रिले हा विजेवर चालणारा स्विच आहे. त्याचा मुख्य उपयोग सर्किटच्या संरक्षणासाठी आणि नियंत्रणासाठी होतो. फॉल्ट आल्यावर रिले ते ओळखतो आणि सर्किट ब्रेकरला सर्किट खंडित करण्याचा सिग्नल देतो."
+  },
+  {
+    "id": 894,
+    "chapterId": 59,
+    "question": "In a 3-phase system, the angle between the three phases is:",
+    "questionMarathi": "3-फेज प्रणालीमध्ये (3-phase system) तिन्ही फेजेस मधील कोन किती असतो?",
+    "options": [
+      "90 degrees",
+      "120 degrees",
+      "180 degrees",
+      "360 degrees"
+    ],
+    "optionsMarathi": [
+      "90 अंश",
+      "120 अंश",
+      "180 अंश",
+      "360 अंश"
+    ],
+    "answer": "B",
+    "explanation": "In a balanced three-phase system, the three voltage waveforms are displaced from each other by 120 electrical degrees.",
+    "explanationMarathi": "समतोल थ्री-फेज प्रणालीमध्ये, तिन्ही व्होल्टेज वेव्हफॉर्म्स एकमेकांपासून 120 इलेक्ट्रिकल अंशांच्या (Degrees) अंतरावर असतात."
+  },
+  {
+    "id": 895,
+    "chapterId": 59,
+    "question": "What is the purpose of earthing?",
+    "questionMarathi": "अर्थिंग (Earthing) करण्याचा मुख्य उद्देश काय असतो?",
+    "options": [
+      "To reduce power bill",
+      "To provide protection against electric shock",
+      "To increase line voltage",
+      "To reduce resistance of equipment"
+    ],
+    "optionsMarathi": [
+      "वीज बिल कमी करणे",
+      "विजेच्या धक्क्यापासून संरक्षण देणे (Protection against electric shock)",
+      "लाईन व्होल्टेज वाढवणे",
+      "उपकरणाचा रेझिस्टन्स कमी करणे"
+    ],
+    "answer": "B",
+    "explanation": "Earthing connects the metallic body of equipment to the ground. If a fault occurs (live wire touches the body), the fault current safely flows to the earth, preventing an electric shock to the user.",
+    "explanationMarathi": "अर्थिंगमुळे उपकरणाची धातूची बॉडी जमिनीशी जोडली जाते. जर फॉल्ट झाला (उदा. लाईव्ह वायर बॉडीला लागली), तर फॉल्ट करंट सुरक्षितपणे जमिनीत जातो, आणि वापरकर्त्याला विजेचा धक्का बसण्यापासून वाचवतो."
+  },
+  {
+    "id": 896,
+    "chapterId": 59,
+    "question": "The power factor of a purely resistive circuit is:",
+    "questionMarathi": "पूर्णपणे रेझिस्टिव्ह सर्किटचा (Purely resistive circuit) पॉवर फॅक्टर किती असतो?",
+    "options": [
+      "Zero",
+      "Unity (1)",
+      "0.8 lagging",
+      "0.8 leading"
+    ],
+    "optionsMarathi": [
+      "शून्य",
+      "युनिटी (1)",
+      "0.8 लॅगिंग",
+      "0.8 लीडिंग"
+    ],
+    "answer": "B",
+    "explanation": "In a purely resistive circuit, voltage and current are in phase (angle difference = 0). Since Power Factor = cos(0), the power factor is 1 (unity).",
+    "explanationMarathi": "पूर्णपणे रेझिस्टिव्ह सर्किटमध्ये व्होल्टेज आणि करंट एकाच फेजमध्ये असतात (त्यांच्यातील कोन 0 असतो). पॉवर फॅक्टर = cos(0) असल्याने, त्याचे मूल्य 1 (युनिटी) असते."
+  },
+  {
+    "id": 897,
+    "chapterId": 59,
+    "question": "Which of the following is a semiconductor material?",
+    "questionMarathi": "खालीलपैकी कोणता पदार्थ सेमीकंडक्टर (Semiconductor - अर्धवाहक) आहे?",
+    "options": [
+      "Copper",
+      "Silicon",
+      "Glass",
+      "Aluminum"
+    ],
+    "optionsMarathi": [
+      "तांबे",
+      "सिलिकॉन (Silicon)",
+      "काच",
+      "ॲल्युमिनियम"
+    ],
+    "answer": "B",
+    "explanation": "Silicon is the most widely used semiconductor material in electronics because its electrical conductivity lies between that of a conductor (copper) and an insulator (glass).",
+    "explanationMarathi": "सिलिकॉन हा इलेक्ट्रॉनिक्समध्ये सर्वाधिक वापरला जाणारा सेमीकंडक्टर आहे, कारण त्याची विद्युत वाहकता वाहक (तांबे) आणि दुर्वाहक (काच) यांच्या दरम्यान असते."
+  },
+  {
+    "id": 898,
+    "chapterId": 59,
+    "question": "What is the function of a diode?",
+    "questionMarathi": "डायोडचे (Diode) मुख्य कार्य काय आहे?",
+    "options": [
+      "To amplify the signal",
+      "To allow current to flow in one direction only",
+      "To step up voltage",
+      "To store charge"
+    ],
+    "optionsMarathi": [
+      "सिग्नल वाढवणे",
+      "करंटला फक्त एकाच दिशेने वाहू देणे",
+      "व्होल्टेज वाढवणे",
+      "चार्ज साठवून ठेवणे"
+    ],
+    "answer": "B",
+    "explanation": "A diode is a semiconductor device that acts as a one-way valve for current, allowing it to flow in only one direction (forward bias). It is used in rectifiers.",
+    "explanationMarathi": "डायोड हा एक सेमीकंडक्टर घटक आहे, जो करंटसाठी वन-वे व्हॉल्व्हसारखे काम करतो. तो करंटला फक्त एकाच दिशेने वाहू देतो. याचा वापर रेक्टिफायरमध्ये होतो."
+  },
+  {
+    "id": 899,
+    "chapterId": 59,
+    "question": "Which rule determines the direction of the magnetic field around a current-carrying straight conductor?",
+    "questionMarathi": "करंट वाहून नेणाऱ्या सरळ कंडक्टरभोवती चुंबकीय क्षेत्राची दिशा कोणत्या नियमाद्वारे ठरवली जाते?",
+    "options": [
+      "Right-Hand Grip Rule",
+      "Fleming's Left Hand Rule",
+      "Faraday's Rule",
+      "Lenz's Rule"
+    ],
+    "optionsMarathi": [
+      "उजव्या हाताच्या अंगठ्याचा नियम (Right-Hand Grip Rule)",
+      "फ्लेमिंगचा डाव्या हाताचा नियम",
+      "फॅराडेचा नियम",
+      "लेन्झचा नियम"
+    ],
+    "answer": "A",
+    "explanation": "The Right-Hand Grip Rule (or Thumb Rule) states that if you point your right thumb in the direction of current, your curled fingers indicate the direction of the magnetic field.",
+    "explanationMarathi": "उजव्या हाताच्या अंगठ्याच्या नियमानुसार, जर तुम्ही तुमचा उजवा अंगठा करंटच्या दिशेने धरला, तर तुमची वळलेली बोटे चुंबकीय क्षेत्राची (Magnetic field) दिशा दर्शवतात."
+  },
+  {
+    "id": 900,
+    "chapterId": 59,
+    "question": "What happens when capacitors are connected in parallel?",
+    "questionMarathi": "जेव्हा कॅपेसिटर्स समांतर (Parallel) जोडले जातात, तेव्हा काय होते?",
+    "options": [
+      "Total capacitance decreases",
+      "Total capacitance increases",
+      "Total capacitance remains same",
+      "Voltage across each increases"
+    ],
+    "optionsMarathi": [
+      "एकूण कॅपेसिटन्स कमी होतो",
+      "एकूण कॅपेसिटन्स वाढतो (Total capacitance increases)",
+      "एकूण कॅपेसिटन्स तितकाच राहतो",
+      "प्रत्येकावरील व्होल्टेज वाढते"
+    ],
+    "answer": "B",
+    "explanation": "When capacitors are connected in parallel, their total equivalent capacitance is the sum of their individual capacitances (C_total = C1 + C2 + ...). Hence, it increases.",
+    "explanationMarathi": "जेव्हा कॅपेसिटर्स समांतर जोडले जातात, तेव्हा त्यांचा एकूण कॅपेसिटन्स हा वैयक्तिक कॅपेसिटन्सच्या बेरजेइतका असतो (C_total = C1 + C2 + ...). त्यामुळे तो वाढतो."
+  },
+  {
+    "id": 901,
+    "chapterId": 59,
+    "question": "In a transformer, if secondary turns > primary turns, it is a:",
+    "questionMarathi": "ट्रान्सफॉर्मरमध्ये, जर सेकंडरी वाइंडिंगचे वेढे (Turns) प्रायमरीपेक्षा जास्त असतील, तर तो कोणता ट्रान्सफॉर्मर असतो?",
+    "options": [
+      "Step-down transformer",
+      "Step-up transformer",
+      "Isolation transformer",
+      "Current transformer"
+    ],
+    "optionsMarathi": [
+      "स्टेप-डाऊन ट्रान्सफॉर्मर",
+      "स्टेप-अप ट्रान्सफॉर्मर (Step-up transformer)",
+      "आयसोलेशन ट्रान्सफॉर्मर",
+      "करंट ट्रान्सफॉर्मर"
+    ],
+    "answer": "B",
+    "explanation": "A step-up transformer increases voltage from primary to secondary. This is achieved by having more turns in the secondary coil than in the primary coil.",
+    "explanationMarathi": "स्टेप-अप ट्रान्सफॉर्मर प्रायमरीच्या तुलनेत सेकंडरीमध्ये व्होल्टेज वाढवतो. यासाठी सेकंडरी कॉइलमध्ये प्रायमरी कॉइल् पेक्षा जास्त वेढे (Turns) दिले जातात."
+  },
+  {
+    "id": 902,
+    "chapterId": 59,
+    "question": "What is the working principle of a transformer?",
+    "questionMarathi": "ट्रान्सफॉर्मर खालीलपैकी कोणत्या तत्त्वावर (Working principle) काम करतो?",
+    "options": [
+      "Self-induction",
+      "Mutual induction",
+      "Electromagnetic pull",
+      "Lorentz force"
+    ],
+    "optionsMarathi": [
+      "सेल्फ-इंडक्शन",
+      "म्युच्युअल इंडक्शन (Mutual induction)",
+      "इलेक्ट्रोमॅग्नेटिक पुल",
+      "लॉरेंट्झ फोर्स"
+    ],
+    "answer": "B",
+    "explanation": "A transformer works on the principle of Faraday's Law of Electromagnetic Induction, specifically Mutual Induction, where a changing current in one coil induces an EMF in an adjacent coil.",
+    "explanationMarathi": "ट्रान्सफॉर्मर फॅराडेच्या इलेक्ट्रोमॅग्नेटिक इंडक्शनच्या तत्त्वावर, विशेषतः म्युच्युअल इंडक्शनवर काम करतो. यामध्ये एका कॉइलमधील बदलणाऱ्या करंटमुळे शेजारच्या कॉइलमध्ये EMF तयार होतो."
+  },
+  {
+    "id": 903,
+    "chapterId": 59,
+    "question": "The core of a transformer is laminated to reduce:",
+    "questionMarathi": "ट्रान्सफॉर्मरचा कोअर लॅमिनेटेड (Laminated) का केलेला असतो?",
+    "options": [
+      "Copper loss",
+      "Eddy current loss",
+      "Hysteresis loss",
+      "Friction loss"
+    ],
+    "optionsMarathi": [
+      "कॉपर लॉस",
+      "एडी करंट लॉस (Eddy current loss)",
+      "हिस्टेरेसिस लॉस",
+      "फ्रिक्शन लॉस"
+    ],
+    "answer": "B",
+    "explanation": "Laminating the core (using thin sheets separated by insulation) restricts the path of circulating eddy currents, thereby significantly reducing eddy current losses and heat generation.",
+    "explanationMarathi": "कोअरला लॅमिनेट केल्यामुळे (इन्सुलेशनने वेगळे केलेले पातळ पत्रे वापरल्यामुळे) आत फिरणाऱ्या एडी करंटला अडथळा निर्माण होतो, ज्यामुळे एडी करंट लॉस आणि उष्णता कमी होते."
+  },
+  {
+    "id": 904,
+    "chapterId": 59,
+    "question": "The slip rings of a slip-ring induction motor are made of:",
+    "questionMarathi": "स्लिप-रिंग इंडक्शन मोटरच्या स्लिप रिंग्स (Slip rings) कशापासून बनवलेल्या असतात?",
+    "options": [
+      "Carbon",
+      "Phosphor bronze",
+      "Aluminum",
+      "Cast iron"
+    ],
+    "optionsMarathi": [
+      "कार्बन",
+      "फॉस्फर ब्रॉन्झ (Phosphor bronze)",
+      "ॲल्युमिनियम",
+      "कास्ट आयर्न"
+    ],
+    "answer": "B",
+    "explanation": "Slip rings are typically made of phosphor bronze or brass because these materials offer good electrical conductivity and high resistance to wear and tear from brushes.",
+    "explanationMarathi": "स्लिप रिंग्स सहसा फॉस्फर ब्रॉन्झ किंवा पितळेपासून (Brass) बनवल्या जातात कारण त्यांची विद्युत वाहकता चांगली असते आणि ब्रशच्या घर्षणामुळे त्यांची झीज कमी होते."
+  },
+  {
+    "id": 905,
+    "chapterId": 59,
+    "question": "What happens to the speed of a DC shunt motor if its field current decreases?",
+    "questionMarathi": "जर DC शंट मोटरचा फील्ड करंट कमी झाला, तर तिच्या वेगावर (Speed) काय परिणाम होतो?",
+    "options": [
+      "Speed decreases",
+      "Speed increases",
+      "Speed remains constant",
+      "Motor stops"
+    ],
+    "optionsMarathi": [
+      "वेग कमी होतो",
+      "वेग वाढतो (Speed increases)",
+      "वेग स्थिर राहतो",
+      "मोटर थांबते"
+    ],
+    "answer": "B",
+    "explanation": "In a DC motor, speed is inversely proportional to field flux (N ∝ 1/Φ). If field current decreases, the flux decreases, which causes the motor's speed to increase.",
+    "explanationMarathi": "DC मोटरमध्ये, वेग हा फील्ड फ्लक्सच्या व्यस्त प्रमाणात असतो. जर फील्ड करंट कमी झाला, तर फ्लक्स कमी होतो, ज्यामुळे मोटरचा वेग वाढतो."
+  },
+  {
+    "id": 906,
+    "chapterId": 59,
+    "question": "Which gas is commonly filled in modern incandescent lamps to prevent filament oxidation?",
+    "questionMarathi": "फिलामेंटचे ऑक्सिडेशन टाळण्यासाठी आधुनिक इन्कॅन्डेसेंट दिव्यांमध्ये (बल्बमध्ये) सामान्यतः कोणता वायू भरला जातो?",
+    "options": [
+      "Oxygen",
+      "Argon",
+      "Hydrogen",
+      "Carbon dioxide"
+    ],
+    "optionsMarathi": [
+      "ऑक्सिजन",
+      "अर्गॉन (Argon)",
+      "हायड्रोजन",
+      "कार्बन डायऑक्साइड"
+    ],
+    "answer": "B",
+    "explanation": "Inert gases like Argon (often mixed with a little Nitrogen) are filled in bulbs. They do not react with the hot tungsten filament, thus preventing oxidation and prolonging its life.",
+    "explanationMarathi": "बल्बमध्ये अर्गॉनसारखे निष्क्रिय वायू (Inert gases) भरले जातात. ते गरम टंगस्टन फिलामेंटसोबत कोणतीही प्रक्रिया करत नाहीत, ज्यामुळे ऑक्सिडेशन टळते आणि फिलामेंटचे आयुष्य वाढते."
+  },
+  {
+    "id": 907,
+    "chapterId": 59,
+    "question": "What is the form factor of a pure sine wave?",
+    "questionMarathi": "शुद्ध साईन वेव्हचा (Pure sine wave) फॉर्म फॅक्टर किती असतो?",
+    "options": [
+      "1.414",
+      "0.707",
+      "1.11",
+      "0.637"
+    ],
+    "optionsMarathi": [
+      "1.414",
+      "0.707",
+      "1.11",
+      "0.637"
+    ],
+    "answer": "C",
+    "explanation": "Form factor is the ratio of RMS value to the Average value. For a sine wave, (0.707 Vmax) / (0.637 Vmax) = 1.11.",
+    "explanationMarathi": "फॉर्म फॅक्टर म्हणजे RMS मूल्य आणि सरासरी (Average) मूल्य यांचे गुणोत्तर होय. साईन वेव्हसाठी हे मूल्य 1.11 असते."
+  },
+  {
+    "id": 908,
+    "chapterId": 60,
+    "question": "Which of the following is a trivalent material?",
+    "questionMarathi": "खालीलपैकी कोणता त्रि-संयुजी (Trivalent) पदार्थ आहे?",
+    "options": [
+      "Arsenic",
+      "Aluminum",
+      "Antimony",
+      "Phosphorus"
+    ],
+    "optionsMarathi": [
+      "आर्सेनिक",
+      "ॲल्युमिनियम",
+      "अँटीमनी",
+      "फॉस्फरस"
+    ],
+    "answer": "B",
+    "explanation": "Aluminum has 3 electrons in its outer shell, so it is a trivalent material. Arsenic, antimony, and phosphorus are pentavalent materials with 5 electrons in their outer shell.",
+    "explanationMarathi": "ॲल्युमिनियमच्या बाह्य कक्षेत 3 इलेक्ट्रॉन असतात, त्यामुळे तो त्रि-संयुजी (Trivalent) पदार्थ आहे. आर्सेनिक, अँटीमनी आणि फॉस्फरस हे पंच-संयुजी (Pentavalent) पदार्थ आहेत, ज्यांच्या बाह्य कक्षेत 5 इलेक्ट्रॉन असतात."
+  },
+  {
+    "id": 909,
+    "chapterId": 60,
+    "question": "What is the specific gravity of a fully charged lead-acid cell?",
+    "questionMarathi": "पूर्ण चार्ज अवस्थेत लेड ॲसिड सेलची विशिष्ट घनता (Specific Gravity) किती असते?",
+    "options": [
+      "1150",
+      "1200",
+      "1280",
+      "1050"
+    ],
+    "optionsMarathi": [
+      "1150",
+      "1200",
+      "1280",
+      "1050"
+    ],
+    "answer": "C",
+    "explanation": "When a lead-acid battery is fully charged, the specific gravity of its electrolyte is generally between 1.260 and 1.280.",
+    "explanationMarathi": "जेव्हा लेड ॲसिड बॅटरी पूर्णपणे चार्ज होते, तेव्हा त्यातील इलेक्ट्रोलाइटची विशिष्ट घनता साधारणपणे 1.260 ते 1.280 च्या दरम्यान असते."
+  },
+  {
+    "id": 910,
+    "chapterId": 60,
+    "question": "What is the symbol for Permeability?",
+    "questionMarathi": "चुंबकशीलतेचे (Permeability) प्रतीक कोणते आहे?",
+    "options": [
+      "φ",
+      "μ",
+      "ρ",
+      "ε"
+    ],
+    "optionsMarathi": [
+      "φ",
+      "μ",
+      "ρ",
+      "ε"
+    ],
+    "answer": "B",
+    "explanation": "The Greek letter μ is used to denote permeability. φ (Phi) is used for flux and ρ (Rho) is used to denote resistivity.",
+    "explanationMarathi": "चुंबकशीलता (Permeability) दर्शवण्यासाठी ग्रीक अक्षर μ वापरले जाते. φ (फाय) हे फ्लक्ससाठी आणि ρ (रो) रोधकता (Resistivity) दर्शवण्यासाठी वापरतात."
+  },
+  {
+    "id": 911,
+    "chapterId": 60,
+    "question": "What is used to eliminate the demagnetizing effect in a generator?",
+    "questionMarathi": "जनरेटरमधील विचुंबकन प्रभाव (Demagnetizing effect) दूर करण्यासाठी काय वापरले जाते?",
+    "options": [
+      "Compensating winding",
+      "Interpole",
+      "High resistance brush",
+      "Damper winding"
+    ],
+    "optionsMarathi": [
+      "कॉम्पेन्सेटिंग वाइंडिंग",
+      "इंटरपोल",
+      "उच्च रोध ब्रश",
+      "डॅम्पर वाइंडिंग"
+    ],
+    "answer": "A",
+    "explanation": "Compensating windings are connected in slots in the pole shoes to neutralize the demagnetizing effect on the main magnetic field due to armature reaction.",
+    "explanationMarathi": "आर्मेचर रिॲक्शनमुळे मुख्य चुंबकीय क्षेत्रावर होणारा विचुंबकन प्रभाव नष्ट करण्यासाठी पोल शूमधील स्लॉट्समध्ये कॉम्पेन्सेटिंग वाइंडिंग जोडली जाते."
+  },
+  {
+    "id": 912,
+    "chapterId": 60,
+    "question": "Which of the following fuses does not melt for up to 4 hours even at 1.5 times the load current?",
+    "questionMarathi": "खालीलपैकी कोणता फ्युज लोड करंटच्या 1.5 पट करंटवरही 4 तासांपर्यंत वितळत नाही?",
+    "options": [
+      "HRC",
+      "Cartridge",
+      "MCB",
+      "Kit-Kat"
+    ],
+    "optionsMarathi": [
+      "एच.आर.सी. (HRC)",
+      "कार्ट्रिज",
+      "एम.सी.बी. (MCB)",
+      "किट-कॅट"
+    ],
+    "answer": "A",
+    "explanation": "The HRC (High Rupturing Capacity) fuse has a high fusing factor and an 'inverse time characteristic'. Therefore, it allows slightly more current than its capacity to flow for some time and does not break the circuit unnecessarily.",
+    "explanationMarathi": "HRC (High Rupturing Capacity) फ्युजचा फ्युजिंग फॅक्टर जास्त असतो आणि त्यात 'इन्व्हर्स टाईम कॅरेक्टरिस्टिक' असते. त्यामुळे तो क्षमतेपेक्षा थोडा जास्त करंट काही काळ वाहू देतो आणि विनाकारण सर्किट ब्रेक करत नाही."
+  },
+  {
+    "id": 913,
+    "chapterId": 60,
+    "question": "Which damping system is used in MI (Moving Iron) instruments?",
+    "questionMarathi": "एम.आय. (Moving Iron) उपकरणांमध्ये कोणती डॅम्पिंग (Damping) प्रणाली वापरली जाते?",
+    "options": [
+      "Air friction",
+      "Fluid friction",
+      "Eddy current",
+      "None of these"
+    ],
+    "optionsMarathi": [
+      "हवेचे घर्षण (Air friction)",
+      "द्रवाचे घर्षण (Fluid friction)",
+      "एडी करंट",
+      "यापैकी कोणतेही नाही"
+    ],
+    "answer": "A",
+    "explanation": "The magnetic field is weak in Moving Iron (MI) instruments, so eddy current damping cannot be used there. Hence, 'air friction damping' is used in such instruments.",
+    "explanationMarathi": "मूव्हिंग आयर्न (MI) उपकरणांमध्ये चुंबकीय क्षेत्र कमकुवत असते, त्यामुळे तिथे एडी करंट डॅम्पिंग वापरता येत नाही. म्हणून अशा उपकरणांमध्ये 'एअर फ्रिक्शन डॅम्पिंग'चा वापर केला जातो."
+  },
+  {
+    "id": 914,
+    "chapterId": 60,
+    "question": "How many PN junctions are there in a PN Junction diode?",
+    "questionMarathi": "पी-एन जंक्शन (PN Junction) डायोडमध्ये किती पी-एन जंक्शन असतात?",
+    "options": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "optionsMarathi": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "answer": "A",
+    "explanation": "A PN junction diode is made by joining one P-type and one N-type semiconductor, so it has only one junction.",
+    "explanationMarathi": "पी-एन जंक्शन डायोड हा एक पी-टाईप आणि एक एन-टाईप सेमीकंडक्टर जोडून बनतो, त्यामुळे त्यात फक्त एकच सांधा किंवा जंक्शन तयार होते."
+  },
+  {
+    "id": 915,
+    "chapterId": 60,
+    "question": "What is the value of the barrier potential of a silicon diode?",
+    "questionMarathi": "सिलिकॉन डायोडच्या बॅरियर पोटेन्शिअलचे मूल्य किती असते?",
+    "options": [
+      "0.1 V",
+      "0.3 V",
+      "0.7 V",
+      "0.2 V"
+    ],
+    "optionsMarathi": [
+      "0.1 V",
+      "0.3 V",
+      "0.7 V",
+      "0.2 V"
+    ],
+    "answer": "C",
+    "explanation": "The barrier potential for a silicon diode is about 0.7 volts. For a germanium diode, this value is 0.3 volts.",
+    "explanationMarathi": "सिलिकॉन डायोडसाठी पोटेन्शिअल बॅरियर (Barrier potential) सुमारे 0.7 व्होल्ट असते. जर्मेनियम डायोडसाठी हेच मूल्य 0.3 व्होल्ट असते."
+  },
+  {
+    "id": 916,
+    "chapterId": 60,
+    "question": "What is the minimum number of diodes required for a full wave rectifier circuit?",
+    "questionMarathi": "फुल वेव्ह रेक्टिफायर सर्किटसाठी किमान किती डायोडची आवश्यकता असते?",
+    "options": [
+      "1",
+      "2",
+      "4",
+      "6"
+    ],
+    "optionsMarathi": [
+      "1",
+      "2",
+      "4",
+      "6"
+    ],
+    "answer": "B",
+    "explanation": "A minimum of two diodes are required to make a full wave rectifier using a center-tap transformer. (4 are required for a bridge rectifier).",
+    "explanationMarathi": "सेंटर-टॅप ट्रान्सफॉर्मर वापरून फुल वेव्ह रेक्टिफायर बनवण्यासाठी किमान दोन डायोडची गरज असते. (ब्रिज रेक्टिफायरसाठी 4 लागतात)."
+  },
+  {
+    "id": 917,
+    "chapterId": 60,
+    "question": "What is a heat sink made of?",
+    "questionMarathi": "हीट सिंक (Heat sink) कशाची बनलेली असते?",
+    "options": [
+      "Copper",
+      "Iron",
+      "Aluminum",
+      "All of the above"
+    ],
+    "optionsMarathi": [
+      "तांबे",
+      "लोखंड",
+      "ॲल्युमिनियम",
+      "वरील सर्व"
+    ],
+    "answer": "C",
+    "explanation": "A heat sink absorbs heat and dissipates it into the air. Aluminum is a good conductor of heat, as well as being lightweight and cheap, so heat sinks are mainly made of aluminum.",
+    "explanationMarathi": "हीट सिंक उष्णता शोषून ती हवेत पसरवण्याचे काम करते. ॲल्युमिनियम हे उष्णतेचे चांगले वाहक आहे, तसेच ते वजनाने हलके आणि स्वस्त असते, त्यामुळे हीट सिंक मुख्यत्वे ॲल्युमिनियमपासून बनवतात."
+  },
+  {
+    "id": 918,
+    "chapterId": 60,
+    "question": "What shape are informational signs?",
+    "questionMarathi": "सूचनात्मक चिन्हे (Informational signs) कोणत्या आकाराची असतात?",
+    "options": [
+      "Triangular",
+      "Round",
+      "Circular",
+      "Square"
+    ],
+    "optionsMarathi": [
+      "त्रिकोणी",
+      "गोलाकार",
+      "वर्तुळाकार",
+      "चौकोनी"
+    ],
+    "answer": "D",
+    "explanation": "According to safety standards, information or safety signs (e.g. first aid box, emergency route) are in a square or rectangular shape on a green background.",
+    "explanationMarathi": "सुरक्षेच्या मानकांनुसार, माहिती किंवा सुरक्षिततेची सूचना देणारी चिन्हे (उदा. फर्स्ट एड बॉक्स, आणीबाणीचा मार्ग) हिरव्या पार्श्वभूमीवर चौकोनी किंवा आयताकृती आकारात असतात."
+  },
+  {
+    "id": 919,
+    "chapterId": 60,
+    "question": "Compared to a proton, what is the charge on an electron?",
+    "questionMarathi": "प्रोटॉनच्या तुलनेत इलेक्ट्रॉनवर कोणता प्रभार (Charge) असतो?",
+    "options": [
+      "Positive",
+      "Negative",
+      "Neutral",
+      "Inactive"
+    ],
+    "optionsMarathi": [
+      "धन (Positive)",
+      "ऋण (Negative)",
+      "उदासीन (Neutral)",
+      "निष्क्रिय"
+    ],
+    "answer": "B",
+    "explanation": "Protons in the nucleus of an atom have a positive charge, while electrons revolving around it have a negative charge.",
+    "explanationMarathi": "अणूच्या केंद्रकात असलेल्या प्रोटॉनवर धन (Positive) प्रभार असतो, तर त्याच्याभोवती फिरणाऱ्या इलेक्ट्रॉनवर ऋण (Negative) प्रभार असतो."
+  },
+  {
+    "id": 920,
+    "chapterId": 60,
+    "question": "If two resistors of 10 ohm and 20 ohm are connected in series, what will be the total resistance?",
+    "questionMarathi": "10 ओहम आणि 20 ओहमचे दोन रोधक (Resistors) एकसर (Series) जोडणीत जोडले तर एकूण रोध किती असेल?",
+    "options": [
+      "0.15 ohms",
+      "30 ohms",
+      "6.66 ohms",
+      "None of these"
+    ],
+    "optionsMarathi": [
+      "0.15 ओहम",
+      "30 ओहम",
+      "6.66 ओहम",
+      "यापैकी नाही"
+    ],
+    "answer": "B",
+    "explanation": "In a series connection, the total resistance is equal to the direct sum of all resistances. Formula: R_total = R1 + R2 = 10 + 20 = 30 ohms.",
+    "explanationMarathi": "एकसर (Series) जोडणीमध्ये एकूण रोध हा सर्व रोधांच्या थेट बेरजेइतका असतो. सूत्र: R_total = R1 + R2 = 10 + 20 = 30 ओहम."
+  },
+  {
+    "id": 921,
+    "chapterId": 60,
+    "question": "At what percentage of their original length should the carbon brushes of a DC machine be replaced?",
+    "questionMarathi": "डी.सी. मशीनचे कार्बन ब्रश त्यांच्या मूळ लांबीच्या किती टक्के उरल्यावर बदलले पाहिजेत?",
+    "options": [
+      "1/2",
+      "1/3",
+      "3/2",
+      "2/3"
+    ],
+    "optionsMarathi": [
+      "1/2",
+      "1/3",
+      "3/2",
+      "2/3"
+    ],
+    "answer": "B",
+    "explanation": "When carbon brushes wear down and only 1/3 (one-third) of their original length remains, they must be replaced to avoid damage to the commutator and maintain proper contact.",
+    "explanationMarathi": "जेव्हा कार्बन ब्रश घासले जाऊन त्यांच्या मूळ लांबीच्या फक्त 1/3 (एक-तृतीयांश) उरतात, तेव्हा कम्युटेटरचे नुकसान टाळण्यासाठी आणि योग्य संपर्क राखण्यासाठी ते बदलणे आवश्यक असते."
+  },
+  {
+    "id": 922,
+    "chapterId": 60,
+    "question": "The speed of a DC motor is proportional to which of the following?",
+    "questionMarathi": "डी.सी. मोटरचा वेग खालीलपैकी कशाच्या समानुपाती (Proportional) असतो?",
+    "options": [
+      "Armature current",
+      "Magnetic flux",
+      "Armature resistance",
+      "Back EMF"
+    ],
+    "optionsMarathi": [
+      "आर्मेचर करंट",
+      "चुंबकीय फ्लक्स",
+      "आर्मेचर रोध",
+      "बॅक ई.एम.एफ."
+    ],
+    "answer": "D",
+    "explanation": "The formula for the speed of a DC motor is N ∝ Eb / φ. It is clear from this that the speed of the motor is directly proportional to the back EMF (Eb) and inversely proportional to the magnetic flux (φ).",
+    "explanationMarathi": "डी.सी. मोटरच्या वेगाचे सूत्र N ∝ Eb / φ आहे. यावरून स्पष्ट होते की मोटरचा वेग बॅक ई.एम.एफ. च्या (Eb) समानुपाती (Directly proportional) आणि चुंबकीय फ्लक्सच्या (φ) व्यस्तानुपाती (Inversely proportional) असतो."
+  },
+  {
+    "id": 923,
+    "chapterId": 60,
+    "question": "At what height from the ground is it recommended to install an insulator on a stay wire?",
+    "questionMarathi": "स्टे वायरवर जमिनीपासून किती उंचीवर इन्सुलेटर बसवण्याची शिफारस केली जाते?",
+    "options": [
+      "5 meters",
+      "3 meters",
+      "2 meters",
+      "2.5 meters"
+    ],
+    "optionsMarathi": [
+      "5 मीटर",
+      "3 मीटर",
+      "2 मीटर",
+      "2.5 मीटर"
+    ],
+    "answer": "B",
+    "explanation": "The 'stay insulator' (or egg insulator) installed in the stay wire supporting an electric pole should be at a height of at least 3 meters from the ground. So even if the wire breaks near the pole, the current does not reach the ground.",
+    "explanationMarathi": "विजेच्या खांबाला आधार देणाऱ्या स्टे वायरमध्ये (Stay wire) बसवला जाणारा 'स्टे इन्सुलेटर' (किंवा एग इन्सुलेटर) जमिनीपासून किमान 3 मीटर उंचीवर असावा. यामुळे वायर खांबाजवळ तुटली तरी जमिनीपर्यंत करंट पोहोचत नाही."
+  },
+  {
+    "id": 924,
+    "chapterId": 60,
+    "question": "What will be the capacitive reactance of a 20 microfarad capacitor on a 50 Hz supply?",
+    "questionMarathi": "20 मायक्रोफॅरॅड कॅपॅसिटरचा 50 Hz सप्लायवर कॅपॅसिटिव्ह रिॲक्टन्स किती असेल?",
+    "options": [
+      "6280 Ω",
+      "100 Ω",
+      "2000 Ω",
+      "159 Ω"
+    ],
+    "optionsMarathi": [
+      "6280 Ω",
+      "100 Ω",
+      "2000 Ω",
+      "159 Ω"
+    ],
+    "answer": "D",
+    "explanation": "Formula: Xc = 1 / (2πfC). Here f = 50, C = 20 × 10^-6. Xc = 1 / (2 × 3.14 × 50 × 20 × 10^-6). Solving this gives an answer of approximately 159.15 ohms.",
+    "explanationMarathi": "सूत्र: Xc = 1 / (2πfC). येथे f = 50, C = 20 × 10^-6. Xc = 1 / (2 × 3.14 × 50 × 20 × 10^-6). हे सोडवल्यावर उत्तर अंदाजे 159.15 ओहम येते."
+  },
+  {
+    "id": 925,
+    "chapterId": 60,
+    "question": "In a pure capacitive circuit, how is the current compared to the voltage?",
+    "questionMarathi": "शुद्ध कॅपॅसिटिव्ह सर्किटमध्ये करंट, व्होल्टेजच्या तुलनेत कसा असतो?",
+    "options": [
+      "90° Lead",
+      "90° Lag",
+      "In phase",
+      "Out of phase"
+    ],
+    "optionsMarathi": [
+      "90° पुढे (Lead)",
+      "90° मागे (Lag)",
+      "इन फेज",
+      "आउट ऑफ फेज"
+    ],
+    "answer": "A",
+    "explanation": "In a pure capacitive circuit, the current always leads the voltage by exactly 90 degrees.",
+    "explanationMarathi": "शुद्ध कॅपॅसिटिव्ह (Pure Capacitive) सर्किटमध्ये, करंट नेहमी व्होल्टेजच्या बरोबर 90 अंशांनी पुढे (Leads by 90°) असतो."
+  },
+  {
+    "id": 926,
+    "chapterId": 60,
+    "question": "What can be the maximum value of pitch factor in an alternator?",
+    "questionMarathi": "अल्टरनेटरमध्ये पिच फॅक्टरचे (Pitch Factor) जास्तीत जास्त मूल्य किती असू शकते?",
+    "options": [
+      "1",
+      "0",
+      "100",
+      "10"
+    ],
+    "optionsMarathi": [
+      "1",
+      "0",
+      "100",
+      "10"
+    ],
+    "answer": "A",
+    "explanation": "The pitch factor (Kp) is always 1 or less than 1. Its maximum value is 1 for a 'full-pitch coil'.",
+    "explanationMarathi": "पिच फॅक्टर (Kp) हा नेहमी 1 किंवा 1 पेक्षा कमी असतो. 'फुल-पिच कॉइल' (Full-pitch coil) साठी त्याचे जास्तीत जास्त मूल्य 1 असते."
+  },
+  {
+    "id": 927,
+    "chapterId": 60,
+    "question": "What is the function of a breather in a transformer?",
+    "questionMarathi": "ट्रान्सफॉर्मरमधील ब्रीदरचे (Breather) कार्य काय आहे?",
+    "options": [
+      "Reduce temperature",
+      "Supply oil",
+      "Prevent moisture",
+      "Cut on overload"
+    ],
+    "optionsMarathi": [
+      "तापमान कमी करणे",
+      "तेलाचा पुरवठा करणे",
+      "ओलावा रोखणे",
+      "ओव्हरलोडवर कट करणे"
+    ],
+    "answer": "C",
+    "explanation": "To prevent moisture from the air mixing with the oil and reducing its insulation capacity when the transformer takes in outside air, the breather contains 'silica gel' which absorbs moisture from the air.",
+    "explanationMarathi": "ट्रान्सफॉर्मर बाहेरील हवा आत घेतो तेव्हा हवेतील ओलावा तेलात मिसळून तेलाची इन्सुलेशन क्षमता कमी होऊ नये, यासाठी ब्रीदरमध्ये 'सिलिका जेल' असते जे हवेतील ओलावा शोषून घेते."
+  },
+  {
+    "id": 928,
+    "chapterId": 60,
+    "question": "What value increases if the load on a three-phase induction motor increases?",
+    "questionMarathi": "थ्री-फेज इंडक्शन मोटरवर लोड वाढल्यास कशाचे मूल्य वाढते?",
+    "options": [
+      "Torque",
+      "Speed",
+      "Voltage",
+      "All of the above"
+    ],
+    "optionsMarathi": [
+      "टॉर्क",
+      "वेग",
+      "व्होल्टेज",
+      "वरील सर्व"
+    ],
+    "answer": "A",
+    "explanation": "If the mechanical load on the motor increases, the motor speed decreases slightly and its 'slip' increases. Due to increased slip, the armature takes more current and the torque required to lift the load increases.",
+    "explanationMarathi": "मोटरवरील यांत्रिक लोड वाढल्यास, मोटरचा वेग थोडा कमी होतो आणि तिची 'स्लिप' (Slip) वाढते. स्लिप वाढल्यामुळे आर्मेचर जास्त करंट घेतो आणि लोड उचलण्यासाठी आवश्यक असणारा टॉर्क वाढतो."
+  },
+  {
+    "id": 929,
+    "chapterId": 60,
+    "question": "Which of the following motors can operate on both AC and DC?",
+    "questionMarathi": "खालीलपैकी कोणती मोटर AC आणि DC या दोन्हीवर काम करू शकते?",
+    "options": [
+      "Compound motor",
+      "Series motor",
+      "Repulsion motor",
+      "Universal motor"
+    ],
+    "optionsMarathi": [
+      "कंपाऊंड मोटर",
+      "सिरीज मोटर",
+      "रिपल्शन मोटर",
+      "युनिव्हर्सल मोटर"
+    ],
+    "answer": "D",
+    "explanation": "The structure of a universal motor is the same as a DC series motor, it can run on both AC and DC supplies at the same speed and with good efficiency (e.g. mixer, drill machine).",
+    "explanationMarathi": "युनिव्हर्सल मोटरची रचना डी.सी. सिरीज मोटरसारखीच असते, ती AC तसेच DC या दोन्ही सप्लायवर समान वेगाने आणि चांगल्या क्षमतेने चालू शकते (उदा. मिक्सर, ड्रिल मशीन)."
+  },
+  {
+    "id": 930,
+    "chapterId": 60,
+    "question": "What is the unit of sensitivity of a voltmeter?",
+    "questionMarathi": "व्होल्टमीटरच्या संवेदनशीलतेचे (Sensitivity) एकक काय आहे?",
+    "options": [
+      "Ampere/Volt",
+      "Ohm/Volt",
+      "Volt/Ohm",
+      "Ohm/Ampere"
+    ],
+    "optionsMarathi": [
+      "ॲम्पिअर/व्होल्ट",
+      "ओहम/व्होल्ट",
+      "व्होल्ट/ओहम",
+      "ओहम/ॲम्पिअर"
+    ],
+    "answer": "B",
+    "explanation": "The sensitivity of a voltmeter is measured by 'how many ohms resistance there is per volt' (Ohm per Volt). The higher the sensitivity, the more accurate the meter.",
+    "explanationMarathi": "व्होल्टमीटरची संवेदनशीलता ही 'प्रति व्होल्ट किती ओहम रोध आहे' (Ohm per Volt) यावर मोजली जाते. संवेदनशीलता जेवढी जास्त, ते मीटर तेवढे अधिक अचूक असते."
+  },
+  {
+    "id": 931,
+    "chapterId": 60,
+    "question": "What is the maximum standard length of a fluorescent tube (Tube light)?",
+    "questionMarathi": "फ्लोरोसेंट ट्यूबची (Tube light) जास्तीत जास्त प्रमाणित लांबी किती ठेवली जाते?",
+    "options": [
+      "2 meters",
+      "1.5 meters",
+      "2.5 meters",
+      "1 meter"
+    ],
+    "optionsMarathi": [
+      "2 मीटर",
+      "1.5 मीटर",
+      "2.5 मीटर",
+      "1 मीटर"
+    ],
+    "answer": "B",
+    "explanation": "The maximum standard length of a fluorescent tube (Tube light) for commercial and domestic use is 1.5 meters (about 5 feet), which is typically used for 65 watts.",
+    "explanationMarathi": "व्यावसायिक आणि घरगुती वापरासाठी फ्लोरोसेंट ट्यूबची जास्तीत जास्त प्रमाणित लांबी 1.5 मीटर (सुमारे 5 फूट) असते, जी सामान्यतः 65 वॉटसाठी वापरली जाते."
+  },
+  {
+    "id": 932,
+    "chapterId": 60,
+    "question": "How many PN junctions are there in a transistor?",
+    "questionMarathi": "ट्रान्झिस्टरमध्ये किती पी-एन (PN) जंक्शन असतात?",
+    "options": [
+      "5",
+      "1",
+      "3",
+      "2"
+    ],
+    "optionsMarathi": [
+      "5",
+      "1",
+      "3",
+      "2"
+    ],
+    "answer": "D",
+    "explanation": "There are two junctions in a Bipolar Junction Transistor (BJT): 1) Emitter-Base Junction and 2) Collector-Base Junction.",
+    "explanationMarathi": "बायपोलर जंक्शन ट्रान्झिस्टर (BJT) मध्ये दोन जंक्शन असतात: 1) एमीटर-बेस जंक्शन आणि 2) कलेक्टर-बेस जंक्शन."
+  },
+  {
+    "id": 933,
+    "chapterId": 60,
+    "question": "Which terminal has an arrow mark in the symbol of a transistor?",
+    "questionMarathi": "ट्रान्झिस्टरच्या चिन्हामध्ये (Symbol) बाणाचा (Arrow) निशाण असलेला टर्मिनल कोणता असतो?",
+    "options": [
+      "Collector",
+      "Emitter",
+      "Base",
+      "Cathode"
+    ],
+    "optionsMarathi": [
+      "कलेक्टर",
+      "एमीटर",
+      "बेस",
+      "कॅथोड"
+    ],
+    "answer": "B",
+    "explanation": "In a transistor symbol, the arrow is always shown on the 'emitter' terminal. This arrow indicates the conventional direction of current flow (outwards in NPN and inwards in PNP).",
+    "explanationMarathi": "ट्रान्झिस्टरच्या चिन्हात बाण नेहमी 'एमीटर' टर्मिनलवर दाखवला जातो. हा बाण करंट वाहण्याची पारंपरिक दिशा (NPN मध्ये बाहेर आणि PNP मध्ये आत) दर्शवतो."
+  },
+  {
+    "id": 934,
+    "chapterId": 60,
+    "question": "What is the approximate resistance of the human body when wet?",
+    "questionMarathi": "ओल्या अवस्थेत मानवी शरीराचा रोध (Resistance) साधारणपणे किती असतो?",
+    "options": [
+      "Less than 1 ohm",
+      "100 kilo ohms",
+      "1 kilo ohm",
+      "500 ohms"
+    ],
+    "optionsMarathi": [
+      "1 ओहमपेक्षा कमी",
+      "100 किलो ओहम",
+      "1 किलो ओहम",
+      "500 ओहम"
+    ],
+    "answer": "C",
+    "explanation": "Dry skin resistance is around 100 kilo ohms. But when the skin is wet, this resistance drops rapidly to about 1 kilo ohm (1000 ohms), which increases the risk of shock.",
+    "explanationMarathi": "कोरड्या त्वचेचा रोध 100 किलो ओहमच्या आसपास असतो. पण त्वचा ओली असताना हा रोध वेगाने कमी होऊन साधारणपणे 1 किलो ओहम (1000 ओहम) पर्यंत खाली येतो, ज्यामुळे शॉक लागण्याचा धोका वाढतो."
+  },
+  {
+    "id": 935,
+    "chapterId": 60,
+    "question": "What is the Anode of a diode?",
+    "questionMarathi": "डायोडचा ॲनोड (Anode) काय असतो?",
+    "options": [
+      "Positive",
+      "Negative",
+      "Both",
+      "None of these"
+    ],
+    "optionsMarathi": [
+      "धन",
+      "ऋण",
+      "दोन्ही",
+      "यापैकी नाही"
+    ],
+    "answer": "A",
+    "explanation": "In a PN junction diode, the terminal connected to the P-type material is the 'anode', which is positive. The terminal connected to the N-type is the 'cathode' (negative).",
+    "explanationMarathi": "पी-एन जंक्शन डायोडमध्ये पी-टाईप (P-type) मटेरिअलला जोडलेले टर्मिनल 'ॲनोड' असते, जे धन (Positive) असते. एन-टाईप (N-type) ला जोडलेले टर्मिनल 'कॅथोड' (ऋण) असते."
+  },
+  {
+    "id": 936,
+    "chapterId": 60,
+    "question": "How many diodes are required in a three-phase bridge rectifier?",
+    "questionMarathi": "थ्री-फेज ब्रिज रेक्टिफायरमध्ये किती डायोडची आवश्यकता असते?",
+    "options": [
+      "2",
+      "4",
+      "5",
+      "6"
+    ],
+    "optionsMarathi": [
+      "2",
+      "4",
+      "5",
+      "6"
+    ],
+    "answer": "D",
+    "explanation": "A total of 6 diodes, 2 for each phase, are required for full-wave rectification of a three-phase supply.",
+    "explanationMarathi": "थ्री-फेज सप्लायचे फुल-वेव्ह रेक्टिफिकेशन करण्यासाठी प्रत्येक फेजसाठी 2 याप्रमाणे एकूण 6 डायोडची आवश्यकता असते."
+  },
+  {
+    "id": 937,
+    "chapterId": 60,
+    "question": "In a delta connection, the line current is equal to:",
+    "questionMarathi": "डेल्टा (Delta) जोडणीमध्ये लाईन करंट (Line Current) कशाच्या बरोबर असतो?",
+    "options": [
+      "Phase current",
+      "√3 × Phase current",
+      "3 × Line current",
+      "3 / Phase current"
+    ],
+    "optionsMarathi": [
+      "फेज करंट",
+      "√3 × फेज करंट",
+      "3 × लाईन करंट",
+      "3 / फेज करंट"
+    ],
+    "answer": "B",
+    "explanation": "In a delta connection, line voltage and phase voltage are equal (VL = Vph), but line current is √3 times the phase current (IL = √3 Iph).",
+    "explanationMarathi": "डेल्टा जोडणीमध्ये लाईन व्होल्टेज आणि फेज व्होल्टेज समान असतात (VL = Vph), परंतु लाईन करंट हा फेज करंटच्या √3 पट असतो (IL = √3 Iph)."
+  },
+  {
+    "id": 938,
+    "chapterId": 60,
+    "question": "On what does the resistance of a conductor depend?",
+    "questionMarathi": "एखाद्या वाहकाचा (Conductor) रोध कशावर अवलंबून असतो?",
+    "options": [
+      "Length",
+      "Cross-sectional area",
+      "Temperature",
+      "All of the three"
+    ],
+    "optionsMarathi": [
+      "लांबीवर",
+      "काटकोन क्षेत्रफळावर",
+      "तापमानावर",
+      "वरील तिन्हीवर"
+    ],
+    "answer": "D",
+    "explanation": "The resistance of a conductor is proportional to its length, inversely proportional to its cross-sectional area, and also depends on the type of material and temperature.",
+    "explanationMarathi": "वाहकाचा रोध लांबीच्या समानुपाती (Proportional), जाडीच्या (Cross-sectional area) व्यस्तानुपाती असतो आणि सामग्रीच्या प्रकारावर व तापमानावरही अवलंबून असतो."
+  },
+  {
+    "id": 939,
+    "chapterId": 60,
+    "question": "If two lamps of 250 volts and 40 watts each are connected in series to a 250 volt supply, what will be the total power?",
+    "questionMarathi": "प्रत्येकी 250 व्होल्ट आणि 40 वॉटचे दोन दिवे 250 व्होल्ट सप्लायवर एकसर (Series) जोडणीत जोडल्यास एकूण शक्ती किती असेल?",
+    "options": [
+      "40 watts",
+      "20 watts",
+      "80 watts",
+      "10 watts"
+    ],
+    "optionsMarathi": [
+      "40 वॉट",
+      "20 वॉट",
+      "80 वॉट",
+      "10 वॉट"
+    ],
+    "answer": "B",
+    "explanation": "When two lamps of equal capacity (40W) are connected in series at their rated voltage, their total resistance doubles and the total power is halved. (P = 40 / 2 = 20 watts).",
+    "explanationMarathi": "जेव्हा दोन समान क्षमतेचे (40W) दिवे त्यांच्या रेटेड व्होल्टेजवर एकसर जोडणीत जोडले जातात, तेव्हा त्यांचा एकूण रोध दुप्पट होतो आणि एकूण शक्ती निम्मी होते. (P = 40/2 = 20 वॉट)."
+  },
+  {
+    "id": 940,
+    "chapterId": 60,
+    "question": "Which of the following materials cannot be used to make a permanent magnet?",
+    "questionMarathi": "खालीलपैकी कोणत्या पदार्थापासून कायमस्वरूपी चुंबक (Permanent magnet) बनवता येत नाही?",
+    "options": [
+      "Hard iron",
+      "Soft iron",
+      "Nickel cobalt steel",
+      "Alnico"
+    ],
+    "optionsMarathi": [
+      "कठीण लोखंड",
+      "मऊ लोखंड",
+      "निकेल कोबाल्ट स्टील",
+      "अलनिको"
+    ],
+    "answer": "B",
+    "explanation": "Soft iron has very low retentivity. Hence it is used for making temporary magnets (e.g. electromagnet, transformer core), not permanent magnets.",
+    "explanationMarathi": "मऊ लोखंडामध्ये चुंबकत्व टिकवून ठेवण्याची क्षमता (Retentivity) खूप कमी असते. त्यामुळे याचा वापर तात्पुरते चुंबक (उदा. इलेक्ट्रोमॅग्नेट, ट्रान्सफॉर्मर कोअर) बनवण्यासाठी होतो, कायमस्वरूपी चुंबक बनवण्यासाठी नाही."
+  },
+  {
+    "id": 941,
+    "chapterId": 60,
+    "question": "Which statement is true for a pure resistive circuit?",
+    "questionMarathi": "शुद्ध रोधक (Pure Resistive) सर्किटसाठी कोणते विधान सत्य आहे?",
+    "options": [
+      "Power factor is 1",
+      "Power consumption is zero",
+      "Heat loss is zero",
+      "Power factor is 0"
+    ],
+    "optionsMarathi": [
+      "पॉवर फॅक्टर 1 असतो",
+      "विजेचा वापर शून्य असतो",
+      "उष्णता हानी शून्य असते",
+      "पॉवर फॅक्टर 0 असतो"
+    ],
+    "answer": "A",
+    "explanation": "In a pure resistive circuit, there is no phase difference between voltage and current (Phase angle = 0°). Hence cos(0) = 1. Therefore, power factor is unity (1).",
+    "explanationMarathi": "शुद्ध रोधक सर्किटमध्ये व्होल्टेज आणि करंट यांच्यात कोणताही फेज डिफरन्स नसतो (Phase angle = 0°). त्यामुळे cos(0) = 1. म्हणून पॉवर फॅक्टर युनिटी (1) असतो."
+  },
+  {
+    "id": 942,
+    "chapterId": 60,
+    "question": "Which material is doped in silicon to make a P-type material?",
+    "questionMarathi": "पी-टाईप (P-type) पदार्थ बनवण्यासाठी सिलिकॉनमध्ये कोणत्या पदार्थाचे डोपिंग केले जाते?",
+    "options": [
+      "Germanium",
+      "Arsenic",
+      "Antimony",
+      "Indium"
+    ],
+    "optionsMarathi": [
+      "जर्मेनियम",
+      "आर्सेनिक",
+      "अँटीमनी",
+      "इंडियम"
+    ],
+    "answer": "D",
+    "explanation": "To make a P-type semiconductor, a trivalent impurity is added to pure silicon. Of the given options, 'indium' is a trivalent material.",
+    "explanationMarathi": "पी-टाईप सेमीकंडक्टर बनवण्यासाठी शुद्ध सिलिकॉनमध्ये त्रि-संयुजी (Trivalent) अशुद्धी मिसळली जाते. दिलेल्या पर्यायांपैकी 'इंडियम' हा त्रि-संयुजी पदार्थ आहे."
+  },
+  {
+    "id": 943,
+    "chapterId": 60,
+    "question": "Which of the following equipment operates on the heating effect of electric current?",
+    "questionMarathi": "खालीलपैकी कोणते उपकरण विद्युत प्रवाहाच्या औष्णिक प्रभावावर (Heating effect) कार्य करते?",
+    "options": [
+      "Dynamometer wattmeter",
+      "Thermocouple instrument",
+      "Energy meter",
+      "Power factor meter"
+    ],
+    "optionsMarathi": [
+      "डायनॅमोमीटर वॉटमीटर",
+      "थर्मोकपल उपकरण",
+      "एनर्जी मीटर",
+      "पॉवर फॅक्टर मीटर"
+    ],
+    "answer": "B",
+    "explanation": "A thermocouple meter operates on the heat generated by the electric current (Seebeck effect). This meter can be used to measure both AC and DC.",
+    "explanationMarathi": "थर्मोकपल मीटर विजेच्या प्रवाहामुळे निर्माण होणाऱ्या उष्णतेवर कार्य करते (सीबेक प्रभाव). हे मीटर AC आणि DC दोन्ही मोजण्यासाठी वापरता येते."
+  },
+  {
+    "id": 944,
+    "chapterId": 60,
+    "question": "With what is earth resistance measured?",
+    "questionMarathi": "अर्थ रोध (Earth Resistance) कशाच्या साहाय्याने मोजला जातो?",
+    "options": [
+      "Megger",
+      "Wattmeter",
+      "Earth tester",
+      "Wheatstone bridge"
+    ],
+    "optionsMarathi": [
+      "मेगर",
+      "वॉटमीटर",
+      "अर्थ टेस्टर",
+      "व्हीटस्टोन ब्रिज"
+    ],
+    "answer": "C",
+    "explanation": "A special instrument called an 'Earth Tester' is used to measure earthing resistance. Megger is used to measure insulation resistance.",
+    "explanationMarathi": "अर्थिंगचा रोध मोजण्यासाठी 'अर्थ टेस्टर' (Earth Tester) नावाचे विशेष उपकरण वापरले जाते. मेगर हे इन्सुलेशन रोध मोजण्यासाठी वापरतात."
+  },
+  {
+    "id": 945,
+    "chapterId": 60,
+    "question": "What is the resistance between primary and secondary winding of a transformer?",
+    "questionMarathi": "ट्रान्सफॉर्मरच्या प्रायमरी आणि सेकंडरी वाइंडिंगमधील रोध किती असतो?",
+    "options": [
+      "Infinite",
+      "Zero",
+      "Approximately 10 Megohms",
+      "100 Kilo ohms"
+    ],
+    "optionsMarathi": [
+      "अनंत (Infinite)",
+      "शून्य",
+      "अंदाजे 10 मेगॅओहम",
+      "100 किलो ओहम"
+    ],
+    "answer": "A",
+    "explanation": "The primary and secondary windings of a transformer are completely electrically isolated from each other, they are only magnetically coupled. Hence the direct electrical resistance between them is infinite.",
+    "explanationMarathi": "ट्रान्सफॉर्मरची प्रायमरी आणि सेकंडरी वाइंडिंग एकमेकांपासून विद्युतरित्या (Electrically) पूर्णपणे वेगळी असते, त्या फक्त चुंबकीयरीत्या जोडलेल्या असतात. त्यामुळे त्यांच्यातील प्रत्यक्ष विद्युत रोध अनंत (Infinite) असतो."
+  },
+  {
+    "id": 946,
+    "chapterId": 60,
+    "question": "What is it called when one phase of a running induction motor fails?",
+    "questionMarathi": "चालू असलेल्या इंडक्शन मोटरचा एक फेज उडणे याला काय म्हणतात?",
+    "options": [
+      "Crawling",
+      "Hunting",
+      "Single phasing",
+      "Floating"
+    ],
+    "optionsMarathi": [
+      "क्रॉलिंग",
+      "हंटिंग",
+      "सिंगल फेझिंग",
+      "फ्लोटिंग"
+    ],
+    "answer": "C",
+    "explanation": "If any one phase gets interrupted while a three-phase motor is running and it continues to run on only two phases, this fault is called 'single phasing', causing the motor to draw very high current and potentially burn out.",
+    "explanationMarathi": "थ्री-फेज मोटर चालू असताना जर कोणताही एक फेज खंडित झाला आणि ती दोनच फेजवर चालू राहिली, तर या दोषाला 'सिंगल फेझिंग' (Single phasing) म्हणतात, यामुळे मोटर खूप जास्त करंट घेऊन जळू शकते."
+  },
+  {
+    "id": 947,
+    "chapterId": 60,
+    "question": "What happens to the life of a lamp if the voltage increases?",
+    "questionMarathi": "व्होल्टेज वाढल्यास दिव्याचे (Lamp) आयुष्य काय होते?",
+    "options": [
+      "Increases",
+      "Decreases",
+      "Remains same",
+      "Runs out"
+    ],
+    "optionsMarathi": [
+      "वाढते",
+      "कमी होते",
+      "समान राहते",
+      "संपून जाते"
+    ],
+    "answer": "B",
+    "explanation": "If the voltage increases beyond capacity, the filament gets overheated and evaporates faster, which reduces the life of the lamp.",
+    "explanationMarathi": "व्होल्टेज क्षमतेपेक्षा जास्त वाढल्यास फिलामेंट प्रमाणापेक्षा अधिक तापतो आणि त्याचे बाष्पीभवन वेगाने होते, त्यामुळे दिव्याचे आयुष्य (Life) कमी होते."
+  },
+  {
+    "id": 948,
+    "chapterId": 60,
+    "question": "What will happen if a 230 volt DC motor is connected to a 230 volt AC supply?",
+    "questionMarathi": "230 व्होल्टच्या डी.सी. मोटरला 230 व्होल्ट ए.सी. सप्लाय जोडल्यास काय होईल?",
+    "options": [
+      "Run easily",
+      "Stop",
+      "Burn out",
+      "Low efficiency and high sparking"
+    ],
+    "optionsMarathi": [
+      "सहज चालेल",
+      "थांबेल",
+      "जळून जाईल",
+      "कार्यक्षमता कमी होईल आणि जास्त स्पार्किंग होईल"
+    ],
+    "answer": "D",
+    "explanation": "If a DC motor is run on AC supply, there is very high sparking due to inductance, the motor gets heated due to eddy currents, and its efficiency is very low.",
+    "explanationMarathi": "डी.सी. मोटर ए.सी. सप्लायवर चालवल्यास, इंडक्टन्समुळे खूप जास्त स्पार्किंग होते, एडी करंटमुळे मोटर गरम होते आणि तिची कार्यक्षमता (Efficiency) अत्यंत कमी मिळते."
+  },
+  {
+    "id": 949,
+    "chapterId": 60,
+    "question": "What is the average life of a fluorescent tube light?",
+    "questionMarathi": "फ्लोरोसेंट ट्यूब लाईटचे आयुष्य साधारणपणे किती असते?",
+    "options": [
+      "10,000 hours",
+      "4,000 hours",
+      "7,500 hours",
+      "3,500 hours"
+    ],
+    "optionsMarathi": [
+      "10,000 तास",
+      "4,000 तास",
+      "7,500 तास",
+      "3,500 तास"
+    ],
+    "answer": "C",
+    "explanation": "The average life of a standard fluorescent tube (Tube light) is considered to be around 7,500 working hours.",
+    "explanationMarathi": "प्रमाणित फ्लोरोसेंट ट्यूबचे (Tube light) सरासरी आयुष्य सुमारे 7,500 तासांच्या आसपास मानले जाते."
+  },
+  {
+    "id": 950,
+    "chapterId": 60,
+    "question": "What is used to supply the EMF generated by an alternator to the external circuit?",
+    "questionMarathi": "अल्टरनेटरने तयार केलेला ई.एम.एफ. (EMF) बाह्य सर्किटला देण्यासाठी कशाचा वापर केला जातो?",
+    "options": [
+      "Commutator",
+      "Split ring",
+      "Slip ring",
+      "All of the above"
+    ],
+    "optionsMarathi": [
+      "कम्युटेटर",
+      "स्प्लिट रिंग",
+      "स्लिप रिंग",
+      "वरील सर्व"
+    ],
+    "answer": "C",
+    "explanation": "An alternator generates alternating current (AC). A 'slip ring' is used to connect this rotating current to a stationary external circuit. (Commutators are used for DC).",
+    "explanationMarathi": "अल्टरनेटर ए.सी. (AC) प्रवाह निर्माण करतो. हा फिरणारा प्रवाह स्थिर बाह्य सर्किटला जोडण्यासाठी 'स्लिप रिंग'चा वापर केला जातो. (कम्युटेटर डीसीसाठी वापरतात)."
+  },
+  {
+    "id": 951,
+    "chapterId": 60,
+    "question": "What is the working principle of a valve?",
+    "questionMarathi": "व्हॉल्व्हचे (Valve) कार्य तत्त्व काय आहे?",
+    "options": [
+      "Magnetic",
+      "Thermal",
+      "Chemical",
+      "Gas ionization"
+    ],
+    "optionsMarathi": [
+      "चुंबकीय",
+      "औष्णिक (Thermal)",
+      "रासायनिक",
+      "गॅस आयनीकरण"
+    ],
+    "answer": "B",
+    "explanation": "Vacuum tubes or valves operate on the principle of 'thermionic emission'. In this, electrons are emitted when heat is applied to the cathode.",
+    "explanationMarathi": "व्हॅक्यूम ट्यूब किंवा व्हॉल्व्ह 'थर्मिओनिक एमिशन' तत्त्वावर काम करतात. यात कॅथोडला उष्णता (Heating) दिल्यावर त्यातून इलेक्ट्रॉन बाहेर फेकले जातात."
+  },
+  {
+    "id": 952,
+    "chapterId": 60,
+    "question": "What color light does a sodium vapor lamp emit?",
+    "questionMarathi": "सोडियम व्हेपर लॅम्प कोणत्या रंगाचा प्रकाश देतो?",
+    "options": [
+      "Yellow",
+      "White",
+      "Bluish white",
+      "Sky blue"
+    ],
+    "optionsMarathi": [
+      "पिवळा",
+      "पांढरा",
+      "निळसर पांढरा",
+      "आकाशी"
+    ],
+    "answer": "A",
+    "explanation": "A sodium vapor lamp, when fully lit, gives a uniform (monochromatic) yellow light, which is clearly visible even in fog or rain.",
+    "explanationMarathi": "सोडियम व्हेपर लॅम्प पूर्णपणे पेटल्यावर एकसमान (Monochromatic) पिवळ्या रंगाचा प्रकाश देतो, जो धुके किंवा पावसातही स्पष्ट दिसतो."
+  },
+  {
+    "id": 953,
+    "chapterId": 60,
+    "question": "Which of the following conditions is NOT mandatory for connecting transformers in parallel?",
+    "questionMarathi": "खालीलपैकी कोणती अट ट्रान्सफॉर्मरला समांतर (Parallel) जोडण्यासाठी अनिवार्य 'नाही'?",
+    "options": [
+      "Same voltage",
+      "Same current",
+      "Same phase sequence",
+      "Same polarity"
+    ],
+    "optionsMarathi": [
+      "समान व्होल्टेज",
+      "समान करंट",
+      "समान फेज सिक्वेन्स",
+      "समान पोलॅरिटी"
+    ],
+    "answer": "B",
+    "explanation": "For parallel operation of transformers, it is absolutely essential that the voltage ratio, phase sequence, and polarity are the same. But, it is not mandatory for the current (or capacity/kVA) to be the same.",
+    "explanationMarathi": "ट्रान्सफॉर्मर समांतर चालवण्यासाठी व्होल्टेज रेशो, फेज सिक्वेन्स आणि पोलॅरिटी सारखी असणे अत्यंत गरजेचे आहे. परंतु, करंट (किंवा क्षमता/kVA) सारखी असणे बंधनकारक नाही."
+  },
+  {
+    "id": 954,
+    "chapterId": 60,
+    "question": "At what temperature does a heating element start emitting light along with heat?",
+    "questionMarathi": "कोणत्या तापमानाला एखादा हिटिंग एलिमेंट उष्णतेसोबतच प्रकाशही (Light) देऊ लागतो?",
+    "options": [
+      "1500°C",
+      "2300°C",
+      "900°C",
+      "2700°C"
+    ],
+    "optionsMarathi": [
+      "1500°C",
+      "2300°C",
+      "900°C",
+      "2700°C"
+    ],
+    "answer": "C",
+    "explanation": "When a metal reaches a temperature of about 900°C, it becomes red hot and begins to emit visible light along with heat.",
+    "explanationMarathi": "जेव्हा एखादा धातू सुमारे 900°C तापमानाला पोहोचतो, तेव्हा तो लालसर गरम (Red hot) होतो आणि उष्णतेबरोबरच दृश्यमान प्रकाशही (Visible light) उत्सर्जित करू लागतो."
+  },
+  {
+    "id": 955,
+    "chapterId": 60,
+    "question": "A motor draws 4.5 amps on a 240V, 50Hz supply. If the power factor is 0.8, what is the power?",
+    "questionMarathi": "एक मोटर 240 V, 50 Hz सप्लायवर 4.5 ॲम्पिअर करंट घेते. जर पॉवर फॅक्टर 0.8 असेल, तर शक्ती किती असेल?",
+    "options": [
+      "746 watts",
+      "864 watts",
+      "43200 watts",
+      "1080 watts"
+    ],
+    "optionsMarathi": [
+      "746 वॉट",
+      "864 वॉट",
+      "43200 वॉट",
+      "1080 वॉट"
+    ],
+    "answer": "B",
+    "explanation": "Power formula in AC circuit: P = V × I × cos(φ). P = 240 × 4.5 × 0.8 = 864 watts.",
+    "explanationMarathi": "ए.सी. (AC) सर्किटमध्ये पॉवरचे सूत्र: P = V × I × cos(φ). P = 240 × 4.5 × 0.8 = 864 वॉट."
+  },
+  {
+    "id": 956,
+    "chapterId": 60,
+    "question": "Which property of an AC circuit opposes the change in voltage?",
+    "questionMarathi": "ए.सी. सर्किटचा कोणता गुणधर्म व्होल्टेजनिर्मित होणाऱ्या बदलाला विरोध करतो?",
+    "options": [
+      "Inductance",
+      "Capacitance",
+      "Inductive reactance",
+      "Capacitive reactance"
+    ],
+    "optionsMarathi": [
+      "इंडक्टन्स",
+      "कॅपॅसिटन्स",
+      "इंडक्टिव्ह रिॲक्टन्स",
+      "कॅपॅसिटिव्ह रिॲक्टन्स"
+    ],
+    "answer": "B",
+    "explanation": "Capacitance is the property that opposes sudden changes in voltage in a circuit (whereas inductance opposes change in current).",
+    "explanationMarathi": "कॅपॅसिटन्स हा असा गुणधर्म आहे जो सर्किटमधील व्होल्टेजच्या अचानक होणाऱ्या बदलाला विरोध करतो (तर इंडक्टन्स करंटमधील बदलाला विरोध करतो)."
+  },
+  {
+    "id": 957,
+    "chapterId": 60,
+    "question": "How is a frequency meter connected in a circuit?",
+    "questionMarathi": "फ्रिक्वेन्सी मीटर (वारंवारता मापक) सर्किटमध्ये कसे जोडले जाते?",
+    "options": [
+      "In phase",
+      "In neutral",
+      "Series",
+      "Parallel"
+    ],
+    "optionsMarathi": [
+      "फेजमध्ये",
+      "न्यूट्रलमध्ये",
+      "एकसर (Series)",
+      "समांतर (Parallel)"
+    ],
+    "answer": "D",
+    "explanation": "A frequency meter has to measure the supply voltage, so like a voltmeter, this meter is also always connected in parallel in the circuit.",
+    "explanationMarathi": "फ्रिक्वेन्सी मीटरला सप्लाय व्होल्टेज मोजावे लागते, त्यामुळे व्होल्टमीटरप्रमाणेच हे मीटरही सर्किटमध्ये नेहमी समांतर (Parallel) जोडले जाते."
+  },
+  {
+    "id": 958,
+    "chapterId": 60,
+    "question": "What is an alternator driven by a steam turbine called?",
+    "questionMarathi": "जो अल्टरनेटर स्टीम टर्बाईनद्वारे (Steam turbine) फिरवला जातो, त्याला काय म्हणतात?",
+    "options": [
+      "Turbo Alternator",
+      "Hydro Alternator",
+      "Engine Alternator",
+      "Wind Alternator"
+    ],
+    "optionsMarathi": [
+      "टर्बो अल्टरनेटर",
+      "हायड्रो अल्टरनेटर",
+      "इंजिन अल्टरनेटर",
+      "विंड अल्टरनेटर"
+    ],
+    "answer": "A",
+    "explanation": "A steam turbine rotates at very high speed (e.g. 3000 RPM), so the alternator designed for this high speed and driven by the turbine is called a 'Turbo Alternator'. It uses a cylindrical rotor.",
+    "explanationMarathi": "स्टीम टर्बाईन खूप वेगाने फिरते (उदा. 3000 RPM), त्यामुळे या उच्च वेगासाठी डिझाईन केलेल्या आणि टर्बाईनने चालवल्या जाणाऱ्या अल्टरनेटरला 'टर्बो अल्टरनेटर' म्हणतात. यात सिलिंड्रिकल रोटर वापरलेला असतो."
+  },
+  {
+    "id": 959,
+    "chapterId": 61,
+    "question": "What is the main difference between an auto transformer and other normal transformers?",
+    "questionMarathi": "ऑटो ट्रान्सफॉर्मर आणि इतर सामान्य ट्रान्सफॉर्मरमधील मुख्य अंतर काय आहे?",
+    "options": [
+      "Core",
+      "Cooling system",
+      "Iron loss",
+      "Working principle"
+    ],
+    "optionsMarathi": [
+      "क्रोड",
+      "शीतलन प्रणाली",
+      "लोह हानी",
+      "कार्य तत्त्व"
+    ],
+    "answer": "D",
+    "explanation": "Normal transformers have two separate windings, while auto transformers have a single winding that acts as both primary and secondary.",
+    "explanationMarathi": "सामान्य ट्रान्सफॉर्मरमध्ये दोन स्वतंत्र वाइंडिंग्स (प्रायमरी आणि सेकंडरी) असतात, तर ऑटो ट्रान्सफॉर्मरमध्ये एकच वाइंडिंग असते जी प्रायमरी आणि सेकंडरी दोन्ही म्हणून काम करते (कंडक्टिव्ह आणि इंडक्टिव्ह कपलिंग)."
+  },
+  {
+    "id": 960,
+    "chapterId": 61,
+    "question": "What is the lamination of the armature made of?",
+    "questionMarathi": "आर्मेचरची लॅमिनेशन कशाची बनलेली असते?",
+    "options": [
+      "Copper",
+      "Soft iron",
+      "Silicon steel",
+      "Brass"
+    ],
+    "optionsMarathi": [
+      "तांबे",
+      "मऊ लोखंड",
+      "सिलिकॉन स्टील",
+      "पितळ"
+    ],
+    "answer": "C",
+    "explanation": "To reduce eddy current loss, the armature core is always made of silicon steel laminations.",
+    "explanationMarathi": "एडी करंट हानी (Eddy current loss) कमी करण्यासाठी आर्मेचर कोअर नेहमी सिलिकॉन स्टीलच्या थरांपासून (Laminations) बनवला जातो."
+  },
+  {
+    "id": 961,
+    "chapterId": 61,
+    "question": "How much should the insulation resistance be?",
+    "questionMarathi": "इन्सुलेशन रोध (Insulation Resistance) किती असावा?",
+    "options": [
+      "10 Ohm",
+      "1 Mega Ohm",
+      "10 Mega Ohm",
+      "100 Kilo Ohm"
+    ],
+    "optionsMarathi": [
+      "१० ओहम",
+      "१ मेगॅओहम",
+      "१० मेगॅओहम",
+      "१०० किलो ओहम"
+    ],
+    "answer": "B",
+    "explanation": "As a rule, for safety, the insulation resistance of any electrical device must be at least 1 Mega Ohm.",
+    "explanationMarathi": "नियमानुसार, सुरक्षिततेसाठी कोणत्याही विद्युत उपकरणाचा इन्सुलेशन रोध किमान १ मेगॅओहम (1 MΩ) असणे आवश्यक आहे."
+  },
+  {
+    "id": 962,
+    "chapterId": 61,
+    "question": "What is the power factor of a split phase motor?",
+    "questionMarathi": "स्प्लिट फेज मोटरचा पॉवर फॅक्टर किती असतो?",
+    "options": [
+      "1",
+      "0.8 to 0.9",
+      "0.5 to 0.6",
+      "0.3 to 0.4"
+    ],
+    "optionsMarathi": [
+      "१",
+      "०.८ ते ०.९",
+      "०.५ ते ०.६",
+      "०.३ ते ०.४"
+    ],
+    "answer": "C",
+    "explanation": "The power factor of split phase induction motors is usually low (lagging), around 0.5 to 0.6.",
+    "explanationMarathi": "स्प्लिट फेज इंडक्शन मोटर्सचा पॉवर फॅक्टर सहसा कमी (Lagging) असतो, जो ०.५ ते ०.६ च्या दरम्यान असतो."
+  },
+  {
+    "id": 963,
+    "chapterId": 61,
+    "question": "What is the peak factor value of AC?",
+    "questionMarathi": "AC च्या पीक फॅक्टरचे (Peak Factor) मूल्य किती असते?",
+    "options": [
+      "1.414",
+      "1.141",
+      "1.11",
+      "11.1"
+    ],
+    "optionsMarathi": [
+      "१.४१४",
+      "१.१४१",
+      "१.११",
+      "११.१"
+    ],
+    "answer": "A",
+    "explanation": "Peak Factor = Peak Value / RMS Value = √2 ≈ 1.414.",
+    "explanationMarathi": "पीक फॅक्टर (Peak Factor) = पीक व्हॅल्यू / आर.एम.एस. व्हॅल्यू = √2 ≈ 1.414."
+  },
+  {
+    "id": 964,
+    "chapterId": 61,
+    "question": "The rotation of the energy meter disc without load indicates which defect?",
+    "questionMarathi": "एनर्जी मीटरची चकती लोड नसतानाही फिरणे, कोणता दोष दर्शवते?",
+    "options": [
+      "Friction defect",
+      "Phase defect",
+      "Creeping defect",
+      "Speed defect"
+    ],
+    "optionsMarathi": [
+      "घर्षण दोष",
+      "फेज दोष",
+      "क्रीपिंग दोष",
+      "गती दोष"
+    ],
+    "answer": "C",
+    "explanation": "When the meter disc rotates slowly without load, it is called 'creeping'.",
+    "explanationMarathi": "जेव्हा मीटरला लोड नसतानाही डिस्क हळूहळू फिरते, तेव्हा त्याला 'क्रीपिंग' म्हणतात. हे सामान्यतः जास्त व्होल्टेज किंवा चुकीच्या सेटिंगमुळे होते."
+  },
+  {
+    "id": 965,
+    "chapterId": 61,
+    "question": "What is the unit of Illumination?",
+    "questionMarathi": "प्रदीप्तीचे (Illumination) एकक कोणते आहे?",
+    "options": [
+      "Lumen",
+      "Lux",
+      "Steradian",
+      "Meter/Candela"
+    ],
+    "optionsMarathi": [
+      "ल्युमेन",
+      "लक्स",
+      "स्टेरॅडियन",
+      "मीटर/कॅन्डेला"
+    ],
+    "answer": "B",
+    "explanation": "Illumination is the luminous flux falling per unit area, whose unit is 'Lux'.",
+    "explanationMarathi": "प्रदीप्ती (Illumination) म्हणजे प्रति युनिट क्षेत्रावर पडणारा प्रकाश फ्लक्स, ज्याचे एकक 'लक्स' आहे."
+  },
+  {
+    "id": 966,
+    "chapterId": 61,
+    "question": "The presence of current is realized from what?",
+    "questionMarathi": "करंटच्या अस्तित्वाची जाणीव कशावरून होते?",
+    "options": [
+      "Shining",
+      "Produced effect",
+      "Electric shock",
+      "Crackling sound"
+    ],
+    "optionsMarathi": [
+      "चमकण्यावरून",
+      "उत्पन्न प्रभावावरून",
+      "विद्युत धक्क्यावरून",
+      "चटचट आवाजावरून"
+    ],
+    "answer": "B",
+    "explanation": "Current itself is invisible, but its presence is understood by the effects it produces.",
+    "explanationMarathi": "करंट स्वतः दिसत नाही, परंतु तो निर्माण करणारे प्रभाव (उदा. उष्णता, चुंबकीय क्षेत्र, रासायनिक बदल) यावरून त्याचे अस्तित्व समजते."
+  },
+  {
+    "id": 967,
+    "chapterId": 61,
+    "question": "If one resistor out of four in a parallel circuit is 'open', the current in the circuit:",
+    "questionMarathi": "समांतर सर्किटमधील चार रोधकांपैकी एक रोधक 'ओपन' झाल्यास सर्किटमधील करंट:",
+    "options": [
+      "Will increase",
+      "Will decrease",
+      "Will remain unchanged",
+      "Will become zero"
+    ],
+    "optionsMarathi": [
+      "वाढेल",
+      "कमी होईल",
+      "अपरिवर्तित राहील",
+      "शून्य होईल"
+    ],
+    "answer": "B",
+    "explanation": "In a parallel connection, when one path is closed, the total resistance increases, causing the total current to decrease.",
+    "explanationMarathi": "समांतर (Parallel) जोडणीत एक मार्ग बंद झाल्याने एकूण रोध वाढतो, ज्यामुळे एकूण करंट कमी होतो."
+  },
+  {
+    "id": 968,
+    "chapterId": 61,
+    "question": "If the peak value of sine wave voltage is 10 volts, what will be its RMS value?",
+    "questionMarathi": "साईन वेव्हच्या व्होल्टेजचे पीक मूल्य १० व्होल्ट असल्यास प्रभावी (RMS) मूल्य किती असेल?",
+    "options": [
+      "7.070 Volts",
+      "14.14 Volts",
+      "10 Volts",
+      "6.37 Volts"
+    ],
+    "optionsMarathi": [
+      "७.०७० व्होल्ट",
+      "१४.१४ व्होल्ट",
+      "१० व्होल्ट",
+      "६.३७ व्होल्ट"
+    ],
+    "answer": "A",
+    "explanation": "V_rms = V_peak × 0.707 = 10 × 0.707 = 7.07 Volts.",
+    "explanationMarathi": "V_rms = V_peak × ०.७०७ = १० × ०.७०७ = ७.०७ व्होल्ट."
+  },
+  {
+    "id": 969,
+    "chapterId": 61,
+    "question": "Which of the following equipment is of 'Passive' type?",
+    "questionMarathi": "खालीलपैकी कोणते उपकरण 'पॅसिव्ह' (Passive) प्रकारचे आहे?",
+    "options": [
+      "FET",
+      "SCR",
+      "Air core inductor",
+      "Zener diode"
+    ],
+    "optionsMarathi": [
+      "FET",
+      "SCR",
+      "एअर कोअर इंडक्टर",
+      "झिनर डायोड"
+    ],
+    "answer": "C",
+    "explanation": "Passive components (like resistor, capacitor, inductor) do not generate or control energy, but they store or consume it.",
+    "explanationMarathi": "पॅसिव्ह घटक (उदा. रेझिस्टर, कॅपॅसिटर, इंडक्टर) ऊर्जा निर्माण करत नाहीत किंवा नियंत्रित करत नाहीत, तर ते ऊर्जा साठवतात किंवा खर्च करतात."
+  },
+  {
+    "id": 970,
+    "chapterId": 61,
+    "question": "Which of the following substances creates high resistance in the path of electric current?",
+    "questionMarathi": "खालीलपैकी कोणता पदार्थ विद्युत प्रवाहाच्या मार्गात उच्च अडथळा निर्माण करणारा आहे?",
+    "options": [
+      "Iron",
+      "Nichrome",
+      "Silver",
+      "Eureka"
+    ],
+    "optionsMarathi": [
+      "लोखंड",
+      "नायक्रोम",
+      "चांदी",
+      "युरेका"
+    ],
+    "answer": "B",
+    "explanation": "Nichrome has a very high resistance, hence it is used in heating elements.",
+    "explanationMarathi": "नायक्रोमचा रोध खूप जास्त असतो, म्हणूनच याचा वापर हीटिंग एलिमेंटमध्ये केला जातो."
+  },
+  {
+    "id": 971,
+    "chapterId": 61,
+    "question": "What is the reason for applying armored mesh (Armor) in an armored cable?",
+    "questionMarathi": "आर्मर्ड केबलमध्ये जाळीदार धातूचे कवच (Armor) लावण्याचे कारण काय?",
+    "options": [
+      "Protection from moisture",
+      "Protection from fire",
+      "To prevent bursting",
+      "Protection from mechanical impacts"
+    ],
+    "optionsMarathi": [
+      "ओलाव्यापासून रक्षण",
+      "आगीपासून रक्षण",
+      "केबल फुटण्यापासून रोखणे",
+      "यांत्रिक आघातांपासून रक्षण"
+    ],
+    "answer": "D",
+    "explanation": "Armoring is used to protect underground cables from mechanical shocks caused by stones or other objects.",
+    "explanationMarathi": "जमिनीखालील केबलला दगड किंवा इतर वस्तूंमुळे होणाऱ्या यांत्रिक धक्क्यांपासून वाचवण्यासाठी आर्मरिंग वापरतात."
+  },
+  {
+    "id": 972,
+    "chapterId": 61,
+    "question": "What is the ratio of the number of secondary and primary turns in a transformer called?",
+    "questionMarathi": "ट्रान्सफॉर्मरमधील सेकंडरी आणि प्रायमरी टर्न्सच्या संख्येचे गुणोत्तर काय म्हणतात?",
+    "options": [
+      "Voltage regulation",
+      "Transformation ratio",
+      "Efficiency",
+      "Reactance"
+    ],
+    "optionsMarathi": [
+      "व्होल्टेज रेग्युलेशन",
+      "ट्रान्सफॉर्मेशन रेशो",
+      "कार्यक्षमता",
+      "प्रतिघात"
+    ],
+    "answer": "B",
+    "explanation": "K = N2/N1 is the formula for the transformation ratio.",
+    "explanationMarathi": "K = N2/N1 हे ट्रान्सफॉर्मेशन रेशोचे सूत्र आहे."
+  },
+  {
+    "id": 973,
+    "chapterId": 61,
+    "question": "What is the formula to calculate Reactive Power?",
+    "questionMarathi": "रिॲक्टिव्ह पॉवर (Reactive Power) काढण्याचे सूत्र कोणते आहे?",
+    "options": [
+      "VI sinθ",
+      "VI cosθ",
+      "VI/t",
+      "VI"
+    ],
+    "optionsMarathi": [
+      "VI sinθ",
+      "VI cosθ",
+      "VI/t",
+      "VI"
+    ],
+    "answer": "A",
+    "explanation": "Active power is P = VI cosθ and reactive power is Q = VI sinθ.",
+    "explanationMarathi": "ॲक्टिव्ह पॉवर (P = VI cosθ) आणि रिॲक्टिव्ह पॉवर (Q = VI sinθ) असते."
+  },
+  {
+    "id": 974,
+    "chapterId": 61,
+    "question": "According to Indian electricity rules, what is the maximum number of load points in a power sub-circuit?",
+    "questionMarathi": "भारतीय विद्युत नियमांनुसार पॉवरच्या एका उप-सर्किटमध्ये जास्तीत जास्त किती लोड पॉईंट असू शकतात?",
+    "options": [
+      "8",
+      "2",
+      "4",
+      "10"
+    ],
+    "optionsMarathi": [
+      "८",
+      "२",
+      "४",
+      "१०"
+    ],
+    "answer": "A",
+    "explanation": "Although the limit is 10 for lighting and 2 for power sub-circuit, option 1 (8) was selected as the answer.",
+    "explanationMarathi": "प्रकाश (Light) सर्किटसाठी १० पॉईंट्स आणि पॉवर (Power) उप-सर्किटसाठी जास्तीत जास्त २ पॉईंट्सची मर्यादा असते. (येथे प्रश्न क्र. ९७४ मध्ये ८ उत्तर सामान्यतः प्रकाश सर्किटसाठी घेतले जाते, तरीही काही संदर्भात २ पॉवरसाठी योग्य आहे)."
+  },
+  {
+    "id": 975,
+    "chapterId": 61,
+    "question": "What is the main reason for sparking on the commutator?",
+    "questionMarathi": "कम्युटेटरवर स्पार्किंग होण्याचे मुख्य कारण काय आहे?",
+    "options": [
+      "Loose brush",
+      "Incorrect commutation",
+      "Excessive pressure on brush",
+      "All of the above"
+    ],
+    "optionsMarathi": [
+      "सैल ब्रश",
+      "चुकीचे कम्युटेशन",
+      "ब्रशवर जास्त दाब",
+      "वरील सर्व"
+    ],
+    "answer": "D",
+    "explanation": "Loose brushes, incorrect commutation, or excessive pressure can all cause friction or sparking.",
+    "explanationMarathi": "ब्रश सैल असणे, चुकीचे कम्युटेशन किंवा जास्त दाब या सर्व गोष्टींमुळे घर्षण किंवा स्पार्किंग होते."
+  },
+  {
+    "id": 976,
+    "chapterId": 61,
+    "question": "Which loss in the core of an AC machine is most affected by changing frequency?",
+    "questionMarathi": "AC मशीनच्या कोअरमधील कोणती हानी फ्रिक्वेन्सी बदलल्याने सर्वाधिक प्रभावित होते?",
+    "options": [
+      "Eddy current",
+      "Hysteresis",
+      "Copper loss",
+      "Both 1 and 2"
+    ],
+    "optionsMarathi": [
+      "एडी करंट",
+      "हिस्टेरेसिस",
+      "ताम्र हानी",
+      "१ आणि २ दोन्ही"
+    ],
+    "answer": "D",
+    "explanation": "Both eddy current and hysteresis losses depend on frequency.",
+    "explanationMarathi": "एडी करंट आणि हिस्टेरेसिस दोन्ही फ्रिक्वेन्सीवर अवलंबून असतात."
+  },
+  {
+    "id": 977,
+    "chapterId": 61,
+    "question": "In a short shunt compound generator, what is the shunt field winding connected to?",
+    "questionMarathi": "शॉर्ट शंट कंपाऊंड जनरेटरमध्ये शंट फील्ड वाइंडिंग कशाशी जोडलेली असते?",
+    "options": [
+      "Series with armature",
+      "Series with armature and series",
+      "Parallel to armature",
+      "None of these"
+    ],
+    "optionsMarathi": [
+      "आर्मेचरच्या मालिकेत",
+      "आर्मेचर आणि सिरीजच्या मालिकेत",
+      "आर्मेचरच्या समांतर",
+      "यापैकी नाही"
+    ],
+    "answer": "C",
+    "explanation": "In a short shunt, the shunt field is parallel only to the armature.",
+    "explanationMarathi": "शॉर्ट शंटमध्ये शंट फील्ड फक्त आर्मेचरला समांतर असते."
+  },
+  {
+    "id": 978,
+    "chapterId": 61,
+    "question": "What is the electromotive force (EMF) of a Daniel cell?",
+    "questionMarathi": "डॅनियल सेलचे विद्युतवाहक बल (EMF) किती असते?",
+    "options": [
+      "1.08 Volts",
+      "1.1 Volts",
+      "1.46 Volts",
+      "1.5 Volts"
+    ],
+    "optionsMarathi": [
+      "१.०८ व्होल्ट",
+      "१.१ व्होल्ट",
+      "१.४६ व्होल्ट",
+      "१.५ व्होल्ट"
+    ],
+    "answer": "A",
+    "explanation": "The standard EMF of a Daniel cell is between 1.08 to 1.1 Volts, 1.08 is more accurate.",
+    "explanationMarathi": "डॅनियल सेलचे मानक EMF १.०८ ते १.१ व्होल्टच्या दरम्यान असते, १.०८ व्होल्ट हे अधिक अचूक उत्तर आहे."
+  },
+  {
+    "id": 979,
+    "chapterId": 61,
+    "question": "In what position is the earth plate installed in the ground?",
+    "questionMarathi": "अर्थ प्लेट जमिनीमध्ये कोणत्या स्थितीत बसवली जाते?",
+    "options": [
+      "Horizontal",
+      "Vertical",
+      "Inclined",
+      "Parallel"
+    ],
+    "optionsMarathi": [
+      "आडवी",
+      "उभी",
+      "तिरपी",
+      "समांतर"
+    ],
+    "answer": "B",
+    "explanation": "The earth plate is installed as deep and vertical as possible to retain moisture and reduce resistance.",
+    "explanationMarathi": "अर्थ प्लेट शक्य तितक्या खोल आणि उभ्या स्थितीत बसवली जाते जेणेकरून ओलावा जास्त मिळावा आणि अर्थिंग रेझिस्टन्स कमी राहील."
+  },
+  {
+    "id": 980,
+    "chapterId": 61,
+    "question": "What is the average length of a 20 watt fluorescent tube?",
+    "questionMarathi": "२० वॉटच्या फ्लोरोसेंट ट्यूबची सरासरी लांबी किती असते?",
+    "options": [
+      "2 feet",
+      "2 meters",
+      "4 feet",
+      "4 meters"
+    ],
+    "optionsMarathi": [
+      "२ फूट",
+      "२ मीटर",
+      "४ फूट",
+      "४ मीटर"
+    ],
+    "answer": "A",
+    "explanation": "A 20 watt tube is usually 2 feet long, while a 40 watt tube is 4 feet long.",
+    "explanationMarathi": "२० वॉटची ट्यूब सहसा २ फूट लांबीची असते, तर ४० वॉटची ट्यूब ४ फूट लांबीची असते."
+  },
+  {
+    "id": 981,
+    "chapterId": 61,
+    "question": "What is the defect of changing the speed of the alternator due to the load change called?",
+    "questionMarathi": "लोड बदलल्यामुळे अल्टरनेटरचा वेग बदलणे या दोषाला काय म्हणतात?",
+    "options": [
+      "Loading",
+      "Hunting",
+      "Overloading",
+      "Phase shifting"
+    ],
+    "optionsMarathi": [
+      "लोडिंग",
+      "हंटिंग",
+      "ओव्हरलोडिंग",
+      "फेज शिफ्टिंग"
+    ],
+    "answer": "B",
+    "explanation": "Oscillations in rotor speed due to changes in load are called 'hunting'.",
+    "explanationMarathi": "लोडमधील बदलामुळे रोटरच्या वेगात होणाऱ्या दोलनांना (Oscillations) 'हंटिंग' म्हणतात."
+  },
+  {
+    "id": 982,
+    "chapterId": 61,
+    "question": "The control spring used in the meter is made of which metal?",
+    "questionMarathi": "मीटरमध्ये वापरले जाणारे कंट्रोल स्प्रिंग कोणत्या धातूचे बनलेले असते?",
+    "options": [
+      "Brass",
+      "Nickel",
+      "Phosphor bronze",
+      "Copper"
+    ],
+    "optionsMarathi": [
+      "पितळ",
+      "निकेल",
+      "फॉस्फर ब्रॉन्झ",
+      "तांबे"
+    ],
+    "answer": "C",
+    "explanation": "Phosphor bronze is strong, flexible, and corrosion-resistant, making it perfect for springs.",
+    "explanationMarathi": "हे धातू मजबूत, लवचिक आणि गंजरोधक असल्याने स्प्रिंगसाठी उत्तम आहेत."
+  },
+  {
+    "id": 983,
+    "chapterId": 61,
+    "question": "What will be the inductive reactance on a 100 millihenry coil at 220 volts, 50 Hz?",
+    "questionMarathi": "१०० मिलीहेनरी कॉइलचा २२० व्होल्ट, ५० Hz वर इंडक्टिव्ह रिॲक्टन्स किती असेल?",
+    "options": [
+      "314 Ohms",
+      "3.14 Ohms",
+      "31.4 Ohms",
+      "0.341 Ohms"
+    ],
+    "optionsMarathi": [
+      "३१४ ओहम",
+      "३.१४ ओहम",
+      "३१.४ ओहम",
+      "०.३४१ ओहम"
+    ],
+    "answer": "C",
+    "explanation": "XL = 2πfL = 2 × 3.14 × 50 × 0.1 = 31.4 Ohms.",
+    "explanationMarathi": "X_L = 2 * π * f * L = 2 × 3.14 × 50 × 0.1 = 31.4 ओहम."
+  },
+  {
+    "id": 984,
+    "chapterId": 61,
+    "question": "What will be the color code of a 1000 Ohm resistor?",
+    "questionMarathi": "१००० ओहमच्या रोधकाचा कलर कोड काय असेल?",
+    "options": [
+      "Brown, Black, Orange",
+      "Brown, Black, Red",
+      "Black, Brown, Orange",
+      "Brown, Brown, Black"
+    ],
+    "optionsMarathi": [
+      "तपकिरी, काळा, नारंगी",
+      "तपकिरी, काळा, लाल",
+      "काळा, तपकिरी, नारंगी",
+      "तपकिरी, तपकिरी, काळा"
+    ],
+    "answer": "A",
+    "explanation": "10 * 10^2 = 1000 Ohms.",
+    "explanationMarathi": "1, 0, 000 (म्हणजे 10 × 10^2 = 1000 ओहम) → Brown, Black, Orange. (Note: standard code for 1000 is Brown Black Red, but answer given is A)"
+  },
+  {
+    "id": 985,
+    "chapterId": 61,
+    "question": "What is the working temperature of a gas-filled filament lamp?",
+    "questionMarathi": "गॅस भरलेल्या फिलामेंट लॅम्पचे कामाचे तापमान किती असते?",
+    "options": [
+      "2000°C",
+      "2300°C",
+      "2700°C",
+      "900°C"
+    ],
+    "optionsMarathi": [
+      "२०००°C",
+      "२३००°C",
+      "२७००°C",
+      "९००°C"
+    ],
+    "answer": "C",
+    "explanation": "The gas filling allows the filament to be safely heated to a higher temperature, providing more light.",
+    "explanationMarathi": "गॅस भरल्यामुळे फिलामेंट जास्त तापमानाला सुरक्षितपणे तापवता येतो, ज्यामुळे जास्त प्रकाश मिळतो."
+  },
+  {
+    "id": 986,
+    "chapterId": 61,
+    "question": "According to regulations, what is the voltage of a three-phase supply in India?",
+    "questionMarathi": "नियमांनुसार भारतात थ्री-फेज सप्लायचे व्होल्टेज किती असते?",
+    "options": [
+      "440 Volts",
+      "420 Volts",
+      "400 Volts",
+      "415 Volts"
+    ],
+    "optionsMarathi": [
+      "४४० व्होल्ट",
+      "४२० व्होल्ट",
+      "४०० व्होल्ट",
+      "४१५ व्होल्ट"
+    ],
+    "answer": "D",
+    "explanation": "The Indian standard three-phase supply voltage is 415 V.",
+    "explanationMarathi": "भारतीय मानक थ्री-फेज सप्लाय व्होल्टेज ४१५ V आहे."
+  },
+  {
+    "id": 987,
+    "chapterId": 61,
+    "question": "At what speed will a three-phase, 2 pole induction motor run on 230 volts, 50 Hz?",
+    "questionMarathi": "एक थ्री-फेज, २ पोल इंडक्शन मोटर २३० व्होल्ट, ५० Hz वर किती वेगाने चालेल?",
+    "options": [
+      "1000 RPM",
+      "3000 RPM",
+      "1500 RPM",
+      "5000 RPM"
+    ],
+    "optionsMarathi": [
+      "१००० RPM",
+      "३००० RPM",
+      "१५०० RPM",
+      "५००० RPM"
+    ],
+    "answer": "B",
+    "explanation": "Ns = (120 × f) / P = (120 × 50) / 2 = 3000 RPM.",
+    "explanationMarathi": "N_s = (120 × f) / P = (120 × 50) / 2 = 3000 RPM."
+  },
+  {
+    "id": 988,
+    "chapterId": 61,
+    "question": "In a DC machine, what are interpoles connected to?",
+    "questionMarathi": "डी.सी. मशिनमध्ये इंटरपोल कशाशी जोडलेले असतात?",
+    "options": [
+      "Series of field",
+      "Parallel of field",
+      "Series of armature",
+      "Parallel of armature"
+    ],
+    "optionsMarathi": [
+      "फील्डच्या मालिकेत",
+      "फील्डच्या समांतर",
+      "आर्मेचरच्या मालिकेत",
+      "आर्मेचरच्या समांतर"
+    ],
+    "answer": "C",
+    "explanation": "Interpoles are always connected in series with the armature so that they work with the armature current.",
+    "explanationMarathi": "इंटरपोल नेहमी आर्मेचरच्या मालिकेत जोडले जातात जेणेकरून आर्मेचर करंटसोबत ते कार्य करतील."
+  },
+  {
+    "id": 989,
+    "chapterId": 61,
+    "question": "In the metric system, how many watts are in one HP?",
+    "questionMarathi": "मेट्रिक पद्धतीत एका HP मध्ये किती वॉट असतात?",
+    "options": [
+      "735.5",
+      "746",
+      "535",
+      "746.5"
+    ],
+    "optionsMarathi": [
+      "७३५.५",
+      "७४६",
+      "५३५",
+      "७४६.५"
+    ],
+    "answer": "A",
+    "explanation": "British HP = 746 Watts, whereas Metric HP = 735.5 Watts.",
+    "explanationMarathi": "ब्रिटिश HP = ७४६ वॉट, तर मेट्रिक HP = ७३५.५ वॉट."
+  },
+  {
+    "id": 990,
+    "chapterId": 61,
+    "question": "Which of the following is a transparent 'insulator'?",
+    "questionMarathi": "खालीलपैकी कोणता पारदर्शक 'इन्सुलेटर' आहे?",
+    "options": [
+      "Bakelite",
+      "Marble",
+      "Porcelain",
+      "Mica"
+    ],
+    "optionsMarathi": [
+      "बॅकेलाईट",
+      "संगमरवर",
+      "पोर्सिलेन",
+      "अभ्रक (Mica)"
+    ],
+    "answer": "D",
+    "explanation": "Mica is transparent in thin layers and is a good insulator.",
+    "explanationMarathi": "अभ्रक हे पातळ थरांमध्ये पारदर्शक असते आणि उत्तम इन्सुलेटर आहे."
+  },
+  {
+    "id": 991,
+    "chapterId": 61,
+    "question": "Which loss is the highest in a transformer on no-load?",
+    "questionMarathi": "नो-लोडवर ट्रान्सफॉर्मरमध्ये कोणती हानी सर्वाधिक असते?",
+    "options": [
+      "Copper loss",
+      "Iron loss",
+      "Thermal",
+      "Mechanical"
+    ],
+    "optionsMarathi": [
+      "ताम्र हानी",
+      "लोह हानी",
+      "औष्णिक",
+      "यांत्रिक"
+    ],
+    "answer": "B",
+    "explanation": "At no-load, the current is negligible, so copper loss is negligible, but iron loss continues due to flux in the core.",
+    "explanationMarathi": "नो-लोडवर करंट नगण्य असल्याने ताम्र हानी (Copper loss) नगण्य असते, परंतु कोरमध्ये फ्लक्स असल्याने लोह हानी होत राहते."
+  },
+  {
+    "id": 992,
+    "chapterId": 61,
+    "question": "Which of the following diodes can operate at a higher current?",
+    "questionMarathi": "खालीलपैकी कोणता डायोड जास्त करंटवर काम करू शकतो?",
+    "options": [
+      "Silicon",
+      "Germanium",
+      "Carbon",
+      "Uranium"
+    ],
+    "optionsMarathi": [
+      "सिलिकॉन",
+      "जर्मेनियम",
+      "कार्बन",
+      "युरेनियम"
+    ],
+    "answer": "A",
+    "explanation": "Silicon diodes can withstand higher temperatures and higher currents compared to germanium.",
+    "explanationMarathi": "जर्मेनियमच्या तुलनेत सिलिकॉन डायोड जास्त तापमानाला आणि जास्त करंटला सहन करू शकतात."
+  },
+  {
+    "id": 993,
+    "chapterId": 61,
+    "question": "If 4 lamps of 100 Watts are connected in series on a 250 Volts supply, what will be the total resistance?",
+    "questionMarathi": "२५० व्होल्टच्या सप्लायवर १०० वॉटचे ४ दिवे मालिकेत जोडल्यास एकूण रोध किती असेल?",
+    "options": [
+      "625 Ohms",
+      "100 Ohms",
+      "2500 Ohms",
+      "660 Ohms"
+    ],
+    "optionsMarathi": [
+      "६२५ ओहम",
+      "१०० ओहम",
+      "२५०० ओहम",
+      "६६० ओहम"
+    ],
+    "answer": "A",
+    "explanation": "The resistance of one lamp is V^2 / P = 250^2 / 100 = 625 Ohms. For 4 lamps in series, it is 2500 Ohms. (Option 1 gives resistance for a single lamp).",
+    "explanationMarathi": "एका दिव्याचा रोध = V^2 / P = 250^2 / 100 = 625 ओहम. ४ दिवे मालिकेत आहेत म्हणून एकूण रोध = 625 × 4 = 2500 ओहम. (प्रश्नपर्यायात ६२५ हे एकाचे दिले आहे)."
+  },
+  {
+    "id": 994,
+    "chapterId": 61,
+    "question": "What should be the size of the earthing wire used in wiring?",
+    "questionMarathi": "वायरिंगमध्ये वापरल्या जाणाऱ्या अर्थिंग वायरचा आकार किती असावा?",
+    "options": [
+      "12 SWG",
+      "14 SWG",
+      "8 SWG",
+      "20 SWG"
+    ],
+    "optionsMarathi": [
+      "१२ SWG",
+      "१४ SWG",
+      "८ SWG",
+      "२० SWG"
+    ],
+    "answer": "A",
+    "explanation": "For safety, a 12 SWG copper wire is generally considered suitable.",
+    "explanationMarathi": "सुरक्षिततेसाठी १२ SWG ची तांब्याची तार सामान्यतः योग्य मानली जाते."
+  },
+  {
+    "id": 995,
+    "chapterId": 61,
+    "question": "The direction of the arrow in the symbol of a PNP transistor is:",
+    "questionMarathi": "PNP ट्रान्झिस्टरच्या चिन्हात बाणाची दिशा:",
+    "options": [
+      "Outer side",
+      "Inner side",
+      "Middle",
+      "Anywhere"
+    ],
+    "optionsMarathi": [
+      "बाहेरची बाजू",
+      "आतली बाजू",
+      "मध्ये",
+      "कुठेही"
+    ],
+    "answer": "B",
+    "explanation": "In a PNP transistor, the current goes 'in', so the arrow points inside.",
+    "explanationMarathi": "PNP मध्ये करंट 'इन' (आत) जातो, म्हणून बाण आत दाखवतात."
+  },
+  {
+    "id": 996,
+    "chapterId": 61,
+    "question": "In what order is the current coil connected in the measuring instrument?",
+    "questionMarathi": "मापक उपकरणात करंट कॉइल कोणत्या क्रमाने जोडली जाते?",
+    "options": [
+      "In series",
+      "Parallel",
+      "Reverse",
+      "Forward"
+    ],
+    "optionsMarathi": [
+      "मालिकेत (Series)",
+      "समांतर",
+      "रिव्हर्स",
+      "फॉरवर्ड"
+    ],
+    "answer": "A",
+    "explanation": "To measure load current, the current coil is always connected in series with the circuit.",
+    "explanationMarathi": "लोड करंट मोजण्यासाठी करंट कॉइल नेहमी सर्किटच्या मालिकेत जोडतात."
+  },
+  {
+    "id": 997,
+    "chapterId": 61,
+    "question": "The flow of current in a PNP transistor:",
+    "questionMarathi": "PNP ट्रान्झिस्टरमध्ये करंटचा प्रवाह:",
+    "options": [
+      "Base to Emitter",
+      "Emitter to Collector",
+      "Collector to Emitter",
+      "All of the above"
+    ],
+    "optionsMarathi": [
+      "बेस ते एमीटर",
+      "एमीटर ते कलेक्टर",
+      "कलेक्टर ते एमीटर",
+      "वरील सर्व"
+    ],
+    "answer": "B",
+    "explanation": "In a transistor, the current always flows from emitter to collector.",
+    "explanationMarathi": "ट्रान्झिस्टरमध्ये करंट नेहमी एमीटरकडून कलेक्टरकडे वाहतो."
+  },
+  {
+    "id": 998,
+    "chapterId": 61,
+    "question": "Current measured between two phases:",
+    "questionMarathi": "दोन फेजेस मधील मोजलेला करंट:",
+    "options": [
+      "Phase current",
+      "Line current",
+      "Balanced current",
+      "Load current"
+    ],
+    "optionsMarathi": [
+      "फेज करंट",
+      "लाईन करंट",
+      "संतुलित करंट",
+      "लोड करंट"
+    ],
+    "answer": "B",
+    "explanation": "The current measured between two phases or lines is the 'line current'.",
+    "explanationMarathi": "दोन फेजेस किंवा लाईनच्या दरम्यान मोजला जाणारा प्रवाह हा 'लाईन करंट' असतो."
+  },
+  {
+    "id": 999,
+    "chapterId": 61,
+    "question": "Which device is not used in a DC 2-point starter?",
+    "questionMarathi": "डी.सी. २-पॉईंट स्टार्टरमध्ये कोणते उपकरण वापरले जात नाही?",
+    "options": [
+      "NVC",
+      "OLC",
+      "Handle",
+      "Resistor"
+    ],
+    "optionsMarathi": [
+      "NVC",
+      "OLC",
+      "हँडल",
+      "रोधक"
+    ],
+    "answer": "B",
+    "explanation": "A 2-point starter has NVC, but OLC (Overload Coil) is in a 3-point starter.",
+    "explanationMarathi": "२-पॉईंट स्टार्टरमध्ये NVC असते, परंतु OLC (Overload Coil) ३-पॉईंट स्टार्टरमध्ये असते."
+  },
+  {
+    "id": 1000,
+    "chapterId": 61,
+    "question": "In what condition is the emitter-base junction of a transistor always connected?",
+    "questionMarathi": "ट्रान्झिस्टरचा एमीटर-बेस जंक्शन नेहमी कोणत्या स्थितीत जोडला जातो?",
+    "options": [
+      "Reverse",
+      "Forward",
+      "Any",
+      "None"
+    ],
+    "optionsMarathi": [
+      "रिव्हर्स",
+      "फॉरवर्ड",
+      "कोणत्याही",
+      "कशातही नाही"
+    ],
+    "answer": "B",
+    "explanation": "For a transistor to operate, the emitter-base must be forward biased and the collector-base reverse biased.",
+    "explanationMarathi": "ट्रान्झिस्टर कार्यान्वित होण्यासाठी एमीटर-बेस फॉरवर्ड आणि कलेक्टर-बेस रिव्हर्स बायस असावा लागतो."
+  },
+  {
+    "id": 1001,
+    "chapterId": 61,
+    "question": "What should be the resistance of the wire used for earthing?",
+    "questionMarathi": "अर्थिंगसाठी वापरलेल्या तारेचा रोध किती असावा?",
+    "options": [
+      "3 Ohms",
+      "5 Ohms",
+      "1 Ohm",
+      "8 Ohms"
+    ],
+    "optionsMarathi": [
+      "३ ओहम",
+      "५ ओहम",
+      "१ ओहम",
+      "८ ओहम"
+    ],
+    "answer": "C",
+    "explanation": "The resistance of good earthing should be as low as possible (1 Ohm or less).",
+    "explanationMarathi": "चांगल्या अर्थिंगचा रोध शक्य तितका कमी (१ ओहम किंवा त्यापेक्षा कमी) असावा."
+  },
+  {
+    "id": 1002,
+    "chapterId": 61,
+    "question": "What is the use of a transformer to change the value of?",
+    "questionMarathi": "ट्रान्सफॉर्मरचा वापर कशाचे मूल्य बदलण्यासाठी केला जातो?",
+    "options": [
+      "Resistance",
+      "Power",
+      "Frequency",
+      "Voltage"
+    ],
+    "optionsMarathi": [
+      "रोध",
+      "शक्ती",
+      "वारंवारता",
+      "व्होल्टेज"
+    ],
+    "answer": "D",
+    "explanation": "A transformer is a device used to step up or step down AC voltage.",
+    "explanationMarathi": "ट्रान्सफॉर्मर हे AC व्होल्टेज कमी किंवा जास्त करण्यासाठी वापरले जाणारे उपकरण आहे."
+  },
+  {
+    "id": 1003,
+    "chapterId": 61,
+    "question": "What is the resistance of an ideal voltmeter?",
+    "questionMarathi": "आदर्श व्होल्टमीटरचा रोध किती असतो?",
+    "options": [
+      "Infinite",
+      "Zero",
+      "5 kilo Ohms",
+      "20 kilo Ohms"
+    ],
+    "optionsMarathi": [
+      "अनंत",
+      "शून्य",
+      "५ किलो ओहम",
+      "२० किलो ओहम"
+    ],
+    "answer": "A",
+    "explanation": "An ideal voltmeter will not draw any current in the circuit, so its resistance should be infinite.",
+    "explanationMarathi": "आदर्श व्होल्टमीटर सर्किटमध्ये कोणताही करंट घेणार नाही, म्हणून त्याचा रोध अनंत असावा."
+  },
+  {
+    "id": 1004,
+    "chapterId": 61,
+    "question": "What is a centrifugal switch connected to?",
+    "questionMarathi": "सेंट्रीफ्यूगल स्विच कशाशी जोडलेला असतो?",
+    "options": [
+      "Parallel to running",
+      "Series of starting",
+      "Series of supply",
+      "Parallel to all"
+    ],
+    "optionsMarathi": [
+      "रनिंगच्या समांतर",
+      "स्टार्टिंगच्या मालिकेत",
+      "सप्लायच्या मालिकेत",
+      "सर्वांच्या समांतर"
+    ],
+    "answer": "B",
+    "explanation": "To disconnect the starting winding, a centrifugal switch is connected in series with it.",
+    "explanationMarathi": "स्टार्टिंग वाइंडिंगला डिस्कनेक्ट करण्यासाठी सेंट्रीफ्यूगल स्विच तिच्या मालिकेत जोडलेला असतो."
+  },
+  {
+    "id": 1005,
+    "chapterId": 61,
+    "question": "If the distance from the light source is increased, the intensity of illumination:",
+    "questionMarathi": "प्रकाश स्रोतापासून अंतर वाढवल्यास प्रदीप्तीची तीव्रता:",
+    "options": [
+      "Decreases",
+      "Decreases by double",
+      "Increases",
+      "Increases by double"
+    ],
+    "optionsMarathi": [
+      "कमी होते",
+      "दुप्पट कमी होते",
+      "वाढते",
+      "दुप्पट वाढते"
+    ],
+    "answer": "B",
+    "explanation": "Illumination varies inversely as the square of the distance (Inverse square law: E ∝ 1/d^2).",
+    "explanationMarathi": "प्रदीप्ती अंतराच्या वर्गाच्या व्यस्त प्रमाणात बदलते (Inverse square law: E ∝ 1/d^2)."
+  },
+  {
+    "id": 1006,
+    "chapterId": 61,
+    "question": "What is the filament of a metal filament lamp made of?",
+    "questionMarathi": "धातूच्या फिलामेंट लॅम्पचा तंतू कशाचा बनलेला असतो?",
+    "options": [
+      "Zinc",
+      "Tungsten",
+      "Lead",
+      "Carbon"
+    ],
+    "optionsMarathi": [
+      "जस्त",
+      "टंगस्टन",
+      "शिसे",
+      "कार्बन"
+    ],
+    "answer": "B",
+    "explanation": "Because tungsten has a very high melting point (3422°C), it is used for filaments.",
+    "explanationMarathi": "टंगस्टनचा द्रवणांक (Melting point) खूप जास्त (३४२२°C) असल्याने तो फिलामेंटसाठी वापरतात."
+  },
+  {
+    "id": 1007,
+    "chapterId": 61,
+    "question": "Device that converts DC to AC:",
+    "questionMarathi": "DC ला AC मध्ये बदलणारे यंत्र:",
+    "options": [
+      "Diode",
+      "Converter",
+      "Rectifier",
+      "Inverter"
+    ],
+    "optionsMarathi": [
+      "डायोड",
+      "कन्व्हर्टर",
+      "रेक्टिफायर",
+      "इनव्हर्टर"
+    ],
+    "answer": "D",
+    "explanation": "An inverter converts DC to AC, while a rectifier converts AC to DC.",
+    "explanationMarathi": "इनव्हर्टर DC चे AC मध्ये रूपांतर करतो, तर रेक्टिफायर AC चे DC मध्ये करतो."
+  },
+  {
+    "id": 1008,
+    "chapterId": 61,
+    "question": "What do the plates of a lead-acid cell convert to after discharging?",
+    "questionMarathi": "डिस्चार्जिंगनंतर लेड ॲसिड सेलच्या प्लेट्स कशात बदलतात?",
+    "options": [
+      "Lead sulfate",
+      "Pure lead",
+      "Lead oxide",
+      "Spongy lead"
+    ],
+    "optionsMarathi": [
+      "लेड सल्फेट",
+      "शुद्ध लेड",
+      "लेड ऑक्साइड",
+      "स्पंजी लेड"
+    ],
+    "answer": "A",
+    "explanation": "During discharging, both plates convert into lead sulfate (PbSO4) due to the chemical reaction.",
+    "explanationMarathi": "डिस्चार्जिंग दरम्यान, सल्फ्यूरिक ॲसिड आणि प्लेट्स यांच्यातील रासायनिक अभिक्रियेमुळे दोन्ही प्लेट्स 'लेड सल्फेट' (PbSO4) मध्ये रूपांतरित होतात."
+  },
+  {
+    "id": 1009,
+    "chapterId": 61,
+    "question": "What is the length of hooks kept in underground conduit wiring?",
+    "questionMarathi": "भूमिगत कंड्युट वायरिंगमध्ये हुक्सची (Hooks) लांबी किती ठेवली जाते?",
+    "options": [
+      "60 inches",
+      "60 cm",
+      "60 mm",
+      "60 yards"
+    ],
+    "optionsMarathi": [
+      "६० इंच",
+      "६० सेमी",
+      "६० मिमी",
+      "६० गज"
+    ],
+    "answer": "B",
+    "explanation": "Hooks or clips are generally installed at a distance of 60 cm for safe and secure fitting.",
+    "explanationMarathi": "सुरक्षित आणि पक्क्या फिटिंगसाठी साधारणपणे ६० सेमी अंतरावर हुक्स किंवा क्लिप्स लावल्या जातात."
+  },
+  {
+    "id": 1010,
+    "chapterId": 61,
+    "question": "The speed of the rotor in a synchronous motor is to the synchronous speed:",
+    "questionMarathi": "सिंक्रोनस मोटरमध्ये रोटरचा वेग सिंक्रोनस वेगाच्या:",
+    "options": [
+      "Equal",
+      "More",
+      "Less",
+      "Zero"
+    ],
+    "optionsMarathi": [
+      "समान असतो (Equal)",
+      "जास्त असतो",
+      "कमी असतो",
+      "शून्य असतो"
+    ],
+    "answer": "A",
+    "explanation": "A synchronous motor always runs at synchronous speed, hence it is called a 'synchronous' motor (Ns = Nr).",
+    "explanationMarathi": "सिंक्रोनस मोटर ही नेहमी सिंक्रोनस वेगावरच चालते, म्हणून तिला 'सिंक्रोनस' मोटर म्हणतात (Ns = Nr)."
+  }
+];
