@@ -89,6 +89,7 @@ export default function Dashboard({
   // Automobile Sections
   const automobileChapters = CHAPTERS.filter(ch => ch.section !== "Electrical");
   const automobileSections = Array.from(new Set(automobileChapters.map(ch => ch.section || "Other")));
+  const electricalChapters = CHAPTERS.filter(ch => ch.section === "Electrical");
 
   return (
     <div className="space-y-6 sm:space-y-8 animate-fade-in pb-12">
@@ -350,14 +351,14 @@ export default function Dashboard({
                   </h4>
                   <p className="text-sm text-slate-500 dark:text-slate-400 max-w-lg leading-relaxed font-medium">
                     {isMarathi 
-                      ? "७ मुख्य सेक्शन्स, २९ चॅप्टर्स आणि सर्व ऑटोमोबाईलचे ५० प्रश्नांचे सराव संच." 
-                      : "7 core sections, 29 chapters, with multiple practice sets of 50 questions each."}
+                      ? `${automobileSections.length} मुख्य सेक्शन्स, ${automobileChapters.length} चॅप्टर्स आणि सर्व ऑटोमोबाईलचे ५० प्रश्नांचे सराव संच.` 
+                      : `${automobileSections.length} core sections, ${automobileChapters.length} chapters, with multiple practice sets of 50 questions each.`}
                   </p>
                 </div>
               </div>
               <div className="flex items-center gap-3 self-end sm:self-auto shrink-0">
                 <span className="text-xs font-mono font-bold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 px-4 py-2 rounded-full border border-slate-200 dark:border-slate-700/50">
-                  29 {isMarathi ? "विषय" : "Chapters"}
+                  {automobileChapters.length} {isMarathi ? "विषय" : "Chapters"}
                 </span>
                 <div className="p-2.5 bg-slate-100 dark:bg-slate-800 text-slate-400 group-hover:text-amber-500 group-hover:bg-amber-500/10 rounded-xl transition-all">
                   <Icons.ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
@@ -385,14 +386,14 @@ export default function Dashboard({
                   </h4>
                   <p className="text-sm text-slate-500 dark:text-slate-400 max-w-lg leading-relaxed font-medium">
                     {isMarathi 
-                      ? "मूलभूत विद्युतशास्त्र आणि सर्व इलेक्ट्रिकलचे ५० प्रश्नांचे सराव संच." 
-                      : "Basics of electricity, machines, and tests of 50 questions each."}
+                      ? `मूलभूत विद्युतशास्त्र, ${electricalChapters.length} चॅप्टर्स आणि सर्व इलेक्ट्रिकलचे ५० प्रश्नांचे सराव संच.` 
+                      : `Basics of electricity, machines, ${electricalChapters.length} chapters, and tests of 50 questions each.`}
                   </p>
                 </div>
               </div>
               <div className="flex items-center gap-3 self-end sm:self-auto shrink-0">
                 <span className="text-xs font-mono font-bold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 px-4 py-2 rounded-full border border-slate-200 dark:border-slate-700/50">
-                  8 {isMarathi ? "विषय" : "Chapters"}
+                  {electricalChapters.length} {isMarathi ? "विषय" : "Chapters"}
                 </span>
                 <div className="p-2.5 bg-slate-100 dark:bg-slate-800 text-slate-400 group-hover:text-blue-500 group-hover:bg-blue-500/10 rounded-xl transition-all">
                   <Icons.ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
