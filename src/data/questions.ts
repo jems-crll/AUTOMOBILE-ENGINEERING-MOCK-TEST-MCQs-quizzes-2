@@ -505,8 +505,43 @@ export const CHAPTERS: Chapter[] = [
     "descriptionMarathi": "मूलभूत विद्युत, मोटर्स, अल्टरनेटर आणि ट्रान्सफॉर्मर बहुपर्यायी प्रश्न.",
     "icon": "Zap",
     "section": "Electrical"
-  }
-];
+  },
+  {
+    "id": 58,
+    "name": "Electrical Set 29 (Q 800 - 853)",
+    "nameMarathi": "विद्युत संच 29 (प्र 800 ते 853)",
+    "description": "Basic Electrical, Motors, Alternators and Transformers MCQs.",
+    "descriptionMarathi": "मूलभूत विद्युत, मोटर्स, अल्टरनेटर आणि ट्रान्सफॉर्मर बहुपर्यायी प्रश्न.",
+    "icon": "Zap",
+    "section": "Electrical"
+  },
+  {
+    "id": 59,
+    "name": "Electrical Set 30 (Q 854 - 907)",
+    "nameMarathi": "विद्युत संच 30 (प्र 854 ते 907)",
+    "description": "Basic Electrical, Motors, Alternators and Transformers MCQs.",
+    "descriptionMarathi": "मूलभूत विद्युत, मोटर्स, अल्टरनेटर आणि ट्रान्सफॉर्मर बहुपर्यायी प्रश्न.",
+    "icon": "Zap",
+    "section": "Electrical"
+  },
+  {
+    "id": 60,
+    "name": "Electrical Set 31 (Q 908 - 958)",
+    "nameMarathi": "विद्युत संच 31 (प्र 908 ते 958)",
+    "description": "Basic Electrical, Motors, Alternators and Transformers MCQs.",
+    "descriptionMarathi": "मूलभूत विद्युत, मोटर्स, अल्टरनेटर आणि ट्रान्सफॉर्मर बहुपर्यायी प्रश्न.",
+    "icon": "Zap",
+    "section": "Electrical"
+  },
+  {
+    "id": 61,
+    "name": "Electrical Set 32 (Q 959 - 1010)",
+    "nameMarathi": "विद्युत संच 32 (प्र 959 ते 1010)",
+    "description": "Basic Electrical, Motors, Alternators and Transformers MCQs.",
+    "descriptionMarathi": "मूलभूत विद्युत, मोटर्स, अल्टरनेटर आणि ट्रान्सफॉर्मर बहुपर्यायी प्रश्न.",
+    "icon": "Zap",
+    "section": "Electrical"
+  }];
 
 export const QUESTIONS: Question[] = [
   {
@@ -35142,43 +35177,4 @@ export const QUESTIONS: Question[] = [
     "optionsMarathi": ["फॅराडेचा नियम", "ओहमचा नियम (Ohm's Law)", "लेन्झचा नियम", "किरचॉफचा नियम"],
     "answer": "B",
     "explanation": "Ohm's law states V = IR.",
-    "explanationMarathi": "ओहमचा नियम V = IR हा संबंध स्पष्ट करतो."
-  },
-{
-    "id": 1736,
-    "chapterId": 56,
-    "question": "What is the unit of power?",
-    "questionMarathi": "पॉवरचे (शक्ती) एकक काय आहे?",
-    "options": ["Joule", "Watt", "Volt", "Ampere"],
-    "optionsMarathi": ["ज्यूल", "वॉट (Watt)", "व्होल्ट", "अँपिअर"],
-    "answer": "B",
-    "explanation": "Watt is the unit of power (J/s).",
-    "explanationMarathi": "पॉवर वॉटमध्ये मोजली जाते."
-  },
-{
-    "id": 1737,
-    "chapterId": 56,
-    "question": "Three resistors of 3 ohms each in series give a total resistance of:",
-    "questionMarathi": "३ ओहमचे ३ रोध सिरीजमध्ये जोडल्यास एकूण रोध किती होईल?",
-    "options": ["1 ohm", "3 ohm", "9 ohm", "6 ohm"],
-    "optionsMarathi": ["१ ओहम", "३ ओहम", "९ ओहम (9 ohm)", "६ ओहम"],
-    "answer": "C",
-    "explanation": "Total resistance in series = R1 + R2 + R3 = 3 + 3 + 3 = 9 ohms.",
-    "explanationMarathi": "सिरीज जोडणीत रोधांची बेरीज होते, म्हणून ३+३+३ = ९ ओहम."
-  },
-{
-    "id": 1738,
-    "chapterId": 56,
-    "question": "What is the frequency of DC supply?",
-    "questionMarathi": "DC सप्लायची फ्रिक्वेन्सी किती असते?",
-    "options": ["50 Hz", "60 Hz", "Zero", "Variable"],
-    "optionsMarathi": ["५० हर्ट्झ", "६० हर्ट्झ", "शून्य (Zero)", "बदलणारी"],
-    "answer": "C",
-    "explanation": "DC does not change its direction, so its frequency is zero.",
-    "explanationMarathi": "DC ची फ्रिक्वेन्सी शून्य असते."
-  },
-{
-    "id": 1739,
-    "chapterId": 56,
-    "question": "Which DC motor has the highest starting torque?",
-    "questionMarathi": "कोणत्या DC 
+    "explanationMarathi": "ओहमचा नियम V = IR हा संबंध स्पष्ट क�
