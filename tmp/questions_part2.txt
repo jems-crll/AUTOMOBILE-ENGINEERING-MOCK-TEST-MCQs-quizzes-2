@@ -1,0 +1,359 @@
+  },
+  {
+    "id": 1783,
+    "chapterId": 57,
+    "question": "Which of the following lamps will draw the most current?",
+    "questionMarathi": "खालीलपैकी कोणता दिवा (Lamp) सर्वात जास्त करंट घेईल?",
+    "options": [
+      "50 watt",
+      "25 watt",
+      "150 watt",
+      "80 watt"
+    ],
+    "optionsMarathi": [
+      "50 वॅट",
+      "25 वॅट",
+      "150 वॅट",
+      "80 वॅट"
+    ],
+    "answer": "C",
+    "explanation": "With constant voltage, the lamp with the highest wattage (150W) will draw the most current.",
+    "explanationMarathi": "ज्या दिव्याचे वॅटेज सर्वात जास्त आहे, तो दिवा सर्वात जास्त करंट खेचेल."
+  },
+  {
+    "id": 1784,
+    "chapterId": 57,
+    "question": "What is the primary function of a centrifugal switch?",
+    "questionMarathi": "सेंट्रीफ्युगल स्विच (Centrifugal Switch) चे मुख्य कार्य काय असते?",
+    "options": [
+      "To increase torque",
+      "To disconnect starting winding",
+      "To disconnect running winding",
+      "To decrease speed"
+    ],
+    "optionsMarathi": [
+      "टॉर्क वाढवणे",
+      "स्टार्टिंग वाइंडिंग वेगळी करणे",
+      "रनिंग वाइंडिंग वेगळी करणे",
+      "गती कमी करणे"
+    ],
+    "answer": "B",
+    "explanation": "The centrifugal switch disconnects the starting winding when the motor reaches about 75-80% of its synchronous speed.",
+    "explanationMarathi": "मोटर वेगवान झाल्यावर स्टार्टिंग वाइंडिंगला सप्लायपासून वेगळे करण्याचे काम हा स्विच करतो."
+  },
+  {
+    "id": 1785,
+    "chapterId": 57,
+    "question": "How is the speed of a water turbine alternator (hydro-alternator) typically kept?",
+    "questionMarathi": "वॉटर टर्बाइन अल्टरनेटरची (हायड्रो-अल्टरनेटर) गती कशी ठेवली जाते?",
+    "options": [
+      "Low",
+      "High",
+      "Very high",
+      "Zero"
+    ],
+    "optionsMarathi": [
+      "कमी (Low)",
+      "उच्च",
+      "अति उच्च",
+      "शून्य"
+    ],
+    "answer": "A",
+    "explanation": "Hydro-alternators are low-speed machines (usually 100-500 RPM) because water turbines rotate relatively slowly.",
+    "explanationMarathi": "पाण्याच्या प्रवाहाचा वेग कमी असल्याने हायड्रो-अल्टरनेटर कमी गतीने फिरतात."
+  },
+  {
+    "id": 1786,
+    "chapterId": 57,
+    "question": "What will be the effective (RMS) value of a wave with a 630-volt peak value?",
+    "questionMarathi": "630 व्होल्ट पीक व्हॅल्यू (Peak Value) असलेल्या वेव्हचे प्रभावी (RMS) मूल्य किती असेल?",
+    "options": [
+      "445 volts",
+      "891 volts",
+      "401 volts",
+      "630 volts"
+    ],
+    "optionsMarathi": [
+      "445 व्होल्ट",
+      "891 व्होल्ट",
+      "401 व्होल्ट",
+      "630 व्होल्ट"
+    ],
+    "answer": "A",
+    "explanation": "RMS Value = 0.707 * Peak Value = 0.707 * 630 ≈ 445.41 volts.",
+    "explanationMarathi": "RMS मूल्य = ०.७०७ * पीक मूल्य = ४४५ व्होल्ट."
+  },
+  {
+    "id": 1787,
+    "chapterId": 57,
+    "question": "If five 2.5-volt cells are connected in parallel, what will be the total voltage?",
+    "questionMarathi": "2.5 व्होल्टचे 5 सेल्स समांतर (Parallel) जोडल्यास एकूण व्होल्टेज किती मिळेल?",
+    "options": [
+      "25 volts",
+      "12.5 volts",
+      "225 volts",
+      "2.5 volts"
+    ],
+    "optionsMarathi": [
+      "25 व्होल्ट",
+      "12.5 व्होल्ट",
+      "225 व्होल्ट",
+      "2.5 व्होल्ट"
+    ],
+    "answer": "D",
+    "explanation": "In a parallel connection, the total voltage remains equal to the voltage of a single cell.",
+    "explanationMarathi": "समांतर जोडणीत व्होल्टेज बदलत नाही, ते एका सेलच्या व्होल्टेज इतकेच (२.५ व्होल्ट) राहते."
+  },
+  {
+    "id": 1788,
+    "chapterId": 57,
+    "question": "Power Factor is the ratio of which quantities?",
+    "questionMarathi": "पॉवर फॅक्टर (Power Factor) खालीलपैकी कोणत्या राशींचे गुणोत्तर असतो?",
+    "options": [
+      "kVA / VI",
+      "kW / kVA",
+      "kW / kVAr",
+      "V / I"
+    ],
+    "optionsMarathi": [
+      "kVA / VI",
+      "kW / kVA",
+      "kW / kVAr",
+      "V / I"
+    ],
+    "answer": "B",
+    "explanation": "Power Factor (cos theta) = True Power (kW) / Apparent Power (kVA).",
+    "explanationMarathi": "पॉवर फॅक्टर म्हणजे kW आणि kVA यांचे गुणोत्तर होय."
+  },
+  {
+    "id": 1789,
+    "chapterId": 57,
+    "question": "Which metal is primarily used to make resistors?",
+    "questionMarathi": "खालीलपैकी कोणत्या धातूचा वापर प्रामुख्याने रेझिस्टर (रोधाक) बनवण्यासाठी केला जातो?",
+    "options": [
+      "Mercury",
+      "Zinc",
+      "Eureka",
+      "Lead"
+    ],
+    "optionsMarathi": [
+      "पारा",
+      "जस्त",
+      "युरेका (Eureka)",
+      "शिसे"
+    ],
+    "answer": "C",
+    "explanation": "Eureka (Constantan) is commonly used for resistors because of its high resistivity and low temperature coefficient.",
+    "explanationMarathi": "युरेका या मिश्रधातूचा रोध जास्त असल्याने तो रोधाक बनवण्यासाठी वापरला जातो."
+  },
+  {
+    "id": 1790,
+    "chapterId": 57,
+    "question": "What is the unit of Specific Resistance (Resistivity)?",
+    "questionMarathi": "विशिष्ट रोधाचे (Specific Resistance / रोधकता) एकक काय असते?",
+    "options": [
+      "Ohm/meter",
+      "meter/Ohm",
+      "Ohm-meter",
+      "Ohm/foot"
+    ],
+    "optionsMarathi": [
+      "$\Omega/\text{meter}$",
+      "$\text{meter}/\Omega$",
+      "$\Omega\text{-meter}$",
+      "$\Omega/\text{foot}$"
+    ],
+    "answer": "C",
+    "explanation": "The unit of resistivity is Ohm-meter (Ω-m).",
+    "explanationMarathi": "रोधकतेचे एकक ओहम-मीटर ($\Omega\text{-m}$) असते."
+  },
+  {
+    "id": 1791,
+    "chapterId": 57,
+    "question": "Which cell does NOT have the 'Local Action' fault?",
+    "questionMarathi": "खालीलपैकी कोणत्या सेलमध्ये 'लोकल अॅक्शन' (Local Action) हा दोष नसतो?",
+    "options": [
+      "Lead-acid",
+      "Daniell Cell",
+      "Voltaic Cell",
+      "None of these"
+    ],
+    "optionsMarathi": [
+      "लेड-अॅसिड",
+      "डॅनियल सेल",
+      "व्होल्टेइक सेल",
+      "यांपैकी नाही"
+    ],
+    "answer": "B",
+    "explanation": "The design of the Daniell cell prevents local action on the zinc electrode.",
+    "explanationMarathi": "डॅनियल सेलमध्ये स्थानिक क्रिया म्हणजेच लोकल अॅक्शनचा दोष उद्भवत नाही."
+  },
+  {
+    "id": 1792,
+    "chapterId": 57,
+    "question": "How does the capacitive reactance (Xc) of a capacitor behave?",
+    "questionMarathi": "कॅपेसिटरचा कॅपेसिटिव्ह रिएक्टन्स (Xc) कसा असतो?",
+    "options": [
+      "Inversely proportional to frequency",
+      "Directly proportional to frequency",
+      "Equal to frequency",
+      "Greater than frequency"
+    ],
+    "optionsMarathi": [
+      "फ्रिक्वेन्सीच्या व्यस्त प्रमाणात (Inversely proportional)",
+      "फ्रिक्वेन्सीच्या समप्रमाणात",
+      "फ्रिक्वेन्सीच्या बरोबर",
+      "फ्रिक्वेन्सीपेक्षा जास्त"
+    ],
+    "answer": "A",
+    "explanation": "Xc = 1 / (2 * pi * f * C), meaning it is inversely proportional to the frequency.",
+    "explanationMarathi": "कॅपेसिटिव्ह रिएक्टन्स हा फ्रिक्वेन्सीच्या व्यस्त प्रमाणात असतो."
+  },
+  {
+    "id": 1793,
+    "chapterId": 57,
+    "question": "Which of the following is NOT a 'Safety Device'?",
+    "questionMarathi": "खालीलपैकी कोणते उपकरण 'सुरक्षा युक्ती' (Safety Device) नाही?",
+    "options": [
+      "Fuse",
+      "OLC (Over Load Coil)",
+      "PVC",
+      "MCB"
+    ],
+    "optionsMarathi": [
+      "फ्युज (Fuse)",
+      "OLC (ओव्हर लोड कॉईल)",
+      "PVC",
+      "MCB"
+    ],
+    "answer": "C",
+    "explanation": "PVC is an insulating material, while Fuse, OLC, and MCB are protective devices.",
+    "explanationMarathi": "PVC हा केवळ वायरवर चढवला जाणारा एक अवाहक पदार्थ आहे, तो सुरक्षा युक्ती नाही."
+  },
+  {
+    "id": 1794,
+    "chapterId": 57,
+    "question": "When the power factor value becomes lagging, the machine current --",
+    "questionMarathi": "पॉवर फॅक्टरचे मूल्य लॅगिंग (Lagging) झाल्यास मशीनचा करंट --",
+    "options": [
+      "Increases",
+      "Decreases",
+      "Remains constant",
+      "No effect"
+    ],
+    "optionsMarathi": [
+      "वाढतो",
+      "कमी होतो",
+      "स्थिर राहतो",
+      "काहीही परिणाम होत नाही"
+    ],
+    "answer": "A",
+    "explanation": "To maintain the same power, a decrease in power factor (lagging) causes an increase in current.",
+    "explanationMarathi": "पॉवर फॅक्टर कमी झाल्यास मशीनला समान पॉवरसाठी जास्त करंट खेचावा लागतो."
+  },
+  {
+    "id": 1795,
+    "chapterId": 57,
+    "question": "If lamp number 4 in a parallel string of 20 lamps fuses, what will happen?",
+    "questionMarathi": "समांतर जोडणीत असलेल्या 20 दिव्यांच्या माळेतील 4 क्रमांकाचा दिवा फ्युज (खराब) झाला, तर काय होईल?",
+    "options": [
+      "No lamp will work",
+      "All lamps will turn off",
+      "Only lamp 4 will not work",
+      "All lamps after 4 will stay on"
+    ],
+    "optionsMarathi": [
+      "कोणताही दिवा चालणार नाही",
+      "सर्व दिवे विझतील",
+      "पक्त 4 नंबरचा दिवा चालणार नाही",
+      "4 नंबरनंतरचे सर्व दिवे जळत राहतील"
+    ],
+    "answer": "C",
+    "explanation": "In a parallel circuit, each component has an independent path; hence, only the fused lamp stops working.",
+    "explanationMarathi": "समांतर जोडणीत प्रत्येक दिव्याला स्वतंत्र मार्ग मिळतो, त्यामुळे फक्त ४ नंबरचा दिवा बंद होईल."
+  },
+  {
+    "id": 1796,
+    "chapterId": 57,
+    "question": "L.T. (Low Tension) transformers are generally of what capacity?",
+    "questionMarathi": "एल.टी. ट्रान्सफॉर्मर (L.T. Transformer) साधारणपणे कोणत्या क्षमतेचे असतात?",
+    "options": [
+      "10000 kVA",
+      "1500 kVA",
+      "15000 kVA",
+      "1000 kVA"
+    ],
+    "optionsMarathi": [
+      "10000 kVA",
+      "1500 kVA",
+      "15000 kVA",
+      "1000 kVA"
+    ],
+    "answer": "D",
+    "explanation": "L.T. distribution transformers typically range up to 1000 kVA.",
+    "explanationMarathi": "वितरण पातळीवर ट्रान्सफॉर्मरची क्षमता साधारण १००० kVA पर्यंत असते."
+  },
+  {
+    "id": 1797,
+    "chapterId": 57,
+    "question": "What material is transformer bushing typically made of?",
+    "questionMarathi": "ट्रान्सफॉर्मर बुशिंग (Transformer Bushing) कशापासून बनवली जाते?",
+    "options": [
+      "Bakelite",
+      "Glass",
+      "German Silver",
+      "None of these"
+    ],
+    "optionsMarathi": [
+      "बेकेलाईट",
+      "काच",
+      "जर्मन सिल्वर",
+      "यांपैकी नाही"
+    ],
+    "answer": "D",
+    "explanation": "Transformer bushings are primarily made of porcelain, which is not listed in the first three options.",
+    "explanationMarathi": "ट्रान्सफॉर्मरच्या बुशिंग्स पोर्सिलेन (चिनी माती) पासून बनवल्या जातात."
+  },
+  {
+    "id": 1798,
+    "chapterId": 57,
+    "question": "How is the number of poles in a pony motor kept compared to a synchronous motor?",
+    "questionMarathi": "पोनी मोटरमधील (Pony Motor) पोलची संख्या सिंक्रोनस मोटरच्या तुलनेत कशी ठेवली जाते?",
+    "options": [
+      "One pole less",
+      "Two poles less",
+      "One pole more",
+      "Two poles more"
+    ],
+    "optionsMarathi": [
+      "एक पोल कमी",
+      "दोन पोल कमी (Two poles less)",
+      "एक पोल जास्त",
+      "दोन पोल जास्त"
+    ],
+    "answer": "B",
+    "explanation": "To make the pony motor rotate at or above synchronous speed, it is designed with 2 poles less than the synchronous motor.",
+    "explanationMarathi": "गती वाढवण्यासाठी पोनी मोटरमध्ये सिंक्रोनस मोटरपेक्षा २ पोल कमी ठेवले जातात."
+  },
+  {
+    "id": 1799,
+    "chapterId": 57,
+    "question": "According to Fleming's Left-Hand Rule, what does the forefinger represent?",
+    "questionMarathi": "फ्लेमिंगच्या डाव्या हाताच्या नियमानुसार (Fleming's Left-Hand Rule) पहिली बोट (Forefinger) काय दर्शवते?",
+    "options": [
+      "Direction of current",
+      "Direction of magnetic field",
+      "Direction of force",
+      "Direction of motion"
+    ],
+    "optionsMarathi": [
+      "करंटची दिशा",
+      "चुंबकीय क्षेत्राची दिशा (Magnetic Field)",
+      "बलाची दिशा",
+      "गतीची दिशा"
+    ],
+    "answer": "B",
+    "explanation": "In Fleming's Left-Hand Rule, the forefinger points in the direction of the magnetic field.",
+    "explanationMarathi": "फ्लेमिंगच्या नियमाप्रमाणे पहिले बोट चुंबकीय क्षेत्राची दिशा दर्शवते."
+  }
+];
