@@ -1,0 +1,211 @@
+[
+  {
+    "id": 1096,
+    "chapterId": 62,
+    "question": "In what order is the current coil connected in a measuring instrument?",
+    "questionMarathi": "एका मापक यंत्रात (Measuring Instrument) करंट कॉईल कोणत्या क्रमात जोडली जाते?",
+    "options": ["In series", "In parallel", "Reverse", "Forward"],
+    "optionsMarathi": ["श्रेणीमध्ये (Series)", "समांतर", "रिव्हर्स", "फॉरवर्ड"],
+    "answer": "A",
+    "explanation": "A current coil (which has low resistance) is always connected in series with the load to measure the total current in the circuit.",
+    "explanationMarathi": "करंट कॉईल (ज्याला कमी रेझिस्टन्स असतो) सर्किटमधील एकूण करंट मोजण्यासाठी लोडच्या नेहमी सिरीजमध्ये जोडली जाते."
+  },
+  {
+    "id": 1097,
+    "chapterId": 62,
+    "question": "What is the efficiency of an ideal transformer?",
+    "questionMarathi": "आदर्श (Ideal) ट्रान्सफॉर्मरची दक्षता (Efficiency) किती असते?",
+    "options": ["0 percent", "50 percent", "98 percent", "None of these"],
+    "optionsMarathi": ["0 प्रतिशत", "50 प्रतिशत", "98 प्रतिशत", "यापैकी नाही"],
+    "answer": "D",
+    "explanation": "An ideal transformer is one in which any kind of losses are zero. Hence its efficiency is 100%, which is not given in the options so 'None of these' is the answer.",
+    "explanationMarathi": "आदर्श ट्रान्सफॉर्मर म्हणजे ज्यामध्ये कोणत्याही प्रकारची हानी (Losses) शून्य असते. त्यामुळे त्याची कार्यक्षमता 100% असते, जो पर्याय इथे दिलेला नाही म्हणून 'यापैकी नाही' हे उत्तर आहे."
+  },
+  {
+    "id": 1098,
+    "chapterId": 62,
+    "question": "What is the current measured between two phases called?",
+    "questionMarathi": "दोन फेजच्या मध्यभागी मोजलेला करंट काय कहलाता?",
+    "options": ["Phase current", "Line current", "Balanced current", "Load current"],
+    "optionsMarathi": ["फेज करंट", "लाईन करंट", "संतुलित करंट", "लोड करंट"],
+    "answer": "B",
+    "explanation": "In a three-phase system, the voltage between any two lines (e.g. R and Y) is called line voltage and the current flowing is called line current.",
+    "explanationMarathi": "थ्री-फेज सिस्टीममध्ये कोणत्याही दोन लाईन (उदा. R आणि Y) मधील व्होल्टेजला लाईन व्होल्टेज आणि वाहणाऱ्या करंटला लाईन करंट (Line Current) म्हणतात."
+  },
+  {
+    "id": 1099,
+    "chapterId": 62,
+    "question": "Which of the following devices is not used in a DC 2-point starter?",
+    "questionMarathi": "डीसी 2-पॉईंट स्टार्टरमध्ये खालीलपैकी कोणती युक्ती प्रयोग केली जात नाही?",
+    "options": ["NVC (No Volt Coil)", "OLC (Over Load Coil)", "Handle", "Resistor"],
+    "optionsMarathi": ["NVC (No Volt Coil)", "OLC (Over Load Coil)", "हँडल", "प्रतिरोधक (Resistor)"],
+    "answer": "B",
+    "explanation": "A 2-point starter is mainly used to start a DC series motor. It only has an NVC (No Volt Coil), an OLC (Over Load Coil) is not used in it to protect against overload.",
+    "explanationMarathi": "2-पॉईंट स्टार्टर मुख्यत्वे डीसी सिरीज मोटर सुरू करण्यासाठी वापरला जातो. यामध्ये फक्त NVC (No Volt Coil) असते, ओव्हरलोडपासून संरक्षण करण्यासाठी OLC (Over Load Coil) यात वापरलेली नसते."
+  },
+  {
+    "id": 1100,
+    "chapterId": 62,
+    "question": "What is the anode (positive pole) made of in a Leclanche cell?",
+    "questionMarathi": "लेक्लांचे (Leclanche) सेलमध्ये ॲनोड (Anode - धन ध्रुव) कशाचा बनलेला असतो?",
+    "options": ["Copper", "Zinc", "Lead", "Carbon"],
+    "optionsMarathi": ["तांब्याचा", "जस्ताचा", "शिशाचा", "कार्बनचा"],
+    "answer": "D",
+    "explanation": "In a Leclanche cell, a carbon rod is used as the positive electrode (Anode) and a zinc plate or container is used as the negative electrode (Cathode).",
+    "explanationMarathi": "लेक्लांचे सेलमध्ये पॉझिटिव्ह इलेक्ट्रोड (Anode) म्हणून कार्बनची कांडी (Carbon rod) वापरतात आणि निगेटिव्ह इलेक्ट्रोड (Cathode) म्हणून झिंकची (जस्ताची) प्लेट किंवा डबा वापरला जातो."
+  },
+  {
+    "id": 1101,
+    "chapterId": 62,
+    "question": "What should be the minimum height of the switch board from the floor?",
+    "questionMarathi": "स्विच बोर्डची जमिनीपासून (Floor) न्यूनतम उंची काय असली पाहिजे?",
+    "options": ["2 meters", "1.5 meters", "1.3 meters", "1.2 meters"],
+    "optionsMarathi": ["2 मीटर", "1.5 मीटर", "1.3 मीटर", "1.2 मीटर"],
+    "answer": "B",
+    "explanation": "According to Indian Standards (IS) and electrical safety rules, it is considered safe to install the main switch board at a height of 1.5 meters from the floor surface.",
+    "explanationMarathi": "भारतीय मानक (IS) आणि विद्युत सुरक्षेच्या नियमांनुसार घरातील मुख्य स्विच बोर्ड जमिनीच्या पृष्ठभागापासून 1.5 मीटर उंचीवर बसवणे सुरक्षित मानले जाते."
+  },
+  {
+    "id": 1102,
+    "chapterId": 62,
+    "question": "In which part of a tube light circuit is the humming defect found?",
+    "questionMarathi": "ट्यूब लाईट सर्किटमध्ये गूंजण्याचा (Humming) दोष कोणत्या भागात असतो?",
+    "options": ["Starter", "Choke (Ballast)", "Tube", "Base"],
+    "optionsMarathi": ["स्टार्टर", "चोक (Ballast)", "ट्यूब", "बेस"],
+    "answer": "B",
+    "explanation": "If the lamination plates in the choke (Inductor) become loose, they vibrate due to the magnetic field of the AC current and a 'humming' sound comes out of it.",
+    "explanationMarathi": "चोक (Inductor) मधील लॅमिनेशन प्लेट्स जर ढिल्या झाल्या असतील, तर एसी करंटच्या चुंबकीय क्षेत्रामुळे त्या कंपन (Vibrate) पावतात आणि त्यातून 'ह्युमिंग' आवाज येतो."
+  },
+  {
+    "id": 1103,
+    "chapterId": 62,
+    "question": "What is the maximum transmission voltage in India?",
+    "questionMarathi": "भारतात अधिकतम पारेषण (Transmission) व्होल्टेजचे मान काय आहे?",
+    "options": ["440 kV", "220 kV", "132 kV", "750 kV (765kV)"],
+    "optionsMarathi": ["440 kV", "220 kV", "132 kV", "750 kV (765kV)"],
+    "answer": "D",
+    "explanation": "Currently, the largest transmission line of 765 kV is used in India's power grid. According to the given options, 750 kV is the most appropriate answer.",
+    "explanationMarathi": "भारताच्या पॉवर ग्रिडमध्ये सध्या सर्वात मोठी पारेषण लाईन 765 kV ची वापरली जाते. दिलेल्या पर्यायांनुसार 750 kV हे सर्वात योग्य उत्तर आहे."
+  },
+  {
+    "id": 1104,
+    "chapterId": 62,
+    "question": "By which test is the copper loss in a transformer checked?",
+    "questionMarathi": "ट्रान्सफॉर्मरमध्ये कॉपर लॉसची (Copper Loss) चाचणी कोणत्या टेस्टद्वारे केली जाते?",
+    "options": ["Short circuit test", "Open circuit test", "Leakage test", "By Megger"],
+    "optionsMarathi": ["शॉर्ट सर्किट टेस्ट", "ओपन सर्किट टेस्ट", "लिकेज टेस्ट", "मेगरद्वारे"],
+    "answer": "A",
+    "explanation": "To measure the full load copper loss (I^2R loss in the winding) in a transformer, the secondary winding is shorted and a 'short circuit test' is performed.",
+    "explanationMarathi": "ट्रान्सफॉर्मरमधील पूर्ण लोड कॉपर लॉस (वाइंडिंगमधील I^2R हानी) मोजण्यासाठी सेकंडरी वाइंडिंग शॉर्ट करून 'शॉर्ट सर्किट टेस्ट' केली जाते."
+  },
+  {
+    "id": 1105,
+    "chapterId": 62,
+    "question": "What is the filament of an incandescent lamp made of?",
+    "questionMarathi": "इनकॅन्डेसेंट (Incandescent) लॅम्पची फिलामेंट (Spot wire) कशाची बनवली जाते?",
+    "options": ["Tungsten", "Copper", "Nickel", "Steel"],
+    "optionsMarathi": ["टंगस्टन", "तांबे", "निकेल", "स्टील"],
+    "answer": "A",
+    "explanation": "The melting point of tungsten is very high (around 3422°C), so it does not melt even when giving light at high temperatures.",
+    "explanationMarathi": "टंगस्टनचा वितळण बिंदू (Melting Point) खूप उच्च (सुमारे 3422°C) असतो, त्यामुळे उच्च तापमानावर प्रकाश देतानाही तो वितळत नाही."
+  },
+  {
+    "id": 1106,
+    "chapterId": 62,
+    "question": "Under normal conditions (e.g. at 0 Kelvin temperature), how do semiconductors behave?",
+    "questionMarathi": "सामान्य अवस्थेत (उदा. 0 केल्विन तापमानावर) अर्धसंवाहक (Semiconductor) कोणासारखे वर्तन करतात?",
+    "options": ["Like a conductor", "Like an insulator", "Like a short circuit", "Like a superconductor"],
+    "optionsMarathi": ["चालकाप्रमाणे (Conductor)", "अचालकाप्रमाणे (Insulator)", "शॉर्ट सर्किटप्रमाणे", "सुपर चालकाप्रमाणे"],
+    "answer": "B",
+    "explanation": "At normal temperature (or at 0°K), semiconductors like silicon or germanium do not have free electrons, so they behave as good insulators.",
+    "explanationMarathi": "सामान्य तापमानाला (किंवा 0°K वर) सिलिकॉन किंवा जर्मेनियम सारख्या अर्धसंवाहकामध्ये मोकळे इलेक्ट्रॉन नसतात, त्यामुळे ते उत्तम इन्सुलेटर (कुचालक) म्हणून वागतात."
+  },
+  {
+    "id": 1107,
+    "chapterId": 62,
+    "question": "Which of the following is a unit of electrical energy?",
+    "questionMarathi": "खालीलपैकी वैद्युतिक ऊर्जेचे (Electrical Energy) एकक काय आहे?",
+    "options": ["Watt", "Joule", "Watt-hour", "Newton"],
+    "optionsMarathi": ["वॅट", "ज्यूल", "वॅट-घंटा (Watt-hour)", "न्यूटन"],
+    "answer": "C",
+    "explanation": "To measure power, 'Watt' is used, but to measure energy (power x time), 'Watt-hour' (Wh) or as a commercial unit 'Kilowatt-hour' (kWh) is used.",
+    "explanationMarathi": "पॉवर मोजण्यासाठी 'वॅट' वापरतात, पण ऊर्जा (पॉवर x वेळ) मोजण्यासाठी 'वॅट-तास' (Wh) किंवा कमर्शियल युनिट म्हणून 'किलोवॅट-तास' (kWh) वापरले जाते."
+  },
+  {
+    "id": 1108,
+    "chapterId": 62,
+    "question": "Two lamps are connected in series. If a current of 1.5 A flows through the second lamp, what will be the current of the first lamp?",
+    "questionMarathi": "दोन लॅम्प श्रेणीत (Series) जोडले आहेत. जर दुसऱ्या लॅम्पमधून 1.5 A करंट जातो, तर पहिल्या लॅम्पचा करंट किती असेल?",
+    "options": ["3 A", "1 A", "1.33 A", "1.5 A"],
+    "optionsMarathi": ["3 A", "1 A", "1.33 A", "1.5 A"],
+    "answer": "D",
+    "explanation": "The main rule of a series circuit is that the same current flows through all the components in the circuit. Hence, if 1.5 A flows through one lamp, 1.5 A will flow through the other as well.",
+    "explanationMarathi": "श्रेणी (Series) सर्किटचा मुख्य नियम हा आहे की, सर्किटमधील सर्व घटकांमधून एकसमान (Same) करंट वाहतो. म्हणून एका लॅम्पमधून 1.5 A जात असेल तर दुसऱ्यामधूनही 1.5 A च करंट वाहेल."
+  },
+  {
+    "id": 1109,
+    "chapterId": 62,
+    "question": "What is the specific gravity of a fully charged lead-acid cell?",
+    "questionMarathi": "फुल चार्ज (Fully Charged) अवस्थेत एका लेड ॲसिड सेलचा आपेक्षिक घनत्व (Specific Gravity) किती असते?",
+    "options": ["1150", "1200", "1280", "1050"],
+    "optionsMarathi": ["1150", "1200", "1280", "1050"],
+    "answer": "C",
+    "explanation": "When a lead acid battery is fully charged, the specific gravity of the electrolyte (sulfuric acid) is 1.280 (i.e., 1280 on a hydrometer).",
+    "explanationMarathi": "लेड ॲसिड बॅटरी पूर्ण चार्ज झाल्यावर इलेक्ट्रोलाईट (सल्फ्युरिक ॲसिड) ची विशिष्ट घनता (Specific Gravity) 1.280 (म्हणजेच हायड्रोमीटरवर 1280) इतकी असते."
+  },
+  {
+    "id": 1110,
+    "chapterId": 62,
+    "question": "What is the symbol for permeability?",
+    "questionMarathi": "चुंबकशीलता (Permeability) चे प्रतीक (Symbol) काय आहे?",
+    "options": ["Ø", "µ (Mu)", "ƿ", "€"],
+    "optionsMarathi": ["Ø", "µ (म्यू)", "ƿ", "€"],
+    "answer": "B",
+    "explanation": "The property that indicates how easily magnetic lines can flow through a substance is called permeability and is represented by the Greek letter µ (Mu).",
+    "explanationMarathi": "एखाद्या पदार्थातून चुंबकीय रेषा किती सहजपणे वाहू शकतात, हे दर्शवणाऱ्या गुणधर्माला परमिएबिलिटी म्हणतात आणि ते दर्शवण्यासाठी ग्रीक अक्षर µ (Mu) वापरले जाते."
+  },
+  {
+    "id": 1111,
+    "chapterId": 62,
+    "question": "What is used to remove the demagnetizing effect in a generator?",
+    "questionMarathi": "जनरेटरमध्ये डिमॅग्नेटायझिंग (Demagnetizing) प्रभाव दूर करण्यासाठी काय प्रयोग केले जातात?",
+    "options": ["Compensating winding", "Interpole", "High resistance brush", "Damper winding"],
+    "optionsMarathi": ["कॉम्पेन्सेटिंग वाईंडिंग", "इंटरपोल", "उच्च रेझिस्टन्स ब्रश", "डॅम्पर वाईंडिंग"],
+    "answer": "A",
+    "explanation": "To reduce the demagnetizing effect produced by the armature reaction, a compensating winding is placed in the main pole shoes.",
+    "explanationMarathi": "आर्मेचर रिअॅक्शन मुळे निर्माण होणारा डिमॅग्नेटायझिंग प्रभाव कमी करण्यासाठी मुख्य पोल शूजमध्ये कॉम्पेन्सेटिंग वाइंडिंग ठेवली जाते."
+  },
+  {
+    "id": 1112,
+    "chapterId": 62,
+    "question": "Which of the following fuses does not operate even for up to 4 hours at a value of 1.5 times the load current?",
+    "questionMarathi": "खालीलपैकी कोणता फ्युज लोड करंटच्या 1.5 पट मान (Value) वर सुद्धा 4 तासांपर्यंत प्रज्वलित (Operate) होत नाही?",
+    "options": ["HRC", "Cartridge", "MCB", "Kit-kat fuse"],
+    "optionsMarathi": ["HRC", "कार्ट्रिज", "MCB", "किट-कॅट फ्युज"],
+    "answer": "D",
+    "explanation": "Kit-kat (rewirable) fuses have low accuracy, and the fuse wire can withstand a slightly higher current for a long time. Therefore, even if the current is 1.5 times, it does not melt immediately.",
+    "explanationMarathi": "किट-कॅट (Rewirable) फ्युजची अचूकता कमी असते, फ्युज तार थोड्या जास्त करंटला खूप वेळ सहन करू शकते. त्यामुळे 1.5 पट करंट असला तरी तो लगेच वितळत नाही."
+  },
+  {
+    "id": 1113,
+    "chapterId": 62,
+    "question": "What damping system is used in MI (Moving Iron) instruments?",
+    "questionMarathi": "MI (Moving Iron) यंत्रांमध्ये कोणती अवमंदन प्रणाली (Damping System) प्रयोग केली जाते?",
+    "options": ["Air friction", "Fluid friction", "Eddy current", "None"],
+    "optionsMarathi": ["वायू घर्षण (Air friction)", "द्रव घर्षण (Fluid friction)", "एडी करंट (Eddy current)", "कोणतीही नाही"],
+    "answer": "A",
+    "explanation": "Damping is required to quickly stabilize the pointer in moving iron type instruments, for which the 'air friction damping' method is used.",
+    "explanationMarathi": "मुव्हिंग आयर्न प्रकारच्या उपकरणांमध्ये पॉईंटर लवकर स्थिर करण्यासाठी डॅम्पिंग लागते, त्यासाठी 'एअर फ्रिक्शन डॅम्पिंग' (वायू घर्षण) पद्धत वापरली जाते."
+  },
+  {
+    "id": 1114,
+    "chapterId": 62,
+    "question": "At what minimum current value can an ELCB (Earth Leakage Circuit Breaker) operate?",
+    "questionMarathi": "एक ELCB (Earth Leakage Circuit Breaker) कोणत्या न्यूनतम करंट मानावर प्रचालित (Operate) होऊ शकते?",
+    "options": ["1 A", "100 milli-ampere", "1 milli-ampere", "0.1 milli-ampere"],
+    "optionsMarathi": ["1 A", "100 मिली-अँपिअर", "1 मिली-अँपिअर", "0.1 मिली-अँपिअर"],
+    "answer": "B",
+    "explanation": "To save a person from electric shock, household ELCBs/RCCBs are generally designed to trip the circuit on a 30mA or 100mA leakage current. (According to the options, 100mA is appropriate).",
+    "explanationMarathi": "माणसाला शॉकपासून वाचवण्यासाठी घरगुती ELCB/RCCB साधारणपणे 30mA किंवा 100mA लीकेज करंटवर सर्किट ट्रिप करण्यासाठी डिझाईन केलेले असतात. (पर्यायांनुसार 100mA योग्य आहे)."
+  }
+]

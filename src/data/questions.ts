@@ -542,7 +542,44 @@ export const CHAPTERS: Chapter[] = [
     "descriptionMarathi": "मूलभूत विद्युत, मोटर्स, अल्टरनेटर आणि ट्रान्सफॉर्मर बहुपर्यायी प्रश्न.",
     "icon": "Zap",
     "section": "Electrical"
-  }];
+  },
+  {
+    "id": 62,
+    "name": "Electrical Set 33 (Q 1064 - 1114)",
+    "nameMarathi": "विद्युत संच 33 (प्र 1064 ते 1114)",
+    "description": "Basic Electrical, Motors, Alternators and Transformers MCQs.",
+    "descriptionMarathi": "मूलभूत विद्युत, मोटर्स, अल्टरनेटर आणि ट्रान्सफॉर्मर बहुपर्यायी प्रश्न.",
+    "icon": "Zap",
+    "section": "Electrical"
+  },
+  {
+    "id": 63,
+    "name": "Electrical Set 34 (Q 1116 - 1166)",
+    "nameMarathi": "विद्युत संच 34 (प्र 1116 ते 1166)",
+    "description": "Basic Electrical, Motors, Alternators and Transformers MCQs.",
+    "descriptionMarathi": "मूलभूत विद्युत, मोटर्स, अल्टरनेटर आणि ट्रान्सफॉर्मर बहुपर्यायी प्रश्न.",
+    "icon": "Zap",
+    "section": "Electrical"
+  },
+  {
+    "id": 64,
+    "name": "Electrical Set 35 (Q 1167 - 1215)",
+    "nameMarathi": "विद्युत संच 35 (प्र 1167 ते 1215)",
+    "description": "Basic Electrical, Motors, Alternators and Transformers MCQs.",
+    "descriptionMarathi": "मूलभूत विद्युत, मोटर्स, अल्टरनेटर आणि ट्रान्सफॉर्मर बहुपर्यायी प्रश्न.",
+    "icon": "Zap",
+    "section": "Electrical"
+  },
+  {
+    "id": 65,
+    "name": "Electrical Set 36 (Q 1217 - 1266)",
+    "nameMarathi": "विद्युत संच 36 (प्र 1217 ते 1266)",
+    "description": "Basic Electrical, Motors, Alternators and Transformers MCQs.",
+    "descriptionMarathi": "मूलभूत विद्युत, मोटर्स, अल्टरनेटर आणि ट्रान्सफॉर्मर बहुपर्यायी प्रश्न.",
+    "icon": "Zap",
+    "section": "Electrical"
+  }
+];
 
 export const QUESTIONS: Question[] = [
   ...QUESTIONS_AUTO,

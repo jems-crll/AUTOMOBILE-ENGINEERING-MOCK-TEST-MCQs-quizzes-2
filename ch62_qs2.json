@@ -1,0 +1,156 @@
+[
+  {
+    "id": 1081,
+    "chapterId": 62,
+    "question": "What is the phenomenon of the alternation speed changing due to load variation called?",
+    "questionMarathi": "लोडच्या परिवर्तनामुळे अल्टरनेटरची घूर्णन गती (Speed) परिवर्तित होणे, हा कोणता दोष कहलाता?",
+    "options": ["Loading", "Hunting", "Overloading", "Phase shifting"],
+    "optionsMarathi": ["लोडिंग", "हंटिंग", "ओव्हर लोडिंग", "फेज शिफ्टिंग"],
+    "answer": "B",
+    "explanation": "If the load on an alternator suddenly changes, its rotor starts oscillating around its synchronous speed, this effect is called 'hunting' or 'phase swinging'.",
+    "explanationMarathi": "अल्टरनेटरवर अचानक लोड बदलला तर त्याचा रोटर त्याच्या सिंक्रोनस गतीभोवती दोलायमान (Oscillate) होऊ लागतो, या परिणामाला 'हंटिंग' किंवा 'फेज स्विंगिंग' म्हणतात."
+  },
+  {
+    "id": 1082,
+    "chapterId": 62,
+    "question": "What metal is the control spring used in meters made of?",
+    "questionMarathi": "मीटर्समध्ये प्रयुक्त नियंत्रण स्प्रिंग (Control Spring) कोणत्या धातूची बनलेली असते?",
+    "options": ["Brass", "Nickel", "Phosphor bronze", "Copper"],
+    "optionsMarathi": ["पितळ", "निकेल", "फॉस्फर ब्रॉन्झ", "तांबे"],
+    "answer": "C",
+    "explanation": "In measuring instruments, the spring should be non-magnetic, a good conductor of electricity, and less affected by temperature. Phosphor bronze has all these properties.",
+    "explanationMarathi": "मापन यंत्रात स्प्रिंगला नॉन-मॅग्नेटिक, उत्तम विद्युत वाहक आणि कमी तापमानावर परिणाम होणारी असायला हवी. फॉस्फर ब्रॉन्झ या धातूमध्ये हे सर्व गुणधर्म असतात."
+  },
+  {
+    "id": 1083,
+    "chapterId": 62,
+    "question": "What will be the inductive reactance of a 100 milli-henry (mH) coil on a 220 volt 50 Hz supply?",
+    "questionMarathi": "100 मिली हेन्री (mH) वाली एक कॉईलचा 220 व्होल्ट 50 हर्ट्झ सप्लायवर इंडक्टिव्ह रिअॅक्टन्स किती असेल?",
+    "options": ["314 ohms", "3.14 ohms", "31.4 ohms", "0.341 ohms"],
+    "optionsMarathi": ["314 ओहम", "3.14 ओहम", "31.4 ओहम", "0.341 ओहम"],
+    "answer": "C",
+    "explanation": "Formula: X_L = 2πfL. Here L = 100 mH = 0.1 H. Therefore, X_L = 2 x 3.14 x 50 x 0.1 = 31.4 ohms. (Voltage is not required).",
+    "explanationMarathi": "सूत्र: X_L = 2πfL. येथे L = 100 mH = 0.1 H. म्हणून, X_L = 2 x 3.14 x 50 x 0.1 = 31.4 Ω. (व्होल्टेजचा यात वापर करण्याची गरज नाही)."
+  },
+  {
+    "id": 1084,
+    "chapterId": 62,
+    "question": "What will be the color code of a 1000 ohm (1 kΩ) resistor?",
+    "questionMarathi": "1000 ओहम (1 kΩ) वाल्या एका रेझिस्टरचे रंग निर्धारण (Color Code) काय असेल?",
+    "options": ["Brown, Black, Orange", "Brown, Black, Red", "Black, Brown, Orange", "Brown, Brown, Black"],
+    "optionsMarathi": ["तपकिरी, काळा, नारंगी", "तपकिरी, काळा, लाल", "काळा, तपकिरी, नारंगी", "तपकिरी, तपकिरी, काळा"],
+    "answer": "B",
+    "explanation": "1000 ohms means 10 x 10^2. The first digit is 1 (Brown), the second digit is 0 (Black), and the multiplier is 10^2 (Red).",
+    "explanationMarathi": "1000 ओहम म्हणजे 10 x 10^2. पहिला अंक 1 (तपकिरी / Brown), दुसरा अंक 0 (काळा / Black) आणि गुणक 10^2 (लाल / Red)."
+  },
+  {
+    "id": 1085,
+    "chapterId": 62,
+    "question": "What is the working temperature of a gas-filled metal filament lamp?",
+    "questionMarathi": "एक गॅस भरलेल्या धात्विक फिलामेंट लॅम्पचे कार्यकारी तापमान (Working Temperature) काय असते?",
+    "options": ["2000℃", "2300℃", "2700℃", "900℃"],
+    "optionsMarathi": ["2000℃", "2300℃", "2700℃", "900℃"],
+    "answer": "C",
+    "explanation": "Filling the bulb with argon or nitrogen gas reduces the evaporation of the tungsten filament and it can safely provide light at a high temperature of 2700°C.",
+    "explanationMarathi": "बल्बमध्ये आर्गॉन किंवा नायट्रोजन गॅस भरल्याने टंगस्टन फिलामेंटचे बाष्पीभवन (Evaporation) कमी होते आणि तो 2700°C च्या उच्च तापमानावर सुरक्षितपणे प्रकाश देऊ शकतो."
+  },
+  {
+    "id": 1086,
+    "chapterId": 62,
+    "question": "According to Indian rules, what is the voltage of a three-phase supply in India?",
+    "questionMarathi": "भारतीय नियमांनुसार भारतात थ्री-फेज सप्लायची व्होल्टेज किती आहे?",
+    "options": ["440 volts", "420 volts", "400 volts", "415 volts"],
+    "optionsMarathi": ["440 व्होल्ट", "420 व्होल्ट", "400 व्होल्ट", "415 व्होल्ट"],
+    "answer": "D",
+    "explanation": "In India, the standard line voltage for three-phase distribution is determined to be 415V and 240V for single phase.",
+    "explanationMarathi": "भारतात थ्री-फेज डिस्ट्रिब्युशनचे स्टँडर्ड लाईन व्होल्टेज 415V आणि सिंगल फेजचे 240V निर्धारित केलेले आहे."
+  },
+  {
+    "id": 1087,
+    "chapterId": 62,
+    "question": "At what speed will a three-phase, 2-pole induction motor run on a 230 volt, 50 Hz supply?",
+    "questionMarathi": "एक थ्री-फेज, 2-पोल वाली इंडक्शन मोटर 230 व्होल्ट, 50 हर्ट्झ सप्लायवर कोणत्या गतीने चालेल?",
+    "options": ["1000 RPM", "3000 RPM", "1500 RPM", "5000 RPM"],
+    "optionsMarathi": ["1000 आरपीएम", "3000 आरपीएम", "1500 आरपीएम", "5000 आरपीएम"],
+    "answer": "B",
+    "explanation": "Synchronous speed formula: N_s = (120 x f) / P. Setting frequency (f) to 50 and poles (P) to 2 gives N_s = (120 x 50) / 2 = 3000 RPM.",
+    "explanationMarathi": "सिंक्रोनस गतीचे सूत्र: N_s = (120 x f) / P. फ्रिक्वेन्सी (f) 50 आणि पोल (P) 2 ठेवल्यास, N_s = (120 x 50) / 2 = 3000 RPM मिळते."
+  },
+  {
+    "id": 1088,
+    "chapterId": 62,
+    "question": "How are interpoles connected in DC machines?",
+    "questionMarathi": "डीसी मशीन्समध्ये इंटरपोल कसे जोडले जातात?",
+    "options": ["In series with the field", "In parallel with the field", "In series with the armature", "In parallel with the armature"],
+    "optionsMarathi": ["फिल्डच्या श्रेणीमध्ये", "फिल्डच्या समांतर", "आर्मेचरच्या श्रेणीमध्ये", "आर्मेचरच्या समांतर"],
+    "answer": "C",
+    "explanation": "To improve commutation, small interpoles are placed between the main poles, and they are always connected in series with the armature so that their magnetic field changes according to the load current of the armature.",
+    "explanationMarathi": "कम्युटेशन सुधारण्यासाठी मुख्य पोल्सच्या दरम्यान लहान इंटरपोल्स लावले जातात आणि ते नेहमी आर्मेचरच्या सिरीजमध्ये जोडले जातात जेणेकरून आर्मेचरच्या लोड करंटनुसार त्यांचे चुंबकीय क्षेत्र बदलेल."
+  },
+  {
+    "id": 1089,
+    "chapterId": 62,
+    "question": "How many watts are there in one HP in the metric system?",
+    "questionMarathi": "मेट्रिक प्रणालीमध्ये एक एचपी (HP) मध्ये किती वॅट असतात?",
+    "options": ["735.5", "746", "535", "746.5"],
+    "optionsMarathi": ["735.5", "746", "535", "746.5"],
+    "answer": "A",
+    "explanation": "In the British system, 1 HP = 746 watts, while in the metric system, 1 HP = 735.5 watts.",
+    "explanationMarathi": "ब्रिटिश प्रणालीमध्ये 1 HP = 746 वॅट असतात, तर मेट्रिक प्रणालीमध्ये 1 HP = 735.5 वॅट मानले जाते."
+  },
+  {
+    "id": 1090,
+    "chapterId": 62,
+    "question": "Which of the following is a transparent insulator?",
+    "questionMarathi": "खालीलपैकी कोणता एक पारदर्शक कुचालक (Transparent Insulator) आहे?",
+    "options": ["Bakelite", "Marble", "Porcelain", "Mica"],
+    "optionsMarathi": ["बॅकेलाईट", "मार्बल", "पोर्सिलेन", "अभ्रक (Mica)"],
+    "answer": "D",
+    "explanation": "Mica is an excellent electrical insulator and heat conductor, and it is naturally in the form of transparent or semi-transparent layers.",
+    "explanationMarathi": "मायका (अभ्रक) हा एक उत्तम विद्युतरोधक (Insulator) आणि उष्णतेचा वाहक आहे, तसेच तो नैसर्गिकरित्या पारदर्शक किंवा अर्ध-पारदर्शक थरांच्या स्वरूपात असतो."
+  },
+  {
+    "id": 1091,
+    "chapterId": 62,
+    "question": "At no-load, which losses are maximum in a transformer?",
+    "questionMarathi": "नो-लोडवर एक ट्रान्सफॉर्मरमध्ये कोणत्या हानी (Losses) जास्तीत जास्त असतात?",
+    "options": ["Copper", "Iron", "Thermal", "Mechanical"],
+    "optionsMarathi": ["ताम्र (Copper)", "लोह (Iron)", "ऊष्मीय", "यांत्रिक"],
+    "answer": "B",
+    "explanation": "When a transformer is at no-load, very little current flows so copper losses are negligible. But because there is magnetic flux in the core, the iron (core) losses continue constantly and fully.",
+    "explanationMarathi": "ट्रान्सफॉर्मर जेव्हा नो-लोडवर असतो तेव्हा करंट खूप कमी वाहतो त्यामुळे कॉपर लॉस नगण्य असतो. पण कोरमध्ये मॅग्नेटिक फ्लक्स असल्यामुळे लोह हानी (Iron/Core losses) सतत आणि पूर्णपणे सुरू असतात."
+  },
+  {
+    "id": 1092,
+    "chapterId": 62,
+    "question": "Up to what voltage is Lead Sheathed wiring usually used?",
+    "questionMarathi": "लेड शीथ (Lead Sheathed) वायरिंगचा प्रयोग प्रायः कोणत्या व्होल्टेजपर्यंत केला जातो?",
+    "options": ["400 volts", "250 volts", "650 volts", "1000 volts"],
+    "optionsMarathi": ["400 व्होल्ट", "250 व्होल्ट", "650 व्होल्ट", "1000 व्होल्ट"],
+    "answer": "B",
+    "explanation": "Lead sheathed cables are mainly used in domestic and low voltage (250V) wiring in damp or chemical locations.",
+    "explanationMarathi": "लेड शीथ (शिसे आच्छादित) केबलचा वापर मुख्यत्वे घरगुती आणि कमी दाबाच्या (Low voltage 250V) वायरिंगमध्ये ओलसर किंवा रासायनिक ठिकाणी केला जातो."
+  },
+  {
+    "id": 1093,
+    "chapterId": 62,
+    "question": "Four lamps which are connected in series on a 250 volt supply, each having a wattage of 100 watts, 250 volts, then what will be the total resistance?",
+    "questionMarathi": "चार लॅम्प जे 250 व्होल्ट सप्लायच्या श्रेणीत (Series) जोडले आहेत, प्रत्येकाची वॅटेज 100 वॅट, 250 व्होल्ट असेल तर एकूण रेझिस्टन्स किती असेल?",
+    "options": ["625 ohms", "100 ohms", "2500 ohms", "660 ohms"],
+    "optionsMarathi": ["625 ओहम", "100 ओहम", "2500 ओहम", "660 ओहम"],
+    "answer": "C",
+    "explanation": "The resistance of one bulb is R = V^2 / P = (250 x 250) / 100 = 625 ohms. Since the four bulbs are connected in series, the total resistance R_total = R_1 + R_2 + R_3 + R_4 = 625 x 4 = 2500 ohms.",
+    "explanationMarathi": "एका बल्बचा रेझिस्टन्स R = V^2 / P = (250 x 250) / 100 = 625 Ω आहे. चार बल्ब सिरीजमध्ये (श्रेणीत) जोडले असल्याने एकूण रेझिस्टन्स R_total = R_1+R_2+R_3+R_4 = 625 x 4 = 2500 Ω होईल."
+  },
+  {
+    "id": 1095,
+    "chapterId": 62,
+    "question": "What is the direction of the arrow mark in the symbol of a PNP transistor?",
+    "questionMarathi": "PNP ट्रान्झिस्टरच्या चिन्हामध्ये (Symbol) बाणाचा निशाण कसा असतो?",
+    "options": ["Outwards", "Inwards", "In the middle", "Can be anywhere"],
+    "optionsMarathi": ["बाहेरच्या बाजूला", "आतल्या बाजूला", "मध्ये", "कुठेही असू शकतो"],
+    "answer": "B",
+    "explanation": "The arrow on the emitter of a transistor shows the direction of current flow. Current flows from P to N, so in PNP the arrow is inwards and in NPN it is outwards.",
+    "explanationMarathi": "ट्रान्झिस्टरच्या एमीटर (Emitter) वरील बाण करंट वाहण्याची दिशा दाखवतो. P कडून N कडे करंट वाहतो, त्यामुळे PNP मध्ये बाण आतल्या बाजूला (Inwards) असतो आणि NPN मध्ये बाहेरच्या बाजूला."
+  }
+]

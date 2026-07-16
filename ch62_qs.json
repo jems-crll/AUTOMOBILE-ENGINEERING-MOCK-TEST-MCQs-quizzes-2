@@ -1,0 +1,189 @@
+[
+  {
+    "id": 1064,
+    "chapterId": 62,
+    "question": "What defect is indicated by the creeping of the disc of an energy meter without load?",
+    "questionMarathi": "एनर्जी मीटरची चकती (Disc) विना लोड फिरणे हा कोणता दोष प्रदर्शित करतो?",
+    "options": ["Friction defect", "Phase defect", "Creeping defect", "Speed defect"],
+    "optionsMarathi": ["घर्षण दोष", "फेज दोष", "क्रिपिंग दोष", "गती दोष"],
+    "answer": "C",
+    "explanation": "If the disc rotates slowly due to the magnetic field of the voltage coil even when no load is connected, it is called a 'Creeping' defect.",
+    "explanationMarathi": "एनर्जी मीटरमध्ये लोड जोडलेला नसतानाही जर व्होल्टेज कॉईलमधील चुंबकीय क्षेत्रामुळे चकती (Disc) हळूहळू फिरत राहिली, तर त्या दोषाला 'क्रिपिंग' (Creeping) म्हणतात."
+  },
+  {
+    "id": 1065,
+    "chapterId": 62,
+    "question": "What is the unit of illumination?",
+    "questionMarathi": "प्रदीप्तीचा (Illumination) एकक काय असतो?",
+    "options": ["Lumen", "Lux", "Steradian", "Meter/Candela"],
+    "optionsMarathi": ["ल्युमेन", "लक्स", "स्ट्रेरडियन", "मीटर/कँडेला"],
+    "answer": "B",
+    "explanation": "Illumination is the light falling on a surface. Its unit is 'Lux' or 'Lumen per square meter'.",
+    "explanationMarathi": "प्रदीप्ती (Illumination) म्हणजे एखाद्या पृष्ठभागावर पडणारा प्रकाश. याचे एकक 'लक्स' (Lux) किंवा 'ल्युमेन प्रति चौरस मीटर' असते."
+  },
+  {
+    "id": 1066,
+    "chapterId": 62,
+    "question": "How is the presence of current known?",
+    "questionMarathi": "करंटच्या उपस्थितीचे ज्ञान कशावरून होते?",
+    "options": ["By glowing", "By the effects produced", "By electric shock", "By crackling sound"],
+    "optionsMarathi": ["चमकण्यावरून", "निर्माण होणाऱ्या प्रभावावरून", "विद्युत झटक्यावरून", "चटकण्याच्या ध्वनीवरून"],
+    "answer": "B",
+    "explanation": "Electricity cannot be seen, but when it flows it produces heating, magnetic or chemical effects. The presence of current is known by these effects.",
+    "explanationMarathi": "वीज आपण डोळ्यांनी पाहू शकत नाही, परंतु ती वाहताना उष्णता (Heating), चुंबकीय क्षेत्र (Magnetic) किंवा रासायनिक (Chemical) प्रभाव निर्माण करते. या प्रभावांवरूनच करंटची उपस्थिती ओळखली जाते."
+  },
+  {
+    "id": 1067,
+    "chapterId": 62,
+    "question": "In a parallel circuit of four resistors, if one resistor opens, what happens to the circuit current?",
+    "questionMarathi": "एक समांतर (Parallel) सर्किटमध्ये चार रेझिस्टर्सपैकी एक रेझिस्टर ओपन झाला, तर सर्किटचा करंट:",
+    "options": ["Increases", "Decreases", "Remains unchanged", "Becomes zero"],
+    "optionsMarathi": ["वाढेल", "घटेल", "अपरिवर्तित राहील", "शून्य होईल"],
+    "answer": "B",
+    "explanation": "In a parallel connection, there are multiple paths for current. If one path opens, the total resistance of the circuit increases, which according to Ohm's law (I = V/R) decreases the total current.",
+    "explanationMarathi": "समांतर जोडणीमध्ये करंटला वाहण्यासाठी अनेक मार्ग असतात. जर एक मार्ग (रेझिस्टर) तुटला (ओपन झाला), तर सर्किटचा एकूण रेझिस्टन्स वाढतो, ज्यामुळे ओहमच्या नियमानुसार (I = V/R) एकूण करंट घटतो."
+  },
+  {
+    "id": 1068,
+    "chapterId": 62,
+    "question": "If the peak voltage of a sine wave is 10 volts, what will be its RMS value?",
+    "questionMarathi": "एक साईन वेव्हची कमाल व्होल्टेज (Peak Voltage) 10 व्होल्ट असेल, तर प्रभावी (RMS) मान किती असेल?",
+    "options": ["7.070 Volts", "14.14 Volts", "10 Volts", "6.37 Volts"],
+    "optionsMarathi": ["7.070 व्होल्ट", "14.14 व्होल्ट", "10 व्होल्ट", "6.37 व्होल्ट"],
+    "answer": "A",
+    "explanation": "The formula to calculate RMS voltage is V_rms = V_peak x 0.707. Therefore, 10 x 0.707 = 7.07 Volts.",
+    "explanationMarathi": "RMS व्होल्टेज काढण्याचे सूत्र V_rms = V_peak x 0.707 आहे. त्यामुळे 10 x 0.707 = 7.07 व्होल्ट हे अचूक उत्तर येते."
+  },
+  {
+    "id": 1069,
+    "chapterId": 62,
+    "question": "Which of the following devices is of a passive type?",
+    "questionMarathi": "खालीलपैकी कोणती युक्ती पॅसिव्ह (Passive) प्रकारची आहे?",
+    "options": ["FET", "SCR", "Air core inductor", "Zener diode"],
+    "optionsMarathi": ["FET", "SCR", "वायू क्रोड प्रेरक (Air core inductor)", "झिनर डायोड"],
+    "answer": "C",
+    "explanation": "Components that cannot amplify energy by themselves are passive components (e.g. resistor, capacitor, inductor). FET, SCR, and diode are active components.",
+    "explanationMarathi": "जे घटक स्वतः ऊर्जेचे प्रवर्धन (Amplify) करू शकत नाहीत, ते पॅसिव्ह घटक असतात (उदा. रेझिस्टर, कॅपॅसिटर, इंडक्टर). FET, SCR आणि डायोड हे ॲक्टिव्ह घटक आहेत."
+  },
+  {
+    "id": 1070,
+    "chapterId": 62,
+    "question": "Up to what voltage is the shackle insulator used?",
+    "questionMarathi": "शॅकल इन्सुलेटरचा प्रयोग कोणत्या व्होल्टेजपर्यंत केला जातो?",
+    "options": ["1000", "11000", "650", "33000"],
+    "optionsMarathi": ["1000", "11000", "650", "33000"],
+    "answer": "C",
+    "explanation": "Shackle insulators are generally used for low voltage lines, i.e., distribution lines up to 440V to 650V.",
+    "explanationMarathi": "शॅकल इन्सुलेटरचा वापर साधारणपणे कमी दाबाच्या (Low Voltage) लाईनसाठी म्हणजे 440V ते 650V पर्यंतच्या वितरण (Distribution) लाईनमध्ये केला जातो."
+  },
+  {
+    "id": 1071,
+    "chapterId": 62,
+    "question": "What is the reason for applying a wire mesh or steel tape armor in an underground cable?",
+    "questionMarathi": "एका भूमिगत (Underground) केबलमध्ये जाळीदार धात्विक कवच (Armoring) लावण्याचे कारण काय आहे?",
+    "options": ["Protection from moisture", "Protection from fire", "Preventing the cable from bursting", "Protection from mechanical shocks"],
+    "optionsMarathi": ["नमीपासून रक्षा", "आगीपासून सुरक्षा", "केबलला फुटण्यापासून रोखणे", "यांत्रिक आघातांपासून सुरक्षा"],
+    "answer": "D",
+    "explanation": "To prevent the cable from being damaged during burial or due to the pressure of excavation, mechanical strength is provided by armoring with steel wires or tapes.",
+    "explanationMarathi": "जमिनीत केबल पुरताना किंवा नंतर त्यावर खोदकामाचा दाब पडल्यास केबल खराब होऊ नये, म्हणून स्टीलच्या तारांचे किंवा पट्टीचे आर्मरिंग (Armoring) करून केबलला यांत्रिक ताकद दिली जाते."
+  },
+  {
+    "id": 1072,
+    "chapterId": 62,
+    "question": "What is the ratio of the number of turns in the secondary and primary of a transformer called?",
+    "questionMarathi": "ट्रान्सफॉर्मरमध्ये सेकंडरी व प्रायमरीच्या टर्न्सच्या संख्येचे गुणोत्तर काय कहलाते?",
+    "options": ["Voltage regulation", "Transformation ratio", "Efficiency", "Reactance"],
+    "optionsMarathi": ["व्होल्टेज रेग्युलेशन", "ट्रान्सफॉर्मेशन रेशो", "दक्षता", "प्रतिघात"],
+    "answer": "B",
+    "explanation": "The ratio of the turns of the secondary coil (N2) to the primary coil (N1), K = N2/N1, is called the 'transformation ratio'.",
+    "explanationMarathi": "सेकंडरी कॉईलचे टर्न्स (N2) आणि प्रायमरी कॉईलचे टर्न्स (N1) यांच्या गुणोत्तराला (K = N2/N1) 'ट्रान्सफॉर्मेशन रेशो' म्हटले जाते."
+  },
+  {
+    "id": 1073,
+    "chapterId": 62,
+    "question": "The formula to determine reactive power is:",
+    "questionMarathi": "रिअॅक्टिव्ह पॉवर (Reactive Power) ज्ञात करण्याचे सूत्र आहे:",
+    "options": ["V.I.sinθ", "V.I.cosθ", "V.I./t", "V.I."],
+    "optionsMarathi": ["V.I.sinθ", "V.I.cosθ", "V.I./t", "V.I."],
+    "answer": "A",
+    "explanation": "To measure reactive power (Q) in an AC circuit, the formula V x I x sinθ is used, and it is measured in VAR (Volt-Ampere-Reactive). (V.I.cosθ is for active power).",
+    "explanationMarathi": "एसी सर्किटमध्ये रिअॅक्टिव्ह पॉवर (Q) मोजण्यासाठी V x I x sinθ हे सूत्र वापरले जाते आणि ते VAR (Volt-Ampere-Reactive) मध्ये मोजले जाते. (V.I.cosθ हे ॲक्टिव्ह पॉवरचे सूत्र आहे)."
+  },
+  {
+    "id": 1074,
+    "chapterId": 62,
+    "question": "According to Indian Electricity Rules, what is the maximum number of consumption points in a power sub-circuit?",
+    "questionMarathi": "भारतीय विद्युत नियमांनुसार पॉवरच्या एका सब-सर्किटमध्ये जास्तीत जास्त किती उपभोग बिंदू (Points) असू शकतात?",
+    "options": ["8", "2", "4", "1"],
+    "optionsMarathi": ["8", "2", "4", "1"],
+    "answer": "B",
+    "explanation": "According to the rules, a lighting sub-circuit has a maximum of 10 points and an 800W load, while a power sub-circuit has a maximum of 2 points and a 3000W load limit.",
+    "explanationMarathi": "नियमांनुसार लाईटिंग सब-सर्किटमध्ये जास्तीत जास्त 10 पॉईंट्स आणि 800W लोड असतो, तर पॉवर सब-सर्किटमध्ये जास्तीत जास्त 2 पॉईंट्स आणि 3000W लोडची मर्यादा असते."
+  },
+  {
+    "id": 1075,
+    "chapterId": 62,
+    "question": "What is the main cause of sparking on the commutator?",
+    "questionMarathi": "कम्युटेटरवर स्पार्किंग होण्याचे मुख्य कारण काय आहे?",
+    "options": ["Loose brushes", "Commutation defect", "More pressure on the brush", "All of the above"],
+    "optionsMarathi": ["ढिले ब्रश", "कम्युटेशन दोष", "ब्रशवर अधिक दाब", "वरील सर्व"],
+    "answer": "D",
+    "explanation": "Sparking occurs in DC machines due to all these reasons: poor contact between the commutator and carbon brush, varying spring tension, or commutation defects in the coil.",
+    "explanationMarathi": "कम्युटेटर आणि कार्बन ब्रशचा संपर्क योग्य नसणे, स्प्रिंगचे टेन्शन कमी-जास्त असणे किंवा कॉईलमधील कम्युटेशन दोष, या सर्व कारणांमुळे डीसी मशीनमध्ये स्पार्किंग होते."
+  },
+  {
+    "id": 1076,
+    "chapterId": 62,
+    "question": "According to whose law are eddy currents generated in the core of a machine?",
+    "questionMarathi": "एखाद्या मशीनच्या कोरमध्ये एडी करंट (Eddy Current) कोणाच्या नियमानुसार पैदा होते?",
+    "options": ["Faraday's", "Lenz's", "Seebeck's", "Newton's"],
+    "optionsMarathi": ["फॅराडेच्या", "लेंझच्या", "सीबॅकच्या", "न्यूटनच्या"],
+    "answer": "A",
+    "explanation": "According to Faraday's law of electromagnetic induction, when the magnetic field flowing through the core changes, a voltage is created in that metal core and eddy current starts flowing.",
+    "explanationMarathi": "फॅराडेच्या इलेक्ट्रोमॅग्नेटिक इंडक्शनच्या नियमानुसार, जेव्हा कोरमधून वाहणारे चुंबकीय क्षेत्र बदलते, तेव्हा त्या धातूच्या कोरमध्ये व्होल्टेज तयार होऊन एडी करंट वाहू लागतो."
+  },
+  {
+    "id": 1077,
+    "chapterId": 62,
+    "question": "How is the shunt field winding connected in a short shunt compound generator?",
+    "questionMarathi": "एक शॉर्ट शंट कंपाउंड जनरेटरमध्ये शंट फील्ड वाईंडिंग कशी जोडलेली असते?",
+    "options": ["In series with the armature", "In series with the armature and series field", "Parallel to the armature", "None of the above"],
+    "optionsMarathi": ["आर्मेचरच्या श्रेणीमध्ये", "आर्मेचर व सिरीजच्या श्रेणीमध्ये", "आर्मेचरच्या समांतर", "वरीलपैकी नाही"],
+    "answer": "C",
+    "explanation": "In a 'short shunt' type, the shunt field winding is connected parallel only to the armature, whereas in a 'long shunt', it is parallel to both the armature and the series field.",
+    "explanationMarathi": "'शॉर्ट शंट' प्रकारात शंट फील्ड वाईंडिंग फक्त आणि फक्त आर्मेचरला समांतर (Parallel) जोडलेली असते, तर 'लॉंग शंट' मध्ये ती आर्मेचर आणि सिरीज फिल्ड या दोन्हींना मिळून समांतर असते."
+  },
+  {
+    "id": 1078,
+    "chapterId": 62,
+    "question": "The EMF of a Daniell cell is:",
+    "questionMarathi": "डॅनियल सेलचा ईएमएफ (EMF) असतो:",
+    "options": ["1.08 Volts", "1.1 Volts", "1.46 Volts", "1.5 Volts"],
+    "optionsMarathi": ["1.08 व्होल्ट", "1.1 व्होल्ट", "1.46 व्होल्ट", "1.5 व्होल्ट"],
+    "answer": "A",
+    "explanation": "Copper sulfate and zinc sulfate are used in a Daniell cell, whose standard electromotive force (EMF) is generally between 1.08 to 1.1 Volts. (1.08 V is considered the most accurate answer).",
+    "explanationMarathi": "डॅनियल सेलमध्ये कॉपर सल्फेट आणि झिंक सल्फेट वापरले जाते, ज्याचा मानक इलेक्ट्रोमोटिव्ह फोर्स (EMF) साधारणपणे 1.08 ते 1.1 व्होल्ट दरम्यान असतो. (1.08 V हे सर्वात अचूक उत्तर मानले जाते)."
+  },
+  {
+    "id": 1079,
+    "chapterId": 62,
+    "question": "In what position is the earth plate installed in the ground?",
+    "questionMarathi": "अर्थ प्लेटला भूमीत कोणत्या अवस्थेत स्थापित केले जाते?",
+    "options": ["Horizontal", "Vertical", "Diagonal", "Parallel"],
+    "optionsMarathi": ["क्षैतिज (आडवी)", "उर्ध्वाधर (उभी)", "तिरपी", "समांतर"],
+    "answer": "B",
+    "explanation": "The earth plate is preferably buried vertically so that both sides of the plate get better contact with the soil and the earthing resistance remains low.",
+    "explanationMarathi": "अर्थ प्लेट शक्यतो उभी (Vertical) गाडली जाते जेणेकरून प्लेटच्या दोन्ही बाजूंना मातीचा उत्तम संपर्क मिळून अर्थिंगचा रेझिस्टन्स कमी राहील."
+  },
+  {
+    "id": 1080,
+    "chapterId": 62,
+    "question": "What is the average length of a 40-watt fluorescent tube light?",
+    "questionMarathi": "एक 40 वॅट फ्लोरोसेंट ट्यूब लाईटची सरासरी लांबी किती असते?",
+    "options": ["2 feet", "2 meters", "4 feet", "4 meters"],
+    "optionsMarathi": ["2 फूट", "2 मीटर", "4 फूट", "4 मीटर"],
+    "answer": "C",
+    "explanation": "Generally, a standard 40W or 36W tube light for domestic use is 1.2 meters, i.e., about 4 feet long.",
+    "explanationMarathi": "साधारणपणे घरगुती वापरासाठी येणारी 40W किंवा 36W ची स्टँडर्ड ट्यूब लाईट 1.2 मीटर म्हणजे सुमारे 4 फूट लांबीची असते."
+  }
+]
