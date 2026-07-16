@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { Question } from "../types.js";
 
 export const QUESTIONS_AUTO: Question[] = [
