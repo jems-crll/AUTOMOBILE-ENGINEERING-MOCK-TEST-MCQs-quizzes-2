@@ -20,6 +20,7 @@ export interface Question {
   explanation: string;      // Simple pre-populated explanation
   explanationTranslated?: string; // Translated explanation
   explanationMarathi?: string; // Marathi explanation
+  imageSvg?: string;        // Optional adaptive SVG image
 }
 
 export interface StateLanguage {

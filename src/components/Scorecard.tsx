@@ -290,6 +290,12 @@ export default function Scorecard({
               </p>
             )}
 
+            {currentReviewQuestion && currentReviewQuestion.imageSvg && (
+              <div className="flex justify-center my-4 p-4 bg-slate-50 dark:bg-slate-950/40 rounded-xl border border-slate-200 dark:border-slate-800/80">
+                <div className="max-w-[400px] w-full" dangerouslySetInnerHTML={{ __html: currentReviewQuestion.imageSvg }} />
+              </div>
+            )}
+
             {/* Options grid */}
             <div className="grid grid-cols-1 gap-2.5 mb-6">
               {currentReviewQuestion && currentReviewQuestion.options.map((opt, idx) => {

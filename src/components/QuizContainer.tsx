@@ -338,6 +338,12 @@ export default function QuizContainer({
                     </p>
                   </div>
                 )}
+
+                {currentQuestion.imageSvg && (
+                  <div className="flex justify-center my-4 p-4 bg-slate-50 dark:bg-slate-950/40 rounded-xl border border-slate-200 dark:border-slate-800/80">
+                    <div className="max-w-[400px] w-full" dangerouslySetInnerHTML={{ __html: currentQuestion.imageSvg }} />
+                  </div>
+                )}
               </div>
 
               {/* Options Grid */}

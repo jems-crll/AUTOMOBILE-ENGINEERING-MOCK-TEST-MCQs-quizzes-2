@@ -1,6 +1,8 @@
 import { Question, Chapter } from "../types.js";
 import { QUESTIONS_AUTO } from "./questions_automobile.js";
 import { QUESTIONS_ELEC } from "./questions_electrical.js";
+import { QUESTIONS_BHARAT_SKILL } from "./questions_bharat_skill.js";
+import { QUESTIONS_BHARAT_SKILL_1ST_YR } from "./questions_bharat_skill_1st_year.js";
 
 export const CHAPTERS: Chapter[] = [
   {
@@ -641,10 +643,30 @@ export const CHAPTERS: Chapter[] = [
     "descriptionMarathi": "मूलभूत विद्युत, मोटर्स, अल्टरनेटर आणि ट्रान्सफॉर्मर बहुपर्यायी प्रश्न.",
     "icon": "Zap",
     "section": "Electrical"
+  },
+  {
+    "id": 73,
+    "name": "Electrician Bharat Skill (Set 3)",
+    "nameMarathi": "इलेक्ट्रीशियन भारत स्किल (संच ३)",
+    "description": "Bharat Skill official apprentice examination set.",
+    "descriptionMarathi": "भारत स्किल अधिकृत अप्रेंटिस परीक्षा सराव संच.",
+    "icon": "Zap",
+    "section": "Electrical"
+  },
+  {
+    "id": 74,
+    "name": "Electrician Bharat Skill 1st Yr (Set 3)",
+    "nameMarathi": "इलेक्ट्रीशियन भारत स्किल १ ले वर्ष (संच ३)",
+    "description": "Bharat Skill official examination set for 1st year.",
+    "descriptionMarathi": "भारत स्किल अधिकृत १ ले वर्ष परीक्षा सराव संच.",
+    "icon": "Zap",
+    "section": "Electrical"
   }
 ];
 
 export const QUESTIONS: Question[] = [
   ...QUESTIONS_AUTO,
-  ...QUESTIONS_ELEC
+  ...QUESTIONS_ELEC,
+  ...QUESTIONS_BHARAT_SKILL,
+  ...QUESTIONS_BHARAT_SKILL_1ST_YR
 ];
