@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { t } from "../utils/i18n";
 import { Question, StateLanguage, SubscriptionConfig } from "../types";
 import * as Icons from "lucide-react";
 import { motion } from "motion/react";
@@ -10,7 +11,7 @@ interface ScorecardProps {
   score: number;
   selectedAnswers: Record<number, string>;
   timeSpentSeconds: number;
-  bilingual: boolean;
+  
   selectedLanguage: StateLanguage;
   onRetake: () => void;
   onDashboard: () => void;
@@ -24,7 +25,7 @@ export default function Scorecard({
   score,
   selectedAnswers,
   timeSpentSeconds,
-  bilingual,
+  
   selectedLanguage,
   onRetake,
   onDashboard,
@@ -98,10 +99,8 @@ export default function Scorecard({
   const getScoreMessage = () => {
     if (percentage >= 85) {
       return {
-        title: bilingual ? "उत्कृष्ट! अप्रतिम कामगिरी!" : "Outstanding! Elite Performance!",
-        desc: bilingual 
-          ? "तुमची ऑटोमोबाईल इंजिनिअरिंग संकल्पनांवर मजबूत पकड आहे. अशीच तयारी सुरू ठेवा!"
-          : "You have an outstanding grip on Automobile Engineering concepts. Keep it up!",
+        title: t(selectedLanguage.code, "outstandingTitle"),
+        desc: t(selectedLanguage.code, "outstandingDesc"),
         color: "text-emerald-400",
         bg: "bg-emerald-500/10",
         border: "border-emerald-500/30",
@@ -109,10 +108,8 @@ export default function Scorecard({
       };
     } else if (percentage >= 60) {
       return {
-        title: bilingual ? "चांगला प्रयत्न! छान!" : "Great Effort! Well Done!",
-        desc: bilingual 
-          ? "तुमची कामगिरी चांगली आहे, परंतु परिपूर्णतेसाठी अजून काही भागांवर लक्ष केंद्रित करण्याची गरज आहे."
-          : "Good performance, but there is still room to sharpen specific details for perfection.",
+        title: t(selectedLanguage.code, "greatTitle"),
+        desc: t(selectedLanguage.code, "greatDesc"),
         color: "text-amber-400",
         bg: "bg-amber-500/10",
         border: "border-amber-500/30",
@@ -120,10 +117,8 @@ export default function Scorecard({
       };
     } else {
       return {
-        title: bilingual ? "अधिक अभ्यासाची गरज!" : "Needs More Study!",
-        desc: bilingual 
-          ? "चिंता करू नका! प्रश्नांची उत्तरे तपासा, संकल्पना समजून घ्या आणि पुन्हा प्रयत्न करा."
-          : "Don't worry! Review the incorrect answers, understand concepts, and try again.",
+        title: t(selectedLanguage.code, "needsStudyTitle"),
+        desc: t(selectedLanguage.code, "needsStudyDesc"),
         color: "text-rose-400",
         bg: "bg-rose-500/10",
         border: "border-rose-500/30",
@@ -173,20 +168,20 @@ export default function Scorecard({
             </svg>
             <div className="absolute flex flex-col items-center">
               <span className="text-3xl font-extrabold font-mono text-slate-900 dark:text-white">{percentage}%</span>
-              <span className="text-[10px] text-slate-500 dark:text-slate-400 uppercase tracking-wider">{bilingual ? "एकूण गुण" : "Overall"}</span>
+              <span className="text-[10px] text-slate-500 dark:text-slate-400 uppercase tracking-wider">{t(selectedLanguage.code, "overallScore")}</span>
             </div>
           </div>
 
           {/* Feedback details */}
           <div className="flex-1 text-center md:text-left">
             <span className="text-[10px] font-bold uppercase tracking-wider text-amber-500 font-mono">
-              {bilingual ? "चाचणी निकाल" : "TEST SCORECARD"}
+              {t(selectedLanguage.code, "testScorecard")}
             </span>
             <h2 className={`text-2xl md:text-3xl font-black font-sans tracking-tight mt-1 mb-2 ${msg.color}`}>
               {msg.title}
             </h2>
             <p className="text-sm text-slate-700 dark:text-slate-300 mb-5 leading-relaxed max-w-xl">
-              {bilingual ? "तुम्ही यशस्वीरित्या चाचणी पूर्ण केली आहे. तुमचे निकाल खालीलप्रमाणे आहेत. तुम्ही सर्व प्रश्नांची अचूक उत्तरे आणि स्पष्टीकरणे खाली पाहू शकता." : "You have successfully completed the mock test. Your complete results are shown below. You can review exact explanations for each question."}
+              {t(selectedLanguage.code, "scorecardDesc")}
             </p>
 
             <div className="flex flex-wrap justify-center md:justify-start gap-4">
@@ -194,13 +189,13 @@ export default function Scorecard({
                 onClick={onRetake}
                 className="px-5 py-2.5 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold rounded-lg text-xs uppercase tracking-wider transition cursor-pointer"
               >
-                {bilingual ? "पुन्हा परीक्षा द्या" : "Retake Test"}
+                {t(selectedLanguage.code, "retakeTest")}
               </button>
               <button
                 onClick={onDashboard}
                 className="px-5 py-2.5 bg-slate-100 dark:bg-slate-800 hover:bg-slate-700 border border-slate-300 dark:border-slate-700 text-slate-800 dark:text-slate-200 font-bold rounded-lg text-xs uppercase tracking-wider transition cursor-pointer"
               >
-                {bilingual ? "डॅशबोर्डवर जा" : "Back to Dashboard"}
+                {t(selectedLanguage.code, "backToDashboard")}
               </button>
             </div>
           </div>
@@ -216,14 +211,10 @@ export default function Scorecard({
             </div>
             <div>
               <h3 className="text-base font-black text-amber-400 mb-1 font-sans">
-                {bilingual 
-                  ? "प्रीमियम सबस्क्रिप्शनसह सर्व २०+ प्रश्न अनलॉक करा!" 
-                  : "Unlock all 20+ Questions with Premium!"}
+                {t(selectedLanguage.code, "unlockPromptTitle")}
               </h3>
               <p className="text-xs text-slate-700 dark:text-slate-300 leading-relaxed max-w-2xl font-medium">
-                {bilingual 
-                  ? "तुम्ही विनामूल्य आवृत्तीमध्ये फक्त ५ डेमो प्रश्न पाहिले आहेत. संपूर्ण अभ्यासक्रम आणि सर्व सराव संच सोडवण्यासाठी आजच प्रीमियम सबस्क्रिप्शन घ्या आणि तुमची यशस्वीतेची खात्री करा!"
-                  : "You only practiced 5 demo questions in the free version. Secure your success by upgrading to Premium to unlock all questions, explanation keys, and mock exams!"}
+                {t(selectedLanguage.code, "unlockPromptText")}
               </p>
             </div>
           </div>
@@ -233,7 +224,7 @@ export default function Scorecard({
               className="px-6 py-3.5 bg-amber-500 hover:bg-amber-400 text-slate-950 font-black rounded-xl text-sm transition-all duration-150 flex items-center justify-center gap-2 shrink-0 cursor-pointer shadow-lg shadow-amber-500/10 group active:scale-[0.98]"
             >
               <Icons.Sparkles className="h-4 w-4 fill-slate-950 text-slate-950 group-hover:scale-110 transition-transform" />
-              <span>{bilingual ? `आता अनलॉक करा (फक्त ₹${subscriptionConfig.amount})` : `Unlock All Now (Only ₹${subscriptionConfig.amount})`}</span>
+              <span>{t(selectedLanguage.code, "unlockAllNow").replace("{amount}", String(subscriptionConfig.amount))}</span>
             </button>
           )}
         </div>
@@ -242,23 +233,23 @@ export default function Scorecard({
       {/* Grid Stats */}
       <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
         <div className="p-4 bg-white dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800/80 rounded-xl text-center">
-          <span className="block text-[10px] text-slate-500 dark:text-slate-400 uppercase mb-1">{bilingual ? "एकूण प्रश्न" : "Total Qs"}</span>
+          <span className="block text-[10px] text-slate-500 dark:text-slate-400 uppercase mb-1">{t(selectedLanguage.code, "totalQs")}</span>
           <span className="text-xl font-bold font-mono text-slate-900 dark:text-white">{questions.length}</span>
         </div>
         <div className="p-4 bg-white dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800/80 rounded-xl text-center">
-          <span className="block text-[10px] text-slate-500 dark:text-slate-400 uppercase mb-1">{bilingual ? "बरोबर" : "Correct"}</span>
+          <span className="block text-[10px] text-slate-500 dark:text-slate-400 uppercase mb-1">{t(selectedLanguage.code, "correct")}</span>
           <span className="text-xl font-bold font-mono text-emerald-400">{correctCount}</span>
         </div>
         <div className="p-4 bg-white dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800/80 rounded-xl text-center">
-          <span className="block text-[10px] text-slate-500 dark:text-slate-400 uppercase mb-1">{bilingual ? "चुकीचे" : "Incorrect"}</span>
+          <span className="block text-[10px] text-slate-500 dark:text-slate-400 uppercase mb-1">{t(selectedLanguage.code, "incorrect")}</span>
           <span className="text-xl font-bold font-mono text-rose-400">{questions.length - correctCount - unansweredCount}</span>
         </div>
         <div className="p-4 bg-white dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800/80 rounded-xl text-center">
-          <span className="block text-[10px] text-slate-500 dark:text-slate-400 uppercase mb-1">{bilingual ? "सोडवून दिले" : "Skipped"}</span>
+          <span className="block text-[10px] text-slate-500 dark:text-slate-400 uppercase mb-1">{t(selectedLanguage.code, "skippedLabel")}</span>
           <span className="text-xl font-bold font-mono text-slate-500">{unansweredCount}</span>
         </div>
         <div className="p-4 bg-white dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800/80 rounded-xl col-span-2 md:col-span-1 text-center">
-          <span className="block text-[10px] text-slate-500 dark:text-slate-400 uppercase mb-1">{bilingual ? "घेतलेला वेळ" : "Time Taken"}</span>
+          <span className="block text-[10px] text-slate-500 dark:text-slate-400 uppercase mb-1">{t(selectedLanguage.code, "timeTaken")}</span>
           <span className="text-xl font-bold font-mono text-amber-400">{formatTime(timeSpentSeconds)}</span>
         </div>
       </div>
@@ -275,20 +266,16 @@ export default function Scorecard({
                   : (isCorrect ? "bg-emerald-500/10 text-emerald-400 border border-emerald-500/20" : "bg-rose-500/10 text-rose-400 border border-rose-500/20")
               }`}>
                 {!selectedAns 
-                  ? (bilingual ? "सोडून दिला (Skipped)" : "Skipped")
-                  : (isCorrect ? (bilingual ? "बरोबर (Correct)" : "Correct") : (bilingual ? "चुकीचे (Incorrect)" : "Incorrect"))}
+                  ? (t(selectedLanguage.code, "skippedValue"))
+                  : (isCorrect ? (t(selectedLanguage.code, "correctValue")) : (t(selectedLanguage.code, "incorrectValue")))}
               </span>
               <span className="text-xs font-mono text-slate-500">Question {reviewIndex + 1} of {questions.length}</span>
             </div>
 
             {currentReviewQuestion && (
-              <h3 className="text-base md:text-lg font-bold text-slate-900 dark:text-white mb-2">{currentReviewQuestion.question}</h3>
+              <h3 className="text-base md:text-lg font-bold text-slate-900 dark:text-white mb-2">{currentReviewQuestion.question[selectedLanguage.code] || currentReviewQuestion.question['en']}</h3>
             )}
-            {currentReviewQuestion && bilingual && currentReviewQuestion.questionMarathi && (
-              <p className="text-sm text-slate-500 dark:text-slate-400 bg-slate-50 dark:bg-slate-950/20 p-3 rounded-lg border border-slate-200 dark:border-slate-900 mb-6 italic font-sans">
-                {currentReviewQuestion.questionMarathi}
-              </p>
-            )}
+            
 
             {currentReviewQuestion && currentReviewQuestion.imageSvg && (
               <div className="flex justify-center my-4 p-4 bg-slate-50 dark:bg-slate-950/40 rounded-xl border border-slate-200 dark:border-slate-800/80">
@@ -298,7 +285,7 @@ export default function Scorecard({
 
             {/* Options grid */}
             <div className="grid grid-cols-1 gap-2.5 mb-6">
-              {currentReviewQuestion && currentReviewQuestion.options.map((opt, idx) => {
+              {currentReviewQuestion && (currentReviewQuestion.options[selectedLanguage.code] || currentReviewQuestion.options['en'] || []).map((opt, idx) => {
                 const char = String.fromCharCode(65 + idx);
                 const isSelected = selectedAns === char;
                 const isCorrectAns = currentReviewQuestion.answer === char;
@@ -320,9 +307,7 @@ export default function Scorecard({
                       </span>
                       <div>
                         <span>{opt}</span>
-                        {currentReviewQuestion && bilingual && currentReviewQuestion.optionsMarathi?.[idx] && (
-                          <span className="block text-[11px] text-slate-500 mt-0.5 italic">{currentReviewQuestion.optionsMarathi[idx]}</span>
-                        )}
+                        
                       </div>
                     </div>
 
@@ -339,20 +324,14 @@ export default function Scorecard({
             <div className="mt-6 pt-5 border-t border-slate-200 dark:border-slate-850">
               <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-3">
                 <Icons.Lightbulb className="h-4 w-4 text-amber-500" />
-                <span>{bilingual ? "स्पष्टीकरण" : "Explanation"}</span>
+                <span>{t(selectedLanguage.code, "explanation")}</span>
               </div>
 
               <div className="space-y-3">
                 <p className="text-xs md:text-sm text-slate-500 dark:text-slate-400 leading-relaxed font-sans">
                   {currentReviewQuestion && currentReviewQuestion.explanation}
                 </p>
-                {currentReviewQuestion && bilingual && currentReviewQuestion.explanationMarathi && (
-                  <div className="pt-2 border-t border-slate-200 dark:border-slate-800">
-                    <p className="text-[11px] md:text-xs text-slate-500 italic leading-relaxed font-sans">
-                      {currentReviewQuestion.explanationMarathi}
-                    </p>
-                  </div>
-                )}
+                
               </div>
             </div>
           </div>
@@ -363,7 +342,7 @@ export default function Scorecard({
           <div className="p-5 bg-white dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 rounded-xl backdrop-blur-md">
             <h4 className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-3 flex items-center gap-1.5">
               <Icons.Eye className="h-4 w-4 text-amber-500" />
-              <span>{bilingual ? "सर्व प्रश्न तपासा" : "Review Panel"}</span>
+              <span>{t(selectedLanguage.code, "reviewPanel")}</span>
             </h4>
 
             <div className="grid grid-cols-5 gap-2">

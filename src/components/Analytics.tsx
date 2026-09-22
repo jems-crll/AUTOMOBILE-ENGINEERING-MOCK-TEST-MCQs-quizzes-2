@@ -1,4 +1,5 @@
 import React from "react";
+import { t } from "../utils/i18n";
 import { QuizAttempt } from "../types";
 import { CHAPTERS } from "../data/questions";
 import {
@@ -14,11 +15,11 @@ import * as Icons from "lucide-react";
 
 interface AnalyticsProps {
   attempts: QuizAttempt[];
-  bilingual: boolean;
+  selectedLanguage: any;
   onClearHistory: () => void;
 }
 
-export default function Analytics({ attempts, bilingual, onClearHistory }: AnalyticsProps) {
+export default function Analytics({ attempts, selectedLanguage, onClearHistory }: AnalyticsProps) {
   if (attempts.length === 0) {
     return (
       <div className="flex flex-col items-center justify-center p-12 bg-white dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800 rounded-xl min-h-[300px] text-center">
@@ -26,12 +27,10 @@ export default function Analytics({ attempts, bilingual, onClearHistory }: Analy
           <Icons.Inbox className="h-8 w-8" />
         </div>
         <h3 className="text-lg font-bold text-slate-700 dark:text-slate-300 mb-1">
-          {bilingual ? "चाचणी इतिहास उपलब्ध नाही" : "No Test History Yet"}
+          {t(selectedLanguage.code, "noTestHistory")}
         </h3>
         <p className="text-xs text-slate-500 max-w-sm">
-          {bilingual 
-            ? "तुमची कामगिरी, गुण प्रगती आणि सरासरीची माहिती मिळवण्यासाठी आधी मॉक टेस्ट पूर्ण करा." 
-            : "Take a few chapter-wise mock tests to generate performance trends, progress graphs, and strengths metrics."}
+          {t(selectedLanguage.code, "noTestHistoryDesc")}
         </p>
       </div>
     );
@@ -41,7 +40,7 @@ export default function Analytics({ attempts, bilingual, onClearHistory }: Analy
   const chartData = attempts.map((a, idx) => ({
     name: `#${idx + 1}`,
     score: Math.round((a.score / a.totalQuestions) * 100),
-    date: new Date(a.date).toLocaleDateString(bilingual ? "mr-IN" : "en-US", {
+    date: new Date(a.date).toLocaleDateString(selectedLanguage.code === "mr" ? "mr-IN" : selectedLanguage.code === "hi" ? "hi-IN" : "en-US", {
       month: "short",
       day: "numeric",
     }),
@@ -58,7 +57,7 @@ export default function Analytics({ attempts, bilingual, onClearHistory }: Analy
         const ch = CHAPTERS.find((c) => c.id === a.chapterId);
         chapterTotals[a.chapterId] = {
           scores: [],
-          name: ch ? (bilingual ? ch.nameMarathi : ch.name) : `Chapter ${a.chapterId}`,
+          name: ch ? (ch.nameTranslated || ch.name) : `Chapter ${a.chapterId}`,
         };
       }
       chapterTotals[a.chapterId].scores.push((a.score / a.totalQuestions) * 100);
@@ -102,19 +101,19 @@ export default function Analytics({ attempts, bilingual, onClearHistory }: Analy
       {/* Upper Grid stats */}
       <div className="flex items-center justify-between gap-4">
         <div>
-          <h2 className="text-2xl font-bold text-slate-900 dark:text-white tracking-tight">{bilingual ? "प्रगती आणि विश्लेषण" : "Performance Analytics"}</h2>
-          <p className="text-xs text-slate-500 mt-0.5">{bilingual ? "तुमच्या गुणांचे सविस्तर आलेख आणि प्रगती अहवाल" : "Bilingual review of test progression and target learning zones"}</p>
+          <h2 className="text-2xl font-bold text-slate-900 dark:text-white tracking-tight">{t(selectedLanguage.code, "performanceAnalytics")}</h2>
+          <p className="text-xs text-slate-500 mt-0.5">{t(selectedLanguage.code, "performanceAnalyticsDesc")}</p>
         </div>
         <button
           onClick={() => {
-            if (window.confirm(bilingual ? "तुम्हाला खरोखर सर्व इतिहास पुसून टाकायचा आहे का?" : "Are you sure you want to clear your test history? This cannot be undone.")) {
+            if (window.confirm(t(selectedLanguage.code, "confirmClearHistory"))) {
               onClearHistory();
             }
           }}
           className="px-3.5 py-1.5 bg-rose-500/10 hover:bg-rose-500/20 text-rose-400 border border-rose-500/20 rounded-lg text-xs font-semibold flex items-center gap-1.5 transition cursor-pointer"
         >
           <Icons.Trash2 className="h-3.5 w-3.5" />
-          <span>{bilingual ? "इतिहास पुसा" : "Clear History"}</span>
+          <span>{t(selectedLanguage.code, "clearHistory")}</span>
         </button>
       </div>
 
@@ -123,7 +122,7 @@ export default function Analytics({ attempts, bilingual, onClearHistory }: Analy
         <div className="lg:col-span-2 p-5 bg-white dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 rounded-xl backdrop-blur-md flex flex-col justify-between">
           <h3 className="text-sm font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-6 flex items-center gap-2">
             <Icons.TrendingUp className="h-4 w-4 text-amber-500" />
-            <span>{bilingual ? "गुण प्रगती आलेख" : "Score Progression Trend"}</span>
+            <span>{t(selectedLanguage.code, "scoreProgressionTrend")}</span>
           </h3>
 
           <div className="h-[240px] w-full font-mono text-xs">
@@ -152,7 +151,7 @@ export default function Analytics({ attempts, bilingual, onClearHistory }: Analy
           <div className="p-5 bg-white dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 rounded-xl backdrop-blur-md flex-1">
             <h3 className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-4 flex items-center gap-2">
               <Icons.CheckCircle className="h-4 w-4 text-emerald-400" />
-              <span>{bilingual ? "मजबूत विषय (Score ≥ 70%)" : "Strong Areas (Score ≥ 70%)"}</span>
+              <span>{t(selectedLanguage.code, "strongAreas")}</span>
             </h3>
 
             {hasData && strengths.length > 0 ? (
@@ -166,7 +165,7 @@ export default function Analytics({ attempts, bilingual, onClearHistory }: Analy
               </div>
             ) : (
               <p className="text-xs text-slate-500 italic py-2">
-                {bilingual ? "अद्याप पुरेसा डेटा नाही." : "No chapters identified yet. Achieve 70% or higher to list here."}
+                {t(selectedLanguage.code, "noStrongAreas")}
               </p>
             )}
           </div>
@@ -175,7 +174,7 @@ export default function Analytics({ attempts, bilingual, onClearHistory }: Analy
           <div className="p-5 bg-white dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 rounded-xl backdrop-blur-md flex-1">
             <h3 className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-4 flex items-center gap-2">
               <Icons.AlertTriangle className="h-4 w-4 text-rose-400" />
-              <span>{bilingual ? "अभ्यासाची गरज (Score < 70%)" : "Target Zones (Score < 70%)"}</span>
+              <span>{t(selectedLanguage.code, "targetZones")}</span>
             </h3>
 
             {hasData && weaknesses.length > 0 ? (
@@ -189,7 +188,7 @@ export default function Analytics({ attempts, bilingual, onClearHistory }: Analy
               </div>
             ) : (
               <p className="text-xs text-slate-500 italic py-2">
-                {bilingual ? "अभ्यासाची गरज असलेला कोणताही विशिष्ट विषय नाही!" : "No target zones identified. Keep practicing to locate improvement focus."}
+                {t(selectedLanguage.code, "noTargetZones")}
               </p>
             )}
           </div>
@@ -200,17 +199,17 @@ export default function Analytics({ attempts, bilingual, onClearHistory }: Analy
       <div className="p-5 bg-white dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 rounded-xl backdrop-blur-md">
         <h3 className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-4 flex items-center gap-2">
           <Icons.History className="h-4 w-4 text-blue-400" />
-          <span>{bilingual ? "सर्व चाचणी इतिहास" : "Detailed Attempt Log"}</span>
+          <span>{t(selectedLanguage.code, "detailedAttemptLog")}</span>
         </h3>
 
         <div className="overflow-x-auto">
           <table className="w-full text-left text-xs border-collapse">
             <thead>
               <tr className="border-b border-slate-200 dark:border-slate-800 text-slate-500 font-bold uppercase tracking-wider">
-                <th className="pb-3 pr-4">{bilingual ? "तारीख" : "Date"}</th>
-                <th className="pb-3 pr-4">{bilingual ? "विषय" : "Chapter"}</th>
-                <th className="pb-3 pr-4 text-center">{bilingual ? "गुण" : "Score"}</th>
-                <th className="pb-3 text-center">{bilingual ? "वेळ" : "Time Spent"}</th>
+                <th className="pb-3 pr-4">{t(selectedLanguage.code, "dateLabel")}</th>
+                <th className="pb-3 pr-4">{t(selectedLanguage.code, "chapterLabel")}</th>
+                <th className="pb-3 pr-4 text-center">{t(selectedLanguage.code, "scoreLabel")}</th>
+                <th className="pb-3 text-center">{t(selectedLanguage.code, "timeSpentLabel")}</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-slate-800/60 font-sans">
@@ -222,7 +221,7 @@ export default function Analytics({ attempts, bilingual, onClearHistory }: Analy
                 return (
                   <tr key={a.id} className="text-slate-700 dark:text-slate-300 hover:bg-white dark:bg-slate-900/20">
                     <td className="py-3.5 pr-4 font-mono text-slate-500 dark:text-slate-400">
-                      {new Date(a.date).toLocaleDateString(bilingual ? "mr-IN" : "en-US", {
+                      {new Date(a.date).toLocaleDateString(selectedLanguage.code === "mr" ? "mr-IN" : selectedLanguage.code === "hi" ? "hi-IN" : "en-US", {
                         year: "numeric",
                         month: "short",
                         day: "numeric",

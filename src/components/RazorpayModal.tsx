@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import * as Icons from "lucide-react";
 import { User, StateLanguage, SubscriptionConfig } from "../types";
+import { t } from "../utils/i18n";
 
 interface RazorpayModalProps {
   isOpen: boolean;
@@ -30,8 +31,6 @@ export default function RazorpayModal({
   const [isApplyingCoupon, setIsApplyingCoupon] = useState(false);
   const [couponMessage, setCouponMessage] = useState<{ text: string; type: "success" | "error" } | null>(null);
 
-  const isMarathi = selectedLanguage.code === "mr";
-  
   const currentAmount = Math.round(subscriptionConfig.amount * (1 - couponDiscount / 100));
 
   const isTestingEnv = typeof window !== "undefined" && (
@@ -62,15 +61,13 @@ export default function RazorpayModal({
       if (data.success && data.valid) {
         setCouponDiscount(data.discountPercent);
         setCouponMessage({
-          text: isMarathi 
-            ? `अभिनंदन! ${data.discountPercent}% सवलत लागू झाली.` 
-            : `Success! ${data.discountPercent}% discount applied.`,
+          text: t(selectedLanguage.code, "couponApplied").replace("{percent}", data.discountPercent.toString()),
           type: "success"
         });
       } else {
         setCouponDiscount(0);
         setCouponMessage({
-          text: isMarathi ? "अवैध कूपन कोड!" : "Invalid coupon code!",
+          text: t(selectedLanguage.code, "invalidCoupon"),
           type: "error"
         });
       }
@@ -119,7 +116,7 @@ export default function RazorpayModal({
         amount: orderData.amount,
         currency: orderData.currency,
         name: "Automobile Engg. Premium",
-        description: "Bilingual Automobile Premium Pack",
+        description: "Automobile Premium Pack",
         order_id: orderData.id,
         handler: async function (response: any) {
           console.log("Razorpay Checkout payment response:", response);
@@ -179,7 +176,7 @@ export default function RazorpayModal({
       const rzp = new (window as any).Razorpay(options);
       rzp.on("payment.failed", function (resp: any) {
         console.error("Razorpay Payment Failed:", resp?.error);
-        setTxnError(isMarathi ? "पेमेंट अयशस्वी झाले. कृपया पुन्हा प्रयत्न करा." : `Payment failed: ${resp?.error?.description || "Transaction was not completed."}`);
+        setTxnError(selectedLanguage.code === "mr" ? "पेमेंट अयशस्वी झाले. कृपया पुन्हा प्रयत्न करा." : `Payment failed: ${resp?.error?.description || "Transaction was not completed."}`);
       });
       rzp.open();
     } catch (err: any) {
@@ -199,7 +196,7 @@ export default function RazorpayModal({
           <div className="flex items-center gap-2">
             <Icons.Crown className="h-5 w-5 text-amber-500 fill-amber-500/10" />
             <h3 className="font-extrabold text-slate-900 dark:text-white text-lg font-sans">
-              {isMarathi ? "प्रीमियम पॅक अनलॉक करा" : "Unlock Premium Features"}
+              {t(selectedLanguage.code, "unlockPremiumTitle")}
             </h3>
           </div>
           <button
@@ -217,16 +214,14 @@ export default function RazorpayModal({
             </div>
             <div>
               <h4 className="text-xl font-bold text-slate-900 dark:text-white mb-1">
-                {isMarathi ? "पेमेंट यशस्वीरित्या सबमिट झाले!" : "Payment Verified Successfully!"}
+                {t(selectedLanguage.code, "paymentSuccessTitle")}
               </h4>
               <p className="text-xs text-slate-500 dark:text-slate-400 px-4">
-                {isMarathi 
-                  ? "तुमचे प्रीमियम सबस्क्रिप्शन सुरू करण्यात आले आहे. सर्व प्रगत सराव संच, उत्तरे आणि स्पष्टीकरणे अनलॉक झाले आहेत!" 
-                  : "Your Premium access is now fully active. All advanced sets, answers, and detailed explanations are unlocked!"}
+                {t(selectedLanguage.code, "paymentSuccessDesc")}
               </p>
             </div>
             <div className="px-3 py-1.5 bg-emerald-500/10 text-emerald-400 rounded-lg text-[10px] font-mono uppercase tracking-widest font-bold flex flex-col gap-0.5">
-              <span>{isMarathi ? "सक्रिय आयडी:" : "ACTIVATION ID:"}</span>
+              <span>{t(selectedLanguage.code, "activationId")}</span>
               <span className="text-slate-900 dark:text-white select-all">{txnId || "PROMO_OMTO"}</span>
             </div>
           </div>
@@ -241,12 +236,10 @@ export default function RazorpayModal({
                     {subscriptionConfig.billingPeriod.toUpperCase()} ACCESS
                   </span>
                   <h4 className="font-black text-slate-900 dark:text-slate-100 text-base mt-2 font-sans leading-tight">
-                    {isMarathi ? subscriptionConfig.detailsMr : subscriptionConfig.detailsEn}
+                    {selectedLanguage.code === "mr" ? subscriptionConfig.detailsMr : subscriptionConfig.detailsEn}
                   </h4>
                   <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
-                    {isMarathi 
-                      ? "सर्व धड्यांचे सराव संच, उत्तरे, प्रगत मॉक टेस्ट आणि सविस्तर स्पष्टीकरणांसह" 
-                      : "Full access to all chapters, practice sets, answers & detailed explanations"}
+                    {t(selectedLanguage.code, "fullAccessDesc")}
                   </p>
                 </div>
                 <div className="text-right">
@@ -255,7 +248,7 @@ export default function RazorpayModal({
                   )}
                   <div className="text-xl font-black text-slate-900 dark:text-white">₹{currentAmount}</div>
                   {discountPercent > 0 && (
-                    <div className="text-[10px] text-emerald-400 font-bold">{isMarathi ? `${discountPercent}% सूट` : `${discountPercent}% OFF`}</div>
+                    <div className="text-[10px] text-emerald-400 font-bold">{selectedLanguage.code === "mr" ? `${discountPercent}% सूट` : `${discountPercent}% OFF`}</div>
                   )}
                 </div>
               </div>
@@ -276,16 +269,14 @@ export default function RazorpayModal({
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-1.5 text-indigo-400 text-xs font-bold">
                     <Icons.ShieldAlert className="h-4 w-4" />
-                    <span>{isMarathi ? "चाचणी सिम्युलेटर" : "Reviewer Sandbox Mode"}</span>
+                    <span>{t(selectedLanguage.code, "sandboxMode")}</span>
                   </div>
                   <span className="text-[9px] bg-indigo-500/20 text-indigo-300 px-2 py-0.5 rounded-full font-mono uppercase tracking-wider font-bold">
                     ACTIVE
                   </span>
                 </div>
                 <p className="text-[10.5px] text-slate-700 dark:text-slate-300 leading-relaxed font-sans">
-                  {isMarathi
-                    ? "तुम्ही चाचणी पर्यावरणामध्ये आहात. लाइव्ह पेमेंट गेटवे बंद असल्यास किंवा अडचण आल्यास, खालील बटणावर क्लिक करून त्वरित प्रीमियम अनलॉक करू शकता."
-                    : "You are in a preview/testing environment. If the live payment gateway has issues or is closed, click the button below to instantly unlock Premium Features."}
+                  {t(selectedLanguage.code, "sandboxDesc")}
                 </p>
                 <button
                   type="button"
@@ -327,7 +318,7 @@ export default function RazorpayModal({
                   className="w-full py-2.5 bg-indigo-600 hover:bg-indigo-700 hover:text-slate-900 dark:text-white text-slate-900 dark:text-white text-xs font-black rounded-xl transition flex items-center justify-center gap-1.5 cursor-pointer shadow-lg shadow-indigo-600/10"
                 >
                   <Icons.Zap className="h-3.5 w-3.5 fill-current" />
-                  <span>{isMarathi ? "इन्स्टंट प्रीमियम अनलॉक करा (चाचणी)" : "Simulate Instant Success (Demo)"}</span>
+                  <span>{t(selectedLanguage.code, "simulateSuccess")}</span>
                 </button>
               </div>
             )}
@@ -335,12 +326,12 @@ export default function RazorpayModal({
             {/* Coupon Code Section */}
             <div className="p-4 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-850 rounded-2xl space-y-3">
               <label className="text-[10px] font-bold text-slate-500 uppercase tracking-wider block">
-                {isMarathi ? "कूपन कोड आहे का?" : "Have a Coupon Code?"}
+                {t(selectedLanguage.code, "haveCoupon")}
               </label>
               <div className="flex gap-2">
                 <input
                   type="text"
-                  placeholder={isMarathi ? "उदा. SAVE50" : "e.g. SAVE50"}
+                  placeholder={t(selectedLanguage.code, "couponPlaceholder")}
                   value={couponCode}
                   onChange={(e) => setCouponCode(e.target.value.toUpperCase().trim())}
                   className="flex-1 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-slate-100 rounded-xl px-3 py-2 text-xs focus:outline-none focus:border-amber-500 transition font-mono font-bold"
@@ -351,7 +342,7 @@ export default function RazorpayModal({
                   disabled={isApplyingCoupon || !couponCode.trim()}
                   className="px-4 py-2 bg-slate-100 dark:bg-slate-800 hover:bg-slate-700 disabled:bg-white dark:bg-slate-900 text-amber-500 text-[10px] font-black rounded-xl border border-slate-300 dark:border-slate-700 transition cursor-pointer select-none"
                 >
-                  {isApplyingCoupon ? <Icons.Loader2 className="h-3 w-3 animate-spin" /> : (isMarathi ? "लागू करा" : "APPLY")}
+                  {isApplyingCoupon ? <Icons.Loader2 className="h-3 w-3 animate-spin" /> : t(selectedLanguage.code, "apply")}
                 </button>
               </div>
               {couponMessage && (
@@ -366,12 +357,10 @@ export default function RazorpayModal({
             <div className="bg-amber-500/5 border border-amber-500/20 p-3 rounded-2xl space-y-1">
               <div className="flex items-center gap-1.5 text-amber-400 text-xs font-bold">
                 <Icons.Zap className="h-4 w-4" />
-                <span>{isMarathi ? "इन्स्टंट प्रीमियम अ‍ॅक्सेस" : "Instant Premium Access"}</span>
+                <span>{t(selectedLanguage.code, "instantAccess")}</span>
               </div>
               <p className="text-[11px] text-slate-700 dark:text-slate-300 leading-relaxed">
-                {isMarathi
-                  ? `प्रीमियम फीचर्स वापरण्यासाठी खालील लिंकवर क्लिक करून ₹${currentAmount} पेमेंट पूर्ण करा. पेमेंट यशस्वी झाल्यावर तुमचे खाते लगेच प्रीमियम मध्ये अपग्रेड होईल.`
-                  : `To unlock premium features, click the button below to complete your payment of ₹${currentAmount}. Your account will be instantly upgraded upon successful payment.`}
+                {t(selectedLanguage.code, "paymentInstruction")}
               </p>
             </div>
 
@@ -387,12 +376,12 @@ export default function RazorpayModal({
                 {isProcessing ? (
                   <>
                     <Icons.Loader2 className="h-5 w-5 animate-spin" />
-                    <span className="text-sm">{isMarathi ? "पेमेंट सुरु आहे..." : "Processing Payment..."}</span>
+                    <span className="text-sm">{t(selectedLanguage.code, "processingPayment")}</span>
                   </>
                 ) : (
                   <>
                     <Icons.CreditCard className="h-5 w-5" />
-                    <span className="text-sm">{isMarathi ? `₹${currentAmount} भरा आणि प्रीमियम सुरु करा` : `Pay ₹${currentAmount} & Unlock`}</span>
+                    <span className="text-sm">{t(selectedLanguage.code, "payAndUnlock").replace("{amount}", currentAmount.toString())}</span>
                   </>
                 )}
               </button>

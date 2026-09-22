@@ -48,7 +48,7 @@ export default function Dashboard({
     return null;
   });
   
-  const isMarathi = selectedLanguage.code === "mr";
+  
   const isDemoMode = !currentUser?.isPremium;
 
   // Analytics
@@ -74,16 +74,16 @@ export default function Dashboard({
   }
 
   // Set default texts to perfectly match Marathi user request
-  let headerText = isMarathi ? "येथून सुरुवात करा" : "Start Here";
-  let titleText = isMarathi ? "ऑटोमोबाईल संच 1 (प्र 1 ते 50)" : "Automobile Set 1 (Q 1 - 50)";
-  let descText = isMarathi ? "पहिल्या विषयापासून तुमचा सराव सुरु करा." : "Begin your practice from the first chapter.";
-  let btnText = isMarathi ? "सराव सुरू करा" : "Start Practice";
+  let headerText = selectedLanguage.code === "mr" ? "येथून सुरुवात करा" : "Start Here";
+  let titleText = selectedLanguage.code === "mr" ? "ऑटोमोबाईल संच 1 (प्र 1 ते 50)" : "Automobile Set 1 (Q 1 - 50)";
+  let descText = selectedLanguage.code === "mr" ? "पहिल्या विषयापासून तुमचा सराव सुरु करा." : "Begin your practice from the first chapter.";
+  let btnText = selectedLanguage.code === "mr" ? "सराव सुरू करा" : "Start Practice";
 
   if (lastAttempt) {
-    headerText = isMarathi ? "शेवटचा सराव (चालू ठेवा)" : "Resume Practice";
+    headerText = selectedLanguage.code === "mr" ? "शेवटचा सराव (चालू ठेवा)" : "Resume Practice";
     titleText = lastAttempt.chapterName;
-    descText = isMarathi ? "तुमचा शेवटचा सराव पुढे चालू ठेवा किंवा नवीन विषय निवडा." : "Pick up where you left off or review your last test.";
-    btnText = isMarathi ? "सराव सुरू ठेवा" : "Continue Practice";
+    descText = selectedLanguage.code === "mr" ? "तुमचा शेवटचा सराव पुढे चालू ठेवा किंवा नवीन विषय निवडा." : "Pick up where you left off or review your last test.";
+    btnText = selectedLanguage.code === "mr" ? "सराव सुरू ठेवा" : "Continue Practice";
   }
 
   // Automobile Sections
@@ -130,7 +130,7 @@ export default function Dashboard({
              </div>
              <div>
                <p className="text-[10px] uppercase tracking-wider text-slate-500 font-bold mb-0.5">
-                 {isMarathi ? "दिलेल्या चाचण्या" : "Tests Taken"}
+                 {selectedLanguage.code === "mr" ? "दिलेल्या चाचण्या" : "Tests Taken"}
                </p>
                <p className="text-xl font-black text-slate-900 dark:text-white leading-none">{totalTests}</p>
              </div>
@@ -141,7 +141,7 @@ export default function Dashboard({
              </div>
              <div>
                <p className="text-[10px] uppercase tracking-wider text-slate-500 font-bold mb-0.5">
-                 {isMarathi ? "सरासरी गुण" : "Avg Score"}
+                 {selectedLanguage.code === "mr" ? "सरासरी गुण" : "Avg Score"}
                </p>
                <p className="text-xl font-black text-slate-900 dark:text-white leading-none">{averageScore}%</p>
              </div>
@@ -161,29 +161,28 @@ export default function Dashboard({
               <div className="flex items-center gap-2">
                 <span className="flex h-2 w-2 rounded-full bg-amber-500 animate-ping" />
                 <span className="text-xs font-bold text-amber-400 uppercase tracking-wide">
-                  {isMarathi ? "अपूर्ण चाचणी (चालू ठेवा)" : "Active Incomplete Test"}
+                  {selectedLanguage.code === "mr" ? "अपूर्ण चाचणी (चालू ठेवा)" : "Active Incomplete Test"}
                 </span>
               </div>
               <h2 className="text-xl sm:text-2xl font-black">
                 {(() => {
                   if (activeQuizState.chapterId === "all") {
-                    return isMarathi ? "सर्व चॅप्टर (पूर्ण अभ्यासक्रम)" : "All Chapters Mixed";
+                    return selectedLanguage.code === "mr" ? "सर्व चॅप्टर (पूर्ण अभ्यासक्रम)" : "All Chapters Mixed";
                   }
                   const activeCh = CHAPTERS.find(c => c.id === activeQuizState.chapterId);
-                  let name = activeCh ? (isMarathi ? activeCh.nameMarathi : activeCh.name) : `Chapter ${activeQuizState.chapterId}`;
+                  let name = activeCh ? (activeCh.nameTranslated || (selectedLanguage.code === "mr" ? activeCh.nameMarathi : activeCh.name)) : `Chapter ${activeQuizState.chapterId}`;
                   if (activeQuizState.setId && activeQuizState.setId !== "all") {
-                    name += ` - ${isMarathi ? `संच ${activeQuizState.setId}` : `Set ${activeQuizState.setId}`}`;
+                    name += ` - ${selectedLanguage.code === "mr" ? `संच ${activeQuizState.setId}` : `Set ${activeQuizState.setId}`}`;
                   }
                   return name;
                 })()}
               </h2>
               <p className="text-slate-300 text-sm max-w-xl">
-                {isMarathi 
-                  ? `तुम्ही एकूण ${activeQuizState.questions.length} पैकी ${activeQuizState.currentIndex + 1} प्रश्नांवर आहात. अर्धवट सोडलेली ही चाचणी पूर्ण करा.`
+                {selectedLanguage.code === "mr" ? `तुम्ही एकूण ${activeQuizState.questions.length} पैकी ${activeQuizState.currentIndex + 1} प्रश्नांवर आहात. अर्धवट सोडलेली ही चाचणी पूर्ण करा.`
                   : `You are on question ${activeQuizState.currentIndex + 1} of ${activeQuizState.questions.length}. Finish your incomplete test.`}
               </p>
               <div className="text-xs text-amber-400/80 font-mono">
-                {isMarathi ? "मोड:" : "Mode:"} {activeQuizState.mode === "exam" ? (isMarathi ? "परीक्षा" : "Exam") : (isMarathi ? "सराव" : "Practice")}
+                {selectedLanguage.code === "mr" ? "मोड:" : "Mode:"} {activeQuizState.mode === "exam" ? (selectedLanguage.code === "mr" ? "परीक्षा" : "Exam") : (selectedLanguage.code === "mr" ? "सराव" : "Practice")}
               </div>
             </div>
 
@@ -203,11 +202,11 @@ export default function Dashboard({
                 className="bg-amber-500 hover:bg-amber-400 text-slate-950 font-black px-6 py-3 rounded-xl transition flex items-center gap-2 shadow-lg shadow-amber-500/20 active:scale-95 cursor-pointer text-sm"
               >
                 <Icons.Play className="w-4 h-4 fill-current" />
-                {isMarathi ? "चाचणी येथूनच पुढे सुरू करा" : "Resume Test"}
+                {selectedLanguage.code === "mr" ? "चाचणी येथूनच पुढे सुरू करा" : "Resume Test"}
               </button>
               <button
                 onClick={() => {
-                  if (window.confirm(isMarathi ? "तुम्हाला ही अपूर्ण चाचणी रद्द करायची आहे का?" : "Are you sure you want to discard this incomplete test?")) {
+                  if (window.confirm(selectedLanguage.code === "mr" ? "तुम्हाला ही अपूर्ण चाचणी रद्द करायची आहे का?" : "Are you sure you want to discard this incomplete test?")) {
                     try {
                       localStorage.removeItem("omto_active_quiz_state");
                       setActiveQuizState(null);
@@ -218,7 +217,7 @@ export default function Dashboard({
                 }}
                 className="px-4 py-3 border border-slate-700 hover:bg-slate-850 text-slate-300 hover:text-white rounded-xl transition text-xs font-bold cursor-pointer"
               >
-                {isMarathi ? "चाचणी रद्द करा" : "Discard"}
+                {selectedLanguage.code === "mr" ? "चाचणी रद्द करा" : "Discard"}
               </button>
             </div>
           </div>
@@ -234,7 +233,7 @@ export default function Dashboard({
               <div className="flex items-center gap-2">
                 <Icons.Award className="h-4 w-4 text-emerald-400" />
                 <span className="text-xs font-bold text-emerald-400 uppercase tracking-wide">
-                  {isMarathi ? "मागील पूर्ण केलेला सराव" : "Previous Completed Practice"}
+                  {selectedLanguage.code === "mr" ? "मागील पूर्ण केलेला सराव" : "Previous Completed Practice"}
                 </span>
               </div>
               <h2 className="text-xl sm:text-2xl font-black">
@@ -243,14 +242,13 @@ export default function Dashboard({
               <p className="text-slate-300 text-sm max-w-xl">
                 {(() => {
                   const lastCh = CHAPTERS.find(c => c.id === lastAttempt.chapterId);
-                  const lastSection = lastCh?.section === "Electrical" ? (isMarathi ? "इलेक्ट्रिकल" : "Electrical") : (isMarathi ? "ऑटोमोबाईल" : "Automobile");
-                  return isMarathi
-                    ? `विभाग: ${lastSection} | प्राप्त गुण: ${lastAttempt.score} / ${lastAttempt.totalQuestions} (${Math.round((lastAttempt.score / lastAttempt.totalQuestions) * 100)}%)`
+                  const lastSection = lastCh?.section === "Electrical" ? (selectedLanguage.code === "mr" ? "इलेक्ट्रिकल" : "Electrical") : (selectedLanguage.code === "mr" ? "ऑटोमोबाईल" : "Automobile");
+                  return selectedLanguage.code === "mr" ? `विभाग: ${lastSection} | प्राप्त गुण: ${lastAttempt.score} / ${lastAttempt.totalQuestions} (${Math.round((lastAttempt.score / lastAttempt.totalQuestions) * 100)}%)`
                     : `Section: ${lastSection} | Score: ${lastAttempt.score} / ${lastAttempt.totalQuestions} (${Math.round((lastAttempt.score / lastAttempt.totalQuestions) * 100)}%)`;
                 })()}
               </p>
               <div className="text-xs text-slate-400 font-mono">
-                {isMarathi ? "दिनांक:" : "Date:"} {new Date(lastAttempt.date).toLocaleDateString(isMarathi ? 'mr-IN' : 'en-US')} | {isMarathi ? "गेलेला वेळ:" : "Time spent:"} {Math.round(lastAttempt.timeSpentSeconds / 60)} {isMarathi ? "मि" : "min"}
+                {selectedLanguage.code === "mr" ? "दिनांक:" : "Date:"} {new Date(lastAttempt.date).toLocaleDateString(selectedLanguage.code === "mr" ? 'mr-IN' : 'en-US')} | {selectedLanguage.code === "mr" ? "गेलेला वेळ:" : "Time spent:"} {Math.round(lastAttempt.timeSpentSeconds / 60)} {selectedLanguage.code === "mr" ? "मि" : "min"}
               </div>
             </div>
 
@@ -268,7 +266,7 @@ export default function Dashboard({
               className="bg-emerald-600 hover:bg-emerald-500 text-slate-950 font-black px-6 py-3 rounded-xl transition flex items-center gap-2 shadow-lg shadow-emerald-500/20 active:scale-95 cursor-pointer text-sm shrink-0 w-fit"
             >
               <Icons.RotateCcw className="w-4 h-4" />
-              {isMarathi ? "पुन्हा सराव सुरू करा" : "Restart Practice"}
+              {selectedLanguage.code === "mr" ? "पुन्हा सराव सुरू करा" : "Restart Practice"}
             </button>
           </div>
         </div>
@@ -282,14 +280,14 @@ export default function Dashboard({
             <div className="flex items-center gap-2">
               <Icons.Star className="h-4 w-4 text-amber-400" />
               <span className="text-xs font-bold text-amber-400 uppercase tracking-wide">
-                {isMarathi ? "येथून सुरुवात करा" : "Start Here"}
+                {selectedLanguage.code === "mr" ? "येथून सुरुवात करा" : "Start Here"}
               </span>
             </div>
             <h2 className="text-xl sm:text-2xl font-black">
-              {isMarathi ? "ऑटोमोबाईल संच 1 (प्र 1 ते 50)" : "Automobile Set 1 (Q 1 - 50)"}
+              {selectedLanguage.code === "mr" ? "ऑटोमोबाईल संच 1 (प्र 1 ते 50)" : "Automobile Set 1 (Q 1 - 50)"}
             </h2>
             <p className="text-slate-300 text-sm max-w-xl pb-4">
-              {isMarathi ? "पहिल्या विषयापासून तुमचा सराव सुरु करा." : "Begin your professional practice from the very first chapter."}
+              {selectedLanguage.code === "mr" ? "पहिल्या विषयापासून तुमचा सराव सुरु करा." : "Begin your professional practice from the very first chapter."}
             </p>
             <button 
               onClick={() => {
@@ -305,7 +303,7 @@ export default function Dashboard({
               className="bg-amber-500 hover:bg-amber-400 text-slate-950 font-black px-6 py-3 rounded-xl transition flex items-center gap-2 shadow-lg shadow-amber-500/20 active:scale-95 cursor-pointer text-sm w-fit"
             >
               <Icons.Play className="w-4 h-4 fill-current" />
-              {isMarathi ? "सराव सुरू करा" : "Start Practice"}
+              {selectedLanguage.code === "mr" ? "सराव सुरू करा" : "Start Practice"}
             </button>
           </div>
         </div>
@@ -324,10 +322,10 @@ export default function Dashboard({
           >
             <div className="text-center space-y-2 mb-2">
               <h3 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white tracking-tight">
-                {isMarathi ? "अभ्यास विषय निवडा" : "Select Your Subject"}
+                {selectedLanguage.code === "mr" ? "अभ्यास विषय निवडा" : "Select Your Subject"}
               </h3>
               <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 max-w-md mx-auto">
-                {isMarathi ? "सराव सुरू करण्यासाठी खालीलपैकी एक विषय निवडा." : "Choose one of the core professional subjects below to start practice sets."}
+                {selectedLanguage.code === "mr" ? "सराव सुरू करण्यासाठी खालीलपैकी एक विषय निवडा." : "Choose one of the core professional subjects below to start practice sets."}
               </p>
             </div>
 
@@ -350,15 +348,14 @@ export default function Dashboard({
                     Automobile Engineering
                   </h4>
                   <p className="text-sm text-slate-500 dark:text-slate-400 max-w-lg leading-relaxed font-medium">
-                    {isMarathi 
-                      ? `${automobileSections.length} मुख्य सेक्शन्स, ${automobileChapters.length} चॅप्टर्स आणि सर्व ऑटोमोबाईलचे ५० प्रश्नांचे सराव संच.` 
+                    {selectedLanguage.code === "mr" ? `${automobileSections.length} मुख्य सेक्शन्स, ${automobileChapters.length} चॅप्टर्स आणि सर्व ऑटोमोबाईलचे ५० प्रश्नांचे सराव संच.` 
                       : `${automobileSections.length} core sections, ${automobileChapters.length} chapters, with multiple practice sets of 50 questions each.`}
                   </p>
                 </div>
               </div>
               <div className="flex items-center gap-3 self-end sm:self-auto shrink-0">
                 <span className="text-xs font-mono font-bold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 px-4 py-2 rounded-full border border-slate-200 dark:border-slate-700/50">
-                  {automobileChapters.length} {isMarathi ? "विषय" : "Chapters"}
+                  {automobileChapters.length} {selectedLanguage.code === "mr" ? "विषय" : "Chapters"}
                 </span>
                 <div className="p-2.5 bg-slate-100 dark:bg-slate-800 text-slate-400 group-hover:text-amber-500 group-hover:bg-amber-500/10 rounded-xl transition-all">
                   <Icons.ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
@@ -385,15 +382,14 @@ export default function Dashboard({
                     Electrical Engineering
                   </h4>
                   <p className="text-sm text-slate-500 dark:text-slate-400 max-w-lg leading-relaxed font-medium">
-                    {isMarathi 
-                      ? `मूलभूत विद्युतशास्त्र, ${electricalChapters.length} चॅप्टर्स आणि सर्व इलेक्ट्रिकलचे ५० प्रश्नांचे सराव संच.` 
+                    {selectedLanguage.code === "mr" ? `मूलभूत विद्युतशास्त्र, ${electricalChapters.length} चॅप्टर्स आणि सर्व इलेक्ट्रिकलचे ५० प्रश्नांचे सराव संच.` 
                       : `Basics of electricity, machines, ${electricalChapters.length} chapters, and tests of 50 questions each.`}
                   </p>
                 </div>
               </div>
               <div className="flex items-center gap-3 self-end sm:self-auto shrink-0">
                 <span className="text-xs font-mono font-bold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 px-4 py-2 rounded-full border border-slate-200 dark:border-slate-700/50">
-                  {electricalChapters.length} {isMarathi ? "विषय" : "Chapters"}
+                  {electricalChapters.length} {selectedLanguage.code === "mr" ? "विषय" : "Chapters"}
                 </span>
                 <div className="p-2.5 bg-slate-100 dark:bg-slate-800 text-slate-400 group-hover:text-blue-500 group-hover:bg-blue-500/10 rounded-xl transition-all">
                   <Icons.ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
@@ -421,7 +417,7 @@ export default function Dashboard({
                   className="p-2 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 rounded-xl text-slate-600 dark:text-slate-300 transition-colors cursor-pointer flex items-center gap-1.5 text-xs font-bold"
                 >
                   <Icons.ArrowLeft className="w-4 h-4" />
-                  {isMarathi ? "मागे जा" : "Back to Main"}
+                  {selectedLanguage.code === "mr" ? "मागे जा" : "Back to Main"}
                 </button>
                 <div className="h-6 w-px bg-slate-200 dark:bg-slate-800 hidden sm:block" />
                 <h3 className="text-lg sm:text-xl font-extrabold text-slate-900 dark:text-white flex items-center gap-2">
@@ -435,7 +431,7 @@ export default function Dashboard({
                   onClick={() => setSelectedSection(null)}
                   className="text-xs font-semibold text-amber-500 hover:text-amber-400 bg-amber-500/5 px-3 py-1.5 rounded-lg border border-amber-500/10 cursor-pointer self-start sm:self-auto"
                 >
-                  {isMarathi ? "← सर्व सेक्शन्स पहा" : "← All Sections"}
+                  {selectedLanguage.code === "mr" ? "← सर्व सेक्शन्स पहा" : "← All Sections"}
                 </button>
               )}
             </div>
@@ -457,12 +453,12 @@ export default function Dashboard({
                           <Icons.Layers className="h-6 w-6" />
                         </div>
                         <span className="bg-slate-50 dark:bg-slate-950 text-slate-500 dark:text-slate-400 text-[10px] font-mono font-bold px-2.5 py-1 rounded-full border border-slate-200 dark:border-slate-800">
-                          {chapterCount} {isMarathi ? "विषय" : "Chapters"}
+                          {chapterCount} {selectedLanguage.code === "mr" ? "विषय" : "Chapters"}
                         </span>
                       </div>
                       <h4 className="text-lg font-bold text-slate-900 dark:text-white mb-1 group-hover:text-amber-400 transition-colors">{sectionName}</h4>
                       <p className="text-xs text-slate-500 line-clamp-2">
-                        {isMarathi ? "या विभागातील विषयांचा सराव करण्यासाठी येथे क्लिक करा." : "Click to view and practice chapters in this module."}
+                        {selectedLanguage.code === "mr" ? "या विभागातील विषयांचा सराव करण्यासाठी येथे क्लिक करा." : "Click to view and practice chapters in this module."}
                       </p>
                     </div>
                   );
@@ -489,9 +485,9 @@ export default function Dashboard({
                           </div>
                           <div>
                             <h4 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white leading-tight">
-                              {ch.id}. {isMarathi ? ch.nameMarathi : ch.name}
+                              {ch.id}. {ch.nameTranslated || (selectedLanguage.code === "mr" ? ch.nameMarathi : ch.name)}
                             </h4>
-                            {isMarathi && <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5 font-medium">{ch.name}</p>}
+                            {selectedLanguage.code === "mr" && <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5 font-medium">{ch.name}</p>}
                           </div>
                         </div>
                         <div className="flex items-center gap-4 sm:gap-6 w-full sm:w-auto justify-between sm:justify-end shrink-0">
@@ -516,13 +512,13 @@ export default function Dashboard({
                             <div className="p-5 space-y-4">
                               <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-3 gap-2">
                                 <p className="text-xs text-slate-500 dark:text-slate-400 font-bold uppercase tracking-wider">
-                                  {isMarathi ? "सराव संच निवडा" : "Select Practice Set"}
+                                  {selectedLanguage.code === "mr" ? "सराव संच निवडा" : "Select Practice Set"}
                                 </p>
                                 <button
                                     onClick={() => onStartTest({ chapterId: ch.id, mode: "exam", questionCount: isDemoMode ? 5 : totalQ, timeLimitMinutes: isDemoMode ? 5 : Math.ceil(totalQ * 1.5), source: "static", setId: "all" })}
                                     className="text-[10px] font-bold text-amber-500 hover:text-amber-400 bg-amber-500/10 px-3 py-1.5 rounded-lg border border-amber-500/20 transition-colors cursor-pointer self-start sm:self-auto"
                                 >
-                                    {isMarathi ? "सर्व प्रश्न एकत्रित (पूर्ण चाचणी)" : "All Questions Test"}
+                                    {selectedLanguage.code === "mr" ? "सर्व प्रश्न एकत्रित (पूर्ण चाचणी)" : "All Questions Test"}
                                 </button>
                               </div>
                                                     
@@ -541,13 +537,13 @@ export default function Dashboard({
                                           <div className="absolute inset-0 bg-slate-50 dark:bg-slate-950/80 backdrop-blur-[1px] rounded-xl flex flex-col items-center justify-center z-10 border border-slate-200 dark:border-slate-800/50">
                                               <Icons.Lock className="h-5 w-5 text-amber-500/70 mb-2" />
                                               <button onClick={onUpgradeClick} className="text-[10px] font-bold text-amber-500 hover:text-amber-400 bg-amber-500/10 px-3 py-1.5 rounded-lg border border-amber-500/20 transition-colors cursor-pointer">
-                                                {isMarathi ? "अनलॉक करा" : "Unlock to Access"}
+                                                {selectedLanguage.code === "mr" ? "अनलॉक करा" : "Unlock to Access"}
                                               </button>
                                           </div>
                                         )}
                                         <div className="mb-4">
                                           <h5 className="text-sm font-bold text-slate-900 dark:text-white mb-1">
-                                            {isMarathi ? `संच ${setNum}` : `Set ${setNum}`}
+                                            {selectedLanguage.code === "mr" ? `संच ${setNum}` : `Set ${setNum}`}
                                           </h5>
                                           <p className="text-[10px] text-slate-500 font-mono">Q {startNum} - {endNum} ({qsInSet} Qs)</p>
                                         </div>
@@ -557,14 +553,14 @@ export default function Dashboard({
                                             className="flex-1 py-2 bg-slate-100 dark:bg-slate-800 hover:bg-slate-250 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 text-[11px] font-bold rounded-lg transition-colors cursor-pointer flex items-center justify-center gap-1.5"
                                           >
                                             <Icons.BookOpen className="h-3 w-3" />
-                                            {isMarathi ? "सराव" : "Practice"}
+                                            {selectedLanguage.code === "mr" ? "सराव" : "Practice"}
                                           </button>
                                           <button
                                               onClick={() => onStartTest({ chapterId: ch.id, mode: "exam", questionCount: isDemoMode ? 5 : qsInSet, timeLimitMinutes: isDemoMode ? 5 : 20, source: "static", setId: setNum })}
                                             className="flex-1 py-2 bg-amber-500/10 hover:bg-amber-500/20 text-amber-600 dark:text-amber-500 text-[11px] font-bold rounded-lg transition-colors border border-amber-500/20 cursor-pointer flex items-center justify-center gap-1.5"
                                           >
                                             <Icons.Timer className="h-3 w-3" />
-                                            {isMarathi ? "परीक्षा" : "Exam"}
+                                            {selectedLanguage.code === "mr" ? "परीक्षा" : "Exam"}
                                           </button>
                                         </div>
                                       </div>
@@ -600,7 +596,7 @@ export default function Dashboard({
                 className="p-2 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 rounded-xl text-slate-600 dark:text-slate-300 transition-colors cursor-pointer flex items-center gap-1.5 text-xs font-bold"
               >
                 <Icons.ArrowLeft className="w-4 h-4" />
-                {isMarathi ? "मागे जा" : "Back to Main"}
+                {selectedLanguage.code === "mr" ? "मागे जा" : "Back to Main"}
               </button>
               <div className="h-6 w-px bg-slate-200 dark:bg-slate-800" />
               <h3 className="text-lg sm:text-xl font-extrabold text-slate-900 dark:text-white flex items-center gap-2">
@@ -629,9 +625,9 @@ export default function Dashboard({
                         </div>
                         <div>
                           <h4 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white leading-tight">
-                            {ch.id}. {isMarathi ? ch.nameMarathi : ch.name}
+                            {ch.id}. {ch.nameTranslated || (selectedLanguage.code === "mr" ? ch.nameMarathi : ch.name)}
                           </h4>
-                          {isMarathi && <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5 font-medium">{ch.name}</p>}
+                          {selectedLanguage.code === "mr" && <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5 font-medium">{ch.name}</p>}
                         </div>
                       </div>
                       <div className="flex items-center gap-4 sm:gap-6 w-full sm:w-auto justify-between sm:justify-end shrink-0">
@@ -656,13 +652,13 @@ export default function Dashboard({
                           <div className="p-5 space-y-4">
                             <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-3 gap-2">
                               <p className="text-xs text-slate-500 dark:text-slate-400 font-bold uppercase tracking-wider">
-                                {isMarathi ? "सराव संच निवडा" : "Select Practice Set"}
+                                {selectedLanguage.code === "mr" ? "सराव संच निवडा" : "Select Practice Set"}
                               </p>
                               <button
                                   onClick={() => onStartTest({ chapterId: ch.id, mode: "exam", questionCount: isDemoMode ? 5 : totalQ, timeLimitMinutes: isDemoMode ? 5 : Math.ceil(totalQ * 1.5), source: "static", setId: "all" })}
                                   className="text-[10px] font-bold text-amber-500 hover:text-amber-400 bg-amber-500/10 px-3 py-1.5 rounded-lg border border-amber-500/20 transition-colors cursor-pointer self-start sm:self-auto"
                               >
-                                  {isMarathi ? "सर्व प्रश्न एकत्रित (पूर्ण चाचणी)" : "All Questions Test"}
+                                  {selectedLanguage.code === "mr" ? "सर्व प्रश्न एकत्रित (पूर्ण चाचणी)" : "All Questions Test"}
                               </button>
                             </div>
                                                   
@@ -681,13 +677,13 @@ export default function Dashboard({
                                         <div className="absolute inset-0 bg-slate-50 dark:bg-slate-950/80 backdrop-blur-[1px] rounded-xl flex flex-col items-center justify-center z-10 border border-slate-200 dark:border-slate-800/50">
                                             <Icons.Lock className="h-5 w-5 text-amber-500/70 mb-2" />
                                             <button onClick={onUpgradeClick} className="text-[10px] font-bold text-amber-500 hover:text-amber-400 bg-amber-500/10 px-3 py-1.5 rounded-lg border border-amber-500/20 transition-colors cursor-pointer">
-                                              {isMarathi ? "अनलॉक करा" : "Unlock to Access"}
+                                              {selectedLanguage.code === "mr" ? "अनलॉक करा" : "Unlock to Access"}
                                             </button>
                                         </div>
                                       )}
                                       <div className="mb-4">
                                         <h5 className="text-sm font-bold text-slate-900 dark:text-white mb-1">
-                                          {isMarathi ? `संच ${setNum}` : `Set ${setNum}`}
+                                          {selectedLanguage.code === "mr" ? `संच ${setNum}` : `Set ${setNum}`}
                                         </h5>
                                         <p className="text-[10px] text-slate-500 font-mono">Q {startNum} - {endNum} ({qsInSet} Qs)</p>
                                       </div>
@@ -697,14 +693,14 @@ export default function Dashboard({
                                           className="flex-1 py-2 bg-slate-100 dark:bg-slate-800 hover:bg-slate-250 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 text-[11px] font-bold rounded-lg transition-colors cursor-pointer flex items-center justify-center gap-1.5"
                                         >
                                           <Icons.BookOpen className="h-3 w-3" />
-                                          {isMarathi ? "सराव" : "Practice"}
+                                          {selectedLanguage.code === "mr" ? "सराव" : "Practice"}
                                         </button>
                                         <button
                                             onClick={() => onStartTest({ chapterId: ch.id, mode: "exam", questionCount: isDemoMode ? 5 : qsInSet, timeLimitMinutes: isDemoMode ? 5 : 20, source: "static", setId: setNum })}
                                           className="flex-1 py-2 bg-amber-500/10 hover:bg-amber-500/20 text-amber-600 dark:text-amber-500 text-[11px] font-bold rounded-lg transition-colors border border-amber-500/20 cursor-pointer flex items-center justify-center gap-1.5"
                                         >
                                           <Icons.Timer className="h-3 w-3" />
-                                          {isMarathi ? "परीक्षा" : "Exam"}
+                                          {selectedLanguage.code === "mr" ? "परीक्षा" : "Exam"}
                                         </button>
                                       </div>
                                     </div>

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import * as Icons from "lucide-react";
 import { User, STATE_LANGUAGES, StateLanguage } from "../types";
+import { t } from "../utils/i18n";
 
 interface AuthProps {
   onLoginSuccess: (user: User) => void;
@@ -22,7 +23,7 @@ export default function Auth({ onLoginSuccess, selectedLanguage }: AuthProps) {
   const [newPassword, setNewPassword] = useState("");
   const [logoClicks, setLogoClicks] = useState(0);
 
-  const isMarathi = selectedLanguage.code === "mr";
+  
 
   const [adminBypassCode, setAdminBypassCode] = useState("OMTOADMIN");
 
@@ -94,7 +95,7 @@ export default function Auth({ onLoginSuccess, selectedLanguage }: AuthProps) {
       setShowBypassModal(false);
       onLoginSuccess(adminUser);
     } else {
-      setBypassModalError(isMarathi ? "चुकीचा गुप्त पासवर्ड!" : "Incorrect secret password!");
+      setBypassModalError(t(selectedLanguage.code, "authAdminErrorPassword"));
     }
   };
 
@@ -116,19 +117,19 @@ export default function Auth({ onLoginSuccess, selectedLanguage }: AuthProps) {
       if (res.ok && data.success) {
         setBypassOtpSent(true);
         setBypassModalSuccess(
-          isMarathi 
+          selectedLanguage.code === "mr" 
             ? "तुमच्या अधिकृत ईमेलवर ६ अंकी ओटीपी पाठवला आहे!" 
             : `A 6-digit OTP has been sent to your authorized email address!`
         );
       } else {
         setBypassModalError(
           data.error || 
-          (isMarathi ? "अनधिकृत ईमेल आयडी! केवळ मुख्य डेव्हलपर्सना प्रवेश आहे." : "Unauthorized email address! Access is restricted to primary developers.")
+          (selectedLanguage.code === "mr" ? "अनधिकृत ईमेल आयडी! केवळ मुख्य डेव्हलपर्सना प्रवेश आहे." : "Unauthorized email address! Access is restricted to primary developers.")
         );
       }
     } catch (err) {
       setIsBypassSubmitting(false);
-      setBypassModalError(isMarathi ? "नेटवर्क त्रुटी! पुन्हा प्रयत्न करा." : "Network error! Please try again.");
+      setBypassModalError(selectedLanguage.code === "mr" ? "नेटवर्क त्रुटी! पुन्हा प्रयत्न करा." : "Network error! Please try again.");
     }
   };
 
@@ -156,12 +157,12 @@ export default function Auth({ onLoginSuccess, selectedLanguage }: AuthProps) {
       } else {
         setBypassModalError(
           data.error || 
-          (isMarathi ? "चुकीचा किंवा कालबाह्य ओटीपी!" : "Incorrect or expired OTP!")
+          (selectedLanguage.code === "mr" ? "चुकीचा किंवा कालबाह्य ओटीपी!" : "Incorrect or expired OTP!")
         );
       }
     } catch (err) {
       setIsBypassSubmitting(false);
-      setBypassModalError(isMarathi ? "नेटवर्क त्रुटी! पुन्हा प्रयत्न करा." : "Network error! Please try again.");
+      setBypassModalError(selectedLanguage.code === "mr" ? "नेटवर्क त्रुटी! पुन्हा प्रयत्न करा." : "Network error! Please try again.");
     }
   };
 
@@ -171,7 +172,7 @@ export default function Auth({ onLoginSuccess, selectedLanguage }: AuthProps) {
     setSuccessMessage("");
 
     if (!email || !password) {
-      setErrorMessage(isMarathi ? "कृपया सर्व माहिती भरा." : "Please fill in all fields.");
+      setErrorMessage(selectedLanguage.code === "mr" ? "कृपया सर्व माहिती भरा." : "Please fill in all fields.");
       return;
     }
 
@@ -221,39 +222,45 @@ export default function Auth({ onLoginSuccess, selectedLanguage }: AuthProps) {
         } else {
           setErrorMessage(
             data.error || 
-            (isMarathi
+            (selectedLanguage.code === "mr"
               ? "चुकीचा ईमेल/युझरनेम किंवा पासवर्ड. कृपया पुन्हा प्रयत्न करा."
               : "Invalid email/username or password. Please try again.")
           );
         }
       } catch (e) {
         setIsProcessing(false);
-        setErrorMessage(isMarathi ? "नेटवर्क त्रुटी! पुन्हा प्रयत्न करा." : "Network error! Please try again.");
+        setErrorMessage(selectedLanguage.code === "mr" ? "नेटवर्क त्रुटी! पुन्हा प्रयत्न करा." : "Network error! Please try again.");
       }
     } else if (authMode === "signup") {
       if (!username) {
-        setErrorMessage(isMarathi ? "कृपया युझरनेम भरा." : "Please fill in username.");
+        setErrorMessage(selectedLanguage.code === "mr" ? "कृपया युझरनेम भरा." : "Please fill in username.");
         setIsProcessing(false);
         return;
       }
 
-      // signup check API
+      if (password.length < 4) {
+        setErrorMessage(selectedLanguage.code === "mr" ? "पासवर्ड किमान ४ अक्षरांचा असावा." : "Password must be at least 4 characters.");
+        setIsProcessing(false);
+        return;
+      }
+
+      // Step 1: Duplicate check for username & email
       try {
-        const res = await fetch("/api/auth/signup-check", {
+        const checkRes = await fetch("/api/auth/signup-check", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ email: emailKey, username: username.trim() })
         });
-        const data = await res.json();
+        const checkData = await checkRes.json();
 
-        if (!res.ok) {
-          setErrorMessage(data.error || "Validation failed");
+        if (!checkRes.ok || !checkData.success) {
+          setErrorMessage(checkData.error || (selectedLanguage.code === "mr" ? "तपासणी अयशस्वी." : "Validation failed."));
           setIsProcessing(false);
           return;
         }
 
-        // Send OTP
-        const otpRes = await fetch(`/api/otp/send`, {
+        // Step 2: Send OTP to user's email account
+        const otpRes = await fetch("/api/otp/send", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ contact: emailKey })
@@ -262,19 +269,43 @@ export default function Auth({ onLoginSuccess, selectedLanguage }: AuthProps) {
         setIsProcessing(false);
 
         if (otpData.success) {
-          setSuccessMessage(
-            isMarathi 
-              ? "ओटीपी पाठवला आहे. कृपया तपासा." 
-              : "OTP sent successfully. Please check your email/phone."
-          );
+          if (otpData.emailSent) {
+            setSuccessMessage(
+              selectedLanguage.code === "mr"
+                ? `📧 ${emailKey} वर ओटीपी पाठवला आहे. कृपया तुमचा ईमेल तपासा.`
+                : `📧 OTP has been sent to ${emailKey}. Please check your email inbox.`
+            );
+          } else {
+            // If mail server failed to deliver due to SMTP credentials, inform user and provide fallback
+            if (otpData.fallbackOtp) {
+              setOtp(otpData.fallbackOtp);
+              setSuccessMessage(
+                selectedLanguage.code === "mr"
+                  ? `📧 ${emailKey} वर ओटीपी पाठवण्याचा प्रयत्न केला. (ईमेल सर्व्हर एरर - चाचणी ओटीपी: ${otpData.fallbackOtp})`
+                  : `📧 OTP generated for ${emailKey}. (Mail server notice - Test OTP: ${otpData.fallbackOtp})`
+              );
+            } else {
+              setSuccessMessage(
+                selectedLanguage.code === "mr"
+                  ? `📧 ${emailKey} वर ओटीपी पाठवला आहे.`
+                  : `📧 OTP sent to ${emailKey}.`
+              );
+            }
+          }
           setAuthMode("verify_otp");
-          setOtp("");
         } else {
-          setErrorMessage(otpData.error || "Failed to send OTP.");
+          setErrorMessage(
+            otpData.error || 
+            (selectedLanguage.code === "mr" ? "ओटीपी पाठवण्यात त्रुटी आली." : "Failed to send OTP.")
+          );
         }
       } catch (err) {
         setIsProcessing(false);
-        setErrorMessage("Network error: Failed to proceed with signup.");
+        setErrorMessage(
+          selectedLanguage.code === "mr" 
+            ? "नेटवर्क त्रुटी: ओटीपी पाठवू शकलो नाही." 
+            : "Network error: Failed to send OTP."
+        );
       }
     }
   };
@@ -285,7 +316,7 @@ export default function Auth({ onLoginSuccess, selectedLanguage }: AuthProps) {
     setSuccessMessage("");
 
     if (!otp) {
-      setErrorMessage(isMarathi ? "कृपया ओटीपी भरा." : "Please enter the OTP.");
+      setErrorMessage(selectedLanguage.code === "mr" ? "कृपया ओटीपी भरा." : "Please enter the OTP.");
       return;
     }
 
@@ -296,12 +327,12 @@ export default function Auth({ onLoginSuccess, selectedLanguage }: AuthProps) {
       const res = await fetch(`/api/otp/verify`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ contact: emailKey, otp })
+        body: JSON.stringify({ contact: emailKey, otp: otp.trim() })
       });
       const data = await res.json();
 
       if (data.success) {
-        // Complete the signup on backend
+        // Complete the signup on backend and activate the user
         const completeRes = await fetch("/api/auth/signup-complete", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -312,23 +343,29 @@ export default function Auth({ onLoginSuccess, selectedLanguage }: AuthProps) {
 
         if (completeData.success) {
           setSuccessMessage(
-            isMarathi
-              ? "नोंदणी यशस्वी! आता तुम्ही लॉगिन करू शकता."
-              : "Registration successful! You can now login."
+            selectedLanguage.code === "mr"
+              ? "🎉 नोंदणी व ईमेल पडताळणी यशस्वी! ॲप सुरू होत आहे..."
+              : "🎉 Registration & email verification successful! Starting..."
           );
-          setAuthMode("login");
-          setPassword("");
-          setOtp("");
+          if (completeData.user) {
+            setTimeout(() => {
+              onLoginSuccess(completeData.user);
+            }, 600);
+          } else {
+            setAuthMode("login");
+            setPassword("");
+            setOtp("");
+          }
         } else {
-          setErrorMessage(completeData.error || "Failed to complete signup.");
+          setErrorMessage(completeData.error || (selectedLanguage.code === "mr" ? "नोंदणी पूर्ण करता आली नाही." : "Failed to complete signup."));
         }
       } else {
         setIsProcessing(false);
-        setErrorMessage(data.error || "Invalid OTP.");
+        setErrorMessage(data.error || (selectedLanguage.code === "mr" ? "अवैध किंवा कालबाह्य ओटीपी." : "Invalid or expired OTP."));
       }
     } catch (e) {
       setIsProcessing(false);
-      setErrorMessage("Network error: Failed to verify OTP.");
+      setErrorMessage(selectedLanguage.code === "mr" ? "नेटवर्क त्रुटी: ओटीपी तपासता आला नाही." : "Network error: Failed to verify OTP.");
     }
   };
 
@@ -347,11 +384,20 @@ export default function Auth({ onLoginSuccess, selectedLanguage }: AuthProps) {
     .then(data => {
       setIsProcessing(false);
       if (data.success) {
-        setSuccessMessage(
-          isMarathi 
-            ? "नवीन ओटीपी पाठवला आहे." 
-            : "New OTP sent successfully."
-        );
+        if (data.fallbackOtp) {
+          setOtp(data.fallbackOtp);
+          setSuccessMessage(
+            selectedLanguage.code === "mr"
+              ? `ओटीपी उपलब्ध आहे: ${data.fallbackOtp}`
+              : `OTP available: ${data.fallbackOtp}`
+          );
+        } else {
+          setSuccessMessage(
+            selectedLanguage.code === "mr" 
+              ? "नवीन ओटीपी पाठवला आहे." 
+              : "New OTP sent successfully."
+          );
+        }
       } else {
         setErrorMessage(data.error || "Failed to resend OTP.");
       }
@@ -370,7 +416,7 @@ export default function Auth({ onLoginSuccess, selectedLanguage }: AuthProps) {
 
     if (!recoveryEmail) {
       setErrorMessage(
-        isMarathi
+        selectedLanguage.code === "mr"
           ? "कृपया ईमेल किंवा युझरनेम भरा."
           : "Please enter your email or username."
       );
@@ -390,14 +436,14 @@ export default function Auth({ onLoginSuccess, selectedLanguage }: AuthProps) {
       if (res.ok && data.success) {
         setRecoveredInfo(data);
         setSuccessMessage(
-          isMarathi
+          selectedLanguage.code === "mr"
             ? `खाते सापडले! युझरनेम: ${data.username || "N/A"}`
             : `Account found! Username: ${data.username || "N/A"}`
         );
       } else {
         setErrorMessage(
           data.error || 
-          (isMarathi
+          (selectedLanguage.code === "mr"
             ? "या ईमेल किंवा युझरनेमसह कोणतेही खाते सापडले नाही."
             : "No account found with this email or username.")
         );
@@ -424,7 +470,7 @@ export default function Auth({ onLoginSuccess, selectedLanguage }: AuthProps) {
 
       if (res.ok && data.success) {
         setSuccessMessage(
-          isMarathi
+          selectedLanguage.code === "mr"
             ? "पासवर्ड यशस्वीरित्या रिसेट झाला! आता तुम्ही नवीन पासवर्डने लॉगिन करू शकता."
             : "Password successfully reset! You can now login with your new password."
         );
@@ -448,7 +494,7 @@ export default function Auth({ onLoginSuccess, selectedLanguage }: AuthProps) {
 
     if (!recoveryEmail) {
       setErrorMessage(
-        isMarathi ? "कृपया नोंदणीकृत ईमेल पत्ता भरा." : "Please enter your registered email address."
+        selectedLanguage.code === "mr" ? "कृपया नोंदणीकृत ईमेल पत्ता भरा." : "Please enter your registered email address."
       );
       return;
     }
@@ -465,14 +511,14 @@ export default function Auth({ onLoginSuccess, selectedLanguage }: AuthProps) {
 
       if (res.ok && data.success) {
         setSuccessMessage(
-          isMarathi
+          selectedLanguage.code === "mr"
             ? `तुमचा युझरनेम आहे: "${data.username || "N/A"}"`
             : `Your registered username is: "${data.username || "N/A"}"`
         );
       } else {
         setErrorMessage(
           data.error || 
-          (isMarathi
+          (selectedLanguage.code === "mr"
             ? "या ईमेल पत्त्यासह कोणतेही खाते सापडले नाही."
             : "No account found with this email address.")
         );
@@ -491,20 +537,20 @@ export default function Auth({ onLoginSuccess, selectedLanguage }: AuthProps) {
             id="app-logo"
             onClick={handleLogoClick}
             className="p-3 bg-amber-500 rounded-2xl text-slate-950 shadow-xl shadow-amber-500/10 cursor-pointer hover:scale-105 active:scale-95 transition-all select-none"
-            title={isMarathi ? "गुप्त ॲडमीन ॲक्सेससाठी ५ वेळा क्लिक करा" : "Click 5 times for secret admin access"}
+            title={selectedLanguage.code === "mr" ? "गुप्त ॲडमीन ॲक्सेससाठी ५ वेळा क्लिक करा" : "Click 5 times for secret admin access"}
           >
             <Icons.Wrench className="h-8 w-8 stroke-[2.5]" />
           </div>
         </div>
         <h2 className="text-center text-2xl md:text-3xl font-black text-slate-900 dark:text-white tracking-tight">
-          {authMode === "login" && (isMarathi ? "ऑटोमोबाईल मॉक टेस्ट लॉगिन" : "Automobile Mock Test Login")}
-          {authMode === "signup" && (isMarathi ? "नवीन खाते तयार करा" : "Create New Account")}
-          {authMode === "verify_otp" && (isMarathi ? "ओटीपी तपासा" : "Verify Account")}
-          {authMode === "forgot_password" && (isMarathi ? "पासवर्ड विसरलात?" : "Forgot Password")}
-          {authMode === "forgot_username" && (isMarathi ? "युझरनेम विसरलात?" : "Forgot Username")}
+          {authMode === "login" && (selectedLanguage.code === "mr" ? "ऑटोमोबाईल मॉक टेस्ट लॉगिन" : "Automobile Mock Test Login")}
+          {authMode === "signup" && (selectedLanguage.code === "mr" ? "नवीन खाते तयार करा" : "Create New Account")}
+          {authMode === "verify_otp" && (selectedLanguage.code === "mr" ? "ओटीपी तपासा" : "Verify Account")}
+          {authMode === "forgot_password" && (selectedLanguage.code === "mr" ? "पासवर्ड विसरलात?" : "Forgot Password")}
+          {authMode === "forgot_username" && (selectedLanguage.code === "mr" ? "युझरनेम विसरलात?" : "Forgot Username")}
         </h2>
         <p className="mt-2 text-center text-xs text-slate-500 dark:text-slate-400">
-          {isMarathi 
+          {selectedLanguage.code === "mr" 
             ? "सर्व फीचर्स आणि सराव चाचण्या वापरण्यासाठी खालील माहिती भरा" 
             : "Fill in the details below to access all study and exam features"}
         </p>
@@ -533,7 +579,7 @@ export default function Auth({ onLoginSuccess, selectedLanguage }: AuthProps) {
               {authMode === "signup" && (
                 <div>
                   <label className="block text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1.5">
-                    {isMarathi ? "युझरनेम (Username)" : "Username"}
+                    {selectedLanguage.code === "mr" ? "युझरनेम (Username)" : "Username"}
                   </label>
                   <div className="relative">
                     <Icons.User className="absolute left-3 top-3.5 h-4 w-4 text-slate-500" />
@@ -552,8 +598,8 @@ export default function Auth({ onLoginSuccess, selectedLanguage }: AuthProps) {
               <div>
                 <label className="block text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1.5">
                   {authMode === "login" 
-                    ? (isMarathi ? "ईमेल पत्ता किंवा युझरनेम" : "Email Address or Username")
-                    : (isMarathi ? "ईमेल पत्ता" : "Email Address")}
+                    ? (selectedLanguage.code === "mr" ? "ईमेल पत्ता किंवा युझरनेम" : "Email Address or Username")
+                    : (selectedLanguage.code === "mr" ? "ईमेल पत्ता" : "Email Address")}
                 </label>
                 <div className="relative">
                   <Icons.Mail className="absolute left-3 top-3.5 h-4 w-4 text-slate-500" />
@@ -571,7 +617,7 @@ export default function Auth({ onLoginSuccess, selectedLanguage }: AuthProps) {
               <div>
                 <div className="flex justify-between items-center mb-1.5">
                   <label className="block text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
-                    {isMarathi ? "पासवर्ड" : "Password"}
+                    {selectedLanguage.code === "mr" ? "पासवर्ड" : "Password"}
                   </label>
                   {authMode === "login" && (
                     <button
@@ -585,7 +631,7 @@ export default function Auth({ onLoginSuccess, selectedLanguage }: AuthProps) {
                       }}
                       className="text-[11px] text-amber-500 hover:text-amber-400 font-bold"
                     >
-                      {isMarathi ? "पासवर्ड विसरलात?" : "Forgot Password?"}
+                      {selectedLanguage.code === "mr" ? "पासवर्ड विसरलात?" : "Forgot Password?"}
                     </button>
                   )}
                 </div>
@@ -611,7 +657,7 @@ export default function Auth({ onLoginSuccess, selectedLanguage }: AuthProps) {
                   <Icons.Loader2 className="h-4 w-4 animate-spin" />
                 ) : (
                   <>
-                    <span>{authMode === "login" ? (isMarathi ? "लॉगिन करा" : "Login") : (isMarathi ? "नोंदणी (Signup) करा" : "Register") }</span>
+                    <span>{authMode === "login" ? (selectedLanguage.code === "mr" ? "लॉगिन करा" : "Login") : (selectedLanguage.code === "mr" ? "नोंदणी (Signup) करा" : "Register") }</span>
                     <Icons.ArrowRight className="h-4 w-4" />
                   </>
                 )}
@@ -624,7 +670,7 @@ export default function Auth({ onLoginSuccess, selectedLanguage }: AuthProps) {
             <form className="space-y-4" onSubmit={handleVerifyOtpSubmit}>
               <div>
                 <label className="block text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1.5">
-                  {isMarathi ? "ओटीपी प्रविष्ट करा" : "Enter OTP"}
+                  {selectedLanguage.code === "mr" ? "ओटीपी प्रविष्ट करा" : "Enter OTP"}
                 </label>
                 <div className="relative">
                   <Icons.Key className="absolute left-3 top-3.5 h-4 w-4 text-slate-500" />
@@ -639,7 +685,7 @@ export default function Auth({ onLoginSuccess, selectedLanguage }: AuthProps) {
                   />
                 </div>
                 <p className="mt-2 text-[10px] text-slate-500 text-center">
-                  {isMarathi 
+                  {selectedLanguage.code === "mr" 
                     ? `आम्ही ${email} वर एक ओटीपी पाठवला आहे.`
                     : `We've sent a 6-digit OTP to ${email}.`}
                 </p>
@@ -654,7 +700,7 @@ export default function Auth({ onLoginSuccess, selectedLanguage }: AuthProps) {
                   <Icons.Loader2 className="h-4 w-4 animate-spin" />
                 ) : (
                   <>
-                    <span>{isMarathi ? "ओटीपी तपासा" : "Verify OTP"}</span>
+                    <span>{selectedLanguage.code === "mr" ? "ओटीपी तपासा" : "Verify OTP"}</span>
                     <Icons.CheckCircle className="h-4 w-4" />
                   </>
                 )}
@@ -667,7 +713,7 @@ export default function Auth({ onLoginSuccess, selectedLanguage }: AuthProps) {
                   disabled={isProcessing}
                   className="text-xs text-amber-500 hover:text-amber-400 disabled:opacity-50 font-semibold cursor-pointer"
                 >
-                  {isMarathi ? "ओटीपी पुन्हा पाठवा" : "Resend OTP"}
+                  {selectedLanguage.code === "mr" ? "ओटीपी पुन्हा पाठवा" : "Resend OTP"}
                 </button>
                 <button
                   type="button"
@@ -680,7 +726,7 @@ export default function Auth({ onLoginSuccess, selectedLanguage }: AuthProps) {
                   disabled={isProcessing}
                   className="text-xs text-slate-500 hover:text-slate-500 dark:text-slate-400 disabled:opacity-50 font-semibold cursor-pointer"
                 >
-                  {isMarathi ? "मागे जा" : "Go Back"}
+                  {selectedLanguage.code === "mr" ? "मागे जा" : "Go Back"}
                 </button>
               </div>
             </form>
@@ -693,7 +739,7 @@ export default function Auth({ onLoginSuccess, selectedLanguage }: AuthProps) {
                 <form onSubmit={handleForgotPasswordSubmit} className="space-y-4">
                   <div>
                     <label className="block text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1.5">
-                      {isMarathi ? "नोंदणीकृत ईमेल किंवा युझरनेम" : "Registered Email or Username"}
+                      {selectedLanguage.code === "mr" ? "नोंदणीकृत ईमेल किंवा युझरनेम" : "Registered Email or Username"}
                     </label>
                     <div className="relative">
                       <Icons.Mail className="absolute left-3 top-3.5 h-4 w-4 text-slate-500" />
@@ -712,16 +758,16 @@ export default function Auth({ onLoginSuccess, selectedLanguage }: AuthProps) {
                     className="w-full py-3 px-4 bg-amber-500 hover:bg-amber-600 text-slate-950 font-black rounded-xl transition flex items-center justify-center gap-2 cursor-pointer"
                   >
                     <Icons.Search className="h-4 w-4" />
-                    <span>{isMarathi ? "खाते शोधा" : "Find Account"}</span>
+                    <span>{selectedLanguage.code === "mr" ? "खाते शोधा" : "Find Account"}</span>
                   </button>
                 </form>
               ) : (
                 <div className="space-y-4">
                   <div className="p-3 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-850 rounded-xl text-xs space-y-1">
-                    <div className="text-slate-500 dark:text-slate-400">{isMarathi ? "युझर ईमेल:" : "User Email:"} <span className="text-slate-900 dark:text-white font-semibold">{recoveredInfo.email}</span></div>
-                    <div className="text-slate-500 dark:text-slate-400">{isMarathi ? "सध्याचा पासवर्ड:" : "Current Password:"} <span className="text-amber-400 font-mono font-bold">{recoveredInfo.password}</span></div>
+                    <div className="text-slate-500 dark:text-slate-400">{selectedLanguage.code === "mr" ? "युझर ईमेल:" : "User Email:"} <span className="text-slate-900 dark:text-white font-semibold">{recoveredInfo.email}</span></div>
+                    <div className="text-slate-500 dark:text-slate-400">{selectedLanguage.code === "mr" ? "सध्याचा पासवर्ड:" : "Current Password:"} <span className="text-amber-400 font-mono font-bold">{recoveredInfo.password}</span></div>
                     <p className="text-[10px] text-slate-500 leading-tight mt-1">
-                      {isMarathi 
+                      {selectedLanguage.code === "mr" 
                         ? "(टीप: सुरक्षिततेसाठी तुम्ही खाली थेट नवीन पासवर्ड रिसेट देखील करू शकता)" 
                         : "(Note: You can also reset it to a new password directly below)"}
                     </p>
@@ -730,7 +776,7 @@ export default function Auth({ onLoginSuccess, selectedLanguage }: AuthProps) {
                   <form onSubmit={handlePasswordResetSubmit} className="space-y-4 pt-2">
                     <div>
                       <label className="block text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1.5">
-                        {isMarathi ? "नवीन पासवर्ड प्रविष्ट करा" : "Enter New Password"}
+                        {selectedLanguage.code === "mr" ? "नवीन पासवर्ड प्रविष्ट करा" : "Enter New Password"}
                       </label>
                       <div className="relative">
                         <Icons.Lock className="absolute left-3 top-3.5 h-4 w-4 text-slate-500" />
@@ -749,7 +795,7 @@ export default function Auth({ onLoginSuccess, selectedLanguage }: AuthProps) {
                       className="w-full py-3 px-4 bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 text-slate-950 font-black rounded-xl transition flex items-center justify-center gap-2 cursor-pointer"
                     >
                       <Icons.Check className="h-4 w-4" />
-                      <span>{isMarathi ? "पासवर्ड बदला (Reset)" : "Change Password"}</span>
+                      <span>{selectedLanguage.code === "mr" ? "पासवर्ड बदला (Reset)" : "Change Password"}</span>
                     </button>
                   </form>
                 </div>
@@ -764,7 +810,7 @@ export default function Auth({ onLoginSuccess, selectedLanguage }: AuthProps) {
                 }}
                 className="w-full py-2 bg-slate-50 dark:bg-slate-950 hover:bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-850 rounded-xl text-xs text-slate-700 dark:text-slate-300 font-bold transition cursor-pointer"
               >
-                {isMarathi ? "लॉगिन कडे परत जा" : "Back to Login"}
+                {selectedLanguage.code === "mr" ? "लॉगिन कडे परत जा" : "Back to Login"}
               </button>
             </div>
           )}
@@ -775,7 +821,7 @@ export default function Auth({ onLoginSuccess, selectedLanguage }: AuthProps) {
               <form onSubmit={handleForgotUsernameSubmit} className="space-y-4">
                 <div>
                   <label className="block text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1.5">
-                    {isMarathi ? "तुमचा नोंदणीकृत ईमेल पत्ता" : "Your Registered Email Address"}
+                    {selectedLanguage.code === "mr" ? "तुमचा नोंदणीकृत ईमेल पत्ता" : "Your Registered Email Address"}
                   </label>
                   <div className="relative">
                     <Icons.Mail className="absolute left-3 top-3.5 h-4 w-4 text-slate-500" />
@@ -794,7 +840,7 @@ export default function Auth({ onLoginSuccess, selectedLanguage }: AuthProps) {
                   className="w-full py-3 px-4 bg-amber-500 hover:bg-amber-600 text-slate-950 font-black rounded-xl transition flex items-center justify-center gap-2 cursor-pointer"
                 >
                   <Icons.Search className="h-4 w-4" />
-                  <span>{isMarathi ? "युझरनेम शोधा" : "Find Username"}</span>
+                  <span>{selectedLanguage.code === "mr" ? "युझरनेम शोधा" : "Find Username"}</span>
                 </button>
               </form>
 
@@ -807,7 +853,7 @@ export default function Auth({ onLoginSuccess, selectedLanguage }: AuthProps) {
                 }}
                 className="w-full py-2 bg-slate-50 dark:bg-slate-950 hover:bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-850 rounded-xl text-xs text-slate-700 dark:text-slate-300 font-bold transition cursor-pointer"
               >
-                {isMarathi ? "लॉगिन कडे परत जा" : "Back to Login"}
+                {selectedLanguage.code === "mr" ? "लॉगिन कडे परत जा" : "Back to Login"}
               </button>
             </div>
           )}
@@ -823,7 +869,7 @@ export default function Auth({ onLoginSuccess, selectedLanguage }: AuthProps) {
                 }}
                 className="text-xs text-amber-500 hover:text-amber-400 font-bold transition-colors cursor-pointer"
               >
-                {isMarathi ? "नवीन खाते तयार करायचे आहे? येथे नोंदणी करा" : "Don't have an account? Sign up here"}
+                {selectedLanguage.code === "mr" ? "नवीन खाते तयार करायचे आहे? येथे नोंदणी करा" : "Don't have an account? Sign up here"}
               </button>
               <button
                 onClick={() => {
@@ -834,7 +880,7 @@ export default function Auth({ onLoginSuccess, selectedLanguage }: AuthProps) {
                 }}
                 className="text-xs text-slate-500 hover:text-slate-500 dark:text-slate-400 font-medium transition-colors cursor-pointer"
               >
-                {isMarathi ? "युझरनेम विसरलात? येथे शोधा" : "Forgot your username? Find it here"}
+                {selectedLanguage.code === "mr" ? "युझरनेम विसरलात? येथे शोधा" : "Forgot your username? Find it here"}
               </button>
             </div>
           )}
@@ -849,7 +895,7 @@ export default function Auth({ onLoginSuccess, selectedLanguage }: AuthProps) {
                 }}
                 className="text-xs text-amber-500 hover:text-amber-400 font-bold transition-colors cursor-pointer"
               >
-                {isMarathi ? "आधीच खाते आहे? येथे लॉगिन करा" : "Already have an account? Login here"}
+                {selectedLanguage.code === "mr" ? "आधीच खाते आहे? येथे लॉगिन करा" : "Already have an account? Login here"}
               </button>
             </div>
           )}
@@ -873,10 +919,10 @@ export default function Auth({ onLoginSuccess, selectedLanguage }: AuthProps) {
                 <Icons.ShieldCheck className="h-6 w-6" />
               </div>
               <h3 className="text-xl font-extrabold text-slate-900 dark:text-white">
-                {isMarathi ? "🔐 गुप्त ॲडमीन प्रवेश" : "🔐 Secret Admin Access"}
+                {selectedLanguage.code === "mr" ? "🔐 गुप्त ॲडमीन प्रवेश" : "🔐 Secret Admin Access"}
               </h3>
               <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
-                {isMarathi ? "प्रणालीच्या सुरक्षिततेसाठी अधिकृत प्रवेश" : "Authorized access for system security"}
+                {selectedLanguage.code === "mr" ? "प्रणालीच्या सुरक्षिततेसाठी अधिकृत प्रवेश" : "Authorized access for system security"}
               </p>
             </div>
 
@@ -899,7 +945,7 @@ export default function Auth({ onLoginSuccess, selectedLanguage }: AuthProps) {
               <form onSubmit={handleBypassPassSubmit} className="space-y-4">
                 <div>
                   <label className="block text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1.5">
-                    {isMarathi ? "गुप्त पासवर्ड प्रविष्ट करा" : "Enter Secret Password"}
+                    {selectedLanguage.code === "mr" ? "गुप्त पासवर्ड प्रविष्ट करा" : "Enter Secret Password"}
                   </label>
                   <input
                     type="password"
@@ -923,7 +969,7 @@ export default function Auth({ onLoginSuccess, selectedLanguage }: AuthProps) {
                     }}
                     className="text-xs text-amber-500 hover:text-amber-400 font-bold transition-colors cursor-pointer"
                   >
-                    {isMarathi ? "गुप्त पासवर्ड विसरलात?" : "Forgot secret password?"}
+                    {selectedLanguage.code === "mr" ? "गुप्त पासवर्ड विसरलात?" : "Forgot secret password?"}
                   </button>
                 </div>
 
@@ -931,7 +977,7 @@ export default function Auth({ onLoginSuccess, selectedLanguage }: AuthProps) {
                   type="submit"
                   className="w-full py-3 bg-amber-500 hover:bg-amber-600 text-slate-950 font-black rounded-xl hover:shadow-lg transition flex items-center justify-center gap-2 cursor-pointer mt-2"
                 >
-                  <span>{isMarathi ? "प्रवेश करा (Verify)" : "Unlock"}</span>
+                  <span>{selectedLanguage.code === "mr" ? "प्रवेश करा (Verify)" : "Unlock"}</span>
                   <Icons.Key className="h-4 w-4" />
                 </button>
               </form>
@@ -939,7 +985,7 @@ export default function Auth({ onLoginSuccess, selectedLanguage }: AuthProps) {
               /* Screen B: Forgot Bypass Flow */
               <div className="space-y-4">
                 <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
-                  {isMarathi 
+                  {selectedLanguage.code === "mr" 
                     ? "गुप्त पासवर्ड पुनर्प्राप्त करण्यासाठी खाली तुमचा अधिकृत बॅकअप ईमेल प्रविष्ट करा. तुमच्या ईमेलवर ६ अंकी लॉगिन ओटीपी (OTP) पाठवला जाईल."
                     : "To recover the secret password, enter your authorized backup email below. A 6-digit login OTP will be sent to your email."}
                 </p>
@@ -949,7 +995,7 @@ export default function Auth({ onLoginSuccess, selectedLanguage }: AuthProps) {
                   <form onSubmit={handleBypassForgotSubmit} className="space-y-4">
                     <div>
                       <label className="block text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1.5">
-                        {isMarathi ? "अधिकृत ईमेल प्रविष्ट करा" : "Enter Authorized Email"}
+                        {selectedLanguage.code === "mr" ? "अधिकृत ईमेल प्रविष्ट करा" : "Enter Authorized Email"}
                       </label>
                       <input
                         type="email"
@@ -971,7 +1017,7 @@ export default function Auth({ onLoginSuccess, selectedLanguage }: AuthProps) {
                         }}
                         className="flex-1 py-2.5 bg-slate-850 hover:bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 font-bold rounded-xl transition text-xs text-center cursor-pointer"
                       >
-                        {isMarathi ? "मागे" : "Go Back"}
+                        {selectedLanguage.code === "mr" ? "मागे" : "Go Back"}
                       </button>
                       <button
                         type="submit"
@@ -982,7 +1028,7 @@ export default function Auth({ onLoginSuccess, selectedLanguage }: AuthProps) {
                           <Icons.Loader2 className="h-3.5 w-3.5 animate-spin" />
                         ) : (
                           <>
-                            <span>{isMarathi ? "ओटीपी पाठवा" : "Send OTP"}</span>
+                            <span>{selectedLanguage.code === "mr" ? "ओटीपी पाठवा" : "Send OTP"}</span>
                             <Icons.Send className="h-3.5 w-3.5" />
                           </>
                         )}
@@ -994,7 +1040,7 @@ export default function Auth({ onLoginSuccess, selectedLanguage }: AuthProps) {
                   <form onSubmit={handleBypassOtpVerifySubmit} className="space-y-4">
                     <div>
                       <label className="block text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1.5">
-                        {isMarathi ? "६ अंकी ओटीपी प्रविष्ट करा" : "Enter 6-Digit OTP"}
+                        {selectedLanguage.code === "mr" ? "६ अंकी ओटीपी प्रविष्ट करा" : "Enter 6-Digit OTP"}
                       </label>
                       <input
                         type="text"
@@ -1017,7 +1063,7 @@ export default function Auth({ onLoginSuccess, selectedLanguage }: AuthProps) {
                         }}
                         className="flex-1 py-2.5 bg-slate-850 hover:bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 font-bold rounded-xl transition text-xs text-center cursor-pointer"
                       >
-                        {isMarathi ? "ईमेल बदला" : "Change Email"}
+                        {selectedLanguage.code === "mr" ? "ईमेल बदला" : "Change Email"}
                       </button>
                       <button
                         type="submit"
@@ -1028,7 +1074,7 @@ export default function Auth({ onLoginSuccess, selectedLanguage }: AuthProps) {
                           <Icons.Loader2 className="h-3.5 w-3.5 animate-spin" />
                         ) : (
                           <>
-                            <span>{isMarathi ? "लॉगिन करा" : "Login"}</span>
+                            <span>{selectedLanguage.code === "mr" ? "लॉगिन करा" : "Login"}</span>
                             <Icons.CheckCircle className="h-3.5 w-3.5" />
                           </>
                         )}

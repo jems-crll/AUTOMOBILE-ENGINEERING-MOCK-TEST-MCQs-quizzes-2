@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
+import { t } from "../utils/i18n";
 import { Question, Chapter, StateLanguage, SubscriptionConfig } from "../types";
+import { translationService } from "../utils/translationService";
 import * as Icons from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 
@@ -8,7 +10,7 @@ interface QuizContainerProps {
   mode: "practice" | "exam";
   questions: Question[];
   timeLimitMinutes: number;
-  bilingual: boolean;
+  
   selectedLanguage: StateLanguage;
   onComplete: (score: number, answers: Record<number, string>, timeSpentSeconds: number) => void;
   onExit: () => void;
@@ -27,7 +29,7 @@ export default function QuizContainer({
   mode,
   questions,
   timeLimitMinutes,
-  bilingual,
+  
   selectedLanguage,
   onComplete,
   onExit,
@@ -44,11 +46,12 @@ export default function QuizContainer({
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedAnswers, setSelectedAnswers] = useState<Record<number, string>>(initialSelectedAnswers ?? {});
   const [flaggedQuestions, setFlaggedQuestions] = useState<Record<number, boolean>>(initialFlaggedQuestions ?? {});
+  const [translatedQuestionsMap, setTranslatedQuestionsMap] = useState<Record<string, Question>>({});
+  const [isTranslating, setIsTranslating] = useState(false);
 
   const displayedQuestions = questions.filter(
     (q) =>
-      q.question.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      (q.questionMarathi && q.questionMarathi.toLowerCase().includes(searchQuery.toLowerCase()))
+      (q.question[selectedLanguage.code]?.toLowerCase().includes(searchQuery.toLowerCase()) || q.question['en']?.toLowerCase().includes(searchQuery.toLowerCase()))
   );
 
   useEffect(() => {
@@ -65,6 +68,59 @@ export default function QuizContainer({
   const [hasAnsweredCurrent, setHasAnsweredCurrent] = useState<boolean>(false);
 
   const currentQuestion = displayedQuestions[currentIndex];
+  
+  // Enhanced question with dynamic translation
+  const mapKey = currentQuestion ? `${currentQuestion.id}_${selectedLanguage.code}` : '';
+  const enhancedQuestion = (currentQuestion && translatedQuestionsMap[mapKey]) 
+    ? translatedQuestionsMap[mapKey] 
+    : currentQuestion;
+
+  // Dynamic Language Support
+  const getTranslatedContent = (q: Question) => {
+    if (selectedLanguage.code === 'en') return null;
+    const questionText = q.question[selectedLanguage.code];
+    if (!questionText) return null;
+
+    return {
+      question: questionText,
+      options: q.options[selectedLanguage.code] || [],
+      explanation: q.explanation[selectedLanguage.code] || ""
+    };
+  };
+
+  const translatedContent = enhancedQuestion ? getTranslatedContent(enhancedQuestion) : null;
+  const showTranslation = selectedLanguage.code !== 'en' && !!translatedContent;
+  const langLabel = selectedLanguage.nativeName;
+
+  // Dynamic Translation Effect
+  useEffect(() => {
+    const translateIfNeeded = async () => {
+      if (selectedLanguage.code === 'en') return;
+      if (!currentQuestion) return;
+      
+      // Check if we already have it in the question object itself
+      if (currentQuestion.question[selectedLanguage.code]) return;
+      
+      // Check if we already have it in our local map
+      if (translatedQuestionsMap[mapKey]) return;
+
+      setIsTranslating(true);
+      try {
+        const translated = await translationService.translateQuestion(currentQuestion, selectedLanguage.code);
+        setTranslatedQuestionsMap(prev => ({
+          ...prev,
+          [mapKey]: translated
+        }));
+      } catch (e) {
+        console.error("Translation error in component:", e);
+      } finally {
+        setIsTranslating(false);
+      }
+    };
+
+    translateIfNeeded();
+  }, [currentIndex, selectedLanguage.code, currentQuestion, mapKey]);
+
 
   // Dynamically save active quiz state on change
   useEffect(() => {
@@ -91,20 +147,18 @@ export default function QuizContainer({
   useEffect(() => {
     if (mode === "practice") return;
 
+    if (secondsRemaining <= 0) {
+      handleSubmit();
+      return;
+    }
+
     const timer = setInterval(() => {
-      setSecondsRemaining((prev) => {
-        if (prev <= 1) {
-          clearInterval(timer);
-          handleSubmit();
-          return 0;
-        }
-        return prev - 1;
-      });
+      setSecondsRemaining((prev) => prev - 1);
       setTimeSpent((prev) => prev + 1);
     }, 1000);
 
     return () => clearInterval(timer);
-  }, [mode]);
+  }, [mode, secondsRemaining]);
 
   // Keep track of time spent in Practice Mode too
   useEffect(() => {
@@ -217,8 +271,8 @@ export default function QuizContainer({
             </span>
             <h3 className="text-sm font-semibold text-slate-800 dark:text-slate-200">
               {chapterId === "all"
-                ? (bilingual ? "पूर्ण अभ्यासक्रम चाचणी" : "Full Syllabus Test")
-                : (bilingual ? `विषय ${chapterId} चाचणी` : `Chapter ${chapterId} Test`)}
+                ? t(selectedLanguage.code, "fullSyllabusTest")
+                : t(selectedLanguage.code, "chapterTest").replace("{id}", String(chapterId))}
             </h3>
           </div>
         </div>
@@ -233,7 +287,7 @@ export default function QuizContainer({
           ) : (
             <div className="flex items-center gap-2 px-3 py-1.5 bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 rounded-lg font-mono text-xs">
               <Icons.Clock className="h-3 w-3" />
-              <span>{bilingual ? "गेलेला वेळ:" : "Elapsed"}: {formatTime(timeSpent)}</span>
+              <span>{t(selectedLanguage.code, "elapsed")}: {formatTime(timeSpent)}</span>
             </div>
           )}
 
@@ -242,7 +296,7 @@ export default function QuizContainer({
             className="px-4 py-2 bg-emerald-600 hover:bg-emerald-500 text-slate-950 font-bold rounded-lg transition text-xs uppercase tracking-wider cursor-pointer"
             id="submit-test-btn"
           >
-            {bilingual ? "चाचणी पूर्ण करा" : "Finish Test"}
+            {t(selectedLanguage.code, "finishTest")}
           </button>
         </div>
       </div>
@@ -259,7 +313,7 @@ export default function QuizContainer({
       <div className="w-full">
         <input
           type="text"
-          placeholder={bilingual ? "प्रश्न शोधा..." : "Search questions..."}
+          placeholder={t(selectedLanguage.code, "searchQuestions")}
           value={searchQuery}
           onChange={(e) => {
             setSearchQuery(e.target.value);
@@ -313,42 +367,52 @@ export default function QuizContainer({
                     }`}
                   >
                     <Icons.Bookmark className="h-3 w-3" />
-                    <span>{bilingual ? "पुनरावलोकन" : "Flag"}</span>
+                    <span>{t(selectedLanguage.code, "flag")}</span>
                   </button>
                 )}
               </div>
 
               {/* Bilingual Stacked Questions */}
               <div className="mb-6 sm:mb-8 space-y-4" id="question-text-block">
-                <div>
-                  <h2 className="text-base sm:text-lg md:text-xl font-medium text-slate-900 dark:text-white leading-snug">
-                    {currentQuestion.question}
-                  </h2>
-                </div>
-                
-                {bilingual && currentQuestion.questionMarathi && (
-                  <div className="animate-fade-in">
-                    <div className="flex items-center gap-2 mb-1.5">
-                      <span className="text-[10px] font-bold uppercase tracking-widest text-amber-500 bg-amber-500/10 px-2 py-0.5 rounded border border-amber-500/20">
-                        मराठी (Marathi)
-                      </span>
-                    </div>
-                    <p className="text-sm md:text-base text-slate-700 dark:text-slate-300 bg-slate-50 dark:bg-slate-950/40 p-3 sm:p-4 rounded-lg border border-slate-200 dark:border-slate-900 leading-relaxed font-sans italic">
-                      {currentQuestion.questionMarathi}
-                    </p>
+                {isTranslating ? (
+                  <div className="animate-pulse space-y-4">
+                    <div className="h-6 bg-slate-200 dark:bg-slate-800 rounded w-3/4"></div>
+                    <div className="h-4 bg-slate-100 dark:bg-slate-800/50 rounded w-1/2"></div>
                   </div>
+                ) : (
+                  <>
+                    <div>
+                      <h2 className="text-base sm:text-lg md:text-xl font-medium text-slate-900 dark:text-white leading-snug">
+                        {enhancedQuestion.question['en']}
+                      </h2>
+                    </div>
+                    
+                    {showTranslation && (
+                      <div className="animate-fade-in">
+                        <div className="flex items-center gap-2 mb-1.5">
+                          <span className="text-[10px] font-bold uppercase tracking-widest text-emerald-500 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20 flex items-center gap-1">
+                            <Icons.Languages className="h-3 w-3" />
+                            {langLabel}
+                          </span>
+                        </div>
+                        <p className="text-sm md:text-base text-slate-700 dark:text-slate-300 bg-slate-50 dark:bg-slate-950/40 p-3 sm:p-4 rounded-lg border border-slate-200 dark:border-slate-900 leading-relaxed font-sans italic">
+                          {translatedContent.question}
+                        </p>
+                      </div>
+                    )}
+                  </>
                 )}
 
-                {currentQuestion.imageSvg && (
+                {enhancedQuestion.imageSvg && (
                   <div className="flex justify-center my-4 p-4 bg-slate-50 dark:bg-slate-950/40 rounded-xl border border-slate-200 dark:border-slate-800/80">
-                    <div className="max-w-[400px] w-full" dangerouslySetInnerHTML={{ __html: currentQuestion.imageSvg }} />
+                    <div className="max-w-[400px] w-full" dangerouslySetInnerHTML={{ __html: enhancedQuestion.imageSvg }} />
                   </div>
                 )}
               </div>
 
               {/* Options Grid */}
               <div className="grid grid-cols-1 gap-3 sm:gap-3.5 mb-6 sm:mb-8" id="options-grid">
-                {currentQuestion.options.map((opt, idx) => {
+                {(currentQuestion.options[selectedLanguage.code] || currentQuestion.options['en'] || []).map((opt, idx) => {
                   const optionChar = String.fromCharCode(65 + idx); // A, B, C, D
                   const isSelected = selectedAnswers[currentQuestion.id] === optionChar;
                   const isCorrectAnswer = currentQuestion.answer === optionChar;
@@ -373,7 +437,7 @@ export default function QuizContainer({
                     <button
                       key={idx}
                       onClick={() => handleOptionSelect(optionChar)}
-                      disabled={mode === "practice" && hasAnsweredCurrent}
+                      disabled={mode === "practice" && hasAnsweredCurrent || isTranslating}
                       className={`w-full text-left p-3 sm:p-4 rounded-xl border flex items-start gap-3 sm:gap-4 transition-all duration-200 cursor-pointer ${optionStyle}`}
                       id={`option-${optionChar}`}
                     >
@@ -385,10 +449,10 @@ export default function QuizContainer({
                         {optionChar}
                       </span>
                       <div className="flex-1 min-w-0">
-                        <span className="block text-sm sm:text-base leading-snug break-words">{opt}</span>
-                        {bilingual && currentQuestion.optionsMarathi?.[idx] && (
+                        <span className="block text-sm sm:text-base leading-snug break-words">{enhancedQuestion.options['en'][idx]}</span>
+                        {showTranslation && translatedContent.options?.[idx] && (
                           <span className="block text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1 break-words italic">
-                            {currentQuestion.optionsMarathi[idx]}
+                            {translatedContent.options[idx]}
                           </span>
                         )}
                       </div>
@@ -414,7 +478,7 @@ export default function QuizContainer({
                 className="px-4 py-2 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 rounded-lg hover:bg-slate-100 dark:bg-slate-800 hover:text-slate-900 dark:text-white disabled:opacity-30 disabled:pointer-events-none transition text-xs font-semibold flex items-center gap-1.5 cursor-pointer"
               >
                 <Icons.ArrowLeft className="h-4 w-4" />
-                <span>{bilingual ? "मागील" : "Previous"}</span>
+                <span>{t(selectedLanguage.code, "previous")}</span>
               </button>
 
               <button
@@ -422,7 +486,7 @@ export default function QuizContainer({
                 disabled={currentIndex === displayedQuestions.length - 1}
                 className="px-4 py-2 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 rounded-lg hover:bg-slate-100 dark:bg-slate-800 hover:text-slate-900 dark:text-white disabled:opacity-30 disabled:pointer-events-none transition text-xs font-semibold flex items-center gap-1.5 cursor-pointer"
               >
-                <span>{bilingual ? "पुढील" : "Next"}</span>
+                <span>{t(selectedLanguage.code, "next")}</span>
                 <Icons.ArrowRight className="h-4 w-4" />
               </button>
             </div>
@@ -438,20 +502,23 @@ export default function QuizContainer({
               <div className="flex items-center gap-2 mb-3 border-b border-slate-200 dark:border-slate-800 pb-2">
                 <Icons.Lightbulb className="text-amber-500 h-5 w-5" />
                 <h4 className="text-sm font-bold uppercase tracking-wider text-slate-800 dark:text-slate-200">
-                  {bilingual ? "स्पष्टीकरण" : "Explanation"}
+                  {t(selectedLanguage.code, "explanation")}
                 </h4>
               </div>
 
               <div className="space-y-4">
                 <p className="text-sm text-slate-700 dark:text-slate-300 leading-relaxed font-sans">
-                  {currentQuestion.explanation}
+                  {enhancedQuestion.explanation['en']}
                 </p>
                 
-                {bilingual && currentQuestion.explanationMarathi && (
+                {showTranslation && translatedContent.explanation && (
                   <div className="pt-3 border-t border-slate-200 dark:border-slate-800">
-                    <span className="text-[10px] font-bold uppercase tracking-widest text-amber-500 mb-1 block">मराठी स्पष्टीकरण (Marathi)</span>
+                    <span className="text-[10px] font-bold uppercase tracking-widest text-emerald-500 mb-1 flex items-center gap-1">
+                      <Icons.Languages className="h-3 w-3" />
+                      {langLabel} स्पष्टीकरण (Explanation)
+                    </span>
                     <p className="text-sm text-slate-500 dark:text-slate-400 italic leading-relaxed font-sans">
-                      {currentQuestion.explanationMarathi}
+                      {translatedContent.explanation}
                     </p>
                   </div>
                 )}
@@ -465,7 +532,7 @@ export default function QuizContainer({
           <div className="p-5 bg-white dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 rounded-xl backdrop-blur-md sticky top-6">
             <h3 className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-4 flex items-center gap-2">
               <Icons.Compass className="h-4 w-4 text-amber-500" />
-              {bilingual ? "चाचणी नेव्हिगेशन" : "Test Console"}
+              {t(selectedLanguage.code, "testConsole")}
             </h3>
 
             {/* Grid of question bubbles */}
@@ -508,26 +575,26 @@ export default function QuizContainer({
             <div className="flex flex-col gap-2.5 text-[11px] text-slate-500 dark:text-slate-400 border-t border-slate-200 dark:border-slate-800/80 pt-4">
               <div className="flex items-center gap-2">
                 <span className="h-3 w-3 bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-sm" />
-                <span>{bilingual ? "उत्तर दिलेले" : "Answered"}</span>
+                <span>{t(selectedLanguage.code, "answered")}</span>
               </div>
               <div className="flex items-center gap-2">
                 <span className="h-3 w-3 bg-slate-50 dark:bg-slate-950/60 border border-slate-200 dark:border-slate-850 rounded-sm" />
-                <span>{bilingual ? "उत्तर न दिलेले" : "Not Answered"}</span>
+                <span>{t(selectedLanguage.code, "notAnswered")}</span>
               </div>
               {mode === "exam" ? (
                 <div className="flex items-center gap-2">
                   <span className="h-3 w-3 bg-amber-500/20 border border-amber-500/40 rounded-sm" />
-                  <span>{bilingual ? "पुनरावलोकनासाठी चिन्हांकित" : "Flagged for Review"}</span>
+                  <span>{t(selectedLanguage.code, "flaggedForReview")}</span>
                 </div>
               ) : (
                 <>
                   <div className="flex items-center gap-2">
                     <span className="h-3 w-3 bg-emerald-500/20 border border-emerald-500/40 rounded-sm" />
-                    <span>{bilingual ? "बरोबर उत्तर" : "Correct Answer"}</span>
+                    <span>{t(selectedLanguage.code, "correctAnswer")}</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <span className="h-3 w-3 bg-rose-500/20 border border-rose-500/40 rounded-sm" />
-                    <span>{bilingual ? "चूक उत्तर" : "Incorrect Answer"}</span>
+                    <span>{t(selectedLanguage.code, "incorrectAnswer")}</span>
                   </div>
                 </>
               )}
@@ -537,9 +604,7 @@ export default function QuizContainer({
             {mode === "exam" && (
               <div className="mt-5 p-3.5 bg-slate-50 dark:bg-slate-950/80 border border-slate-200 dark:border-slate-850 rounded-lg text-[10px] text-slate-500 leading-normal">
                 <Icons.AlertTriangle className="h-3 w-3 text-amber-500/80 inline mr-1 -mt-0.5" />
-                {bilingual 
-                  ? "परीक्षा मोडमध्ये, तुम्ही पूर्ण करून सबमिट करेपर्यंत कोणतीही उत्तरे उघड केली जाणार नाहीत." 
-                  : "In Exam mode, answers will not be revealed until you submit the test."}
+                {t(selectedLanguage.code, "examModeWarning")}
               </div>
             )}
           </div>

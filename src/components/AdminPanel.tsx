@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import * as Icons from "lucide-react";
 import { StateLanguage, User, SubscriptionConfig } from "../types";
+import { t } from "../utils/i18n";
 
 interface AdminPanelProps {
   selectedLanguage: StateLanguage;
@@ -28,11 +29,116 @@ export default function AdminPanel({
   subscriptionConfig,
   onUpdateSubscriptionConfig,
 }: AdminPanelProps) {
-  const isMarathi = selectedLanguage.code === "mr";
+  
   const [students, setStudents] = useState<StudentRecord[]>([]);
   const [searchQuery, setSearchQuery] = useState("");
-  const [activeTab, setActiveTab] = useState<"list" | "guide" | "pricing" | "coupons">("list");
+  const [activeTab, setActiveTab] = useState<"list" | "guide" | "pricing" | "coupons" | "email">("list");
   const [guideSubTab, setGuideSubTab] = useState<"firebase" | "sheets" | "sql">("firebase");
+
+  // SMTP Configuration states
+  const [smtpHost, setSmtpHost] = useState("smtp.gmail.com");
+  const [smtpPort, setSmtpPort] = useState("465");
+  const [smtpUser, setSmtpUser] = useState("jemshery17@gmail.com");
+  const [smtpPass, setSmtpPass] = useState("");
+  const [smtpIsConnected, setSmtpIsConnected] = useState<boolean | null>(null);
+  const [smtpVerifyError, setSmtpVerifyError] = useState("");
+  const [smtpTesting, setSmtpTesting] = useState(false);
+  const [smtpUpdating, setSmtpUpdating] = useState(false);
+  const [smtpSuccessMessage, setSmtpSuccessMessage] = useState("");
+  const [smtpErrorMessage, setSmtpErrorMessage] = useState("");
+  const [testEmailTo, setTestEmailTo] = useState("");
+  const [showSmtpPass, setShowSmtpPass] = useState(false);
+
+  const fetchSmtpConfig = () => {
+    fetch("/api/admin/smtp-config")
+      .then(res => res.json())
+      .then(data => {
+        if (data.success) {
+          if (data.host) setSmtpHost(data.host);
+          if (data.port) setSmtpPort(String(data.port));
+          if (data.user) {
+            setSmtpUser(data.user);
+            setTestEmailTo(data.user);
+          }
+          setSmtpIsConnected(data.isConnected);
+          setSmtpVerifyError(data.verifyError || "");
+        }
+      })
+      .catch(() => {});
+  };
+
+  useEffect(() => {
+    fetchSmtpConfig();
+  }, []);
+
+  const handleUpdateSmtp = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setSmtpUpdating(true);
+    setSmtpSuccessMessage("");
+    setSmtpErrorMessage("");
+
+    try {
+      const res = await fetch("/api/admin/smtp-update", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          host: smtpHost,
+          port: smtpPort,
+          user: smtpUser,
+          pass: smtpPass,
+        })
+      });
+      const data = await res.json();
+      setSmtpUpdating(false);
+
+      if (res.ok && data.success) {
+        setSmtpSuccessMessage(
+          selectedLanguage.code === "mr"
+            ? "✅ ईमेल (SMTP) तपशील यशस्वीरित्या सेव्ह व पडताळले गेले! नवीन युझर्सना आता ईमेलवर ओटीपी जाईल."
+            : "✅ SMTP credentials verified and saved successfully! New users will now receive OTP emails."
+        );
+        setSmtpIsConnected(true);
+        setSmtpVerifyError("");
+        setSmtpPass("");
+      } else {
+        setSmtpErrorMessage(data.error || "Failed to update SMTP credentials.");
+        setSmtpIsConnected(false);
+        setSmtpVerifyError(data.details || "");
+      }
+    } catch (err: any) {
+      setSmtpUpdating(false);
+      setSmtpErrorMessage("Network error: Failed to connect to server.");
+    }
+  };
+
+  const handleSendTestEmail = async () => {
+    setSmtpTesting(true);
+    setSmtpSuccessMessage("");
+    setSmtpErrorMessage("");
+
+    try {
+      const res = await fetch("/api/admin/smtp-send-test", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ toEmail: testEmailTo || smtpUser })
+      });
+      const data = await res.json();
+      setSmtpTesting(false);
+
+      if (res.ok && data.success) {
+        setSmtpSuccessMessage(
+          selectedLanguage.code === "mr"
+            ? `🎉 चाचणी ईमेल ${testEmailTo || smtpUser} वर पाठवला गेला आहे! कृपया इनबॉक्स / स्पॅम तपासा.`
+            : `🎉 Test email successfully sent to ${testEmailTo || smtpUser}! Please check inbox/spam.`
+        );
+      } else {
+        setSmtpErrorMessage(data.error || "Failed to send test email.");
+      }
+    } catch (err) {
+      setSmtpTesting(false);
+      setSmtpErrorMessage("Network error: Could not send test email.");
+    }
+  };
 
   // Coupon states
   const [coupons, setCoupons] = useState<{ id: string; code: string; discountPercent: number; isActive: boolean }[]>([]);
@@ -63,7 +169,7 @@ export default function AdminPanel({
         body: JSON.stringify({ coupons }),
       });
       if (res.ok) {
-        setCouponsSuccess(isMarathi ? "कूपन कोड अपडेट झाले!" : "Coupon codes updated successfully!");
+        setCouponsSuccess(selectedLanguage.code === "mr" ? t(selectedLanguage.code, "couponApplied").replace("{percent}", "") : t(selectedLanguage.code, "couponApplied").replace("{percent}", ""));
         setTimeout(() => setCouponsSuccess(""), 3000);
       } else {
         setCouponsError("Failed to save coupons.");
@@ -129,7 +235,7 @@ export default function AdminPanel({
       });
       if (res.ok) {
         setBypassSuccess(
-          isMarathi
+          selectedLanguage.code === "mr"
             ? "बायपास पासवर्ड यशस्वीरित्या बदलला!"
             : "Bypass code updated successfully!"
         );
@@ -140,7 +246,7 @@ export default function AdminPanel({
       }
     } catch (err: any) {
       console.error(err);
-      setBypassError(isMarathi ? "त्रुटी आढळली!" : "Network error! Please try again.");
+      setBypassError(t(selectedLanguage.code, "authAdminErrorNetwork"));
     } finally {
       setBypassSaving(false);
     }
@@ -233,7 +339,7 @@ export default function AdminPanel({
 
       // 3. Inform the user of successful configuration save
       setPricingSuccess(
-        isMarathi 
+        selectedLanguage.code === "mr" 
           ? "सबस्क्रिप्शन प्लॅन यशस्वीरित्या सेव्ह केला गेला!" 
           : "Subscription plan updated and saved successfully!"
       );
@@ -257,7 +363,7 @@ export default function AdminPanel({
 
     } catch (err: any) {
       console.error("Save pricing error:", err);
-      setPricingError(isMarathi ? "त्रुटी आढळली: " + (err.message || "") : err.message || "An error occurred.");
+      setPricingError(t(selectedLanguage.code, "authAdminErrorNetwork") + ": " + (err.message || ""));
     } finally {
       setPricingSaving(false);
     }
@@ -270,13 +376,13 @@ export default function AdminPanel({
     setFormSuccess("");
 
     if (!newEmail || !newUsername) {
-      setFormError(isMarathi ? "कृपया ईमेल आणि नाव प्रविष्ट करा." : "Please enter email and name.");
+      setFormError(t(selectedLanguage.code, "authErrorFillFields"));
       return;
     }
 
     const emailKey = newEmail.toLowerCase().trim();
     if (students.some((s) => s && s.email && s.email.toLowerCase() === emailKey)) {
-      setFormError(isMarathi ? "या ईमेलचा विद्यार्थी आधीपासूनच अस्तित्वात आहे!" : "A student with this email already exists!");
+      setFormError(t(selectedLanguage.code, "noStudentsFound"));
       return;
     }
 
@@ -298,7 +404,7 @@ export default function AdminPanel({
         body: JSON.stringify({ user: newRecord })
       });
       if (res.ok) {
-        setFormSuccess(isMarathi ? "विद्यार्थी यशस्वीरित्या जोडला गेला!" : "Student added successfully!");
+        setFormSuccess(t(selectedLanguage.code, "authSignupSuccess"));
         setNewEmail("");
         setNewUsername("");
         setNewIsPremium(false);
@@ -352,7 +458,7 @@ export default function AdminPanel({
 
   // 4. Delete Student Record
   const handleDeleteStudent = async (email: string) => {
-    if (confirm(isMarathi ? `तुम्हाला खात्री आहे की तुम्ही ${email} ला काढून टाकू इच्छिता?` : `Are you sure you want to remove ${email}?`)) {
+    if (confirm(selectedLanguage.code === "mr" ? `तुम्हाला खात्री आहे की तुम्ही ${email} ला काढून टाकू इच्छिता?` : `Are you sure you want to remove ${email}?`)) {
       try {
         await fetch(`/api/users/${encodeURIComponent(email)}`, {
           method: "DELETE"
@@ -382,12 +488,10 @@ export default function AdminPanel({
         <div>
           <h2 className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white tracking-tight flex items-center gap-2">
             <Icons.ShieldAlert className="h-6 w-6 text-amber-500" />
-            <span>{isMarathi ? "ॲडमीन डॅशबोर्ड" : "Admin Control Panel"}</span>
+            <span>{t(selectedLanguage.code, "adminDashboard")}</span>
           </h2>
           <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
-            {isMarathi 
-              ? "विद्यार्थ्यांच्या सबस्क्रिप्शन व प्रीमियम खात्यांचे व्यवस्थापन करा" 
-              : "Manage students, edit subscription status, and monitor user logins"}
+            {t(selectedLanguage.code, "adminDesc")}
           </p>
         </div>
 
@@ -402,7 +506,7 @@ export default function AdminPanel({
             }`}
           >
             <Icons.Users className="h-3.5 w-3.5" />
-            <span>{isMarathi ? "विद्यार्थी यादी" : "Student Directory"}</span>
+            <span>{t(selectedLanguage.code, "studentDirectory")}</span>
           </button>
           <button
             onClick={() => setActiveTab("pricing")}
@@ -413,7 +517,7 @@ export default function AdminPanel({
             }`}
           >
             <Icons.Settings className="h-3.5 w-3.5" />
-            <span>{isMarathi ? "सबस्क्रिप्शन किंमत बदला" : "Subscription Settings"}</span>
+            <span>{t(selectedLanguage.code, "subscriptionSettings")}</span>
           </button>
           <button
             onClick={() => setActiveTab("coupons")}
@@ -424,7 +528,18 @@ export default function AdminPanel({
             }`}
           >
             <Icons.Tag className="h-3.5 w-3.5" />
-            <span>{isMarathi ? "कूपन कोड" : "Coupon Codes"}</span>
+            <span>{t(selectedLanguage.code, "couponCodes")}</span>
+          </button>
+          <button
+            onClick={() => setActiveTab("email")}
+            className={`px-4 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 cursor-pointer ${
+              activeTab === "email" 
+                ? "bg-amber-500 text-slate-950" 
+                : "text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:text-slate-200"
+            }`}
+          >
+            <Icons.Mail className="h-3.5 w-3.5" />
+            <span>{selectedLanguage.code === "mr" ? "ईमेल (SMTP) सेटिंग" : "Email / SMTP Setup"}</span>
           </button>
           <button
             onClick={() => setActiveTab("guide")}
@@ -435,7 +550,7 @@ export default function AdminPanel({
             }`}
           >
             <Icons.DatabaseBackup className="h-3.5 w-3.5" />
-            <span>{isMarathi ? "डेटाबेस कनेक्ट" : "Connect Database"}</span>
+            <span>{t(selectedLanguage.code, "connectDatabase")}</span>
           </button>
         </div>
       </div>
@@ -449,7 +564,7 @@ export default function AdminPanel({
               <Icons.Search className="h-4 w-4 text-slate-500 shrink-0" />
               <input
                 type="text"
-                placeholder={isMarathi ? "नाव किंवा ईमेलने शोधा..." : "Search students by name or email..."}
+                placeholder={t(selectedLanguage.code, "searchPlaceholder")}
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="bg-transparent border-none text-xs text-slate-800 dark:text-slate-200 focus:outline-none w-full placeholder-slate-600 font-medium"
@@ -468,10 +583,10 @@ export default function AdminPanel({
             <div className="bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-850 rounded-2xl overflow-hidden">
               <div className="p-4 bg-white dark:bg-slate-900/40 border-b border-slate-200 dark:border-slate-850 flex justify-between items-center">
                 <span className="text-xs font-bold text-slate-500 dark:text-slate-400">
-                  {isMarathi ? `एकूण विद्यार्थी: ${filteredStudents.length}` : `Total Registered: ${filteredStudents.length}`}
+                  {t(selectedLanguage.code, "totalStudents").replace("{count}", filteredStudents.length.toString())}
                 </span>
                 <span className="text-[10px] bg-emerald-500/10 text-emerald-400 font-semibold px-2 py-0.5 rounded-full border border-emerald-500/20">
-                  {isMarathi ? "लाईव्ह डेटाबेस" : "Live Local DB Sync"}
+                  {t(selectedLanguage.code, "liveDatabase")}
                 </span>
               </div>
 
@@ -479,7 +594,7 @@ export default function AdminPanel({
                 <div className="p-8 text-center text-slate-500 space-y-2">
                   <Icons.UserX className="h-10 w-10 text-slate-600 mx-auto" />
                   <p className="text-xs font-semibold">
-                    {isMarathi ? "कोणताही विद्यार्थी सापडला नाही." : "No student matches your query."}
+                    {t(selectedLanguage.code, "noStudentsFound")}
                   </p>
                 </div>
               ) : (
@@ -509,16 +624,16 @@ export default function AdminPanel({
                           {/* Expiry / Sub Badge */}
                           {student.isBlocked ? (
                             <span className="text-[9px] bg-red-500/10 text-red-400 font-bold px-2 py-0.5 rounded border border-red-500/25">
-                              {isMarathi ? "ब्लॉक केलेला" : "BLOCKED"}
+                              {t(selectedLanguage.code, "blocked")}
                             </span>
                           ) : student.isPremium ? (
                             <span className="text-[9px] bg-emerald-500/15 text-emerald-400 font-bold px-2 py-0.5 rounded border border-emerald-500/25 flex items-center gap-0.5 shadow-sm shadow-emerald-500/10">
                               <Icons.Crown className="h-2.5 w-2.5 text-amber-500 fill-amber-500/25" />
-                              {isMarathi ? "प्रीमियम" : "PREMIUM"}
+                              {t(selectedLanguage.code, "premiumBadge")}
                             </span>
                           ) : (
                             <span className="text-[9px] bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 font-bold px-2 py-0.5 rounded border border-slate-300 dark:border-slate-700">
-                              {isMarathi ? "मोफत सदस्य" : "FREE USER"}
+                              {t(selectedLanguage.code, "freeUser")}
                             </span>
                           )}
                         </div>
@@ -532,7 +647,7 @@ export default function AdminPanel({
                           <div className="text-[10px] text-amber-500/80 font-semibold flex items-center gap-1">
                             <Icons.CalendarDays className="h-3 w-3 text-amber-500/70" />
                             <span>
-                              {isMarathi ? `मुदत संपण्याची तारीख: ` : `Expires on: `}
+                              {t(selectedLanguage.code, "expiresOn").replace("{date}", "")}
                               <span className="font-mono">{student.expiryDate || "2027-06-25"}</span>
                             </span>
                           </div>
@@ -562,12 +677,12 @@ export default function AdminPanel({
                           {student.isPremium ? (
                             <>
                               <Icons.UserMinus className="h-3.5 w-3.5" />
-                              <span>{isMarathi ? "कॅन्सल सबस्क्रिप्शन" : "Cancel Sub"}</span>
+                              <span>{t(selectedLanguage.code, "cancelSub")}</span>
                             </>
                           ) : (
                             <>
                               <Icons.UserPlus className="h-3.5 w-3.5" />
-                              <span>{isMarathi ? "प्रीमियम द्या" : "Activate Sub"}</span>
+                              <span>{t(selectedLanguage.code, "activateSub")}</span>
                             </>
                           )}
                         </button>
@@ -580,7 +695,7 @@ export default function AdminPanel({
                               ? "bg-red-500 hover:bg-red-600 text-slate-900 dark:text-white border-red-500"
                               : "bg-white dark:bg-slate-900 hover:bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 hover:text-red-400 border-slate-200 dark:border-slate-850"
                           }`}
-                          title={student.isBlocked ? (isMarathi ? "अनब्लॉक करा" : "Unblock Student") : (isMarathi ? "ब्लॉक करा" : "Block Student")}
+                          title={student.isBlocked ? t(selectedLanguage.code, "unblock") : t(selectedLanguage.code, "block")}
                         >
                           <Icons.Ban className="h-3.5 w-3.5" />
                         </button>
@@ -589,7 +704,7 @@ export default function AdminPanel({
                         <button
                           onClick={() => handleDeleteStudent(student.email)}
                           className="p-1.5 bg-white dark:bg-slate-900 hover:bg-red-950/40 text-slate-500 hover:text-red-400 border border-slate-200 dark:border-slate-850 rounded-lg transition cursor-pointer select-none"
-                          title={isMarathi ? "पूर्णपणे काढून टाका" : "Delete Student Record"}
+                          title={t(selectedLanguage.code, "deleteRecord")}
                         >
                           <Icons.Trash2 className="h-3.5 w-3.5" />
                         </button>
@@ -606,14 +721,14 @@ export default function AdminPanel({
             <div className="bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-850 rounded-2xl p-5 space-y-4">
               <h3 className="text-sm font-black text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-2 border-b border-slate-200 dark:border-slate-850 pb-3">
                 <Icons.UserPlus className="h-4 w-4 text-emerald-500" />
-                <span>{isMarathi ? "नवीन विद्यार्थी जोडा" : "Add New Student"}</span>
+                <span>{t(selectedLanguage.code, "addNewStudent")}</span>
               </h3>
 
               <form onSubmit={handleAddStudent} className="space-y-4">
                 {/* Email Address */}
                 <div className="space-y-1.5">
                   <label className="block text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wide">
-                    {isMarathi ? "ईमेल आयडी" : "Email Address"}
+                    {t(selectedLanguage.code, "emailAddress")}
                   </label>
                   <input
                     type="email"
@@ -628,12 +743,12 @@ export default function AdminPanel({
                 {/* Username / Full Name */}
                 <div className="space-y-1.5">
                   <label className="block text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wide">
-                    {isMarathi ? "विद्यार्थ्याचे नाव" : "Student Full Name"}
+                    {t(selectedLanguage.code, "studentFullName")}
                   </label>
                   <input
                     type="text"
                     required
-                    placeholder={isMarathi ? "उदा. गणेश पाटील" : "e.g. Rahul Sharma"}
+                    placeholder={t(selectedLanguage.code, "studentNamePlaceholder")}
                     value={newUsername}
                     onChange={(e) => setNewUsername(e.target.value)}
                     className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-slate-100 rounded-xl px-3 py-2 text-xs focus:outline-none focus:border-amber-500 transition"
@@ -643,7 +758,7 @@ export default function AdminPanel({
                 {/* Expiry Date */}
                 <div className="space-y-1.5">
                   <label className="block text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wide">
-                    {isMarathi ? "सबस्क्रिप्शन मुदत तारीख" : "Subscription Expiry"}
+                    {t(selectedLanguage.code, "subscriptionExpiry")}
                   </label>
                   <input
                     type="date"
@@ -663,7 +778,7 @@ export default function AdminPanel({
                     className="rounded border-slate-200 dark:border-slate-800 text-emerald-500 bg-slate-50 dark:bg-slate-950 focus:ring-emerald-500/20 h-3.5 w-3.5 cursor-pointer accent-emerald-500"
                   />
                   <span className="text-xs text-slate-700 dark:text-slate-300 font-bold">
-                    {isMarathi ? "थेट प्रीमियम खाते द्या" : "Activate Premium Sub immediately"}
+                    {t(selectedLanguage.code, "activatePremiumImmediately")}
                   </span>
                 </label>
 
@@ -686,7 +801,7 @@ export default function AdminPanel({
                   className="w-full py-2.5 bg-emerald-500 hover:bg-emerald-600 text-slate-950 text-xs font-black rounded-xl transition flex items-center justify-center gap-1.5 cursor-pointer shadow-lg shadow-emerald-500/10 select-none"
                 >
                   <Icons.Plus className="h-4 w-4" />
-                  <span>{isMarathi ? "नवीन विद्यार्थी जोडा" : "Add Student Record"}</span>
+                  <span>{t(selectedLanguage.code, "addNewStudent")}</span>
                 </button>
               </form>
             </div>
@@ -694,12 +809,10 @@ export default function AdminPanel({
             {/* Quick Helper card */}
             <div className="bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-850 rounded-2xl p-4 text-[10.5px] text-slate-500 dark:text-slate-400 leading-relaxed space-y-2 font-sans">
               <span className="font-bold text-amber-500 uppercase tracking-wider text-[9px] block">
-                {isMarathi ? "💡 डेटाबेस टीप" : "💡 Synchronization Notice"}
+                {t(selectedLanguage.code, "dbNoticeTitle")}
               </span>
               <p>
-                {isMarathi 
-                  ? "हा डॅशबोर्ड थेट विद्यार्थ्यांच्या स्थानिक डेटाबेसशी सिंक केलेला आहे. तुम्ही बदललेली कोणतीही सबस्क्रिप्शन स्टेटस किंवा ब्लॉक स्टेटस लॉगिन करताना तात्काळ लागू होते."
-                  : "This panel connects directly to the local users database on this browser session. Activating or canceling subscriptions dynamically blocks or unlocks mock tests for that student immediately."}
+                {t(selectedLanguage.code, "dbNoticeDesc")}
               </p>
             </div>
           </div>
@@ -709,12 +822,10 @@ export default function AdminPanel({
           <div>
             <h3 className="text-lg font-black text-slate-900 dark:text-white tracking-tight flex items-center gap-2">
               <Icons.Sparkles className="h-5 w-5 text-amber-500 fill-amber-500/20" />
-              <span>{isMarathi ? "सबस्क्रिप्शन किंमत आणि प्लॅन सेटिंग्ज" : "Subscription Plan & Pricing"}</span>
+              <span>{t(selectedLanguage.code, "planSettingsTitle")}</span>
             </h3>
             <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
-              {isMarathi
-                ? "इथून तुम्ही प्रीमियम सबस्क्रिप्शनची किंमत, मूळ किंमत, मुदत आणि वर्णन बदलू शकता."
-                : "Configure the checkout subscription amounts, discounts, billing period, and names dynamically."}
+              {t(selectedLanguage.code, "planSettingsDesc")}
             </p>
           </div>
 
@@ -736,7 +847,7 @@ export default function AdminPanel({
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="space-y-1.5">
                 <label className="text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider block">
-                  {isMarathi ? "सबस्क्रिप्शन शुल्क (₹)" : "Subscription Fee (₹)"}
+                  {t(selectedLanguage.code, "subscriptionFee")}
                 </label>
                 <input
                   type="number"
@@ -750,7 +861,7 @@ export default function AdminPanel({
 
               <div className="space-y-1.5">
                 <label className="text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider block">
-                  {isMarathi ? "मूळ किंमत / छापील किंमत (₹)" : "Original / Strikeout Price (₹)"}
+                  {t(selectedLanguage.code, "originalPrice")}
                 </label>
                 <input
                   type="number"
@@ -765,7 +876,7 @@ export default function AdminPanel({
 
             <div className="space-y-1.5">
               <label className="text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider block">
-                {isMarathi ? "पेमेंट मुदत" : "Billing Period / Access Duration"}
+                {t(selectedLanguage.code, "billingPeriod")}
               </label>
               <select
                 value={["lifetime", "1 month", "3 months", "6 months", "1 year"].includes(pricingPeriod) ? pricingPeriod : "custom"}
@@ -779,24 +890,24 @@ export default function AdminPanel({
                 }}
                 className="w-full bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-850 focus:border-amber-500 text-slate-900 dark:text-slate-100 rounded-xl px-4 py-2.5 text-xs focus:outline-none transition font-semibold cursor-pointer"
               >
-                <option value="lifetime">{isMarathi ? "लाइफटाईम (Lifetime Access)" : "Lifetime Access"}</option>
-                <option value="1 month">{isMarathi ? "१ महिना (1 Month Access)" : "1 Month Access"}</option>
-                <option value="3 months">{isMarathi ? "३ महिने (3 Months Access)" : "3 Months Access"}</option>
-                <option value="6 months">{isMarathi ? "६ महिने (6 Months Access)" : "6 Months Access"}</option>
-                <option value="1 year">{isMarathi ? "१ वर्ष (1 Year Access)" : "1 Year Access"}</option>
-                <option value="custom">{isMarathi ? "कस्टम मुदत (Custom Duration...)" : "Custom Duration..."}</option>
+                <option value="lifetime">{t(selectedLanguage.code, "lifetimeAccess")}</option>
+                <option value="1 month">{t(selectedLanguage.code, "monthAccess").replace("{count}", "1")}</option>
+                <option value="3 months">{t(selectedLanguage.code, "monthsAccess").replace("{count}", "3")}</option>
+                <option value="6 months">{t(selectedLanguage.code, "monthsAccess").replace("{count}", "6")}</option>
+                <option value="1 year">{t(selectedLanguage.code, "monthAccess").replace("{count}", "12")}</option>
+                <option value="custom">{t(selectedLanguage.code, "customDuration")}</option>
               </select>
             </div>
 
             {(!["lifetime", "1 month", "3 months", "6 months", "1 year"].includes(pricingPeriod)) && (
               <div className="space-y-1.5 animate-fade-in">
                 <label className="text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider block">
-                  {isMarathi ? "कस्टम मुदत प्रविष्ट करा (उदा. 45 Days, 2 Months)" : "Enter Custom Duration (e.g. 45 Days, 2 Months)"}
+                  {t(selectedLanguage.code, "customDuration")}
                 </label>
                 <input
                   type="text"
                   required
-                  placeholder={isMarathi ? "उदा. 45 Days, 3 Months" : "e.g. 45 Days, 3 Months"}
+                  placeholder={t(selectedLanguage.code, "customDurationPlaceholder")}
                   value={pricingPeriod}
                   onChange={(e) => setPricingPeriod(e.target.value)}
                   className="w-full bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-850 focus:border-amber-500 text-slate-900 dark:text-slate-100 rounded-xl px-4 py-2.5 text-xs focus:outline-none transition font-semibold"
@@ -806,7 +917,7 @@ export default function AdminPanel({
 
             <div className="space-y-1.5">
               <label className="text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider block">
-                {isMarathi ? "पॅकेज नाव (इंग्रजी)" : "Package Name (English)"}
+                {t(selectedLanguage.code, "packageNameEn")}
               </label>
               <input
                 type="text"
@@ -819,7 +930,7 @@ export default function AdminPanel({
 
             <div className="space-y-1.5">
               <label className="text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider block">
-                {isMarathi ? "पॅकेज नाव (मराठी)" : "Package Name (Marathi)"}
+                {t(selectedLanguage.code, "packageNameMr")}
               </label>
               <input
                 type="text"
@@ -840,12 +951,12 @@ export default function AdminPanel({
               {pricingSaving ? (
                 <>
                   <Icons.Loader2 className="h-4 w-4 animate-spin" />
-                  <span>{isMarathi ? "प्लॅन सेव्ह केला जात आहे..." : "Saving Plan Settings..."}</span>
+                  <span>{t(selectedLanguage.code, "savingSettings")}</span>
                 </>
               ) : (
                 <>
                   <Icons.Save className="h-4 w-4" />
-                  <span>{isMarathi ? "सबस्क्रिप्शन माहिती अपडेट करा" : "Save Plan Configuration"}</span>
+                  <span>{t(selectedLanguage.code, "saveConfiguration")}</span>
                 </>
               )}
             </button>
@@ -856,12 +967,10 @@ export default function AdminPanel({
             <div>
               <h3 className="text-lg font-black text-slate-900 dark:text-white tracking-tight flex items-center gap-2">
                 <Icons.Key className="h-5 w-5 text-amber-500" />
-                <span>{isMarathi ? "बायपास कोड मॅनेजमेंट (Admin Bypass Code)" : "Admin Bypass Code Management"}</span>
+                <span>{t(selectedLanguage.code, "bypassCodeTitle")}</span>
               </h3>
               <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
-                {isMarathi
-                  ? "हा बायपास कोड वापरून विद्यार्थी किंवा तुम्ही पासवर्ड न वापरता डायरेक्ट लॉगिन करू शकता. हा वारंवार बदलत राहा."
-                  : "Change the admin bypass code periodically to keep registration or testing access secure."}
+                {t(selectedLanguage.code, "bypassCodeDesc")}
               </p>
             </div>
 
@@ -882,7 +991,7 @@ export default function AdminPanel({
 
               <div className="space-y-1.5">
                 <label className="text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider block">
-                  {isMarathi ? "बायपास पासवर्ड कोड" : "Bypass Password Code"}
+                  {t(selectedLanguage.code, "bypassCodeLabel")}
                 </label>
                 <div className="relative">
                   <span className="absolute inset-y-0 left-0 pl-3.5 flex items-center text-slate-500">
@@ -907,12 +1016,12 @@ export default function AdminPanel({
                 {bypassSaving ? (
                   <>
                     <Icons.Loader2 className="h-4 w-4 animate-spin" />
-                    <span>{isMarathi ? "बायपास कोड बदलला जात आहे..." : "Updating Bypass Code..."}</span>
+                    <span>{t(selectedLanguage.code, "updatingBypassCode")}</span>
                   </>
                 ) : (
                   <>
                     <Icons.Key className="h-4 w-4" />
-                    <span>{isMarathi ? "बायपास कोड अपडेट करा" : "Update Bypass Code"}</span>
+                    <span>{t(selectedLanguage.code, "updateBypassCode")}</span>
                   </>
                 )}
               </button>
@@ -924,10 +1033,10 @@ export default function AdminPanel({
           <div>
             <h3 className="text-lg font-black text-slate-900 dark:text-white tracking-tight flex items-center gap-2">
               <Icons.Tag className="h-5 w-5 text-amber-500" />
-              <span>{isMarathi ? "कूपन कोड मॅनेजमेंट" : "Coupon Code Management"}</span>
+              <span>{t(selectedLanguage.code, "couponCodes")}</span>
             </h3>
             <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
-              {isMarathi
+              {selectedLanguage.code === "mr"
                 ? "विद्यार्थ्यांना सवलत देण्यासाठी ५ कूपन कोड सेट करा."
                 : "Set up 5 coupon codes to offer discounts to students."}
             </p>
@@ -957,7 +1066,7 @@ export default function AdminPanel({
                   
                   <div className="sm:col-span-4">
                     <label className="text-[10px] font-bold text-slate-500 uppercase block mb-1">
-                      {isMarathi ? "कूपन कोड" : "Code"}
+                      {t(selectedLanguage.code, "couponCodes")}
                     </label>
                     <input
                       type="text"
@@ -970,7 +1079,7 @@ export default function AdminPanel({
 
                   <div className="sm:col-span-3">
                     <label className="text-[10px] font-bold text-slate-500 uppercase block mb-1">
-                      {isMarathi ? "सवलत (%)" : "Discount %"}
+                      {t(selectedLanguage.code, "couponCodes")}
                     </label>
                     <div className="relative">
                       <input
@@ -988,7 +1097,7 @@ export default function AdminPanel({
                   <div className="sm:col-span-4 flex items-center gap-3 justify-end">
                     <label className="flex items-center gap-2 cursor-pointer">
                       <span className={`text-[10px] font-bold uppercase ${coupon.isActive ? "text-emerald-500" : "text-slate-500"}`}>
-                        {coupon.isActive ? (isMarathi ? "सक्रीय" : "Active") : (isMarathi ? "बंद" : "Inactive")}
+                        {coupon.isActive ? "Active" : "Inactive"}
                       </span>
                       <div 
                         onClick={() => handleUpdateCoupon(coupon.id, "isActive", !coupon.isActive)}
@@ -1012,12 +1121,12 @@ export default function AdminPanel({
               {couponsSaving ? (
                 <>
                   <Icons.Loader2 className="h-4 w-4 animate-spin" />
-                  <span>{isMarathi ? "कूपन सेव्ह होत आहेत..." : "Saving Coupons..."}</span>
+                  <span>{t(selectedLanguage.code, "savingSettings")}</span>
                 </>
               ) : (
                 <>
                   <Icons.Save className="h-4 w-4" />
-                  <span>{isMarathi ? "कूपन कोड सेव्ह करा" : "Save Coupon Configuration"}</span>
+                  <span>{t(selectedLanguage.code, "saveConfiguration")}</span>
                 </>
               )}
             </button>
@@ -1028,12 +1137,12 @@ export default function AdminPanel({
             <div className="flex items-center gap-2 border-b border-slate-200 dark:border-slate-850 pb-3">
               <Icons.DatabaseBackup className="h-5 w-5 text-amber-500" />
               <h3 className="text-sm font-black text-slate-900 dark:text-white uppercase tracking-wider">
-                {isMarathi ? "तुमचा स्वतःचा खरा डेटाबेस कसा कनेक्ट कराल?" : "Database Connection Integration Guide"}
+                {t(selectedLanguage.code, "connectDatabase")}
               </h3>
             </div>
             
             <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed font-sans">
-              {isMarathi
+              {selectedLanguage.code === "mr"
                 ? "सध्या हा ॲप स्थानिक ब्राउझर मेमरी (LocalStorage) वापरतो. तुम्ही जेव्हा हे ॲप तुमच्या विद्यार्थ्यांसाठी लाईव्ह कराल, तेव्हा तुम्ही खालीलपैकी कोणत्याही पद्धतीने डेटाबेस कनेक्ट करू शकता. येथे आम्ही पूर्ण कोड तयार केला आहे:"
                 : "Currently this app saves students inside standard LocalStorage. When deploying this for real student registration, you can integrate Firebase, Google Sheets, or SQL databases. Below are clean copy-paste templates ready to go:"}
             </p>
@@ -1159,6 +1268,265 @@ app.post("/api/admin/subscriptions", async (req, res) => {
               </div>
             )}
           </div>
+      ) : activeTab === "email" ? (
+        <div className="space-y-6 animate-fade-in">
+          {/* Header & Status Card */}
+          <div className="bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-850 rounded-2xl p-5">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+              <div>
+                <h3 className="text-base font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                  <Icons.Mail className="h-5 w-5 text-amber-500" />
+                  <span>{selectedLanguage.code === "mr" ? "ईमेल सर्व्हर (SMTP) व ओटीपी व्यवस्थापन" : "Email Server (SMTP) & OTP Settings"}</span>
+                </h3>
+                <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
+                  {selectedLanguage.code === "mr"
+                    ? "नवीन युझर नोंदणी (Registration) करताना ईमेलवर जाणारा ओटीपी (OTP) येथून नियंत्रित केला जातो."
+                    : "Controls the OTP emails sent to users during new registration and password recovery."}
+                </p>
+              </div>
+
+              {/* Status Badge */}
+              <div className="flex items-center gap-2 shrink-0">
+                {smtpIsConnected === true ? (
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
+                    <Icons.CheckCircle2 className="h-4 w-4" />
+                    <span>{selectedLanguage.code === "mr" ? "कनेक्टेड (Active)" : "Connected (Active)"}</span>
+                  </span>
+                ) : smtpIsConnected === false ? (
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold bg-rose-500/10 text-rose-600 dark:text-rose-400 border border-rose-500/20">
+                    <Icons.AlertTriangle className="h-4 w-4" />
+                    <span>{selectedLanguage.code === "mr" ? "अवैध पासवर्ड (Bad Credentials)" : "Authentication Error"}</span>
+                  </span>
+                ) : (
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/20">
+                    <Icons.RefreshCw className="h-3.5 w-3.5 animate-spin" />
+                    <span>{selectedLanguage.code === "mr" ? "तपासत आहे..." : "Checking..."}</span>
+                  </span>
+                )}
+                <button
+                  type="button"
+                  onClick={fetchSmtpConfig}
+                  title="Refresh status"
+                  className="p-1.5 rounded-lg border border-slate-200 dark:border-slate-800 text-slate-500 hover:text-slate-900 dark:hover:text-white"
+                >
+                  <Icons.RotateCcw className="h-3.5 w-3.5" />
+                </button>
+              </div>
+            </div>
+
+            {smtpVerifyError && (
+              <div className="mt-4 p-3 bg-rose-50 dark:bg-rose-950/40 border border-rose-200 dark:border-rose-900 rounded-xl text-xs text-rose-700 dark:text-rose-300 flex items-start gap-2">
+                <Icons.AlertCircle className="h-4 w-4 shrink-0 mt-0.5 text-rose-500" />
+                <div>
+                  <div className="font-bold">
+                    {selectedLanguage.code === "mr"
+                      ? "Gmail कडून एरर: युझरनेम किंवा ॲप पासवर्ड स्वीकारला नाही (BadCredentials)."
+                      : "Gmail Error: Username and password not accepted (BadCredentials)."}
+                  </div>
+                  <div className="mt-0.5 text-[11px] text-rose-600/90 dark:text-rose-400/90">
+                    {selectedLanguage.code === "mr"
+                      ? "कृपया खालील फॉर्ममध्ये आपला योग्य १६-अक्षरी Google App Password टाका आणि 'सेव्ह करा आणि तपासा' बटणावर क्लिक करा."
+                      : "Please enter your 16-character Google App Password below and click 'Save & Verify Connection'."}
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* Feedback Alerts */}
+          {smtpSuccessMessage && (
+            <div className="p-3.5 bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800 rounded-xl text-xs text-emerald-700 dark:text-emerald-300 font-medium flex items-center gap-2">
+              <Icons.CheckCircle className="h-4 w-4 shrink-0 text-emerald-500" />
+              <span>{smtpSuccessMessage}</span>
+            </div>
+          )}
+
+          {smtpErrorMessage && (
+            <div className="p-3.5 bg-rose-50 dark:bg-rose-950/40 border border-rose-200 dark:border-rose-800 rounded-xl text-xs text-rose-700 dark:text-rose-300 font-medium flex items-center gap-2">
+              <Icons.AlertCircle className="h-4 w-4 shrink-0 text-rose-500" />
+              <span>{smtpErrorMessage}</span>
+            </div>
+          )}
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            {/* Form to update SMTP */}
+            <form onSubmit={handleUpdateSmtp} className="bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-850 rounded-2xl p-5 space-y-4">
+              <h4 className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 flex items-center gap-2">
+                <Icons.Key className="h-4 w-4 text-amber-500" />
+                <span>{selectedLanguage.code === "mr" ? "SMTP क्रेडेंशियल अपडेट करा" : "Update SMTP Credentials"}</span>
+              </h4>
+
+              <div className="grid grid-cols-3 gap-3">
+                <div className="col-span-2">
+                  <label className="block text-[11px] font-bold text-slate-500 mb-1">
+                    SMTP Host
+                  </label>
+                  <input
+                    type="text"
+                    required
+                    value={smtpHost}
+                    onChange={(e) => setSmtpHost(e.target.value)}
+                    placeholder="smtp.gmail.com"
+                    className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl px-3 py-2 text-xs focus:border-amber-500 focus:outline-none"
+                  />
+                </div>
+                <div>
+                  <label className="block text-[11px] font-bold text-slate-500 mb-1">
+                    Port
+                  </label>
+                  <input
+                    type="text"
+                    required
+                    value={smtpPort}
+                    onChange={(e) => setSmtpPort(e.target.value)}
+                    placeholder="465"
+                    className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl px-3 py-2 text-xs focus:border-amber-500 focus:outline-none"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label className="block text-[11px] font-bold text-slate-500 mb-1">
+                  {selectedLanguage.code === "mr" ? "ईमेल आयडी (Sender Email)" : "Sender Email Address"}
+                </label>
+                <div className="relative">
+                  <Icons.Mail className="absolute left-3 top-2.5 h-4 w-4 text-slate-400" />
+                  <input
+                    type="email"
+                    required
+                    value={smtpUser}
+                    onChange={(e) => setSmtpUser(e.target.value)}
+                    placeholder="example@gmail.com"
+                    className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl pl-9 pr-3 py-2 text-xs focus:border-amber-500 focus:outline-none"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <div className="flex items-center justify-between mb-1">
+                  <label className="block text-[11px] font-bold text-slate-500">
+                    {selectedLanguage.code === "mr" ? "Google ॲप पासवर्ड (16 letters)" : "Google App Password (16 letters)"}
+                  </label>
+                  <button
+                    type="button"
+                    onClick={() => setShowSmtpPass(!showSmtpPass)}
+                    className="text-[10px] text-amber-500 hover:text-amber-400 font-semibold"
+                  >
+                    {showSmtpPass ? (selectedLanguage.code === "mr" ? "लपवा" : "Hide") : (selectedLanguage.code === "mr" ? "दाखवा" : "Show")}
+                  </button>
+                </div>
+                <div className="relative">
+                  <Icons.Lock className="absolute left-3 top-2.5 h-4 w-4 text-slate-400" />
+                  <input
+                    type={showSmtpPass ? "text" : "password"}
+                    required
+                    value={smtpPass}
+                    onChange={(e) => setSmtpPass(e.target.value)}
+                    placeholder="abcd efgh ijkl mnop"
+                    className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl pl-9 pr-3 py-2 text-xs font-mono focus:border-amber-500 focus:outline-none"
+                  />
+                </div>
+                <p className="text-[10.5px] text-slate-500 mt-1 leading-normal">
+                  {selectedLanguage.code === "mr"
+                    ? "हा तुमचा सामान्य जीमेल पासवर्ड नाही, तर Google कडून मिळालेला १६-अक्षरी ॲप पासवर्ड आहे."
+                    : "This is a 16-character Google App Password (not your personal account password)."}
+                </p>
+              </div>
+
+              <button
+                type="submit"
+                disabled={smtpUpdating}
+                className="w-full py-2.5 px-4 bg-amber-500 hover:bg-amber-600 disabled:opacity-50 text-slate-950 font-bold rounded-xl text-xs transition flex items-center justify-center gap-2 cursor-pointer shadow-md"
+              >
+                {smtpUpdating ? (
+                  <>
+                    <Icons.Loader2 className="h-4 w-4 animate-spin" />
+                    <span>{selectedLanguage.code === "mr" ? "तपासत व सेव्ह करत आहे..." : "Verifying & Saving..."}</span>
+                  </>
+                ) : (
+                  <>
+                    <Icons.Save className="h-4 w-4" />
+                    <span>{selectedLanguage.code === "mr" ? "सेव्ह करा आणि कनेक्शन तपासा" : "Save & Verify Connection"}</span>
+                  </>
+                )}
+              </button>
+            </form>
+
+            {/* Test Email & Instructions */}
+            <div className="space-y-4">
+              {/* Test Email Box */}
+              <div className="bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-850 rounded-2xl p-5 space-y-3">
+                <h4 className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 flex items-center gap-2">
+                  <Icons.Send className="h-4 w-4 text-emerald-500" />
+                  <span>{selectedLanguage.code === "mr" ? "ईमेल टेस्ट करा (Send Test OTP)" : "Send Test OTP Email"}</span>
+                </h4>
+                <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+                  {selectedLanguage.code === "mr"
+                    ? "ईमेल खरंच तुमच्या इनबॉक्समध्ये येतोय की नाही हे तपासण्यासाठी खालील बटणावर क्लिक करा."
+                    : "Verify that test OTP emails land directly in the recipient inbox."}
+                </p>
+
+                <div className="flex gap-2">
+                  <input
+                    type="email"
+                    value={testEmailTo}
+                    onChange={(e) => setTestEmailTo(e.target.value)}
+                    placeholder="recipient@gmail.com"
+                    className="flex-1 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl px-3 py-2 text-xs focus:border-amber-500 focus:outline-none"
+                  />
+                  <button
+                    type="button"
+                    onClick={handleSendTestEmail}
+                    disabled={smtpTesting}
+                    className="px-4 py-2 bg-emerald-500 hover:bg-emerald-600 disabled:opacity-50 text-slate-950 font-bold rounded-xl text-xs transition flex items-center gap-1.5 cursor-pointer shrink-0"
+                  >
+                    {smtpTesting ? (
+                      <Icons.Loader2 className="h-3.5 w-3.5 animate-spin" />
+                    ) : (
+                      <Icons.Send className="h-3.5 w-3.5" />
+                    )}
+                    <span>{selectedLanguage.code === "mr" ? "टेस्ट पाठवा" : "Send Test"}</span>
+                  </button>
+                </div>
+              </div>
+
+              {/* Step by Step Guide Card */}
+              <div className="bg-amber-500/5 border border-amber-500/20 rounded-2xl p-4 text-xs space-y-2.5">
+                <div className="font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                  <Icons.HelpCircle className="h-4 w-4 text-amber-500" />
+                  <span>{selectedLanguage.code === "mr" ? "Google App Password कसा मिळवावा? (२ मिनिटे)" : "How to get Google App Password (2 mins)"}</span>
+                </div>
+                <ol className="list-decimal pl-4 space-y-1.5 text-slate-600 dark:text-slate-400 text-[11.5px] leading-relaxed">
+                  <li>
+                    {selectedLanguage.code === "mr" ? "आपले " : "Open "}
+                    <a href="https://myaccount.google.com/security" target="_blank" rel="noreferrer" className="text-amber-500 underline font-semibold">Google Account Security</a>
+                    {selectedLanguage.code === "mr" ? " उघडा." : "."}
+                  </li>
+                  <li>
+                    {selectedLanguage.code === "mr"
+                      ? "'2-Step Verification' चालू (Turn ON) असल्याची खात्री करा."
+                      : "Make sure '2-Step Verification' is turned ON."}
+                  </li>
+                  <li>
+                    {selectedLanguage.code === "mr"
+                      ? "वर शोध बारमध्ये 'App Passwords' टाइप करा किंवा सुरक्षा विभागात शोधा."
+                      : "Search for 'App passwords' in the top search bar."}
+                  </li>
+                  <li>
+                    {selectedLanguage.code === "mr"
+                      ? "ॲपचे नाव 'OMTO' टाका आणि 'Create' बटणावर क्लिक करा."
+                      : "Give the app a name like 'OMTO' and click 'Create'."}
+                  </li>
+                  <li>
+                    {selectedLanguage.code === "mr"
+                      ? "स्क्रीनवर दिसणारा १६ अक्षरांचा पासवर्ड (उदा. abcd efgh ijkl mnop) कॉपी करून डावीकडील फॉर्ममध्ये पेस्ट करा."
+                      : "Copy the 16-character code (e.g. abcd efgh ijkl mnop) and paste it into the form on the left."}
+                  </li>
+                </ol>
+              </div>
+            </div>
+          </div>
+        </div>
       ) : null}
     </div>
   );

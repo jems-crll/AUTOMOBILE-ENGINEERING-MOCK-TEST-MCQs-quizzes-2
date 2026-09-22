@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { t } from "./utils/i18n";
 import Dashboard from "./components/Dashboard";
 import QuizContainer from "./components/QuizContainer";
 import Scorecard from "./components/Scorecard";
@@ -9,7 +10,7 @@ import * as Icons from "lucide-react";
 import Auth from "./components/Auth";
 import RazorpayModal from "./components/RazorpayModal";
 import AdminPanel from "./components/AdminPanel";
-import { translateQuestionOffline } from "./utils/localTranslator";
+
 
 export default function App() {
   const [theme, setTheme] = useState<"dark" | "light">(() => {
@@ -68,13 +69,13 @@ export default function App() {
             ) {
               console.log("[App] Profile sync update detected:", data.user);
               if (data.user.isBlocked) {
-                alert(selectedLanguage.code === "mr" ? "तुमचे खाते ब्लॉक केले गेले आहे!" : "Your account has been blocked!");
+                alert(t(selectedLanguage.code, "accountBlocked"));
                 sessionStorage.removeItem("omto_current_user");
                 setCurrentUser(null);
                 return;
               }
               if (data.user.sessionToken && currentUser.sessionToken && data.user.sessionToken !== currentUser.sessionToken) {
-                alert(selectedLanguage.code === "mr" ? "तुम्ही दुसऱ्या डिव्हाइसवरून लॉग इन केले आहे. लॉग आउट होत आहे." : "You have logged in from another device. Logging out.");
+                alert(t(selectedLanguage.code, "sessionInvalidated"));
                 sessionStorage.removeItem("omto_current_user");
                 setCurrentUser(null);
                 return;
@@ -139,7 +140,7 @@ export default function App() {
     return STATE_LANGUAGES[0]; // Marathi as default
   });
 
-  const bilingual = selectedLanguage.code !== "en"; // Treat as bilingual if not English only
+  
 
   // Loader states for AI compilation
   const [loadingTest, setLoadingTest] = useState<boolean>(false);
@@ -285,7 +286,7 @@ export default function App() {
 
     let chapterName = "";
     if (config.chapterId === "all") {
-      chapterName = selectedLanguage.code === "mr" ? "सर्व चॅप्टर (पूर्ण अभ्यासक्रम)" : "All Chapters Mixed";
+      chapterName = t(selectedLanguage.code, "allChapters");
     } else {
       const ch = CHAPTERS.find((c) => c.id === config.chapterId);
       chapterName = ch ? (selectedLanguage.code === "mr" ? ch.nameMarathi : ch.name) : `Chapter ${config.chapterId}`;
@@ -325,7 +326,7 @@ export default function App() {
       );
 
       setTimeout(() => {
-        const translated = selected.filter(Boolean).map((q) => translateQuestionOffline(q, selectedLanguage.code));
+        const translated = selected.filter(Boolean);
         setQuizState({
           isActive: true,
           questions: translated,
@@ -354,12 +355,12 @@ export default function App() {
 
     let chName = "";
     if (quizState.chapterId === "all") {
-      chName = selectedLanguage.code === "mr" ? "सर्व चॅप्टर (पूर्ण अभ्यासक्रम)" : "All Chapters (Full Test)";
+      chName = t(selectedLanguage.code, "allChapters");
     } else {
       const ch = CHAPTERS.find((c) => c.id === quizState.chapterId);
       chName = ch ? (selectedLanguage.code === "mr" ? ch.nameMarathi : ch.name) : `Chapter ${quizState.chapterId}`;
       if (quizState.setId && quizState.setId !== "all") {
-        chName += ` - ${selectedLanguage.code === "mr" ? `संच ${quizState.setId}` : `Set ${quizState.setId}`}`;
+        chName += ` - ${`${t(selectedLanguage.code, "set")} ${quizState.setId}`}`;
       }
     }
 
@@ -405,9 +406,7 @@ export default function App() {
             {loadingStatusText}
           </h2>
           <p className="text-xs text-slate-500 dark:text-slate-400 max-w-xs leading-relaxed">
-            {selectedLanguage.code === "mr" 
-              ? "कृपया थांबा, ऑटोमोबाईल अभियांत्रिकीचे सविस्तर प्रश्न संकलित होत आहेत..." 
-              : "Please wait while our engine compiles and localizes detailed Automobile Engineering MCQs..."}
+            {t(selectedLanguage.code, "compiling")}
           </p>
 
           <div className="w-full bg-slate-50 dark:bg-slate-950 h-1.5 rounded-full mt-6 overflow-hidden border border-slate-200 dark:border-slate-850">
@@ -481,7 +480,7 @@ export default function App() {
 
         {/* Footer */}
         <footer className="border-t border-slate-200 dark:border-slate-900 bg-slate-50 dark:bg-slate-950 py-6 text-center text-xs text-slate-500 font-mono">
-          <p>© 2026 OMTO Automobile Engineering Lab. {selectedLanguage.code === "mr" ? "सर्व हक्क राखीव." : "All Rights Reserved."}</p>
+          <p>© 2026 OMTO Automobile Engineering Lab. {t(selectedLanguage.code, "allRightsReserved")}</p>
         </footer>
       </div>
     );
@@ -528,7 +527,7 @@ export default function App() {
                   }`}
                 >
                   <Icons.LayoutDashboard className="h-3.5 w-3.5" />
-                  <span>{selectedLanguage.code === "mr" ? "डॅशबोर्ड" : "Dashboard"}</span>
+                  <span>{t(selectedLanguage.code, "dashboard")}</span>
                 </button>
                 <button
                   onClick={() => {
@@ -542,7 +541,7 @@ export default function App() {
                   }`}
                 >
                   <Icons.TrendingUp className="h-3.5 w-3.5" />
-                  <span>{selectedLanguage.code === "mr" ? "प्रगती विश्लेषण" : "Analytics"}</span>
+                  <span>{t(selectedLanguage.code, "analytics")}</span>
                 </button>
                 {currentUser?.role === "admin" && (
                   <button
@@ -557,7 +556,7 @@ export default function App() {
                     }`}
                   >
                     <Icons.ShieldAlert className="h-3.5 w-3.5" />
-                    <span>{selectedLanguage.code === "mr" ? "ॲडमीन" : "Admin"}</span>
+                    <span>{t(selectedLanguage.code, "admin")}</span>
                   </button>
                 )}
               </nav>
@@ -616,7 +615,7 @@ export default function App() {
                     className="px-2.5 py-1.5 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-slate-950 text-[11px] sm:text-xs font-black rounded-lg transition-all flex items-center gap-1 cursor-pointer"
                   >
                     <Icons.Crown className="h-3.5 w-3.5" />
-                    <span className="hidden xs:inline">{selectedLanguage.code === "mr" ? "प्रीमियम" : "Premium"}</span>
+                    <span className="hidden xs:inline">{t(selectedLanguage.code, "premium")}</span>
                   </button>
                 )}
 
@@ -626,7 +625,7 @@ export default function App() {
                     sessionStorage.removeItem("omto_current_user");
                     setCurrentUser(null);
                   }}
-                  title={selectedLanguage.code === "mr" ? "लॉगआउट" : "Logout"}
+                  title={t(selectedLanguage.code, "logout")}
                   className="p-1.5 sm:p-2 bg-white dark:bg-slate-900 hover:bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-850 text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:text-white rounded-lg transition cursor-pointer"
                 >
                   <Icons.LogOut className="h-3.5 sm:h-4 sm:w-4 w-3.5" />
@@ -647,7 +646,7 @@ export default function App() {
             mode={quizState.mode}
             questions={quizState.questions}
             timeLimitMinutes={quizState.timeLimitMinutes}
-            bilingual={bilingual}
+            
             selectedLanguage={selectedLanguage}
             onComplete={handleQuizComplete}
             onExit={() => setQuizState(null)}
@@ -669,7 +668,7 @@ export default function App() {
             score={scorecardState.score}
             selectedAnswers={scorecardState.answers}
             timeSpentSeconds={scorecardState.timeSpentSeconds}
-            bilingual={bilingual}
+            
             selectedLanguage={selectedLanguage}
             onRetake={() => {
               // Restart previous config
@@ -699,7 +698,7 @@ export default function App() {
                   activeTab === "dashboard" ? "bg-slate-100 dark:bg-slate-800 text-amber-400" : "text-slate-500 dark:text-slate-400"
                 }`}
               >
-                {selectedLanguage.code === "mr" ? "डॅशबोर्ड" : "Dashboard"}
+                {t(selectedLanguage.code, "dashboard")}
               </button>
               <button
                 onClick={() => setActiveTab("analytics")}
@@ -707,7 +706,7 @@ export default function App() {
                   activeTab === "analytics" ? "bg-slate-100 dark:bg-slate-800 text-amber-400" : "text-slate-500 dark:text-slate-400"
                 }`}
               >
-                {selectedLanguage.code === "mr" ? "प्रगती" : "Analytics"}
+                {t(selectedLanguage.code, "analytics")}
               </button>
               {currentUser?.role === "admin" && (
                 <button
@@ -716,7 +715,7 @@ export default function App() {
                     activeTab === "admin" ? "bg-slate-100 dark:bg-slate-800 text-amber-400" : "text-slate-500 dark:text-slate-400"
                   }`}
                 >
-                  {selectedLanguage.code === "mr" ? "ॲडमीन" : "Admin"}
+                  {t(selectedLanguage.code, "admin")}
                 </button>
               )}
             </div>
@@ -735,8 +734,8 @@ export default function App() {
             ) : activeTab === "analytics" ? (
               <Analytics
                 attempts={attempts}
-                bilingual={bilingual}
                 onClearHistory={handleClearHistory}
+                selectedLanguage={selectedLanguage}
               />
             ) : (
               currentUser?.role === "admin" ? (
@@ -753,15 +752,13 @@ export default function App() {
                   </div>
                   <h3 className="text-lg font-black text-slate-900 dark:text-white">Access Denied / प्रवेश नाकारला</h3>
                   <p className="text-xs text-slate-500 dark:text-slate-400">
-                    {selectedLanguage.code === "mr" 
-                      ? "हे पेज पाहण्यासाठी तुमच्याकडे ॲडमीन अधिकार असणे आवश्यक आहे." 
-                      : "You need administrator privileges to view this page."}
+                    {t(selectedLanguage.code, "needAdmin")}
                   </p>
                   <button
                     onClick={() => setActiveTab("dashboard")}
                     className="px-4 py-2 bg-amber-500 hover:bg-amber-600 text-slate-950 text-xs font-black rounded-lg transition"
                   >
-                    {selectedLanguage.code === "mr" ? "डॅशबोर्डवर जा" : "Go to Dashboard"}
+                    {t(selectedLanguage.code, "goToDashboard")}
                   </button>
                 </div>
               )
@@ -784,7 +781,7 @@ export default function App() {
 
       {/* Footer copyright */}
       <footer className="border-t border-slate-200 dark:border-slate-900 bg-slate-50 dark:bg-slate-950 py-6 text-center text-xs text-slate-500 font-mono">
-        <p>© 2026 OMTO Automobile Engineering Lab. {selectedLanguage.code === "mr" ? "सर्व हक्क राखीव." : "All Rights Reserved."}</p>
+        <p>© 2026 OMTO Automobile Engineering Lab. {t(selectedLanguage.code, "allRightsReserved")}</p>
       </footer>
     </div>
   );

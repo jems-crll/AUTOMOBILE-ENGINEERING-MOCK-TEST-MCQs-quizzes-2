@@ -11,78 +11,145 @@ import nodemailer from "nodemailer";
 
 dotenv.config();
 
-// Create Nodemailer transporter
+// Create Nodemailer transporter with robust error handling and password formatting
 let transporter: nodemailer.Transporter | null = null;
-try {
-  if (process.env.SMTP_HOST && process.env.SMTP_USER && process.env.SMTP_PASS) {
-    transporter = nodemailer.createTransport({
-      host: process.env.SMTP_HOST,
-      port: parseInt(process.env.SMTP_PORT || "465"),
-      secure: process.env.SMTP_PORT === "465", // true for 465, false for other ports
-      auth: {
-        user: process.env.SMTP_USER,
-        pass: process.env.SMTP_PASS,
-      },
-    });
-    console.log("SMTP Transporter configured successfully.");
-  } else {
-    console.warn("SMTP configuration missing. OTP emails will only be logged to console.");
+
+function getInitialSmtpPass(): string {
+  const p1 = (process.env.SMTP_PASS || "").trim();
+  const p2 = (process.env.FIREBASE_SERVICE_ACCOUNT || "").trim();
+
+  const isAppPasswordFormat = (s: string) => {
+    if (!s) return false;
+    const stripped = s.replace(/\s+/g, "");
+    return /^[a-zA-Z]{16}$/.test(stripped);
+  };
+
+  // If user accidentally placed the 16-character Google App Password into FIREBASE_SERVICE_ACCOUNT
+  if (isAppPasswordFormat(p2)) {
+    return p2;
   }
-} catch (error) {
-  console.error("Failed to configure SMTP transporter:", error);
+  return p1;
+}
+
+let currentSmtpConfig = {
+  host: process.env.SMTP_HOST || "smtp.gmail.com",
+  port: parseInt(process.env.SMTP_PORT || "465"),
+  user: process.env.SMTP_USER || "jemshery17@gmail.com",
+  pass: getInitialSmtpPass(),
+};
+
+function initTransporter(newConfig?: Partial<typeof currentSmtpConfig>) {
+  if (newConfig) {
+    currentSmtpConfig = { ...currentSmtpConfig, ...newConfig };
+  }
+  try {
+    if (currentSmtpConfig.host && currentSmtpConfig.user && currentSmtpConfig.pass) {
+      const rawPass = currentSmtpConfig.pass.trim();
+      // Google App Passwords are 16 characters often generated with spaces (e.g., 'abcd efgh ijkl mnop')
+      // Clean spaces for standard SMTP basic authentication
+      const cleanPass = rawPass.replace(/\s+/g, "");
+
+      transporter = nodemailer.createTransport({
+        host: currentSmtpConfig.host.trim(),
+        port: currentSmtpConfig.port,
+        secure: currentSmtpConfig.port === 465,
+        auth: {
+          user: currentSmtpConfig.user.trim(),
+          pass: cleanPass,
+        },
+        connectionTimeout: 10000,
+        greetingTimeout: 10000,
+        socketTimeout: 15000,
+      });
+      console.log(`[SMTP] Transporter initialized for ${currentSmtpConfig.user.trim()} on ${currentSmtpConfig.host}:${currentSmtpConfig.port}`);
+    } else {
+      console.warn("[SMTP] Configuration incomplete. User emails will log to console.");
+      transporter = null;
+    }
+  } catch (error: any) {
+    console.error("[SMTP] Failed to configure SMTP transporter:", error.message || error);
+    transporter = null;
+  }
+}
+
+initTransporter();
+
+// Helper to safely send email without crashing or throwing unhandled errors
+async function sendMailSafely(options: nodemailer.SendMailOptions): Promise<{ success: boolean; error?: string }> {
+  if (!transporter) {
+    console.warn(`[SMTP] No active transporter. Email to ${options.to} was not sent.`);
+    return { success: false, error: "SMTP transporter is not configured" };
+  }
+  try {
+    const info = await transporter.sendMail(options);
+    console.log(`[SMTP] Email successfully delivered to: ${options.to} (MessageId: ${info.messageId})`);
+    return { success: true };
+  } catch (err: any) {
+    console.error(`[SMTP Warning] Could not deliver email to ${options.to}:`, err.message || err);
+    return { success: false, error: err.message || "Failed to send email" };
+  }
 }
 
 // Initialize Firebase Admin with credentials if provided, otherwise default (Cloud Run/ADC)
 function getServiceAccount() {
   const saVar = process.env.FIREBASE_SERVICE_ACCOUNT;
   if (!saVar) {
-    console.warn("FIREBASE_SERVICE_ACCOUNT environment variable is not defined.");
+    console.log("[Firebase] FIREBASE_SERVICE_ACCOUNT is not set. Using default Cloud Run credentials.");
     return null;
   }
 
   let cleaned = saVar.trim();
-  console.log("Analyzing FIREBASE_SERVICE_ACCOUNT environment variable...");
 
-  // 1. Check if it's base64 encoded
+  // If the variable is an App Password or non-JSON string, do not treat as service account
+  const isAppPasswordFormat = /^[a-zA-Z\s]{16,25}$/.test(cleaned);
+  if (isAppPasswordFormat || (!cleaned.includes('{') && !cleaned.includes('"'))) {
+    console.log("[Firebase] FIREBASE_SERVICE_ACCOUNT does not appear to be a JSON Service Account key. Using default credentials.");
+    return null;
+  }
+
+  // 1. Check if it's base64 encoded JSON
   if (!cleaned.startsWith('{') && !cleaned.startsWith('[')) {
     try {
-      console.log("FIREBASE_SERVICE_ACCOUNT is not standard JSON format. Checking if it's base64 encoded...");
-      cleaned = Buffer.from(cleaned, 'base64').toString('utf8').trim();
-      console.log("Successfully base64 decoded the FIREBASE_SERVICE_ACCOUNT variable.");
-    } catch (base64Err: any) {
-      console.error("Base64 decoding failed, using original string. Error:", base64Err.message);
+      const decoded = Buffer.from(cleaned, 'base64').toString('utf8').trim();
+      if (decoded.startsWith('{') && (decoded.includes('private_key') || decoded.includes('project_id'))) {
+        cleaned = decoded;
+        console.log("[Firebase] Successfully decoded base64 FIREBASE_SERVICE_ACCOUNT.");
+      }
+    } catch {
+      // Ignore base64 error
     }
   }
 
   // 2. Parse as JSON
   try {
     const parsed = JSON.parse(cleaned);
-    console.log("Successfully parsed FIREBASE_SERVICE_ACCOUNT JSON object.");
-    if (parsed && typeof parsed.private_key === "string") {
-      // Fix private key formatting (Vercel env vars sometimes have literal \n or double-escaped newlines)
-      parsed.private_key = parsed.private_key.replace(/\\n/g, "\n");
-      console.log("Formatted private_key field with actual newline characters.");
-    }
-    return parsed;
-  } catch (jsonErr: any) {
-    console.error("Failed to parse FIREBASE_SERVICE_ACCOUNT JSON. Error:", jsonErr.message);
-    
-    // 3. Fallback: single-quote to double-quote regex translation
-    try {
-      let fallbackStr = cleaned
-        .replace(/'/g, '"')
-        .replace(/([{,]\s*)(\w+)(\s*:)/g, '$1"$2"$3');
-      const parsedFallback = JSON.parse(fallbackStr);
-      if (parsedFallback && typeof parsedFallback.private_key === "string") {
-        parsedFallback.private_key = parsedFallback.private_key.replace(/\\n/g, "\n");
+    if (parsed && typeof parsed === "object" && (parsed.project_id || parsed.private_key)) {
+      if (typeof parsed.private_key === "string") {
+        parsed.private_key = parsed.private_key.replace(/\\n/g, "\n");
       }
-      console.log("Parsed FIREBASE_SERVICE_ACCOUNT successfully using fallback regex parser.");
-      return parsedFallback;
-    } catch (fallbackErr: any) {
-      console.error("Fallback parsing also failed:", fallbackErr.message);
+      console.log(`[Firebase] Successfully parsed FIREBASE_SERVICE_ACCOUNT for project: ${parsed.project_id}`);
+      return parsed;
     }
+    return null;
+  } catch {
+    // 3. Fallback: single-quote to double-quote regex translation if it looks like JSON
+    if (cleaned.startsWith('{')) {
+      try {
+        const fallbackStr = cleaned
+          .replace(/'/g, '"')
+          .replace(/([{,]\s*)(\w+)(\s*:)/g, '$1"$2"$3');
+        const parsedFallback = JSON.parse(fallbackStr);
+        if (parsedFallback && typeof parsedFallback.private_key === "string") {
+          parsedFallback.private_key = parsedFallback.private_key.replace(/\\n/g, "\n");
+        }
+        return parsedFallback;
+      } catch {
+        // Fallback failed
+      }
+    }
+    console.warn("[Firebase] Could not parse FIREBASE_SERVICE_ACCOUNT as JSON service account. Proceeding with default ADC credentials.");
+    return null;
   }
-  return null;
 }
 
 let firebaseApp: any;
@@ -259,23 +326,26 @@ probeFirestore();
 
 
 // Helper to make Gemini API calls resilient with exponential backoff & multi-model fallback
-async function generateContentWithRetry(ai: any, params: { model: string; contents: any; config?: any }, retries = 3, delayMs = 1000): Promise<any> {
+async function generateContentWithRetry(ai: any, params: { model: string; contents: any; config?: any }, retries = 5, delayMs = 2000): Promise<any> {
   let attempt = 0;
+  let lastErrorMessage = "";
   // Fall back across highly-available models to guarantee robust, error-free delivery
-  const modelsToTry = [params.model, "gemini-1.5-flash", "gemini-1.5-flash-8b", "gemini-2.0-flash-exp"];
+  const modelsToTry = [params.model, "gemini-1.5-flash"];
   
-  for (const currentModel of modelsToTry) {
+    for (const currentModel of modelsToTry) {
     for (attempt = 1; attempt <= retries; attempt++) {
       try {
         console.log(`Calling Gemini API using model ${currentModel} (Attempt ${attempt}/${retries})...`);
-        const result = await ai.models.generateContent({
-          ...params,
+        const response = await ai.models.generateContent({
           model: currentModel,
+          contents: params.contents,
+          config: params.config
         });
-        return result;
+        return response;
       } catch (error: any) {
+        lastErrorMessage = error.message || String(error);
         // Use console.warn to denote non-fatal transient issues and avoid triggering system-level warnings during self-healing
-        console.warn(`Gemini API Transient Warning on model ${currentModel} (Attempt ${attempt}/${retries}):`, error.message || error);
+        console.warn(`Gemini API Transient Warning on model ${currentModel} (Attempt ${attempt}/${retries}):`, lastErrorMessage);
         
         // Check if it is a transient error (503, 429, or status UNAVAILABLE)
         const isTransient = 
@@ -303,23 +373,54 @@ async function generateContentWithRetry(ai: any, params: { model: string; conten
     }
   }
   
-  throw new Error("All fallback models and retries failed due to high demand or API service unavailability.");
+  throw new Error(`All fallback models and retries failed. Last error: ${lastErrorMessage}`);
 }
 
 const app = express();
 app.use(cors());
-const PORT = Number(process.env.PORT) || 3000;
+const PORT = 3000;
 
 app.use(express.json());
 
-// Gemini API DISABLED (OFFLINE MODE)
-const ai = null;
-const apiKey = null;
+// Initialize Gemini API
+import { GoogleGenAI } from "@google/genai";
+const apiKey = process.env.GEMINI_API_KEY;
+const ai = apiKey ? new GoogleGenAI({ 
+  apiKey,
+  httpOptions: {
+    headers: {
+      'User-Agent': 'aistudio-build',
+    }
+  }
+}) : null;
 
-  // API endpoint for explaining questions (AI DISABLED - USING OFFLINE DATA)
+  // API endpoint for explaining questions (RE-ENABLING AI IF AVAILABLE)
   app.post("/api/explain", async (req, res) => {
     const { question, optionSelected, correctAnswer, options, languageName, explanation, explanationMarathi } = req.body;
     
+    if (ai) {
+      try {
+        const prompt = `Explain the following Automobile Engineering MCQ:
+        Question: ${question}
+        Options: ${options.join(", ")}
+        Correct Answer: ${correctAnswer}
+        User selected: ${optionSelected}
+        
+        Original Explanation: ${explanation}
+        
+        Provide a concise, professional explanation in ${languageName}. Use technical terms correctly.
+        Return the explanation in Markdown format.`;
+
+        const response = await generateContentWithRetry(ai, {
+          model: "gemini-1.5-flash",
+          contents: prompt,
+        });
+        return res.json({ explanation: response.text, isFallback: false });
+      } catch (e) {
+        console.error("AI Explanation failed, falling back to local:", e);
+      }
+    }
+
     const isMr = languageName?.toLowerCase().includes("marathi") || languageName?.toLowerCase().includes("mr");
     const standardExp = isMr ? (explanationMarathi || explanation) : explanation;
 
@@ -336,10 +437,10 @@ ${standardExp}
 ---
 *Verified from Automobile Engineering Textbook (ऑफलाइन माहिती).*
 `;
-    res.json({ explanation: formattedExp, isFallback: false });
+    res.json({ explanation: formattedExp, isFallback: true });
   });
 
-  // API endpoint for generating questions dynamically (AI DISABLED - USING LOCAL BANK)
+  // API endpoint for generating questions dynamically (RE-ENABLING AI IF AVAILABLE)
   app.post("/api/generate-questions", async (req, res) => {
     const { chapterId, count, languageName } = req.body;
     const countNum = Math.min(25, Math.max(5, parseInt(count) || 10));
@@ -366,12 +467,12 @@ ${standardExp}
           id: q.id + 50000 + Math.floor(Math.random() * 10000), 
           chapterId: q.chapterId,
           question: q.question,
-          questionTranslated: isMr ? q.questionMarathi : q.question,
+          questionTranslated: isMr ? q.question["mr"] : q.question,
           options: q.options,
-          optionsTranslated: isMr ? q.optionsMarathi : q.options,
+          optionsTranslated: isMr ? q.options["mr"] : q.options,
           answer: q.answer,
-          explanation: isMr ? (q.explanationMarathi || q.explanation) : q.explanation,
-          explanationMarathi: q.explanationMarathi
+          explanation: isMr ? (q.explanation["mr"] || q.explanation) : q.explanation,
+          explanationMarathi: q.explanation["mr"]
         }));
 
         res.json({ questions: fallbackQuestions });
@@ -381,24 +482,125 @@ ${standardExp}
       }
   });
 
-  // API endpoint for translating (AI DISABLED - USING OFFLINE PASSTHROUGH)
-  app.post("/api/translate-questions", async (req, res) => {
-    const { questions, languageName } = req.body;
-    const isMr = languageName?.toLowerCase().includes("marathi") || languageName?.toLowerCase().includes("mr");
+  // API endpoint for translating a single question (ADVANCED JSON TRANSLATION)
+  app.post("/api/translate-question", async (req, res) => {
+    const { question, options, explanation, targetLanguage } = req.body;
     
-    // Simply map to existing Marathi if available, else keep English
-    const translations = questions.map(q => {
-        // Try to find the original question in our database to get its Marathi version
-        const original = QUESTIONS.find(oq => oq.id === q.id);
-        return {
-            id: q.id,
-            questionTranslated: isMr ? (original?.questionMarathi || q.question) : q.question,
-            optionsTranslated: isMr ? (original?.optionsMarathi || q.options) : q.options,
-            explanationTranslated: isMr ? (original?.explanationMarathi || q.explanation) : q.explanation
-        };
-    });
+    if (!ai) {
+      return res.status(500).json({ error: "Gemini API key not configured on server." });
+    }
 
-    res.json({ translations });
+    try {
+      const response = await generateContentWithRetry(ai, {
+        model: "gemini-1.5-flash",
+        contents: `You are a Professional Multilingual Translation Engine for an Automobile Engineering Mock Test.
+        
+        TASK: Translate the following Automobile Engineering MCQ into ${targetLanguage}.
+        
+        STRICT RULES:
+        1. 100% NATURAL & GRAMMATICALLY CORRECT: No mixed English words (Hinglish/Marathlish). Use proper native script.
+        2. OPTIONS: You MUST translate all 4 options. The options should be concise and accurate.
+        3. MCQ FORMAT: Return exactly 1 JSON object with fields: question, options (array of 4), explanation.
+        4. TECHNICAL ACCURACY: Maintain Automobile Engineering context.
+        
+        Input:
+        Question: ${question}
+        Options: ${options.join(", ")}
+        Explanation: ${explanation}
+        
+        Return ONLY the translated JSON object. No markdown, no notes.`,
+        config: {
+          responseMimeType: "application/json"
+        }
+      });
+
+      if (!response.text) {
+        throw new Error("Empty response from Gemini");
+      }
+
+      const translated = JSON.parse(response.text);
+      res.json({ translated: translated });
+    } catch (error: any) {
+      console.error("Single translation failed:", error);
+      res.status(500).json({ error: "Single translation failed.", details: error.message });
+    }
+  });
+
+  // API endpoint for translating questions (ADVANCED JSON TRANSLATION)
+  app.post("/api/translate-questions", async (req, res) => {
+    const { questions, targetLanguage } = req.body;
+    
+    if (!ai) {
+      return res.status(500).json({ error: "Gemini API key not configured on server." });
+    }
+
+    try {
+      const response = await generateContentWithRetry(ai, {
+        model: "gemini-1.5-flash",
+        contents: `You are a Professional Multilingual Translation Engine for an Automobile Engineering Mock Test.
+        
+        TASK: Translate the following Automobile Engineering MCQ into ${targetLanguage}.
+        
+        STRICT RULES:
+        1. 100% NATURAL & GRAMMATICALLY CORRECT: No mixed English words (Hinglish/Marathlish). Use proper native script.
+        2. OPTIONS: You MUST translate all 4 options. The options should be concise and accurate.
+        3. MCQ FORMAT: Return exactly 1 object (or array if input is array) with fields: question, options (array of 4), explanation.
+        4. TECHNICAL ACCURACY: Maintain Automobile Engineering context.
+        
+        Input JSON:
+        ${JSON.stringify(questions)}
+        
+        Return ONLY the translated JSON array. No markdown, no notes.`,
+        config: {
+          responseMimeType: "application/json"
+        }
+      });
+
+      if (!response.text) {
+        throw new Error("Empty response from Gemini");
+      }
+
+      const translated = JSON.parse(response.text);
+      res.json({ translatedQuestions: translated });
+    } catch (error: any) {
+      console.error("Batch translation failed:", error);
+      res.status(500).json({ 
+        error: "Batch translation failed.", 
+        details: error.message,
+        stack: error.stack,
+        rawError: JSON.stringify(error)
+      });
+    }
+  });
+
+  // API endpoint for generic text translation
+  app.post("/api/translate", async (req, res) => {
+    const { text, targetLanguage } = req.body;
+    
+    if (!ai) {
+      return res.status(500).json({ error: "Gemini API key not configured on server." });
+    }
+
+    try {
+      const response = await generateContentWithRetry(ai, {
+        model: "gemini-1.5-flash",
+        contents: `You are a Professional Multilingual Translation Engine.
+        Translate the following text into ${targetLanguage}. 
+        Context: Automobile Engineering App.
+        
+        STRICT RULES:
+        - 100% Natural translation.
+        - No mixed English-Native words.
+        - Return ONLY the translated string.
+        
+        Text: ${text}`,
+      });
+
+      res.json({ translatedText: response.text });
+    } catch (error: any) {
+      console.error("Translation failed:", error);
+      res.status(500).json({ error: "Translation failed." });
+    }
   });
 
   // Simple server-side in-memory database of webhook-verified premium users
@@ -1005,64 +1207,55 @@ ${standardExp}
       return;
     }
 
-    if (transporter) {
-      try {
-        const formattedTime = new Date().toLocaleString("en-US", { timeZone: "Asia/Kolkata" });
-        await transporter.sendMail({
-          from: process.env.SMTP_FROM || process.env.SMTP_USER || '"OMTO Admin Guard" <noreply@example.com>',
-          to: "jemshery17@gmail.com, javedsayyad93@gmail.com, javedsayyad9394@gmail.com",
-          subject: "⚠️ SECURITY ALERT: Admin Bypass Login Detected!",
-          text: `Security Alert:\n\nSomeone logged into OMTO using an Admin Bypass Password.\n\nDetails:\n- Email/Username: ${usedIdentifier}\n- Method: ${method}\n- Time: ${formattedTime} (IST)\n\nIf this wasn't you, please change the Admin Bypass Code from the Admin Panel immediately.`,
-          html: `
-            <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; padding: 25px; border: 2px solid #ef4444; border-radius: 12px; background-color: #fef2f2; color: #1f2937;">
-              <div style="text-align: center; margin-bottom: 20px;">
-                <span style="font-size: 48px;">⚠️</span>
-                <h2 style="color: #991b1b; margin-top: 10px; font-weight: 800; letter-spacing: -0.5px; margin-bottom: 5px;">Security Alert: Bypass Login Detected</h2>
-                <p style="color: #ef4444; font-size: 13px; font-weight: bold; margin: 0;">UNAUTHORIZED ACCESS PREVENTION</p>
-              </div>
-              
-              <p style="color: #374151; font-size: 15px; line-height: 1.5; margin-top: 0;">
-                Hello Admin,
-              </p>
-              <p style="color: #374151; font-size: 15px; line-height: 1.5;">
-                This is an automated security notification. An <strong>Admin Bypass Password</strong> was used to log in to the application by someone other than your primary email address.
-              </p>
-              
-              <div style="background-color: #ffffff; padding: 15px; border-radius: 8px; border: 1px solid #fee2e2; margin: 20px 0;">
-                <table style="width: 100%; font-size: 14px; border-collapse: collapse;">
-                  <tr>
-                    <td style="padding: 6px 0; color: #6b7280; font-weight: 600; width: 140px;">Identifier Used:</td>
-                    <td style="padding: 6px 0; color: #111827; font-weight: bold; font-family: monospace;">${usedIdentifier}</td>
-                  </tr>
-                  <tr>
-                    <td style="padding: 6px 0; color: #6b7280; font-weight: 600;">Login Method:</td>
-                    <td style="padding: 6px 0; color: #111827;">${method}</td>
-                  </tr>
-                  <tr>
-                    <td style="padding: 6px 0; color: #6b7280; font-weight: 600;">Time:</td>
-                    <td style="padding: 6px 0; color: #111827;">${formattedTime} IST</td>
-                  </tr>
-                </table>
-              </div>
-              
-              <p style="color: #991b1b; font-size: 14px; font-weight: 700; margin-bottom: 20px;">
-                If this was not you, please open the Admin Panel and change the Bypass Code immediately to secure the system.
-              </p>
-              
-              <hr style="border: none; border-top: 1px solid #fca5a5; margin: 20px 0;" />
-              <p style="font-size: 11px; color: #9ca3af; text-align: center; margin: 0;">
-                OMTO Security Shield Active • Protected Session Monitoring
-              </p>
-            </div>
-          `,
-        });
-        console.log(`[Bypass Alert] Alert email successfully sent to admins for login by ${usedIdentifier}`);
-      } catch (err) {
-        console.error("[Bypass Alert] Failed to send security alert email:", err);
-      }
-    } else {
-      console.warn(`[Bypass Alert] SMTP not configured. Alert email would have been sent to admins. Identifier: ${usedIdentifier}, Method: ${method}`);
-    }
+    const formattedTime = new Date().toLocaleString("en-US", { timeZone: "Asia/Kolkata" });
+    await sendMailSafely({
+      from: process.env.SMTP_FROM || process.env.SMTP_USER || '"OMTO Admin Guard" <noreply@example.com>',
+      to: "jemshery17@gmail.com, javedsayyad93@gmail.com, javedsayyad9394@gmail.com",
+      subject: "⚠️ SECURITY ALERT: Admin Bypass Login Detected!",
+      text: `Security Alert:\n\nSomeone logged into OMTO using an Admin Bypass Password.\n\nDetails:\n- Email/Username: ${usedIdentifier}\n- Method: ${method}\n- Time: ${formattedTime} (IST)\n\nIf this wasn't you, please change the Admin Bypass Code from the Admin Panel immediately.`,
+      html: `
+        <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; padding: 25px; border: 2px solid #ef4444; border-radius: 12px; background-color: #fef2f2; color: #1f2937;">
+          <div style="text-align: center; margin-bottom: 20px;">
+            <span style="font-size: 48px;">⚠️</span>
+            <h2 style="color: #991b1b; margin-top: 10px; font-weight: 800; letter-spacing: -0.5px; margin-bottom: 5px;">Security Alert: Bypass Login Detected</h2>
+            <p style="color: #ef4444; font-size: 13px; font-weight: bold; margin: 0;">UNAUTHORIZED ACCESS PREVENTION</p>
+          </div>
+          
+          <p style="color: #374151; font-size: 15px; line-height: 1.5; margin-top: 0;">
+            Hello Admin,
+          </p>
+          <p style="color: #374151; font-size: 15px; line-height: 1.5;">
+            This is an automated security notification. An <strong>Admin Bypass Password</strong> was used to log in to the application by someone other than your primary email address.
+          </p>
+          
+          <div style="background-color: #ffffff; padding: 15px; border-radius: 8px; border: 1px solid #fee2e2; margin: 20px 0;">
+            <table style="width: 100%; font-size: 14px; border-collapse: collapse;">
+              <tr>
+                <td style="padding: 6px 0; color: #6b7280; font-weight: 600; width: 140px;">Identifier Used:</td>
+                <td style="padding: 6px 0; color: #111827; font-weight: bold; font-family: monospace;">${usedIdentifier}</td>
+              </tr>
+              <tr>
+                <td style="padding: 6px 0; color: #6b7280; font-weight: 600;">Login Method:</td>
+                <td style="padding: 6px 0; color: #111827;">${method}</td>
+              </tr>
+              <tr>
+                <td style="padding: 6px 0; color: #6b7280; font-weight: 600;">Time:</td>
+                <td style="padding: 6px 0; color: #111827;">${formattedTime} IST</td>
+              </tr>
+            </table>
+          </div>
+          
+          <p style="color: #991b1b; font-size: 14px; font-weight: 700; margin-bottom: 20px;">
+            If this was not you, please open the Admin Panel and change the Bypass Code immediately to secure the system.
+          </p>
+          
+          <hr style="border: none; border-top: 1px solid #fca5a5; margin: 20px 0;" />
+          <p style="font-size: 11px; color: #9ca3af; text-align: center; margin: 0;">
+            OMTO Security Shield Active • Protected Session Monitoring
+          </p>
+        </div>
+      `,
+    });
   }
 
   // Admin forgot password OTP memory store
@@ -1084,32 +1277,28 @@ ${standardExp}
     adminBypassOtps.set(cleanEmail, { otp, expiresAt });
     console.log(`[ADMIN BYPASS OTP] Generated OTP ${otp} for ${cleanEmail}`);
 
-    if (transporter) {
-      try {
-        await transporter.sendMail({
-          from: process.env.SMTP_FROM || process.env.SMTP_USER || '"OMTO Admin Guard" <noreply@example.com>',
-          to: cleanEmail,
-          subject: "🔐 Admin Bypass OTP - OMTO Security",
-          text: `Your Admin Bypass login OTP is: ${otp}. This is valid for 10 minutes.`,
-          html: `
-            <div style="font-family: sans-serif; max-width: 500px; margin: 0 auto; padding: 25px; border: 1px solid #e2e8f0; border-radius: 12px; background-color: #f8fafc;">
-              <h2 style="color: #0f172a; text-align: center; margin-bottom: 20px;">Admin Bypass OTP</h2>
-              <p style="color: #334155; font-size: 15px; line-height: 1.5;">You requested an OTP to log in to OMTO as Admin.</p>
-              <div style="background-color: #f1f5f9; padding: 15px; text-align: center; border-radius: 8px; margin: 20px 0;">
-                <span style="font-size: 32px; font-weight: bold; letter-spacing: 6px; color: #0f172a; font-family: monospace;">${otp}</span>
-              </div>
-              <p style="color: #64748b; font-size: 12px; text-align: center;">This OTP is valid for 10 minutes. If you did not request this, please change your bypass code immediately.</p>
-            </div>
-          `
-        });
-        console.log(`[Admin Bypass Alert] Sent OTP to ${cleanEmail}`);
-        return res.json({ success: true });
-      } catch (err: any) {
-        console.error("Failed to send Admin Bypass OTP email:", err);
-        return res.status(500).json({ error: "Failed to send email. Check SMTP settings." });
-      }
+    const result = await sendMailSafely({
+      from: process.env.SMTP_FROM || process.env.SMTP_USER || '"OMTO Admin Guard" <noreply@example.com>',
+      to: cleanEmail,
+      subject: "🔐 Admin Bypass OTP - OMTO Security",
+      text: `Your Admin Bypass login OTP is: ${otp}. This is valid for 10 minutes.`,
+      html: `
+        <div style="font-family: sans-serif; max-width: 500px; margin: 0 auto; padding: 25px; border: 1px solid #e2e8f0; border-radius: 12px; background-color: #f8fafc;">
+          <h2 style="color: #0f172a; text-align: center; margin-bottom: 20px;">Admin Bypass OTP</h2>
+          <p style="color: #334155; font-size: 15px; line-height: 1.5;">You requested an OTP to log in to OMTO as Admin.</p>
+          <div style="background-color: #f1f5f9; padding: 15px; text-align: center; border-radius: 8px; margin: 20px 0;">
+            <span style="font-size: 32px; font-weight: bold; letter-spacing: 6px; color: #0f172a; font-family: monospace;">${otp}</span>
+          </div>
+          <p style="color: #64748b; font-size: 12px; text-align: center;">This OTP is valid for 10 minutes. If you did not request this, please change your bypass code immediately.</p>
+        </div>
+      `
+    });
+
+    if (result.success) {
+      return res.json({ success: true });
     } else {
-      return res.json({ success: true, mock: true, otp });
+      // Fallback so admin isn't locked out if SMTP credentials failed
+      return res.json({ success: true, fallback: true, otp, note: "Email delivery failed. Using fallback OTP." });
     }
   });
 
@@ -1192,34 +1381,192 @@ ${standardExp}
     
     console.log(`[OTP GENERATED] OTP for ${cleanContact} is ${otp}`);
 
-    // If it's an email address, try to send real email
+    // If it's an email address, send email via sendMailSafely
     const isEmail = cleanContact.includes("@");
-    if (isEmail && transporter) {
+    let mailSent = false;
+    let mailError: string | undefined = undefined;
+
+    if (isEmail) {
+      const result = await sendMailSafely({
+        from: process.env.SMTP_FROM || process.env.SMTP_USER || '"Auto Mock Test" <noreply@example.com>',
+        to: cleanContact,
+        subject: "Your OTP for Registration / नोंदणीसाठी ओटीपी",
+        text: `Your OTP for registration is: ${otp}. It is valid for 10 minutes.`,
+        html: `
+          <div style="font-family: sans-serif; max-width: 500px; margin: 0 auto; padding: 20px; border: 1px solid #ddd; border-radius: 8px;">
+            <h2 style="color: #333; text-align: center;">Registration OTP</h2>
+            <p>Hello,</p>
+            <p>Your One-Time Password (OTP) for registration is:</p>
+            <h1 style="text-align: center; font-size: 36px; letter-spacing: 4px; color: #f59e0b; background-color: #fffbeb; padding: 10px; border-radius: 8px; border: 1px dashed #f59e0b;">${otp}</h1>
+            <p>This OTP is valid for <strong>10 minutes</strong>. Do not share it with anyone.</p>
+            <hr style="border: none; border-top: 1px solid #eee; margin: 20px 0;" />
+            <p style="font-size: 12px; color: #888; text-align: center;">If you didn't request this, please ignore this email.</p>
+          </div>
+        `,
+      });
+      mailSent = result.success;
+      mailError = result.error;
+    }
+
+    // Return status. If mail failed, include fallbackOtp so users are never blocked
+    res.json({
+      success: true,
+      message: mailSent ? "OTP sent successfully" : "OTP generated",
+      emailSent: mailSent,
+      fallbackOtp: !mailSent ? otp : undefined,
+      error: mailError
+    });
+  });
+
+  // Diagnostic endpoint to test SMTP settings
+  app.get("/api/admin/smtp-test", async (req, res) => {
+    if (!transporter) {
+      return res.status(500).json({
+        success: false,
+        configured: false,
+        message: "SMTP is not configured. Please verify SMTP_HOST, SMTP_USER, and SMTP_PASS environment variables."
+      });
+    }
+
+    try {
+      await transporter.verify();
+      res.json({
+        success: true,
+        configured: true,
+        message: "SMTP configuration is valid and successfully connected to mail server."
+      });
+    } catch (err: any) {
+      console.error("[SMTP Test Error]:", err.message || err);
+      res.status(500).json({
+        success: false,
+        configured: true,
+        error: err.message || "Failed to verify SMTP connection",
+        hint: err.message && err.message.includes("BadCredentials")
+          ? "Gmail rejected the credentials. Generate a new Google App Password at https://myaccount.google.com/apppasswords with 2-Step Verification enabled."
+          : "Check your SMTP host, port, user, and password settings."
+      });
+    }
+  });
+
+  // Diagnostic endpoint to get current SMTP status & config info
+  app.get("/api/admin/smtp-config", async (req, res) => {
+    let isConnected = false;
+    let verifyError = "";
+    if (transporter) {
       try {
-        await transporter.sendMail({
-          from: process.env.SMTP_FROM || process.env.SMTP_USER || '"Auto Mock Test" <noreply@example.com>',
-          to: cleanContact,
-          subject: "Your OTP for Registration",
-          text: `Your OTP for registration is: ${otp}. It is valid for 10 minutes.`,
-          html: `
-            <div style="font-family: sans-serif; max-width: 500px; margin: 0 auto; padding: 20px; border: 1px solid #ddd; border-radius: 8px;">
-              <h2 style="color: #333; text-align: center;">Registration OTP</h2>
-              <p>Hello,</p>
-              <p>Your One-Time Password (OTP) for registration is:</p>
-              <h1 style="text-align: center; font-size: 36px; letter-spacing: 4px; color: #f59e0b; background-color: #fffbeb; padding: 10px; border-radius: 8px; border: 1px dashed #f59e0b;">${otp}</h1>
-              <p>This OTP is valid for <strong>10 minutes</strong>. Do not share it with anyone.</p>
-              <hr style="border: none; border-top: 1px solid #eee; margin: 20px 0;" />
-              <p style="font-size: 12px; color: #888; text-align: center;">If you didn't request this, please ignore this email.</p>
-            </div>
-          `,
-        });
-        console.log(`Email sent successfully to ${cleanContact}`);
-      } catch (error) {
-        console.error(`Failed to send email to ${cleanContact}:`, error);
+        await transporter.verify();
+        isConnected = true;
+      } catch (err: any) {
+        verifyError = err.message || "Failed to verify connection";
       }
     }
 
-    res.json({ success: true, message: "OTP sent successfully" });
+    res.json({
+      success: true,
+      host: currentSmtpConfig.host,
+      port: currentSmtpConfig.port,
+      user: currentSmtpConfig.user,
+      hasPass: !!currentSmtpConfig.pass,
+      passLength: currentSmtpConfig.pass ? currentSmtpConfig.pass.length : 0,
+      isConnected,
+      verifyError
+    });
+  });
+
+  // Endpoint to update SMTP credentials dynamically and save to Firestore
+  app.post("/api/admin/smtp-update", async (req, res) => {
+    const { host, port, user, pass } = req.body;
+    if (!user || !pass) {
+      return res.status(400).json({ error: "Email ID and App Password are required." });
+    }
+    const cleanUser = user.trim();
+    const cleanPass = pass.trim().replace(/\s+/g, "");
+    const cleanHost = (host || "smtp.gmail.com").trim();
+    const cleanPort = parseInt(port || "465");
+
+    try {
+      const testTransporter = nodemailer.createTransport({
+        host: cleanHost,
+        port: cleanPort,
+        secure: cleanPort === 465,
+        auth: {
+          user: cleanUser,
+          pass: cleanPass,
+        },
+        connectionTimeout: 10000,
+        greetingTimeout: 10000,
+      });
+
+      await testTransporter.verify();
+
+      // Verification passed! Update global config & transporter
+      transporter = testTransporter;
+      currentSmtpConfig = {
+        host: cleanHost,
+        port: cleanPort,
+        user: cleanUser,
+        pass: cleanPass
+      };
+
+      if (isFirestoreAvailable) {
+        await db.collection("settings").doc("smtp").set({
+          host: cleanHost,
+          port: cleanPort,
+          user: cleanUser,
+          pass: cleanPass,
+          updatedAt: new Date().toISOString()
+        }, { merge: true });
+      }
+
+      console.log(`[SMTP] Successfully verified and updated SMTP credentials for ${cleanUser}`);
+      res.json({
+        success: true,
+        message: "SMTP credentials verified and saved successfully! Real emails are now active."
+      });
+    } catch (err: any) {
+      console.error("[SMTP Update Error]:", err.message || err);
+      res.status(400).json({
+        error: "SMTP Verification failed: " + (err.message || "Invalid credentials"),
+        details: err.message,
+        hint: err.message && err.message.includes("BadCredentials")
+          ? "Gmail rejected the password. Please create a new 16-letter App Password at https://myaccount.google.com/apppasswords"
+          : "Please check your SMTP host, port, and email/password."
+      });
+    }
+  });
+
+  // Endpoint to send a test email to verify real delivery
+  app.post("/api/admin/smtp-send-test", async (req, res) => {
+    const { toEmail } = req.body;
+    const targetEmail = (toEmail || currentSmtpConfig.user).trim();
+
+    if (!transporter) {
+      return res.status(400).json({ error: "SMTP transporter is not configured." });
+    }
+
+    const testOtp = Math.floor(100000 + Math.random() * 900000).toString();
+    const result = await sendMailSafely({
+      from: `"${currentSmtpConfig.user}" <${currentSmtpConfig.user}>`,
+      to: targetEmail,
+      subject: "🧪 Test Email & OTP Verification / ईमेल चाचणी",
+      text: `This is a test email from Automobile Mock Test Platform.\nYour test OTP is: ${testOtp}\nTime: ${new Date().toLocaleString()}`,
+      html: `
+        <div style="font-family: sans-serif; max-width: 500px; margin: 0 auto; padding: 24px; border: 1px solid #10b981; border-radius: 12px; background-color: #f0fdf4;">
+          <h2 style="color: #065f46; text-align: center; margin-top: 0;">✅ Email Connection Working!</h2>
+          <p style="color: #1e293b; font-size: 14px;">तुमचा SMTP ईमेल सर्व्हर यशस्वीरीत्या कनेक्ट झाला आहे.</p>
+          <div style="background-color: #ffffff; border: 1px dashed #10b981; padding: 14px; text-align: center; border-radius: 8px; margin: 16px 0;">
+            <span style="font-size: 28px; font-weight: bold; letter-spacing: 4px; color: #047857; font-family: monospace;">${testOtp}</span>
+          </div>
+          <p style="font-size: 12px; color: #64748b; text-align: center;">ही फक्त चाचणी ईमेल आहे. New users will now receive OTP emails successfully.</p>
+        </div>
+      `
+    });
+
+    if (result.success) {
+      res.json({ success: true, message: `Test email sent successfully to ${targetEmail}!` });
+    } else {
+      res.status(500).json({ error: result.error || "Failed to send test email." });
+    }
   });
 
   app.post("/api/otp/verify", async (req, res) => {
@@ -1442,23 +1789,91 @@ ${standardExp}
       return res.status(400).json({ error: "Missing fields" });
     }
     const cleanEmail = email.trim().toLowerCase();
-    const newUser = {
-      email: cleanEmail,
-      username: username.trim(),
-      password: password,
-      isPremium: false,
-      role: "student",
-      subscriptionStatus: "inactive",
-      createdAt: new Date().toISOString()
-    };
+    const cleanUsername = username.trim();
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(cleanEmail)) {
+      return res.status(400).json({ error: "Invalid email address format." });
+    }
 
     try {
+      let emailExists = false;
+      let usernameExists = false;
+
+      if (isFirestoreAvailable) {
+        const emailSnap = await db.collection("users").doc(cleanEmail).get();
+        if (emailSnap.exists) emailExists = true;
+
+        const userQuery = await db.collection("users").where("username", "==", cleanUsername).get();
+        if (!userQuery.empty) usernameExists = true;
+      } else {
+        const existingEmail = memoryUsers.get(cleanEmail);
+        if (existingEmail) emailExists = true;
+
+        usernameExists = Array.from(memoryUsers.values()).some(
+          (u: any) => u.username && u.username.toLowerCase().trim() === cleanUsername.toLowerCase()
+        );
+      }
+
+      if (emailExists) {
+        return res.status(400).json({ error: "Email is already registered. Please log in." });
+      }
+      if (usernameExists) {
+        return res.status(400).json({ error: "Username is already taken. Please choose another username." });
+      }
+
+      const newUser = {
+        email: cleanEmail,
+        username: cleanUsername,
+        password: password,
+        isPremium: false,
+        role: "student",
+        subscriptionStatus: "inactive",
+        createdAt: new Date().toISOString()
+      };
+
       if (isFirestoreAvailable) {
         await db.collection("users").doc(cleanEmail).set(newUser, { merge: true });
       }
       memoryUsers.set(cleanEmail, newUser);
       broadcastUsers();
-      res.json({ success: true });
+
+      const responseUser = {
+        email: cleanEmail,
+        username: newUser.username,
+        isPremium: newUser.isPremium,
+        role: newUser.role,
+        subscriptionStatus: newUser.subscriptionStatus
+      };
+
+      // Send welcome email asynchronously without blocking registration flow
+      sendMailSafely({
+        from: process.env.SMTP_FROM || process.env.SMTP_USER || '"Auto Mock Test" <noreply@example.com>',
+        to: cleanEmail,
+        subject: "🎉 Welcome to Automobile Mock Test Platform! / नोंदणी यशस्वी",
+        text: `Hello ${cleanUsername},\n\nWelcome to Automobile Mock Test Platform!\nYour account has been created successfully.\n\nUsername: ${cleanUsername}\nEmail: ${cleanEmail}\n\nYou can now log in and practice mock tests anytime.\n\nBest regards,\nAutomobile Mock Test Team`,
+        html: `
+          <div style="font-family: sans-serif; max-width: 520px; margin: 0 auto; padding: 24px; border: 1px solid #e2e8f0; border-radius: 12px; background-color: #ffffff; color: #1e293b;">
+            <div style="text-align: center; margin-bottom: 20px;">
+              <h2 style="color: #d97706; margin: 0 0 6px 0;">🎉 नोंदणी यशस्वी / Welcome!</h2>
+              <p style="color: #64748b; font-size: 13px; margin: 0;">Automobile Mock Test Platform</p>
+            </div>
+            <p style="font-size: 15px; line-height: 1.5;">नमस्कार <strong>${cleanUsername}</strong>,</p>
+            <p style="font-size: 14px; line-height: 1.6; color: #334155;">
+              तुमचे खाते यशस्वीरीत्या तयार झाले आहे. आता तुम्ही सराव चाचण्या, मॉक टेस्ट आणि अभ्यास साहित्य वापरू शकता.
+            </p>
+            <div style="background-color: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 14px; margin: 16px 0;">
+              <p style="margin: 4px 0; font-size: 13px;"><strong>युझरनेम (Username):</strong> ${cleanUsername}</p>
+              <p style="margin: 4px 0; font-size: 13px;"><strong>ईमेल (Email):</strong> ${cleanEmail}</p>
+            </div>
+            <p style="font-size: 12px; color: #94a3b8; text-align: center; margin-top: 24px;">
+              कोणत्याही मदतीसाठी संपर्क साधा: ${process.env.SMTP_USER || "Support"}
+            </p>
+          </div>
+        `
+      }).catch(err => console.error("[Signup Welcome Email Error]:", err));
+
+      res.json({ success: true, user: responseUser });
     } catch (e: any) {
       res.status(500).json({ error: e.message || "Failed to create user" });
     }

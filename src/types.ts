@@ -9,18 +9,12 @@ export interface User {
 
 export interface Question {
   id: number;
-  chapterId: number;
-  question: string;         // English
-  questionMarathi?: string;  // Marathi (kept for backwards compatibility)
-  questionTranslated?: string; // Translated version using selected language
-  options: string[];        // English options [A, B, C, D]
-  optionsMarathi?: string[]; // Marathi options [A, B, C, D]
-  optionsTranslated?: string[]; // Translated options
-  answer: string;           // E.g. "A", "B", "C", "D"
-  explanation: string;      // Simple pre-populated explanation
-  explanationTranslated?: string; // Translated explanation
-  explanationMarathi?: string; // Marathi explanation
-  imageSvg?: string;        // Optional adaptive SVG image
+  chapterId: number | string;
+  question: Record<string, string>;
+  options: Record<string, string[]>;
+  answer: string;           
+  explanation: Record<string, string>;
+  imageSvg?: string;        
 }
 
 export interface StateLanguage {
@@ -38,6 +32,10 @@ export const STATE_LANGUAGES: StateLanguage[] = [
   { code: "te", name: "Telugu", nativeName: "తెలుగు", state: "Andhra & Telangana" },
   { code: "ta", name: "Tamil", nativeName: "தமிழ்", state: "Tamil Nadu" },
   { code: "gu", name: "Gujarati", nativeName: "ગુજરાતી", state: "Gujarat" },
+  { code: "bn", name: "Bengali", nativeName: "বাংলা", state: "West Bengal" },
+  { code: "pa", name: "Punjabi", nativeName: "ਪੰਜਾਬੀ", state: "Punjab" },
+  { code: "ml", name: "Malayalam", nativeName: "മലയാളം", state: "Kerala" },
+  { code: "or", name: "Odia", nativeName: "ଓଡ଼ିଆ", state: "Odisha" },
 ];
 
 export interface Chapter {
