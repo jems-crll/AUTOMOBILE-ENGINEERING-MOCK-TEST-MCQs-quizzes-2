@@ -1378,6 +1378,18 @@ ${standardExp}
     const expiresAt = Date.now() + 10 * 60 * 1000; // 10 minutes from now
 
     memoryOtps.set(cleanContact, { otp, expiresAt, attempts: 0 });
+    try {
+      if (db) {
+        await db.collection("otps").doc(cleanContact).set({
+          otp,
+          expiresAt,
+          attempts: 0,
+          createdAt: new Date().toISOString()
+        });
+      }
+    } catch (dbErr) {
+      console.warn("[OTP Firestore Save Warning]:", dbErr);
+    }
     
     console.log(`[OTP GENERATED] OTP for ${cleanContact} is ${otp}`);
 
@@ -1576,29 +1588,59 @@ ${standardExp}
     }
 
     const cleanContact = contact.toLowerCase().trim();
-    const storedOtpData = memoryOtps.get(cleanContact);
+    let storedOtpData: { otp: string; expiresAt: number; attempts: number } | null = null;
+
+    // 1. Try fetching from Firestore first (for Vercel serverless persistence)
+    try {
+      if (db) {
+        const docSnap = await db.collection("otps").doc(cleanContact).get();
+        if (docSnap && docSnap.exists) {
+          storedOtpData = docSnap.data() as any;
+        }
+      }
+    } catch (e) {
+      console.warn("[OTP Firestore Read Warning]:", e);
+    }
+
+    // 2. Fallback to memory map
+    if (!storedOtpData) {
+      storedOtpData = memoryOtps.get(cleanContact) || null;
+    }
 
     if (!storedOtpData) {
-      return res.status(400).json({ error: "No OTP requested for this contact" });
+      return res.status(400).json({ error: "No OTP requested for this contact or session expired." });
     }
 
     if (Date.now() > storedOtpData.expiresAt) {
       memoryOtps.delete(cleanContact);
+      if (db) {
+        await db.collection("otps").doc(cleanContact).delete().catch(() => {});
+      }
       return res.status(400).json({ error: "OTP has expired. Please request a new one." });
     }
 
     if (storedOtpData.attempts >= 5) {
       memoryOtps.delete(cleanContact);
+      if (db) {
+        await db.collection("otps").doc(cleanContact).delete().catch(() => {});
+      }
       return res.status(400).json({ error: "Too many failed attempts. Please request a new OTP." });
     }
 
     if (storedOtpData.otp !== otp) {
       storedOtpData.attempts += 1;
+      memoryOtps.set(cleanContact, storedOtpData);
+      if (db) {
+        await db.collection("otps").doc(cleanContact).set({ attempts: storedOtpData.attempts }, { merge: true }).catch(() => {});
+      }
       return res.status(400).json({ error: "Invalid OTP. Please try again." });
     }
 
     // OTP is valid
     memoryOtps.delete(cleanContact);
+    if (db) {
+      await db.collection("otps").doc(cleanContact).delete().catch(() => {});
+    }
     res.json({ success: true, message: "OTP verified successfully" });
   });
 
