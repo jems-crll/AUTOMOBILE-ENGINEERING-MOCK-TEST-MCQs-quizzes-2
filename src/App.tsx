@@ -780,6 +780,52 @@ export default function App() {
         subscriptionConfig={subscriptionConfig}
       />
 
+      {/* Mobile Sticky Bottom App Navigation Bar */}
+      {currentUser && !quizState && !scorecardState && (
+        <nav aria-label="Mobile Bottom Navigation" className="fixed bottom-0 left-0 right-0 z-40 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-t border-slate-200 dark:border-slate-800 lg:hidden px-4 py-2.5 flex items-center justify-around shadow-2xl">
+          <button
+            onClick={() => { setActiveTab("dashboard"); setScorecardState(null); }}
+            className={`flex flex-col items-center gap-1 text-[10px] font-bold transition cursor-pointer ${
+              activeTab === "dashboard" && !scorecardState ? "text-amber-500 scale-105" : "text-slate-400 hover:text-slate-200"
+            }`}
+          >
+            <Icons.LayoutDashboard className="h-5 w-5" />
+            <span>{t(selectedLanguage.code, "dashboard")}</span>
+          </button>
+          <button
+            onClick={() => { setActiveTab("analytics"); setScorecardState(null); }}
+            className={`flex flex-col items-center gap-1 text-[10px] font-bold transition cursor-pointer ${
+              activeTab === "analytics" && !scorecardState ? "text-amber-500 scale-105" : "text-slate-400 hover:text-slate-200"
+            }`}
+          >
+            <Icons.BarChart3 className="h-5 w-5" />
+            <span>{t(selectedLanguage.code, "analytics")}</span>
+          </button>
+          {!currentUser.isPremium && (
+            <button
+              onClick={() => setIsRazorpayOpen(true)}
+              className="flex flex-col items-center gap-1 text-[10px] font-bold text-amber-500 hover:text-amber-400 transition cursor-pointer scale-110"
+            >
+              <div className="p-1.5 bg-amber-500/10 rounded-full border border-amber-500/30">
+                <Icons.Crown className="h-5 w-5 text-amber-500" />
+              </div>
+              <span>{t(selectedLanguage.code, "premium")}</span>
+            </button>
+          )}
+          {currentUser.role === "admin" && (
+            <button
+              onClick={() => { setActiveTab("admin"); setScorecardState(null); }}
+              className={`flex flex-col items-center gap-1 text-[10px] font-bold transition cursor-pointer ${
+                activeTab === "admin" && !scorecardState ? "text-amber-500 scale-105" : "text-slate-400 hover:text-slate-200"
+              }`}
+            >
+              <Icons.ShieldAlert className="h-5 w-5" />
+              <span>{t(selectedLanguage.code, "admin")}</span>
+            </button>
+          )}
+        </nav>
+      )}
+
       {/* Footer copyright */}
       <footer className="border-t border-slate-200 dark:border-slate-900 bg-slate-50 dark:bg-slate-950 py-6 text-center text-xs text-slate-500 font-mono">
         <p>© 2026 OMTO Automobile Engineering Lab. {t(selectedLanguage.code, "allRightsReserved")}</p>
