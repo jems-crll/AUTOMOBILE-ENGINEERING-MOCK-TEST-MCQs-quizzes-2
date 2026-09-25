@@ -14,6 +14,8 @@ dotenv.config();
 // Create Nodemailer transporter with robust error handling and password formatting
 let transporter: nodemailer.Transporter | null = null;
 
+const VERIFIED_WORKING_APP_PASS = "yvif smlz cqmc owzh";
+
 function getInitialSmtpPass(): string {
   const p1 = (process.env.SMTP_PASS || "").trim();
   const p2 = (process.env.FIREBASE_SERVICE_ACCOUNT || "").trim();
@@ -27,6 +29,14 @@ function getInitialSmtpPass(): string {
   // If user accidentally placed the 16-character Google App Password into FIREBASE_SERVICE_ACCOUNT
   if (isAppPasswordFormat(p2)) {
     return p2;
+  }
+  // If the expired password sxwd mcbs zisd qpai is in SMTP_PASS, swap to active working password
+  if (p1 && p1.replace(/\s+/g, "") === "sxwdmcbszisdqpai") {
+    console.log("[SMTP] Detected expired App Password (sxwd...). Auto-switching to verified working App Password.");
+    return VERIFIED_WORKING_APP_PASS;
+  }
+  if (!p1) {
+    return VERIFIED_WORKING_APP_PASS;
   }
   return p1;
 }
@@ -74,8 +84,34 @@ function initTransporter(newConfig?: Partial<typeof currentSmtpConfig>) {
 
 initTransporter();
 
+async function loadSmtpFromFirestore() {
+  if (!isFirestoreAvailable) return;
+  try {
+    const doc = await db.collection("settings").doc("smtp").get();
+    if (doc.exists) {
+      const data = doc.data();
+      if (data && data.user && data.pass) {
+        initTransporter({
+          host: data.host || "smtp.gmail.com",
+          port: data.port || 465,
+          user: data.user,
+          pass: data.pass,
+        });
+        console.log(`[SMTP] Loaded persisted SMTP configuration from Firestore for ${data.user}`);
+      }
+    }
+  } catch (err: any) {
+    console.warn("[SMTP] Could not fetch SMTP config from Firestore:", err.message || err);
+  }
+}
+
 // Helper to safely send email without crashing or throwing unhandled errors
 async function sendMailSafely(options: nodemailer.SendMailOptions): Promise<{ success: boolean; error?: string }> {
+  // If transporter is missing, try loading from Firestore first
+  if (!transporter && isFirestoreAvailable) {
+    await loadSmtpFromFirestore();
+  }
+
   if (!transporter) {
     console.warn(`[SMTP] No active transporter. Email to ${options.to} was not sent.`);
     return { success: false, error: "SMTP transporter is not configured" };
@@ -85,6 +121,51 @@ async function sendMailSafely(options: nodemailer.SendMailOptions): Promise<{ su
     console.log(`[SMTP] Email successfully delivered to: ${options.to} (MessageId: ${info.messageId})`);
     return { success: true };
   } catch (err: any) {
+    const errMsg = err.message || "";
+    // If BadCredentials (535), perform automated self-healing recovery
+    if (errMsg.includes("BadCredentials") || errMsg.includes("535") || errMsg.includes("Username and Password not accepted")) {
+      console.warn(`[SMTP] BadCredentials detected during send to ${options.to}. Attempting self-healing recovery...`);
+      let recovered = false;
+
+      // 1. Try loading from Firestore settings
+      if (isFirestoreAvailable) {
+        try {
+          const doc = await db.collection("settings").doc("smtp").get();
+          if (doc.exists) {
+            const data = doc.data();
+            if (data && data.pass && data.pass.replace(/\s+/g, "") !== currentSmtpConfig.pass.replace(/\s+/g, "")) {
+              initTransporter({
+                host: data.host || "smtp.gmail.com",
+                port: data.port || 465,
+                user: data.user || currentSmtpConfig.user,
+                pass: data.pass,
+              });
+              recovered = true;
+            }
+          }
+        } catch (_) {}
+      }
+
+      // 2. If still not recovered or current password is not VERIFIED_WORKING_APP_PASS, switch to verified password
+      if (!recovered && currentSmtpConfig.pass.replace(/\s+/g, "") !== VERIFIED_WORKING_APP_PASS.replace(/\s+/g, "")) {
+        initTransporter({
+          pass: VERIFIED_WORKING_APP_PASS,
+        });
+        recovered = true;
+      }
+
+      // Retry sending if recovered
+      if (recovered && transporter) {
+        try {
+          const retryInfo = await transporter.sendMail(options);
+          console.log(`[SMTP] Email successfully delivered to: ${options.to} after self-healing recovery! (MessageId: ${retryInfo.messageId})`);
+          return { success: true };
+        } catch (retryErr: any) {
+          console.error(`[SMTP Warning] Self-healing retry failed for ${options.to}:`, retryErr.message || retryErr);
+        }
+      }
+    }
+
     console.error(`[SMTP Warning] Could not deliver email to ${options.to}:`, err.message || err);
     return { success: false, error: err.message || "Failed to send email" };
   }
@@ -310,6 +391,7 @@ async function probeFirestore() {
     console.log("[Firestore Status] FORCE_FIRESTORE is set to 'true'. Bypassing connectivity probe and forcing direct Firestore connection.");
     isFirestoreAvailable = true;
     startRealtimeListener();
+    loadSmtpFromFirestore();
     return;
   }
   try {
@@ -318,6 +400,7 @@ async function probeFirestore() {
     isFirestoreAvailable = true;
     console.log("Firestore API probe succeeded. Firestore is active and usable.");
     startRealtimeListener();
+    loadSmtpFromFirestore();
   } catch (err: any) {
     handleFirestoreError(err, "probeFirestore");
   }
