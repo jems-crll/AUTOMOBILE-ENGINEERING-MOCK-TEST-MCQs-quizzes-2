@@ -28,14 +28,6 @@ export const STATE_LANGUAGES: StateLanguage[] = [
   { code: "mr", name: "Marathi", nativeName: "मराठी", state: "Maharashtra" },
   { code: "en", name: "English", nativeName: "English", state: "All India" },
   { code: "hi", name: "Hindi", nativeName: "हिन्दी", state: "North & Central India" },
-  { code: "kn", name: "Kannada", nativeName: "ಕನ್ನಡ", state: "Karnataka" },
-  { code: "te", name: "Telugu", nativeName: "తెలుగు", state: "Andhra & Telangana" },
-  { code: "ta", name: "Tamil", nativeName: "தமிழ்", state: "Tamil Nadu" },
-  { code: "gu", name: "Gujarati", nativeName: "ગુજરાતી", state: "Gujarat" },
-  { code: "bn", name: "Bengali", nativeName: "বাংলা", state: "West Bengal" },
-  { code: "pa", name: "Punjabi", nativeName: "ਪੰਜਾਬੀ", state: "Punjab" },
-  { code: "ml", name: "Malayalam", nativeName: "മലയാളം", state: "Kerala" },
-  { code: "or", name: "Odia", nativeName: "ଓଡ଼ିଆ", state: "Odisha" },
 ];
 
 export interface Chapter {

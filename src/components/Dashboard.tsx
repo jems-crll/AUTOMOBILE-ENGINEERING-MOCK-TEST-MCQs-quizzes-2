@@ -149,6 +149,41 @@ export default function Dashboard({
         </div>
       </div>
 
+      {/* Free Demo 10 Questions Banner */}
+      {isDemoMode && (
+        <div className="bg-gradient-to-r from-amber-500/15 via-amber-500/10 to-transparent border border-amber-500/30 rounded-2xl p-4 sm:p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-sm animate-fade-in">
+          <div className="flex items-center gap-3.5">
+            <div className="p-3 bg-amber-500/20 text-amber-500 rounded-xl shrink-0">
+              <Icons.Gift className="w-6 h-6" />
+            </div>
+            <div>
+              <div className="flex items-center gap-2 mb-0.5">
+                <span className="text-[10px] bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 font-extrabold px-2 py-0.5 rounded-full uppercase tracking-wider">
+                  {selectedLanguage.code === "mr" ? "विनामूल्य सराव" : "Free Access"}
+                </span>
+                <h4 className="text-sm sm:text-base font-bold text-slate-900 dark:text-white">
+                  {selectedLanguage.code === "mr" 
+                    ? "प्रत्येक चॅप्टरचे १० प्रश्न टेस्टसाठी विनामूल्य उपलब्ध!" 
+                    : "10 Test Questions Free for Every Chapter!"}
+                </h4>
+              </div>
+              <p className="text-xs text-slate-600 dark:text-slate-400">
+                {selectedLanguage.code === "mr"
+                  ? `जोपर्यंत तुम्ही सबस्क्रिप्शन घेत नाही, तोपर्यंत खालील कोणत्याही विषयाचे १० प्रश्न सोडवून तुमची तयारी तपासा. संपूर्ण सराव संच सोडवण्यासाठी आजच सबस्क्राइब करा.`
+                  : `Until you subscribe, practice 10 questions for any chapter below for free. Subscribe to unlock all 1,200+ questions & full test series.`}
+              </p>
+            </div>
+          </div>
+          <button
+            onClick={onUpgradeClick}
+            className="px-4 py-2.5 bg-amber-500 hover:bg-amber-400 text-slate-950 font-black text-xs rounded-xl transition-all duration-150 flex items-center gap-2 shrink-0 cursor-pointer shadow-md shadow-amber-500/15 active:scale-95 self-stretch sm:self-auto justify-center"
+          >
+            <Icons.Crown className="w-4 h-4 fill-current" />
+            <span>{selectedLanguage.code === "mr" ? `प्रीमियम अनलॉक करा (₹${subscriptionConfig.amount})` : `Unlock All (₹${subscriptionConfig.amount})`}</span>
+          </button>
+        </div>
+      )}
+
       {/* Continue Learning / Recent Activity */}
       {activeQuizState ? (
         /* Case A: Active Incomplete Quiz State is present */
@@ -257,8 +292,8 @@ export default function Dashboard({
                 onStartTest({
                   chapterId: lastAttempt.chapterId,
                   mode: "practice",
-                  questionCount: isDemoMode ? 5 : lastAttempt.totalQuestions,
-                  timeLimitMinutes: isDemoMode ? 5 : 40,
+                  questionCount: isDemoMode ? 10 : lastAttempt.totalQuestions,
+                  timeLimitMinutes: isDemoMode ? 10 : 40,
                   source: "static",
                   setId: lastAttempt.setId || 1
                 });
@@ -266,12 +301,12 @@ export default function Dashboard({
               className="bg-emerald-600 hover:bg-emerald-500 text-slate-950 font-black px-6 py-3 rounded-xl transition flex items-center gap-2 shadow-lg shadow-emerald-500/20 active:scale-95 cursor-pointer text-sm shrink-0 w-fit"
             >
               <Icons.RotateCcw className="w-4 h-4" />
-              {selectedLanguage.code === "mr" ? "पुन्हा सराव सुरू करा" : "Restart Practice"}
+              {selectedLanguage.code === "mr" ? (isDemoMode ? "१० प्रश्न पुन्हा सराव करा" : "पुन्हा सराव सुरू करा") : (isDemoMode ? "Retake 10 Qs Practice" : "Restart Practice")}
             </button>
           </div>
         </div>
       ) : (
-        /* Case C: Fresh User - Automobile Set 1 (Q 1 - 50) */
+        /* Case C: Fresh User - Automobile Set 1 */
         <div className="bg-gradient-to-r from-slate-900 to-slate-800 dark:from-slate-800 dark:to-slate-900 rounded-3xl p-6 sm:p-8 text-white relative overflow-hidden shadow-lg border border-slate-800 dark:border-slate-700">
           <div className="absolute top-0 right-0 p-8 opacity-10 pointer-events-none">
             <Icons.Play className="w-32 h-32 text-amber-500" />
@@ -284,18 +319,22 @@ export default function Dashboard({
               </span>
             </div>
             <h2 className="text-xl sm:text-2xl font-black">
-              {selectedLanguage.code === "mr" ? "ऑटोमोबाईल संच 1 (प्र 1 ते 50)" : "Automobile Set 1 (Q 1 - 50)"}
+              {selectedLanguage.code === "mr" 
+                ? (isDemoMode ? "ऑटोमोबाईल संच 1 (१० प्रश्न मोफत)" : "ऑटोमोबाईल संच 1 (प्र 1 ते 50)") 
+                : (isDemoMode ? "Automobile Set 1 (10 Free Questions)" : "Automobile Set 1 (Q 1 - 50)")}
             </h2>
             <p className="text-slate-300 text-sm max-w-xl pb-4">
-              {selectedLanguage.code === "mr" ? "पहिल्या विषयापासून तुमचा सराव सुरु करा." : "Begin your professional practice from the very first chapter."}
+              {selectedLanguage.code === "mr" 
+                ? (isDemoMode ? "पहिल्या विषयापासून तुमचा विनामूल्य सराव सुरु करा (१० प्रश्न मोफत उपलब्ध)." : "पहिल्या विषयापासून तुमचा सराव सुरु करा.") 
+                : (isDemoMode ? "Begin your free practice from the first chapter (10 free questions available)." : "Begin your professional practice from the very first chapter.")}
             </p>
             <button 
               onClick={() => {
                 onStartTest({
                   chapterId: 1,
                   mode: "practice",
-                  questionCount: isDemoMode ? 5 : 50,
-                  timeLimitMinutes: isDemoMode ? 5 : 40,
+                  questionCount: isDemoMode ? 10 : 50,
+                  timeLimitMinutes: isDemoMode ? 10 : 40,
                   source: "static",
                   setId: 1
                 });
@@ -303,7 +342,7 @@ export default function Dashboard({
               className="bg-amber-500 hover:bg-amber-400 text-slate-950 font-black px-6 py-3 rounded-xl transition flex items-center gap-2 shadow-lg shadow-amber-500/20 active:scale-95 cursor-pointer text-sm w-fit"
             >
               <Icons.Play className="w-4 h-4 fill-current" />
-              {selectedLanguage.code === "mr" ? "सराव सुरू करा" : "Start Practice"}
+              {selectedLanguage.code === "mr" ? (isDemoMode ? "१० प्रश्न सराव सुरू करा" : "सराव सुरू करा") : (isDemoMode ? "Start 10 Qs Practice" : "Start Practice")}
             </button>
           </div>
         </div>
@@ -510,15 +549,58 @@ export default function Dashboard({
                             className="overflow-hidden bg-slate-50 dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800"
                           >
                             <div className="p-5 space-y-4">
+                              {/* Free Demo 10 Questions Banner per chapter */}
+                              {isDemoMode && (
+                                <div className="p-4 bg-gradient-to-r from-amber-500/15 via-amber-500/10 to-amber-500/5 border border-amber-500/30 rounded-xl flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-sm">
+                                  <div className="flex items-center gap-3">
+                                    <div className="px-2.5 py-1.5 bg-amber-500 text-slate-950 font-black rounded-lg text-xs shrink-0 flex items-center gap-1 shadow-sm">
+                                      <Icons.Sparkles className="w-3.5 h-3.5 fill-current" />
+                                      <span>10 Qs</span>
+                                    </div>
+                                    <div>
+                                      <h5 className="text-sm font-bold text-slate-900 dark:text-white flex items-center gap-1.5">
+                                        {selectedLanguage.code === "mr" ? "१० प्रश्न मोफत चाचणी" : "10 Questions Free Chapter Test"}
+                                        <span className="text-[10px] bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 font-bold px-1.5 py-0.5 rounded">
+                                          {selectedLanguage.code === "mr" ? "मोफत" : "FREE"}
+                                        </span>
+                                      </h5>
+                                      <p className="text-[11px] text-slate-600 dark:text-slate-400 mt-0.5">
+                                        {selectedLanguage.code === "mr" 
+                                          ? "सबस्क्रिप्शन घेण्यापूर्वी या विषयाचे पहिले १० प्रश्न मोफत सोडवून तयारी तपासा." 
+                                          : "Practice the first 10 questions of this chapter for free before subscribing."}
+                                      </p>
+                                    </div>
+                                  </div>
+                                  <div className="flex items-center gap-2 shrink-0">
+                                    <button
+                                      onClick={() => onStartTest({ chapterId: ch.id, mode: "practice", questionCount: 10, timeLimitMinutes: 10, source: "static", setId: 1 })}
+                                      className="px-3.5 py-1.5 bg-slate-900 dark:bg-white hover:bg-slate-800 dark:hover:bg-slate-100 text-white dark:text-slate-900 font-bold text-xs rounded-lg transition-colors flex items-center gap-1.5 cursor-pointer shadow-sm"
+                                    >
+                                      <Icons.BookOpen className="h-3.5 w-3.5 text-amber-400 dark:text-amber-600" />
+                                      {selectedLanguage.code === "mr" ? "सराव (१० प्रश्न)" : "Practice (10 Qs)"}
+                                    </button>
+                                    <button
+                                      onClick={() => onStartTest({ chapterId: ch.id, mode: "exam", questionCount: 10, timeLimitMinutes: 10, source: "static", setId: 1 })}
+                                      className="px-3.5 py-1.5 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs rounded-lg transition-colors flex items-center gap-1.5 cursor-pointer shadow-sm"
+                                    >
+                                      <Icons.Timer className="h-3.5 w-3.5" />
+                                      {selectedLanguage.code === "mr" ? "परीक्षा (१० प्रश्न)" : "Exam (10 Qs)"}
+                                    </button>
+                                  </div>
+                                </div>
+                              )}
+
                               <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-3 gap-2">
                                 <p className="text-xs text-slate-500 dark:text-slate-400 font-bold uppercase tracking-wider">
                                   {selectedLanguage.code === "mr" ? "सराव संच निवडा" : "Select Practice Set"}
                                 </p>
                                 <button
-                                    onClick={() => onStartTest({ chapterId: ch.id, mode: "exam", questionCount: isDemoMode ? 5 : totalQ, timeLimitMinutes: isDemoMode ? 5 : Math.ceil(totalQ * 1.5), source: "static", setId: "all" })}
+                                    onClick={() => onStartTest({ chapterId: ch.id, mode: "exam", questionCount: isDemoMode ? 10 : totalQ, timeLimitMinutes: isDemoMode ? 10 : Math.ceil(totalQ * 1.5), source: "static", setId: "all" })}
                                     className="text-[10px] font-bold text-amber-500 hover:text-amber-400 bg-amber-500/10 px-3 py-1.5 rounded-lg border border-amber-500/20 transition-colors cursor-pointer self-start sm:self-auto"
                                 >
-                                    {selectedLanguage.code === "mr" ? "सर्व प्रश्न एकत्रित (पूर्ण चाचणी)" : "All Questions Test"}
+                                    {selectedLanguage.code === "mr" 
+                                      ? (isDemoMode ? "१० प्रश्न मोफत परीक्षा चाचणी" : "सर्व प्रश्न एकत्रित (पूर्ण चाचणी)") 
+                                      : (isDemoMode ? "10 Questions Free Exam" : "All Questions Test")}
                                 </button>
                               </div>
                                                     
@@ -534,33 +616,47 @@ export default function Dashboard({
                                     return (
                                       <div key={setNum} className="relative p-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl flex flex-col justify-between group shadow-sm">
                                         {demoRestricted && (
-                                          <div className="absolute inset-0 bg-slate-50 dark:bg-slate-950/80 backdrop-blur-[1px] rounded-xl flex flex-col items-center justify-center z-10 border border-slate-200 dark:border-slate-800/50">
-                                              <Icons.Lock className="h-5 w-5 text-amber-500/70 mb-2" />
+                                          <div className="absolute inset-0 bg-slate-50/90 dark:bg-slate-950/85 backdrop-blur-[1px] rounded-xl flex flex-col items-center justify-center z-10 border border-slate-200 dark:border-slate-800/50 p-2 text-center">
+                                              <Icons.Lock className="h-5 w-5 text-amber-500/80 mb-1.5" />
+                                              <p className="text-[10px] font-medium text-slate-500 dark:text-slate-400 mb-1.5">
+                                                {selectedLanguage.code === "mr" ? "हा संच सोडवण्यासाठी सबस्क्रिप्शन आवश्यक आहे" : "Subscription required for this set"}
+                                              </p>
                                               <button onClick={onUpgradeClick} className="text-[10px] font-bold text-amber-500 hover:text-amber-400 bg-amber-500/10 px-3 py-1.5 rounded-lg border border-amber-500/20 transition-colors cursor-pointer">
-                                                {selectedLanguage.code === "mr" ? "अनलॉक करा" : "Unlock to Access"}
+                                                {selectedLanguage.code === "mr" ? `अनलॉक करा (₹${subscriptionConfig.amount})` : `Unlock to Access (₹${subscriptionConfig.amount})`}
                                               </button>
                                           </div>
                                         )}
                                         <div className="mb-4">
-                                          <h5 className="text-sm font-bold text-slate-900 dark:text-white mb-1">
-                                            {selectedLanguage.code === "mr" ? `संच ${setNum}` : `Set ${setNum}`}
-                                          </h5>
-                                          <p className="text-[10px] text-slate-500 font-mono">Q {startNum} - {endNum} ({qsInSet} Qs)</p>
+                                          <div className="flex items-center justify-between mb-1">
+                                            <h5 className="text-sm font-bold text-slate-900 dark:text-white">
+                                              {selectedLanguage.code === "mr" ? `संच ${setNum}` : `Set ${setNum}`}
+                                            </h5>
+                                            {isDemoMode && setNum === 1 && (
+                                              <span className="text-[9px] bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 font-bold px-1.5 py-0.5 rounded border border-emerald-500/20">
+                                                {selectedLanguage.code === "mr" ? "१० प्रश्न मोफत" : "10 Qs Free"}
+                                              </span>
+                                            )}
+                                          </div>
+                                          <p className="text-[10px] text-slate-500 font-mono">
+                                            {isDemoMode && setNum === 1 
+                                              ? (selectedLanguage.code === "mr" ? "Q 1 - 10 (मोफत चाचणी)" : "Q 1 - 10 (Free Demo)") 
+                                              : `Q ${startNum} - ${endNum} (${qsInSet} Qs)`}
+                                          </p>
                                         </div>
                                         <div className="flex items-center gap-2">
                                           <button
-                                              onClick={() => onStartTest({ chapterId: ch.id, mode: "practice", questionCount: isDemoMode ? 5 : qsInSet, timeLimitMinutes: isDemoMode ? 5 : 20, source: "static", setId: setNum })}
+                                              onClick={() => onStartTest({ chapterId: ch.id, mode: "practice", questionCount: isDemoMode ? 10 : qsInSet, timeLimitMinutes: isDemoMode ? 10 : 20, source: "static", setId: setNum })}
                                             className="flex-1 py-2 bg-slate-100 dark:bg-slate-800 hover:bg-slate-250 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 text-[11px] font-bold rounded-lg transition-colors cursor-pointer flex items-center justify-center gap-1.5"
                                           >
                                             <Icons.BookOpen className="h-3 w-3" />
-                                            {selectedLanguage.code === "mr" ? "सराव" : "Practice"}
+                                            {selectedLanguage.code === "mr" ? (isDemoMode && setNum === 1 ? "सराव (१० प्रश्न)" : "सराव") : (isDemoMode && setNum === 1 ? "Practice (10 Qs)" : "Practice")}
                                           </button>
                                           <button
-                                              onClick={() => onStartTest({ chapterId: ch.id, mode: "exam", questionCount: isDemoMode ? 5 : qsInSet, timeLimitMinutes: isDemoMode ? 5 : 20, source: "static", setId: setNum })}
+                                              onClick={() => onStartTest({ chapterId: ch.id, mode: "exam", questionCount: isDemoMode ? 10 : qsInSet, timeLimitMinutes: isDemoMode ? 10 : 20, source: "static", setId: setNum })}
                                             className="flex-1 py-2 bg-amber-500/10 hover:bg-amber-500/20 text-amber-600 dark:text-amber-500 text-[11px] font-bold rounded-lg transition-colors border border-amber-500/20 cursor-pointer flex items-center justify-center gap-1.5"
                                           >
                                             <Icons.Timer className="h-3 w-3" />
-                                            {selectedLanguage.code === "mr" ? "परीक्षा" : "Exam"}
+                                            {selectedLanguage.code === "mr" ? (isDemoMode && setNum === 1 ? "परीक्षा (१० प्रश्न)" : "परीक्षा") : (isDemoMode && setNum === 1 ? "Exam (10 Qs)" : "Exam")}
                                           </button>
                                         </div>
                                       </div>
@@ -650,15 +746,58 @@ export default function Dashboard({
                           className="overflow-hidden bg-slate-50 dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800"
                         >
                           <div className="p-5 space-y-4">
+                            {/* Free Demo 10 Questions Banner per chapter */}
+                            {isDemoMode && (
+                              <div className="p-4 bg-gradient-to-r from-amber-500/15 via-amber-500/10 to-amber-500/5 border border-amber-500/30 rounded-xl flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-sm">
+                                <div className="flex items-center gap-3">
+                                  <div className="px-2.5 py-1.5 bg-amber-500 text-slate-950 font-black rounded-lg text-xs shrink-0 flex items-center gap-1 shadow-sm">
+                                    <Icons.Sparkles className="w-3.5 h-3.5 fill-current" />
+                                    <span>10 Qs</span>
+                                  </div>
+                                  <div>
+                                    <h5 className="text-sm font-bold text-slate-900 dark:text-white flex items-center gap-1.5">
+                                      {selectedLanguage.code === "mr" ? "१० प्रश्न मोफत चाचणी" : "10 Questions Free Chapter Test"}
+                                      <span className="text-[10px] bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 font-bold px-1.5 py-0.5 rounded">
+                                        {selectedLanguage.code === "mr" ? "मोफत" : "FREE"}
+                                      </span>
+                                    </h5>
+                                    <p className="text-[11px] text-slate-600 dark:text-slate-400 mt-0.5">
+                                      {selectedLanguage.code === "mr" 
+                                        ? "सबस्क्रिप्शन घेण्यापूर्वी या विषयाचे पहिले १० प्रश्न मोफत सोडवून तयारी तपासा." 
+                                        : "Practice the first 10 questions of this chapter for free before subscribing."}
+                                    </p>
+                                  </div>
+                                </div>
+                                <div className="flex items-center gap-2 shrink-0">
+                                  <button
+                                    onClick={() => onStartTest({ chapterId: ch.id, mode: "practice", questionCount: 10, timeLimitMinutes: 10, source: "static", setId: 1 })}
+                                    className="px-3.5 py-1.5 bg-slate-900 dark:bg-white hover:bg-slate-800 dark:hover:bg-slate-100 text-white dark:text-slate-900 font-bold text-xs rounded-lg transition-colors flex items-center gap-1.5 cursor-pointer shadow-sm"
+                                  >
+                                    <Icons.BookOpen className="h-3.5 w-3.5 text-amber-400 dark:text-amber-600" />
+                                    {selectedLanguage.code === "mr" ? "सराव (१० प्रश्न)" : "Practice (10 Qs)"}
+                                  </button>
+                                  <button
+                                    onClick={() => onStartTest({ chapterId: ch.id, mode: "exam", questionCount: 10, timeLimitMinutes: 10, source: "static", setId: 1 })}
+                                    className="px-3.5 py-1.5 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs rounded-lg transition-colors flex items-center gap-1.5 cursor-pointer shadow-sm"
+                                  >
+                                    <Icons.Timer className="h-3.5 w-3.5" />
+                                    {selectedLanguage.code === "mr" ? "परीक्षा (१० प्रश्न)" : "Exam (10 Qs)"}
+                                  </button>
+                                </div>
+                              </div>
+                            )}
+
                             <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-3 gap-2">
                               <p className="text-xs text-slate-500 dark:text-slate-400 font-bold uppercase tracking-wider">
                                 {selectedLanguage.code === "mr" ? "सराव संच निवडा" : "Select Practice Set"}
                               </p>
                               <button
-                                  onClick={() => onStartTest({ chapterId: ch.id, mode: "exam", questionCount: isDemoMode ? 5 : totalQ, timeLimitMinutes: isDemoMode ? 5 : Math.ceil(totalQ * 1.5), source: "static", setId: "all" })}
+                                  onClick={() => onStartTest({ chapterId: ch.id, mode: "exam", questionCount: isDemoMode ? 10 : totalQ, timeLimitMinutes: isDemoMode ? 10 : Math.ceil(totalQ * 1.5), source: "static", setId: "all" })}
                                   className="text-[10px] font-bold text-amber-500 hover:text-amber-400 bg-amber-500/10 px-3 py-1.5 rounded-lg border border-amber-500/20 transition-colors cursor-pointer self-start sm:self-auto"
                               >
-                                  {selectedLanguage.code === "mr" ? "सर्व प्रश्न एकत्रित (पूर्ण चाचणी)" : "All Questions Test"}
+                                  {selectedLanguage.code === "mr" 
+                                    ? (isDemoMode ? "१० प्रश्न मोफत परीक्षा चाचणी" : "सर्व प्रश्न एकत्रित (पूर्ण चाचणी)") 
+                                    : (isDemoMode ? "10 Questions Free Exam" : "All Questions Test")}
                               </button>
                             </div>
                                                   
@@ -674,33 +813,47 @@ export default function Dashboard({
                                   return (
                                     <div key={setNum} className="relative p-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl flex flex-col justify-between group shadow-sm">
                                       {demoRestricted && (
-                                        <div className="absolute inset-0 bg-slate-50 dark:bg-slate-950/80 backdrop-blur-[1px] rounded-xl flex flex-col items-center justify-center z-10 border border-slate-200 dark:border-slate-800/50">
-                                            <Icons.Lock className="h-5 w-5 text-amber-500/70 mb-2" />
+                                        <div className="absolute inset-0 bg-slate-50/90 dark:bg-slate-950/85 backdrop-blur-[1px] rounded-xl flex flex-col items-center justify-center z-10 border border-slate-200 dark:border-slate-800/50 p-2 text-center">
+                                            <Icons.Lock className="h-5 w-5 text-amber-500/80 mb-1.5" />
+                                            <p className="text-[10px] font-medium text-slate-500 dark:text-slate-400 mb-1.5">
+                                              {selectedLanguage.code === "mr" ? "हा संच सोडवण्यासाठी सबस्क्रिप्शन आवश्यक आहे" : "Subscription required for this set"}
+                                            </p>
                                             <button onClick={onUpgradeClick} className="text-[10px] font-bold text-amber-500 hover:text-amber-400 bg-amber-500/10 px-3 py-1.5 rounded-lg border border-amber-500/20 transition-colors cursor-pointer">
-                                              {selectedLanguage.code === "mr" ? "अनलॉक करा" : "Unlock to Access"}
+                                              {selectedLanguage.code === "mr" ? `अनलॉक करा (₹${subscriptionConfig.amount})` : `Unlock to Access (₹${subscriptionConfig.amount})`}
                                             </button>
                                         </div>
                                       )}
                                       <div className="mb-4">
-                                        <h5 className="text-sm font-bold text-slate-900 dark:text-white mb-1">
-                                          {selectedLanguage.code === "mr" ? `संच ${setNum}` : `Set ${setNum}`}
-                                        </h5>
-                                        <p className="text-[10px] text-slate-500 font-mono">Q {startNum} - {endNum} ({qsInSet} Qs)</p>
+                                        <div className="flex items-center justify-between mb-1">
+                                          <h5 className="text-sm font-bold text-slate-900 dark:text-white">
+                                            {selectedLanguage.code === "mr" ? `संच ${setNum}` : `Set ${setNum}`}
+                                          </h5>
+                                          {isDemoMode && setNum === 1 && (
+                                            <span className="text-[9px] bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 font-bold px-1.5 py-0.5 rounded border border-emerald-500/20">
+                                              {selectedLanguage.code === "mr" ? "१० प्रश्न मोफत" : "10 Qs Free"}
+                                            </span>
+                                          )}
+                                        </div>
+                                        <p className="text-[10px] text-slate-500 font-mono">
+                                          {isDemoMode && setNum === 1 
+                                            ? (selectedLanguage.code === "mr" ? "Q 1 - 10 (मोफत चाचणी)" : "Q 1 - 10 (Free Demo)") 
+                                            : `Q ${startNum} - ${endNum} (${qsInSet} Qs)`}
+                                        </p>
                                       </div>
                                       <div className="flex items-center gap-2">
                                         <button
-                                            onClick={() => onStartTest({ chapterId: ch.id, mode: "practice", questionCount: isDemoMode ? 5 : qsInSet, timeLimitMinutes: isDemoMode ? 5 : 20, source: "static", setId: setNum })}
+                                            onClick={() => onStartTest({ chapterId: ch.id, mode: "practice", questionCount: isDemoMode ? 10 : qsInSet, timeLimitMinutes: isDemoMode ? 10 : 20, source: "static", setId: setNum })}
                                           className="flex-1 py-2 bg-slate-100 dark:bg-slate-800 hover:bg-slate-250 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 text-[11px] font-bold rounded-lg transition-colors cursor-pointer flex items-center justify-center gap-1.5"
                                         >
                                           <Icons.BookOpen className="h-3 w-3" />
-                                          {selectedLanguage.code === "mr" ? "सराव" : "Practice"}
+                                          {selectedLanguage.code === "mr" ? (isDemoMode && setNum === 1 ? "सराव (१० प्रश्न)" : "सराव") : (isDemoMode && setNum === 1 ? "Practice (10 Qs)" : "Practice")}
                                         </button>
                                         <button
-                                            onClick={() => onStartTest({ chapterId: ch.id, mode: "exam", questionCount: isDemoMode ? 5 : qsInSet, timeLimitMinutes: isDemoMode ? 5 : 20, source: "static", setId: setNum })}
+                                            onClick={() => onStartTest({ chapterId: ch.id, mode: "exam", questionCount: isDemoMode ? 10 : qsInSet, timeLimitMinutes: isDemoMode ? 10 : 20, source: "static", setId: setNum })}
                                           className="flex-1 py-2 bg-amber-500/10 hover:bg-amber-500/20 text-amber-600 dark:text-amber-500 text-[11px] font-bold rounded-lg transition-colors border border-amber-500/20 cursor-pointer flex items-center justify-center gap-1.5"
                                         >
                                           <Icons.Timer className="h-3 w-3" />
-                                          {selectedLanguage.code === "mr" ? "परीक्षा" : "Exam"}
+                                          {selectedLanguage.code === "mr" ? (isDemoMode && setNum === 1 ? "परीक्षा (१० प्रश्न)" : "परीक्षा") : (isDemoMode && setNum === 1 ? "Exam (10 Qs)" : "Exam")}
                                         </button>
                                       </div>
                                     </div>

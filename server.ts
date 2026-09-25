@@ -408,17 +408,14 @@ async function probeFirestore() {
 probeFirestore();
 
 
-// Helper to make Gemini API calls resilient with exponential backoff & multi-model fallback
-async function generateContentWithRetry(ai: any, params: { model: string; contents: any; config?: any }, retries = 5, delayMs = 2000): Promise<any> {
-  let attempt = 0;
+// Helper to make Gemini API calls resilient with silent offline/local fallback
+async function generateContentWithRetry(ai: any, params: { model: string; contents: any; config?: any }, retries = 2, delayMs = 500): Promise<any> {
   let lastErrorMessage = "";
-  // Fall back across highly-available models to guarantee robust, error-free delivery
-  const modelsToTry = [params.model, "gemini-1.5-flash"];
+  const modelsToTry = [params.model, "gemini-3.8-flash"];
   
-    for (const currentModel of modelsToTry) {
-    for (attempt = 1; attempt <= retries; attempt++) {
+  for (const currentModel of modelsToTry) {
+    for (let attempt = 1; attempt <= retries; attempt++) {
       try {
-        console.log(`Calling Gemini API using model ${currentModel} (Attempt ${attempt}/${retries})...`);
         const response = await ai.models.generateContent({
           model: currentModel,
           contents: params.contents,
@@ -427,36 +424,16 @@ async function generateContentWithRetry(ai: any, params: { model: string; conten
         return response;
       } catch (error: any) {
         lastErrorMessage = error.message || String(error);
-        // Use console.warn to denote non-fatal transient issues and avoid triggering system-level warnings during self-healing
-        console.warn(`Gemini API Transient Warning on model ${currentModel} (Attempt ${attempt}/${retries}):`, lastErrorMessage);
-        
-        // Check if it is a transient error (503, 429, or status UNAVAILABLE)
-        const isTransient = 
-          error.status === "UNAVAILABLE" || 
-          error.status === "RESOURCE_EXHAUSTED" ||
-          (error.status === 503) ||
-          (error.status === 429) ||
-          (error.message && (
-            error.message.includes("503") || 
-            error.message.includes("429") || 
-            error.message.includes("high demand") || 
-            error.message.includes("temporary") || 
-            error.message.includes("UNAVAILABLE")
-          ));
-          
-        if (isTransient && attempt < retries) {
-          const waitTime = delayMs * Math.pow(2, attempt - 1);
-          console.log(`Transient error encountered. Retrying in ${waitTime}ms...`);
-          await new Promise((resolve) => setTimeout(resolve, waitTime));
+        if (attempt < retries) {
+          await new Promise((resolve) => setTimeout(resolve, delayMs));
         } else {
-          // Break out of this model's retry loop and try the next fallback model
           break;
         }
       }
     }
   }
   
-  throw new Error(`All fallback models and retries failed. Last error: ${lastErrorMessage}`);
+  throw new Error(`AI generation failed: ${lastErrorMessage}`);
 }
 
 const app = express();
@@ -495,7 +472,7 @@ const ai = apiKey ? new GoogleGenAI({
         Return the explanation in Markdown format.`;
 
         const response = await generateContentWithRetry(ai, {
-          model: "gemini-1.5-flash",
+          model: "gemini-3.8-flash",
           contents: prompt,
         });
         return res.json({ explanation: response.text, isFallback: false });
@@ -521,6 +498,46 @@ ${standardExp}
 *Verified from Automobile Engineering Textbook (ऑफलाइन माहिती).*
 `;
     res.json({ explanation: formattedExp, isFallback: true });
+  });
+
+  // API endpoint for translating questions into any language
+  app.post("/api/translate-question", async (req, res) => {
+    const { question, options, explanation, targetLang, langName } = req.body;
+    
+    if (!targetLang || targetLang === "en") {
+      return res.json({ question, options, explanation });
+    }
+
+    if (ai) {
+      try {
+        const prompt = `Translate the following technical ITI engineering question into ${langName || targetLang}.
+Return ONLY a valid JSON object with keys "question", "options" (an array of translated strings matching the original options order), and "explanation". Do not include markdown codeblocks if possible, or ensure it is valid JSON.
+
+Question: ${question}
+Options: ${JSON.stringify(options)}
+Explanation: ${explanation}`;
+
+        const response = await generateContentWithRetry(ai, {
+          model: "gemini-3.8-flash",
+          contents: prompt,
+        });
+        
+        let rawText = response.text || "";
+        rawText = rawText.replace(/```json/g, "").replace(/```/g, "").trim();
+        const parsed = JSON.parse(rawText);
+        if (parsed && parsed.question && parsed.options) {
+          return res.json({
+            question: parsed.question,
+            options: parsed.options,
+            explanation: parsed.explanation || explanation
+          });
+        }
+      } catch (e) {
+        console.error("AI Translation failed:", e);
+      }
+    }
+
+    return res.json({ question, options, explanation });
   });
 
   // API endpoint for generating questions dynamically (RE-ENABLING AI IF AVAILABLE)
@@ -575,7 +592,7 @@ ${standardExp}
 
     try {
       const response = await generateContentWithRetry(ai, {
-        model: "gemini-1.5-flash",
+        model: "gemini-3.8-flash",
         contents: `You are a Professional Multilingual Translation Engine for an Automobile Engineering Mock Test.
         
         TASK: Translate the following Automobile Engineering MCQ into ${targetLanguage}.
@@ -619,7 +636,7 @@ ${standardExp}
 
     try {
       const response = await generateContentWithRetry(ai, {
-        model: "gemini-1.5-flash",
+        model: "gemini-3.8-flash",
         contents: `You are a Professional Multilingual Translation Engine for an Automobile Engineering Mock Test.
         
         TASK: Translate the following Automobile Engineering MCQ into ${targetLanguage}.
@@ -666,7 +683,7 @@ ${standardExp}
 
     try {
       const response = await generateContentWithRetry(ai, {
-        model: "gemini-1.5-flash",
+        model: "gemini-3.8-flash",
         contents: `You are a Professional Multilingual Translation Engine.
         Translate the following text into ${targetLanguage}. 
         Context: Automobile Engineering App.

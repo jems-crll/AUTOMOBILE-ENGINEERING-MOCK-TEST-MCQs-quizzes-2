@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import * as Icons from "lucide-react";
 import { StateLanguage, User, SubscriptionConfig } from "../types";
 import { t } from "../utils/i18n";
+import { CHAPTERS, QUESTIONS } from "../data/questions";
 
 interface AdminPanelProps {
   selectedLanguage: StateLanguage;
@@ -260,6 +261,24 @@ export default function AdminPanel({
     setPricingDetailsEn(subscriptionConfig.detailsEn);
     setPricingDetailsMr(subscriptionConfig.detailsMr);
   }, [subscriptionConfig]);
+
+  const handleDownloadBackup = () => {
+    const backupData = {
+      timestamp: new Date().toISOString(),
+      totalQuestions: QUESTIONS.length,
+      chapters: CHAPTERS,
+      questions: QUESTIONS
+    };
+    const blob = new Blob([JSON.stringify(backupData, null, 2)], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `question_bank_backup_${new Date().toISOString().slice(0, 10)}.json`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  };
 
   // Form states for adding a student
   const [newEmail, setNewEmail] = useState("");
@@ -1026,6 +1045,30 @@ export default function AdminPanel({
                 )}
               </button>
             </form>
+          </div>
+
+          {/* Question Bank Backup Card */}
+          <div className="border-t border-slate-200 dark:border-slate-800 pt-8 mt-8 space-y-4">
+            <div>
+              <h3 className="text-lg font-black text-slate-900 dark:text-white tracking-tight flex items-center gap-2">
+                <Icons.DatabaseBackup className="h-5 w-5 text-blue-500" />
+                <span>{selectedLanguage.code === "mr" ? "प्रश्न बँक बॅकअप (Question Bank Backup)" : "Question Bank Backup"}</span>
+              </h3>
+              <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
+                {selectedLanguage.code === "mr" 
+                  ? "सर्व ऑटोमोबाईल आणि इलेक्ट्रिकल प्रश्नांचा JSON बॅकअप तुमच्या डिव्हाइसवर डाउनलोड करा." 
+                  : "Download JSON backup of all Automobile and Electrical question banks."}
+              </p>
+            </div>
+
+            <button
+              type="button"
+              onClick={handleDownloadBackup}
+              className="w-full py-3 bg-blue-500 hover:bg-blue-600 text-white font-black rounded-xl text-xs transition flex items-center justify-center gap-2 cursor-pointer shadow-lg shadow-blue-500/10"
+            >
+              <Icons.Download className="h-4 w-4" />
+              <span>{selectedLanguage.code === "mr" ? `सर्व प्रश्न डाउनलोड करा (${QUESTIONS.length} प्रश्न)` : `Download All Questions (${QUESTIONS.length})`}</span>
+            </button>
           </div>
         </div>
       ) : activeTab === "coupons" ? (

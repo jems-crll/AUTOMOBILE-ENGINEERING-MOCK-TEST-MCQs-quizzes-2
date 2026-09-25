@@ -310,9 +310,10 @@ export default function App() {
       selected = shuffled.slice(0, Math.min(config.questionCount, shuffled.length));
     }
 
-    // Limit questions to 5 for free tier demo (Prompt 3 request)
+    // Limit questions to 10 for free tier demo until user subscribes (10 questions per chapter)
+    const effectiveTimeLimit = !currentUser?.isPremium ? Math.min(config.timeLimitMinutes || 10, 10) : config.timeLimitMinutes;
     if (!currentUser?.isPremium) {
-      selected = selected.slice(0, 5);
+      selected = selected.slice(0, 10);
     }
 
     if (selectedLanguage.code !== "en" && selectedLanguage.code !== "mr") {
@@ -332,7 +333,7 @@ export default function App() {
           questions: translated,
           mode: config.mode,
           chapterId: config.chapterId,
-          timeLimitMinutes: config.timeLimitMinutes,
+          timeLimitMinutes: effectiveTimeLimit,
           setId: config.setId,
         });
         setLoadingTest(false);
@@ -343,7 +344,7 @@ export default function App() {
         questions: selected.filter(Boolean),
         mode: config.mode,
         chapterId: config.chapterId,
-        timeLimitMinutes: config.timeLimitMinutes,
+        timeLimitMinutes: effectiveTimeLimit,
         setId: config.setId,
       });
       setLoadingTest(false);

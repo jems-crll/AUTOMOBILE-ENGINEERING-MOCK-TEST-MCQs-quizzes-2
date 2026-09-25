@@ -106,7 +106,7 @@ export default function QuizContainer({
 
       setIsTranslating(true);
       try {
-        const translated = await translationService.translateQuestion(currentQuestion, selectedLanguage.code);
+        const translated = await translationService.translateQuestion(currentQuestion, selectedLanguage.code, selectedLanguage.name);
         setTranslatedQuestionsMap(prev => ({
           ...prev,
           [mapKey]: translated
@@ -329,8 +329,8 @@ export default function QuizContainer({
             <Icons.Crown className="h-4 w-4 text-amber-500 fill-amber-500/20 shrink-0" />
             <span>
               {selectedLanguage.code === "mr" 
-                ? "💡 विनामूल्य डेमो सराव: तुम्ही प्रति संच फक्त ५ प्रश्नांचा सराव करू शकता." 
-                : "💡 Free Demo Session: You are limited to the first 5 questions of this set."}
+                ? "💡 विनामूल्य चाचणी: सबस्क्रिप्शन घेईपर्यंत प्रत्येक चॅप्टरचे १० प्रश्न सरावासाठी मोफत उपलब्ध आहेत." 
+                : "💡 Free Test Session: 10 practice questions per chapter are available until you subscribe."}
             </span>
           </div>
           {onUpgradeClick && (
@@ -339,7 +339,7 @@ export default function QuizContainer({
               className="px-3 py-1 bg-amber-500 hover:bg-amber-600 text-slate-950 font-black rounded-lg text-[11px] transition-all flex items-center gap-1 shrink-0 cursor-pointer shadow"
             >
               <Icons.Sparkles className="h-3.5 w-3.5" />
-              <span>{selectedLanguage.code === "mr" ? `सर्व प्रश्न अनलॉक करा (₹${subscriptionConfig.amount})` : `Unlock all Questions (₹${subscriptionConfig.amount})`}</span>
+              <span>{selectedLanguage.code === "mr" ? `संपूर्ण प्रश्न अनलॉक करा (₹${subscriptionConfig.amount})` : `Unlock all Questions (₹${subscriptionConfig.amount})`}</span>
             </button>
           )}
         </div>
