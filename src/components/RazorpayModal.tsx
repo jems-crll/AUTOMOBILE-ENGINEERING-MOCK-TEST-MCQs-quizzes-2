@@ -49,6 +49,18 @@ export default function RazorpayModal({
 
   const handleApplyCoupon = async () => {
     if (!couponCode.trim()) return;
+    if (typeof navigator !== "undefined" && !navigator.onLine) {
+      setCouponMessage({
+        text:
+          selectedLanguage.code === "mr"
+            ? "कूपन तपासण्यासाठी इंटरनेट आवश्यक आहे."
+            : selectedLanguage.code === "hi"
+            ? "कूपन जांचने के लिए इंटरनेट आवश्यक है।"
+            : "Internet connection is required to validate coupons.",
+        type: "error",
+      });
+      return;
+    }
     setIsApplyingCoupon(true);
     setCouponMessage(null);
     try {
@@ -79,6 +91,16 @@ export default function RazorpayModal({
   };
 
   const handleOpenPaymentLink = async () => {
+    if (typeof navigator !== "undefined" && !navigator.onLine) {
+      setTxnError(
+        selectedLanguage.code === "mr"
+          ? "पेमेंट पूर्ण करण्यासाठी इंटरनेट कनेक्शन सुरू असणे आवश्यक आहे."
+          : selectedLanguage.code === "hi"
+          ? "भुगतान पूरा करने के लिए इंटरनेट कनेक्शन आवश्यक है।"
+          : "Internet connection is required to complete payment."
+      );
+      return;
+    }
     setIsProcessing(true);
     setTxnError("");
     try {

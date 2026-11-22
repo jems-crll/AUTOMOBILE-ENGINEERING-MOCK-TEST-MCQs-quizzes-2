@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import { t } from "../utils/i18n";
-import { Question, Chapter, StateLanguage, SubscriptionConfig } from "../types";
+import { Question, StateLanguage, SubscriptionConfig } from "../types";
 import { translationService } from "../utils/translationService";
 import * as Icons from "lucide-react";
-import { motion, AnimatePresence } from "motion/react";
+import { motion } from "motion/react";
 
 interface QuizContainerProps {
   chapterId: number | "all";
@@ -49,16 +49,18 @@ export default function QuizContainer({
   const [translatedQuestionsMap, setTranslatedQuestionsMap] = useState<Record<string, Question>>({});
   const [isTranslating, setIsTranslating] = useState(false);
 
-  const displayedQuestions = questions.filter(
+  const safeQuestions = Array.isArray(questions) ? questions.filter(Boolean) : [];
+  const displayedQuestions = safeQuestions.filter(
     (q) =>
-      (q.question[selectedLanguage.code]?.toLowerCase().includes(searchQuery.toLowerCase()) || q.question['en']?.toLowerCase().includes(searchQuery.toLowerCase()))
+      q.question?.[selectedLanguage.code]?.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      q.question?.['en']?.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
   useEffect(() => {
     if (currentIndex >= displayedQuestions.length && displayedQuestions.length > 0) {
       setCurrentIndex(0);
     }
-  }, [displayedQuestions, currentIndex]);
+  }, [displayedQuestions.length, currentIndex]);
   
   // Timer state
   const [secondsRemaining, setSecondsRemaining] = useState<number>(initialSecondsRemaining ?? timeLimitMinutes * 60);
@@ -66,6 +68,22 @@ export default function QuizContainer({
 
   // Practice mode specific state
   const [hasAnsweredCurrent, setHasAnsweredCurrent] = useState<boolean>(false);
+  const hasSubmittedRef = useRef<boolean>(false);
+  const timeSpentRef = useRef<number>(timeSpent);
+  const secondsRemainingRef = useRef<number>(secondsRemaining);
+  const selectedAnswersRef = useRef<Record<number, string>>(selectedAnswers);
+
+  useEffect(() => {
+    timeSpentRef.current = timeSpent;
+  }, [timeSpent]);
+
+  useEffect(() => {
+    secondsRemainingRef.current = secondsRemaining;
+  }, [secondsRemaining]);
+
+  useEffect(() => {
+    selectedAnswersRef.current = selectedAnswers;
+  }, [selectedAnswers]);
 
   const currentQuestion = displayedQuestions[currentIndex];
   
@@ -77,14 +95,14 @@ export default function QuizContainer({
 
   // Dynamic Language Support
   const getTranslatedContent = (q: Question) => {
-    if (selectedLanguage.code === 'en') return null;
-    const questionText = q.question[selectedLanguage.code];
+    if (!q || selectedLanguage.code === 'en') return null;
+    const questionText = q.question?.[selectedLanguage.code];
     if (!questionText) return null;
 
     return {
       question: questionText,
-      options: q.options[selectedLanguage.code] || [],
-      explanation: q.explanation[selectedLanguage.code] || ""
+      options: q.options?.[selectedLanguage.code] || [],
+      explanation: q.explanation?.[selectedLanguage.code] || ""
     };
   };
 
@@ -99,7 +117,7 @@ export default function QuizContainer({
       if (!currentQuestion) return;
       
       // Check if we already have it in the question object itself
-      if (currentQuestion.question[selectedLanguage.code]) return;
+      if (currentQuestion.question?.[selectedLanguage.code]) return;
       
       // Check if we already have it in our local map
       if (translatedQuestionsMap[mapKey]) return;
@@ -119,55 +137,69 @@ export default function QuizContainer({
     };
 
     translateIfNeeded();
-  }, [currentIndex, selectedLanguage.code, currentQuestion, mapKey]);
+  }, [currentIndex, selectedLanguage.code, selectedLanguage.name, currentQuestion, mapKey, translatedQuestionsMap]);
 
-
-  // Dynamically save active quiz state on change
+  // Save compact active quiz state on meaningful changes (not every second!)
   useEffect(() => {
+    if (hasSubmittedRef.current || safeQuestions.length === 0) return;
     try {
       const stateToSave = {
         chapterId,
         mode,
-        questions,
+        questionIds: safeQuestions.map((q) => q.id),
+        questionCount: safeQuestions.length,
         timeLimitMinutes,
         currentIndex,
         selectedAnswers,
-        timeSpent,
-        secondsRemaining,
+        timeSpent: timeSpentRef.current,
+        secondsRemaining: secondsRemainingRef.current,
         flaggedQuestions,
-        savedAt: new Date().getTime()
+        savedAt: Date.now(),
       };
       localStorage.setItem("omto_active_quiz_state", JSON.stringify(stateToSave));
     } catch (e) {
       console.error("Failed to save active quiz state:", e);
     }
-  }, [chapterId, mode, questions, timeLimitMinutes, currentIndex, selectedAnswers, timeSpent, secondsRemaining, flaggedQuestions]);
+  }, [chapterId, mode, safeQuestions.length, timeLimitMinutes, currentIndex, selectedAnswers, flaggedQuestions]);
 
-  // Timer effect for Exam Mode
-  useEffect(() => {
-    if (mode === "practice") return;
+  const handleSubmit = useCallback(() => {
+    if (hasSubmittedRef.current) return;
+    hasSubmittedRef.current = true;
 
-    if (secondsRemaining <= 0) {
-      handleSubmit();
-      return;
+    try {
+      localStorage.removeItem("omto_active_quiz_state");
+    } catch (e) {
+      console.error(e);
     }
 
-    const timer = setInterval(() => {
-      setSecondsRemaining((prev) => prev - 1);
-      setTimeSpent((prev) => prev + 1);
-    }, 1000);
+    const latestAnswers = selectedAnswersRef.current || {};
+    let score = 0;
+    safeQuestions.forEach((q) => {
+      if (q && latestAnswers[q.id] === q.answer) {
+        score++;
+      }
+    });
+    onComplete(score, latestAnswers, timeSpentRef.current);
+  }, [safeQuestions, onComplete]);
 
-    return () => clearInterval(timer);
-  }, [mode, secondsRemaining]);
-
-  // Keep track of time spent in Practice Mode too
+  // Single stable timer interval
   useEffect(() => {
-    if (mode === "exam") return;
     const timer = setInterval(() => {
       setTimeSpent((prev) => prev + 1);
+      if (mode === "exam") {
+        setSecondsRemaining((prev) => Math.max(0, prev - 1));
+      }
     }, 1000);
+
     return () => clearInterval(timer);
   }, [mode]);
+
+  // Auto-submit once when exam countdown reaches 0
+  useEffect(() => {
+    if (mode === "exam" && secondsRemaining <= 0) {
+      handleSubmit();
+    }
+  }, [mode, secondsRemaining, handleSubmit]);
 
   // Reset answer states when changing questions in practice mode
   useEffect(() => {
@@ -191,7 +223,7 @@ export default function QuizContainer({
   };
 
   const handleNext = () => {
-    if (currentIndex < questions.length - 1) {
+    if (currentIndex < displayedQuestions.length - 1) {
       setCurrentIndex((prev) => prev + 1);
     }
   };
@@ -210,32 +242,17 @@ export default function QuizContainer({
     }));
   };
 
-  const handleSubmit = () => {
-    try {
-      localStorage.removeItem("omto_active_quiz_state");
-    } catch (e) {
-      console.error(e);
-    }
-    // Calculate final score
-    let score = 0;
-    questions.forEach((q) => {
-      if (q && selectedAnswers[q.id] === q.answer) {
-        score++;
-      }
-    });
-    onComplete(score, selectedAnswers, timeSpent);
-  };
-
   // Formatting helper for time
   const formatTime = (secs: number) => {
-    const mins = Math.floor(secs / 60);
-    const remainingSecs = secs % 60;
+    const safeSecs = Math.max(0, Math.floor(secs || 0));
+    const mins = Math.floor(safeSecs / 60);
+    const remainingSecs = safeSecs % 60;
     return `${mins.toString().padStart(2, "0")}:${remainingSecs.toString().padStart(2, "0")}`;
   };
 
-  const progressPercentage = questions.length > 0 ? ((currentIndex + 1) / questions.length) * 100 : 0;
+  const progressPercentage = displayedQuestions.length > 0 ? ((currentIndex + 1) / displayedQuestions.length) * 100 : 0;
 
-  if (!questions || questions.length === 0 || !currentQuestion) {
+  if (safeQuestions.length === 0) {
     return (
       <div className="flex flex-col items-center justify-center p-12 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl mt-8">
         <Icons.AlertCircle className="w-12 h-12 text-rose-500 mb-4" />
@@ -245,9 +262,30 @@ export default function QuizContainer({
         </p>
         <button
           onClick={onExit}
-          className="px-6 py-2.5 bg-slate-100 dark:bg-slate-800 hover:bg-slate-700 text-slate-900 dark:text-white font-semibold rounded-xl border border-slate-300 dark:border-slate-700 hover:border-slate-600 transition"
+          className="px-6 py-2.5 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-900 dark:text-white font-semibold rounded-xl border border-slate-300 dark:border-slate-700 transition cursor-pointer"
         >
           Return to Dashboard
+        </button>
+      </div>
+    );
+  }
+
+  if (!currentQuestion) {
+    return (
+      <div className="flex flex-col items-center justify-center p-12 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl mt-8">
+        <Icons.Search className="w-12 h-12 text-amber-500 mb-4" />
+        <h2 className="text-xl font-bold text-slate-900 dark:text-white mb-2">No Matching Questions</h2>
+        <p className="text-slate-500 dark:text-slate-400 text-center mb-6 max-w-md">
+          No questions matched "{searchQuery}".
+        </p>
+        <button
+          onClick={() => {
+            setSearchQuery("");
+            setCurrentIndex(0);
+          }}
+          className="px-6 py-2.5 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold rounded-xl transition cursor-pointer"
+        >
+          Clear Search
         </button>
       </div>
     );
@@ -383,11 +421,11 @@ export default function QuizContainer({
                   <>
                     <div>
                       <h2 className="text-base sm:text-lg md:text-xl font-medium text-slate-900 dark:text-white leading-snug">
-                        {enhancedQuestion.question['en']}
+                        {enhancedQuestion?.question?.['en'] || enhancedQuestion?.question?.[selectedLanguage.code] || ""}
                       </h2>
                     </div>
                     
-                    {showTranslation && (
+                    {showTranslation && translatedContent && (
                       <div className="animate-fade-in">
                         <div className="flex items-center gap-2 mb-1.5">
                           <span className="text-[10px] font-bold uppercase tracking-widest text-emerald-500 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20 flex items-center gap-1">
@@ -403,7 +441,7 @@ export default function QuizContainer({
                   </>
                 )}
 
-                {enhancedQuestion.imageSvg && (
+                {enhancedQuestion?.imageSvg && (
                   <div className="flex justify-center my-4 p-4 bg-slate-50 dark:bg-slate-950/40 rounded-xl border border-slate-200 dark:border-slate-800/80">
                     <div className="max-w-[400px] w-full" dangerouslySetInnerHTML={{ __html: enhancedQuestion.imageSvg }} />
                   </div>
@@ -412,7 +450,7 @@ export default function QuizContainer({
 
               {/* Options Grid */}
               <div className="grid grid-cols-1 gap-3 sm:gap-3.5 mb-6 sm:mb-8" id="options-grid">
-                {(currentQuestion.options[selectedLanguage.code] || currentQuestion.options['en'] || []).map((opt, idx) => {
+                {(currentQuestion.options?.[selectedLanguage.code] || currentQuestion.options?.['en'] || []).map((opt, idx) => {
                   const optionChar = String.fromCharCode(65 + idx); // A, B, C, D
                   const isSelected = selectedAnswers[currentQuestion.id] === optionChar;
                   const isCorrectAnswer = currentQuestion.answer === optionChar;
@@ -449,8 +487,8 @@ export default function QuizContainer({
                         {optionChar}
                       </span>
                       <div className="flex-1 min-w-0">
-                        <span className="block text-sm sm:text-base leading-snug break-words">{enhancedQuestion.options['en'][idx]}</span>
-                        {showTranslation && translatedContent.options?.[idx] && (
+                        <span className="block text-sm sm:text-base leading-snug break-words">{enhancedQuestion?.options?.['en']?.[idx] ?? opt}</span>
+                        {showTranslation && translatedContent?.options?.[idx] && (
                           <span className="block text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1 break-words italic">
                             {translatedContent.options[idx]}
                           </span>
@@ -508,10 +546,10 @@ export default function QuizContainer({
 
               <div className="space-y-4">
                 <p className="text-sm text-slate-700 dark:text-slate-300 leading-relaxed font-sans">
-                  {enhancedQuestion.explanation['en']}
+                  {enhancedQuestion?.explanation?.['en'] || ""}
                 </p>
                 
-                {showTranslation && translatedContent.explanation && (
+                {showTranslation && translatedContent?.explanation && (
                   <div className="pt-3 border-t border-slate-200 dark:border-slate-800">
                     <span className="text-[10px] font-bold uppercase tracking-widest text-emerald-500 mb-1 flex items-center gap-1">
                       <Icons.Languages className="h-3 w-3" />

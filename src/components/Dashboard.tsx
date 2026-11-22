@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import { Chapter, QuizAttempt, StateLanguage, STATE_LANGUAGES, SubscriptionConfig } from "../types";
 import { CHAPTERS, QUESTIONS } from "../data/questions";
 import * as Icons from "lucide-react";
@@ -35,56 +35,70 @@ export default function Dashboard({
   const [selectedSection, setSelectedSection] = useState<string | null>(null);
   const [expandedChapterId, setExpandedChapterId] = useState<number | null>(null);
 
-  // Load saved active quiz state if any
+  // Load saved active quiz state if any (supporting both compact questionIds and legacy questions)
   const [activeQuizState, setActiveQuizState] = useState<any>(() => {
     try {
       const saved = localStorage.getItem("omto_active_quiz_state");
       if (saved) {
-        return JSON.parse(saved);
+        const parsed = JSON.parse(saved);
+        const hasIds = Array.isArray(parsed?.questionIds) && parsed.questionIds.length > 0;
+        const hasQuestions = Array.isArray(parsed?.questions) && parsed.questions.length > 0;
+        if (parsed && typeof parsed === "object" && parsed.chapterId !== undefined && (hasIds || hasQuestions)) {
+          return parsed;
+        }
+        localStorage.removeItem("omto_active_quiz_state");
       }
     } catch (e) {
       console.error("Error reading saved active quiz state:", e);
+      try {
+        localStorage.removeItem("omto_active_quiz_state");
+      } catch (_) {}
     }
     return null;
   });
+  const [confirmDiscard, setConfirmDiscard] = useState<boolean>(false);
+
+  const totalResumeQuestions =
+    activeQuizState?.questionCount ??
+    activeQuizState?.questionIds?.length ??
+    activeQuizState?.questions?.length ??
+    0;
+  const safeResumeIndex = Math.min(
+    Math.max(0, activeQuizState?.currentIndex ?? 0) + 1,
+    Math.max(1, totalResumeQuestions)
+  );
   
   
   const isDemoMode = !currentUser?.isPremium;
 
-  // Analytics
+  // Memoized analytics & chapter counts so expanding cards never re-scans 3,000+ questions
   const totalTests = attempts.length;
-  const averageScore = totalTests
-    ? Math.round(attempts.reduce((sum, item) => sum + (item.score / item.totalQuestions) * 100, 0) / totalTests)
-    : 0;
+  const averageScore = useMemo(() => {
+    if (!totalTests) return 0;
+    return Math.round(
+      attempts.reduce((sum, item) => sum + (item.totalQuestions > 0 ? (item.score / item.totalQuestions) * 100 : 0), 0) /
+        totalTests
+    );
+  }, [attempts, totalTests]);
+
+  const questionCountByChapter = useMemo(() => {
+    const counts: Record<number, number> = {};
+    for (const q of QUESTIONS) {
+      counts[q.chapterId] = (counts[q.chapterId] || 0) + 1;
+    }
+    return counts;
+  }, []);
 
   const renderIcon = (iconName: string, className: string) => {
     const IconComponent = (Icons as any)[iconName];
     return IconComponent ? <IconComponent className={className} /> : <Icons.BookOpen className={className} />;
   };
 
-  // Recent Activity Setup (Configured for exactly 50 Qs as requested)
-  const sortedAttempts = [...attempts].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+  const sortedAttempts = useMemo(
+    () => [...attempts].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()),
+    [attempts]
+  );
   const lastAttempt = sortedAttempts[0];
-  let recommendedChapter = CHAPTERS[0];
-  if (lastAttempt && lastAttempt.chapterId !== "all") {
-    const currentIdx = CHAPTERS.findIndex(c => c.id === lastAttempt.chapterId);
-    if (currentIdx !== -1 && currentIdx < CHAPTERS.length - 1) {
-      recommendedChapter = CHAPTERS[currentIdx + 1];
-    }
-  }
-
-  // Set default texts to perfectly match Marathi user request
-  let headerText = selectedLanguage.code === "mr" ? "येथून सुरुवात करा" : "Start Here";
-  let titleText = selectedLanguage.code === "mr" ? "ऑटोमोबाईल संच 1 (प्र 1 ते 50)" : "Automobile Set 1 (Q 1 - 50)";
-  let descText = selectedLanguage.code === "mr" ? "पहिल्या विषयापासून तुमचा सराव सुरु करा." : "Begin your practice from the first chapter.";
-  let btnText = selectedLanguage.code === "mr" ? "सराव सुरू करा" : "Start Practice";
-
-  if (lastAttempt) {
-    headerText = selectedLanguage.code === "mr" ? "शेवटचा सराव (चालू ठेवा)" : "Resume Practice";
-    titleText = lastAttempt.chapterName;
-    descText = selectedLanguage.code === "mr" ? "तुमचा शेवटचा सराव पुढे चालू ठेवा किंवा नवीन विषय निवडा." : "Pick up where you left off or review your last test.";
-    btnText = selectedLanguage.code === "mr" ? "सराव सुरू ठेवा" : "Continue Practice";
-  }
 
   // Automobile Sections
   const automobileChapters = CHAPTERS.filter(ch => ch.section !== "Electrical");
@@ -185,7 +199,7 @@ export default function Dashboard({
       )}
 
       {/* Continue Learning / Recent Activity */}
-      {activeQuizState ? (
+      {activeQuizState && totalResumeQuestions > 0 ? (
         /* Case A: Active Incomplete Quiz State is present */
         <div className="bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 rounded-3xl p-6 sm:p-8 text-white relative overflow-hidden shadow-lg border border-amber-500/20">
           <div className="absolute top-0 right-0 p-8 opacity-10 pointer-events-none">
@@ -213,8 +227,8 @@ export default function Dashboard({
                 })()}
               </h2>
               <p className="text-slate-300 text-sm max-w-xl">
-                {selectedLanguage.code === "mr" ? `तुम्ही एकूण ${activeQuizState.questions.length} पैकी ${activeQuizState.currentIndex + 1} प्रश्नांवर आहात. अर्धवट सोडलेली ही चाचणी पूर्ण करा.`
-                  : `You are on question ${activeQuizState.currentIndex + 1} of ${activeQuizState.questions.length}. Finish your incomplete test.`}
+                {selectedLanguage.code === "mr" ? `तुम्ही एकूण ${totalResumeQuestions} पैकी ${safeResumeIndex} प्रश्नांवर आहात. अर्धवट सोडलेली ही चाचणी पूर्ण करा.`
+                  : `You are on question ${safeResumeIndex} of ${totalResumeQuestions}. Finish your incomplete test.`}
               </p>
               <div className="text-xs text-amber-400/80 font-mono">
                 {selectedLanguage.code === "mr" ? "मोड:" : "Mode:"} {activeQuizState.mode === "exam" ? (selectedLanguage.code === "mr" ? "परीक्षा" : "Exam") : (selectedLanguage.code === "mr" ? "सराव" : "Practice")}
@@ -227,7 +241,7 @@ export default function Dashboard({
                   onStartTest({
                     chapterId: activeQuizState.chapterId,
                     mode: activeQuizState.mode,
-                    questionCount: activeQuizState.questions.length,
+                    questionCount: totalResumeQuestions,
                     timeLimitMinutes: activeQuizState.timeLimitMinutes,
                     source: "static",
                     setId: activeQuizState.setId,
@@ -239,21 +253,37 @@ export default function Dashboard({
                 <Icons.Play className="w-4 h-4 fill-current" />
                 {selectedLanguage.code === "mr" ? "चाचणी येथूनच पुढे सुरू करा" : "Resume Test"}
               </button>
-              <button
-                onClick={() => {
-                  if (window.confirm(selectedLanguage.code === "mr" ? "तुम्हाला ही अपूर्ण चाचणी रद्द करायची आहे का?" : "Are you sure you want to discard this incomplete test?")) {
-                    try {
-                      localStorage.removeItem("omto_active_quiz_state");
-                      setActiveQuizState(null);
-                    } catch (e) {
-                      console.error(e);
-                    }
-                  }
-                }}
-                className="px-4 py-3 border border-slate-700 hover:bg-slate-850 text-slate-300 hover:text-white rounded-xl transition text-xs font-bold cursor-pointer"
-              >
-                {selectedLanguage.code === "mr" ? "चाचणी रद्द करा" : "Discard"}
-              </button>
+              {!confirmDiscard ? (
+                <button
+                  onClick={() => setConfirmDiscard(true)}
+                  className="px-4 py-3 border border-slate-700 hover:bg-slate-850 text-slate-300 hover:text-white rounded-xl transition text-xs font-bold cursor-pointer"
+                >
+                  {selectedLanguage.code === "mr" ? "चाचणी रद्द करा" : "Discard"}
+                </button>
+              ) : (
+                <div className="flex items-center gap-2">
+                  <button
+                    onClick={() => {
+                      try {
+                        localStorage.removeItem("omto_active_quiz_state");
+                        setActiveQuizState(null);
+                        setConfirmDiscard(false);
+                      } catch (e) {
+                        console.error(e);
+                      }
+                    }}
+                    className="px-3.5 py-2.5 bg-rose-600 hover:bg-rose-500 text-white rounded-xl transition text-xs font-bold cursor-pointer"
+                  >
+                    {selectedLanguage.code === "mr" ? "होय, रद्द करा" : "Yes, Discard"}
+                  </button>
+                  <button
+                    onClick={() => setConfirmDiscard(false)}
+                    className="px-3 py-2.5 border border-slate-700 hover:bg-slate-800 text-slate-300 rounded-xl transition text-xs font-bold cursor-pointer"
+                  >
+                    {selectedLanguage.code === "mr" ? "नाही" : "Cancel"}
+                  </button>
+                </div>
+              )}
             </div>
           </div>
         </div>
@@ -507,7 +537,7 @@ export default function Dashboard({
               /* Chapters inside the Selected Section */
               <div className="space-y-4 animate-fade-in">
                 {CHAPTERS.filter(ch => (ch.section || "Other") === selectedSection).map(ch => {
-                  const totalQ = QUESTIONS.filter((q) => q.chapterId === ch.id).length;
+                  const totalQ = questionCountByChapter[ch.id] || 0;
                   const isExpanded = expandedChapterId === ch.id;
                   // Dynamic division of sets into exactly 50 Questions per set as requested!
                   const numSets = Math.max(1, Math.ceil(totalQ / 50));
@@ -704,7 +734,7 @@ export default function Dashboard({
             {/* Electrical Chapters List */}
             <div className="space-y-4">
               {CHAPTERS.filter(ch => ch.section === "Electrical").map(ch => {
-                const totalQ = QUESTIONS.filter((q) => q.chapterId === ch.id).length;
+                const totalQ = questionCountByChapter[ch.id] || 0;
                 const isExpanded = expandedChapterId === ch.id;
                 // Sets calculated in groups of exactly 50 questions as requested!
                 const numSets = Math.max(1, Math.ceil(totalQ / 50));

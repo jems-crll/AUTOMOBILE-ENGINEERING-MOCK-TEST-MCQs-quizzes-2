@@ -1,15 +1,39 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Suspense, lazy, useCallback } from "react";
 import { t } from "./utils/i18n";
 import Dashboard from "./components/Dashboard";
-import QuizContainer from "./components/QuizContainer";
-import Scorecard from "./components/Scorecard";
-import Analytics from "./components/Analytics";
 import { QuizAttempt, Question, StateLanguage, STATE_LANGUAGES, User, SubscriptionConfig } from "./types";
 import { QUESTIONS, CHAPTERS } from "./data/questions";
 import * as Icons from "lucide-react";
 import Auth from "./components/Auth";
-import RazorpayModal from "./components/RazorpayModal";
-import AdminPanel from "./components/AdminPanel";
+import ErrorBoundary from "./components/ErrorBoundary";
+import PWAInstallButton from "./components/PWAInstallButton";
+import OfflineBanner from "./components/OfflineBanner";
+import { useOnlineStatus } from "./hooks/useOnlineStatus";
+import {
+  getStoredUser,
+  saveStoredUser,
+  clearStoredUser,
+  getCachedAttempts,
+  setCachedAttempts,
+  enqueueSyncAction,
+  flushPendingSync,
+  getPendingSyncQueue,
+  mergeServerAndLocalAttempts,
+} from "./utils/offlineStorage";
+
+const QuizContainer = lazy(() => import("./components/QuizContainer"));
+const Scorecard = lazy(() => import("./components/Scorecard"));
+const Analytics = lazy(() => import("./components/Analytics"));
+const RazorpayModal = lazy(() => import("./components/RazorpayModal"));
+const AdminPanel = lazy(() => import("./components/AdminPanel"));
+
+const ViewLoader = () => (
+  <div className="min-h-[320px] flex flex-col items-center justify-center gap-3 p-8">
+    <div className="w-10 h-10 rounded-xl bg-amber-500/15 border border-amber-500/30 flex items-center justify-center">
+      <Icons.Loader2 className="w-5 h-5 text-amber-500 animate-spin" />
+    </div>
+  </div>
+);
 
 
 export default function App() {
@@ -32,30 +56,26 @@ export default function App() {
     localStorage.setItem("omto_theme", theme);
   }, [theme]);
 
-  const [currentUser, setCurrentUser] = useState<User | null>(() => {
-    try {
-      const stored = sessionStorage.getItem("omto_current_user");
-      if (!stored) return null;
-      const user = JSON.parse(stored);
-      console.log("Current user:", user);
-      // Fix: ensure role is set if missing (legacy support)
-      if (!user.role) {
-        user.role = user.email.toLowerCase().includes("admin") ? "admin" : "student";
-        sessionStorage.setItem("omto_current_user", JSON.stringify(user));
-      }
-      return user;
-    } catch (_) {
-      return null;
-    }
-  });
+  const isOnline = useOnlineStatus();
+  const [pendingSyncCount, setPendingSyncCount] = useState<number>(0);
+  const [isSyncing, setIsSyncing] = useState<boolean>(false);
+
+  const [currentUser, setCurrentUser] = useState<User | null>(() => getStoredUser());
+
+  const handleSetCurrentUser = useCallback((user: User | null) => {
+    saveStoredUser(user);
+    setCurrentUser(user);
+  }, []);
 
   const [isRazorpayOpen, setIsRazorpayOpen] = useState<boolean>(false);
+  const [sessionNotice, setSessionNotice] = useState<string | null>(null);
 
-  // Synchronize currentUser details with the server to get real-time role / block / premium updates!
+  // Synchronize currentUser details with the server when online
   useEffect(() => {
-    if (!currentUser) return;
+    if (!currentUser || !isOnline) return;
 
     const syncProfile = () => {
+      if (typeof navigator !== "undefined" && !navigator.onLine) return;
       fetch(`/api/users/profile?email=${encodeURIComponent(currentUser.email)}`)
         .then(res => res.json())
         .then(data => {
@@ -69,14 +89,14 @@ export default function App() {
             ) {
               console.log("[App] Profile sync update detected:", data.user);
               if (data.user.isBlocked) {
-                alert(t(selectedLanguage.code, "accountBlocked"));
-                sessionStorage.removeItem("omto_current_user");
+                setSessionNotice(t(selectedLanguage.code, "accountBlocked"));
+                clearStoredUser();
                 setCurrentUser(null);
                 return;
               }
               if (data.user.sessionToken && currentUser.sessionToken && data.user.sessionToken !== currentUser.sessionToken) {
-                alert(t(selectedLanguage.code, "sessionInvalidated"));
-                sessionStorage.removeItem("omto_current_user");
+                setSessionNotice(t(selectedLanguage.code, "sessionInvalidated"));
+                clearStoredUser();
                 setCurrentUser(null);
                 return;
               }
@@ -87,7 +107,7 @@ export default function App() {
                 subscriptionStatus: data.user.subscriptionStatus,
                 sessionToken: data.user.sessionToken
               };
-              sessionStorage.setItem("omto_current_user", JSON.stringify(updatedUser));
+              saveStoredUser(updatedUser);
               setCurrentUser(updatedUser);
             }
           }
@@ -97,23 +117,22 @@ export default function App() {
 
     syncProfile();
 
-    const interval = setInterval(syncProfile, 10000);
+    const interval = setInterval(syncProfile, 15000);
     return () => clearInterval(interval);
-  }, [currentUser?.email]);
+  }, [currentUser?.email, isOnline]);
 
-  // Heartbeat & User Sync
+  // Heartbeat & User Sync (Online only)
   useEffect(() => {
     let interval: any;
-    if (currentUser) {
-      // Sync user data to server
+    if (currentUser && isOnline) {
       fetch("/api/users/sync", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ user: currentUser })
       }).catch(() => {});
 
-      // Heartbeat ping
       const ping = () => {
+        if (typeof navigator !== "undefined" && !navigator.onLine) return;
         fetch("/api/users/heartbeat", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -121,28 +140,30 @@ export default function App() {
         }).catch(() => {});
       };
       
-      interval = setInterval(ping, 60000); // every minute
+      interval = setInterval(ping, 60000);
     }
     return () => {
       if (interval) clearInterval(interval);
     };
-  }, [currentUser]);
+  }, [currentUser, isOnline]);
 
   const [activeTab, setActiveTab] = useState<"dashboard" | "analytics" | "admin">("dashboard");
   const [attempts, setAttempts] = useState<QuizAttempt[]>([]);
   
-  // National Language state (defaults to Marathi)
+  // National Language state (defaults to Marathi, validated against active STATE_LANGUAGES)
   const [selectedLanguage, setSelectedLanguage] = useState<StateLanguage>(() => {
     try {
       const stored = localStorage.getItem("omto_selected_language");
-      if (stored) return JSON.parse(stored);
+      if (stored) {
+        const parsed = JSON.parse(stored);
+        const valid = STATE_LANGUAGES.find((l) => l.code === parsed?.code);
+        if (valid) return valid;
+      }
     } catch (_) {}
     return STATE_LANGUAGES[0]; // Marathi as default
   });
 
-  
-
-  // Loader states for AI compilation
+  // Loader states
   const [loadingTest, setLoadingTest] = useState<boolean>(false);
   const [loadingStatusText, setLoadingStatusText] = useState<string>("");
 
@@ -167,23 +188,61 @@ export default function App() {
     score: number;
     answers: Record<number, string>;
     timeSpentSeconds: number;
+    chapterId: number | "all";
+    mode: "practice" | "exam";
+    timeLimitMinutes: number;
+    setId?: number | "all";
   } | null>(null);
 
-  // Load attempts from Firestore/server when currentUser is available
+  // Load attempts immediately from local cache, then flush pending offline syncs & fetch server when online
   useEffect(() => {
     if (!currentUser) {
       setAttempts([]);
+      setPendingSyncCount(0);
       return;
     }
-    fetch(`/api/users/attempts?email=${encodeURIComponent(currentUser.email)}`)
-      .then(res => res.json())
-      .then(data => {
-        if (data.success && data.attempts) {
-          setAttempts(data.attempts);
+
+    const email = currentUser.email;
+    const cached = getCachedAttempts(email);
+    const pending = getPendingSyncQueue(email);
+    setAttempts(cached);
+    setPendingSyncCount(pending.length);
+
+    if (!isOnline) return;
+
+    let cancelled = false;
+
+    const syncAndLoad = async () => {
+      if (pending.length > 0) {
+        setIsSyncing(true);
+        const left = await flushPendingSync(email);
+        if (!cancelled) setPendingSyncCount(left);
+        if (!cancelled) setIsSyncing(false);
+      }
+
+      try {
+        const res = await fetch(`/api/users/attempts?email=${encodeURIComponent(email)}`);
+        const data = await res.json();
+        if (!cancelled && data.success && Array.isArray(data.attempts)) {
+          const merged = mergeServerAndLocalAttempts(
+            data.attempts,
+            getCachedAttempts(email),
+            getPendingSyncQueue(email)
+          );
+          setAttempts(merged);
+          setCachedAttempts(email, merged);
         }
-      })
-      .catch(err => console.warn("Failed to load quiz attempts from server:", err));
-  }, [currentUser?.email]);
+      } catch (err) {
+        console.warn("Using offline cached attempts:", err);
+      }
+    };
+
+    syncAndLoad();
+
+    return () => {
+      cancelled = true;
+    };
+  }, [currentUser?.email, isOnline]);
 
   // Dynamic subscription configuration state
   const [subscriptionConfig, setSubscriptionConfig] = useState<SubscriptionConfig>({
@@ -194,9 +253,8 @@ export default function App() {
     detailsMr: "ऑटोमोबाईल इंजिनिअरिंग प्रीमियम"
   });
 
-  // Fetch subscription config on mount
+  // Fetch subscription config on mount (with localStorage offline fallback)
   useEffect(() => {
-    // 1. Try to load from localStorage first for instant response & static fallback
     try {
       const localConfigStr = localStorage.getItem("omto_subscription_config");
       if (localConfigStr) {
@@ -209,7 +267,8 @@ export default function App() {
       console.error("Failed to parse local subscription config:", e);
     }
 
-    // 2. Try to fetch from server to get the latest/global settings (fail-safe)
+    if (typeof navigator !== "undefined" && !navigator.onLine) return;
+
     fetch(`/api/subscription/config`)
       .then((res) => {
         if (!res.ok) throw new Error("Failed to fetch");
@@ -226,30 +285,62 @@ export default function App() {
         }
       })
       .catch((err) => console.warn("Could not fetch subscription config from backend, using local configuration:", err));
-  }, []);
+  }, [isOnline]);
 
-  // Save attempt to Firestore/server
+  // Save attempt optimistically to local cache and sync with server (or queue if offline)
   const saveAttempt = (newAttempt: QuizAttempt) => {
-    const updated = [...attempts, newAttempt];
-    setAttempts(updated);
-    
+    setAttempts((prev) => {
+      const updated = [...prev, newAttempt];
+      if (currentUser) {
+        setCachedAttempts(currentUser.email, updated);
+      }
+      return updated;
+    });
+
     if (currentUser) {
+      if (typeof navigator !== "undefined" && !navigator.onLine) {
+        enqueueSyncAction(currentUser.email, { type: "save_attempt", attempt: newAttempt });
+        setPendingSyncCount(getPendingSyncQueue(currentUser.email).length);
+        return;
+      }
+
       fetch("/api/users/attempts", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email: currentUser.email, attempt: newAttempt })
-      }).catch(err => console.error("Failed to sync attempt to server:", err));
+      })
+        .then((res) => {
+          if (!res.ok) throw new Error("Server error");
+        })
+        .catch(() => {
+          enqueueSyncAction(currentUser.email, { type: "save_attempt", attempt: newAttempt });
+          setPendingSyncCount(getPendingSyncQueue(currentUser.email).length);
+        });
     }
   };
 
   const handleClearHistory = () => {
     setAttempts([]);
     if (currentUser) {
+      setCachedAttempts(currentUser.email, []);
+      if (typeof navigator !== "undefined" && !navigator.onLine) {
+        enqueueSyncAction(currentUser.email, { type: "clear_history" });
+        setPendingSyncCount(getPendingSyncQueue(currentUser.email).length);
+        return;
+      }
+
       fetch("/api/users/attempts", {
         method: "DELETE",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email: currentUser.email })
-      }).catch(err => console.error("Failed to delete attempts on server:", err));
+      })
+        .then((res) => {
+          if (!res.ok) throw new Error("Server error");
+        })
+        .catch(() => {
+          enqueueSyncAction(currentUser.email, { type: "clear_history" });
+          setPendingSyncCount(getPendingSyncQueue(currentUser.email).length);
+        });
     }
   };
 
@@ -264,32 +355,50 @@ export default function App() {
     resumeState?: any;
   }) => {
     setScorecardState(null);
+    setSessionNotice(null);
     setLoadingTest(true);
 
     if (config.resumeState) {
+      let resumedQuestions: Question[] = [];
+      if (Array.isArray(config.resumeState.questions) && config.resumeState.questions.length > 0) {
+        resumedQuestions = config.resumeState.questions.filter(Boolean);
+      } else if (Array.isArray(config.resumeState.questionIds) && config.resumeState.questionIds.length > 0) {
+        const questionMap = new Map(QUESTIONS.map((q) => [q.id, q]));
+        resumedQuestions = config.resumeState.questionIds
+          .map((id: number) => questionMap.get(id))
+          .filter((q: Question | undefined): q is Question => Boolean(q));
+      }
+
+      if (resumedQuestions.length === 0) {
+        try {
+          localStorage.removeItem("omto_active_quiz_state");
+        } catch (_) {}
+        setLoadingTest(false);
+        setSessionNotice(
+          selectedLanguage.code === "mr"
+            ? "जुन्या चाचणीचा डेटा उपलब्ध नाही, कृपया नवीन चाचणी सुरू करा."
+            : selectedLanguage.code === "hi"
+            ? "पिछले टेस्ट का डेटा उपलब्ध नहीं है, कृपया नया टेस्ट शुरू करें।"
+            : "Saved test data is no longer available. Please start a new test."
+        );
+        return;
+      }
+
       setQuizState({
         isActive: true,
-        questions: config.resumeState.questions,
-        mode: config.resumeState.mode,
+        questions: resumedQuestions,
+        mode: config.resumeState.mode === "exam" ? "exam" : "practice",
         chapterId: config.resumeState.chapterId,
-        timeLimitMinutes: config.resumeState.timeLimitMinutes,
+        timeLimitMinutes: config.resumeState.timeLimitMinutes || 20,
         setId: config.resumeState.setId,
-        initialCurrentIndex: config.resumeState.currentIndex,
-        initialSelectedAnswers: config.resumeState.selectedAnswers,
-        initialTimeSpent: config.resumeState.timeSpent,
+        initialCurrentIndex: Math.min(Math.max(0, config.resumeState.currentIndex ?? 0), resumedQuestions.length - 1),
+        initialSelectedAnswers: config.resumeState.selectedAnswers || {},
+        initialTimeSpent: config.resumeState.timeSpent || 0,
         initialSecondsRemaining: config.resumeState.secondsRemaining,
-        initialFlaggedQuestions: config.resumeState.flaggedQuestions,
+        initialFlaggedQuestions: config.resumeState.flaggedQuestions || {},
       });
       setLoadingTest(false);
       return;
-    }
-
-    let chapterName = "";
-    if (config.chapterId === "all") {
-      chapterName = t(selectedLanguage.code, "allChapters");
-    } else {
-      const ch = CHAPTERS.find((c) => c.id === config.chapterId);
-      chapterName = ch ? (selectedLanguage.code === "mr" ? ch.nameMarathi : ch.name) : `Chapter ${config.chapterId}`;
     }
 
     // Offline Textbook MCQ selection
@@ -316,32 +425,39 @@ export default function App() {
       selected = selected.slice(0, 10);
     }
 
+    const validSelected = selected.filter(Boolean);
+    if (validSelected.length === 0) {
+      setLoadingTest(false);
+      setSessionNotice(
+        selectedLanguage.code === "mr"
+          ? "या संचासाठी कोणतेही प्रश्न उपलब्ध नाहीत. कृपया दुसरा संच निवडा."
+          : selectedLanguage.code === "hi"
+          ? "इस सेट के लिए कोई प्रश्न उपलब्ध नहीं हैं। कृपया दूसरा सेट चुनें।"
+          : "No questions available for this selection. Please choose another chapter or set."
+      );
+      return;
+    }
+
     if (selectedLanguage.code !== "en" && selectedLanguage.code !== "mr") {
       setLoadingStatusText(
-        selectedLanguage.code === "hi" ? "मुख्य भाषांतर संकलित होत आहे..." :
-        selectedLanguage.code === "kn" ? "ಮುಖ್ಯ ಅನುವಾದ ಸಂಕಲಿಸಲಾಗುತ್ತಿದೆ..." :
-        selectedLanguage.code === "te" ? "ముఖ్య అనువాదం సంకలనం చేయబడుతోంది..." :
-        selectedLanguage.code === "ta" ? "முக்கிய மொழிபெயர்ப்பு தொகுக்கப்படுகிறது..." :
-        selectedLanguage.code === "gu" ? "મુખ્ય અનુવાદ સંકલિત થઈ રહ્યો છે..." :
-        "Compiling local translations..."
+        selectedLanguage.code === "hi" ? "हिंदी प्रश्न संकलित हो रहे हैं..." : "Preparing test..."
       );
 
       setTimeout(() => {
-        const translated = selected.filter(Boolean);
         setQuizState({
           isActive: true,
-          questions: translated,
+          questions: validSelected,
           mode: config.mode,
           chapterId: config.chapterId,
           timeLimitMinutes: effectiveTimeLimit,
           setId: config.setId,
         });
         setLoadingTest(false);
-      }, 800);
+      }, 400);
     } else {
       setQuizState({
         isActive: true,
-        questions: selected.filter(Boolean),
+        questions: validSelected,
         mode: config.mode,
         chapterId: config.chapterId,
         timeLimitMinutes: effectiveTimeLimit,
@@ -353,6 +469,10 @@ export default function App() {
 
   const handleQuizComplete = (score: number, answers: Record<number, string>, timeSpentSeconds: number) => {
     if (!quizState) return;
+
+    try {
+      localStorage.removeItem("omto_active_quiz_state");
+    } catch (_) {}
 
     let chName = "";
     if (quizState.chapterId === "all") {
@@ -384,6 +504,10 @@ export default function App() {
       score,
       answers,
       timeSpentSeconds,
+      chapterId: quizState.chapterId,
+      mode: quizState.mode,
+      timeLimitMinutes: quizState.timeLimitMinutes,
+      setId: quizState.setId,
     });
 
     setQuizState(null);
@@ -441,42 +565,64 @@ export default function App() {
               </div>
             </div>
             
-            {/* National State Language Selector */}
-            
-            <button
-              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-              className="p-1.5 sm:p-2 bg-slate-50 dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-850 text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white rounded-lg transition cursor-pointer"
-              title="Toggle Theme"
-            >
-              {theme === "dark" ? <Icons.Sun className="h-4 w-4" /> : <Icons.Moon className="h-4 w-4" />}
-            </button>
-            <div className="flex items-center bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-850 pl-2 pr-0.5 sm:pl-2.5 sm:pr-1 py-1 rounded-xl gap-1 sm:gap-2 shadow">
-
-              <Icons.Globe className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-amber-500 shrink-0" />
-              <select
-                value={selectedLanguage.code}
-                onChange={(e) => {
-                  const lang = STATE_LANGUAGES.find((l) => l.code === e.target.value);
-                  if (lang) {
-                    setSelectedLanguage(lang);
-                    localStorage.setItem("omto_selected_language", JSON.stringify(lang));
-                  }
-                }}
-                className="bg-transparent border-none text-[11px] sm:text-xs font-bold text-slate-800 dark:text-slate-200 focus:outline-none pr-1 sm:pr-1.5 cursor-pointer font-sans"
+            {/* National State Language Selector, Install & Theme */}
+            <div className="flex items-center gap-2 shrink-0">
+              <PWAInstallButton languageCode={selectedLanguage.code} />
+              <button
+                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                className="p-1.5 sm:p-2 bg-slate-50 dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-850 text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white rounded-lg transition cursor-pointer"
+                title="Toggle Theme"
               >
-                {STATE_LANGUAGES.map((lang) => (
-                  <option key={lang.code} value={lang.code} className="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 text-xs">
-                    {lang.nativeName}
-                  </option>
-                ))}
-              </select>
+                {theme === "dark" ? <Icons.Sun className="h-4 w-4" /> : <Icons.Moon className="h-4 w-4" />}
+              </button>
+              <div className="flex items-center bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-850 pl-2 pr-0.5 sm:pl-2.5 sm:pr-1 py-1 rounded-xl gap-1 sm:gap-2 shadow">
+                <Icons.Globe className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-amber-500 shrink-0" />
+                <select
+                  value={selectedLanguage.code}
+                  onChange={(e) => {
+                    const lang = STATE_LANGUAGES.find((l) => l.code === e.target.value);
+                    if (lang) {
+                      setSelectedLanguage(lang);
+                      localStorage.setItem("omto_selected_language", JSON.stringify(lang));
+                    }
+                  }}
+                  className="bg-transparent border-none text-[11px] sm:text-xs font-bold text-slate-800 dark:text-slate-200 focus:outline-none pr-1 sm:pr-1.5 cursor-pointer font-sans"
+                >
+                  {STATE_LANGUAGES.map((lang) => (
+                    <option key={lang.code} value={lang.code} className="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 text-xs">
+                      {lang.nativeName}
+                    </option>
+                  ))}
+                </select>
+              </div>
             </div>
           </div>
+          <OfflineBanner
+            isOnline={isOnline}
+            pendingSyncCount={pendingSyncCount}
+            isSyncing={isSyncing}
+            languageCode={selectedLanguage.code}
+          />
         </header>
 
         {/* Auth Module Wrapper */}
-        <main className="flex-grow flex items-center justify-center">
-          <Auth onLoginSuccess={setCurrentUser} selectedLanguage={selectedLanguage} />
+        <main className="flex-grow flex flex-col items-center justify-center px-3 py-4 gap-4">
+          {sessionNotice && (
+            <div className="max-w-md w-full bg-rose-500/10 border border-rose-500/30 text-rose-600 dark:text-rose-400 rounded-2xl p-4 flex items-start justify-between gap-3 text-xs font-semibold shadow-sm">
+              <div className="flex items-start gap-2.5">
+                <Icons.AlertTriangle className="h-4 w-4 shrink-0 mt-0.5" />
+                <span>{sessionNotice}</span>
+              </div>
+              <button
+                onClick={() => setSessionNotice(null)}
+                className="text-rose-500 hover:text-rose-400 cursor-pointer shrink-0"
+                aria-label="Close notification"
+              >
+                <Icons.X className="h-4 w-4" />
+              </button>
+            </div>
+          )}
+          <Auth onLoginSuccess={handleSetCurrentUser} selectedLanguage={selectedLanguage} />
         </main>
 
         {/* Footer */}
@@ -562,6 +708,8 @@ export default function App() {
                 )}
               </nav>
 
+              <PWAInstallButton languageCode={selectedLanguage.code} />
+
               {/* National State Language Selector */}
               
             <button
@@ -583,7 +731,7 @@ export default function App() {
                       localStorage.setItem("omto_selected_language", JSON.stringify(lang));
                     }
                   }}
-                  className="bg-transparent border-none text-[11px] sm:text-xs font-bold text-slate-800 dark:text-slate-200 focus:outline-none pr-1 sm:pr-1.5 cursor-pointer font-sans font-sans"
+                  className="bg-transparent border-none text-[11px] sm:text-xs font-bold text-slate-800 dark:text-slate-200 focus:outline-none pr-1 sm:pr-1.5 cursor-pointer font-sans"
                 >
                   {STATE_LANGUAGES.map((lang) => (
                     <option key={lang.code} value={lang.code} className="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 text-xs">
@@ -613,7 +761,7 @@ export default function App() {
                 {!currentUser.isPremium && (
                   <button
                     onClick={() => setIsRazorpayOpen(true)}
-                    className="px-2.5 py-1.5 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-slate-950 text-[11px] sm:text-xs font-black rounded-lg transition-all flex items-center gap-1 cursor-pointer"
+                    className="px-2.5 py-1.5 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-slate-950 text-[11px] sm:text-xs font-black rounded-lg transition-all flex items-center gap-1 cursor-pointer whitespace-nowrap shrink-0"
                   >
                     <Icons.Crown className="h-3.5 w-3.5" />
                     <span className="hidden xs:inline">{t(selectedLanguage.code, "premium")}</span>
@@ -623,7 +771,7 @@ export default function App() {
                 {/* Logout */}
                 <button
                   onClick={() => {
-                    sessionStorage.removeItem("omto_current_user");
+                    clearStoredUser();
                     setCurrentUser(null);
                   }}
                   title={t(selectedLanguage.code, "logout")}
@@ -635,11 +783,41 @@ export default function App() {
             </div>
           )}
         </div>
+        <OfflineBanner
+          isOnline={isOnline}
+          pendingSyncCount={pendingSyncCount}
+          isSyncing={isSyncing}
+          languageCode={selectedLanguage.code}
+        />
       </header>
 
       {/* Main Core Content Stage */}
-      <main className="flex-grow max-w-7xl w-full mx-auto px-3 sm:px-6 lg:px-8 py-5 sm:py-8 md:py-10">
-        
+      <main className={`flex-grow max-w-7xl w-full mx-auto px-3 sm:px-6 lg:px-8 py-5 sm:py-8 md:py-10 ${!quizState && !scorecardState ? "pb-24 lg:pb-10" : ""}`}>
+        {sessionNotice && (
+          <div className="mb-5 bg-amber-500/10 border border-amber-500/30 text-amber-700 dark:text-amber-300 rounded-2xl p-4 flex items-center justify-between gap-3 text-xs font-semibold shadow-sm">
+            <div className="flex items-center gap-2.5">
+              <Icons.Info className="h-4 w-4 shrink-0 text-amber-500" />
+              <span>{sessionNotice}</span>
+            </div>
+            <button
+              onClick={() => setSessionNotice(null)}
+              className="text-amber-500 hover:text-amber-400 cursor-pointer shrink-0"
+              aria-label="Dismiss notification"
+            >
+              <Icons.X className="h-4 w-4" />
+            </button>
+          </div>
+        )}
+
+        <ErrorBoundary
+          languageCode={selectedLanguage.code}
+          onReset={() => {
+            setQuizState(null);
+            setScorecardState(null);
+            setActiveTab("dashboard");
+          }}
+        >
+        <Suspense fallback={<ViewLoader />}>
         {/* Scenario 1: Active Quiz Session */}
         {quizState && (
           <QuizContainer
@@ -647,7 +825,6 @@ export default function App() {
             mode={quizState.mode}
             questions={quizState.questions}
             timeLimitMinutes={quizState.timeLimitMinutes}
-            
             selectedLanguage={selectedLanguage}
             onComplete={handleQuizComplete}
             onExit={() => setQuizState(null)}
@@ -669,16 +846,15 @@ export default function App() {
             score={scorecardState.score}
             selectedAnswers={scorecardState.answers}
             timeSpentSeconds={scorecardState.timeSpentSeconds}
-            
             selectedLanguage={selectedLanguage}
             onRetake={() => {
-              // Restart previous config
               handleStartTest({
-                chapterId: attempts[attempts.length - 1]?.chapterId || "all",
-                mode: attempts[attempts.length - 1]?.timeSpentSeconds > 0 ? "exam" : "practice",
+                chapterId: scorecardState.chapterId,
+                mode: scorecardState.mode,
                 questionCount: scorecardState.questions.length,
-                timeLimitMinutes: 15,
+                timeLimitMinutes: scorecardState.timeLimitMinutes,
                 source: "static",
+                setId: scorecardState.setId,
               });
             }}
             onDashboard={() => setScorecardState(null)}
@@ -766,19 +942,25 @@ export default function App() {
             )}
           </>
         )}
+        </Suspense>
+        </ErrorBoundary>
       </main>
 
       {/* Razorpay Gateway Modal */}
-      <RazorpayModal
-        isOpen={isRazorpayOpen}
-        onClose={() => setIsRazorpayOpen(false)}
-        currentUser={currentUser}
-        onPaymentSuccess={(updatedUser) => {
-          setCurrentUser(updatedUser);
-        }}
-        selectedLanguage={selectedLanguage}
-        subscriptionConfig={subscriptionConfig}
-      />
+      {isRazorpayOpen && (
+        <Suspense fallback={null}>
+          <RazorpayModal
+            isOpen={isRazorpayOpen}
+            onClose={() => setIsRazorpayOpen(false)}
+            currentUser={currentUser}
+            onPaymentSuccess={(updatedUser) => {
+              handleSetCurrentUser(updatedUser);
+            }}
+            selectedLanguage={selectedLanguage}
+            subscriptionConfig={subscriptionConfig}
+          />
+        </Suspense>
+      )}
 
       {/* Mobile Sticky Bottom App Navigation Bar */}
       {currentUser && !quizState && !scorecardState && (

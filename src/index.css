@@ -7,11 +7,46 @@
 
 @variant dark (&:where(.dark, .dark *));
 
-/* Custom scrollbars and smooth rendering */
+/* Custom scrollbars, native-like touch ergonomics & smooth rendering */
 html {
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  -webkit-tap-highlight-color: transparent;
+  overscroll-behavior-y: contain;
+}
+
+body {
+  touch-action: manipulation;
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .animate-fade-in {
+    animation: none;
+  }
 }
 
 ::selection {

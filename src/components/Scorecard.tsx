@@ -1,17 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { t } from "../utils/i18n";
 import { Question, StateLanguage, SubscriptionConfig } from "../types";
 import * as Icons from "lucide-react";
-import { motion } from "motion/react";
 import confetti from "canvas-confetti";
-import { useEffect } from "react";
 
 interface ScorecardProps {
   questions: Question[];
   score: number;
   selectedAnswers: Record<number, string>;
   timeSpentSeconds: number;
-  
   selectedLanguage: StateLanguage;
   onRetake: () => void;
   onDashboard: () => void;
@@ -20,12 +17,46 @@ interface ScorecardProps {
   subscriptionConfig: SubscriptionConfig;
 }
 
+const getLocalizedText = (
+  field: Record<string, string> | string | undefined | null,
+  langCode: string
+): string => {
+  if (!field) return "";
+  if (typeof field === "string") return field;
+  if (typeof field === "object") {
+    return (
+      field[langCode] ||
+      field["en"] ||
+      field["mr"] ||
+      Object.values(field).find((v) => typeof v === "string" && v.trim() !== "") ||
+      ""
+    );
+  }
+  return String(field);
+};
+
+const getLocalizedOptions = (
+  field: Record<string, string[]> | string[] | undefined | null,
+  langCode: string
+): string[] => {
+  if (!field) return [];
+  if (Array.isArray(field)) return field;
+  if (typeof field === "object") {
+    const opts =
+      field[langCode] ||
+      field["en"] ||
+      field["mr"] ||
+      Object.values(field).find((v) => Array.isArray(v) && v.length > 0);
+    return Array.isArray(opts) ? opts : [];
+  }
+  return [];
+};
+
 export default function Scorecard({
   questions,
   score,
-  selectedAnswers,
-  timeSpentSeconds,
-  
+  selectedAnswers = {},
+  timeSpentSeconds = 0,
   selectedLanguage,
   onRetake,
   onDashboard,
@@ -35,33 +66,52 @@ export default function Scorecard({
 }: ScorecardProps) {
   const [reviewIndex, setReviewIndex] = useState<number>(0);
 
+  const validQuestions = Array.isArray(questions) ? questions.filter(Boolean) : [];
+  const safeAnswers = selectedAnswers && typeof selectedAnswers === "object" ? selectedAnswers : {};
+
   useEffect(() => {
-    if (questions && questions.length > 0) {
-      const percentage = (score / questions.length) * 100;
-      if (percentage >= 60) {
-        const duration = 3 * 1000;
-        const animationEnd = Date.now() + duration;
-        const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 100 };
+    if (validQuestions.length === 0) return;
 
-        const randomInRange = (min, max) => Math.random() * (max - min) + min;
+    const percentage = (score / validQuestions.length) * 100;
+    if (percentage < 60) return;
 
-        const interval = setInterval(function() {
+    let interval: ReturnType<typeof setInterval> | null = null;
+    try {
+      const duration = 3 * 1000;
+      const animationEnd = Date.now() + duration;
+      const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 100 };
+      const randomInRange = (min: number, max: number) => Math.random() * (max - min) + min;
+
+      interval = setInterval(() => {
+        try {
           const timeLeft = animationEnd - Date.now();
-
           if (timeLeft <= 0) {
-            return clearInterval(interval);
+            if (interval) clearInterval(interval);
+            return;
           }
-
-          const particleCount = 50 * (timeLeft / duration);
+          const particleCount = Math.max(1, Math.floor(50 * (timeLeft / duration)));
           confetti({ ...defaults, particleCount, origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 } });
           confetti({ ...defaults, particleCount, origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 } });
-        }, 250);
-      }
+        } catch (_) {
+          if (interval) clearInterval(interval);
+        }
+      }, 250);
+    } catch (_) {
+      // Ignore confetti errors in restricted environments
     }
-  }, [score, questions]);
 
+    return () => {
+      if (interval) clearInterval(interval);
+    };
+  }, [score, validQuestions.length]);
 
-  if (!questions || questions.length === 0) {
+  useEffect(() => {
+    if (reviewIndex >= validQuestions.length && validQuestions.length > 0) {
+      setReviewIndex(0);
+    }
+  }, [reviewIndex, validQuestions.length]);
+
+  if (validQuestions.length === 0) {
     return (
       <div className="flex flex-col items-center justify-center p-12 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl mt-8">
         <Icons.AlertCircle className="w-12 h-12 text-rose-500 mb-4" />
@@ -69,31 +119,24 @@ export default function Scorecard({
         <p className="text-slate-500 dark:text-slate-400 text-center mb-6">No questions to display.</p>
         <button
           onClick={onDashboard}
-          className="px-6 py-2.5 bg-slate-100 dark:bg-slate-800 hover:bg-slate-700 text-slate-900 dark:text-white font-semibold rounded-xl border border-slate-300 dark:border-slate-700 hover:border-slate-600 transition"
+          className="px-6 py-2.5 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-900 dark:text-white font-semibold rounded-xl border border-slate-300 dark:border-slate-700 transition cursor-pointer"
         >
-          Return to Dashboard
+          {t(selectedLanguage.code, "backToDashboard")}
         </button>
       </div>
     );
   }
 
-  const percentage = Math.round((score / questions.length) * 100);
-  const correctCount = score;
-  const incorrectCount = Object.keys(answersMap()).filter(
-    (key) => selectedAnswers[parseInt(key)] && selectedAnswers[parseInt(key)] !== questions.find((q) => q && q.id === parseInt(key))?.answer
-  ).length;
-  const unansweredCount = questions.length - Object.keys(selectedAnswers).length;
+  const totalQs = validQuestions.length;
+  const correctCount = validQuestions.filter((q) => safeAnswers[q.id] === q.answer).length;
+  const answeredCount = validQuestions.filter((q) => Boolean(safeAnswers[q.id])).length;
+  const incorrectCount = Math.max(0, answeredCount - correctCount);
+  const unansweredCount = Math.max(0, totalQs - answeredCount);
+  const percentage = Math.round((correctCount / totalQs) * 100);
 
-  function answersMap() {
-    const map: Record<number, string> = {};
-    questions.forEach((q) => {
-      if (q) map[q.id] = selectedAnswers[q.id] || "";
-    });
-    return map;
-  }
-
-  const currentReviewQuestion = questions[reviewIndex];
-  const selectedAns = currentReviewQuestion ? selectedAnswers[currentReviewQuestion.id] : undefined;
+  const safeReviewIndex = Math.min(Math.max(0, reviewIndex), totalQs - 1);
+  const currentReviewQuestion = validQuestions[safeReviewIndex];
+  const selectedAns = currentReviewQuestion ? safeAnswers[currentReviewQuestion.id] : undefined;
   const isCorrect = currentReviewQuestion ? selectedAns === currentReviewQuestion.answer : false;
 
   const getScoreMessage = () => {
@@ -104,7 +147,6 @@ export default function Scorecard({
         color: "text-emerald-400",
         bg: "bg-emerald-500/10",
         border: "border-emerald-500/30",
-        icon: "Trophy"
       };
     } else if (percentage >= 60) {
       return {
@@ -113,7 +155,6 @@ export default function Scorecard({
         color: "text-amber-400",
         bg: "bg-amber-500/10",
         border: "border-amber-500/30",
-        icon: "ThumbsUp"
       };
     } else {
       return {
@@ -122,7 +163,6 @@ export default function Scorecard({
         color: "text-rose-400",
         bg: "bg-rose-500/10",
         border: "border-rose-500/30",
-        icon: "AlertCircle"
       };
     }
   };
@@ -130,10 +170,27 @@ export default function Scorecard({
   const msg = getScoreMessage();
 
   const formatTime = (secs: number) => {
-    const mins = Math.floor(secs / 60);
-    const remainingSecs = secs % 60;
+    const safeSecs = Math.max(0, Math.floor(Number(secs) || 0));
+    const mins = Math.floor(safeSecs / 60);
+    const remainingSecs = safeSecs % 60;
     return `${mins}m ${remainingSecs}s`;
   };
+
+  const reviewQuestionText = currentReviewQuestion
+    ? getLocalizedText(currentReviewQuestion.question, selectedLanguage.code)
+    : "";
+  const reviewQuestionEn = currentReviewQuestion
+    ? getLocalizedText(currentReviewQuestion.question, "en")
+    : "";
+  const reviewOptions = currentReviewQuestion
+    ? getLocalizedOptions(currentReviewQuestion.options, selectedLanguage.code)
+    : [];
+  const reviewExplanation = currentReviewQuestion
+    ? getLocalizedText(currentReviewQuestion.explanation, selectedLanguage.code)
+    : "";
+  const reviewExplanationEn = currentReviewQuestion
+    ? getLocalizedText(currentReviewQuestion.explanation, "en")
+    : "";
 
   return (
     <div className="flex flex-col gap-8">
@@ -144,7 +201,7 @@ export default function Scorecard({
           <div className="relative flex items-center justify-center shrink-0">
             <svg className="w-36 h-36">
               <circle
-                className="text-slate-800"
+                className="text-slate-200 dark:text-slate-800"
                 strokeWidth="10"
                 stroke="currentColor"
                 fill="transparent"
@@ -193,7 +250,7 @@ export default function Scorecard({
               </button>
               <button
                 onClick={onDashboard}
-                className="px-5 py-2.5 bg-slate-100 dark:bg-slate-800 hover:bg-slate-700 border border-slate-300 dark:border-slate-700 text-slate-800 dark:text-slate-200 font-bold rounded-lg text-xs uppercase tracking-wider transition cursor-pointer"
+                className="px-5 py-2.5 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 border border-slate-300 dark:border-slate-700 text-slate-800 dark:text-slate-200 font-bold rounded-lg text-xs uppercase tracking-wider transition cursor-pointer"
               >
                 {t(selectedLanguage.code, "backToDashboard")}
               </button>
@@ -224,7 +281,7 @@ export default function Scorecard({
               className="px-6 py-3.5 bg-amber-500 hover:bg-amber-400 text-slate-950 font-black rounded-xl text-sm transition-all duration-150 flex items-center justify-center gap-2 shrink-0 cursor-pointer shadow-lg shadow-amber-500/10 group active:scale-[0.98]"
             >
               <Icons.Sparkles className="h-4 w-4 fill-slate-950 text-slate-950 group-hover:scale-110 transition-transform" />
-              <span>{t(selectedLanguage.code, "unlockAllNow").replace("{amount}", String(subscriptionConfig.amount))}</span>
+              <span>{t(selectedLanguage.code, "unlockAllNow").replace("{amount}", String(subscriptionConfig?.amount ?? 299))}</span>
             </button>
           )}
         </div>
@@ -234,7 +291,7 @@ export default function Scorecard({
       <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
         <div className="p-4 bg-white dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800/80 rounded-xl text-center">
           <span className="block text-[10px] text-slate-500 dark:text-slate-400 uppercase mb-1">{t(selectedLanguage.code, "totalQs")}</span>
-          <span className="text-xl font-bold font-mono text-slate-900 dark:text-white">{questions.length}</span>
+          <span className="text-xl font-bold font-mono text-slate-900 dark:text-white">{totalQs}</span>
         </div>
         <div className="p-4 bg-white dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800/80 rounded-xl text-center">
           <span className="block text-[10px] text-slate-500 dark:text-slate-400 uppercase mb-1">{t(selectedLanguage.code, "correct")}</span>
@@ -242,7 +299,7 @@ export default function Scorecard({
         </div>
         <div className="p-4 bg-white dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800/80 rounded-xl text-center">
           <span className="block text-[10px] text-slate-500 dark:text-slate-400 uppercase mb-1">{t(selectedLanguage.code, "incorrect")}</span>
-          <span className="text-xl font-bold font-mono text-rose-400">{questions.length - correctCount - unansweredCount}</span>
+          <span className="text-xl font-bold font-mono text-rose-400">{incorrectCount}</span>
         </div>
         <div className="p-4 bg-white dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800/80 rounded-xl text-center">
           <span className="block text-[10px] text-slate-500 dark:text-slate-400 uppercase mb-1">{t(selectedLanguage.code, "skippedLabel")}</span>
@@ -261,21 +318,25 @@ export default function Scorecard({
           <div className="p-6 md:p-8 bg-white dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800/80 rounded-xl backdrop-blur-md">
             <div className="flex justify-between items-center mb-4">
               <span className={`text-xs px-3 py-1 font-bold rounded-full ${
-                !selectedAns 
+                !selectedAns
                   ? "bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400"
                   : (isCorrect ? "bg-emerald-500/10 text-emerald-400 border border-emerald-500/20" : "bg-rose-500/10 text-rose-400 border border-rose-500/20")
               }`}>
-                {!selectedAns 
-                  ? (t(selectedLanguage.code, "skippedValue"))
-                  : (isCorrect ? (t(selectedLanguage.code, "correctValue")) : (t(selectedLanguage.code, "incorrectValue")))}
+                {!selectedAns
+                  ? t(selectedLanguage.code, "skippedValue")
+                  : (isCorrect ? t(selectedLanguage.code, "correctValue") : t(selectedLanguage.code, "incorrectValue"))}
               </span>
-              <span className="text-xs font-mono text-slate-500">Question {reviewIndex + 1} of {questions.length}</span>
+              <span className="text-xs font-mono text-slate-500">Question {safeReviewIndex + 1} of {totalQs}</span>
             </div>
 
             {currentReviewQuestion && (
-              <h3 className="text-base md:text-lg font-bold text-slate-900 dark:text-white mb-2">{currentReviewQuestion.question[selectedLanguage.code] || currentReviewQuestion.question['en']}</h3>
+              <div className="mb-4 space-y-1.5">
+                <h3 className="text-base md:text-lg font-bold text-slate-900 dark:text-white">{reviewQuestionText}</h3>
+                {selectedLanguage.code !== "en" && reviewQuestionEn && reviewQuestionEn !== reviewQuestionText && (
+                  <p className="text-xs text-slate-500 dark:text-slate-400 italic">{reviewQuestionEn}</p>
+                )}
+              </div>
             )}
-            
 
             {currentReviewQuestion && currentReviewQuestion.imageSvg && (
               <div className="flex justify-center my-4 p-4 bg-slate-50 dark:bg-slate-950/40 rounded-xl border border-slate-200 dark:border-slate-800/80">
@@ -285,29 +346,28 @@ export default function Scorecard({
 
             {/* Options grid */}
             <div className="grid grid-cols-1 gap-2.5 mb-6">
-              {currentReviewQuestion && (currentReviewQuestion.options[selectedLanguage.code] || currentReviewQuestion.options['en'] || []).map((opt, idx) => {
+              {currentReviewQuestion && reviewOptions.map((opt, idx) => {
                 const char = String.fromCharCode(65 + idx);
                 const isSelected = selectedAns === char;
                 const isCorrectAns = currentReviewQuestion.answer === char;
 
                 let borderStyle = "border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950/30 text-slate-500 dark:text-slate-400";
                 if (isCorrectAns) {
-                  borderStyle = "border-emerald-500/50 bg-emerald-500/5 text-emerald-400 font-medium";
+                  borderStyle = "border-emerald-500/50 bg-emerald-500/5 text-emerald-500 dark:text-emerald-400 font-medium";
                 } else if (isSelected) {
-                  borderStyle = "border-rose-500/50 bg-rose-500/5 text-rose-400";
+                  borderStyle = "border-rose-500/50 bg-rose-500/5 text-rose-500 dark:text-rose-400";
                 }
 
                 return (
                   <div key={idx} className={`p-3.5 rounded-lg border text-xs md:text-sm flex items-center justify-between ${borderStyle}`}>
                     <div className="flex items-center gap-3">
-                      <span className={`h-5 w-5 rounded-full flex items-center justify-center font-mono text-[10px] font-bold border ${
+                      <span className={`h-5 w-5 rounded-full flex items-center justify-center font-mono text-[10px] font-bold border shrink-0 ${
                         isCorrectAns ? "bg-emerald-500 text-slate-950 border-emerald-500" : (isSelected ? "bg-rose-500 text-slate-950 border-rose-500" : "border-slate-200 dark:border-slate-800 text-slate-500")
                       }`}>
                         {char}
                       </span>
                       <div>
                         <span>{opt}</span>
-                        
                       </div>
                     </div>
 
@@ -321,18 +381,43 @@ export default function Scorecard({
             </div>
 
             {/* Explanation */}
-            <div className="mt-6 pt-5 border-t border-slate-200 dark:border-slate-850">
+            <div className="mt-6 pt-5 border-t border-slate-200 dark:border-slate-800">
               <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-3">
                 <Icons.Lightbulb className="h-4 w-4 text-amber-500" />
                 <span>{t(selectedLanguage.code, "explanation")}</span>
               </div>
 
-              <div className="space-y-3">
-                <p className="text-xs md:text-sm text-slate-500 dark:text-slate-400 leading-relaxed font-sans">
-                  {currentReviewQuestion && currentReviewQuestion.explanation}
+              <div className="space-y-2">
+                <p className="text-xs md:text-sm text-slate-700 dark:text-slate-300 leading-relaxed font-sans">
+                  {reviewExplanation || (selectedLanguage.code === "mr" ? "स्पष्टीकरण उपलब्ध नाही." : "No explanation available.")}
                 </p>
-                
+                {selectedLanguage.code !== "en" && reviewExplanationEn && reviewExplanationEn !== reviewExplanation && (
+                  <p className="text-xs text-slate-500 dark:text-slate-400 italic leading-relaxed font-sans">
+                    {reviewExplanationEn}
+                  </p>
+                )}
               </div>
+            </div>
+
+            {/* Prev / Next Navigation inside Review */}
+            <div className="flex justify-between items-center pt-5 mt-5 border-t border-slate-200 dark:border-slate-800">
+              <button
+                onClick={() => setReviewIndex((prev) => Math.max(0, prev - 1))}
+                disabled={safeReviewIndex === 0}
+                className="px-4 py-2 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 disabled:opacity-30 disabled:pointer-events-none transition text-xs font-semibold flex items-center gap-1.5 cursor-pointer"
+              >
+                <Icons.ArrowLeft className="h-4 w-4" />
+                <span>{t(selectedLanguage.code, "previous")}</span>
+              </button>
+
+              <button
+                onClick={() => setReviewIndex((prev) => Math.min(totalQs - 1, prev + 1))}
+                disabled={safeReviewIndex >= totalQs - 1}
+                className="px-4 py-2 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 disabled:opacity-30 disabled:pointer-events-none transition text-xs font-semibold flex items-center gap-1.5 cursor-pointer"
+              >
+                <span>{t(selectedLanguage.code, "next")}</span>
+                <Icons.ArrowRight className="h-4 w-4" />
+              </button>
             </div>
           </div>
         </div>
@@ -346,13 +431,12 @@ export default function Scorecard({
             </h4>
 
             <div className="grid grid-cols-5 gap-2">
-              {questions.map((q, idx) => {
-                if (!q) return null;
-                const isActive = reviewIndex === idx;
-                const isCorrectAns = selectedAnswers[q.id] === q.answer;
-                const wasSkipped = !selectedAnswers[q.id];
+              {validQuestions.map((q, idx) => {
+                const isActive = safeReviewIndex === idx;
+                const isCorrectAns = safeAnswers[q.id] === q.answer;
+                const wasSkipped = !safeAnswers[q.id];
 
-                let markerStyle = "bg-slate-50 dark:bg-slate-950/60 border-slate-200 dark:border-slate-850 text-slate-500 dark:text-slate-400";
+                let markerStyle = "bg-slate-50 dark:bg-slate-950/60 border-slate-200 dark:border-slate-800 text-slate-500 dark:text-slate-400";
                 if (isActive) {
                   markerStyle = "bg-amber-500 text-slate-950 font-bold border-amber-500";
                 } else if (wasSkipped) {
@@ -365,7 +449,7 @@ export default function Scorecard({
 
                 return (
                   <button
-                    key={idx}
+                    key={q.id || idx}
                     onClick={() => {
                       setReviewIndex(idx);
                     }}
